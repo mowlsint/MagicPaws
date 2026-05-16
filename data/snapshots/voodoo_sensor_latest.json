@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
-  "ts": "2026-05-16T18:57:13.882Z",
-  "bucket_start_utc": "2026-05-16T18:00:00.000Z",
-  "bucket_end_utc": "2026-05-16T21:00:00.000Z",
+  "ts": "2026-05-16T21:42:58.973Z",
+  "bucket_start_utc": "2026-05-16T21:00:00.000Z",
+  "bucket_end_utc": "2026-05-17T00:00:00.000Z",
   "bucket_hours": 3,
   "source": {
     "type": "github_issues",
@@ -11,19 +11,19 @@
     "state": "open"
   },
   "counts": {
-    "open_events_total": 702,
-    "open_events_deduped_total": 696,
-    "recent_72h_events": 104,
-    "recent_72h_deduped_events": 104,
-    "recent_72h_source_capped_weighted_events": 29.45,
+    "open_events_total": 704,
+    "open_events_deduped_total": 698,
+    "recent_72h_events": 86,
+    "recent_72h_deduped_events": 86,
+    "recent_72h_source_capped_weighted_events": 24.75,
     "current_bucket_events": 0,
     "current_bucket_deduped_events": 0,
     "current_bucket_source_capped_weighted_events": 0,
     "duplicate_events_total": 6,
     "duplicate_events_72h": 0,
     "duplicate_events_bucket": 0,
-    "social_rss_events_72h": 104,
-    "social_rss_deduped_events_72h": 104,
+    "social_rss_events_72h": 86,
+    "social_rss_deduped_events_72h": 86,
     "social_rss_events_bucket": 0,
     "social_rss_deduped_events_bucket": 0,
     "p0_suspect_72h": 0,
@@ -32,10 +32,10 @@
     "geo_count_method": "explicit_coordinates_only"
   },
   "sensors": {
-    "hybrid_seismograph_pct": 25,
+    "hybrid_seismograph_pct": 21,
     "keyword_barometer_pct": 0,
     "government_weirdness": {
-      "north_sea_pct": 4,
+      "north_sea_pct": 3,
       "baltic_sea_pct": 0
     }
   },
@@ -79,15 +79,15 @@
         0.08
       ]
     },
-    "hybrid_weighted_points_72h": 29.5,
+    "hybrid_weighted_points_72h": 24.82,
     "keyword_weighted_hits_bucket": 0,
     "keyword_raw_hits_bucket": 0,
     "keyword_scored_events_bucket": 0,
-    "government_weirdness_north_sea_points": 1.8,
+    "government_weirdness_north_sea_points": 1.24,
     "government_weirdness_baltic_sea_points": 0,
-    "government_weirdness_north_sea_events": 2,
+    "government_weirdness_north_sea_events": 1,
     "government_weirdness_baltic_sea_events": 0,
-    "government_weirdness_north_sea_weighted_events": 1.45,
+    "government_weirdness_north_sea_weighted_events": 1,
     "government_weirdness_baltic_sea_weighted_events": 0,
     "keyword_config_loaded": true,
     "keyword_config_version": 2,
@@ -97,31 +97,27 @@
   "top_sources_72h": [
     {
       "source_id": "The Maritime Executive",
-      "count": 44
+      "count": 35
     },
     {
       "source_id": "small_wars_journal_rss",
-      "count": 19
-    },
-    {
-      "source_id": "gcaptain_rss",
       "count": 17
     },
     {
-      "source_id": "cepa_feed",
-      "count": 7
+      "source_id": "gcaptain_rss",
+      "count": 14
     },
     {
       "source_id": "gCaptain",
-      "count": 6
+      "count": 7
+    },
+    {
+      "source_id": "cepa_feed",
+      "count": 5
     },
     {
       "source_id": "rusi_latest_publications",
       "count": 5
-    },
-    {
-      "source_id": "tom_sharpe_x",
-      "count": 2
     },
     {
       "source_id": "die_flaschenpost_aussenpolitik_rss",
@@ -132,42 +128,34 @@
       "count": 1
     },
     {
-      "source_id": "worldcrimeintel_x",
-      "count": 1
-    },
-    {
-      "source_id": "atlantic_council_reports",
+      "source_id": "tom_sharpe_x",
       "count": 1
     }
   ],
   "top_sources_72h_deduped": [
     {
       "source_id": "The Maritime Executive",
-      "count": 44
+      "count": 35
     },
     {
       "source_id": "small_wars_journal_rss",
-      "count": 19
-    },
-    {
-      "source_id": "gcaptain_rss",
       "count": 17
     },
     {
-      "source_id": "cepa_feed",
-      "count": 7
+      "source_id": "gcaptain_rss",
+      "count": 14
     },
     {
       "source_id": "gCaptain",
-      "count": 6
+      "count": 7
+    },
+    {
+      "source_id": "cepa_feed",
+      "count": 5
     },
     {
       "source_id": "rusi_latest_publications",
       "count": 5
-    },
-    {
-      "source_id": "tom_sharpe_x",
-      "count": 2
     },
     {
       "source_id": "die_flaschenpost_aussenpolitik_rss",
@@ -178,119 +166,107 @@
       "count": 1
     },
     {
-      "source_id": "worldcrimeintel_x",
-      "count": 1
-    },
-    {
-      "source_id": "atlantic_council_reports",
+      "source_id": "tom_sharpe_x",
       "count": 1
     }
   ],
   "domain_counts_72h": {
     "D:DRONE_UAS": 1,
     "D:INCIDENT": 1,
-    "D:INFRA_CI": 23,
-    "D:NEWS_INTEL": 76,
-    "D:SECURITY_CRIME": 3
+    "D:INFRA_CI": 19,
+    "D:NEWS_INTEL": 63,
+    "D:SECURITY_CRIME": 2
   },
   "domain_counts_72h_deduped": {
     "D:DRONE_UAS": 1,
     "D:INCIDENT": 1,
-    "D:INFRA_CI": 23,
-    "D:NEWS_INTEL": 76,
-    "D:SECURITY_CRIME": 3
+    "D:INFRA_CI": 19,
+    "D:NEWS_INTEL": 63,
+    "D:SECURITY_CRIME": 2
   },
   "region_counts_72h": {
-    "REG:EUROPE": 15,
-    "REG:GLOBAL": 19,
+    "REG:EUROPE": 12,
+    "REG:GLOBAL": 17,
     "REG:MEDITERRANEAN": 1,
-    "REG:NORTH_SEA": 2,
-    "REG:OTHER": 18,
-    "REG:UNKNOWN": 49
+    "REG:NORTH_SEA": 1,
+    "REG:OTHER": 14,
+    "REG:UNKNOWN": 41
   },
   "region_counts_72h_deduped": {
-    "REG:EUROPE": 15,
-    "REG:GLOBAL": 19,
+    "REG:EUROPE": 12,
+    "REG:GLOBAL": 17,
     "REG:MEDITERRANEAN": 1,
-    "REG:NORTH_SEA": 2,
-    "REG:OTHER": 18,
-    "REG:UNKNOWN": 49
+    "REG:NORTH_SEA": 1,
+    "REG:OTHER": 14,
+    "REG:UNKNOWN": 41
   },
   "baseline_observations": {
     "note": "Raw baseline observations for later 90-day normalization. Scores are not yet baseline-normalized.",
     "source_kind_counts_bucket": {},
     "source_kind_counts_bucket_deduped": {},
     "source_kind_counts_72h": {
-      "rss": 101,
-      "social": 3
+      "rss": 85,
+      "social": 1
     },
     "source_kind_counts_72h_deduped": {
-      "rss": 101,
-      "social": 3
+      "rss": 85,
+      "social": 1
     },
     "source_domain_counts_bucket": {},
     "source_domain_counts_bucket_deduped": {},
     "source_domain_counts_72h": {
-      "atlantic_council_reports|D:INFRA_CI": 1,
-      "cepa_feed|D:INFRA_CI": 7,
+      "cepa_feed|D:INFRA_CI": 5,
       "die_flaschenpost_aussenpolitik_rss|D:INFRA_CI": 1,
-      "gcaptain_rss|D:NEWS_INTEL": 17,
-      "gCaptain|D:NEWS_INTEL": 6,
+      "gcaptain_rss|D:NEWS_INTEL": 14,
+      "gCaptain|D:NEWS_INTEL": 7,
       "rusi_latest_publications|D:INFRA_CI": 5,
-      "small_wars_journal_rss|D:NEWS_INTEL": 19,
+      "small_wars_journal_rss|D:NEWS_INTEL": 17,
       "swp_publications_en|D:INFRA_CI": 1,
       "The Maritime Executive|D:DRONE_UAS": 1,
       "The Maritime Executive|D:INCIDENT": 1,
       "The Maritime Executive|D:INFRA_CI": 6,
-      "The Maritime Executive|D:NEWS_INTEL": 34,
+      "The Maritime Executive|D:NEWS_INTEL": 25,
       "The Maritime Executive|D:SECURITY_CRIME": 2,
-      "tom_sharpe_x|D:INFRA_CI": 2,
-      "worldcrimeintel_x|D:SECURITY_CRIME": 1
+      "tom_sharpe_x|D:INFRA_CI": 1
     },
     "source_domain_counts_72h_deduped": {
-      "atlantic_council_reports|D:INFRA_CI": 1,
-      "cepa_feed|D:INFRA_CI": 7,
+      "cepa_feed|D:INFRA_CI": 5,
       "die_flaschenpost_aussenpolitik_rss|D:INFRA_CI": 1,
-      "gcaptain_rss|D:NEWS_INTEL": 17,
-      "gCaptain|D:NEWS_INTEL": 6,
+      "gcaptain_rss|D:NEWS_INTEL": 14,
+      "gCaptain|D:NEWS_INTEL": 7,
       "rusi_latest_publications|D:INFRA_CI": 5,
-      "small_wars_journal_rss|D:NEWS_INTEL": 19,
+      "small_wars_journal_rss|D:NEWS_INTEL": 17,
       "swp_publications_en|D:INFRA_CI": 1,
       "The Maritime Executive|D:DRONE_UAS": 1,
       "The Maritime Executive|D:INCIDENT": 1,
       "The Maritime Executive|D:INFRA_CI": 6,
-      "The Maritime Executive|D:NEWS_INTEL": 34,
+      "The Maritime Executive|D:NEWS_INTEL": 25,
       "The Maritime Executive|D:SECURITY_CRIME": 2,
-      "tom_sharpe_x|D:INFRA_CI": 2,
-      "worldcrimeintel_x|D:SECURITY_CRIME": 1
+      "tom_sharpe_x|D:INFRA_CI": 1
     },
     "source_region_counts_72h": {
-      "atlantic_council_reports|REG:EUROPE": 1,
-      "cepa_feed|REG:EUROPE": 7,
+      "cepa_feed|REG:EUROPE": 5,
       "die_flaschenpost_aussenpolitik_rss|REG:EUROPE": 1,
-      "gcaptain_rss|REG:OTHER": 17,
-      "gCaptain|REG:UNKNOWN": 6,
+      "gcaptain_rss|REG:OTHER": 14,
+      "gCaptain|REG:UNKNOWN": 7,
       "rusi_latest_publications|REG:EUROPE": 5,
-      "small_wars_journal_rss|REG:GLOBAL": 19,
+      "small_wars_journal_rss|REG:GLOBAL": 17,
       "swp_publications_en|REG:EUROPE": 1,
       "The Maritime Executive|REG:MEDITERRANEAN": 1,
-      "The Maritime Executive|REG:UNKNOWN": 43,
-      "tom_sharpe_x|REG:NORTH_SEA": 2,
-      "worldcrimeintel_x|REG:OTHER": 1
+      "The Maritime Executive|REG:UNKNOWN": 34,
+      "tom_sharpe_x|REG:NORTH_SEA": 1
     },
     "source_region_counts_72h_deduped": {
-      "atlantic_council_reports|REG:EUROPE": 1,
-      "cepa_feed|REG:EUROPE": 7,
+      "cepa_feed|REG:EUROPE": 5,
       "die_flaschenpost_aussenpolitik_rss|REG:EUROPE": 1,
-      "gcaptain_rss|REG:OTHER": 17,
-      "gCaptain|REG:UNKNOWN": 6,
+      "gcaptain_rss|REG:OTHER": 14,
+      "gCaptain|REG:UNKNOWN": 7,
       "rusi_latest_publications|REG:EUROPE": 5,
-      "small_wars_journal_rss|REG:GLOBAL": 19,
+      "small_wars_journal_rss|REG:GLOBAL": 17,
       "swp_publications_en|REG:EUROPE": 1,
       "The Maritime Executive|REG:MEDITERRANEAN": 1,
-      "The Maritime Executive|REG:UNKNOWN": 43,
-      "tom_sharpe_x|REG:NORTH_SEA": 2,
-      "worldcrimeintel_x|REG:OTHER": 1
+      "The Maritime Executive|REG:UNKNOWN": 34,
+      "tom_sharpe_x|REG:NORTH_SEA": 1
     },
     "duplicate_sources_bucket": {},
     "duplicate_sources_72h": {},
@@ -299,37 +275,37 @@
       {
         "source_id": "The Maritime Executive",
         "source_kind": "rss",
-        "raw_events": 44,
-        "weighted_events": 8.15,
-        "capped_events": 43
+        "raw_events": 35,
+        "weighted_events": 6.8,
+        "capped_events": 34
       },
       {
         "source_id": "small_wars_journal_rss",
-        "source_kind": "rss",
-        "raw_events": 19,
-        "weighted_events": 4.4,
-        "capped_events": 18
-      },
-      {
-        "source_id": "gcaptain_rss",
         "source_kind": "rss",
         "raw_events": 17,
         "weighted_events": 4.1,
         "capped_events": 16
       },
       {
-        "source_id": "cepa_feed",
+        "source_id": "gcaptain_rss",
+        "source_kind": "rss",
+        "raw_events": 14,
+        "weighted_events": 3.65,
+        "capped_events": 13
+      },
+      {
+        "source_id": "gCaptain",
         "source_kind": "rss",
         "raw_events": 7,
         "weighted_events": 2.6,
         "capped_events": 6
       },
       {
-        "source_id": "gCaptain",
+        "source_id": "cepa_feed",
         "source_kind": "rss",
-        "raw_events": 6,
-        "weighted_events": 2.45,
-        "capped_events": 5
+        "raw_events": 5,
+        "weighted_events": 2.3,
+        "capped_events": 4
       },
       {
         "source_id": "rusi_latest_publications",
@@ -337,20 +313,6 @@
         "raw_events": 5,
         "weighted_events": 2.3,
         "capped_events": 4
-      },
-      {
-        "source_id": "tom_sharpe_x",
-        "source_kind": "social",
-        "raw_events": 2,
-        "weighted_events": 1.45,
-        "capped_events": 1
-      },
-      {
-        "source_id": "atlantic_council_reports",
-        "source_kind": "rss",
-        "raw_events": 1,
-        "weighted_events": 1,
-        "capped_events": 0
       },
       {
         "source_id": "die_flaschenpost_aussenpolitik_rss",
@@ -367,7 +329,7 @@
         "capped_events": 0
       },
       {
-        "source_id": "worldcrimeintel_x",
+        "source_id": "tom_sharpe_x",
         "source_kind": "social",
         "raw_events": 1,
         "weighted_events": 1,
