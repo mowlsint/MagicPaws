@@ -1,31 +1,43 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-16T13:27:08.483Z",
+  "generated_at": "2026-05-16T19:35:01.129Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 39,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-16",
-      "events_total": 5,
+      "events_total": 7,
       "p0_suspect": 0,
       "geo_events": 1,
       "top_domains": {
-        "D:NEWS_INTEL": 5
+        "D:NEWS_INTEL": 7
       },
       "top_regions": {
-        "REG:BLACK_SEA": 1,
-        "REG:GLOBAL": 1
+        "REG:GLOBAL": 2,
+        "REG:BLACK_SEA": 1
       },
       "severity": {
-        "SEV:1": 5
+        "SEV:1": 7
       },
-      "hybrid_index_proxy": 7,
+      "hybrid_index_proxy": 9,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
       },
       "top_keywords": [
+        {
+          "keyword": "sts",
+          "count": 1
+        },
+        {
+          "keyword": "ot",
+          "count": 1
+        },
+        {
+          "keyword": "navy",
+          "count": 1
+        },
         {
           "keyword": "mpa",
           "count": 1
