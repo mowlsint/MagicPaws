@@ -1,14 +1,14 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-05-16T18:00:00.000Z",
-  "generated_at": "2026-05-16T19:35:01.129Z",
+  "snapshot_key": "2026-05-17T00:00:00.000Z",
+  "generated_at": "2026-05-17T04:33:59.667Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 502,
-    "events_72h": 96,
+    "events_total_archive": 507,
+    "events_72h": 77,
     "p0_suspect_72h": 0,
     "geo_72h": 15
   },
@@ -18,60 +18,54 @@
       "north_sea_pct": 4,
       "baltic_sea_pct": 9
     },
-    "keyword_barometer_pct": 83,
-    "keyword_hits_72h": 88
+    "keyword_barometer_pct": 68,
+    "keyword_hits_72h": 68
   },
   "density": {
     "domains_72h": {
-      "D:NEWS_INTEL": 73,
-      "D:INFRA_CI": 19,
+      "D:NEWS_INTEL": 58,
+      "D:INFRA_CI": 16,
       "D:SECURITY_CRIME": 2,
-      "D:DRONE_UAS": 1,
-      "D:INCIDENT": 1
+      "D:DRONE_UAS": 1
     },
     "regions_72h": {
-      "REG:GLOBAL": 17,
-      "REG:EUROPE": 12,
-      "REG:OTHER": 10,
+      "REG:GLOBAL": 15,
       "REG:PERSIAN_GULF": 10,
+      "REG:OTHER": 10,
+      "REG:EUROPE": 9,
       "REG:CARIBBEAN": 2,
       "REG:BLACK_SEA": 1,
       "REG:RED_SEA": 1,
       "REG:BAB_EL_MANDEB": 1,
-      "REG:NORTH_SEA": 1,
-      "REG:MEDITERRANEAN": 1
+      "REG:NORTH_SEA": 1
     },
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 37
-      },
-      {
-        "keyword": "mpa",
-        "count": 11
+        "count": 29
       },
       {
         "keyword": "sts",
         "count": 9
       },
       {
-        "keyword": "coast guard",
-        "count": 7
-      },
-      {
-        "keyword": "isr",
-        "count": 5
+        "keyword": "mpa",
+        "count": 6
       },
       {
         "keyword": "navy",
+        "count": 5
+      },
+      {
+        "keyword": "isr",
         "count": 4
       },
       {
-        "keyword": "drone",
+        "keyword": "coast guard",
         "count": 3
       },
       {
-        "keyword": "disruption",
+        "keyword": "drone",
         "count": 3
       },
       {
@@ -79,7 +73,7 @@
         "count": 2
       },
       {
-        "keyword": "incident",
+        "keyword": "disruption",
         "count": 2
       },
       {
@@ -88,6 +82,10 @@
       },
       {
         "keyword": "sanctions evasion",
+        "count": 1
+      },
+      {
+        "keyword": "suspicious",
         "count": 1
       }
     ]

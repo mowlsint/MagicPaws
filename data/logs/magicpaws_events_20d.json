@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-16T19:35:01.129Z",
+  "generated_at": "2026-05-17T04:33:59.667Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,17 +8,226 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-16T19:35:04.817Z",
+  "bundle_generated_at": "2026-05-17T04:34:03.203Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-04-26T19:35:01.129Z"
+    "cutoff_utc": "2026-04-27T04:33:59.667Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 502,
-    "active_events": 445
+    "archive_events_total": 507,
+    "active_events": 449
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/709",
+      "number": 709,
+      "id": "4462267255",
+      "ts": "2026-05-17T02:48:38.000Z",
+      "chronology_ts": "2026-05-17T02:48:38.000Z",
+      "issue_created_at": "2026-05-17T04:21:39.000Z",
+      "source_published_at": "2026-05-17T02:48:38.000Z",
+      "ingested_at": "2026-05-17T02:48:38.000Z",
+      "title": "[RSS] Suezmax Tanker With Iraqi Crude Reaches India After Hormuz Transit",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/709",
+      "original_url": "https://gcaptain.com/suezmax-tanker-with-iraqi-crude-reaches-india-after-hormuz-transit/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "source_hint": {
+        "source": "gCaptain",
+        "platform": "rss",
+        "link": "https://gcaptain.com/suezmax-tanker-with-iraqi-crude-reaches-india-after-hormuz-transit/",
+        "source_published_at": "2026-05-17T02:48:38.000Z",
+        "ingested_at": "2026-05-17T02:48:38.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\ngCaptain\n\n### Source\ngCaptain\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/suezmax-tanker-with-iraqi-crude-reaches-india-after-hormuz-transit/\n\n### Zeit (UTC)\n2026-05-17T02:48:38Z\n\n### Published\n2026-05-17T02:48:38Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nBy&#160;Julian Lee and Prejula Prem May 16, 2026 (Bloomberg) &#8211;A Suezmax tanker identified as carrying Iraqi crude is approaching India after apparently crossing the Strait of Hormuz in recent days....\n\n---\n_Ingested at 2026-05-17T04:21:39.558227+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1f8993b9d2d24e44 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/708",
+      "number": 708,
+      "id": "4462042590",
+      "ts": "2026-05-17T02:23:14.000Z",
+      "chronology_ts": "2026-05-17T02:23:14.000Z",
+      "issue_created_at": "2026-05-17T02:35:23.000Z",
+      "source_published_at": "2026-05-17T02:23:14.000Z",
+      "ingested_at": "2026-05-17T02:35:21.925Z",
+      "title": "[RSS] Greece Asks EU To Step In Over &#8216;Unlawful Fishing&#8217; By Turkey",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/708",
+      "original_url": "https://gcaptain.com/greece-asks-eu-to-step-in-over-unlawful-fishing-by-turkey/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/greece-asks-eu-to-step-in-over-unlawful-fishing-by-turkey/",
+        "source_published_at": "2026-05-17T02:23:14.000Z",
+        "ingested_at": "2026-05-17T02:35:21.925Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:e1c99bb7f22179d024bc -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:e1c99bb7f22179d024bc -->\n\n### Text\nATHENS, May 15 (Reuters)&#160;&#8211;&#160;Greece on Friday asked the European Union to step in and stop what it said was unlawful fishing and violation of maritime law by Turkish fishermen&#160;in the...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-17T02:23:14.000Z\ningested_at: 2026-05-17T02:35:21.925Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/greece-asks-eu-to-step-in-over-unlawful-fishing-by-turkey/\n\n### Auto-Labels\nD:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/707",
+      "number": 707,
+      "id": "4461669618",
+      "ts": "2026-05-16T23:12:07.000Z",
+      "chronology_ts": "2026-05-16T23:12:07.000Z",
+      "issue_created_at": "2026-05-16T23:46:09.000Z",
+      "source_published_at": "2026-05-16T23:12:07.000Z",
+      "ingested_at": "2026-05-16T23:46:07.873Z",
+      "title": "[RSS] US Allows Russia Oil Sales Waiver To Expire Despite Tight Market",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/707",
+      "original_url": "https://gcaptain.com/us-allows-russia-oil-sales-waiver-to-expire-despite-tight-market/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/us-allows-russia-oil-sales-waiver-to-expire-despite-tight-market/",
+        "source_published_at": "2026-05-16T23:12:07.000Z",
+        "ingested_at": "2026-05-16T23:46:07.873Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:970be6da9ea349982e0a -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:970be6da9ea349982e0a -->\n\n### Text\nBy&#160;Jennifer A. Dlouhy May 16, 2026 (Bloomberg) &#8211;The Trump administration allowed a waiver that encouraged more Russian crude sales to lapse, even as the Iran war stokes concerns about global...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-16T23:12:07.000Z\ningested_at: 2026-05-16T23:46:07.873Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/us-allows-russia-oil-sales-waiver-to-expire-despite-tight-market/\n\n### Auto-Labels\nD:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/706",
+      "number": 706,
+      "id": "4461282686",
+      "ts": "2026-05-16T20:23:34.000Z",
+      "chronology_ts": "2026-05-16T20:23:34.000Z",
+      "issue_created_at": "2026-05-16T21:04:25.000Z",
+      "source_published_at": "2026-05-16T20:23:34.000Z",
+      "ingested_at": "2026-05-16T20:23:34.000Z",
+      "title": "[RSS] USS Ford Strike Group Earns Presidential Unit Citation After Historic Cruise",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/706",
+      "original_url": "https://gcaptain.com/uss-ford-strike-group-earns-presidential-unit-citation-after-historic-cruise/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain",
+        "platform": "rss",
+        "link": "https://gcaptain.com/uss-ford-strike-group-earns-presidential-unit-citation-after-historic-cruise/",
+        "source_published_at": "2026-05-16T20:23:34.000Z",
+        "ingested_at": "2026-05-16T20:23:34.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\ngCaptain\n\n### Source\ngCaptain\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/uss-ford-strike-group-earns-presidential-unit-citation-after-historic-cruise/\n\n### Zeit (UTC)\n2026-05-16T20:23:34Z\n\n### Published\n2026-05-16T20:23:34Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nNORFOLK, Va. — America&#8217;s newest commissioned aircraft carrier USS Gerald R. Ford (CVN-78) tied up at Pier 11 this morning after 326 days at sea, completing one of the longest deployment by...\n\n---\n_Ingested at 2026-05-16T21:04:25.710374+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: f69d77a49b541e86 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/705",
+      "number": 705,
+      "id": "4461282632",
+      "ts": "2026-05-16T19:10:05.000Z",
+      "chronology_ts": "2026-05-16T19:10:05.000Z",
+      "issue_created_at": "2026-05-16T21:04:24.000Z",
+      "source_published_at": "2026-05-16T19:10:05.000Z",
+      "ingested_at": "2026-05-16T19:10:05.000Z",
+      "title": "[RSS] USS Gerald R. Ford and Strike Group Arrive Home Ending Record Deployment",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/705",
+      "original_url": "https://maritime-executive.com/article/uss-gerald-r-ford-and-strike-group-arrive-home-ending-record-deployment",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/uss-gerald-r-ford-and-strike-group-arrive-home-ending-record-deployment",
+        "source_published_at": "2026-05-16T19:10:05.000Z",
+        "ingested_at": "2026-05-16T19:10:05.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/uss-gerald-r-ford-and-strike-group-arrive-home-ending-record-deployment\n\n### Zeit (UTC)\n2026-05-16T19:10:05Z\n\n### Published\n2026-05-16T19:10:05Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nUSS Gerald R. Ford and her strike group returned to base, completing a record deployment and the first combat action for the Navy’s newest carrier. Th...\n\n---\n_Ingested at 2026-05-16T21:04:24.424083+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: e43657c49371d93c -->"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/704",
       "number": 704,
@@ -19131,69 +19340,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:swp_publications_de:003b4566da25ce82048d -->\n<!-- VOODOO_INGEST_ID:swp_publications_de:003b4566da25ce82048d -->\n\n### Text\nDie Koordination hat Felix Heiduk übernommen.\n\n### Zeit (UTC)\nsource_published_at: 2026-04-27T07:49:18.000Z\ningested_at: 2026-05-13T12:16:37.141Z\n\n### Quelle\nSWP – Offizielle Publikationen DE (swp_publications_de)\n\n### Plattform\nrss\n\n### Link\nhttps://www.swp-berlin.org/publikation/schockwellen-nach-osten-wie-der-iran-krieg-die-politische-landschaft-asiens-veraendert\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:CYBER_IT, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/553",
-      "number": 553,
-      "id": "4437777595",
-      "ts": "2026-04-26T23:00:00.000Z",
-      "chronology_ts": "2026-04-26T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T12:17:34.000Z",
-      "source_published_at": "2026-04-26T23:00:00.000Z",
-      "ingested_at": "2026-05-13T12:17:32.337Z",
-      "title": "[RSS] Back to Square One: The EU's Endless Energy Dependency Trap",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/553",
-      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/back-square-one-eus-endless-energy-dependency-trap",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": {
-        "lat": 26.56,
-        "lon": 56.25,
-        "precision": "area",
-        "method": "gazetteer_alias_content_only",
-        "matched_name": "Strait of Hormuz",
-        "matched_alias": "Strait of Hormuz",
-        "matched_id": "strait_hormuz",
-        "radius_km": 85,
-        "confidence": "medium",
-        "geo_role": "topic_area",
-        "display_on_map": true,
-        "regions": [
-          "REG:PERSIAN_GULF",
-          "REG:GULF_OF_OMAN",
-          "REG:STRAIT_HORMUZ"
-        ]
-      },
-      "source_hint": {
-        "source": "RUSI – Latest Commentary (rusi_latest_commentary)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/explore-our-research/publications/commentary/back-square-one-eus-endless-energy-dependency-trap",
-        "source_published_at": "2026-04-26T23:00:00.000Z",
-        "ingested_at": "2026-05-13T12:17:32.337Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_commentary:7027cdd56c8e0217484d -->\n<!-- VOODOO_INGEST_ID:rusi_latest_commentary:7027cdd56c8e0217484d -->\n\n### Text\nThe disruption of the Strait of Hormuz has shaken oil and gas prices, and for Europe, can only stir a greater drive for energy independence.\n\n### Zeit (UTC)\nsource_published_at: 2026-04-26T23:00:00.000Z\ningested_at: 2026-05-13T12:17:32.337Z\n\n### Quelle\nRUSI – Latest Commentary (rusi_latest_commentary)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/back-square-one-eus-endless-energy-dependency-trap\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
     }
   ]
 }
