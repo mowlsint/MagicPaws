@@ -1,13 +1,15 @@
-version: 1
-name: "VOODOO Geo Rules"
+version: 2
+name: "MAGIC PAWS Geo Rules"
 description: >
-  Rules for event geolocation. Prevents false precision by separating exact
-  coordinates, gazetteer inference, region hints and NAVTEX/NAVAREA context.
+  Rules for event geolocation. v2 adds cautious archive-side text geocoding for
+  Social/RSS items. The goal is to recover obvious maritime places while still
+  blocking person-name and generic-word false positives.
 
 priority:
   - explicit_geo_coordinate
   - navwarn_coordinate
   - port_unlocode
+  - controlled_text_rule
   - gazetteer_port_or_place
   - gazetteer_sea_area_or_strait
   - navtex_context
@@ -32,6 +34,15 @@ precision_policy:
     confidence: "high"
     map_marker: "solid"
     may_write_geo: true
+
+  controlled_text_rule:
+    precision: "port_or_area"
+    confidence: "medium_high"
+    map_marker: "solid_soft_or_circle"
+    may_write_geo: true
+    notes:
+      - "Use only for curated maritime locations and abbreviations with required context."
+      - "Examples: Gibraltar with naval/strait context; GOA only with Gulf-of-Aden context; GOO only with Hormuz/Oman/Iran context."
 
   gazetteer_port_or_place:
     precision: "port_or_place"
@@ -74,9 +85,48 @@ ambiguity_policy:
     - "Bay"
     - "Port"
     - "Strait"
+    - "The Gulf"
+  blocked_short_aliases:
+    - "Jose"
+    - "Santos"
+    - "Ford"
+    - "Anson"
+    - "Storis"
+    - "Enterprise"
+    - "Victoria"
   require_maritime_context_for_generic_terms: true
   if_title_and_body_disagree:
     action: "store_candidates_do_not_pin"
+
+controlled_text_rules:
+  - id: "port_gibraltar"
+    match: ["Gibraltar"]
+    require_any_context: ["submarine", "naval", "navy", "warship", "vessel", "ship", "port", "strait", "transit", "maritime"]
+    may_write_geo: true
+  - id: "port_djibouti"
+    match: ["Djibouti"]
+    require_any_context: ["ship", "shipping", "naval", "fleet", "port", "vessel", "Gulf of Aden", "GOA", "Red Sea", "frigate", "piracy"]
+    may_write_geo: true
+  - id: "gulf_of_aden"
+    match: ["Gulf of Aden", "GOA"]
+    require_any_context: ["Djibouti", "Aden", "Somalia", "Yemen", "Red Sea", "Bab el-Mandeb", "frigate", "naval", "piracy", "shipping", "CdeG"]
+    may_write_geo: true
+  - id: "gulf_of_oman"
+    match: ["Gulf of Oman", "GOO"]
+    require_any_context: ["Hormuz", "Oman", "Iran", "UAE", "Emirates", "Arabian Sea", "tanker", "shipping", "naval"]
+    may_write_geo: true
+  - id: "bering_sea"
+    match: ["Bering Sea"]
+    require_any_context: ["Coast Guard", "icebreaker", "patrol", "deployment", "ship", "vessel", "maritime", "fishing", "Arctic"]
+    may_write_geo: true
+  - id: "port_norfolk_us"
+    match: ["Norfolk"]
+    require_any_context: ["USS", "US Navy", "navy", "naval", "carrier", "warship", "pier", "submarine", "deployment", "fleet", "CVN"]
+    may_write_geo: true
+  - id: "port_long_beach"
+    match: ["Long Beach"]
+    require_any_context: ["port", "cargo", "container", "terminal", "shipping", "supply chain", "vessel", "ship", "maritime"]
+    may_write_geo: true
 
 output_shape:
   inferred_geo:
@@ -84,11 +134,18 @@ output_shape:
       lat: "number"
       lon: "number"
       precision: "exact|port|area|region|warning_context"
-      method: "explicit_coordinate|navwarn_coordinate|gazetteer_alias|unlocode|navtex_context|navarea_context"
+      method: "explicit_coordinate|navwarn_coordinate|controlled_text_rule|gazetteer_alias|unlocode|navtex_context|navarea_context"
       matched_name: "string"
       matched_id: "string"
       radius_km: "number|null"
       confidence: "high|medium_high|medium|low"
+      geo_role: "event_location|topic_area|event_location_or_topic_area"
+      display_on_map: "boolean"
+    geo_candidates:
+      - matched_id: "string"
+        matched_name: "string"
+        matched_alias: "string"
+        score: "number"
     region_labels:
       - "REG:*"
 
@@ -96,5 +153,6 @@ safety_notes:
   - "Do not infer exact coordinates from broad regions."
   - "Do not pin NAVAREA-only matches."
   - "Do not pin generic place names without maritime context."
+  - "Do not pin ambiguous person/place aliases such as Jose, Santos, Ford or Anson."
   - "Show area matches as circles or soft markers."
   - "Keep source evidence visible in reports."
