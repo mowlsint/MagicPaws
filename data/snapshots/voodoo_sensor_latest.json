@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
-  "ts": "2026-05-17T06:18:19.950Z",
-  "bucket_start_utc": "2026-05-17T06:00:00.000Z",
-  "bucket_end_utc": "2026-05-17T09:00:00.000Z",
+  "ts": "2026-05-17T09:01:02.373Z",
+  "bucket_start_utc": "2026-05-17T09:00:00.000Z",
+  "bucket_end_utc": "2026-05-17T12:00:00.000Z",
   "bucket_hours": 3,
   "source": {
     "type": "github_issues",
@@ -13,17 +13,17 @@
   "counts": {
     "open_events_total": 707,
     "open_events_deduped_total": 701,
-    "recent_72h_events": 80,
-    "recent_72h_deduped_events": 80,
-    "recent_72h_source_capped_weighted_events": 23.85,
+    "recent_72h_events": 78,
+    "recent_72h_deduped_events": 78,
+    "recent_72h_source_capped_weighted_events": 23.55,
     "current_bucket_events": 0,
     "current_bucket_deduped_events": 0,
     "current_bucket_source_capped_weighted_events": 0,
     "duplicate_events_total": 6,
     "duplicate_events_72h": 0,
     "duplicate_events_bucket": 0,
-    "social_rss_events_72h": 80,
-    "social_rss_deduped_events_72h": 80,
+    "social_rss_events_72h": 78,
+    "social_rss_deduped_events_72h": 78,
     "social_rss_events_bucket": 0,
     "social_rss_deduped_events_bucket": 0,
     "p0_suspect_72h": 0,
@@ -79,7 +79,7 @@
         0.08
       ]
     },
-    "hybrid_weighted_points_72h": 23.93,
+    "hybrid_weighted_points_72h": 23.69,
     "keyword_weighted_hits_bucket": 0,
     "keyword_raw_hits_bucket": 0,
     "keyword_scored_events_bucket": 0,
@@ -105,7 +105,7 @@
     },
     {
       "source_id": "small_wars_journal_rss",
-      "count": 15
+      "count": 13
     },
     {
       "source_id": "gCaptain",
@@ -143,7 +143,7 @@
     },
     {
       "source_id": "small_wars_journal_rss",
-      "count": 15
+      "count": 13
     },
     {
       "source_id": "gCaptain",
@@ -173,25 +173,25 @@
   "domain_counts_72h": {
     "D:DRONE_UAS": 1,
     "D:INFRA_CI": 19,
-    "D:NEWS_INTEL": 58,
+    "D:NEWS_INTEL": 56,
     "D:SECURITY_CRIME": 2
   },
   "domain_counts_72h_deduped": {
     "D:DRONE_UAS": 1,
     "D:INFRA_CI": 19,
-    "D:NEWS_INTEL": 58,
+    "D:NEWS_INTEL": 56,
     "D:SECURITY_CRIME": 2
   },
   "region_counts_72h": {
     "REG:EUROPE": 12,
-    "REG:GLOBAL": 15,
+    "REG:GLOBAL": 13,
     "REG:NORTH_SEA": 1,
     "REG:OTHER": 16,
     "REG:UNKNOWN": 36
   },
   "region_counts_72h_deduped": {
     "REG:EUROPE": 12,
-    "REG:GLOBAL": 15,
+    "REG:GLOBAL": 13,
     "REG:NORTH_SEA": 1,
     "REG:OTHER": 16,
     "REG:UNKNOWN": 36
@@ -201,11 +201,11 @@
     "source_kind_counts_bucket": {},
     "source_kind_counts_bucket_deduped": {},
     "source_kind_counts_72h": {
-      "rss": 79,
+      "rss": 77,
       "social": 1
     },
     "source_kind_counts_72h_deduped": {
-      "rss": 79,
+      "rss": 77,
       "social": 1
     },
     "source_domain_counts_bucket": {},
@@ -216,7 +216,7 @@
       "gcaptain_rss|D:NEWS_INTEL": 16,
       "gCaptain|D:NEWS_INTEL": 8,
       "rusi_latest_publications|D:INFRA_CI": 5,
-      "small_wars_journal_rss|D:NEWS_INTEL": 15,
+      "small_wars_journal_rss|D:NEWS_INTEL": 13,
       "swp_publications_en|D:INFRA_CI": 1,
       "The Maritime Executive|D:DRONE_UAS": 1,
       "The Maritime Executive|D:INFRA_CI": 6,
@@ -230,7 +230,7 @@
       "gcaptain_rss|D:NEWS_INTEL": 16,
       "gCaptain|D:NEWS_INTEL": 8,
       "rusi_latest_publications|D:INFRA_CI": 5,
-      "small_wars_journal_rss|D:NEWS_INTEL": 15,
+      "small_wars_journal_rss|D:NEWS_INTEL": 13,
       "swp_publications_en|D:INFRA_CI": 1,
       "The Maritime Executive|D:DRONE_UAS": 1,
       "The Maritime Executive|D:INFRA_CI": 6,
@@ -244,7 +244,7 @@
       "gcaptain_rss|REG:OTHER": 16,
       "gCaptain|REG:UNKNOWN": 8,
       "rusi_latest_publications|REG:EUROPE": 5,
-      "small_wars_journal_rss|REG:GLOBAL": 15,
+      "small_wars_journal_rss|REG:GLOBAL": 13,
       "swp_publications_en|REG:EUROPE": 1,
       "The Maritime Executive|REG:UNKNOWN": 28,
       "tom_sharpe_x|REG:NORTH_SEA": 1
@@ -255,7 +255,7 @@
       "gcaptain_rss|REG:OTHER": 16,
       "gCaptain|REG:UNKNOWN": 8,
       "rusi_latest_publications|REG:EUROPE": 5,
-      "small_wars_journal_rss|REG:GLOBAL": 15,
+      "small_wars_journal_rss|REG:GLOBAL": 13,
       "swp_publications_en|REG:EUROPE": 1,
       "The Maritime Executive|REG:UNKNOWN": 28,
       "tom_sharpe_x|REG:NORTH_SEA": 1
@@ -281,9 +281,9 @@
       {
         "source_id": "small_wars_journal_rss",
         "source_kind": "rss",
-        "raw_events": 15,
-        "weighted_events": 3.8,
-        "capped_events": 14
+        "raw_events": 13,
+        "weighted_events": 3.5,
+        "capped_events": 12
       },
       {
         "source_id": "gCaptain",
