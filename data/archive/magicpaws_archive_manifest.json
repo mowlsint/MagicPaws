@@ -1,17 +1,17 @@
 {
   "schema": "MAGIC_PAWS_ARCHIVE_MANIFEST_v1",
-  "generated_at": "2026-05-17T08:33:46.394Z",
+  "generated_at": "2026-05-17T13:59:26.656Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
-  "total_events": 507,
+  "total_events": 509,
   "active_window_days": 20,
   "daily_summary_days": 365,
   "months": [
     {
       "month": "2026-05",
       "file": "data/archive/magicpaws_2026-05.jsonl",
-      "count": 430,
+      "count": 432,
       "first_utc": "2026-05-01T07:32:05.000Z",
-      "last_utc": "2026-05-17T02:48:38.000Z"
+      "last_utc": "2026-05-17T09:44:24.000Z"
     },
     {
       "month": "2026-04",
