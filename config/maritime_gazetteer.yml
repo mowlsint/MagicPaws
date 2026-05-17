@@ -250,6 +250,86 @@ places:
       de: ["Bremerhaven"]
       en: ["Bremerhaven"]
 
+  # --- v5.32 controlled Social/Archive geolocation additions ------------------
+  - id: "port_gibraltar"
+    canonical_name: "Gibraltar"
+    type: "port"
+    precision: "port"
+    center: { lat: 36.1408, lon: -5.3536 }
+    radius_km: 12
+    regions: ["REG:STRAIT_GIBRALTAR", "REG:MEDITERRANEAN", "REG:BISCAY_ATLANTIC_APPROACHES"]
+    aliases:
+      en: ["Gibraltar", "Port of Gibraltar", "Gibraltar Harbour"]
+      es: ["Gibraltar"]
+      de: ["Gibraltar"]
+
+  - id: "port_djibouti"
+    canonical_name: "Djibouti"
+    type: "port"
+    precision: "port"
+    center: { lat: 11.6040, lon: 43.1450 }
+    radius_km: 20
+    regions: ["REG:HORN_OF_AFRICA", "REG:GULF_OF_ADEN", "REG:RED_SEA"]
+    aliases:
+      en: ["Djibouti", "Port of Djibouti"]
+      fr: ["Djibouti", "Port de Djibouti"]
+      de: ["Dschibuti", "Djibouti"]
+
+  - id: "gulf_of_aden"
+    canonical_name: "Gulf of Aden"
+    type: "sea_area"
+    precision: "area"
+    center: { lat: 12.30, lon: 48.50 }
+    radius_km: 520
+    regions: ["REG:GULF_OF_ADEN", "REG:HORN_OF_AFRICA", "REG:INDIAN_OCEAN"]
+    aliases:
+      en: ["Gulf of Aden"]
+      de: ["Golf von Aden"]
+      abbr: ["GOA"]
+
+  - id: "gulf_of_oman"
+    canonical_name: "Gulf of Oman"
+    type: "sea_area"
+    precision: "area"
+    center: { lat: 24.70, lon: 58.50 }
+    radius_km: 350
+    regions: ["REG:GULF_OF_OMAN", "REG:ARABIAN_SEA", "REG:STRAIT_HORMUZ"]
+    aliases:
+      en: ["Gulf of Oman"]
+      de: ["Golf von Oman"]
+      abbr: ["GOO"]
+
+  - id: "bering_sea"
+    canonical_name: "Bering Sea"
+    type: "sea_area"
+    precision: "area"
+    center: { lat: 58.80, lon: -177.00 }
+    radius_km: 900
+    regions: ["REG:HIGH_NORTH_ARCTIC", "REG:BERING_SEA", "REG:PACIFIC"]
+    aliases:
+      en: ["Bering Sea"]
+      de: ["Beringmeer", "Bering Sea"]
+
+  - id: "port_norfolk_us"
+    canonical_name: "Norfolk"
+    type: "port"
+    precision: "port"
+    center: { lat: 36.9467, lon: -76.3300 }
+    radius_km: 18
+    regions: ["REG:US_EAST_COAST", "REG:ATLANTIC_WEST"]
+    aliases:
+      en: ["Norfolk", "Naval Station Norfolk", "Norfolk Naval Station", "Port of Norfolk"]
+
+  - id: "port_long_beach"
+    canonical_name: "Long Beach"
+    type: "port"
+    precision: "port"
+    center: { lat: 33.7542, lon: -118.2165 }
+    radius_km: 20
+    regions: ["REG:US_WEST_COAST", "REG:PACIFIC"]
+    aliases:
+      en: ["Long Beach", "Port of Long Beach"]
+
 matching_notes:
   - "Exact coordinates in issue body override gazetteer inference."
   - "Area matches should be displayed as circles or soft markers, never as exact event locations."
