@@ -116,6 +116,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 90
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: shortwave78_x
     name: Shortwave Observer (X) – shortwave78
     type: social_x
@@ -127,6 +130,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 70
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: tankertrackers_x
     name: TankerTrackers (X)
     type: social_x
@@ -139,6 +145,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 85
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: starboardintel_x
     name: Starboard Maritime Intelligence (X)
     type: social_x
@@ -149,6 +158,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 65
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: maritime_int_x
     name: Maritime Intelligence Support Group (X)
     type: social_x
@@ -159,6 +171,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 55
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: maritime_exec_rss
     name: The Maritime Executive (RSS)
     type: rss
@@ -243,6 +258,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 70
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: klart_skepp_blog_rss
     name: "Klart Skepp! (Blogspot RSS)"
     type: rss
@@ -272,6 +290,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 60
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: warontherocks_bsky
     name: War on the Rocks (Bluesky)
     type: social_bsky
@@ -282,6 +303,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 50
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: noelreports_bsky
     name: NOELREPORTS (Bluesky)
     type: social_bsky
@@ -292,6 +316,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 70
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: navylookout_bsky
     name: Navy Lookout (Bluesky)
     type: social_bsky
@@ -302,6 +329,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:ATLANTIC_NE
     priority: 70
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: highnorthnews_bsky
     name: High North News (Bluesky)
     type: social_bsky
@@ -312,6 +342,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:ATLANTIC_NE
     priority: 60
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: ispk_bsky
     name: ISPK (Bluesky)
     type: social_bsky
@@ -322,6 +355,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:BALTIC
     priority: 55
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: jakobbohr_bsky
     name: Jakob Kjøgx Bohr (Bluesky)
     type: social_bsky
@@ -332,6 +368,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:BALTIC
     priority: 55
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: maritimekiwi_bsky
     name: MaritimeKiwi / Mark Douglas (Bluesky)
     type: social_bsky
@@ -342,6 +381,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 50
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: te3ej_x
     name: TJ / te3ej (X)
     type: social_x
@@ -352,6 +394,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 60
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: worldcrimeintel_x
     name: World Crime Intel (X)
     type: social_x
@@ -362,6 +407,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 55
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: penpizzareport_x
     name: Pentagon Pizza Report (X)
     type: social_x
@@ -372,6 +420,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 40
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: pizzintwatch_x
     name: Pizza Intelligence Watch (X)
     type: social_x
@@ -382,6 +433,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:OTHER
     priority: 35
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: rijkswaterstaat_x
     name: Rijkswaterstaat (X)
     type: social_x
@@ -393,6 +447,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:ATLANTIC_NE
     priority: 50
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: navylookout_x
     name: Navy Lookout (X)
     type: social_x
@@ -403,6 +460,9 @@ sources:
       - SRC:SOCIAL
     region_hint: REG:ATLANTIC_NE
     priority: 70
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: die_flaschenpost_rss
     name: "Die Flaschenpost – RSS"
     type: rss
@@ -601,10 +661,12 @@ sources:
       - SEV:1
       - REG:BALTIC
       - SCORE:HYBRID_CONTEXT
-      - MAP:NO
       - DECAY:SLOW
     region_hint: REG:BALTIC
     priority: 76
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: julian_pawlak_x
     name: Julian Pawlak – Maritime Security / Baltic / Northern Flank
     type: social_x
@@ -623,10 +685,12 @@ sources:
       - REG:BALTIC
       - REG:NORTH_SEA
       - SCORE:HYBRID_CONTEXT
-      - MAP:NO
       - DECAY:SLOW
     region_hint: REG:BALTIC
     priority: 74
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: sal_mercogliano_x
     name: Sal Mercogliano / WGOW Shipping – X
     type: social_x
@@ -644,10 +708,12 @@ sources:
       - CONF:LOW
       - SEV:1
       - SCORE:HYBRID_CONTEXT
-      - MAP:NO
       - DECAY:SLOW
     region_hint: REG:GLOBAL
     priority: 72
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: tom_sharpe_x
     name: Tom Sharpe – Naval / Maritime Security – X
     type: social_x
@@ -667,10 +733,12 @@ sources:
       - REG:NORTH_SEA
       - REG:CHANNEL
       - SCORE:HYBRID_CONTEXT
-      - MAP:NO
       - DECAY:SLOW
     region_hint: REG:NORTH_SEA
     priority: 70
+    max_items: 12
+    lookback_hours: 168
+    allow_backfill: false
   - id: small_wars_journal_rss
     name: Small Wars Journal – Maritime / Irregular Warfare
     type: rss
