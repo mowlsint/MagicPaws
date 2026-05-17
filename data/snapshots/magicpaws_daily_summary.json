@@ -1,26 +1,32 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-17T13:59:26.656Z",
+  "generated_at": "2026-05-17T19:38:36.579Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 40,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-17",
-      "events_total": 3,
+      "events_total": 17,
       "p0_suspect": 0,
-      "geo_events": 1,
+      "geo_events": 4,
+      "social_events": 9,
+      "social_geo_events": 0,
+      "rss_media_events": 8,
       "top_domains": {
-        "D:NEWS_INTEL": 3
+        "D:NEWS_INTEL": 14,
+        "D:SECURITY_CRIME": 2,
+        "D:INFRA_CI": 1
       },
       "top_regions": {
-        "REG:OTHER": 2,
-        "REG:PERSIAN_GULF": 1
+        "REG:OTHER": 11,
+        "REG:PERSIAN_GULF": 4,
+        "REG:ATLANTIC_NE": 1
       },
       "severity": {
-        "SEV:1": 3
+        "SEV:1": 17
       },
-      "hybrid_index_proxy": 4,
+      "hybrid_index_proxy": 20,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -28,37 +34,54 @@
       "top_keywords": [
         {
           "keyword": "ot",
+          "count": 13
+        },
+        {
+          "keyword": "drone",
           "count": 2
+        },
+        {
+          "keyword": "navy",
+          "count": 2
+        },
+        {
+          "keyword": "sts",
+          "count": 1
         }
       ]
     },
     {
       "date": "2026-05-16",
-      "events_total": 11,
+      "events_total": 14,
       "p0_suspect": 0,
-      "geo_events": 1,
+      "geo_events": 5,
+      "social_events": 4,
+      "social_geo_events": 2,
+      "rss_media_events": 10,
       "top_domains": {
-        "D:NEWS_INTEL": 10,
-        "D:INFRA_CI": 1
+        "D:NEWS_INTEL": 12,
+        "D:INFRA_CI": 2
       },
       "top_regions": {
+        "REG:OTHER": 3,
+        "REG:NORTH_SEA": 2,
         "REG:GLOBAL": 2,
-        "REG:OTHER": 1,
-        "REG:NORTH_SEA": 1,
+        "REG:US_EAST_COAST": 1,
+        "REG:STRAIT_GIBRALTAR": 1,
         "REG:BLACK_SEA": 1
       },
       "severity": {
-        "SEV:1": 11
+        "SEV:1": 14
       },
-      "hybrid_index_proxy": 15,
+      "hybrid_index_proxy": 18,
       "government_weirdness_proxy": {
-        "north_sea": 2,
+        "north_sea": 5,
         "baltic_sea": 0
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 3
+          "count": 6
         },
         {
           "keyword": "navy",
@@ -76,24 +99,30 @@
     },
     {
       "date": "2026-05-15",
-      "events_total": 31,
+      "events_total": 33,
       "p0_suspect": 0,
-      "geo_events": 6,
+      "geo_events": 8,
+      "social_events": 2,
+      "social_geo_events": 0,
+      "rss_media_events": 31,
       "top_domains": {
-        "D:NEWS_INTEL": 24,
+        "D:NEWS_INTEL": 26,
         "D:INFRA_CI": 7
       },
       "top_regions": {
         "REG:GLOBAL": 6,
         "REG:PERSIAN_GULF": 5,
         "REG:EUROPE": 4,
-        "REG:OTHER": 3,
+        "REG:ATLANTIC_NE": 2,
+        "REG:OTHER": 2,
+        "REG:HIGH_NORTH_ARCTIC": 1,
+        "REG:US_WEST_COAST": 1,
         "REG:CARIBBEAN": 1
       },
       "severity": {
-        "SEV:1": 31
+        "SEV:1": 33
       },
-      "hybrid_index_proxy": 41,
+      "hybrid_index_proxy": 43,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -101,7 +130,7 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 13
+          "count": 14
         },
         {
           "keyword": "sts",
@@ -112,15 +141,15 @@
           "count": 2
         },
         {
+          "keyword": "navy",
+          "count": 2
+        },
+        {
           "keyword": "cyber",
           "count": 2
         },
         {
           "keyword": "patrol",
-          "count": 1
-        },
-        {
-          "keyword": "navy",
           "count": 1
         },
         {
@@ -137,7 +166,10 @@
       "date": "2026-05-14",
       "events_total": 39,
       "p0_suspect": 0,
-      "geo_events": 7,
+      "geo_events": 8,
+      "social_events": 1,
+      "social_geo_events": 1,
+      "rss_media_events": 38,
       "top_domains": {
         "D:NEWS_INTEL": 26,
         "D:INFRA_CI": 9,
@@ -153,7 +185,7 @@
         "REG:RED_SEA": 1,
         "REG:BAB_EL_MANDEB": 1,
         "REG:CARIBBEAN": 1,
-        "REG:NORTH_SEA": 1,
+        "REG:HORN_OF_AFRICA": 1,
         "REG:MEDITERRANEAN": 1
       },
       "severity": {
@@ -203,7 +235,10 @@
       "date": "2026-05-13",
       "events_total": 59,
       "p0_suspect": 0,
-      "geo_events": 10,
+      "geo_events": 11,
+      "social_events": 16,
+      "social_geo_events": 1,
+      "rss_media_events": 43,
       "top_domains": {
         "D:NEWS_INTEL": 49,
         "D:INFRA_CI": 9,
@@ -265,7 +300,10 @@
       "date": "2026-05-12",
       "events_total": 130,
       "p0_suspect": 0,
-      "geo_events": 14,
+      "geo_events": 15,
+      "social_events": 64,
+      "social_geo_events": 3,
+      "rss_media_events": 50,
       "top_domains": {
         "D:NEWS_INTEL": 95,
         "D:SECURITY_CRIME": 25,
@@ -280,6 +318,7 @@
         "REG:ATLANTIC_NE": 2,
         "REG:SOUTH_AMERICA_EAST": 2,
         "REG:CARIBBEAN": 1,
+        "REG:GULF_OF_OMAN": 1,
         "REG:CHANNEL": 1
       },
       "severity": {
@@ -330,7 +369,10 @@
       "date": "2026-05-11",
       "events_total": 98,
       "p0_suspect": 0,
-      "geo_events": 13,
+      "geo_events": 14,
+      "social_events": 64,
+      "social_geo_events": 8,
+      "rss_media_events": 34,
       "top_domains": {
         "D:NEWS_INTEL": 81,
         "D:SECURITY_CRIME": 10,
@@ -338,11 +380,11 @@
         "D:INCIDENT": 1
       },
       "top_regions": {
-        "REG:OTHER": 68,
+        "REG:OTHER": 67,
         "REG:PERSIAN_GULF": 7,
         "REG:EUROPE": 5,
+        "REG:SOUTH_AMERICA_EAST": 3,
         "REG:BALTIC": 3,
-        "REG:SOUTH_AMERICA_EAST": 2,
         "REG:ATLANTIC_NE": 2,
         "REG:CARIBBEAN": 1
       },
@@ -394,6 +436,9 @@
       "events_total": 36,
       "p0_suspect": 0,
       "geo_events": 4,
+      "social_events": 22,
+      "social_geo_events": 2,
+      "rss_media_events": 14,
       "top_domains": {
         "D:NEWS_INTEL": 27,
         "D:SECURITY_CRIME": 6,
@@ -453,6 +498,9 @@
       "events_total": 2,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 2,
       "top_domains": {
         "D:INFRA_CI": 2
       },
@@ -479,6 +527,9 @@
       "events_total": 4,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 4,
       "top_domains": {
         "D:INFRA_CI": 4
       },
@@ -505,6 +556,9 @@
       "events_total": 5,
       "p0_suspect": 0,
       "geo_events": 1,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 5,
       "top_domains": {
         "D:INFRA_CI": 5
       },
@@ -531,6 +585,9 @@
       "events_total": 9,
       "p0_suspect": 0,
       "geo_events": 1,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 9,
       "top_domains": {
         "D:INFRA_CI": 9
       },
@@ -585,6 +642,9 @@
       "events_total": 4,
       "p0_suspect": 0,
       "geo_events": 1,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 4,
       "top_domains": {
         "D:INFRA_CI": 4
       },
@@ -615,6 +675,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -634,6 +697,9 @@
       "events_total": 4,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 4,
       "top_domains": {
         "D:INFRA_CI": 4
       },
@@ -668,6 +734,9 @@
       "events_total": 4,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 4,
       "top_domains": {
         "D:INFRA_CI": 4
       },
@@ -694,6 +763,9 @@
       "events_total": 7,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 7,
       "top_domains": {
         "D:INFRA_CI": 7
       },
@@ -732,6 +804,9 @@
       "events_total": 4,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 4,
       "top_domains": {
         "D:INFRA_CI": 4
       },
@@ -766,6 +841,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 1,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -796,6 +874,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -822,6 +903,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -850,6 +934,9 @@
       "events_total": 5,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 5,
       "top_domains": {
         "D:INFRA_CI": 5
       },
@@ -880,6 +967,9 @@
       "events_total": 2,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 2,
       "top_domains": {
         "D:INFRA_CI": 2
       },
@@ -926,6 +1016,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -952,6 +1045,9 @@
       "events_total": 3,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 3,
       "top_domains": {
         "D:INFRA_CI": 3
       },
@@ -990,6 +1086,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1020,6 +1119,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1039,6 +1141,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1065,6 +1170,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1091,6 +1199,9 @@
       "events_total": 2,
       "p0_suspect": 0,
       "geo_events": 1,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 2,
       "top_domains": {
         "D:INFRA_CI": 2
       },
@@ -1125,6 +1236,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1151,6 +1265,9 @@
       "events_total": 3,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 3,
       "top_domains": {
         "D:INFRA_CI": 3
       },
@@ -1182,6 +1299,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1208,6 +1328,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1234,6 +1357,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1260,6 +1386,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 1,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1294,6 +1423,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1324,6 +1456,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1350,6 +1485,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
@@ -1376,6 +1514,9 @@
       "events_total": 1,
       "p0_suspect": 0,
       "geo_events": 0,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 1,
       "top_domains": {
         "D:INFRA_CI": 1
       },
