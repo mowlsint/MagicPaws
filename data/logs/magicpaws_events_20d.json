@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-17T04:33:59.667Z",
+  "generated_at": "2026-05-17T08:33:46.394Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,15 +8,15 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-17T04:34:03.203Z",
+  "bundle_generated_at": "2026-05-17T08:33:49.520Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-04-27T04:33:59.667Z"
+    "cutoff_utc": "2026-04-27T08:33:46.394Z"
   },
   "counts": {
     "live_events_from_worker": 500,
     "archive_events_total": 507,
-    "active_events": 449
+    "active_events": 448
   },
   "events": [
     {
@@ -19295,51 +19295,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:swp_publications_de:c63a80688c96f831c1e1 -->\n<!-- VOODOO_INGEST_ID:swp_publications_de:c63a80688c96f831c1e1 -->\n\n### Text\nEU-Armenien-Beziehungen im Kontext regionaler Rekonfiguration\n Im Kontext sich wandelnder Kräfteverhältnisse, Akteurskonstellationen und Ord­nungs­muster im Südkaukasus versucht die armenische Regierung unter Nikol Paschin­jan eine Neuverortung des Landes, um die Handlungsfähigkeit Armeniens zu stärken: im Innern durch eine Neuausrichtung armenischer Identitätsdiskurse, nach außen durch eine Neukalibrierung des Verhältnisses zu Russland. Gleichzeitig will Armenien seine bilateralen Beziehungen stärker diversifizieren, insbesondere durch eine weitere Annäherung an die Europäische Union (EU). Die EU sollte gegenüber Armenien eine nachhaltige Politik verfolgen, die die Beziehungen zu Eriwan einbettet in eine breite­re regionale Perspektive. Brüssel sollte zudem sensibel sein für die gesellschaftlichen Ambivalenzen in Armenien, auch was die weitere Annäherung an die EU betrifft. Kon­sequent auf die lokalen Verhältnisse und auf die Bedürfnisse der Bevölkerung zu­geschnittene Angebote können dazu beitragen, dass weder Performativität die Bez…"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/531",
-      "number": 531,
-      "id": "4437771259",
-      "ts": "2026-04-27T07:49:18.000Z",
-      "chronology_ts": "2026-04-27T07:49:18.000Z",
-      "issue_created_at": "2026-05-13T12:16:39.000Z",
-      "source_published_at": "2026-04-27T07:49:18.000Z",
-      "ingested_at": "2026-05-13T12:16:37.141Z",
-      "title": "[RSS] Schockwellen nach Osten: Wie der Iran-Krieg die politische Landschaft Asiens verändert",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/531",
-      "original_url": "https://www.swp-berlin.org/publikation/schockwellen-nach-osten-wie-der-iran-krieg-die-politische-landschaft-asiens-veraendert",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE",
-        "D:CYBER_IT"
-      ],
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "SWP – Offizielle Publikationen DE (swp_publications_de)",
-        "platform": "rss",
-        "link": "https://www.swp-berlin.org/publikation/schockwellen-nach-osten-wie-der-iran-krieg-die-politische-landschaft-asiens-veraendert",
-        "source_published_at": "2026-04-27T07:49:18.000Z",
-        "ingested_at": "2026-05-13T12:16:37.141Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:swp_publications_de:003b4566da25ce82048d -->\n<!-- VOODOO_INGEST_ID:swp_publications_de:003b4566da25ce82048d -->\n\n### Text\nDie Koordination hat Felix Heiduk übernommen.\n\n### Zeit (UTC)\nsource_published_at: 2026-04-27T07:49:18.000Z\ningested_at: 2026-05-13T12:16:37.141Z\n\n### Quelle\nSWP – Offizielle Publikationen DE (swp_publications_de)\n\n### Plattform\nrss\n\n### Link\nhttps://www.swp-berlin.org/publikation/schockwellen-nach-osten-wie-der-iran-krieg-die-politische-landschaft-asiens-veraendert\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:CYBER_IT, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
     }
   ]
 }

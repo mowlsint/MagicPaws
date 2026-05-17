@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-17T04:33:59.667Z",
+  "generated_at": "2026-05-17T08:33:46.394Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 40,
   "summary_window_days": 365,
