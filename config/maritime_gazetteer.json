@@ -1,7 +1,7 @@
 {
-  "version": 4,
+  "version": 5,
   "name": "MAGIC PAWS Maritime Gazetteer",
-  "description": "Controlled maritime gazetteer for inferred geolocation. MAGIC PAWS / MARITIME PHASE ZERO. Expanded global v4: adds a larger Atlantic trade-port package for West Africa, Gulf of Guinea, Brazil, Colombia, Chile, Argentina, Guianas/Suriname and the Caribbean. Exact issue-body coordinates override inferred places. Port coordinates are practical gazetteer anchors, not official survey points.",
+  "description": "Controlled maritime gazetteer for inferred geolocation. MAGIC PAWS / MARITIME PHASE ZERO. Expanded global v4: adds a larger Atlantic trade-port package for West Africa, Gulf of Guinea, Brazil, Colombia, Chile, Argentina, Guianas/Suriname and the Caribbean. Exact issue-body coordinates override inferred places. Port coordinates are practical gazetteer anchors, not official survey points. v5.32: adds controlled aliases for Gibraltar, Djibouti, GOA/GOO, Bering Sea, Norfolk and Long Beach with runtime context safeguards.",
   "places": [
     {
       "id": "north_sea",
@@ -137,7 +137,8 @@
         ],
         "en": [
           "Strait of Gibraltar",
-          "Gibraltar Strait"
+          "Gibraltar Strait",
+          "Gibraltar"
         ],
         "es": [
           "Estrecho de Gibraltar"
@@ -2351,6 +2352,9 @@
         ],
         "ar_latin": [
           "Khalij Uman"
+        ],
+        "abbr": [
+          "GOO"
         ]
       }
     },
@@ -2439,6 +2443,9 @@
         ],
         "ar_latin": [
           "Khalij Adan"
+        ],
+        "abbr": [
+          "GOA"
         ]
       }
     },
@@ -10158,6 +10165,134 @@
         "es": [
           "Progreso",
           "Puerto Progreso"
+        ]
+      }
+    },
+    {
+      "id": "port_gibraltar",
+      "canonical_name": "Gibraltar",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 36.1408,
+        "lon": -5.3536
+      },
+      "radius_km": 12,
+      "regions": [
+        "REG:STRAIT_GIBRALTAR",
+        "REG:MEDITERRANEAN",
+        "REG:BISCAY_ATLANTIC_APPROACHES"
+      ],
+      "aliases": {
+        "en": [
+          "Gibraltar",
+          "Port of Gibraltar",
+          "Gibraltar Harbour"
+        ],
+        "es": [
+          "Gibraltar"
+        ],
+        "de": [
+          "Gibraltar"
+        ]
+      }
+    },
+    {
+      "id": "port_djibouti",
+      "canonical_name": "Djibouti",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 11.604,
+        "lon": 43.145
+      },
+      "radius_km": 20,
+      "regions": [
+        "REG:HORN_OF_AFRICA",
+        "REG:GULF_OF_ADEN",
+        "REG:RED_SEA"
+      ],
+      "aliases": {
+        "en": [
+          "Djibouti",
+          "Port of Djibouti"
+        ],
+        "fr": [
+          "Djibouti",
+          "Port de Djibouti"
+        ],
+        "de": [
+          "Dschibuti",
+          "Djibouti"
+        ]
+      }
+    },
+    {
+      "id": "bering_sea",
+      "canonical_name": "Bering Sea",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": 58.8,
+        "lon": -177.0
+      },
+      "radius_km": 900,
+      "regions": [
+        "REG:HIGH_NORTH_ARCTIC",
+        "REG:BERING_SEA",
+        "REG:PACIFIC"
+      ],
+      "aliases": {
+        "en": [
+          "Bering Sea"
+        ],
+        "de": [
+          "Beringmeer",
+          "Bering Sea"
+        ]
+      }
+    },
+    {
+      "id": "port_norfolk_us",
+      "canonical_name": "Norfolk",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 36.9467,
+        "lon": -76.33
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:US_EAST_COAST",
+        "REG:ATLANTIC_WEST"
+      ],
+      "aliases": {
+        "en": [
+          "Norfolk",
+          "Naval Station Norfolk",
+          "Norfolk Naval Station",
+          "Port of Norfolk"
+        ]
+      }
+    },
+    {
+      "id": "port_long_beach",
+      "canonical_name": "Long Beach",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 33.7542,
+        "lon": -118.2165
+      },
+      "radius_km": 20,
+      "regions": [
+        "REG:US_WEST_COAST",
+        "REG:PACIFIC"
+      ],
+      "aliases": {
+        "en": [
+          "Long Beach",
+          "Port of Long Beach"
         ]
       }
     }
