@@ -14,8 +14,11 @@
  * Optional env:
  *   GITHUB_REPOSITORY      normally set by GitHub Actions, e.g. mowlsint/MagicPaws
  *   SOURCES_FILE           default: config/sources.yml
- *   SOCIAL_BRIDGE_BASE     fallback for social_x bridge_path
+ *   SOCIAL_BRIDGE_BASE     fallback for social_x/social_bsky bridge_path
  *   MAX_ITEMS_PER_SOURCE   fallback default: 15
+ *   MAX_RSS_ITEMS_PER_SOURCE fallback for RSS sources; default follows MAX_ITEMS_PER_SOURCE
+ *   MAX_SOCIAL_ITEMS_PER_SOURCE fallback for social sources; default 30
+ *   DEFAULT_LOOKBACK_HOURS optional age gate for all sources without source.lookback_hours
  *   MAX_EXISTING_ISSUES    fallback default: 1000
  *   DRY_RUN                "1" = do not create issues
  */
@@ -25,7 +28,7 @@ import crypto from "node:crypto";
 import YAML from "yaml";
 import { XMLParser } from "fast-xml-parser";
 
-const VERSION = 'MAGIC PAWS ingest v1.0 "Source Published Time + Social Bridge"';
+const VERSION = 'MAGIC PAWS ingest v5.32 "Social Bridge X/Bsky + Freshness Controls"';
 
 const SOURCES_FILE = process.env.SOURCES_FILE || "config/sources.yml";
 const DEFAULT_SOCIAL_BRIDGE_BASE =
@@ -33,6 +36,9 @@ const DEFAULT_SOCIAL_BRIDGE_BASE =
   "https://voodoo-social-bridge.mowlsint.workers.dev";
 
 const MAX_ITEMS_PER_SOURCE = Number(process.env.MAX_ITEMS_PER_SOURCE || 15);
+const MAX_RSS_ITEMS_PER_SOURCE = Number(process.env.MAX_RSS_ITEMS_PER_SOURCE || MAX_ITEMS_PER_SOURCE);
+const MAX_SOCIAL_ITEMS_PER_SOURCE = Number(process.env.MAX_SOCIAL_ITEMS_PER_SOURCE || 30);
+const DEFAULT_LOOKBACK_HOURS = Number(process.env.DEFAULT_LOOKBACK_HOURS || 0);
 const MAX_EXISTING_ISSUES = Number(process.env.MAX_EXISTING_ISSUES || 1000);
 const DRY_RUN = process.env.DRY_RUN === "1";
 
@@ -203,6 +209,68 @@ function uniqueStrings(values) {
   );
 }
 
+function sourceType(sourceOrType) {
+  const value = typeof sourceOrType === "string" ? sourceOrType : sourceOrType?.type;
+  return String(value || "").trim().toLowerCase();
+}
+
+function isRssType(type) {
+  const t = sourceType(type);
+  return ["rss", "atom", "feed"].includes(t);
+}
+
+function isSocialType(type) {
+  const t = sourceType(type);
+  return ["social_x", "x", "twitter", "social_bsky", "bsky", "bluesky"].includes(t);
+}
+
+function isBskyType(type) {
+  const t = sourceType(type);
+  return ["social_bsky", "bsky", "bluesky"].includes(t);
+}
+
+function isXType(type) {
+  const t = sourceType(type);
+  return ["social_x", "x", "twitter"].includes(t);
+}
+
+function numberOrNull(value) {
+  if (value === null || value === undefined || value === "") return null;
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function itemAgeHours(item, nowMs = Date.now()) {
+  const iso = pickSourcePublishedAt(item);
+  if (!iso) return null;
+  const ms = new Date(iso).getTime();
+  if (!Number.isFinite(ms)) return null;
+  return Math.max(0, (nowMs - ms) / 36e5);
+}
+
+function itemWithinLookback(source, item) {
+  const explicit = numberOrNull(source.lookback_hours ?? source.lookbackHours);
+  const fallback = DEFAULT_LOOKBACK_HOURS > 0 ? DEFAULT_LOOKBACK_HOURS : null;
+  const lookback = explicit ?? fallback;
+  if (!lookback || lookback <= 0) return true;
+
+  const age = itemAgeHours(item);
+  if (age === null) {
+    // Keep undated items unless the source explicitly forbids backfill.
+    return source.allow_backfill === false ? false : true;
+  }
+
+  return age <= lookback;
+}
+
+function maxItemsForSource(source) {
+  const explicit = numberOrNull(source.max_items ?? source.max_items_per_run ?? source.limit);
+  if (explicit !== null && explicit > 0) return explicit;
+  if (isSocialType(source)) return MAX_SOCIAL_ITEMS_PER_SOURCE;
+  if (isRssType(source)) return MAX_RSS_ITEMS_PER_SOURCE;
+  return MAX_ITEMS_PER_SOURCE;
+}
+
 function safeIssueTitle(title, prefix = "") {
   const t = stripHtml(title).replace(/\s+/g, " ").trim() || "Untitled maritime source item";
   const full = `${prefix}${t}`.trim();
@@ -223,23 +291,42 @@ function labelColorFor(label) {
   return "ededed";
 }
 
-function normalizeLabels(source, item = {}) {
-  const sourceLabels = yamlScalarArray(source.labels);
+function normalizeLabels(source, item = {}, config = {}) {
+  const defaultLabels = [
+    ...yamlScalarArray(config?.defaults?.base_labels),
+    ...yamlScalarArray(config?.defaults?.labels)
+  ];
+  const sourceLabels = [
+    ...yamlScalarArray(source.base_labels),
+    ...yamlScalarArray(source.labels)
+  ];
   const itemLabels = yamlScalarArray(item.labels);
 
-  const labels = [
+  let labels = [
+    ...defaultLabels,
     ...sourceLabels,
     ...itemLabels
   ];
+
+  const type = sourceType(source);
+
+  // Social sources should be recognizable in the dashboard even when the YAML
+  // source forgot SRC:SOCIAL. This also enables source filters and archive KPIs.
+  if (isSocialType(type) && !labels.includes("SRC:SOCIAL")) labels.push("SRC:SOCIAL");
+  if (isXType(type) && !labels.includes("SRC:X")) labels.push("SRC:X");
+  if (isBskyType(type) && !labels.includes("SRC:BSKY")) labels.push("SRC:BSKY");
+  if (isRssType(type) && !labels.some(l => l === "SRC:MEDIA" || l === "SRC:OFFICIAL" || l === "SRC:OSINT")) {
+    labels.push("SRC:MEDIA");
+  }
 
   if (source.region_hint && !labels.some(l => l.startsWith("REG:"))) {
     labels.push(String(source.region_hint));
   }
 
   if (!labels.some(l => l.startsWith("SRC:"))) labels.push("SRC:OSINT");
-  if (!labels.some(l => l.startsWith("D:"))) labels.push("D:NEWS_INTEL");
-  if (!labels.some(l => l.startsWith("CONF:"))) labels.push("CONF:LOW");
-  if (!labels.some(l => l.startsWith("SEV:"))) labels.push("SEV:1");
+  if (!labels.some(l => l.startsWith("D:"))) labels.push(config?.defaults?.domain_fallback || "D:NEWS_INTEL");
+  if (!labels.some(l => l.startsWith("CONF:"))) labels.push(config?.defaults?.confidence_fallback || "CONF:LOW");
+  if (!labels.some(l => l.startsWith("SEV:"))) labels.push(config?.defaults?.severity_fallback || "SEV:1");
 
   return uniqueStrings(labels);
 }
@@ -591,10 +678,12 @@ function socialBridgeUrl(source, config) {
   }
 
   if (source.handle) {
-    return `${base}/x/${encodeURIComponent(String(source.handle).replace(/^@/, ""))}`;
+    const handle = encodeURIComponent(String(source.handle).replace(/^@/, ""));
+    if (isBskyType(source)) return `${base}/bsky/${handle}`;
+    return `${base}/x/${handle}`;
   }
 
-  throw new Error(`social_x source ${source.id} has no bridge_path, bridge_url or handle.`);
+  throw new Error(`social source ${source.id} has no bridge_path, bridge_url or handle.`);
 }
 
 function extractSocialItems(payload) {
@@ -611,19 +700,37 @@ function extractSocialItems(payload) {
 
 function normalizeSocialItem(raw, source) {
   const item = raw || {};
+  const bsky = isBskyType(source);
 
+  const author = item.author || item.user || item.account || item.profile || {};
   const handle =
     item.handle ||
-    item.user ||
     item.username ||
+    item.user_handle ||
+    author.handle ||
+    author.username ||
+    author.displayName ||
     source.handle ||
     source.name ||
     source.id;
 
+  const textCandidate =
+    item.text ||
+    item.body ||
+    item.content ||
+    item.description ||
+    item.summary ||
+    item.record?.text ||
+    item.value?.text ||
+    item.post?.record?.text ||
+    item.post?.text ||
+    "";
+
+  const cleanText = stripHtml(textCandidate);
+
   const title =
     asPlainText(item.title) ||
-    asPlainText(item.text).slice(0, 120) ||
-    asPlainText(item.body).slice(0, 120) ||
+    cleanText.slice(0, 160) ||
     `Social item ${handle}`;
 
   const link =
@@ -633,31 +740,28 @@ function normalizeSocialItem(raw, source) {
       item.permalink ||
       item.tweet_url ||
       item.post_url ||
+      item.uri ||
+      item.cid ||
       ""
     );
 
-  const text =
-    stripHtml(
-      item.text ||
-      item.body ||
-      item.content ||
-      item.description ||
-      item.summary ||
-      title
-    );
-
-  const sourcePublishedAt = pickSourcePublishedAt(item);
+  const sourcePublishedAt = pickSourcePublishedAt({
+    ...item,
+    source_published_at: item.source_published_at,
+    published_at: item.published_at || item.indexedAt || item.createdAt || item.created_at,
+    ts: item.ts || item.timestamp
+  });
 
   return {
     raw: item,
     source_id: source.id,
-    platform: "social_x",
+    platform: bsky ? "social_bsky" : "social_x",
     handle,
     title,
     link,
     url: link,
-    guid: asPlainText(item.id || item.guid || item.post_id || link || title),
-    text,
+    guid: asPlainText(item.id || item.guid || item.post_id || item.cid || item.uri || link || `${handle}:${title}:${sourcePublishedAt || ""}`),
+    text: cleanText || title,
     source_published_at: sourcePublishedAt,
     labels: item.labels
   };
@@ -694,13 +798,13 @@ async function fetchSocialSource(source, config) {
 // -----------------------------------------------------------------------------
 
 async function fetchSourceItems(source, config) {
-  const type = String(source.type || "").toLowerCase();
+  const type = sourceType(source);
 
-  if (type === "rss" || type === "atom" || type === "feed") {
+  if (isRssType(type)) {
     return fetchRssSource(source);
   }
 
-  if (type === "social_x" || type === "x" || type === "twitter") {
+  if (isSocialType(type)) {
     return fetchSocialSource(source, config);
   }
 
@@ -723,7 +827,7 @@ function itemPassesBasicQuality(item) {
 
 async function processSource(source, config, existingIndex) {
   const sourceId = source.id || source.name || "unknown_source";
-  const maxItems = Number(source.max_items || source.max_items_per_run || MAX_ITEMS_PER_SOURCE);
+  const maxItems = maxItemsForSource(source);
 
   const stats = {
     source_id: sourceId,
@@ -734,6 +838,7 @@ async function processSource(source, config, existingIndex) {
     created: 0,
     skipped_duplicate: 0,
     skipped_quality: 0,
+    skipped_lookback: 0,
     errors: []
   };
 
@@ -761,6 +866,11 @@ async function processSource(source, config, existingIndex) {
         continue;
       }
 
+      if (!itemWithinLookback(source, item)) {
+        stats.skipped_lookback++;
+        continue;
+      }
+
       const link = normalizeUrl(item.link || item.url || "");
       const ingestId = makeIngestId(source, item);
 
@@ -769,12 +879,13 @@ async function processSource(source, config, existingIndex) {
         continue;
       }
 
-      const labels = normalizeLabels(source, item);
+      const labels = normalizeLabels(source, item, config);
       const sourcePublishedAt = pickSourcePublishedAt(item);
       const ingestedAt = nowIso();
 
       const prefix =
         item.platform === "social_x" ? "[X]" :
+        item.platform === "social_bsky" ? "[BSKY]" :
         item.platform === "rss" ? "[RSS]" :
         "[OSINT]";
 
@@ -808,7 +919,7 @@ async function processSource(source, config, existingIndex) {
   }
 
   console.log(
-    `Done ${sourceId}: fetched=${stats.fetched}, considered=${stats.considered}, created=${stats.created}, duplicate=${stats.skipped_duplicate}, quality_skip=${stats.skipped_quality}`
+    `Done ${sourceId}: fetched=${stats.fetched}, considered=${stats.considered}, created=${stats.created}, duplicate=${stats.skipped_duplicate}, quality_skip=${stats.skipped_quality}, lookback_skip=${stats.skipped_lookback}`
   );
 
   return stats;
@@ -853,6 +964,7 @@ async function main() {
     created_total: results.reduce((a, x) => a + x.created, 0),
     skipped_duplicate_total: results.reduce((a, x) => a + x.skipped_duplicate, 0),
     skipped_quality_total: results.reduce((a, x) => a + x.skipped_quality, 0),
+    skipped_lookback_total: results.reduce((a, x) => a + x.skipped_lookback, 0),
     errors_total: results.reduce((a, x) => a + x.errors.length, 0),
     results
   };
