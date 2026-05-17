@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.30 "20-Day Log + Archive"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.32 "Social + Geo Controls"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -125,7 +125,7 @@
 
     .controls{
       display:grid;
-      grid-template-columns: 1.4fr 1fr 1fr 1fr;
+      grid-template-columns: 1.4fr 1fr 1fr 1fr 1fr;
       gap:10px;
       margin-top:10px;
     }
@@ -727,7 +727,7 @@
       <div class="brand">
         <div class="brandLine">
           <h1>MAGIC PAWS // MARITIME PHASE ZERO</h1>
-          <span class="ver">v5.31 “Repo Log Archive”</span>
+          <span class="ver">v5.32 “Social + Geo Controls”</span>
         </div>
         <div class="sub">
           Source: <span id="src">–</span> • Stand: <span id="stand">–</span> • Worker: <span class="hint" id="wkr">–</span>
@@ -793,6 +793,18 @@
             </div>
 
             <div class="panel" style="border-radius:12px; padding:10px;">
+              <label>Quelle / Feedtyp</label>
+              <select id="sourceType">
+                <option value="">Alle</option>
+                <option value="social">Social gesamt</option>
+                <option value="social_x">X / Nitter</option>
+                <option value="social_bsky">Bluesky</option>
+                <option value="rss_media">RSS / Media</option>
+                <option value="official">Official</option>
+              </select>
+            </div>
+
+            <div class="panel" style="border-radius:12px; padding:10px;">
               <label>Severity (SEV:*)</label>
               <select id="sev">
                 <option value="">Alle</option>
@@ -820,7 +832,7 @@
 
           <div id="tab-events" style="margin-top:12px;">
             <div class="hint" style="margin-bottom:8px;">
-              Map-Marker erscheinen, wenn im Issue-Body irgendwo steht: <b>Geo: 53.5100, 8.1500</b> (Dezimalgrad).
+              Map-Marker erscheinen bei fertigem <b>geo</b>, explizitem <b>Geo: 53.5100, 8.1500</b> oder sicherer Archiv-Nachgeolokalisierung.
             </div>
             <div class="list" id="list"></div>
             <div class="hint" id="foot">–</div>
@@ -836,9 +848,9 @@
                 <select id="mapTimeWindow">
                   <option value="24">24h</option>
                   <option value="48">48h</option>
-                  <option value="72" selected>72h</option>
+                  <option value="72">72h</option>
                   <option value="168">7 Tage</option>
-                  <option value="480">20 Tage</option>
+                  <option value="480" selected>20 Tage</option>
                   <option value="720">30 Tage</option>
                   <option value="2160">90 Tage</option>
                   <option value="all">alle offenen</option>
@@ -897,6 +909,9 @@ Wilhelmshaven JadeWeserPort"></textarea>
               <div class="kpi"><div class="k">Events (filtered)</div><div class="v" id="kpiEvents">–</div></div>
               <div class="kpi"><div class="k">P0:SUSPECT</div><div class="v" id="kpiP0">–</div></div>
               <div class="kpi"><div class="k">With GEO</div><div class="v" id="kpiGeo">–</div></div>
+              <div class="kpi"><div class="k">Social</div><div class="v" id="kpiSocial">–</div></div>
+              <div class="kpi"><div class="k">Social + GEO</div><div class="v" id="kpiSocialGeo">–</div></div>
+              <div class="kpi"><div class="k">RSS/Media</div><div class="v" id="kpiRss">–</div></div>
               <div class="kpi"><div class="k">Last Fetch</div><div class="v" id="kpiFetch">–</div></div>
             </div>
 
@@ -1049,7 +1064,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   const FETCH_OPTS = { cache: "no-store", credentials: "omit" };
   const apiFetch = (url, opts={}) => fetch(url, { ...FETCH_OPTS, ...opts });
 
-  // v5.30: 20-Tage-Arbeitslog + lokales Archiv. Das HTML speichert gesehene Events im Browser,
+  // v5.32: 20-Tage-Arbeitslog + Social/Geo-Filter + lokales Archiv. Das HTML speichert gesehene Events im Browser,
   // damit ältere Meldungen nicht aus der Arbeitsliste verschwinden, sobald der Worker sie nicht mehr mitliefert.
   const STORAGE_KEYS = {
     events: "magic_paws_event_archive_v1",
@@ -1146,6 +1161,38 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
   function badge(label){ return `<span class="badge ${classifyBadge(label)}">${escapeHtml(label)}</span>`; }
 
+  function sourceKind(ev){
+    const labels = ev?.labels ?? [];
+    const st = String(ev?.source_type || "").toLowerCase();
+    const platform = String(ev?.source_hint?.platform || "").toLowerCase();
+    const source = String(ev?.source_hint?.source || "").toLowerCase();
+    const title = String(ev?.title || "").toLowerCase();
+    const link = String(ev?.source_hint?.link || ev?.original_url || ev?.source_url || ev?.link || "").toLowerCase();
+    const hay = `${st} ${platform} ${source} ${title} ${link} ${labels.join(" ").toLowerCase()}`;
+    if (st === "social_bsky" || /social[_ -]?bsky|bluesky|bsky/.test(hay)) return "social_bsky";
+    if (st === "social_x" || labels.includes("SRC:SOCIAL") || /social[_ -]?x|\[x\]|nitter|twitter|x\.com/.test(hay)) return "social_x";
+    if (st === "rss" || /\brss\b|feedburner|\.rss|\/feed/.test(hay)) return "rss";
+    if (st === "official" || labels.includes("SRC:OFFICIAL")) return "official";
+    if (st === "media" || labels.includes("SRC:MEDIA")) return "media";
+    return st || "other";
+  }
+
+  function matchesSourceFilter(ev, filter){
+    if (!filter) return true;
+    const kind = sourceKind(ev);
+    const labels = ev?.labels ?? [];
+    if (filter === "social") return kind.startsWith("social") || labels.includes("SRC:SOCIAL");
+    if (filter === "social_x") return kind === "social_x";
+    if (filter === "social_bsky") return kind === "social_bsky";
+    if (filter === "rss_media") return kind === "rss" || kind === "media" || labels.includes("SRC:MEDIA");
+    if (filter === "official") return kind === "official" || labels.includes("SRC:OFFICIAL");
+    return kind === filter;
+  }
+
+  function hasEventGeo(ev){
+    return !!(ev?.geo && Number.isFinite(Number(ev.geo.lat)) && Number.isFinite(Number(ev.geo.lon)));
+  }
+
   function cleanUrl(raw){
     return String(raw || "")
       .trim()
@@ -1214,13 +1261,13 @@ Wilhelmshaven JadeWeserPort"></textarea>
 
   function summaryField(ev, field){
     const txt = String(ev?.summary ?? "");
-    const re = new RegExp(`${field}\s*:\s*([^\n\r]+)`, "i");
+    const re = new RegExp(`${field}\\s*:\\s*([^\\n\\r]+)`, "i");
     return (txt.match(re) || [])[1]?.trim() || null;
   }
 
   function summaryZeitHeaderDate(ev){
     const txt = String(ev?.summary ?? "");
-    const re = new RegExp("###\s*Zeit\s*\(UTC\)\s*\n\s*([^\n\r]+)", "i");
+    const re = /###\s*Zeit\s*\(UTC\)\s*\n\s*([^\n\r]+)/i;
     const m = txt.match(re);
     if (!m) return null;
     const value = m[1].trim();
@@ -1257,6 +1304,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const domain = el("domain").value;
     const region = el("region").value;
     const sev = el("sev").value;
+    const sourceType = el("sourceType")?.value || "";
     const onlyP0 = el("onlyP0").checked;
     const onlyGeo = el("onlyGeo").checked;
     const displayHours = selectedDisplayWindowHours();
@@ -1266,6 +1314,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
       if (domain && ev.category !== domain) return false;
       if (region && ev.region !== region) return false;
       if (sev && ev.severity !== sev) return false;
+      if (!matchesSourceFilter(ev, sourceType)) return false;
       if (onlyP0 && !(ev.phase0 && ev.phase0.suspect)) return false;
       if (onlyGeo && !ev.geo) return false;
 
@@ -1318,8 +1367,10 @@ Wilhelmshaven JadeWeserPort"></textarea>
       const issueWhen = issueDate && chronologyDate && Math.abs(issueDate.getTime() - chronologyDate.getTime()) > 60 * 1000
         ? `Issue: ${issueDate.toLocaleString()}`
         : null;
-      const geoTxt = ev.geo ? `${ev.geo.lat.toFixed(4)}, ${ev.geo.lon.toFixed(4)}` : "";
-      const meta = [`#${ev.number ?? "?"}`, `Meldung: ${when}`, issueWhen, geoTxt ? `Geo: ${geoTxt}` : null].filter(Boolean).join(" • ");
+      const geoTxt = ev.geo ? `${Number(ev.geo.lat).toFixed(4)}, ${Number(ev.geo.lon).toFixed(4)}` : "";
+      const srcKind = sourceKind(ev);
+      const inferredGeo = ev.geo_inferred || ev.geo?.method === "controlled_text_rule" || /archive_postprocess|controlled_text|explicit_coordinate_text/.test(String(ev.geo?.method || ""));
+      const meta = [`#${ev.number ?? "?"}`, `Meldung: ${when}`, issueWhen, srcKind !== "other" ? `Quelle: ${srcKind}` : null, geoTxt ? `Geo: ${geoTxt}${inferredGeo ? " (inferred)" : ""}` : null].filter(Boolean).join(" • ");
 
       const originalUrl = originalUrlFromEvent(ev);
       const titleUrl = originalUrl || ev.url;
@@ -1836,11 +1887,17 @@ Wilhelmshaven JadeWeserPort"></textarea>
 
   function updateKPIsAndInstruments(){
     const p0Count = state.filtered.filter(e => e.phase0 && e.phase0.suspect).length;
-    const geoCount = state.filtered.filter(e => !!e.geo).length;
+    const geoCount = state.filtered.filter(hasEventGeo).length;
+    const socialCount = state.filtered.filter(e => matchesSourceFilter(e, "social")).length;
+    const socialGeoCount = state.filtered.filter(e => matchesSourceFilter(e, "social") && hasEventGeo(e)).length;
+    const rssCount = state.filtered.filter(e => matchesSourceFilter(e, "rss_media")).length;
 
     el("kpiEvents").textContent = String(state.filtered.length);
     el("kpiP0").textContent = String(p0Count);
     el("kpiGeo").textContent = String(geoCount);
+    el("kpiSocial").textContent = String(socialCount);
+    el("kpiSocialGeo").textContent = String(socialGeoCount);
+    el("kpiRss").textContent = String(rssCount);
     el("kpiFetch").textContent = nowStr();
 
     // Instruments intentionally use all loaded events, not UI filters.
@@ -2031,7 +2088,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.layers.events.clearLayers();
 
     const baseSrc = showEvents ? (onlyFiltered ? state.filtered : state.events) : [];
-    const tw = el("mapTimeWindow")?.value || "72";
+    const tw = el("mapTimeWindow")?.value || "480";
     const now = new Date();
 
     const src = tw === "all"
@@ -2041,11 +2098,13 @@ Wilhelmshaven JadeWeserPort"></textarea>
           return eventMs ? ((now.getTime() - eventMs) / (1000 * 60 * 60)) <= Number(tw) : false;
         });
 
-    const pts = src.filter(e => e.geo && Number.isFinite(Number(e.geo.lat)) && Number.isFinite(Number(e.geo.lon)));
+    const pts = src.filter(e => hasEventGeo(e) && e.geo.display_on_map !== false);
+    const socialPts = pts.filter(e => matchesSourceFilter(e, "social")).length;
+    const candidates = src.filter(e => !hasEventGeo(e) && Array.isArray(e.geo_candidates) && e.geo_candidates.length).length;
 
     const ms = el("mapStatus");
     const label = tw === "all" ? "alle offenen" : (tw === "168" ? "7 Tage" : tw === "480" ? "20 Tage" : tw === "720" ? "30 Tage" : tw === "2160" ? "90 Tage" : `${tw}h`);
-    if (ms) ms.textContent = `MAP: ${label} • src=${src.length}/${baseSrc.length} geo=${pts.length}`;
+    if (ms) ms.textContent = `MAP: ${label} • src=${src.length}/${baseSrc.length} geo=${pts.length} • social-geo=${socialPts} • cand=${candidates}`;
 
     let bounds = null;
     for (const ev of pts){
@@ -2055,7 +2114,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
       const originalUrl = originalUrlFromEvent(ev);
       const popupUrl = originalUrl || ev.url;
       const popupLabel = originalUrl ? "Originalmeldung öffnen" : "GitHub Issue öffnen";
-      m.bindPopup(`<b>${escapeHtml(ev.title)}</b><br><a href="${escapeHtml(popupUrl)}" target="_blank" rel="noreferrer">${popupLabel}</a>`);
+      const geoMethod = ev.geo?.method ? `<br>Geo: ${escapeHtml(ev.geo.method)}${ev.geo?.matched_name ? " / " + escapeHtml(ev.geo.matched_name) : ""}` : "";
+      m.bindPopup(`<b>${escapeHtml(ev.title)}</b><br>${escapeHtml(sourceKind(ev))}<br><a href="${escapeHtml(popupUrl)}" target="_blank" rel="noreferrer">${popupLabel}</a>${geoMethod}`);
       m.addTo(state.layers.events);
       bounds = bounds ? bounds.extend([lat, lon]) : L.latLngBounds([[lat, lon],[lat, lon]]);
     }
@@ -2313,13 +2373,17 @@ Wilhelmshaven JadeWeserPort"></textarea>
       ingested_at: sourceHint.ingested_at ?? null,
       title: ev.title ?? "",
       url: ev.url ?? null,
+      original_url: originalUrlFromEvent(ev) || ev.original_url || ev.source_url || ev.link || null,
       labels,
+      source_type: ev.source_type ?? sourceKind(ev),
       category: ev.category ?? null,
       region: ev.region ?? null,
       severity: ev.severity ?? null,
       confidence: ev.confidence ?? null,
       phase0: ev.phase0 ?? null,
       geo: ev.geo ?? null,
+      geo_candidates: Array.isArray(ev.geo_candidates) ? ev.geo_candidates : undefined,
+      geo_inferred: ev.geo_inferred || undefined,
       source_hint: sourceHint,
       report_category: inferReportCategory(ev),
       greybook_rubric: inferGreybookRubric(ev),
@@ -2330,9 +2394,9 @@ Wilhelmshaven JadeWeserPort"></textarea>
   function inferSourceHint(ev){
     const s = String(ev.summary ?? "");
     const existing = ev.source_hint ?? {};
-    const source = s.match(new RegExp("###\s*Quelle\s*\n([^\n\r]+)", "i"));
-    const platform = s.match(new RegExp("###\s*Plattform\s*\n([^\n\r]+)", "i"));
-    const link = s.match(new RegExp("###\s*Link\s*\n([^\n\r]+)", "i"));
+    const source = s.match(/###\s*Quelle\s*\n([^\n\r]+)/i);
+    const platform = s.match(/###\s*Plattform\s*\n([^\n\r]+)/i);
+    const link = s.match(/###\s*Link\s*\n([^\n\r]+)/i);
     const sourcePublishedAt = firstIsoDate(
       existing.source_published_at,
       existing.sourcePublishedAt,
@@ -2509,7 +2573,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
       purpose_de: "Arbeitslog, lokales Archiv und Tagesverdichtung für Magic Paws / ShadowBroker-Heuristik.",
       source: state.bundle?.source ?? null,
       generated_at: state.bundle?.generated_at ?? null,
-      dashboard_version: "v5.31 Repo Log Archive",
+      dashboard_version: "v5.32 Social + Geo Controls",
       active_window: {
         hours: activeHours,
         label_de: windowLabelFromHours(activeHours),
@@ -2948,7 +3012,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
 
   // listeners
-  ["q","domain","region","sev","onlyP0","onlyGeo"].forEach(id => {
+  ["q","domain","region","sourceType","sev","onlyP0","onlyGeo"].forEach(id => {
     on(id, id === "q" ? "input" : "change", applyFilters);
   });
   on("displayWindow", "change", async () => {
