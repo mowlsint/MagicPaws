@@ -1,20 +1,20 @@
 {
   "schema": "MAGIC_PAWS_ARCHIVE_MANIFEST_v1",
-  "generated_at": "2026-05-18T10:41:53.517Z",
+  "generated_at": "2026-05-18T15:57:46.359Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
-  "total_events": 546,
-  "total_geo_events": 81,
-  "total_social_events": 195,
-  "total_social_geo_events": 18,
+  "total_events": 561,
+  "total_geo_events": 83,
+  "total_social_events": 203,
+  "total_social_geo_events": 19,
   "active_window_days": 20,
   "daily_summary_days": 365,
   "months": [
     {
       "month": "2026-05",
       "file": "data/archive/magicpaws_2026-05.jsonl",
-      "count": 469,
+      "count": 484,
       "first_utc": "2026-05-01T07:32:05.000Z",
-      "last_utc": "2026-05-18T06:15:05.264Z"
+      "last_utc": "2026-05-18T15:16:07.627Z"
     },
     {
       "month": "2026-04",
