@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-17T19:38:36.579Z",
+  "generated_at": "2026-05-18T04:43:55.716Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,293 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-17T19:38:39.441Z",
+  "bundle_generated_at": "2026-05-18T04:43:59.565Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-04-27T19:38:36.579Z"
+    "cutoff_utc": "2026-04-28T04:43:55.716Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 528,
-    "active_events": 468,
-    "active_geo_events": 72,
+    "archive_events_total": 533,
+    "active_events": 470,
+    "active_geo_events": 74,
     "active_social_events": 182,
     "active_social_geo_events": 17
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/734",
+      "number": 734,
+      "id": "4466312319",
+      "ts": "2026-05-18T03:21:00.000Z",
+      "chronology_ts": "2026-05-18T03:21:00.000Z",
+      "issue_created_at": "2026-05-18T04:41:26.000Z",
+      "source_published_at": "2026-05-18T03:21:00.000Z",
+      "ingested_at": "2026-05-18T03:21:00.000Z",
+      "title": "[RSS] Iran's Empty Tankers are Still Running Blockade, But Loadings Have Stopped",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/734",
+      "original_url": "https://maritime-executive.com/article/iran-s-empty-tankers-are-still-running-blockade-but-loadings-have-stopped",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "MAP:INFERRED",
+        "REG:GULF_OF_OMAN",
+        "REG:ARABIAN_SEA",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GULF_OF_OMAN",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 24.7,
+        "lon": 58.5,
+        "precision": "area",
+        "method": "controlled_text_rule",
+        "matched_name": "Gulf of Oman",
+        "matched_id": "gulf_of_oman",
+        "radius_km": 350,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:GULF_OF_OMAN",
+          "REG:ARABIAN_SEA",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 24.7,
+          "lon": 58.5,
+          "precision": "area",
+          "method": "controlled_text_rule",
+          "matched_name": "Gulf of Oman",
+          "matched_id": "gulf_of_oman",
+          "radius_km": 350,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:GULF_OF_OMAN",
+            "REG:ARABIAN_SEA",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/iran-s-empty-tankers-are-still-running-blockade-but-loadings-have-stopped",
+        "source_published_at": "2026-05-18T03:21:00.000Z",
+        "ingested_at": "2026-05-18T03:21:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/iran-s-empty-tankers-are-still-running-blockade-but-loadings-have-stopped\n\n### Zeit (UTC)\n2026-05-18T03:21:00Z\n\n### Published\n2026-05-18T03:21:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe U.S. Navy's blockade on Iranian shipping continues to turn back vessels in the Gulf of Oman, but Central Command has not yet sealed up all of its...\n\n---\n_Ingested at 2026-05-18T04:41:26.194861+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a558fa479c70a363 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/735",
+      "number": 735,
+      "id": "4466312392",
+      "ts": "2026-05-18T00:24:22.000Z",
+      "chronology_ts": "2026-05-18T00:24:22.000Z",
+      "issue_created_at": "2026-05-18T04:41:27.000Z",
+      "source_published_at": "2026-05-18T00:24:22.000Z",
+      "ingested_at": "2026-05-18T00:24:22.000Z",
+      "title": "[RSS] Ukrainian Drones Hit Patrol Vessel, Cargo Ship and Port Infrastructure",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/735",
+      "original_url": "https://maritime-executive.com/article/ukrainian-drones-hit-cargo-ship-patrol-vessel-and-port-infrastructure",
+      "labels": [
+        "D:DRONE_UAS",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:DRONE_UAS",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/ukrainian-drones-hit-cargo-ship-patrol-vessel-and-port-infrastructure",
+        "source_published_at": "2026-05-18T00:24:22.000Z",
+        "ingested_at": "2026-05-18T00:24:22.000Z"
+      },
+      "report_category": "Drohnen / UxV",
+      "greybook_rubric": "Drohnen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/ukrainian-drones-hit-cargo-ship-patrol-vessel-and-port-infrastructure\n\n### Zeit (UTC)\n2026-05-18T00:24:22Z\n\n### Published\n2026-05-18T00:24:22Z\n\n### Auto-Labels\nCONF:MED, D:DRONE_UAS, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nUkraine's drone forces continue to take a heavy toll on the Russian Black Sea fleet, and are reaching further and further into protected regions of t...\n\n---\n_Ingested at 2026-05-18T04:41:27.339101+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 214e86e79a912e6d -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/731",
+      "number": 731,
+      "id": "4464939124",
+      "ts": "2026-05-17T20:40:00.000Z",
+      "chronology_ts": "2026-05-17T20:40:00.000Z",
+      "issue_created_at": "2026-05-17T21:08:12.000Z",
+      "source_published_at": "2026-05-17T20:40:00.000Z",
+      "ingested_at": "2026-05-17T20:40:00.000Z",
+      "title": "[RSS] Master Faces Investigation After Fisherman Sickens and Dies Without Medevac",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/731",
+      "original_url": "https://maritime-executive.com/article/master-faces-investigation-after-fisherman-sickens-and-dies-without-medevac",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/master-faces-investigation-after-fisherman-sickens-and-dies-without-medevac",
+        "source_published_at": "2026-05-17T20:40:00.000Z",
+        "ingested_at": "2026-05-17T20:40:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/master-faces-investigation-after-fisherman-sickens-and-dies-without-medevac\n\n### Zeit (UTC)\n2026-05-17T20:40:00Z\n\n### Published\n2026-05-17T20:40:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAuthorities in Argentina are investigating the death of a fisherman who appears to have sickened slowly on board without any prompt attempt at a mede...\n\n---\n_Ingested at 2026-05-17T21:08:12.568443+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 6e8038a03a52880a -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/733",
+      "number": 733,
+      "id": "4465083764",
+      "ts": "2026-05-17T20:24:55.000Z",
+      "chronology_ts": "2026-05-17T20:24:55.000Z",
+      "issue_created_at": "2026-05-17T22:08:00.000Z",
+      "source_published_at": "2026-05-17T20:24:55.000Z",
+      "ingested_at": "2026-05-17T20:24:55.000Z",
+      "title": "[RSS] Shippers Hapag-Lloyd, CMA CGM Suspend Cuba Bookings After US Executive Order",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/733",
+      "original_url": "https://gcaptain.com/shippers-hapag-lloyd-cma-cgm-suspend-cuba-bookings-after-us-executive-order/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:CARIBBEAN",
+        "REG:CUBA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:CARIBBEAN",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 23.14,
+        "lon": -82.35,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Havana",
+        "matched_alias": "Havana",
+        "matched_id": "port_havana",
+        "radius_km": 18,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:CARIBBEAN",
+          "REG:CUBA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 23.14,
+          "lon": -82.35,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Havana",
+          "matched_alias": "Havana",
+          "matched_id": "port_havana",
+          "radius_km": 18,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:CARIBBEAN",
+            "REG:CUBA"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain",
+        "platform": "rss",
+        "link": "https://gcaptain.com/shippers-hapag-lloyd-cma-cgm-suspend-cuba-bookings-after-us-executive-order/",
+        "source_published_at": "2026-05-17T20:24:55.000Z",
+        "ingested_at": "2026-05-17T20:24:55.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\ngCaptain\n\n### Source\ngCaptain\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/shippers-hapag-lloyd-cma-cgm-suspend-cuba-bookings-after-us-executive-order/\n\n### Zeit (UTC)\n2026-05-17T20:24:55Z\n\n### Published\n2026-05-17T20:24:55Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nBy Gus Trompiz, Christoph Steitz and Dave Sherwood PARIS/FRANKFURT/HAVANA, May 17 (Reuters) &#8211; Shipping giants CMA CGM and Hapag-Lloyd HLAG.DE said on Sunday they had suspended all bookings to and from Cuba until further notice, with both citing a...\n\n---\n_Ingested at 2026-05-17T22:07:59.832865+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 71c9b695a940c86c -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/732",
+      "number": 732,
+      "id": "4464939184",
+      "ts": "2026-05-17T19:34:23.000Z",
+      "chronology_ts": "2026-05-17T19:34:23.000Z",
+      "issue_created_at": "2026-05-17T21:08:13.000Z",
+      "source_published_at": "2026-05-17T19:34:23.000Z",
+      "ingested_at": "2026-05-17T19:34:23.000Z",
+      "title": "[RSS] Op-Ed: Bottom Trawl Operators Need to Prove That They Are Sustainable",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/732",
+      "original_url": "https://maritime-executive.com/article/op-ed-bottom-trawl-operators-need-to-prove-that-they-are-sustainable",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/op-ed-bottom-trawl-operators-need-to-prove-that-they-are-sustainable",
+        "source_published_at": "2026-05-17T19:34:23.000Z",
+        "ingested_at": "2026-05-17T19:34:23.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/op-ed-bottom-trawl-operators-need-to-prove-that-they-are-sustainable\n\n### Zeit (UTC)\n2026-05-17T19:34:23Z\n\n### Published\n2026-05-17T19:34:23Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\n[By Sarah Foster and Amanda Vincent] Bottom trawlers extract one-quarter of the world’s fisheries catches by weight and raise significant ecological,...\n\n---\n_Ingested at 2026-05-17T21:08:13.753266+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: c410779cfc5f892e -->"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/725",
       "number": 725,
@@ -22494,146 +22767,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
       "summary": "### Quelle\nDie Flaschenpost – RSS (die_flaschenpost_rss)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-04-28T14:32:31.000Z\n\n### Link\nhttps://die-flaschenpost.de/2026/04/28/das-l-wort-warum-links-ein-imageproblem-hat/\n\n### Text\nStell dir vor, du willst &#8211; wie ich &#8211; Folgendes: Arbeitnehmerrechte stärken. Verhindern, dass eine kleine Gruppe von Menschen immer reicher wird, während alle anderen\n\n### Extra\nIngest run: 2026-05-13T08:28:38.708Z\n\n<!-- VOODOO_INGEST: 343042eb SOURCE=die_flaschenpost_rss -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/529",
-      "number": 529,
-      "id": "4437770704",
-      "ts": "2026-04-28T00:00:00.000Z",
-      "chronology_ts": "2026-04-28T00:00:00.000Z",
-      "issue_created_at": "2026-05-13T12:16:34.000Z",
-      "source_published_at": "2026-04-28T00:00:00.000Z",
-      "ingested_at": "2026-05-13T12:16:32.694Z",
-      "title": "[RSS] Die internationale Dimension der Industriedekarbonisierung",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/529",
-      "original_url": "https://www.swp-berlin.org/publikation/die-internationale-dimension-der-industriedekarbonisierung",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE",
-        "D:CYBER_IT"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "SWP – Offizielle Publikationen DE (swp_publications_de)",
-        "platform": "rss",
-        "link": "https://www.swp-berlin.org/publikation/die-internationale-dimension-der-industriedekarbonisierung",
-        "source_published_at": "2026-04-28T00:00:00.000Z",
-        "ingested_at": "2026-05-13T12:16:32.694Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:swp_publications_de:e383bb1a8f7fedb21478 -->\n<!-- VOODOO_INGEST_ID:swp_publications_de:e383bb1a8f7fedb21478 -->\n\n### Text\nPositionierung Deutschlands und Möglichkeiten der bilateralen Beziehungen anhand der Beispiele Indien und Kenia\n Die Industriedekarbonisierung erfordert ein hohes Maß an internatio­naler Kooperation. Sie ist gleichzeitig Klima-, Industrie- und Geopolitik. Das macht ihre außenpolitische Flankierung besonders komplex. Deutschland ist in vielen internationalen Kooperationsformaten zur Industriedekarbonisierung vertreten, wenngleich in der politischen Kommunikation vor allem der Klimaklub im Mittelpunkt steht. Die bilaterale Kooperation im Themenfeld ist ausbaufähig. Mit ihr ließen sich beiderseitige Vorteile für Deutschland und seine Partnerländer erzielen, Partnerschaften stärken und Impulse für die internationale Industriedekarbonisierung setzen. Bei Deutschlands Zusammenarbeit mit Indien und Kenia ist die Außen­politik der Industriedekarbonisierung noch schwach ausgeprägt und frag­mentiert. Immerhin werden ihre Instrumente in den beiden Ländern schon teilweise eingesetzt. Sie dienen aber meist anderen Zielen, etwa der Dekarbonisierung …"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/552",
-      "number": 552,
-      "id": "4437777386",
-      "ts": "2026-04-27T23:00:00.000Z",
-      "chronology_ts": "2026-04-27T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T12:17:32.000Z",
-      "source_published_at": "2026-04-27T23:00:00.000Z",
-      "ingested_at": "2026-05-13T12:17:30.183Z",
-      "title": "[RSS] Escrow and Russian Oil Super-Profits: Revisiting an Old Sanctions Tool",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/552",
-      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/escrow-and-russian-oil-super-profits-revisiting-old-sanctions-tool",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Commentary (rusi_latest_commentary)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/explore-our-research/publications/commentary/escrow-and-russian-oil-super-profits-revisiting-old-sanctions-tool",
-        "source_published_at": "2026-04-27T23:00:00.000Z",
-        "ingested_at": "2026-05-13T12:17:30.183Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_commentary:0dde67eb2d397aa952fd -->\n<!-- VOODOO_INGEST_ID:rusi_latest_commentary:0dde67eb2d397aa952fd -->\n\n### Text\nThe war in the Middle East has boosted oil profits for Russia and Iran and neutered the price cap. It is time to revisit the past.\n\n### Zeit (UTC)\nsource_published_at: 2026-04-27T23:00:00.000Z\ningested_at: 2026-05-13T12:17:30.183Z\n\n### Quelle\nRUSI – Latest Commentary (rusi_latest_commentary)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/escrow-and-russian-oil-super-profits-revisiting-old-sanctions-tool\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/551",
-      "number": 551,
-      "id": "4437777178",
-      "ts": "2026-04-27T23:00:00.000Z",
-      "chronology_ts": "2026-04-27T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T12:17:29.000Z",
-      "source_published_at": "2026-04-27T23:00:00.000Z",
-      "ingested_at": "2026-05-13T12:17:27.921Z",
-      "title": "[RSS] Is the Shadow Fleet Rallying ‘Round the Russian Flag?",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/551",
-      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/shadow-fleet-rallying-round-russian-flag",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Commentary (rusi_latest_commentary)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/explore-our-research/publications/commentary/shadow-fleet-rallying-round-russian-flag",
-        "source_published_at": "2026-04-27T23:00:00.000Z",
-        "ingested_at": "2026-05-13T12:17:27.921Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_commentary:9f04971957294d68346c -->\n<!-- VOODOO_INGEST_ID:rusi_latest_commentary:9f04971957294d68346c -->\n\n### Text\nInternational pressure on flag registries has pushed part of Russia’s shadow fleet directly under Russian registration, potentially exposing news limits of sanctions enforcement.\n\n### Zeit (UTC)\nsource_published_at: 2026-04-27T23:00:00.000Z\ningested_at: 2026-05-13T12:17:27.921Z\n\n### Quelle\nRUSI – Latest Commentary (rusi_latest_commentary)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/shadow-fleet-rallying-round-russian-flag\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
     }
   ]
 }
