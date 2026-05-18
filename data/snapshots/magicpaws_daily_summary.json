@@ -1,68 +1,71 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-18T15:57:46.359Z",
+  "generated_at": "2026-05-18T20:03:12.996Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 41,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-18",
-      "events_total": 26,
+      "events_total": 38,
       "p0_suspect": 0,
-      "geo_events": 4,
-      "social_events": 9,
+      "geo_events": 9,
+      "social_events": 12,
       "social_geo_events": 1,
-      "rss_media_events": 17,
+      "rss_media_events": 26,
       "top_domains": {
-        "D:NEWS_INTEL": 25,
+        "D:NEWS_INTEL": 37,
         "D:DRONE_UAS": 1
       },
       "top_regions": {
-        "REG:OTHER": 9,
-        "REG:GLOBAL": 6,
+        "REG:OTHER": 14,
+        "REG:GLOBAL": 7,
+        "REG:PERSIAN_GULF": 3,
         "REG:ATLANTIC_NE": 3,
-        "REG:PERSIAN_GULF": 1,
+        "REG:BLACK_SEA": 1,
+        "REG:BALTIC": 1,
+        "REG:NORTH_SEA": 1,
         "REG:GULF_OF_OMAN": 1
       },
       "severity": {
-        "SEV:1": 26
+        "SEV:1": 38
       },
-      "hybrid_index_proxy": 32,
+      "hybrid_index_proxy": 46,
       "government_weirdness_proxy": {
-        "north_sea": 0,
-        "baltic_sea": 0
+        "north_sea": 2,
+        "baltic_sea": 2
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 17
+          "count": 27
         },
         {
           "keyword": "navy",
+          "count": 4
+        },
+        {
+          "keyword": "drone",
           "count": 3
+        },
+        {
+          "keyword": "sts",
+          "count": 2
+        },
+        {
+          "keyword": "mpa",
+          "count": 2
         },
         {
           "keyword": "isr",
           "count": 2
         },
         {
-          "keyword": "drone",
-          "count": 2
+          "keyword": "coast guard",
+          "count": 1
         },
         {
           "keyword": "subsea",
-          "count": 1
-        },
-        {
-          "keyword": "disruption",
-          "count": 1
-        },
-        {
-          "keyword": "dark fleet",
-          "count": 1
-        },
-        {
-          "keyword": "sts",
           "count": 1
         }
       ]
