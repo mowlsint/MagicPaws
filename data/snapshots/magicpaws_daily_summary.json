@@ -1,29 +1,31 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-18T04:43:55.716Z",
+  "generated_at": "2026-05-18T10:41:53.517Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 41,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-18",
-      "events_total": 2,
+      "events_total": 13,
       "p0_suspect": 0,
-      "geo_events": 1,
-      "social_events": 0,
+      "geo_events": 2,
+      "social_events": 2,
       "social_geo_events": 0,
-      "rss_media_events": 2,
+      "rss_media_events": 11,
       "top_domains": {
-        "D:NEWS_INTEL": 1,
+        "D:NEWS_INTEL": 12,
         "D:DRONE_UAS": 1
       },
       "top_regions": {
+        "REG:GLOBAL": 4,
+        "REG:OTHER": 2,
         "REG:GULF_OF_OMAN": 1
       },
       "severity": {
-        "SEV:1": 2
+        "SEV:1": 13
       },
-      "hybrid_index_proxy": 3,
+      "hybrid_index_proxy": 17,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -31,7 +33,23 @@
       "top_keywords": [
         {
           "keyword": "ot",
+          "count": 8
+        },
+        {
+          "keyword": "drone",
           "count": 2
+        },
+        {
+          "keyword": "sts",
+          "count": 1
+        },
+        {
+          "keyword": "mpa",
+          "count": 1
+        },
+        {
+          "keyword": "isr",
+          "count": 1
         },
         {
           "keyword": "navy",
@@ -42,10 +60,6 @@
           "count": 1
         },
         {
-          "keyword": "drone",
-          "count": 1
-        },
-        {
           "keyword": "uas",
           "count": 1
         }
@@ -53,27 +67,28 @@
     },
     {
       "date": "2026-05-17",
-      "events_total": 20,
+      "events_total": 22,
       "p0_suspect": 0,
       "geo_events": 5,
-      "social_events": 9,
+      "social_events": 10,
       "social_geo_events": 0,
-      "rss_media_events": 11,
+      "rss_media_events": 12,
       "top_domains": {
-        "D:NEWS_INTEL": 17,
+        "D:NEWS_INTEL": 19,
         "D:SECURITY_CRIME": 2,
         "D:INFRA_CI": 1
       },
       "top_regions": {
-        "REG:OTHER": 11,
+        "REG:OTHER": 12,
         "REG:PERSIAN_GULF": 4,
+        "REG:GLOBAL": 1,
         "REG:CARIBBEAN": 1,
         "REG:ATLANTIC_NE": 1
       },
       "severity": {
-        "SEV:1": 20
+        "SEV:1": 22
       },
-      "hybrid_index_proxy": 25,
+      "hybrid_index_proxy": 27,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -81,7 +96,7 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 15
+          "count": 17
         },
         {
           "keyword": "drone",

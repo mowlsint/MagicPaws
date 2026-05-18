@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-18T04:43:55.716Z",
+  "generated_at": "2026-05-18T10:41:53.517Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,284 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-18T04:43:59.565Z",
+  "bundle_generated_at": "2026-05-18T10:41:57.751Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-04-28T04:43:55.716Z"
+    "cutoff_utc": "2026-04-28T10:41:53.517Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 533,
-    "active_events": 470,
-    "active_geo_events": 74,
-    "active_social_events": 182,
+    "archive_events_total": 546,
+    "active_events": 483,
+    "active_geo_events": 75,
+    "active_social_events": 185,
     "active_social_geo_events": 17
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/743",
+      "number": 743,
+      "id": "4466914343",
+      "ts": "2026-05-18T06:15:05.264Z",
+      "chronology_ts": "2026-05-18T06:15:05.264Z",
+      "issue_created_at": "2026-05-18T06:52:37.000Z",
+      "source_published_at": "2026-05-18T06:15:05.264Z",
+      "ingested_at": "2026-05-18T06:52:36.417Z",
+      "title": "[BSKY] We spend billions on platforms and hardware, then allocate pennies of time to selecting the people who command them. warontherocks.com/2026/05/daze...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/743",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mm47xxa3e72o",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mm47xxa3e72o",
+        "source_published_at": "2026-05-18T06:15:05.264Z",
+        "ingested_at": "2026-05-18T06:52:36.417Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:170f8b99fc0a71233d75 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:170f8b99fc0a71233d75 -->\n\n### Text\nWe spend billions on platforms and hardware, then allocate pennies of time to selecting the people who command them. warontherocks.com/2026/05/daze...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-18T06:15:05.264Z\ningested_at: 2026-05-18T06:52:36.417Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mm47xxa3e72o\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/737",
+      "number": 737,
+      "id": "4466912958",
+      "ts": "2026-05-18T06:00:55.000Z",
+      "chronology_ts": "2026-05-18T06:00:55.000Z",
+      "issue_created_at": "2026-05-18T06:52:21.000Z",
+      "source_published_at": "2026-05-18T06:00:55.000Z",
+      "ingested_at": "2026-05-18T06:52:20.184Z",
+      "title": "[RSS] Beijing’s War Dividend: China’s Asymmetric Gains from the US-Israeli Campaign Against Iran",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/737",
+      "original_url": "https://smallwarsjournal.com/2026/05/18/beijing-war-dividend-us-iran-war-asymmetric-gains/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/18/beijing-war-dividend-us-iran-war-asymmetric-gains/",
+        "source_published_at": "2026-05-18T06:00:55.000Z",
+        "ingested_at": "2026-05-18T06:52:20.184Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:910ae57aece9bfc51f15 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:910ae57aece9bfc51f15 -->\n\n### Text\n&#160; As the American and Israeli campaign against Iran enters its second phase of hostilities, Western analysts have been quick to catalog the visible actors: the bunker-busters delivered by B-2s, Iran&#8217;s ballistic retaliation, the Shahed drones reprogrammed with Russian assistance, and the tolls exacted on a Strait of Hormuz effectively closed to hostile shipping. Conspicuously absent in most of these &#8230;\n Read more\n The post Beijing’s War Dividend: China’s Asymmetric Gains from the US-Israeli Campaign Against Iran appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-18T06:00:55.000Z\ningested_at: 2026-05-18T06:52:20.184Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/18/beijing-war-dividend-us-iran-war-asymmetric-gains/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/738",
+      "number": 738,
+      "id": "4466913081",
+      "ts": "2026-05-18T06:00:47.000Z",
+      "chronology_ts": "2026-05-18T06:00:47.000Z",
+      "issue_created_at": "2026-05-18T06:52:23.000Z",
+      "source_published_at": "2026-05-18T06:00:47.000Z",
+      "ingested_at": "2026-05-18T06:52:22.227Z",
+      "title": "[RSS] A Memorandum Is Not a Strategy: What the Iran MoU Must Contain to Be More Than a Deferral",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/738",
+      "original_url": "https://smallwarsjournal.com/2026/05/18/a-memorandum-is-not-a-strategy/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/18/a-memorandum-is-not-a-strategy/",
+        "source_published_at": "2026-05-18T06:00:47.000Z",
+        "ingested_at": "2026-05-18T06:52:22.227Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:9c1564120eaeb34a60f6 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:9c1564120eaeb34a60f6 -->\n\n### Text\nAbstract The administration’s pivot to a one-page memorandum of understanding (MoU) with Iran represents meaningful de-escalation, but it also risks codifying the same strategic deficit that bipartisan members of Congress pressed Defense Secretary Pete Hegseth and Joint Chiefs Chairman General Dan Caine to address in May 12 testimony. This article argues that an MoU framework, in the absence of a &#8230;\n Read more\n The post A Memorandum Is Not a Strategy: What the Iran MoU Must Contain to Be More Than a Deferral appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-18T06:00:47.000Z\ningested_at: 2026-05-18T06:52:22.227Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/18/a-memorandum-is-not-a-strategy/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/739",
+      "number": 739,
+      "id": "4466913250",
+      "ts": "2026-05-18T06:00:24.000Z",
+      "chronology_ts": "2026-05-18T06:00:24.000Z",
+      "issue_created_at": "2026-05-18T06:52:25.000Z",
+      "source_published_at": "2026-05-18T06:00:24.000Z",
+      "ingested_at": "2026-05-18T06:52:23.956Z",
+      "title": "[RSS] Iran: It’s the Constitution!",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/739",
+      "original_url": "https://smallwarsjournal.com/2026/05/18/iran-its-the-constitution/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/18/iran-its-the-constitution/",
+        "source_published_at": "2026-05-18T06:00:24.000Z",
+        "ingested_at": "2026-05-18T06:52:23.956Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:8fd86a49efd699cd8049 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:8fd86a49efd699cd8049 -->\n\n### Text\nAbstract Should military action succeed in significantly degrading Iran’s defenses and a naval blockade further constrain its economic and industrial capacity, Iran – with a talented and highly educated population and an abundance of oil, natural gas, and mineral resources – can be expected to re-emerge as a regional power in the not-so-distant future following the conclusion of any conflict. &#8230;\n Read more\n The post Iran: It’s the Constitution! appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-18T06:00:24.000Z\ningested_at: 2026-05-18T06:52:23.956Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/18/iran-its-the-constitution/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Err…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/742",
+      "number": 742,
+      "id": "4466913847",
+      "ts": "2026-05-18T04:48:38.332Z",
+      "chronology_ts": "2026-05-18T04:48:38.332Z",
+      "issue_created_at": "2026-05-18T06:52:31.000Z",
+      "source_published_at": "2026-05-18T04:48:38.332Z",
+      "ingested_at": "2026-05-18T06:52:30.136Z",
+      "title": "[BSKY] Säger det igen: En gång fascist, alltid fascist.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/742",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mm435eatn22k",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mm435eatn22k",
+        "source_published_at": "2026-05-18T04:48:38.332Z",
+        "ingested_at": "2026-05-18T06:52:30.136Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:07f2d20d60aa794ecea9 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:07f2d20d60aa794ecea9 -->\n\n### Text\nSäger det igen:\nEn gång fascist, alltid fascist.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-18T04:48:38.332Z\ningested_at: 2026-05-18T06:52:30.136Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mm435eatn22k\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/734",
       "number": 734,
@@ -102,6 +366,201 @@
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/iran-s-empty-tankers-are-still-running-blockade-but-loadings-have-stopped\n\n### Zeit (UTC)\n2026-05-18T03:21:00Z\n\n### Published\n2026-05-18T03:21:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe U.S. Navy's blockade on Iranian shipping continues to turn back vessels in the Gulf of Oman, but Central Command has not yet sealed up all of its...\n\n---\n_Ingested at 2026-05-18T04:41:26.194861+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a558fa479c70a363 -->"
     },
     {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/744",
+      "number": 744,
+      "id": "4467673288",
+      "ts": "2026-05-18T02:50:40.000Z",
+      "chronology_ts": "2026-05-18T02:50:40.000Z",
+      "issue_created_at": "2026-05-18T08:53:03.000Z",
+      "source_published_at": "2026-05-18T02:50:40.000Z",
+      "ingested_at": "2026-05-18T02:50:40.000Z",
+      "title": "[RSS] Shipping's Decision in 2026: Act With Pace, Preserve Flexibility",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/744",
+      "original_url": "https://maritime-executive.com/article/shipping-s-decision-in-2026-act-with-pace-preserve-flexibility",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/shipping-s-decision-in-2026-act-with-pace-preserve-flexibility",
+        "source_published_at": "2026-05-18T02:50:40.000Z",
+        "ingested_at": "2026-05-18T02:50:40.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/shipping-s-decision-in-2026-act-with-pace-preserve-flexibility\n\n### Zeit (UTC)\n2026-05-18T02:50:40Z\n\n### Published\n2026-05-18T02:50:40Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nShipping now has a range of credible decarbonization options, from alternative fuels to energy-saving technologies. With regulations tightening and c...\n\n---\n_Ingested at 2026-05-18T08:53:03.097168+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: d22c75a20e814f04 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/745",
+      "number": 745,
+      "id": "4467673534",
+      "ts": "2026-05-18T02:38:04.000Z",
+      "chronology_ts": "2026-05-18T02:38:04.000Z",
+      "issue_created_at": "2026-05-18T08:53:04.000Z",
+      "source_published_at": "2026-05-18T02:38:04.000Z",
+      "ingested_at": "2026-05-18T02:38:04.000Z",
+      "title": "[RSS] UAE Shipbuilders Launch a Consortium to Coordinate Projects",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/745",
+      "original_url": "https://maritime-executive.com/article/uae-shipbuilders-launch-a-consortium-to-coordinate-projects",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/uae-shipbuilders-launch-a-consortium-to-coordinate-projects",
+        "source_published_at": "2026-05-18T02:38:04.000Z",
+        "ingested_at": "2026-05-18T02:38:04.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/uae-shipbuilders-launch-a-consortium-to-coordinate-projects\n\n### Zeit (UTC)\n2026-05-18T02:38:04Z\n\n### Published\n2026-05-18T02:38:04Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nIn the past few years, the UAE’s shipbuilding sector has been able to build an international client base resulting in an increase of exports. To prot...\n\n---\n_Ingested at 2026-05-18T08:53:04.229163+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 8f4c78440aed3472 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/746",
+      "number": 746,
+      "id": "4467673663",
+      "ts": "2026-05-18T02:03:20.000Z",
+      "chronology_ts": "2026-05-18T02:03:20.000Z",
+      "issue_created_at": "2026-05-18T08:53:05.000Z",
+      "source_published_at": "2026-05-18T02:03:20.000Z",
+      "ingested_at": "2026-05-18T02:03:20.000Z",
+      "title": "[RSS] Anchor Handler Runs Aground Just Off a Popular Beach in Brazil",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/746",
+      "original_url": "https://maritime-executive.com/article/anchor-handler-runs-aground-just-off-a-popular-beach-in-brazil",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/anchor-handler-runs-aground-just-off-a-popular-beach-in-brazil",
+        "source_published_at": "2026-05-18T02:03:20.000Z",
+        "ingested_at": "2026-05-18T02:03:20.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/anchor-handler-runs-aground-just-off-a-popular-beach-in-brazil\n\n### Zeit (UTC)\n2026-05-18T02:03:20Z\n\n### Published\n2026-05-18T02:03:20Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAn anchor-handler on charter to Petrobras has gone aground about 80 nautical miles to the northeast of Rio de Janiero.The 2010-built AHTS vessel Skan...\n\n---\n_Ingested at 2026-05-18T08:53:05.397042+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 42955cdfbb6878e2 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/747",
+      "number": 747,
+      "id": "4467673799",
+      "ts": "2026-05-18T02:03:00.000Z",
+      "chronology_ts": "2026-05-18T02:03:00.000Z",
+      "issue_created_at": "2026-05-18T08:53:07.000Z",
+      "source_published_at": "2026-05-18T02:03:00.000Z",
+      "ingested_at": "2026-05-18T02:03:00.000Z",
+      "title": "[RSS] Researchers Want to Use AI and Robotics to Find Ship Defects in Outfitting",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/747",
+      "original_url": "https://maritime-executive.com/article/researchers-want-to-use-ai-and-robotics-to-find-ship-defects-in-outfitting",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/researchers-want-to-use-ai-and-robotics-to-find-ship-defects-in-outfitting",
+        "source_published_at": "2026-05-18T02:03:00.000Z",
+        "ingested_at": "2026-05-18T02:03:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/researchers-want-to-use-ai-and-robotics-to-find-ship-defects-in-outfitting\n\n### Zeit (UTC)\n2026-05-18T02:03:00Z\n\n### Published\n2026-05-18T02:03:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe outfitting process for newbuilds could benefit from a new University of Michigan project to develop autonomous robots and AI models that can help...\n\n---\n_Ingested at 2026-05-18T08:53:06.958618+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1131a7e0bec2f78e -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/748",
+      "number": 748,
+      "id": "4467674026",
+      "ts": "2026-05-18T00:51:18.000Z",
+      "chronology_ts": "2026-05-18T00:51:18.000Z",
+      "issue_created_at": "2026-05-18T08:53:08.000Z",
+      "source_published_at": "2026-05-18T00:51:18.000Z",
+      "ingested_at": "2026-05-18T00:51:18.000Z",
+      "title": "[RSS] National Security Requires Energy Security",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/748",
+      "original_url": "https://maritime-executive.com/article/national-security-requires-energy-security",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/national-security-requires-energy-security",
+        "source_published_at": "2026-05-18T00:51:18.000Z",
+        "ingested_at": "2026-05-18T00:51:18.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/national-security-requires-energy-security\n\n### Zeit (UTC)\n2026-05-18T00:51:18Z\n\n### Published\n2026-05-18T00:51:18Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nOil is the lifeblood of the global economy. Without it, economies regress, living standards decline, and a future of subsistence looms.The current Ir...\n\n---\n_Ingested at 2026-05-18T08:53:08.110485+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: f3dd182a7add55d1 -->"
+    },
+    {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/735",
       "number": 735,
       "id": "4466312392",
@@ -140,6 +599,142 @@
       "report_category": "Drohnen / UxV",
       "greybook_rubric": "Drohnen",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/ukrainian-drones-hit-cargo-ship-patrol-vessel-and-port-infrastructure\n\n### Zeit (UTC)\n2026-05-18T00:24:22Z\n\n### Published\n2026-05-18T00:24:22Z\n\n### Auto-Labels\nCONF:MED, D:DRONE_UAS, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nUkraine's drone forces continue to take a heavy toll on the Russian Black Sea fleet, and are reaching further and further into protected regions of t...\n\n---\n_Ingested at 2026-05-18T04:41:27.339101+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 214e86e79a912e6d -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/740",
+      "number": 740,
+      "id": "4466913548",
+      "ts": "2026-05-18T00:00:28.000Z",
+      "chronology_ts": "2026-05-18T00:00:28.000Z",
+      "issue_created_at": "2026-05-18T06:52:27.000Z",
+      "source_published_at": "2026-05-18T00:00:28.000Z",
+      "ingested_at": "2026-05-18T06:52:25.945Z",
+      "title": "[RSS] Bring Irregular Warfare to the Conventional Forces",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/740",
+      "original_url": "https://smallwarsjournal.com/2026/05/18/bring-irregular-warfare-to-the-conventional-forces/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/18/bring-irregular-warfare-to-the-conventional-forces/",
+        "source_published_at": "2026-05-18T00:00:28.000Z",
+        "ingested_at": "2026-05-18T06:52:25.945Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:5f1a00eaf92710220d6d -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:5f1a00eaf92710220d6d -->\n\n### Text\nBring Irregular Warfare to the Conventional Forces is published by the Special Operations Association of America  &#124; May 11, 2026 Mandates for Institutional Integration The Department of Defense has issued several high-level directives intended to transition irregular warfare from a specialized niche to a joint force requirement. The 2020 IW Annex to the National Defense Strategy explicitly mandates the institutionalization &#8230;\n Read more\n The post Bring Irregular Warfare to the Conventional Forces appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-18T00:00:28.000Z\ningested_at: 2026-05-18T06:52:25.945Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/18/bring-irregular-warfare-to-the-conventional-forces/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DE…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/736",
+      "number": 736,
+      "id": "4466912395",
+      "ts": "2026-05-17T23:32:44.714Z",
+      "chronology_ts": "2026-05-17T23:32:44.714Z",
+      "issue_created_at": "2026-05-18T06:52:15.000Z",
+      "source_published_at": "2026-05-17T23:32:44.714Z",
+      "ingested_at": "2026-05-18T06:52:14.336Z",
+      "title": "[BSKY] gonna dream on it.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/736",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mm3jiioc3c2f",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mm3jiioc3c2f",
+        "source_published_at": "2026-05-17T23:32:44.714Z",
+        "ingested_at": "2026-05-18T06:52:14.336Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:060727565b5b33f5268a -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:060727565b5b33f5268a -->\n\n### Text\ngonna dream on it.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-17T23:32:44.714Z\ningested_at: 2026-05-18T06:52:14.336Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mm3jiioc3c2f\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/741",
+      "number": 741,
+      "id": "4466913685",
+      "ts": "2026-05-17T21:29:41.000Z",
+      "chronology_ts": "2026-05-17T21:29:41.000Z",
+      "issue_created_at": "2026-05-18T06:52:29.000Z",
+      "source_published_at": "2026-05-17T21:29:41.000Z",
+      "ingested_at": "2026-05-18T06:52:27.649Z",
+      "title": "[RSS] 5/17/26 National Security and Korean News and Commentary",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/741",
+      "original_url": "https://smallwarsjournal.com/2026/05/17/5-17-26-national-security-and-korean-news-and-commentary/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/17/5-17-26-national-security-and-korean-news-and-commentary/",
+        "source_published_at": "2026-05-17T21:29:41.000Z",
+        "ingested_at": "2026-05-18T06:52:27.649Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:0e838830710449681d32 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:0e838830710449681d32 -->\n\n### Text\nAccess National Security News HERE. Access Korean News HERE. National Security News: 1. America has a serious Chinese spying problem 2. The Strategy That Forgot the Threat 3. Iran’s Seizure of Chinese Security Ship Shows Its Favors for Friends Have Limits 4. How America Can Put Teeth in Its Blockade 5. ‘Insatiable’ demand: Inside the fight for a bigger U.S. Special Forces budget 6. Was the &#8230;\n Read more\n The post 5/17/26 National Security and Korean News and Commentary appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-17T21:29:41.000Z\ningested_at: 2026-05-18T06:52:27.649Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/17/5-17-26-national-security-and-korean-news-and-commentary/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ni…"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/731",
