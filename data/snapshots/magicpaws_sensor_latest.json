@@ -1,19 +1,19 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-05-19T00:00:00.000Z",
-  "generated_at": "2026-05-19T04:35:16.782Z",
+  "snapshot_key": "2026-05-19T06:00:00.000Z",
+  "generated_at": "2026-05-19T10:09:22.448Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 602,
-    "events_72h": 99,
+    "events_total_archive": 612,
+    "events_72h": 108,
     "p0_suspect_72h": 0,
     "geo_72h": 26,
-    "social_72h": 31,
-    "social_geo_72h": 3,
-    "rss_media_72h": 68
+    "social_72h": 36,
+    "social_geo_72h": 2,
+    "rss_media_72h": 72
   },
   "sensors": {
     "hybrid_index_pct": 100,
@@ -22,22 +22,22 @@
       "baltic_sea_pct": 4
     },
     "keyword_barometer_pct": 100,
-    "keyword_hits_72h": 112
+    "keyword_hits_72h": 124
   },
   "density": {
     "domains_72h": {
-      "D:NEWS_INTEL": 85,
-      "D:INFRA_CI": 9,
+      "D:NEWS_INTEL": 95,
+      "D:INFRA_CI": 8,
       "D:SECURITY_CRIME": 4,
       "D:DRONE_UAS": 1
     },
     "regions_72h": {
-      "REG:OTHER": 35,
+      "REG:OTHER": 41,
+      "REG:GLOBAL": 11,
       "REG:PERSIAN_GULF": 11,
-      "REG:GLOBAL": 9,
-      "REG:NORTH_SEA": 4,
-      "REG:ATLANTIC_NE": 4,
+      "REG:ATLANTIC_NE": 5,
       "REG:EUROPE": 3,
+      "REG:NORTH_SEA": 3,
       "REG:HIGH_NORTH_ARCTIC": 1,
       "REG:NORTH_AMERICA": 1,
       "REG:BLACK_SEA": 1,
@@ -50,23 +50,23 @@
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 65
+        "count": 72
+      },
+      {
+        "keyword": "mpa",
+        "count": 10
       },
       {
         "keyword": "navy",
         "count": 10
       },
       {
-        "keyword": "mpa",
-        "count": 7
-      },
-      {
         "keyword": "drone",
-        "count": 5
+        "count": 6
       },
       {
         "keyword": "isr",
-        "count": 4
+        "count": 5
       },
       {
         "keyword": "sts",

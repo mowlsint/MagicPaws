@@ -1,37 +1,53 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-19T04:35:16.782Z",
+  "generated_at": "2026-05-19T10:09:22.448Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 42,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-19",
-      "events_total": 2,
+      "events_total": 12,
       "p0_suspect": 0,
-      "geo_events": 0,
-      "social_events": 0,
+      "geo_events": 1,
+      "social_events": 6,
       "social_geo_events": 0,
-      "rss_media_events": 2,
+      "rss_media_events": 6,
       "top_domains": {
-        "D:NEWS_INTEL": 2
+        "D:NEWS_INTEL": 12
       },
-      "top_regions": {},
+      "top_regions": {
+        "REG:OTHER": 6,
+        "REG:GLOBAL": 2,
+        "REG:ATLANTIC_NE": 1
+      },
       "severity": {
-        "SEV:1": 2
+        "SEV:1": 12
       },
-      "hybrid_index_proxy": 3,
+      "hybrid_index_proxy": 15,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
       },
       "top_keywords": [
         {
-          "keyword": "loitering",
+          "keyword": "ot",
+          "count": 9
+        },
+        {
+          "keyword": "mpa",
+          "count": 3
+        },
+        {
+          "keyword": "isr",
           "count": 1
         },
         {
-          "keyword": "ot",
+          "keyword": "drone",
+          "count": 1
+        },
+        {
+          "keyword": "loitering",
           "count": 1
         }
       ]
