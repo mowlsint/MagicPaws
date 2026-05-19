@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-19T10:09:22.448Z",
+  "generated_at": "2026-05-19T15:51:50.288Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,713 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-19T10:09:25.489Z",
+  "bundle_generated_at": "2026-05-19T15:51:53.628Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-04-29T10:09:22.448Z"
+    "cutoff_utc": "2026-04-29T15:51:50.288Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 612,
-    "active_events": 543,
-    "active_geo_events": 91,
-    "active_social_events": 207,
-    "active_social_geo_events": 18
+    "archive_events_total": 628,
+    "active_events": 559,
+    "active_geo_events": 93,
+    "active_social_events": 213,
+    "active_social_geo_events": 19
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/821",
+      "number": 821,
+      "id": "4477269148",
+      "ts": "2026-05-20T03:09:12.000Z",
+      "chronology_ts": "2026-05-20T03:09:12.000Z",
+      "issue_created_at": "2026-05-19T12:20:32.000Z",
+      "source_published_at": "2026-05-20T03:09:12.000Z",
+      "ingested_at": "2026-05-20T03:09:12.000Z",
+      "title": "[RSS] Adani Pays $275M to Settle US Investigation Into Iranian LPG Imports",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/821",
+      "original_url": "https://maritime-executive.com/article/adani-pays-275m-to-settle-us-investigation-into-iran-sanctions-violations",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/adani-pays-275m-to-settle-us-investigation-into-iran-sanctions-violations",
+        "source_published_at": "2026-05-20T03:09:12.000Z",
+        "ingested_at": "2026-05-20T03:09:12.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/adani-pays-275m-to-settle-us-investigation-into-iran-sanctions-violations\n\n### Zeit (UTC)\n2026-05-20T03:09:12Z\n\n### Published\n2026-05-20T03:09:12Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe U.S. Treasury has reached an agreement with a powerful Indian business conglomerate, Adani Enterprises Limited, to settle allegations of sanctions...\n\n---\n_Ingested at 2026-05-19T12:20:32.292969+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 3afe9d5f8e7b3880 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/825",
+      "number": 825,
+      "id": "4478650644",
+      "ts": "2026-05-19T15:17:15.000Z",
+      "chronology_ts": "2026-05-19T15:17:15.000Z",
+      "issue_created_at": "2026-05-19T15:22:09.000Z",
+      "source_published_at": "2026-05-19T15:17:15.000Z",
+      "ingested_at": "2026-05-19T15:22:08.537Z",
+      "title": "[RSS] Not All Bunkers Are Equal, And Neither Are the Additives",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/825",
+      "original_url": "https://gcaptain.com/not-all-bunkers-are-equal-and-neither-are-the-additives/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/not-all-bunkers-are-equal-and-neither-are-the-additives/",
+        "source_published_at": "2026-05-19T15:17:15.000Z",
+        "ingested_at": "2026-05-19T15:22:08.537Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:d683e137cba032bf558f -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:d683e137cba032bf558f -->\n\n### Text\nThe demulsifier that resolves a distillate water-in-fuel emulsion cleanly and quickly may have no appreciable effect on an HFO emulsion stabilised by viscoelastic asphaltene-resin film! In recent years the maritime...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T15:17:15.000Z\ningested_at: 2026-05-19T15:22:08.537Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/not-all-bunkers-are-equal-and-neither-are-the-additives/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/830",
+      "number": 830,
+      "id": "4478653243",
+      "ts": "2026-05-19T15:16:02.848Z",
+      "chronology_ts": "2026-05-19T15:16:02.848Z",
+      "issue_created_at": "2026-05-19T15:22:29.000Z",
+      "source_published_at": "2026-05-19T15:16:02.848Z",
+      "ingested_at": "2026-05-19T15:22:27.665Z",
+      "title": "[BSKY] New today for War on the Rocks members: Ukrainian Agriculture as Strategy, Diplomacy, and Legacy warontherocks.com/category/mem...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/830",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mm7oo6o5tg2j",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mm7oo6o5tg2j",
+        "source_published_at": "2026-05-19T15:16:02.848Z",
+        "ingested_at": "2026-05-19T15:22:27.665Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:f250217853b4f8eacd26 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:f250217853b4f8eacd26 -->\n\n### Text\nNew today for War on the Rocks members:\nUkrainian Agriculture as Strategy, Diplomacy, and Legacy warontherocks.com/category/mem...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T15:16:02.848Z\ningested_at: 2026-05-19T15:22:27.665Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mm7oo6o5tg2j\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/826",
+      "number": 826,
+      "id": "4478650871",
+      "ts": "2026-05-19T14:53:01.000Z",
+      "chronology_ts": "2026-05-19T14:53:01.000Z",
+      "issue_created_at": "2026-05-19T15:22:11.000Z",
+      "source_published_at": "2026-05-19T14:53:01.000Z",
+      "ingested_at": "2026-05-19T15:22:09.949Z",
+      "title": "[RSS] Georgia Ports Container Volumes Slip as Savannah Expansion Push Continues",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/826",
+      "original_url": "https://gcaptain.com/georgia-ports-container-volumes-slip-as-savannah-expansion-push-continues/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/georgia-ports-container-volumes-slip-as-savannah-expansion-push-continues/",
+        "source_published_at": "2026-05-19T14:53:01.000Z",
+        "ingested_at": "2026-05-19T15:22:09.949Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:5efa800bd267ca636d33 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:5efa800bd267ca636d33 -->\n\n### Text\nGeorgia Ports Authority reported a 2.5% decline in container volumes through April as softer market conditions and last year’s tariff-driven front-loading weighed on comparisons. The Port of Savannah handled approximately...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T14:53:01.000Z\ningested_at: 2026-05-19T15:22:09.949Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/georgia-ports-container-volumes-slip-as-savannah-expansion-push-continues/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/827",
+      "number": 827,
+      "id": "4478650995",
+      "ts": "2026-05-19T14:38:24.000Z",
+      "chronology_ts": "2026-05-19T14:38:24.000Z",
+      "issue_created_at": "2026-05-19T15:22:12.000Z",
+      "source_published_at": "2026-05-19T14:38:24.000Z",
+      "ingested_at": "2026-05-19T15:22:11.525Z",
+      "title": "[RSS] U.S. Targets 19 Tankers, Shadow Banks in Major New Iran Sanctions Crackdown",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/827",
+      "original_url": "https://gcaptain.com/u-s-targets-19-tankers-shadow-banks-in-major-new-iran-sanctions-crackdown/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/u-s-targets-19-tankers-shadow-banks-in-major-new-iran-sanctions-crackdown/",
+        "source_published_at": "2026-05-19T14:38:24.000Z",
+        "ingested_at": "2026-05-19T15:22:11.525Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:50d7c1fb84f41437ea43 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:50d7c1fb84f41437ea43 -->\n\n### Text\nThe Trump administration on Tuesday unveiled one of its broadest sanctions actions yet under its “Economic Fury” campaign, targeting more than 50 companies, individuals, and vessels tied to Iran’s shadow...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T14:38:24.000Z\ningested_at: 2026-05-19T15:22:11.525Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/u-s-targets-19-tankers-shadow-banks-in-major-new-iran-sanctions-crackdown/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/828",
+      "number": 828,
+      "id": "4478651197",
+      "ts": "2026-05-19T14:30:16.000Z",
+      "chronology_ts": "2026-05-19T14:30:16.000Z",
+      "issue_created_at": "2026-05-19T15:22:14.000Z",
+      "source_published_at": "2026-05-19T14:30:16.000Z",
+      "ingested_at": "2026-05-19T15:22:12.918Z",
+      "title": "[RSS] US Imposes Fresh Sanctions on Iranian Exchange House, Shadow Fleet Vessels",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/828",
+      "original_url": "https://gcaptain.com/us-imposes-fresh-sanctions-on-iranian-exchange-house-shadow-fleet-vessels/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/us-imposes-fresh-sanctions-on-iranian-exchange-house-shadow-fleet-vessels/",
+        "source_published_at": "2026-05-19T14:30:16.000Z",
+        "ingested_at": "2026-05-19T15:22:12.918Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:8789db5942d0fed2fae5 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:8789db5942d0fed2fae5 -->\n\n### Text\nThe Trump administration on Tuesday imposed sanctions on an Iranian foreign currency exchange house and what it said were front companies overseeing transactions on behalf of Iranian banks as the U.S. maintains pressure on Tehran.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T14:30:16.000Z\ningested_at: 2026-05-19T15:22:12.918Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/us-imposes-fresh-sanctions-on-iranian-exchange-house-shadow-fleet-vessels/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/822",
+      "number": 822,
+      "id": "4478648483",
+      "ts": "2026-05-19T14:22:08.000Z",
+      "chronology_ts": "2026-05-19T14:22:08.000Z",
+      "issue_created_at": "2026-05-19T15:21:54.000Z",
+      "source_published_at": "2026-05-19T14:22:08.000Z",
+      "ingested_at": "2026-05-19T15:21:52.133Z",
+      "title": "[RSS] Ask Not for Whom the Tolls Apply: Payments for Shipping",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/822",
+      "original_url": "https://cepa.org/article/ask-not-for-whom-the-tolls-apply-payments-for-shipping/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "DECAY:SLOW",
+        "REG:EUROPE",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/ask-not-for-whom-the-tolls-apply-payments-for-shipping/",
+        "source_published_at": "2026-05-19T14:22:08.000Z",
+        "ingested_at": "2026-05-19T15:21:52.133Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:732bede5d63555d66ec9 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:732bede5d63555d66ec9 -->\n\n### Text\nAs Iran tries to rake in cash from the Strait of Hormuz, might others be tempted to follow?\n The post Ask Not for Whom the Tolls Apply: Payments for Shipping appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T14:22:08.000Z\ningested_at: 2026-05-19T15:21:52.133Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/ask-not-for-whom-the-tolls-apply-payments-for-shipping/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/829",
+      "number": 829,
+      "id": "4478652320",
+      "ts": "2026-05-19T13:57:29.571Z",
+      "chronology_ts": "2026-05-19T13:57:29.571Z",
+      "issue_created_at": "2026-05-19T15:22:23.000Z",
+      "source_published_at": "2026-05-19T13:57:29.571Z",
+      "ingested_at": "2026-05-19T15:22:21.740Z",
+      "title": "[BSKY] Israel och folkmord. Vi glömmer aldrig Folke Bernadotte och hans insats för att rädda människor i nöd och vad som hände med honom.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/829",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mm7kbpfaps2r",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mm7kbpfaps2r",
+        "source_published_at": "2026-05-19T13:57:29.571Z",
+        "ingested_at": "2026-05-19T15:22:21.740Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:bc2601c561c3e2cc369b -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:bc2601c561c3e2cc369b -->\n\n### Text\nIsrael och folkmord.\nVi glömmer aldrig Folke Bernadotte och hans insats för att rädda människor i nöd och vad som hände med honom.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T13:57:29.571Z\ningested_at: 2026-05-19T15:22:21.740Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mm7kbpfaps2r\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/823",
+      "number": 823,
+      "id": "4478648771",
+      "ts": "2026-05-19T13:51:42.000Z",
+      "chronology_ts": "2026-05-19T13:51:42.000Z",
+      "issue_created_at": "2026-05-19T15:21:56.000Z",
+      "source_published_at": "2026-05-19T13:51:42.000Z",
+      "ingested_at": "2026-05-19T15:21:54.585Z",
+      "title": "[RSS] ‘One More Day’: Ukraine Is Edging the War of Attrition",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/823",
+      "original_url": "https://cepa.org/article/one-more-day-ukraine-is-edging-the-war-of-attrition/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/one-more-day-ukraine-is-edging-the-war-of-attrition/",
+        "source_published_at": "2026-05-19T13:51:42.000Z",
+        "ingested_at": "2026-05-19T15:21:54.585Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:7a6f72aa7b01e7e47f23 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:7a6f72aa7b01e7e47f23 -->\n\n### Text\nAs Ukraine grinds out the hard yards, consistent Western support will determine the war’s outcome.\n The post ‘One More Day’: Ukraine Is Edging the War of Attrition appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T13:51:42.000Z\ningested_at: 2026-05-19T15:21:54.585Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/one-more-day-ukraine-is-edging-the-war-of-attrition/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/824",
+      "number": 824,
+      "id": "4478649192",
+      "ts": "2026-05-19T13:15:35.000Z",
+      "chronology_ts": "2026-05-19T13:15:35.000Z",
+      "issue_created_at": "2026-05-19T15:21:59.000Z",
+      "source_published_at": "2026-05-19T13:15:35.000Z",
+      "ingested_at": "2026-05-19T15:21:56.819Z",
+      "title": "[RSS] The Putin-Xi ‘Shared Consciousness’ Requires a Robust Western Response",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/824",
+      "original_url": "https://cepa.org/article/the-putin-xi-shared-consciousness-requires-a-robust-western-response/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/the-putin-xi-shared-consciousness-requires-a-robust-western-response/",
+        "source_published_at": "2026-05-19T13:15:35.000Z",
+        "ingested_at": "2026-05-19T15:21:56.819Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:999b51e6ec4cfe2e36a7 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:999b51e6ec4cfe2e36a7 -->\n\n### Text\nThe debate about the China-Russia relationship is over. It’s clear the two are locked into an intimate and dangerous quest to change the world in ways inimical to the West.\n The post The Putin-Xi ‘Shared Consciousness’ Requires a Robust Western Response appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T13:15:35.000Z\ningested_at: 2026-05-19T15:21:56.819Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/the-putin-xi-shared-consciousness-requires-a-robust-western-response/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/820",
+      "number": 820,
+      "id": "4477128815",
+      "ts": "2026-05-19T11:30:07.972Z",
+      "chronology_ts": "2026-05-19T11:30:07.972Z",
+      "issue_created_at": "2026-05-19T11:57:56.000Z",
+      "source_published_at": "2026-05-19T11:30:07.972Z",
+      "ingested_at": "2026-05-19T11:57:55.321Z",
+      "title": "[BSKY] Trump just returned from his first Beijing visit in nearly a decade, and the picture is murkier than the headlines suggest. Listen here: warontherocks.com/episo",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/820",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mm7c27ov4i2o",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mm7c27ov4i2o",
+        "source_published_at": "2026-05-19T11:30:07.972Z",
+        "ingested_at": "2026-05-19T11:57:55.321Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:2fbaadac64dc80d576cf -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:2fbaadac64dc80d576cf -->\n\n### Text\nTrump just returned from his first Beijing visit in nearly a decade, and the picture is murkier than the headlines suggest.\nListen here: warontherocks.com/episode/warc...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T11:30:07.972Z\ningested_at: 2026-05-19T11:57:55.321Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mm7c27ov4i2o\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/819",
+      "number": 819,
+      "id": "4477128282",
+      "ts": "2026-05-19T11:13:04.610Z",
+      "chronology_ts": "2026-05-19T11:13:04.610Z",
+      "issue_created_at": "2026-05-19T11:57:50.000Z",
+      "source_published_at": "2026-05-19T11:13:04.610Z",
+      "ingested_at": "2026-05-19T11:57:49.853Z",
+      "title": "[BSKY] Russia has added four aging LNG tankers to a growing shadow fleet transporting sanctioned Arctic gas cargoes past northern Norway #lng #russia #norway #arctic #",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/819",
+      "original_url": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mm7b3pgirc2i",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "High North News (Bluesky) (highnorthnews_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mm7b3pgirc2i",
+        "source_published_at": "2026-05-19T11:13:04.610Z",
+        "ingested_at": "2026-05-19T11:57:49.853Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:highnorthnews_bsky:de7e0d5199fb00875f16 -->\n<!-- VOODOO_INGEST_ID:highnorthnews_bsky:de7e0d5199fb00875f16 -->\n\n### Text\nRussia has added four aging LNG tankers to a growing shadow fleet transporting sanctioned Arctic gas cargoes past northern Norway\n#lng #russia #norway #arctic #sanctions #nordkapp #northcape #shadowfleet #darkfleet\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T11:13:04.610Z\ningested_at: 2026-05-19T11:57:49.853Z\n\n### Quelle\nHigh North News (Bluesky) (highnorthnews_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/highnorthnews.bsky.social/post/3mm7b3pgirc2i\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/817",
+      "number": 817,
+      "id": "4477127562",
+      "ts": "2026-05-19T09:50:59.145Z",
+      "chronology_ts": "2026-05-19T09:50:59.145Z",
+      "issue_created_at": "2026-05-19T11:57:42.000Z",
+      "source_published_at": "2026-05-19T09:50:59.145Z",
+      "ingested_at": "2026-05-19T11:57:41.616Z",
+      "title": "[BSKY] Latest news article: HMS Stirling Castle arrives in Gibraltar to deliver mine warfare kit for Middle East deployment www.navylookout.com/hms-stirling... Photo:",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/817",
+      "original_url": "https://bsky.app/profile/navylookout.bsky.social/post/3mm74iw6l762h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY",
+        "REG:MEDITERRANEAN",
+        "REG:STRAIT_GIBRALTAR",
+        "REG:BISCAY_ATLANTIC_APPROACHES"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 35.96,
+        "lon": -5.55,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Gibraltar",
+        "matched_alias": "Gibraltar",
+        "matched_id": "strait_gibraltar",
+        "radius_km": 45,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:MEDITERRANEAN",
+          "REG:STRAIT_GIBRALTAR",
+          "REG:BISCAY_ATLANTIC_APPROACHES"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 35.96,
+          "lon": -5.55,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Gibraltar",
+          "matched_alias": "Gibraltar",
+          "matched_id": "strait_gibraltar",
+          "radius_km": 45,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:MEDITERRANEAN",
+            "REG:STRAIT_GIBRALTAR",
+            "REG:BISCAY_ATLANTIC_APPROACHES"
+          ]
+        },
+        {
+          "lat": 36.1408,
+          "lon": -5.3536,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Gibraltar",
+          "matched_alias": "Gibraltar",
+          "matched_id": "port_gibraltar",
+          "radius_km": 12,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:STRAIT_GIBRALTAR",
+            "REG:MEDITERRANEAN",
+            "REG:BISCAY_ATLANTIC_APPROACHES"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "Navy Lookout (Bluesky) (navylookout_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/navylookout.bsky.social/post/3mm74iw6l762h",
+        "source_published_at": "2026-05-19T09:50:59.145Z",
+        "ingested_at": "2026-05-19T11:57:41.616Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:navylookout_bsky:ebf980c91512ee0060fc -->\n<!-- VOODOO_INGEST_ID:navylookout_bsky:ebf980c91512ee0060fc -->\n\n### Text\nLatest news article:\nHMS Stirling Castle arrives in Gibraltar to deliver mine warfare kit for Middle East deployment\nwww.navylookout.com/hms-stirling...\nPhoto: @key2med\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T09:50:59.145Z\ningested_at: 2026-05-19T11:57:41.616Z\n\n### Quelle\nNavy Lookout (Bluesky) (navylookout_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/navylookout.bsky.social/post/3mm74iw6l762h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/818",
+      "number": 818,
+      "id": "4477128151",
+      "ts": "2026-05-19T08:29:59.096Z",
+      "chronology_ts": "2026-05-19T08:29:59.096Z",
+      "issue_created_at": "2026-05-19T11:57:49.000Z",
+      "source_published_at": "2026-05-19T08:29:59.096Z",
+      "ingested_at": "2026-05-19T11:57:48.276Z",
+      "title": "[BSKY] Has the woman in the picture agreed to have her picture posted on social media? Or is this a crime in progress?",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/818",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mm6xy3aepc2r",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mm6xy3aepc2r",
+        "source_published_at": "2026-05-19T08:29:59.096Z",
+        "ingested_at": "2026-05-19T11:57:48.276Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:f3eab86ab5efb5fe6a6a -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:f3eab86ab5efb5fe6a6a -->\n\n### Text\nHas the woman in the picture agreed to have her picture posted on social media?\nOr is this a crime in progress?\n\n### Zeit (UTC)\nsource_published_at: 2026-05-19T08:29:59.096Z\ningested_at: 2026-05-19T11:57:48.276Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mm6xy3aepc2r\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/811",
       "number": 811,
@@ -607,6 +1300,54 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/israeli-forces-intercept-activist-flotilla-off-crete\n\n### Zeit (UTC)\n2026-05-18T23:38:00Z\n\n### Published\n2026-05-18T23:38:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nIsraeli forces moved for the second time to stop the activist Global Summid Flotilla, made up of small boats heading toward Gaza. The action came afte...\n\n---\n_Ingested at 2026-05-19T04:33:20.033206+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 8d26f302b05b26a4 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/815",
+      "number": 815,
+      "id": "4477125730",
+      "ts": "2026-05-18T23:00:00.000Z",
+      "chronology_ts": "2026-05-18T23:00:00.000Z",
+      "issue_created_at": "2026-05-19T11:57:24.000Z",
+      "source_published_at": "2026-05-18T23:00:00.000Z",
+      "ingested_at": "2026-05-19T11:57:22.843Z",
+      "title": "[RSS] Multi-Billion Dollar Guarantee Marketplaces Exploit Stablecoins for Scams",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/815",
+      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/multi-billion-dollar-guarantee-marketplaces-exploit-stablecoins-scams",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "RUSI – Latest Publications (rusi_latest_publications)",
+        "platform": "rss",
+        "link": "https://www.rusi.org/explore-our-research/publications/commentary/multi-billion-dollar-guarantee-marketplaces-exploit-stablecoins-scams",
+        "source_published_at": "2026-05-18T23:00:00.000Z",
+        "ingested_at": "2026-05-19T11:57:22.843Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:fe6dcd64c525a5134290 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:fe6dcd64c525a5134290 -->\n\n### Text\nOnline bazaars operating through Telegram are key enablers of online scams using stablecoins for payments and industrialised money laundering, totalling hundreds of billions of dollars.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-18T23:00:00.000Z\ningested_at: 2026-05-19T11:57:22.843Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/multi-billion-dollar-guarantee-marketplaces-exploit-stablecoins-scams\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/792",
@@ -3117,6 +3858,53 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:6f935dedc7ae12b75b14 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:6f935dedc7ae12b75b14 -->\n\n### Text\nStay sharp. Stay informed. War on the Rocks delivers the insights serious professionals rely on. Join now. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-18T10:46:06.573Z\ningested_at: 2026-05-18T11:03:33.263Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mm4p4l7nff2b\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/816",
+      "number": 816,
+      "id": "4477126004",
+      "ts": "2026-05-18T10:25:05.000Z",
+      "chronology_ts": "2026-05-18T10:25:05.000Z",
+      "issue_created_at": "2026-05-19T11:57:27.000Z",
+      "source_published_at": "2026-05-18T10:25:05.000Z",
+      "ingested_at": "2026-05-19T11:57:25.620Z",
+      "title": "[RSS] Indiens Weltraumpolitik",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/816",
+      "original_url": "https://www.swp-berlin.org/publikation/indiens-weltraumpolitik",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE",
+        "D:CYBER_IT"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "SWP – Offizielle Publikationen DE (swp_publications_de)",
+        "platform": "rss",
+        "link": "https://www.swp-berlin.org/publikation/indiens-weltraumpolitik",
+        "source_published_at": "2026-05-18T10:25:05.000Z",
+        "ingested_at": "2026-05-19T11:57:25.620Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:swp_publications_de:7edc102424e99008ae70 -->\n<!-- VOODOO_INGEST_ID:swp_publications_de:7edc102424e99008ae70 -->\n\n### Text\nInteressen, internationale Kooperation und Zielkonflikte\n Die indische Regierung will das Weltraumprogramm des Landes ausbauen, um die nationale Sicherheit zu stärken, das Wirtschaftswachstum zu fördern und das Ansehen des Landes zu erhöhen. Durch den Ausbau will Indien in der zivilen Raumfahrt strategische Autonomie erlangen, in militärischen Fähigkeiten technologische Souveränität. Sicherheitspolitisch befindet sich Indiens Streben nach souveränen Fähig­keiten aufgrund der Rivalität mit China in einem Rennen gegen die Zeit. Indiens Bemühungen um eigenständige und wettbewerbsfähige Weltraum­fähigkeiten sind jedoch trotz erleichterter Investitions- und Regulierungsbedingungen noch nicht umfassend vorangeschritten. Wichtigster strategischer Partner Indiens im Bereich Weltraum sind die USA. Grundlage hierfür ist die enge Kooperation beider Länder in Handels-, Sicherheits- und nachrichtendienstlichen Fragen. Bei der zivilen Raumfahrt steigt in Indien indes das Interesse an der Zu­sam­menarbeit mit europäischen Akteuren. Indien verfolgt da…"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/750",
@@ -20040,7 +20828,6 @@
           "in_title": false
         }
       ],
-      "geo_inferred": true,
       "source_hint": {
         "source": "World Crime Intel (X) (worldcrimeintel_x)",
         "platform": "x",
