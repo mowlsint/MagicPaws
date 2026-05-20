@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-19T20:05:51.640Z",
+  "generated_at": "2026-05-20T04:38:30.711Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 43,
   "summary_window_days": 365,
@@ -29,30 +29,31 @@
     },
     {
       "date": "2026-05-19",
-      "events_total": 39,
+      "events_total": 59,
       "p0_suspect": 0,
-      "geo_events": 7,
-      "social_events": 18,
+      "geo_events": 8,
+      "social_events": 23,
       "social_geo_events": 3,
-      "rss_media_events": 21,
+      "rss_media_events": 36,
       "top_domains": {
-        "D:NEWS_INTEL": 34,
-        "D:INFRA_CI": 4,
+        "D:NEWS_INTEL": 52,
+        "D:INFRA_CI": 5,
+        "D:DRONE_UAS": 1,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
-        "REG:OTHER": 21,
-        "REG:GLOBAL": 3,
+        "REG:OTHER": 27,
+        "REG:GLOBAL": 4,
+        "REG:PERSIAN_GULF": 3,
         "REG:EUROPE": 3,
         "REG:ATLANTIC_NE": 3,
-        "REG:PERSIAN_GULF": 2,
         "REG:GULF_OF_GUINEA": 1,
         "REG:NORTH_SEA": 1
       },
       "severity": {
-        "SEV:1": 39
+        "SEV:1": 59
       },
-      "hybrid_index_proxy": 47,
+      "hybrid_index_proxy": 73,
       "government_weirdness_proxy": {
         "north_sea": 2,
         "baltic_sea": 0
@@ -60,7 +61,7 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 31
+          "count": 40
         },
         {
           "keyword": "mpa",
@@ -68,10 +69,14 @@
         },
         {
           "keyword": "navy",
-          "count": 2
+          "count": 6
         },
         {
           "keyword": "shadow fleet",
+          "count": 3
+        },
+        {
+          "keyword": "drone",
           "count": 2
         },
         {
@@ -79,15 +84,11 @@
           "count": 2
         },
         {
-          "keyword": "surveillance",
+          "keyword": "sts",
           "count": 1
         },
         {
-          "keyword": "drone",
-          "count": 1
-        },
-        {
-          "keyword": "loitering",
+          "keyword": "uas",
           "count": 1
         }
       ]
