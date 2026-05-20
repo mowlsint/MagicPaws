@@ -1,7 +1,7 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
   "snapshot_key": "2026-05-20T18:00:00.000Z",
-  "generated_at": "2026-05-20T20:33:28.297Z",
+  "generated_at": "2026-05-20T20:34:23.294Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"

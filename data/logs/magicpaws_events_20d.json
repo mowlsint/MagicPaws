@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-20T20:33:28.297Z",
+  "generated_at": "2026-05-20T20:34:23.294Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,10 +8,10 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-20T20:33:32.074Z",
+  "bundle_generated_at": "2026-05-20T20:34:26.199Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-04-30T20:33:28.297Z"
+    "cutoff_utc": "2026-04-30T20:34:23.294Z"
   },
   "counts": {
     "live_events_from_worker": 500,
