@@ -1,32 +1,33 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-20T09:55:23.909Z",
+  "generated_at": "2026-05-20T15:59:14.714Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 43,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-20",
-      "events_total": 14,
+      "events_total": 26,
       "p0_suspect": 0,
-      "geo_events": 3,
-      "social_events": 5,
-      "social_geo_events": 1,
-      "rss_media_events": 9,
+      "geo_events": 7,
+      "social_events": 11,
+      "social_geo_events": 2,
+      "rss_media_events": 15,
       "top_domains": {
-        "D:NEWS_INTEL": 14
+        "D:NEWS_INTEL": 26
       },
       "top_regions": {
-        "REG:OTHER": 5,
+        "REG:OTHER": 11,
+        "REG:PERSIAN_GULF": 4,
         "REG:GLOBAL": 3,
+        "REG:ATLANTIC_NE": 2,
         "REG:RED_SEA": 1,
-        "REG:PERSIAN_GULF": 1,
         "REG:NORTH_SEA": 1
       },
       "severity": {
-        "SEV:1": 14
+        "SEV:1": 26
       },
-      "hybrid_index_proxy": 17,
+      "hybrid_index_proxy": 32,
       "government_weirdness_proxy": {
         "north_sea": 3,
         "baltic_sea": 0
@@ -34,7 +35,7 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 11
+          "count": 19
         },
         {
           "keyword": "mpa",
@@ -45,46 +46,54 @@
           "count": 2
         },
         {
-          "keyword": "isr",
+          "keyword": "espionage",
           "count": 1
         },
         {
-          "keyword": "cyber",
+          "keyword": "spionage",
           "count": 1
         },
         {
-          "keyword": "coast guard",
+          "keyword": "surveillance",
+          "count": 1
+        },
+        {
+          "keyword": "uuv",
+          "count": 1
+        },
+        {
+          "keyword": "navy",
           "count": 1
         }
       ]
     },
     {
       "date": "2026-05-19",
-      "events_total": 60,
+      "events_total": 61,
       "p0_suspect": 0,
       "geo_events": 9,
       "social_events": 24,
       "social_geo_events": 4,
-      "rss_media_events": 36,
+      "rss_media_events": 37,
       "top_domains": {
         "D:NEWS_INTEL": 52,
-        "D:INFRA_CI": 6,
+        "D:INFRA_CI": 7,
         "D:DRONE_UAS": 1,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
         "REG:OTHER": 27,
         "REG:GLOBAL": 4,
+        "REG:EUROPE": 4,
         "REG:PERSIAN_GULF": 3,
-        "REG:EUROPE": 3,
         "REG:ATLANTIC_NE": 3,
         "REG:NORTH_SEA": 2,
         "REG:GULF_OF_GUINEA": 1
       },
       "severity": {
-        "SEV:1": 60
+        "SEV:1": 61
       },
-      "hybrid_index_proxy": 75,
+      "hybrid_index_proxy": 76,
       "government_weirdness_proxy": {
         "north_sea": 5,
         "baltic_sea": 0
@@ -92,7 +101,7 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 41
+          "count": 42
         },
         {
           "keyword": "navy",
@@ -103,11 +112,11 @@
           "count": 7
         },
         {
-          "keyword": "drone",
-          "count": 3
+          "keyword": "shadow fleet",
+          "count": 4
         },
         {
-          "keyword": "shadow fleet",
+          "keyword": "drone",
           "count": 3
         },
         {
