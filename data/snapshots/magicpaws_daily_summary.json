@@ -1,44 +1,53 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-20T15:59:14.714Z",
+  "generated_at": "2026-05-20T20:33:28.297Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 43,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-20",
-      "events_total": 26,
+      "events_total": 41,
       "p0_suspect": 0,
-      "geo_events": 7,
-      "social_events": 11,
-      "social_geo_events": 2,
-      "rss_media_events": 15,
+      "geo_events": 10,
+      "social_events": 19,
+      "social_geo_events": 3,
+      "rss_media_events": 22,
       "top_domains": {
-        "D:NEWS_INTEL": 26
+        "D:NEWS_INTEL": 37,
+        "D:INFRA_CI": 3,
+        "D:SECURITY_CRIME": 1
       },
       "top_regions": {
-        "REG:OTHER": 11,
-        "REG:PERSIAN_GULF": 4,
-        "REG:GLOBAL": 3,
+        "REG:OTHER": 18,
+        "REG:PERSIAN_GULF": 5,
+        "REG:GLOBAL": 4,
+        "REG:EUROPE": 2,
+        "REG:NORTH_SEA": 2,
         "REG:ATLANTIC_NE": 2,
-        "REG:RED_SEA": 1,
-        "REG:NORTH_SEA": 1
+        "REG:GULF_OF_OMAN": 1,
+        "REG:BALTIC": 1,
+        "REG:RED_SEA": 1
       },
       "severity": {
-        "SEV:1": 26
+        "SEV:1": 41
       },
-      "hybrid_index_proxy": 32,
+      "hybrid_index_proxy": 50,
       "government_weirdness_proxy": {
-        "north_sea": 3,
-        "baltic_sea": 0
+        "north_sea": 5,
+        "baltic_sea": 2
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 19
+          "count": 27
         },
         {
           "keyword": "mpa",
+          "count": 5
+        },
+        {
+          "keyword": "navy",
           "count": 2
         },
         {
@@ -60,40 +69,36 @@
         {
           "keyword": "uuv",
           "count": 1
-        },
-        {
-          "keyword": "navy",
-          "count": 1
         }
       ]
     },
     {
       "date": "2026-05-19",
-      "events_total": 61,
+      "events_total": 64,
       "p0_suspect": 0,
       "geo_events": 9,
       "social_events": 24,
       "social_geo_events": 4,
-      "rss_media_events": 37,
+      "rss_media_events": 40,
       "top_domains": {
         "D:NEWS_INTEL": 52,
-        "D:INFRA_CI": 7,
+        "D:INFRA_CI": 10,
         "D:DRONE_UAS": 1,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
         "REG:OTHER": 27,
+        "REG:EUROPE": 7,
         "REG:GLOBAL": 4,
-        "REG:EUROPE": 4,
         "REG:PERSIAN_GULF": 3,
         "REG:ATLANTIC_NE": 3,
         "REG:NORTH_SEA": 2,
         "REG:GULF_OF_GUINEA": 1
       },
       "severity": {
-        "SEV:1": 61
+        "SEV:1": 64
       },
-      "hybrid_index_proxy": 76,
+      "hybrid_index_proxy": 80,
       "government_weirdness_proxy": {
         "north_sea": 5,
         "baltic_sea": 0
@@ -104,11 +109,11 @@
           "count": 42
         },
         {
-          "keyword": "navy",
-          "count": 7
+          "keyword": "mpa",
+          "count": 8
         },
         {
-          "keyword": "mpa",
+          "keyword": "navy",
           "count": 7
         },
         {
@@ -450,20 +455,20 @@
     },
     {
       "date": "2026-05-13",
-      "events_total": 59,
+      "events_total": 60,
       "p0_suspect": 0,
-      "geo_events": 11,
+      "geo_events": 12,
       "social_events": 16,
       "social_geo_events": 1,
-      "rss_media_events": 43,
+      "rss_media_events": 44,
       "top_domains": {
         "D:NEWS_INTEL": 49,
-        "D:INFRA_CI": 9,
+        "D:INFRA_CI": 10,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
         "REG:OTHER": 19,
-        "REG:EUROPE": 8,
+        "REG:EUROPE": 9,
         "REG:GLOBAL": 8,
         "REG:PERSIAN_GULF": 6,
         "REG:NORTH_AMERICA": 2,
@@ -471,9 +476,9 @@
         "REG:ATLANTIC_NE": 1
       },
       "severity": {
-        "SEV:1": 59
+        "SEV:1": 60
       },
-      "hybrid_index_proxy": 74,
+      "hybrid_index_proxy": 76,
       "government_weirdness_proxy": {
         "north_sea": 2,
         "baltic_sea": 0

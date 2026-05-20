@@ -1,68 +1,63 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-05-20T12:00:00.000Z",
-  "generated_at": "2026-05-20T15:59:14.714Z",
+  "snapshot_key": "2026-05-20T18:00:00.000Z",
+  "generated_at": "2026-05-20T20:33:28.297Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 690,
-    "events_72h": 170,
+    "events_total_archive": 709,
+    "events_72h": 177,
     "p0_suspect_72h": 0,
     "geo_72h": 36,
-    "social_72h": 60,
-    "social_geo_72h": 7,
-    "rss_media_72h": 110
+    "social_72h": 61,
+    "social_geo_72h": 8,
+    "rss_media_72h": 116
   },
   "sensors": {
     "hybrid_index_pct": 100,
     "government_weirdness": {
       "north_sea_pct": 18,
-      "baltic_sea_pct": 4
+      "baltic_sea_pct": 6
     },
     "keyword_barometer_pct": 100,
-    "keyword_hits_72h": 200
+    "keyword_hits_72h": 198
   },
   "density": {
     "domains_72h": {
-      "D:NEWS_INTEL": 147,
-      "D:INFRA_CI": 16,
-      "D:SECURITY_CRIME": 5,
+      "D:NEWS_INTEL": 149,
+      "D:INFRA_CI": 22,
+      "D:SECURITY_CRIME": 4,
       "D:DRONE_UAS": 2
     },
     "regions_72h": {
-      "REG:OTHER": 65,
-      "REG:PERSIAN_GULF": 16,
-      "REG:GLOBAL": 15,
-      "REG:EUROPE": 10,
-      "REG:ATLANTIC_NE": 9,
-      "REG:NORTH_SEA": 5,
+      "REG:OTHER": 66,
+      "REG:GLOBAL": 16,
+      "REG:EUROPE": 15,
+      "REG:PERSIAN_GULF": 15,
+      "REG:ATLANTIC_NE": 8,
+      "REG:NORTH_SEA": 6,
+      "REG:GULF_OF_OMAN": 2,
+      "REG:BALTIC": 2,
       "REG:RED_SEA": 1,
       "REG:GULF_OF_GUINEA": 1,
       "REG:HIGH_NORTH_ARCTIC": 1,
       "REG:NORTH_AMERICA": 1,
-      "REG:BLACK_SEA": 1,
-      "REG:BALTIC": 1,
-      "REG:GULF_OF_OMAN": 1,
-      "REG:CARIBBEAN": 1
+      "REG:BLACK_SEA": 1
     },
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 115
-      },
-      {
-        "keyword": "navy",
-        "count": 16
+        "count": 114
       },
       {
         "keyword": "mpa",
-        "count": 16
+        "count": 20
       },
       {
-        "keyword": "drone",
-        "count": 8
+        "keyword": "navy",
+        "count": 14
       },
       {
         "keyword": "isr",
@@ -70,6 +65,10 @@
       },
       {
         "keyword": "sts",
+        "count": 6
+      },
+      {
+        "keyword": "drone",
         "count": 6
       },
       {
