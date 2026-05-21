@@ -1,34 +1,37 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-21T15:52:57.814Z",
+  "generated_at": "2026-05-21T20:12:32.028Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 44,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-21",
-      "events_total": 17,
+      "events_total": 36,
       "p0_suspect": 0,
-      "geo_events": 6,
-      "social_events": 9,
+      "geo_events": 8,
+      "social_events": 13,
       "social_geo_events": 4,
-      "rss_media_events": 8,
+      "rss_media_events": 23,
       "top_domains": {
-        "D:NEWS_INTEL": 16,
-        "D:INCIDENT": 1
+        "D:NEWS_INTEL": 28,
+        "D:INFRA_CI": 6,
+        "D:INCIDENT": 2
       },
       "top_regions": {
-        "REG:ATLANTIC_NE": 4,
-        "REG:OTHER": 4,
-        "REG:PERSIAN_GULF": 2,
-        "REG:GLOBAL": 2,
+        "REG:OTHER": 13,
+        "REG:EUROPE": 6,
+        "REG:ATLANTIC_NE": 5,
+        "REG:GLOBAL": 3,
+        "REG:PERSIAN_GULF": 3,
+        "REG:CHANNEL": 1,
         "REG:RED_SEA": 1,
         "REG:SINGAPORE_STRAIT": 1
       },
       "severity": {
-        "SEV:1": 17
+        "SEV:1": 36
       },
-      "hybrid_index_proxy": 21,
+      "hybrid_index_proxy": 45,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -36,26 +39,34 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 8
+          "count": 20
+        },
+        {
+          "keyword": "isr",
+          "count": 5
         },
         {
           "keyword": "navy",
           "count": 3
         },
         {
-          "keyword": "isr",
-          "count": 3
+          "keyword": "incident",
+          "count": 2
+        },
+        {
+          "keyword": "drone",
+          "count": 1
+        },
+        {
+          "keyword": "sar",
+          "count": 1
+        },
+        {
+          "keyword": "disruption",
+          "count": 1
         },
         {
           "keyword": "sts",
-          "count": 1
-        },
-        {
-          "keyword": "incident",
-          "count": 1
-        },
-        {
-          "keyword": "cyber",
           "count": 1
         }
       ]
