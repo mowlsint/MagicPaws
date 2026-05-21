@@ -1,38 +1,39 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-20T20:34:23.294Z",
+  "generated_at": "2026-05-21T04:46:20.018Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 43,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-20",
-      "events_total": 41,
+      "events_total": 60,
       "p0_suspect": 0,
-      "geo_events": 10,
-      "social_events": 19,
+      "geo_events": 15,
+      "social_events": 23,
       "social_geo_events": 3,
-      "rss_media_events": 22,
+      "rss_media_events": 37,
       "top_domains": {
-        "D:NEWS_INTEL": 37,
-        "D:INFRA_CI": 3,
+        "D:NEWS_INTEL": 54,
+        "D:INFRA_CI": 5,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
-        "REG:OTHER": 18,
-        "REG:PERSIAN_GULF": 5,
-        "REG:GLOBAL": 4,
+        "REG:OTHER": 22,
+        "REG:PERSIAN_GULF": 9,
+        "REG:GLOBAL": 6,
         "REG:EUROPE": 2,
         "REG:NORTH_SEA": 2,
         "REG:ATLANTIC_NE": 2,
+        "REG:CARIBBEAN": 1,
         "REG:GULF_OF_OMAN": 1,
         "REG:BALTIC": 1,
         "REG:RED_SEA": 1
       },
       "severity": {
-        "SEV:1": 41
+        "SEV:1": 60
       },
-      "hybrid_index_proxy": 50,
+      "hybrid_index_proxy": 75,
       "government_weirdness_proxy": {
         "north_sea": 5,
         "baltic_sea": 2
@@ -40,11 +41,11 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 27
+          "count": 37
         },
         {
           "keyword": "mpa",
-          "count": 5
+          "count": 7
         },
         {
           "keyword": "navy",
@@ -53,6 +54,10 @@
         {
           "keyword": "sts",
           "count": 2
+        },
+        {
+          "keyword": "drone",
+          "count": 1
         },
         {
           "keyword": "espionage",
@@ -64,10 +69,6 @@
         },
         {
           "keyword": "surveillance",
-          "count": 1
-        },
-        {
-          "keyword": "uuv",
           "count": 1
         }
       ]
