@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-21T10:05:12.442Z",
+  "generated_at": "2026-05-21T15:52:57.814Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,397 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-21T10:05:16.776Z",
+  "bundle_generated_at": "2026-05-21T15:53:01.570Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-01T10:05:12.442Z"
+    "cutoff_utc": "2026-05-01T15:52:57.814Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 741,
-    "active_events": 663,
-    "active_geo_events": 119,
-    "active_social_events": 253,
-    "active_social_geo_events": 28
+    "archive_events_total": 749,
+    "active_events": 671,
+    "active_geo_events": 121,
+    "active_social_events": 257,
+    "active_social_geo_events": 29
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/950",
+      "number": 950,
+      "id": "4494600534",
+      "ts": "2026-05-21T12:18:21.197Z",
+      "chronology_ts": "2026-05-21T12:18:21.197Z",
+      "issue_created_at": "2026-05-21T12:41:42.000Z",
+      "source_published_at": "2026-05-21T12:18:21.197Z",
+      "ingested_at": "2026-05-21T12:41:41.375Z",
+      "title": "[BSKY] The Norwegian Conservative Party leadership faced critical questions in the border town of Kirkenes, about preparedness, power shortages, transport and settleme",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/950",
+      "original_url": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mmefobirqc2i",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY",
+        "REG:HIGH_NORTH_ARCTIC",
+        "REG:BARENTS_SEA",
+        "REG:NORWAY_COAST"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 69.725,
+        "lon": 30.045,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Kirkenes",
+        "matched_alias": "Kirkenes",
+        "matched_id": "port_kirkenes",
+        "radius_km": 18,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:HIGH_NORTH_ARCTIC",
+          "REG:BARENTS_SEA",
+          "REG:NORWAY_COAST"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 69.725,
+          "lon": 30.045,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Kirkenes",
+          "matched_alias": "Kirkenes",
+          "matched_id": "port_kirkenes",
+          "radius_km": 18,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:HIGH_NORTH_ARCTIC",
+            "REG:BARENTS_SEA",
+            "REG:NORWAY_COAST"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "High North News (Bluesky) (highnorthnews_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mmefobirqc2i",
+        "source_published_at": "2026-05-21T12:18:21.197Z",
+        "ingested_at": "2026-05-21T12:41:41.375Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:highnorthnews_bsky:7a969a6d11453e4a2d6e -->\n<!-- VOODOO_INGEST_ID:highnorthnews_bsky:7a969a6d11453e4a2d6e -->\n\n### Text\nThe Norwegian Conservative Party leadership faced critical questions in the border town of Kirkenes, about preparedness, power shortages, transport and settlement.\n#conservativeparty #norway #finnmark #kirkenes #security #preparedness #arctic\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T12:18:21.197Z\ningested_at: 2026-05-21T12:41:41.375Z\n\n### Quelle\nHigh North News (Bluesky) (highnorthnews_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/highnorthnews.bsky.social/post/3mmefobirqc2i\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/951",
+      "number": 951,
+      "id": "4494601218",
+      "ts": "2026-05-21T12:15:05.450Z",
+      "chronology_ts": "2026-05-21T12:15:05.450Z",
+      "issue_created_at": "2026-05-21T12:41:49.000Z",
+      "source_published_at": "2026-05-21T12:15:05.450Z",
+      "ingested_at": "2026-05-21T12:41:48.208Z",
+      "title": "[BSKY] Unlimited access. Unfiltered expertise. Join War on the Rocks for premium podcasts, newsletters, and analysis you won’t find anywhere else. warontherocks.com/ev",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/951",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmefih5aae2h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmefih5aae2h",
+        "source_published_at": "2026-05-21T12:15:05.450Z",
+        "ingested_at": "2026-05-21T12:41:48.208Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:7f51999f263fa6cb8cec -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:7f51999f263fa6cb8cec -->\n\n### Text\nUnlimited access. Unfiltered expertise. Join War on the Rocks for premium podcasts, newsletters, and analysis you won’t find anywhere else. warontherocks.com/events-and-s...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T12:15:05.450Z\ningested_at: 2026-05-21T12:41:48.208Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmefih5aae2h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/948",
+      "number": 948,
+      "id": "4494599359",
+      "ts": "2026-05-21T11:19:28.010Z",
+      "chronology_ts": "2026-05-21T11:19:28.010Z",
+      "issue_created_at": "2026-05-21T12:41:31.000Z",
+      "source_published_at": "2026-05-21T11:19:28.010Z",
+      "ingested_at": "2026-05-21T12:41:30.304Z",
+      "title": "[BSKY] Latest news article Defence minister wants 1,000-ship Royal Navy, built primarily on uncrewed platforms www.navylookout.com/defence-mini... #CNE2026",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/948",
+      "original_url": "https://bsky.app/profile/navylookout.bsky.social/post/3mmecexzvfk2c",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Navy Lookout (Bluesky) (navylookout_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/navylookout.bsky.social/post/3mmecexzvfk2c",
+        "source_published_at": "2026-05-21T11:19:28.010Z",
+        "ingested_at": "2026-05-21T12:41:30.304Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:navylookout_bsky:afa534df2da28deb6730 -->\n<!-- VOODOO_INGEST_ID:navylookout_bsky:afa534df2da28deb6730 -->\n\n### Text\nLatest news article\nDefence minister wants 1,000-ship Royal Navy, built primarily on uncrewed platforms\nwww.navylookout.com/defence-mini...\n#CNE2026\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T11:19:28.010Z\ningested_at: 2026-05-21T12:41:30.304Z\n\n### Quelle\nNavy Lookout (Bluesky) (navylookout_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/navylookout.bsky.social/post/3mmecexzvfk2c\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/945",
+      "number": 945,
+      "id": "4494598825",
+      "ts": "2026-05-21T10:55:53.000Z",
+      "chronology_ts": "2026-05-21T10:55:53.000Z",
+      "issue_created_at": "2026-05-21T12:41:26.000Z",
+      "source_published_at": "2026-05-21T10:55:53.000Z",
+      "ingested_at": "2026-05-21T12:41:25.072Z",
+      "title": "[RSS] Saudi $1 Trillion Wealth Fund Weighs Creating a Logistics Giant",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/945",
+      "original_url": "https://gcaptain.com/saudi-1-trillion-wealth-fund-weighs-creating-a-logistics-giant/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/saudi-1-trillion-wealth-fund-weighs-creating-a-logistics-giant/",
+        "source_published_at": "2026-05-21T10:55:53.000Z",
+        "ingested_at": "2026-05-21T12:41:25.072Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:c5ee13ce9475c9bc34ae -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:c5ee13ce9475c9bc34ae -->\n\n### Text\nSaudi Arabia’s sovereign wealth fund is considering consolidating transport and supply-chain assets to create a logistics giant that can attract foreign investment and better serve the kingdom’s trade hubs amid the upheaval caused by the Iran war.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T10:55:53.000Z\ningested_at: 2026-05-21T12:41:25.072Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/saudi-1-trillion-wealth-fund-weighs-creating-a-logistics-giant/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/946",
+      "number": 946,
+      "id": "4494598977",
+      "ts": "2026-05-21T10:51:15.000Z",
+      "chronology_ts": "2026-05-21T10:51:15.000Z",
+      "issue_created_at": "2026-05-21T12:41:27.000Z",
+      "source_published_at": "2026-05-21T10:51:15.000Z",
+      "ingested_at": "2026-05-21T12:41:26.651Z",
+      "title": "[RSS] No Full Hormuz Flows Until First Half of 2027, UAE&#8217;s Oil Giant Says",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/946",
+      "original_url": "https://gcaptain.com/no-full-hormuz-flows-until-first-half-of-2027-uaes-oil-giant-says/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/no-full-hormuz-flows-until-first-half-of-2027-uaes-oil-giant-says/",
+        "source_published_at": "2026-05-21T10:51:15.000Z",
+        "ingested_at": "2026-05-21T12:41:26.651Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:e39f17867b3f045453ea -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:e39f17867b3f045453ea -->\n\n### Text\nFull oil flows through the Strait of Hormuz will not return before the first or second quarter of 2027, even if the Middle East conflict ended now, the head of the United Arab Emirates' state oil firm ADNOC said.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T10:51:15.000Z\ningested_at: 2026-05-21T12:41:26.651Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/no-full-hormuz-flows-until-first-half-of-2027-uaes-oil-giant-says/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/949",
+      "number": 949,
+      "id": "4494600261",
+      "ts": "2026-05-21T10:29:41.000Z",
+      "chronology_ts": "2026-05-21T10:29:41.000Z",
+      "issue_created_at": "2026-05-21T12:41:40.000Z",
+      "source_published_at": "2026-05-21T10:29:41.000Z",
+      "ingested_at": "2026-05-21T12:41:38.047Z",
+      "title": "[RSS] Distributed Combat Power: How Ukraine is Redefining Fires, Electronic Warfare, and Air Defense at the Tactical Level",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/949",
+      "original_url": "https://smallwarsjournal.com/2026/05/21/distributed-combat-power-how-ukraine-is-redefining-fires-electronic-warfare-and-air-defense-at-the-tactical-level/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/21/distributed-combat-power-how-ukraine-is-redefining-fires-electronic-warfare-and-air-defense-at-the-tactical-level/",
+        "source_published_at": "2026-05-21T10:29:41.000Z",
+        "ingested_at": "2026-05-21T12:41:38.047Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:6c1bfff248ff486229fa -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:6c1bfff248ff486229fa -->\n\n### Text\nThe insights in this article are drawn from the author&#8217;s experience serving with the Security Assistance Group–Ukraine (SAG-U). Abstract The war in Ukraine reveals a fundamental shift in how combat power is generated at the tactical level. The proliferation of cheap, rapidly adaptable systems has enabled a profound decentralization of leadership and responsibilities across fires, electronic warfare, and air defense. &#8230;\n Read more\n The post Distributed Combat Power: How Ukraine is Redefining Fires, Electronic Warfare, and Air Defense at the Tactical Level appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T10:29:41.000Z\ningested_at: 2026-05-21T12:41:38.047Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/21/distributed-combat-power-how-ukraine-is-redefining-fires-electronic-warfare-and-air-defense-at-the-tactical-level/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANA…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/947",
+      "number": 947,
+      "id": "4494599176",
+      "ts": "2026-05-21T10:04:58.751Z",
+      "chronology_ts": "2026-05-21T10:04:58.751Z",
+      "issue_created_at": "2026-05-21T12:41:29.000Z",
+      "source_published_at": "2026-05-21T10:04:58.751Z",
+      "ingested_at": "2026-05-21T12:41:28.302Z",
+      "title": "[BSKY] No, its personal. Might look into open sourcing at some point. But its very fluid, I constantly make adjustments.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/947",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mme67rrj2s2d",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mme67rrj2s2d",
+        "source_published_at": "2026-05-21T10:04:58.751Z",
+        "ingested_at": "2026-05-21T12:41:28.302Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:67977615e5e4d8858634 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:67977615e5e4d8858634 -->\n\n### Text\nNo, its personal. Might look into open sourcing at some point. But its very fluid, I constantly make adjustments.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T10:04:58.751Z\ningested_at: 2026-05-21T12:41:28.302Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mme67rrj2s2d\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/940",
       "number": 940,
@@ -984,6 +1361,54 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:3ed555cebc40f9087014 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:3ed555cebc40f9087014 -->\n\n### Text\nDr Olivia Cheung and Lyle Morris join Philip Shetler-Jones to assess President Trump’s Beijing visit and the future of US-China relations.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-20T23:00:00.000Z\ningested_at: 2026-05-21T09:28:45.514Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/podcasts/global-security-briefing/episode-120-president-trump-beijing-future-us-china-relations\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/944",
+      "number": 944,
+      "id": "4494597360",
+      "ts": "2026-05-20T23:00:00.000Z",
+      "chronology_ts": "2026-05-20T23:00:00.000Z",
+      "issue_created_at": "2026-05-21T12:41:11.000Z",
+      "source_published_at": "2026-05-20T23:00:00.000Z",
+      "ingested_at": "2026-05-21T12:41:08.694Z",
+      "title": "[RSS] Missing Intelligence: The Trump Administration, Iran and the US Intelligence Community",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/944",
+      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/missing-intelligence-trump-administration-iran-and-us-intelligence-community",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "RUSI – Latest Publications (rusi_latest_publications)",
+        "platform": "rss",
+        "link": "https://www.rusi.org/explore-our-research/publications/commentary/missing-intelligence-trump-administration-iran-and-us-intelligence-community",
+        "source_published_at": "2026-05-20T23:00:00.000Z",
+        "ingested_at": "2026-05-21T12:41:08.694Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:efc50b2be6857dd7cc81 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:efc50b2be6857dd7cc81 -->\n\n### Text\nDespite intelligence dominance in the war with Iran, events suggest the US intelligence community is having little influence on White House decision-making.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-20T23:00:00.000Z\ningested_at: 2026-05-21T12:41:08.694Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/missing-intelligence-trump-administration-iran-and-us-intelligence-community\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/926",

@@ -1,34 +1,34 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-21T10:05:12.442Z",
+  "generated_at": "2026-05-21T15:52:57.814Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 44,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-21",
-      "events_total": 10,
+      "events_total": 17,
       "p0_suspect": 0,
-      "geo_events": 4,
-      "social_events": 5,
-      "social_geo_events": 3,
-      "rss_media_events": 5,
+      "geo_events": 6,
+      "social_events": 9,
+      "social_geo_events": 4,
+      "rss_media_events": 8,
       "top_domains": {
-        "D:NEWS_INTEL": 9,
+        "D:NEWS_INTEL": 16,
         "D:INCIDENT": 1
       },
       "top_regions": {
-        "REG:ATLANTIC_NE": 2,
-        "REG:OTHER": 1,
-        "REG:GLOBAL": 1,
+        "REG:ATLANTIC_NE": 4,
+        "REG:OTHER": 4,
+        "REG:PERSIAN_GULF": 2,
+        "REG:GLOBAL": 2,
         "REG:RED_SEA": 1,
-        "REG:PERSIAN_GULF": 1,
         "REG:SINGAPORE_STRAIT": 1
       },
       "severity": {
-        "SEV:1": 10
+        "SEV:1": 17
       },
-      "hybrid_index_proxy": 13,
+      "hybrid_index_proxy": 21,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -36,15 +36,19 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 4
+          "count": 8
+        },
+        {
+          "keyword": "navy",
+          "count": 3
         },
         {
           "keyword": "isr",
           "count": 3
         },
         {
-          "keyword": "navy",
-          "count": 2
+          "keyword": "sts",
+          "count": 1
         },
         {
           "keyword": "incident",
@@ -58,22 +62,22 @@
     },
     {
       "date": "2026-05-20",
-      "events_total": 62,
+      "events_total": 63,
       "p0_suspect": 0,
       "geo_events": 15,
       "social_events": 23,
       "social_geo_events": 3,
-      "rss_media_events": 39,
+      "rss_media_events": 40,
       "top_domains": {
         "D:NEWS_INTEL": 55,
-        "D:INFRA_CI": 6,
+        "D:INFRA_CI": 7,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
         "REG:OTHER": 22,
         "REG:PERSIAN_GULF": 9,
         "REG:GLOBAL": 6,
-        "REG:EUROPE": 3,
+        "REG:EUROPE": 4,
         "REG:NORTH_SEA": 2,
         "REG:ATLANTIC_NE": 2,
         "REG:CARIBBEAN": 1,
@@ -82,9 +86,9 @@
         "REG:RED_SEA": 1
       },
       "severity": {
-        "SEV:1": 62
+        "SEV:1": 63
       },
-      "hybrid_index_proxy": 78,
+      "hybrid_index_proxy": 79,
       "government_weirdness_proxy": {
         "north_sea": 5,
         "baltic_sea": 2
