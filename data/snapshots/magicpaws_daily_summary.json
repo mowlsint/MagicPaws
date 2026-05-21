@@ -1,28 +1,79 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-21T04:46:20.018Z",
+  "generated_at": "2026-05-21T10:05:12.442Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
-  "days": 43,
+  "days": 44,
   "summary_window_days": 365,
   "daily_summary": [
     {
+      "date": "2026-05-21",
+      "events_total": 10,
+      "p0_suspect": 0,
+      "geo_events": 4,
+      "social_events": 5,
+      "social_geo_events": 3,
+      "rss_media_events": 5,
+      "top_domains": {
+        "D:NEWS_INTEL": 9,
+        "D:INCIDENT": 1
+      },
+      "top_regions": {
+        "REG:ATLANTIC_NE": 2,
+        "REG:OTHER": 1,
+        "REG:GLOBAL": 1,
+        "REG:RED_SEA": 1,
+        "REG:PERSIAN_GULF": 1,
+        "REG:SINGAPORE_STRAIT": 1
+      },
+      "severity": {
+        "SEV:1": 10
+      },
+      "hybrid_index_proxy": 13,
+      "government_weirdness_proxy": {
+        "north_sea": 0,
+        "baltic_sea": 0
+      },
+      "top_keywords": [
+        {
+          "keyword": "ot",
+          "count": 4
+        },
+        {
+          "keyword": "isr",
+          "count": 3
+        },
+        {
+          "keyword": "navy",
+          "count": 2
+        },
+        {
+          "keyword": "incident",
+          "count": 1
+        },
+        {
+          "keyword": "cyber",
+          "count": 1
+        }
+      ]
+    },
+    {
       "date": "2026-05-20",
-      "events_total": 60,
+      "events_total": 62,
       "p0_suspect": 0,
       "geo_events": 15,
       "social_events": 23,
       "social_geo_events": 3,
-      "rss_media_events": 37,
+      "rss_media_events": 39,
       "top_domains": {
-        "D:NEWS_INTEL": 54,
-        "D:INFRA_CI": 5,
+        "D:NEWS_INTEL": 55,
+        "D:INFRA_CI": 6,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
         "REG:OTHER": 22,
         "REG:PERSIAN_GULF": 9,
         "REG:GLOBAL": 6,
-        "REG:EUROPE": 2,
+        "REG:EUROPE": 3,
         "REG:NORTH_SEA": 2,
         "REG:ATLANTIC_NE": 2,
         "REG:CARIBBEAN": 1,
@@ -31,9 +82,9 @@
         "REG:RED_SEA": 1
       },
       "severity": {
-        "SEV:1": 60
+        "SEV:1": 62
       },
-      "hybrid_index_proxy": 75,
+      "hybrid_index_proxy": 78,
       "government_weirdness_proxy": {
         "north_sea": 5,
         "baltic_sea": 2
@@ -48,11 +99,11 @@
           "count": 7
         },
         {
-          "keyword": "navy",
-          "count": 2
+          "keyword": "sts",
+          "count": 3
         },
         {
-          "keyword": "sts",
+          "keyword": "navy",
           "count": 2
         },
         {
@@ -75,21 +126,21 @@
     },
     {
       "date": "2026-05-19",
-      "events_total": 64,
+      "events_total": 65,
       "p0_suspect": 0,
       "geo_events": 9,
       "social_events": 24,
       "social_geo_events": 4,
-      "rss_media_events": 40,
+      "rss_media_events": 41,
       "top_domains": {
         "D:NEWS_INTEL": 52,
-        "D:INFRA_CI": 10,
+        "D:INFRA_CI": 11,
         "D:DRONE_UAS": 1,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
         "REG:OTHER": 27,
-        "REG:EUROPE": 7,
+        "REG:EUROPE": 8,
         "REG:GLOBAL": 4,
         "REG:PERSIAN_GULF": 3,
         "REG:ATLANTIC_NE": 3,
@@ -97,9 +148,9 @@
         "REG:GULF_OF_GUINEA": 1
       },
       "severity": {
-        "SEV:1": 64
+        "SEV:1": 65
       },
-      "hybrid_index_proxy": 80,
+      "hybrid_index_proxy": 82,
       "government_weirdness_proxy": {
         "north_sea": 5,
         "baltic_sea": 0
@@ -107,7 +158,7 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 42
+          "count": 43
         },
         {
           "keyword": "mpa",
@@ -126,12 +177,12 @@
           "count": 3
         },
         {
-          "keyword": "isr",
+          "keyword": "sts",
           "count": 2
         },
         {
-          "keyword": "sts",
-          "count": 1
+          "keyword": "isr",
+          "count": 2
         },
         {
           "keyword": "uas",
