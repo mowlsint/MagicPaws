@@ -1,37 +1,28 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-21T20:12:32.028Z",
+  "generated_at": "2026-05-22T04:37:15.646Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
-  "days": 44,
+  "days": 45,
   "summary_window_days": 365,
   "daily_summary": [
     {
-      "date": "2026-05-21",
-      "events_total": 36,
+      "date": "2026-05-22",
+      "events_total": 3,
       "p0_suspect": 0,
-      "geo_events": 8,
-      "social_events": 13,
-      "social_geo_events": 4,
-      "rss_media_events": 23,
+      "geo_events": 0,
+      "social_events": 1,
+      "social_geo_events": 0,
+      "rss_media_events": 2,
       "top_domains": {
-        "D:NEWS_INTEL": 28,
-        "D:INFRA_CI": 6,
-        "D:INCIDENT": 2
+        "D:NEWS_INTEL": 3
       },
       "top_regions": {
-        "REG:OTHER": 13,
-        "REG:EUROPE": 6,
-        "REG:ATLANTIC_NE": 5,
-        "REG:GLOBAL": 3,
-        "REG:PERSIAN_GULF": 3,
-        "REG:CHANNEL": 1,
-        "REG:RED_SEA": 1,
-        "REG:SINGAPORE_STRAIT": 1
+        "REG:OTHER": 1
       },
       "severity": {
-        "SEV:1": 36
+        "SEV:1": 3
       },
-      "hybrid_index_proxy": 45,
+      "hybrid_index_proxy": 4,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -39,34 +30,82 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 20
+          "count": 1
+        },
+        {
+          "keyword": "sts",
+          "count": 1
+        },
+        {
+          "keyword": "mpa",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-05-21",
+      "events_total": 52,
+      "p0_suspect": 0,
+      "geo_events": 13,
+      "social_events": 18,
+      "social_geo_events": 4,
+      "rss_media_events": 34,
+      "top_domains": {
+        "D:NEWS_INTEL": 43,
+        "D:INFRA_CI": 7,
+        "D:INCIDENT": 2
+      },
+      "top_regions": {
+        "REG:OTHER": 18,
+        "REG:EUROPE": 7,
+        "REG:GLOBAL": 5,
+        "REG:ATLANTIC_NE": 5,
+        "REG:PERSIAN_GULF": 4,
+        "REG:CARIBBEAN": 3,
+        "REG:NORTH_SEA": 1,
+        "REG:CHANNEL": 1,
+        "REG:RED_SEA": 1,
+        "REG:SINGAPORE_STRAIT": 1
+      },
+      "severity": {
+        "SEV:1": 52
+      },
+      "hybrid_index_proxy": 65,
+      "government_weirdness_proxy": {
+        "north_sea": 3,
+        "baltic_sea": 0
+      },
+      "top_keywords": [
+        {
+          "keyword": "ot",
+          "count": 31
         },
         {
           "keyword": "isr",
           "count": 5
         },
         {
+          "keyword": "drone",
+          "count": 3
+        },
+        {
           "keyword": "navy",
           "count": 3
+        },
+        {
+          "keyword": "sts",
+          "count": 2
         },
         {
           "keyword": "incident",
           "count": 2
         },
         {
-          "keyword": "drone",
+          "keyword": "surveillance",
           "count": 1
         },
         {
           "keyword": "sar",
-          "count": 1
-        },
-        {
-          "keyword": "disruption",
-          "count": 1
-        },
-        {
-          "keyword": "sts",
           "count": 1
         }
       ]

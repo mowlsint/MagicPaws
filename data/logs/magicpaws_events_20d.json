@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-21T20:12:32.028Z",
+  "generated_at": "2026-05-22T04:37:15.646Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,1033 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-21T20:12:35.856Z",
+  "bundle_generated_at": "2026-05-22T04:37:19.183Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-01T20:12:32.028Z"
+    "cutoff_utc": "2026-05-02T04:37:15.646Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 768,
-    "active_events": 690,
-    "active_geo_events": 123,
-    "active_social_events": 261,
+    "archive_events_total": 787,
+    "active_events": 709,
+    "active_geo_events": 128,
+    "active_social_events": 267,
     "active_social_geo_events": 29
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/987",
+      "number": 987,
+      "id": "4499625830",
+      "ts": "2026-05-22T03:16:01.706Z",
+      "chronology_ts": "2026-05-22T03:16:01.706Z",
+      "issue_created_at": "2026-05-22T03:39:11.000Z",
+      "source_published_at": "2026-05-22T03:16:01.706Z",
+      "ingested_at": "2026-05-22T03:39:10.535Z",
+      "title": "[BSKY] Insider access. Clear analysis. Trusted voices. Sign up for a War on the Rocks membership to unlock all our members-only content. warontherocks.com/membership/",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/987",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmfxthbaik2u",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmfxthbaik2u",
+        "source_published_at": "2026-05-22T03:16:01.706Z",
+        "ingested_at": "2026-05-22T03:39:10.535Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:0a1397b7d92ab75842e4 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:0a1397b7d92ab75842e4 -->\n\n### Text\nInsider access. Clear analysis. Trusted voices. Sign up for a War on the Rocks membership to unlock all our members-only content. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T03:16:01.706Z\ningested_at: 2026-05-22T03:39:10.535Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmfxthbaik2u\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/988",
+      "number": 988,
+      "id": "4499854809",
+      "ts": "2026-05-22T01:32:46.000Z",
+      "chronology_ts": "2026-05-22T01:32:46.000Z",
+      "issue_created_at": "2026-05-22T04:37:07.000Z",
+      "source_published_at": "2026-05-22T01:32:46.000Z",
+      "ingested_at": "2026-05-22T01:32:46.000Z",
+      "title": "[RSS] Australian Police Intercept a Diesel Generator Filled With Multiple Drugs",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/988",
+      "original_url": "https://maritime-executive.com/article/australian-police-intercept-a-diesel-generator-filled-with-multiple-drugs",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/australian-police-intercept-a-diesel-generator-filled-with-multiple-drugs",
+        "source_published_at": "2026-05-22T01:32:46.000Z",
+        "ingested_at": "2026-05-22T01:32:46.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/australian-police-intercept-a-diesel-generator-filled-with-multiple-drugs\n\n### Zeit (UTC)\n2026-05-22T01:32:46Z\n\n### Published\n2026-05-22T01:32:46Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe Australian Federal Police are calling on diesel repair specialists to help with a rare technical problem: the agency has confiscated a used diesel...\n\n---\n_Ingested at 2026-05-22T04:37:06.962520+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 0c1d8c62b6f73a5d -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/989",
+      "number": 989,
+      "id": "4499854901",
+      "ts": "2026-05-22T00:45:49.000Z",
+      "chronology_ts": "2026-05-22T00:45:49.000Z",
+      "issue_created_at": "2026-05-22T04:37:08.000Z",
+      "source_published_at": "2026-05-22T00:45:49.000Z",
+      "ingested_at": "2026-05-22T00:45:49.000Z",
+      "title": "[RSS] Baleària Completes Canary Islands Acquisition from Armas Trasmediterránea",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/989",
+      "original_url": "https://maritime-executive.com/article/balearia-completes-canary-islands-acquisition-from-armas-trasmediterranea",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/balearia-completes-canary-islands-acquisition-from-armas-trasmediterranea",
+        "source_published_at": "2026-05-22T00:45:49.000Z",
+        "ingested_at": "2026-05-22T00:45:49.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/balearia-completes-canary-islands-acquisition-from-armas-trasmediterranea\n\n### Zeit (UTC)\n2026-05-22T00:45:49Z\n\n### Published\n2026-05-22T00:45:49Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nBaleària, Spain’s leading maritime passenger and freight transport company, has completed the first phase of the planned acquisition of Armas Trasmed...\n\n---\n_Ingested at 2026-05-22T04:37:08.132000+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 96232276f6a231a7 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/985",
+      "number": 985,
+      "id": "4498760919",
+      "ts": "2026-05-21T23:36:58.000Z",
+      "chronology_ts": "2026-05-21T23:36:58.000Z",
+      "issue_created_at": "2026-05-22T00:15:07.000Z",
+      "source_published_at": "2026-05-21T23:36:58.000Z",
+      "ingested_at": "2026-05-21T23:36:58.000Z",
+      "title": "[RSS] Panama Canal Names First Female Administrator as Challenges Grow",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/985",
+      "original_url": "https://maritime-executive.com/article/panama-canal-names-first-female-administrator-as-challenges-grow",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:CARIBBEAN",
+        "REG:PACIFIC_CENTRAL_AMERICA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:CARIBBEAN",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 9.08,
+        "lon": -79.68,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Panama Canal",
+        "matched_alias": "Panama Canal",
+        "matched_id": "panama_canal",
+        "radius_km": 80,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:CARIBBEAN",
+          "REG:PACIFIC_CENTRAL_AMERICA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 9.08,
+          "lon": -79.68,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Panama Canal",
+          "matched_alias": "Panama Canal",
+          "matched_id": "panama_canal",
+          "radius_km": 80,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:CARIBBEAN",
+            "REG:PACIFIC_CENTRAL_AMERICA"
+          ]
+        },
+        {
+          "lat": 10.11,
+          "lon": -64.88,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Jose Terminal",
+          "matched_alias": "Jose",
+          "matched_id": "terminal_jose_venezuela",
+          "radius_km": 22,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:CARIBBEAN",
+            "REG:SOUTH_AMERICA_EAST",
+            "REG:VENEZUELA_COAST",
+            "REG:ENERGY"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/panama-canal-names-first-female-administrator-as-challenges-grow",
+        "source_published_at": "2026-05-21T23:36:58.000Z",
+        "ingested_at": "2026-05-21T23:36:58.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/panama-canal-names-first-female-administrator-as-challenges-grow\n\n### Zeit (UTC)\n2026-05-21T23:36:58Z\n\n### Published\n2026-05-21T23:36:58Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe President of Panama, Jose Mulino, announced on Thursday the decision of the Board of Directors of the Panama Canal Authority to appoint its first-...\n\n---\n_Ingested at 2026-05-22T00:15:06.935856+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a1e16ce8fb77f566 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/984",
+      "number": 984,
+      "id": "4498698139",
+      "ts": "2026-05-21T23:30:14.614Z",
+      "chronology_ts": "2026-05-21T23:30:14.614Z",
+      "issue_created_at": "2026-05-21T23:57:48.000Z",
+      "source_published_at": "2026-05-21T23:30:14.614Z",
+      "ingested_at": "2026-05-21T23:57:47.285Z",
+      "title": "[BSKY] American MiG pilots spent years flying Soviet jets in secret, building a knowledge of enemy aircraft by actually sitting in the cockpit. (Members Only) Listen h",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/984",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmfl7ph54j2h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmfl7ph54j2h",
+        "source_published_at": "2026-05-21T23:30:14.614Z",
+        "ingested_at": "2026-05-21T23:57:47.285Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:dedd3ff9d7a86ce8ebf5 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:dedd3ff9d7a86ce8ebf5 -->\n\n### Text\nAmerican MiG pilots spent years flying Soviet jets in secret, building a knowledge of enemy aircraft by actually sitting in the cockpit. (Members Only)\nListen here: warontherocks.com/episode/airm...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T23:30:14.614Z\ningested_at: 2026-05-21T23:57:47.285Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmfl7ph54j2h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/986",
+      "number": 986,
+      "id": "4498760984",
+      "ts": "2026-05-21T23:12:25.000Z",
+      "chronology_ts": "2026-05-21T23:12:25.000Z",
+      "issue_created_at": "2026-05-22T00:15:08.000Z",
+      "source_published_at": "2026-05-21T23:12:25.000Z",
+      "ingested_at": "2026-05-21T23:12:25.000Z",
+      "title": "[RSS] IMO Passes Non-Mandatory Safety Code for Autonomous Ships",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/986",
+      "original_url": "https://maritime-executive.com/article/imo-passes-non-mandatory-safety-code-for-autonomous-ships",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/imo-passes-non-mandatory-safety-code-for-autonomous-ships",
+        "source_published_at": "2026-05-21T23:12:25.000Z",
+        "ingested_at": "2026-05-21T23:12:25.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/imo-passes-non-mandatory-safety-code-for-autonomous-ships\n\n### Zeit (UTC)\n2026-05-21T23:12:25Z\n\n### Published\n2026-05-21T23:12:25Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe IMO has taken a new step forward towards comprehensive regulation of unmanned shipping, building upon years of debate and detailed development wo...\n\n---\n_Ingested at 2026-05-22T00:15:08.023611+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 79cd1d95b32d8d7f -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/983",
+      "number": 983,
+      "id": "4498697400",
+      "ts": "2026-05-21T22:47:18.000Z",
+      "chronology_ts": "2026-05-21T22:47:18.000Z",
+      "issue_created_at": "2026-05-21T23:57:36.000Z",
+      "source_published_at": "2026-05-21T22:47:18.000Z",
+      "ingested_at": "2026-05-21T23:57:35.433Z",
+      "title": "[RSS] U.S. and Iran Still Deadlocked on Key Issues Despite Signs of Diplomatic Progress",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/983",
+      "original_url": "https://gcaptain.com/u-s-and-iran-still-deadlocked-on-key-issues-despite-signs-of-diplomatic-progress/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/u-s-and-iran-still-deadlocked-on-key-issues-despite-signs-of-diplomatic-progress/",
+        "source_published_at": "2026-05-21T22:47:18.000Z",
+        "ingested_at": "2026-05-21T23:57:35.433Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:d77e6e3362625bd239ce -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:d77e6e3362625bd239ce -->\n\n### Text\nThe U.S. and Iran stuck to opposing stances on Thursday over Tehran's uranium stockpile and controls on the Strait of Hormuz, although U.S. Secretary of State Marco Rubio said there had been \"some good signs\" in talks.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T22:47:18.000Z\ningested_at: 2026-05-21T23:57:35.433Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/u-s-and-iran-still-deadlocked-on-key-issues-despite-signs-of-diplomatic-progress/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/981",
+      "number": 981,
+      "id": "4498368877",
+      "ts": "2026-05-21T22:09:04.000Z",
+      "chronology_ts": "2026-05-21T22:09:04.000Z",
+      "issue_created_at": "2026-05-21T22:40:54.000Z",
+      "source_published_at": "2026-05-21T22:09:04.000Z",
+      "ingested_at": "2026-05-21T22:09:04.000Z",
+      "title": "[RSS] US Supreme Court Rules Cruise Lines Can Be Sued Under Cuban Libertad Act",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/981",
+      "original_url": "https://maritime-executive.com/article/us-supreme-court-rules-cruise-lines-can-be-sued-under-cuban-libertad-act",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:CARIBBEAN",
+        "REG:CUBA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:CARIBBEAN",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 23.14,
+        "lon": -82.35,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Havana",
+        "matched_alias": "Havana",
+        "matched_id": "port_havana",
+        "radius_km": 18,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:CARIBBEAN",
+          "REG:CUBA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 23.14,
+          "lon": -82.35,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Havana",
+          "matched_alias": "Havana",
+          "matched_id": "port_havana",
+          "radius_km": 18,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:CARIBBEAN",
+            "REG:CUBA"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/us-supreme-court-rules-cruise-lines-can-be-sued-under-cuban-libertad-act",
+        "source_published_at": "2026-05-21T22:09:04.000Z",
+        "ingested_at": "2026-05-21T22:09:04.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/us-supreme-court-rules-cruise-lines-can-be-sued-under-cuban-libertad-act\n\n### Zeit (UTC)\n2026-05-21T22:09:04Z\n\n### Published\n2026-05-21T22:09:04Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe United States Supreme Court handed down its ruling saying four cruise lines could be sued for their use of the pier in Havana, Cuba, under the Lib...\n\n---\n_Ingested at 2026-05-21T22:40:54.647858+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 86fc41adba512eca -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/980",
+      "number": 980,
+      "id": "4498268431",
+      "ts": "2026-05-21T22:00:43.278Z",
+      "chronology_ts": "2026-05-21T22:00:43.278Z",
+      "issue_created_at": "2026-05-21T22:16:30.000Z",
+      "source_published_at": "2026-05-21T22:00:43.278Z",
+      "ingested_at": "2026-05-21T22:16:28.907Z",
+      "title": "[BSKY] As technology evolves with unprecedented speed, war gaming is reshaping how militaries prepare for the future. (Members Only) Listen here: warontherocks.com/epi",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/980",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmfg7mwzak2u",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmfg7mwzak2u",
+        "source_published_at": "2026-05-21T22:00:43.278Z",
+        "ingested_at": "2026-05-21T22:16:28.907Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:a9cb6fe13961379d1cb9 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:a9cb6fe13961379d1cb9 -->\n\n### Text\nAs technology evolves with unprecedented speed, war gaming is reshaping how militaries prepare for the future. (Members Only)\nListen here: warontherocks.com/episode/sail...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T22:00:43.278Z\ningested_at: 2026-05-21T22:16:28.907Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmfg7mwzak2u\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/979",
+      "number": 979,
+      "id": "4498267347",
+      "ts": "2026-05-21T21:05:53.038Z",
+      "chronology_ts": "2026-05-21T21:05:53.038Z",
+      "issue_created_at": "2026-05-21T22:16:16.000Z",
+      "source_published_at": "2026-05-21T21:05:53.038Z",
+      "ingested_at": "2026-05-21T22:16:15.307Z",
+      "title": "[BSKY] And inside Finland. Is it a coords format error?",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/979",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmfd5l2cpk2o",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmfd5l2cpk2o",
+        "source_published_at": "2026-05-21T21:05:53.038Z",
+        "ingested_at": "2026-05-21T22:16:15.307Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:ccc573e30f6d54cc9bca -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:ccc573e30f6d54cc9bca -->\n\n### Text\nAnd inside Finland. Is it a coords format error?\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T21:05:53.038Z\ningested_at: 2026-05-21T22:16:15.307Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmfd5l2cpk2o\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/978",
+      "number": 978,
+      "id": "4498266520",
+      "ts": "2026-05-21T21:04:30.000Z",
+      "chronology_ts": "2026-05-21T21:04:30.000Z",
+      "issue_created_at": "2026-05-21T22:16:05.000Z",
+      "source_published_at": "2026-05-21T21:04:30.000Z",
+      "ingested_at": "2026-05-21T22:16:02.780Z",
+      "title": "[RSS] Western Chips Power Russia’s War",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/978",
+      "original_url": "https://cepa.org/article/western-chips-power-russias-war/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/western-chips-power-russias-war/",
+        "source_published_at": "2026-05-21T21:04:30.000Z",
+        "ingested_at": "2026-05-21T22:16:02.780Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:8f4c2ff3305dbb6420f0 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:8f4c2ff3305dbb6420f0 -->\n\n### Text\nRussian drones pounding Ukraine depend on Western chips. Sanctions leak.\n The post Western Chips Power Russia’s War appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T21:04:30.000Z\ningested_at: 2026-05-21T22:16:02.780Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/western-chips-power-russias-war/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/982",
+      "number": 982,
+      "id": "4498368950",
+      "ts": "2026-05-21T20:51:00.000Z",
+      "chronology_ts": "2026-05-21T20:51:00.000Z",
+      "issue_created_at": "2026-05-21T22:40:55.000Z",
+      "source_published_at": "2026-05-21T20:51:00.000Z",
+      "ingested_at": "2026-05-21T20:51:00.000Z",
+      "title": "[RSS] DNV Study Suggests Possibility of Eliminating Efficiency Loss From Fouling",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/982",
+      "original_url": "https://maritime-executive.com/article/dnv-study-suggests-possibility-of-eliminating-efficiency-loss-from-fouling",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:NORTH_SEA",
+        "REG:HUMBER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:NORTH_SEA",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 53.741,
+        "lon": -0.279,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Hull",
+        "matched_alias": "Hull",
+        "matched_id": "port_hull",
+        "radius_km": 14,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA",
+          "REG:HUMBER"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 53.741,
+          "lon": -0.279,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Hull",
+          "matched_alias": "Hull",
+          "matched_id": "port_hull",
+          "radius_km": 14,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:NORTH_SEA",
+            "REG:HUMBER"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/dnv-study-suggests-possibility-of-eliminating-efficiency-loss-from-fouling",
+        "source_published_at": "2026-05-21T20:51:00.000Z",
+        "ingested_at": "2026-05-21T20:51:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/dnv-study-suggests-possibility-of-eliminating-efficiency-loss-from-fouling\n\n### Zeit (UTC)\n2026-05-21T20:51:00Z\n\n### Published\n2026-05-21T20:51:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nWhen evaluating the antifouling properties of a hull coating - and the corresponding fuel savings that an operator can expect to achieve over time -...\n\n---\n_Ingested at 2026-05-21T22:40:55.664140+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: f2da98e8e5fb912e -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/972",
+      "number": 972,
+      "id": "4497823521",
+      "ts": "2026-05-21T20:50:09.804Z",
+      "chronology_ts": "2026-05-21T20:50:09.804Z",
+      "issue_created_at": "2026-05-21T20:50:39.000Z",
+      "source_published_at": "2026-05-21T20:50:09.804Z",
+      "ingested_at": "2026-05-21T20:50:38.411Z",
+      "title": "[BSKY] Deep inside Estonia.......? Drunk navigator?",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/972",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmfcbhj4qc2o",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmfcbhj4qc2o",
+        "source_published_at": "2026-05-21T20:50:09.804Z",
+        "ingested_at": "2026-05-21T20:50:38.411Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:aaba65cdf527e8751be7 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:aaba65cdf527e8751be7 -->\n\n### Text\nDeep inside Estonia.......? Drunk navigator?\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T20:50:09.804Z\ningested_at: 2026-05-21T20:50:38.411Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmfcbhj4qc2o\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/973",
+      "number": 973,
+      "id": "4497824240",
+      "ts": "2026-05-21T20:43:06.000Z",
+      "chronology_ts": "2026-05-21T20:43:06.000Z",
+      "issue_created_at": "2026-05-21T20:50:46.000Z",
+      "source_published_at": "2026-05-21T20:43:06.000Z",
+      "ingested_at": "2026-05-21T20:50:44.880Z",
+      "title": "[RSS] 42 Aircraft Lost in Operation Epic Fury",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/973",
+      "original_url": "https://smallwarsjournal.com/2026/05/21/42-aircraft-lost-in-operation-epic-fury/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/21/42-aircraft-lost-in-operation-epic-fury/",
+        "source_published_at": "2026-05-21T20:43:06.000Z",
+        "ingested_at": "2026-05-21T20:50:44.880Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:2285089795effb8e6046 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:2285089795effb8e6046 -->\n\n### Text\nOn May 13th, the Congressional Budget Office (CBO) published a report assessing U.S. aircraft losses sustained in Operation Epic Fury.  The report, called “U.S. Aircraft Combat Losses in Operation Epic Fury: Considerations for Congress,” analyzes news reports and statements by DOD and U.S. Central Command (CENTCOM) to fill a gap in DOD reporting, which the CBO claims “has not published &#8230;\n Read more\n The post 42 Aircraft Lost in Operation Epic Fury appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T20:43:06.000Z\ningested_at: 2026-05-21T20:50:44.880Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/21/42-aircraft-lost-in-operation-epic-fury/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ningest_version: MAGIC PAWS ingest v5.32…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/975",
+      "number": 975,
+      "id": "4497825249",
+      "ts": "2026-05-21T20:30:09.031Z",
+      "chronology_ts": "2026-05-21T20:30:09.031Z",
+      "issue_created_at": "2026-05-21T20:50:55.000Z",
+      "source_published_at": "2026-05-21T20:30:09.031Z",
+      "ingested_at": "2026-05-21T20:50:54.541Z",
+      "title": "[BSKY] If American forces are positioned based on who's most politically accommodating rather than where they're most effective, deterrence loses. warontherocks.com/20",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/975",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmfb5osuqa2b",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmfb5osuqa2b",
+        "source_published_at": "2026-05-21T20:30:09.031Z",
+        "ingested_at": "2026-05-21T20:50:54.541Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:14b1cbcafe672431ddf7 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:14b1cbcafe672431ddf7 -->\n\n### Text\nIf American forces are positioned based on who's most politically accommodating rather than where they're most effective, deterrence loses. warontherocks.com/2026/05/euro...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T20:30:09.031Z\ningested_at: 2026-05-21T20:50:54.541Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmfb5osuqa2b\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/974",
+      "number": 974,
+      "id": "4497824550",
+      "ts": "2026-05-21T20:09:38.000Z",
+      "chronology_ts": "2026-05-21T20:09:38.000Z",
+      "issue_created_at": "2026-05-21T20:50:48.000Z",
+      "source_published_at": "2026-05-21T20:09:38.000Z",
+      "ingested_at": "2026-05-21T20:50:46.624Z",
+      "title": "[RSS] The Little (Ukrainian) Robot that Could",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/974",
+      "original_url": "https://smallwarsjournal.com/2026/05/21/the-little-ukrainian-robot-that-could/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/21/the-little-ukrainian-robot-that-could/",
+        "source_published_at": "2026-05-21T20:09:38.000Z",
+        "ingested_at": "2026-05-21T20:50:46.624Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:b1e98c7216b30e165946 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:b1e98c7216b30e165946 -->\n\n### Text\nFor 45 days last summer, a single Ukrainian ground robot defended a contested intersection against repeated Russian assault, reports Defense One’s Patrick Tucker in “A Ukrainian ground robot defended a position from Russian assault for six weeks.” A Droid TW 12.7 armed with a 12.7mm machine gun operated with continuous drone surveillance overhead, which detected enemy movement and relayed targeting &#8230;\n Read more\n The post The Little (Ukrainian) Robot that Could appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T20:09:38.000Z\ningested_at: 2026-05-21T20:50:46.624Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/21/the-little-ukrainian-robot-that-could/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ningest_version: MAGIC PAWS i…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/976",
+      "number": 976,
+      "id": "4497869647",
+      "ts": "2026-05-21T19:32:56.000Z",
+      "chronology_ts": "2026-05-21T19:32:56.000Z",
+      "issue_created_at": "2026-05-21T20:58:45.000Z",
+      "source_published_at": "2026-05-21T19:32:56.000Z",
+      "ingested_at": "2026-05-21T19:32:56.000Z",
+      "title": "[RSS] With AUKUS Risks and Aging Fleet, Australia Eyes Japanese Subs as Backup",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/976",
+      "original_url": "https://maritime-executive.com/article/with-aukus-risks-and-aging-fleet-australia-eyes-japanese-subs-as-backup",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/with-aukus-risks-and-aging-fleet-australia-eyes-japanese-subs-as-backup",
+        "source_published_at": "2026-05-21T19:32:56.000Z",
+        "ingested_at": "2026-05-21T19:32:56.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/with-aukus-risks-and-aging-fleet-australia-eyes-japanese-subs-as-backup\n\n### Zeit (UTC)\n2026-05-21T19:32:56Z\n\n### Published\n2026-05-21T19:32:56Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\n[By Richard Gray]The reduced Collins-class submarine Life-of-Type Extension (LOTE) program, announced on 19 May, will cost more than previously expec...\n\n---\n_Ingested at 2026-05-21T20:58:45.673297+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 4ea9511492d83c30 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/977",
+      "number": 977,
+      "id": "4497869730",
+      "ts": "2026-05-21T19:14:41.000Z",
+      "chronology_ts": "2026-05-21T19:14:41.000Z",
+      "issue_created_at": "2026-05-21T20:58:47.000Z",
+      "source_published_at": "2026-05-21T19:14:41.000Z",
+      "ingested_at": "2026-05-21T19:14:41.000Z",
+      "title": "[RSS] Dali Civil Trial to Begin June 1 After Judge Denies Motion to Delay",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/977",
+      "original_url": "https://maritime-executive.com/article/dali-civil-trial-to-begin-june-1-after-judge-denies-motion-to-delay",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/dali-civil-trial-to-begin-june-1-after-judge-denies-motion-to-delay",
+        "source_published_at": "2026-05-21T19:14:41.000Z",
+        "ingested_at": "2026-05-21T19:14:41.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/dali-civil-trial-to-begin-june-1-after-judge-denies-motion-to-delay\n\n### Zeit (UTC)\n2026-05-21T19:14:41Z\n\n### Published\n2026-05-21T19:14:41Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe civil liabilities case against the owners and operators of the containership Dali will commence on June 1, as scheduled, a U.S. District Court Jud...\n\n---\n_Ingested at 2026-05-21T20:58:46.931953+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a443c69d6a2f375e -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/971",
+      "number": 971,
+      "id": "4497823358",
+      "ts": "2026-05-21T18:58:58.000Z",
+      "chronology_ts": "2026-05-21T18:58:58.000Z",
+      "issue_created_at": "2026-05-21T20:50:37.000Z",
+      "source_published_at": "2026-05-21T18:58:58.000Z",
+      "ingested_at": "2026-05-21T20:50:36.725Z",
+      "title": "[RSS] First Woman to Lead Panama Canal Named as Waterway Faces Rising Global Pressure",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/971",
+      "original_url": "https://gcaptain.com/first-woman-to-lead-panama-canal-named-as-waterway-faces-rising-global-pressure/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "REG:CARIBBEAN",
+        "REG:PACIFIC_CENTRAL_AMERICA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:CARIBBEAN",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 9.08,
+        "lon": -79.68,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Panama Canal",
+        "matched_alias": "Panama Canal",
+        "matched_id": "panama_canal",
+        "radius_km": 80,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:CARIBBEAN",
+          "REG:PACIFIC_CENTRAL_AMERICA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 9.08,
+          "lon": -79.68,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Panama Canal",
+          "matched_alias": "Panama Canal",
+          "matched_id": "panama_canal",
+          "radius_km": 80,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:CARIBBEAN",
+            "REG:PACIFIC_CENTRAL_AMERICA"
+          ]
+        },
+        {
+          "lat": 10.11,
+          "lon": -64.88,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Jose Terminal",
+          "matched_alias": "Jose",
+          "matched_id": "terminal_jose_venezuela",
+          "radius_km": 22,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:CARIBBEAN",
+            "REG:SOUTH_AMERICA_EAST",
+            "REG:VENEZUELA_COAST",
+            "REG:ENERGY"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/first-woman-to-lead-panama-canal-named-as-waterway-faces-rising-global-pressure/",
+        "source_published_at": "2026-05-21T18:58:58.000Z",
+        "ingested_at": "2026-05-21T20:50:36.725Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:924d61910ad6bc0072a9 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:924d61910ad6bc0072a9 -->\n\n### Text\nPanama President José Raúl Mulino announced Thursday that Ilya Espino de Marotta has been selected as the next administrator of the Panama Canal, making her the first woman to lead one of the world’s most...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T18:58:58.000Z\ningested_at: 2026-05-21T20:50:36.725Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/first-woman-to-lead-panama-canal-named-as-waterway-faces-rising-global-pressure/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/965",
       "number": 965,
