@@ -1,34 +1,38 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-22T15:25:24.218Z",
+  "generated_at": "2026-05-22T20:13:03.374Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 45,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-22",
-      "events_total": 22,
+      "events_total": 44,
       "p0_suspect": 0,
-      "geo_events": 3,
-      "social_events": 12,
+      "geo_events": 7,
+      "social_events": 18,
       "social_geo_events": 2,
-      "rss_media_events": 10,
+      "rss_media_events": 26,
       "top_domains": {
-        "D:NEWS_INTEL": 20,
-        "D:SECURITY_CRIME": 1,
-        "D:DRONE_UAS": 1
+        "D:NEWS_INTEL": 36,
+        "D:INFRA_CI": 3,
+        "D:DRONE_UAS": 2,
+        "D:SECURITY_CRIME": 2,
+        "D:INCIDENT": 1
       },
       "top_regions": {
-        "REG:OTHER": 10,
-        "REG:ATLANTIC_NE": 3,
-        "REG:GLOBAL": 2,
-        "REG:BALTIC": 1,
-        "REG:PERSIAN_GULF": 1
+        "REG:OTHER": 18,
+        "REG:GLOBAL": 4,
+        "REG:ATLANTIC_NE": 4,
+        "REG:EUROPE": 3,
+        "REG:PERSIAN_GULF": 3,
+        "REG:GULF_OF_ADEN": 1,
+        "REG:BALTIC": 1
       },
       "severity": {
-        "SEV:1": 22
+        "SEV:1": 44
       },
-      "hybrid_index_proxy": 27,
+      "hybrid_index_proxy": 55,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 2
@@ -36,34 +40,34 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 15
-        },
-        {
-          "keyword": "drone",
-          "count": 2
-        },
-        {
-          "keyword": "cyber",
-          "count": 1
-        },
-        {
-          "keyword": "sar",
-          "count": 1
-        },
-        {
-          "keyword": "navy",
-          "count": 1
-        },
-        {
-          "keyword": "uas",
-          "count": 1
-        },
-        {
-          "keyword": "sts",
-          "count": 1
+          "count": 26
         },
         {
           "keyword": "mpa",
+          "count": 5
+        },
+        {
+          "keyword": "drone",
+          "count": 3
+        },
+        {
+          "keyword": "uas",
+          "count": 2
+        },
+        {
+          "keyword": "sar",
+          "count": 2
+        },
+        {
+          "keyword": "navy",
+          "count": 2
+        },
+        {
+          "keyword": "patrol",
+          "count": 1
+        },
+        {
+          "keyword": "suspicious",
           "count": 1
         }
       ]
