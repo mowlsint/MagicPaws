@@ -1,19 +1,19 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-05-22T00:00:00.000Z",
-  "generated_at": "2026-05-22T04:37:15.646Z",
+  "snapshot_key": "2026-05-22T06:00:00.000Z",
+  "generated_at": "2026-05-22T09:50:46.873Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 787,
+    "events_total_archive": 797,
     "events_72h": 179,
     "p0_suspect_72h": 0,
-    "geo_72h": 37,
-    "social_72h": 65,
-    "social_geo_72h": 11,
-    "rss_media_72h": 114
+    "geo_72h": 36,
+    "social_72h": 63,
+    "social_geo_72h": 10,
+    "rss_media_72h": 116
   },
   "sensors": {
     "hybrid_index_pct": 100,
@@ -22,24 +22,24 @@
       "baltic_sea_pct": 6
     },
     "keyword_barometer_pct": 100,
-    "keyword_hits_72h": 183
+    "keyword_hits_72h": 180
   },
   "density": {
     "domains_72h": {
       "D:NEWS_INTEL": 149,
-      "D:INFRA_CI": 25,
+      "D:INFRA_CI": 24,
+      "D:DRONE_UAS": 2,
       "D:INCIDENT": 2,
-      "D:SECURITY_CRIME": 2,
-      "D:DRONE_UAS": 1
+      "D:SECURITY_CRIME": 2
     },
     "regions_72h": {
-      "REG:OTHER": 67,
+      "REG:OTHER": 64,
       "REG:EUROPE": 19,
-      "REG:PERSIAN_GULF": 16,
+      "REG:PERSIAN_GULF": 17,
       "REG:GLOBAL": 15,
-      "REG:ATLANTIC_NE": 10,
-      "REG:NORTH_SEA": 5,
+      "REG:ATLANTIC_NE": 11,
       "REG:CARIBBEAN": 4,
+      "REG:NORTH_SEA": 4,
       "REG:RED_SEA": 2,
       "REG:CHANNEL": 1,
       "REG:SINGAPORE_STRAIT": 1,
@@ -50,26 +50,26 @@
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 110
-      },
-      {
-        "keyword": "mpa",
-        "count": 16
+        "count": 108
       },
       {
         "keyword": "navy",
-        "count": 12
+        "count": 13
+      },
+      {
+        "keyword": "mpa",
+        "count": 13
       },
       {
         "keyword": "sts",
         "count": 8
       },
       {
-        "keyword": "isr",
-        "count": 8
+        "keyword": "drone",
+        "count": 7
       },
       {
-        "keyword": "drone",
+        "keyword": "isr",
         "count": 7
       },
       {
@@ -85,15 +85,15 @@
         "count": 3
       },
       {
+        "keyword": "sar",
+        "count": 2
+      },
+      {
+        "keyword": "uas",
+        "count": 2
+      },
+      {
         "keyword": "incident",
-        "count": 2
-      },
-      {
-        "keyword": "espionage",
-        "count": 2
-      },
-      {
-        "keyword": "spionage",
         "count": 2
       }
     ]

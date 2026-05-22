@@ -1,28 +1,32 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-22T04:37:15.646Z",
+  "generated_at": "2026-05-22T09:50:46.873Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 45,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-22",
-      "events_total": 3,
+      "events_total": 13,
       "p0_suspect": 0,
-      "geo_events": 0,
-      "social_events": 1,
+      "geo_events": 1,
+      "social_events": 6,
       "social_geo_events": 0,
-      "rss_media_events": 2,
+      "rss_media_events": 7,
       "top_domains": {
-        "D:NEWS_INTEL": 3
+        "D:NEWS_INTEL": 12,
+        "D:DRONE_UAS": 1
       },
       "top_regions": {
-        "REG:OTHER": 1
+        "REG:OTHER": 4,
+        "REG:ATLANTIC_NE": 2,
+        "REG:GLOBAL": 2,
+        "REG:PERSIAN_GULF": 1
       },
       "severity": {
-        "SEV:1": 3
+        "SEV:1": 13
       },
-      "hybrid_index_proxy": 4,
+      "hybrid_index_proxy": 16,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -30,6 +34,22 @@
       "top_keywords": [
         {
           "keyword": "ot",
+          "count": 8
+        },
+        {
+          "keyword": "sar",
+          "count": 1
+        },
+        {
+          "keyword": "navy",
+          "count": 1
+        },
+        {
+          "keyword": "drone",
+          "count": 1
+        },
+        {
+          "keyword": "uas",
           "count": 1
         },
         {

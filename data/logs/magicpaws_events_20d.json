@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-22T04:37:15.646Z",
+  "generated_at": "2026-05-22T09:50:46.873Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,404 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-22T04:37:19.183Z",
+  "bundle_generated_at": "2026-05-22T09:50:51.097Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-02T04:37:15.646Z"
+    "cutoff_utc": "2026-05-02T09:50:46.873Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 787,
-    "active_events": 709,
-    "active_geo_events": 128,
-    "active_social_events": 267,
+    "archive_events_total": 797,
+    "active_events": 719,
+    "active_geo_events": 129,
+    "active_social_events": 272,
     "active_social_geo_events": 29
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/997",
+      "number": 997,
+      "id": "4500834330",
+      "ts": "2026-05-22T07:00:09.966Z",
+      "chronology_ts": "2026-05-22T07:00:09.966Z",
+      "issue_created_at": "2026-05-22T07:39:29.000Z",
+      "source_published_at": "2026-05-22T07:00:09.966Z",
+      "ingested_at": "2026-05-22T07:39:28.450Z",
+      "title": "[BSKY] European allies are competing to host U.S. forces instead of building the collective defense capacity that would make that scramble unnecessary. warontherocks.c",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/997",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmgeeal6ab2j",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmgeeal6ab2j",
+        "source_published_at": "2026-05-22T07:00:09.966Z",
+        "ingested_at": "2026-05-22T07:39:28.450Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:4fca48f27e3335faed27 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:4fca48f27e3335faed27 -->\n\n### Text\nEuropean allies are competing to host U.S. forces instead of building the collective defense capacity that would make that scramble unnecessary. warontherocks.com/2026/05/euro...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T07:00:09.966Z\ningested_at: 2026-05-22T07:39:28.450Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmgeeal6ab2j\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/991",
+      "number": 991,
+      "id": "4500832092",
+      "ts": "2026-05-22T06:57:47.508Z",
+      "chronology_ts": "2026-05-22T06:57:47.508Z",
+      "issue_created_at": "2026-05-22T07:39:09.000Z",
+      "source_published_at": "2026-05-22T06:57:47.508Z",
+      "ingested_at": "2026-05-22T07:39:08.701Z",
+      "title": "[BSKY] Yes, but well outside territory. They just made a mistake aboard prolly.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/991",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmge7ybwd222",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmge7ybwd222",
+        "source_published_at": "2026-05-22T06:57:47.508Z",
+        "ingested_at": "2026-05-22T07:39:08.701Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:f4748b6cc28dfe8108fe -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:f4748b6cc28dfe8108fe -->\n\n### Text\nYes, but well outside territory. They just made a mistake aboard prolly.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T06:57:47.508Z\ningested_at: 2026-05-22T07:39:08.701Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmge7ybwd222\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/996",
+      "number": 996,
+      "id": "4500833522",
+      "ts": "2026-05-22T06:43:29.422Z",
+      "chronology_ts": "2026-05-22T06:43:29.422Z",
+      "issue_created_at": "2026-05-22T07:39:22.000Z",
+      "source_published_at": "2026-05-22T06:43:29.422Z",
+      "ingested_at": "2026-05-22T07:39:22.061Z",
+      "title": "[BSKY] #Newsletter from the Editor: The city on Norway's border with Russia is divided. Some wish Russia back into the fold, others adamantly disagree. Cyrillic signs",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/996",
+      "original_url": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mmgdgfxbo22i",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "High North News (Bluesky) (highnorthnews_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mmgdgfxbo22i",
+        "source_published_at": "2026-05-22T06:43:29.422Z",
+        "ingested_at": "2026-05-22T07:39:22.061Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:highnorthnews_bsky:a2b9cb6adeb8227b7826 -->\n<!-- VOODOO_INGEST_ID:highnorthnews_bsky:a2b9cb6adeb8227b7826 -->\n\n### Text\n#Newsletter from the Editor: The city on Norway's border with Russia is divided. Some wish Russia back into the fold, others adamantly disagree. Cyrillic signs may be removed, but the border remains open. Here is the latest news from Norway's Far East.\n#Arctic\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T06:43:29.422Z\ningested_at: 2026-05-22T07:39:22.061Z\n\n### Quelle\nHigh North News (Bluesky) (highnorthnews_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/highnorthnews.bsky.social/post/3mmgdgfxbo22i\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/992",
+      "number": 992,
+      "id": "4500832218",
+      "ts": "2026-05-22T06:37:56.011Z",
+      "chronology_ts": "2026-05-22T06:37:56.011Z",
+      "issue_created_at": "2026-05-22T07:39:11.000Z",
+      "source_published_at": "2026-05-22T06:37:56.011Z",
+      "ingested_at": "2026-05-22T07:39:10.098Z",
+      "title": "[BSKY] Latest news article: Stand-off weapon demonstration shows F-35B integration still alive despite years of delays www.navylookout.com/stand-off-we...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/992",
+      "original_url": "https://bsky.app/profile/navylookout.bsky.social/post/3mmgd4hzoft23",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Navy Lookout (Bluesky) (navylookout_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/navylookout.bsky.social/post/3mmgd4hzoft23",
+        "source_published_at": "2026-05-22T06:37:56.011Z",
+        "ingested_at": "2026-05-22T07:39:10.098Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:navylookout_bsky:ff27a447da3fe1a4f39d -->\n<!-- VOODOO_INGEST_ID:navylookout_bsky:ff27a447da3fe1a4f39d -->\n\n### Text\nLatest news article:\nStand-off weapon demonstration shows F-35B integration still alive despite years of delays\nwww.navylookout.com/stand-off-we...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T06:37:56.011Z\ningested_at: 2026-05-22T07:39:10.098Z\n\n### Quelle\nNavy Lookout (Bluesky) (navylookout_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/navylookout.bsky.social/post/3mmgd4hzoft23\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/993",
+      "number": 993,
+      "id": "4500832837",
+      "ts": "2026-05-22T06:00:52.000Z",
+      "chronology_ts": "2026-05-22T06:00:52.000Z",
+      "issue_created_at": "2026-05-22T07:39:17.000Z",
+      "source_published_at": "2026-05-22T06:00:52.000Z",
+      "ingested_at": "2026-05-22T07:39:16.410Z",
+      "title": "[RSS] Rethinking Artificial Intelligence at the Strategic Frontier",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/993",
+      "original_url": "https://smallwarsjournal.com/2026/05/22/rethinking-artificial-intelligence-at-the-strategic-frontier/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/22/rethinking-artificial-intelligence-at-the-strategic-frontier/",
+        "source_published_at": "2026-05-22T06:00:52.000Z",
+        "ingested_at": "2026-05-22T07:39:16.410Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:770c4c6641f9cc86efc6 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:770c4c6641f9cc86efc6 -->\n\n### Text\nEditor&#8217;s Note: This essay is from the Security &#38; Defence PLuS Emerging Voices Series, which highlights the next generation of scholars and practitioners shaping thinking on strategy, security, and defense. The series brings together perspectives from PhD candidates and early career researchers, grounded in the complex geopolitical realities of the 21st century. The collection explores a &#8220;Latticework of Resilience&#8221; that connects &#8230;\n Read more\n The post Rethinking Artificial Intelligence at the Strategic Frontier appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T06:00:52.000Z\ningested_at: 2026-05-22T07:39:16.410Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/22/rethinking-artificial-intelligence-at-the-strategic-frontier/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LO…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/994",
+      "number": 994,
+      "id": "4500833002",
+      "ts": "2026-05-22T06:00:15.000Z",
+      "chronology_ts": "2026-05-22T06:00:15.000Z",
+      "issue_created_at": "2026-05-22T07:39:19.000Z",
+      "source_published_at": "2026-05-22T06:00:15.000Z",
+      "ingested_at": "2026-05-22T07:39:18.196Z",
+      "title": "[RSS] For Russia, AI and &#8220;Traditional Values&#8221; are Part of the Same Security Logic",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/994",
+      "original_url": "https://smallwarsjournal.com/2026/05/22/russia-ai-and-traditional-values-ar-same-security-logic/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/22/russia-ai-and-traditional-values-ar-same-security-logic/",
+        "source_published_at": "2026-05-22T06:00:15.000Z",
+        "ingested_at": "2026-05-22T07:39:18.196Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:043011b6d23e4f6d6efa -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:043011b6d23e4f6d6efa -->\n\n### Text\nAbstract Russia&#8217;s March 2026 proposal to restrict foreign AI systems, including ChatGPT, Gemini, and Claude, on the grounds of protecting &#8220;traditional Russian spiritual and moral values&#8221; has been largely treated as a regulatory story. This analysis argues it is not one. The proposal is the latest expression of a military doctrine documented in Russia&#8217;s own authoritative military publications, one that &#8230;\n Read more\n The post For Russia, AI and &#8220;Traditional Values&#8221; are Part of the Same Security Logic appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T06:00:15.000Z\ningested_at: 2026-05-22T07:39:18.196Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/22/russia-ai-and-traditional-values-ar-same-security-logic/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, …"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/995",
+      "number": 995,
+      "id": "4500833345",
+      "ts": "2026-05-22T05:57:02.538Z",
+      "chronology_ts": "2026-05-22T05:57:02.538Z",
+      "issue_created_at": "2026-05-22T07:39:21.000Z",
+      "source_published_at": "2026-05-22T05:57:02.538Z",
+      "ingested_at": "2026-05-22T07:39:20.768Z",
+      "title": "[BSKY] Fungerar likadant i fascistiska Sverige som i Nazi-USA.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/995",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmgate6adc2s",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmgate6adc2s",
+        "source_published_at": "2026-05-22T05:57:02.538Z",
+        "ingested_at": "2026-05-22T07:39:20.768Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:1565210c109bac1b6081 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:1565210c109bac1b6081 -->\n\n### Text\nFungerar likadant i fascistiska Sverige som i Nazi-USA.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T05:57:02.538Z\ningested_at: 2026-05-22T07:39:20.768Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmgate6adc2s\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/998",
+      "number": 998,
+      "id": "4501164982",
+      "ts": "2026-05-22T03:59:47.000Z",
+      "chronology_ts": "2026-05-22T03:59:47.000Z",
+      "issue_created_at": "2026-05-22T08:31:48.000Z",
+      "source_published_at": "2026-05-22T03:59:47.000Z",
+      "ingested_at": "2026-05-22T03:59:47.000Z",
+      "title": "[RSS] Erratic Traffic Poses Real Risks for Strait of Hormuz Transits",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/998",
+      "original_url": "https://maritime-executive.com/article/erratic-traffic-poses-real-risks-for-strait-of-hormuz-transits",
+      "labels": [
+        "D:DRONE_UAS",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:DRONE_UAS",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/erratic-traffic-poses-real-risks-for-strait-of-hormuz-transits",
+        "source_published_at": "2026-05-22T03:59:47.000Z",
+        "ingested_at": "2026-05-22T03:59:47.000Z"
+      },
+      "report_category": "Drohnen / UxV",
+      "greybook_rubric": "Drohnen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/erratic-traffic-poses-real-risks-for-strait-of-hormuz-transits\n\n### Zeit (UTC)\n2026-05-22T03:59:47Z\n\n### Published\n2026-05-22T03:59:47Z\n\n### Auto-Labels\nCONF:MED, D:DRONE_UAS, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nA new industry-written guide to transiting the Strait of Hormuz paints a picture of exceptional risk, and not just from the missile and drone attacks...\n\n---\n_Ingested at 2026-05-22T08:31:48.595534+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 3cb37986f1d56c16 -->"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/987",
       "number": 987,
@@ -63,6 +447,45 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:0a1397b7d92ab75842e4 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:0a1397b7d92ab75842e4 -->\n\n### Text\nInsider access. Clear analysis. Trusted voices. Sign up for a War on the Rocks membership to unlock all our members-only content. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T03:16:01.706Z\ningested_at: 2026-05-22T03:39:10.535Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmfxthbaik2u\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/999",
+      "number": 999,
+      "id": "4501165114",
+      "ts": "2026-05-22T01:54:38.000Z",
+      "chronology_ts": "2026-05-22T01:54:38.000Z",
+      "issue_created_at": "2026-05-22T08:31:50.000Z",
+      "source_published_at": "2026-05-22T01:54:38.000Z",
+      "ingested_at": "2026-05-22T01:54:38.000Z",
+      "title": "[RSS] Maersk Center Downsizes Amidst Uncertainty on Path to Decarbonization",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/999",
+      "original_url": "https://maritime-executive.com/article/maersk-center-downsizes-amidst-uncertainty-on-path-to-decarbonization",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/maersk-center-downsizes-amidst-uncertainty-on-path-to-decarbonization",
+        "source_published_at": "2026-05-22T01:54:38.000Z",
+        "ingested_at": "2026-05-22T01:54:38.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/maersk-center-downsizes-amidst-uncertainty-on-path-to-decarbonization\n\n### Zeit (UTC)\n2026-05-22T01:54:38Z\n\n### Published\n2026-05-22T01:54:38Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAmidst uncertainty about the form and timing of shipping's green transition, the A.P. Moller Foundation's Maersk Mc-Kinney Møller Center for Zero Car...\n\n---\n_Ingested at 2026-05-22T08:31:49.924575+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 356b1cbb8ff84674 -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/988",
@@ -141,6 +564,45 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/balearia-completes-canary-islands-acquisition-from-armas-trasmediterranea\n\n### Zeit (UTC)\n2026-05-22T00:45:49Z\n\n### Published\n2026-05-22T00:45:49Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nBaleària, Spain’s leading maritime passenger and freight transport company, has completed the first phase of the planned acquisition of Armas Trasmed...\n\n---\n_Ingested at 2026-05-22T04:37:08.132000+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 96232276f6a231a7 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/990",
+      "number": 990,
+      "id": "4499855127",
+      "ts": "2026-05-22T00:09:29.000Z",
+      "chronology_ts": "2026-05-22T00:09:29.000Z",
+      "issue_created_at": "2026-05-22T04:37:09.000Z",
+      "source_published_at": "2026-05-22T00:09:29.000Z",
+      "ingested_at": "2026-05-22T00:09:29.000Z",
+      "title": "[RSS] Estonian Contracts to Design and Build Its First Fully Electric Ferry",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/990",
+      "original_url": "https://maritime-executive.com/article/estonian-contracts-to-design-and-build-its-first-fully-electric-ferry",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/estonian-contracts-to-design-and-build-its-first-fully-electric-ferry",
+        "source_published_at": "2026-05-22T00:09:29.000Z",
+        "ingested_at": "2026-05-22T00:09:29.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/estonian-contracts-to-design-and-build-its-first-fully-electric-ferry\n\n### Zeit (UTC)\n2026-05-22T00:09:29Z\n\n### Published\n2026-05-22T00:09:29Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nEstonian State Fleet signed a design and shipbuilding contract with the Polish shipyard CRIST for the construction of its first fully electric passeng...\n\n---\n_Ingested at 2026-05-22T04:37:09.293965+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b9b28fe64a5a01fb -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/985",
