@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-22T09:50:46.873Z",
+  "generated_at": "2026-05-22T15:25:24.218Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,497 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-22T09:50:51.097Z",
+  "bundle_generated_at": "2026-05-22T15:25:27.883Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-02T09:50:46.873Z"
+    "cutoff_utc": "2026-05-02T15:25:24.218Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 797,
-    "active_events": 719,
-    "active_geo_events": 129,
-    "active_social_events": 272,
-    "active_social_geo_events": 29
+    "archive_events_total": 809,
+    "active_events": 731,
+    "active_geo_events": 132,
+    "active_social_events": 279,
+    "active_social_geo_events": 32
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1007",
+      "number": 1007,
+      "id": "4502979258",
+      "ts": "2026-05-22T13:09:53.000Z",
+      "chronology_ts": "2026-05-22T13:09:53.000Z",
+      "issue_created_at": "2026-05-22T13:27:48.000Z",
+      "source_published_at": "2026-05-22T13:09:53.000Z",
+      "ingested_at": "2026-05-22T13:27:47.318Z",
+      "title": "[RSS] UAE Left OPEC to Pump More as End of Oil Era Looms, Presidential Adviser Says",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1007",
+      "original_url": "https://gcaptain.com/uae-left-opec-to-pump-more-as-end-of-oil-era-looms-presidential-adviser-says/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/uae-left-opec-to-pump-more-as-end-of-oil-era-looms-presidential-adviser-says/",
+        "source_published_at": "2026-05-22T13:09:53.000Z",
+        "ingested_at": "2026-05-22T13:27:47.318Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:da4a266ca0f9ad2b47b0 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:da4a266ca0f9ad2b47b0 -->\n\n### Text\nThe UAE's decision to leave OPEC was three years in the making and is based on its view the world is near the “autumn of the hydrocarbon age”, meaning the country needs to maximize oil revenues while it can, a senior adviser to the president said.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T13:09:53.000Z\ningested_at: 2026-05-22T13:27:47.318Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/uae-left-opec-to-pump-more-as-end-of-oil-era-looms-presidential-adviser-says/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1011",
+      "number": 1011,
+      "id": "4502981869",
+      "ts": "2026-05-22T13:01:06.879Z",
+      "chronology_ts": "2026-05-22T13:01:06.879Z",
+      "issue_created_at": "2026-05-22T13:28:10.000Z",
+      "source_published_at": "2026-05-22T13:01:06.879Z",
+      "ingested_at": "2026-05-22T13:28:08.902Z",
+      "title": "[BSKY] Today in War on the Rocks: The Pentagon Still Cannot Manage Cyber Talent at Scale. Here’s the Fix. The Kid Rock Flyby Controversy and the Erosion of Military Pr",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1011",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmgyjo3qrr2z",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmgyjo3qrr2z",
+        "source_published_at": "2026-05-22T13:01:06.879Z",
+        "ingested_at": "2026-05-22T13:28:08.902Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:fe4f6da4bc9e1d9d5905 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:fe4f6da4bc9e1d9d5905 -->\n\n### Text\nToday in War on the Rocks:\nThe Pentagon Still Cannot Manage Cyber Talent at Scale. Here’s the Fix.\nThe Kid Rock Flyby Controversy and the Erosion of Military Professionalism\nInside Ukraine’s Battlefield Innovation Loop warontherocks.com/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T13:01:06.879Z\ningested_at: 2026-05-22T13:28:08.902Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmgyjo3qrr2z\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1008",
+      "number": 1008,
+      "id": "4502979456",
+      "ts": "2026-05-22T12:38:23.763Z",
+      "chronology_ts": "2026-05-22T12:38:23.763Z",
+      "issue_created_at": "2026-05-22T13:27:50.000Z",
+      "source_published_at": "2026-05-22T12:38:23.763Z",
+      "ingested_at": "2026-05-22T13:27:49.174Z",
+      "title": "[BSKY] I saw a headline sating they are installing an additional 2 GNSS measurement stations, presumably RINEX and then likely to be included in the open data repos?",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1008",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmgxazsvmk27",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmgxazsvmk27",
+        "source_published_at": "2026-05-22T12:38:23.763Z",
+        "ingested_at": "2026-05-22T13:27:49.174Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:8a593a4f96b734b8676a -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:8a593a4f96b734b8676a -->\n\n### Text\nI saw a headline sating they are installing an additional 2 GNSS measurement stations, presumably RINEX and then likely to be included in the open data repos?\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T12:38:23.763Z\ningested_at: 2026-05-22T13:27:49.174Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmgxazsvmk27\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1010",
+      "number": 1010,
+      "id": "4502980726",
+      "ts": "2026-05-22T12:37:46.705Z",
+      "chronology_ts": "2026-05-22T12:37:46.705Z",
+      "issue_created_at": "2026-05-22T13:28:02.000Z",
+      "source_published_at": "2026-05-22T12:37:46.705Z",
+      "ingested_at": "2026-05-22T13:28:01.194Z",
+      "title": "[BSKY] Tjänar man mer än 40 032:-/månad så är man ju en första klassens medborgare och då får man väl göra precis som man vill? Eller har jag missuppfattat vad fascist",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1010",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmgx7whz5c2s",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmgx7whz5c2s",
+        "source_published_at": "2026-05-22T12:37:46.705Z",
+        "ingested_at": "2026-05-22T13:28:01.194Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:e3a17ec7dfa7d8b3a83c -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:e3a17ec7dfa7d8b3a83c -->\n\n### Text\nTjänar man mer än 40 032:-/månad så är man ju en första klassens medborgare och då får man väl göra precis som man vill?\nEller har jag missuppfattat vad fascisterna och nazisterna i riksdagen beslutat?\nFascistiska Sverige år 2026.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T12:37:46.705Z\ningested_at: 2026-05-22T13:28:01.194Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmgx7whz5c2s\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1003",
+      "number": 1003,
+      "id": "4501988508",
+      "ts": "2026-05-22T10:34:40.906Z",
+      "chronology_ts": "2026-05-22T10:34:40.906Z",
+      "issue_created_at": "2026-05-22T10:45:21.000Z",
+      "source_published_at": "2026-05-22T10:34:40.906Z",
+      "ingested_at": "2026-05-22T10:45:20.606Z",
+      "title": "[BSKY] Comment: A few decades ago, an uneventful news cycle could always be stimulated by calling up a Northern Norwegian fisherman. Few, if any, were better suited to",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1003",
+      "original_url": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mmgqdstcsk2j",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY",
+        "REG:SKAGERRAK",
+        "REG:NORWAY_COAST"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 59.902,
+        "lon": 10.746,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Oslo",
+        "matched_alias": "Oslo",
+        "matched_id": "port_oslo",
+        "radius_km": 18,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:SKAGERRAK",
+          "REG:NORWAY_COAST"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 59.902,
+          "lon": 10.746,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Oslo",
+          "matched_alias": "Oslo",
+          "matched_id": "port_oslo",
+          "radius_km": 18,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:SKAGERRAK",
+            "REG:NORWAY_COAST"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "High North News (Bluesky) (highnorthnews_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mmgqdstcsk2j",
+        "source_published_at": "2026-05-22T10:34:40.906Z",
+        "ingested_at": "2026-05-22T10:45:20.606Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:highnorthnews_bsky:eb33c45248b025c6c085 -->\n<!-- VOODOO_INGEST_ID:highnorthnews_bsky:eb33c45248b025c6c085 -->\n\n### Text\nComment: A few decades ago, an uneventful news cycle could always be stimulated by calling up a Northern Norwegian fisherman. Few, if any, were better suited to starting a war with the 'powers that be' in Oslo. Today, the best approach is to call a mayor.\nen.highnorthnews.com/opinions/the...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T10:34:40.906Z\ningested_at: 2026-05-22T10:45:20.606Z\n\n### Quelle\nHigh North News (Bluesky) (highnorthnews_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/highnorthnews.bsky.social/post/3mmgqdstcsk2j\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1002",
+      "number": 1002,
+      "id": "4501988396",
+      "ts": "2026-05-22T10:32:25.565Z",
+      "chronology_ts": "2026-05-22T10:32:25.565Z",
+      "issue_created_at": "2026-05-22T10:45:20.000Z",
+      "source_published_at": "2026-05-22T10:32:25.565Z",
+      "ingested_at": "2026-05-22T10:45:19.272Z",
+      "title": "[BSKY] What a good idea. Let Ukraine launch attacks on russia from NATO territories the same way russia do in belarus Sweden could give Ukraine a submarine and let the",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1002",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmgq7rr2tk2s",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY",
+        "MAP:INFERRED",
+        "REG:BALTIC"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:BALTIC",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 57.2,
+        "lon": 19,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Baltic Sea",
+        "matched_alias": "Baltic",
+        "matched_id": "baltic_sea",
+        "radius_km": 780,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:BALTIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "baltic_sea",
+          "matched_name": "Baltic Sea",
+          "matched_alias": "Baltic",
+          "lat": 57.2,
+          "lon": 19,
+          "radius_km": 780,
+          "precision": "area",
+          "regions": [
+            "REG:BALTIC"
+          ],
+          "score": 8,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmgq7rr2tk2s",
+        "source_published_at": "2026-05-22T10:32:25.565Z",
+        "ingested_at": "2026-05-22T10:45:19.272Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:524e70cf4926b9a69cba -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:524e70cf4926b9a69cba -->\n\n### Text\nWhat a good idea.\nLet Ukraine launch attacks on russia from NATO territories the same way russia do in belarus\nSweden could give Ukraine a submarine and let them operate from Swedish ports in the Baltic\nFinland and Estonia could let Ukraine operate drones on and over the Gulf of Finland\nGÅ PÅ\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T10:32:25.565Z\ningested_at: 2026-05-22T10:45:19.272Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmgq7rr2tk2s\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1004",
+      "number": 1004,
+      "id": "4501989069",
+      "ts": "2026-05-22T10:00:16.810Z",
+      "chronology_ts": "2026-05-22T10:00:16.810Z",
+      "issue_created_at": "2026-05-22T10:45:26.000Z",
+      "source_published_at": "2026-05-22T10:00:16.810Z",
+      "ingested_at": "2026-05-22T10:45:25.852Z",
+      "title": "[BSKY] As technology evolves with unprecedented speed, war gaming is reshaping how militaries prepare for the future. (Members Only) Listen here: warontherocks.com/epi",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1004",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmgogcgllc2j",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmgogcgllc2j",
+        "source_published_at": "2026-05-22T10:00:16.810Z",
+        "ingested_at": "2026-05-22T10:45:25.852Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:71d1ae1ebbd73200a02e -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:71d1ae1ebbd73200a02e -->\n\n### Text\nAs technology evolves with unprecedented speed, war gaming is reshaping how militaries prepare for the future. (Members Only)\nListen here: warontherocks.com/episode/sail...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T10:00:16.810Z\ningested_at: 2026-05-22T10:45:25.852Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmgogcgllc2j\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1005",
+      "number": 1005,
+      "id": "4502423414",
+      "ts": "2026-05-22T09:06:35.000Z",
+      "chronology_ts": "2026-05-22T09:06:35.000Z",
+      "issue_created_at": "2026-05-22T12:00:25.000Z",
+      "source_published_at": "2026-05-22T09:06:35.000Z",
+      "ingested_at": "2026-05-22T09:06:35.000Z",
+      "title": "[RSS] Report: US Treasury Allows Demolition Sale for Four Sanctioned Ships",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1005",
+      "original_url": "https://maritime-executive.com/article/report-us-treasury-allows-demolition-sale-for-four-sanctioned-ships",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:SECURITY_CRIME",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/report-us-treasury-allows-demolition-sale-for-four-sanctioned-ships",
+        "source_published_at": "2026-05-22T09:06:35.000Z",
+        "ingested_at": "2026-05-22T09:06:35.000Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/report-us-treasury-allows-demolition-sale-for-four-sanctioned-ships\n\n### Zeit (UTC)\n2026-05-22T09:06:35Z\n\n### Published\n2026-05-22T09:06:35Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, D:SECURITY_CRIME, SEV:1, SRC:MEDIA\n\n### Summary\nThe U.S. Treasury has authorized a demolition sale for four sanctioned vessels linked to the Shamkhani shipping network, a large-scale smuggling orga...\n\n---\n_Ingested at 2026-05-22T12:00:25.387391+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b7c970234b3a6e16 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1001",
+      "number": 1001,
+      "id": "4501987595",
+      "ts": "2026-05-22T07:52:54.000Z",
+      "chronology_ts": "2026-05-22T07:52:54.000Z",
+      "issue_created_at": "2026-05-22T10:45:12.000Z",
+      "source_published_at": "2026-05-22T07:52:54.000Z",
+      "ingested_at": "2026-05-22T10:45:11.934Z",
+      "title": "[RSS] Japan to Receive First Oil Tanker to Exit Hormuz Since War Began",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1001",
+      "original_url": "https://gcaptain.com/japan-to-receive-first-oil-tanker-to-exit-hormuz-since-war-began/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "geo_candidates": [
+        {
+          "matched_id": "strait_hormuz",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "lat": 26.56,
+          "lon": 56.25,
+          "radius_km": 85,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ],
+          "score": 26,
+          "in_title": false
+        },
+        {
+          "matched_id": "persian_gulf",
+          "matched_name": "Persian Gulf",
+          "matched_alias": "Persian Gulf",
+          "lat": 27.3,
+          "lon": 51.6,
+          "radius_km": 520,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF"
+          ],
+          "score": 22,
+          "in_title": false
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/japan-to-receive-first-oil-tanker-to-exit-hormuz-since-war-began/",
+        "source_published_at": "2026-05-22T07:52:54.000Z",
+        "ingested_at": "2026-05-22T10:45:11.934Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:82044b3c44b691e6a6a4 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:82044b3c44b691e6a6a4 -->\n\n### Text\nJapan — one of Asia’s biggest importers of energy from the Middle East — flagged the impending arrival of the first Persian Gulf oil shipment to transit the contested Strait of Hormuz since the Iran war began.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T07:52:54.000Z\ningested_at: 2026-05-22T10:45:11.934Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/japan-to-receive-first-oil-tanker-to-exit-hormuz-since-war-began/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/997",
       "number": 997,
@@ -781,6 +1258,102 @@
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/imo-passes-non-mandatory-safety-code-for-autonomous-ships\n\n### Zeit (UTC)\n2026-05-21T23:12:25Z\n\n### Published\n2026-05-21T23:12:25Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe IMO has taken a new step forward towards comprehensive regulation of unmanned shipping, building upon years of debate and detailed development wo...\n\n---\n_Ingested at 2026-05-22T00:15:08.023611+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 79cd1d95b32d8d7f -->"
     },
     {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1006",
+      "number": 1006,
+      "id": "4502977000",
+      "ts": "2026-05-21T23:00:00.000Z",
+      "chronology_ts": "2026-05-21T23:00:00.000Z",
+      "issue_created_at": "2026-05-22T13:27:28.000Z",
+      "source_published_at": "2026-05-21T23:00:00.000Z",
+      "ingested_at": "2026-05-22T13:27:25.676Z",
+      "title": "[RSS] The Iranian Armed Forces and the Third Gulf War",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1006",
+      "original_url": "https://www.rusi.org/explore-our-research/publications/rusi-newsbrief/iranian-armed-forces-and-third-gulf-war",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "RUSI – Latest Publications (rusi_latest_publications)",
+        "platform": "rss",
+        "link": "https://www.rusi.org/explore-our-research/publications/rusi-newsbrief/iranian-armed-forces-and-third-gulf-war",
+        "source_published_at": "2026-05-21T23:00:00.000Z",
+        "ingested_at": "2026-05-22T13:27:25.676Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:36f1fcee65da1b3e7629 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:36f1fcee65da1b3e7629 -->\n\n### Text\nFrom the June 2025 war onwards, the Iranian armed forces have adapted, struggled and adapted again to fight US and Israeli military might.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T23:00:00.000Z\ningested_at: 2026-05-22T13:27:25.676Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/rusi-newsbrief/iranian-armed-forces-and-third-gulf-war\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1000",
+      "number": 1000,
+      "id": "4501986312",
+      "ts": "2026-05-21T23:00:00.000Z",
+      "chronology_ts": "2026-05-21T23:00:00.000Z",
+      "issue_created_at": "2026-05-22T10:44:58.000Z",
+      "source_published_at": "2026-05-21T23:00:00.000Z",
+      "ingested_at": "2026-05-22T10:44:56.964Z",
+      "title": "[RSS] Water and Cognitive Warfare",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1000",
+      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/water-and-cognitive-warfare",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "RUSI – Latest Publications (rusi_latest_publications)",
+        "platform": "rss",
+        "link": "https://www.rusi.org/explore-our-research/publications/commentary/water-and-cognitive-warfare",
+        "source_published_at": "2026-05-21T23:00:00.000Z",
+        "ingested_at": "2026-05-22T10:44:56.964Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:bfbb1f7b7ce74cabe04d -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:bfbb1f7b7ce74cabe04d -->\n\n### Text\nThe targeting of water supply is being normalised by cognitive warfare. More must be done to reverse this.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T23:00:00.000Z\ningested_at: 2026-05-22T10:44:56.964Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/water-and-cognitive-warfare\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/983",
       "number": 983,
       "id": "4498697400",
@@ -1067,6 +1640,89 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:8f4c2ff3305dbb6420f0 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:8f4c2ff3305dbb6420f0 -->\n\n### Text\nRussian drones pounding Ukraine depend on Western chips. Sanctions leak.\n The post Western Chips Power Russia’s War appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T21:04:30.000Z\ningested_at: 2026-05-21T22:16:02.780Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/western-chips-power-russias-war/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1009",
+      "number": 1009,
+      "id": "4502980214",
+      "ts": "2026-05-21T21:01:07.000Z",
+      "chronology_ts": "2026-05-21T21:01:07.000Z",
+      "issue_created_at": "2026-05-22T13:27:57.000Z",
+      "source_published_at": "2026-05-21T21:01:07.000Z",
+      "ingested_at": "2026-05-22T13:27:53.939Z",
+      "title": "[X] RT by @TomSharpe134: Okay, I think we need to be a little brutal with this one, unfortunately. 1) The only way the RN gets remotely near 1,000 *vessels* anytime soon is by counting every last sail drone & RHIB as a \"ship\", assuming o…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1009",
+      "original_url": "https://nitter.poast.org/navalhistorian/status/2057567385981169685",
+      "labels": [
+        "D:INFRA_CI",
+        "REG:NORTH_SEA",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:CHANNEL",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "DECAY:SLOW",
+        "SRC:ANALYST",
+        "SRC:NAVAL",
+        "SRC:ANALYSIS_POINTER",
+        "SRC:X",
+        "MAP:INFERRED"
+      ],
+      "source_type": "social_x",
+      "category": "D:INFRA_CI",
+      "region": "REG:NORTH_SEA",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 56,
+        "lon": 3.5,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "North Sea",
+        "matched_alias": "North Sea",
+        "matched_id": "north_sea",
+        "radius_km": 900,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "north_sea",
+          "matched_name": "North Sea",
+          "matched_alias": "North Sea",
+          "lat": 56,
+          "lon": 3.5,
+          "radius_km": 900,
+          "precision": "area",
+          "regions": [
+            "REG:NORTH_SEA"
+          ],
+          "score": 19,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "Tom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/navalhistorian/status/2057567385981169685",
+        "source_published_at": "2026-05-21T21:01:07.000Z",
+        "ingested_at": "2026-05-22T13:27:53.939Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:tom_sharpe_x:43b9d78fbcf6f3f6b1d1 -->\n<!-- VOODOO_INGEST_ID:tom_sharpe_x:43b9d78fbcf6f3f6b1d1 -->\n\n### Text\nOkay, I think we need to be a little brutal with this one, unfortunately.\n1) The only way the RN gets remotely near 1,000 *vessels* anytime soon is by counting every last sail drone & RHIB as a \"ship\", assuming orders, which have, let's face it, been less than forthcoming.\nNavy Lookout (@NavyLookout)\nLatest news article\nDefence minister wants 1,000-ship Royal Navy, built primarily on uncrewed platforms\nnavylookout.com/defence-mini…\n#CNE2026 @LukePollard\n— https://nitter.poast.org/NavyLookout/status/2057421006772285508#m\n\n### Zeit (UTC)\nsource_published_at: 2026-05-21T21:01:07.000Z\ningested_at: 2026-05-22T13:27:53.939Z\n\n### Quelle\nTom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/navalhistorian/status/2057567385981169685\n\n### Auto-Labels\nSRC:OSINT, SRC:SOCIAL, SRC:ANALYST, SRC:NAVAL, SRC:ANALYSIS_POINTER, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:LOW, SEV:1, REG:NORTH_SEA, REG:CHANNEL, SCORE:HYBRID_CONTEXT, DECAY:SLOW, SRC:X\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft…"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/982",
