@@ -1,46 +1,76 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-23T04:09:50.770Z",
+  "generated_at": "2026-05-23T08:32:38.177Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
-  "days": 45,
+  "days": 46,
   "summary_window_days": 365,
   "daily_summary": [
     {
-      "date": "2026-05-22",
-      "events_total": 56,
+      "date": "2026-05-23",
+      "events_total": 3,
       "p0_suspect": 0,
-      "geo_events": 7,
-      "social_events": 23,
-      "social_geo_events": 2,
+      "geo_events": 0,
+      "social_events": 3,
+      "social_geo_events": 0,
+      "rss_media_events": 0,
+      "top_domains": {
+        "D:NEWS_INTEL": 3
+      },
+      "top_regions": {
+        "REG:OTHER": 3
+      },
+      "severity": {
+        "SEV:1": 3
+      },
+      "hybrid_index_proxy": 3,
+      "government_weirdness_proxy": {
+        "north_sea": 0,
+        "baltic_sea": 0
+      },
+      "top_keywords": [
+        {
+          "keyword": "ot",
+          "count": 3
+        }
+      ]
+    },
+    {
+      "date": "2026-05-22",
+      "events_total": 58,
+      "p0_suspect": 0,
+      "geo_events": 8,
+      "social_events": 25,
+      "social_geo_events": 3,
       "rss_media_events": 33,
       "top_domains": {
         "D:NEWS_INTEL": 45,
-        "D:INFRA_CI": 5,
-        "D:SECURITY_CRIME": 3,
+        "D:INFRA_CI": 6,
+        "D:SECURITY_CRIME": 4,
         "D:DRONE_UAS": 2,
         "D:INCIDENT": 1
       },
       "top_regions": {
-        "REG:OTHER": 23,
+        "REG:OTHER": 24,
         "REG:GLOBAL": 5,
         "REG:EUROPE": 4,
         "REG:ATLANTIC_NE": 4,
         "REG:PERSIAN_GULF": 3,
+        "REG:NORTH_SEA": 1,
         "REG:GULF_OF_ADEN": 1,
         "REG:BALTIC": 1
       },
       "severity": {
-        "SEV:1": 56
+        "SEV:1": 58
       },
-      "hybrid_index_proxy": 71,
+      "hybrid_index_proxy": 73,
       "government_weirdness_proxy": {
-        "north_sea": 0,
+        "north_sea": 2,
         "baltic_sea": 2
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 32
+          "count": 34
         },
         {
           "keyword": "sts",
@@ -51,11 +81,11 @@
           "count": 5
         },
         {
-          "keyword": "sar",
-          "count": 3
+          "keyword": "drone",
+          "count": 4
         },
         {
-          "keyword": "drone",
+          "keyword": "sar",
           "count": 3
         },
         {

@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-23T04:09:50.770Z",
+  "generated_at": "2026-05-23T08:32:38.177Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,146 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-23T04:09:53.746Z",
+  "bundle_generated_at": "2026-05-23T08:32:41.185Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-03T04:09:50.770Z"
+    "cutoff_utc": "2026-05-03T08:32:38.177Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 844,
-    "active_events": 766,
-    "active_geo_events": 136,
-    "active_social_events": 291,
-    "active_social_geo_events": 32
+    "archive_events_total": 849,
+    "active_events": 771,
+    "active_geo_events": 137,
+    "active_social_events": 296,
+    "active_social_geo_events": 33
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1048",
+      "number": 1048,
+      "id": "4507319122",
+      "ts": "2026-05-23T07:08:59.242Z",
+      "chronology_ts": "2026-05-23T07:08:59.242Z",
+      "issue_created_at": "2026-05-23T07:27:38.000Z",
+      "source_published_at": "2026-05-23T07:08:59.242Z",
+      "ingested_at": "2026-05-23T07:27:37.877Z",
+      "title": "[BSKY] Disclaimer: do not base your target acquisition plans, foreign policies or vacation plans on anything I present. Check with your own intel staff, clerks and tra",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1048",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmivh4livc2d",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmivh4livc2d",
+        "source_published_at": "2026-05-23T07:08:59.242Z",
+        "ingested_at": "2026-05-23T07:27:37.877Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:c88583b4e24ec0d33110 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:c88583b4e24ec0d33110 -->\n\n### Text\nDisclaimer: do not base your target acquisition plans, foreign policies or vacation plans on anything I present.\nCheck with your own intel staff, clerks and travel agency.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T07:08:59.242Z\ningested_at: 2026-05-23T07:27:37.877Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmivh4livc2d\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1050",
+      "number": 1050,
+      "id": "4507319591",
+      "ts": "2026-05-23T06:09:08.296Z",
+      "chronology_ts": "2026-05-23T06:09:08.296Z",
+      "issue_created_at": "2026-05-23T07:27:48.000Z",
+      "source_published_at": "2026-05-23T06:09:08.296Z",
+      "ingested_at": "2026-05-23T07:27:47.932Z",
+      "title": "[BSKY] 81 % av oppositionen vill ha V i regeringen. Vem är förvånad att höger-falangen i S som röstade för fascist regerings tonårs-deporteringar och att GOP kapitalis",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1050",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmirxvrfe22o",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmirxvrfe22o",
+        "source_published_at": "2026-05-23T06:09:08.296Z",
+        "ingested_at": "2026-05-23T07:27:47.932Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:a031540d757e63219bac -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:a031540d757e63219bac -->\n\n### Text\n81 % av oppositionen vill ha V i regeringen.\nVem är förvånad att höger-falangen i S som röstade för fascist regerings tonårs-deporteringar och att GOP kapitalistiska Centerpartister är emot V i regeringen.\nwww.svt.se/nyheter/inri...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T06:09:08.296Z\ningested_at: 2026-05-23T07:27:47.932Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmirxvrfe22o\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1047",
+      "number": 1047,
+      "id": "4506836999",
+      "ts": "2026-05-23T03:16:03.115Z",
+      "chronology_ts": "2026-05-23T03:16:03.115Z",
+      "issue_created_at": "2026-05-23T04:35:17.000Z",
+      "source_published_at": "2026-05-23T03:16:03.115Z",
+      "ingested_at": "2026-05-23T04:35:16.942Z",
+      "title": "[BSKY] Insider access. Clear analysis. Trusted voices. Sign up for a War on the Rocks membership to unlock all our members-only content. warontherocks.com/membership/",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1047",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmiicfxzh52b",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmiicfxzh52b",
+        "source_published_at": "2026-05-23T03:16:03.115Z",
+        "ingested_at": "2026-05-23T04:35:16.942Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:c78710235b829b10cb66 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:c78710235b829b10cb66 -->\n\n### Text\nInsider access. Clear analysis. Trusted voices. Sign up for a War on the Rocks membership to unlock all our members-only content. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T03:16:03.115Z\ningested_at: 2026-05-23T04:35:16.942Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmiicfxzh52b\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1044",
       "number": 1044,
@@ -102,6 +228,48 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/fincantieri-s-us-shipyards-recognized-by-shipbuilders-council-of-america\n\n### Zeit (UTC)\n2026-05-22T23:28:59Z\n\n### Published\n2026-05-22T23:28:59Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nFincantieri reaffirmed its leadership position in advanced shipbuilding and maritime innovation, announcing that three of its U.S. shipyards — Fincant...\n\n---\n_Ingested at 2026-05-23T04:07:16.851864+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1ebdc290325cfd4f -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1051",
+      "number": 1051,
+      "id": "4507319750",
+      "ts": "2026-05-22T23:08:18.000Z",
+      "chronology_ts": "2026-05-22T23:08:18.000Z",
+      "issue_created_at": "2026-05-23T07:27:53.000Z",
+      "source_published_at": "2026-05-22T23:08:18.000Z",
+      "ingested_at": "2026-05-23T07:27:53.014Z",
+      "title": "[X] Mexico: Authorities dismantled three clandestine drug labs linked to the Los Mayos faction of the Sinaloa Cartel in Sinaloa. In Los Haros, one lab was found with 4,000 kg of methamphetamine, 4,500 liters of liquid substances, and 200…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1051",
+      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2057961780752654665",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:X"
+      ],
+      "source_type": "social_x",
+      "category": "D:SECURITY_CRIME",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "World Crime Intel (X) (worldcrimeintel_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2057961780752654665",
+        "source_published_at": "2026-05-22T23:08:18.000Z",
+        "ingested_at": "2026-05-23T07:27:53.014Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:worldcrimeintel_x:e1e779e06d7314624141 -->\n<!-- VOODOO_INGEST_ID:worldcrimeintel_x:e1e779e06d7314624141 -->\n\n### Text\nMexico: Authorities dismantled three clandestine drug labs linked to the Los Mayos faction of the Sinaloa Cartel in Sinaloa. In Los Haros, one lab was found with 4,000 kg of methamphetamine, 4,500 liters of liquid substances, and 200 kg of chemical precursors.\nIn Los Cedritos, two labs were seized; the first contained 400 liters of acetic acid and 1,200 kg of caustic soda.\nThe second yielded 200 kg of methamphetamine, 450 kg of product drying, 400 liters of product mixture, 3,000 liters of liquid precursors, 1,000 liters of toluene, 653 kg of caustic soda, and 375 kg of tartaric acid.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T23:08:18.000Z\ningested_at: 2026-05-23T07:27:53.014Z\n\n### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2057961780752654665\n\n### Auto-Labels\nSRC:OSINT, D:SECURITY_CRIME, SRC:SOCIAL, SRC:X, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1046",
@@ -561,6 +729,89 @@
       "report_category": "Drohnen / UxV",
       "greybook_rubric": "Drohnen",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/russian-patrol-ship-improvises-using-fencing-to-protect-against-drones\n\n### Zeit (UTC)\n2026-05-22T19:41:00Z\n\n### Published\n2026-05-22T19:41:00Z\n\n### Auto-Labels\nCONF:MED, D:DRONE_UAS, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nIn the more than four years since Russia invaded Ukraine in an all-out war, Ukraine has become proficient in drone technology and has frequently repo...\n\n---\n_Ingested at 2026-05-22T20:09:39.927236+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 72ead49ebafd98c8 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1049",
+      "number": 1049,
+      "id": "4507319413",
+      "ts": "2026-05-22T18:52:16.000Z",
+      "chronology_ts": "2026-05-22T18:52:16.000Z",
+      "issue_created_at": "2026-05-23T07:27:43.000Z",
+      "source_published_at": "2026-05-22T18:52:16.000Z",
+      "ingested_at": "2026-05-23T07:27:41.936Z",
+      "title": "[X] RT by @TomSharpe134: We have lost 42 aircraft of which 24 are drones so that leaves us with 18 manned aircraft losses. Out of these three were friendly fire and 7 were from the rescue operation of the F-15E that was shot down over Ir…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1049",
+      "original_url": "https://nitter.poast.org/Schizointel/status/2057897349070955004",
+      "labels": [
+        "D:INFRA_CI",
+        "REG:NORTH_SEA",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:CHANNEL",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "DECAY:SLOW",
+        "SRC:ANALYST",
+        "SRC:NAVAL",
+        "SRC:ANALYSIS_POINTER",
+        "SRC:X",
+        "MAP:INFERRED"
+      ],
+      "source_type": "social_x",
+      "category": "D:INFRA_CI",
+      "region": "REG:NORTH_SEA",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 56,
+        "lon": 3.5,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "North Sea",
+        "matched_alias": "North Sea",
+        "matched_id": "north_sea",
+        "radius_km": 900,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "north_sea",
+          "matched_name": "North Sea",
+          "matched_alias": "North Sea",
+          "lat": 56,
+          "lon": 3.5,
+          "radius_km": 900,
+          "precision": "area",
+          "regions": [
+            "REG:NORTH_SEA"
+          ],
+          "score": 19,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "Tom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/Schizointel/status/2057897349070955004",
+        "source_published_at": "2026-05-22T18:52:16.000Z",
+        "ingested_at": "2026-05-23T07:27:41.936Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:tom_sharpe_x:700ca02f30420c401050 -->\n<!-- VOODOO_INGEST_ID:tom_sharpe_x:700ca02f30420c401050 -->\n\n### Text\nWe have lost 42 aircraft of which 24 are drones so that leaves us with 18 manned aircraft losses. Out of these three were friendly fire and 7 were from the rescue operation of the F-15E that was shot down over Iran.\n24 aircraft losses spread out across over 10,200 air sorties striking over 13,000 individual targets. With nearly 40% of the aircraft lost from a single event, I don't think that's a sign of US power decline in the slightest.\nPhillips P. OBrien (@PhillipsPOBrien)\nJust sent out this post. US losses across the board fighting Iran, but particularly involving aircraft, are revealing worrying signs that US military efficiency is in decline and not what it was. The loss rates are many times higher than Vietnam and Desert Storm. A fish rots from the head down.\n— https://nitter.poast.org/PhillipsPOBrien/status/2057699486164468061#m\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T18:52:16.000Z\ningested_at: 2026-05-23T07:27:41.936Z\n\n### Quelle\nTom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitte…"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1024",
