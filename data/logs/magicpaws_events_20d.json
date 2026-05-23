@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-22T20:13:03.374Z",
+  "generated_at": "2026-05-23T04:09:50.770Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,434 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-22T20:13:07.352Z",
+  "bundle_generated_at": "2026-05-23T04:09:53.746Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-02T20:13:03.374Z"
+    "cutoff_utc": "2026-05-03T04:09:50.770Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 831,
-    "active_events": 753,
+    "archive_events_total": 844,
+    "active_events": 766,
     "active_geo_events": 136,
-    "active_social_events": 285,
+    "active_social_events": 291,
     "active_social_geo_events": 32
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1044",
+      "number": 1044,
+      "id": "4506178372",
+      "ts": "2026-05-22T23:30:08.271Z",
+      "chronology_ts": "2026-05-22T23:30:08.271Z",
+      "issue_created_at": "2026-05-23T00:01:52.000Z",
+      "source_published_at": "2026-05-22T23:30:08.271Z",
+      "ingested_at": "2026-05-23T00:01:51.347Z",
+      "title": "[BSKY] A strategy designed to bait an attacker into indiscriminate fire only works if the attacker takes the bait. Restraint and separation deny that leverage entirely",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1044",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmi3oh627q2u",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmi3oh627q2u",
+        "source_published_at": "2026-05-22T23:30:08.271Z",
+        "ingested_at": "2026-05-23T00:01:51.347Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:8c57e1759c080810307f -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:8c57e1759c080810307f -->\n\n### Text\nA strategy designed to bait an attacker into indiscriminate fire only works if the attacker takes the bait. Restraint and separation deny that leverage entirely. warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T23:30:08.271Z\ningested_at: 2026-05-23T00:01:51.347Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmi3oh627q2u\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1045",
+      "number": 1045,
+      "id": "4506773290",
+      "ts": "2026-05-22T23:28:59.000Z",
+      "chronology_ts": "2026-05-22T23:28:59.000Z",
+      "issue_created_at": "2026-05-23T04:07:17.000Z",
+      "source_published_at": "2026-05-22T23:28:59.000Z",
+      "ingested_at": "2026-05-22T23:28:59.000Z",
+      "title": "[RSS] Fincantieri's US Shipyards Recognized by Shipbuilders Council of America",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1045",
+      "original_url": "https://maritime-executive.com/article/fincantieri-s-us-shipyards-recognized-by-shipbuilders-council-of-america",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/fincantieri-s-us-shipyards-recognized-by-shipbuilders-council-of-america",
+        "source_published_at": "2026-05-22T23:28:59.000Z",
+        "ingested_at": "2026-05-22T23:28:59.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/fincantieri-s-us-shipyards-recognized-by-shipbuilders-council-of-america\n\n### Zeit (UTC)\n2026-05-22T23:28:59Z\n\n### Published\n2026-05-22T23:28:59Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nFincantieri reaffirmed its leadership position in advanced shipbuilding and maritime innovation, announcing that three of its U.S. shipyards — Fincant...\n\n---\n_Ingested at 2026-05-23T04:07:16.851864+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1ebdc290325cfd4f -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1046",
+      "number": 1046,
+      "id": "4506773472",
+      "ts": "2026-05-22T22:57:41.000Z",
+      "chronology_ts": "2026-05-22T22:57:41.000Z",
+      "issue_created_at": "2026-05-23T04:07:18.000Z",
+      "source_published_at": "2026-05-22T22:57:41.000Z",
+      "ingested_at": "2026-05-22T22:57:41.000Z",
+      "title": "[RSS] RINA Awards AiP for Energy Harvesting Ship That Could Become Green Supplier",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1046",
+      "original_url": "https://maritime-executive.com/article/rina-awards-aip-for-energy-harvesting-ship-that-could-become-green-supplier",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/rina-awards-aip-for-energy-harvesting-ship-that-could-become-green-supplier",
+        "source_published_at": "2026-05-22T22:57:41.000Z",
+        "ingested_at": "2026-05-22T22:57:41.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/rina-awards-aip-for-energy-harvesting-ship-that-could-become-green-supplier\n\n### Zeit (UTC)\n2026-05-22T22:57:41Z\n\n### Published\n2026-05-22T22:57:41Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nRINA awarded an Approval in Principle (AiP) certificate to a unique concept vessel that would be an energy-harvesting ship, designed to produce green...\n\n---\n_Ingested at 2026-05-23T04:07:17.968310+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: c557509beff811a3 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1043",
+      "number": 1043,
+      "id": "4506177982",
+      "ts": "2026-05-22T22:54:29.000Z",
+      "chronology_ts": "2026-05-22T22:54:29.000Z",
+      "issue_created_at": "2026-05-23T00:01:43.000Z",
+      "source_published_at": "2026-05-22T22:54:29.000Z",
+      "ingested_at": "2026-05-23T00:01:40.498Z",
+      "title": "[RSS] Train Thy Neighbor, Deny Thy Adversary &#124; RAND",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1043",
+      "original_url": "https://smallwarsjournal.com/2026/05/22/train-thy-neighbor-deny-thy-adversary-rand/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/22/train-thy-neighbor-deny-thy-adversary-rand/",
+        "source_published_at": "2026-05-22T22:54:29.000Z",
+        "ingested_at": "2026-05-23T00:01:40.498Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:de1113f4c729d3a5faf1 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:de1113f4c729d3a5faf1 -->\n\n### Text\nA new RAND report makes the case that Security Force Assistance—the business of training, advising, and equipping partner militaries—is one of the most cost-effective tools the U.S. has for advancing its strategic interests in Latin America.  “Force Multipliers in the Americas” by Irina A. Chindea, Elina Treyger, Tahina Montoya, and Kiki Hunegs presents a threat picture that will be familiar &#8230;\n Read more\n The post Train Thy Neighbor, Deny Thy Adversary | RAND appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T22:54:29.000Z\ningested_at: 2026-05-23T00:01:40.498Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/22/train-thy-neighbor-deny-thy-adversary-rand/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ningest_version: MAGIC PA…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1040",
+      "number": 1040,
+      "id": "4506069507",
+      "ts": "2026-05-22T22:35:18.000Z",
+      "chronology_ts": "2026-05-22T22:35:18.000Z",
+      "issue_created_at": "2026-05-22T23:19:00.000Z",
+      "source_published_at": "2026-05-22T22:35:18.000Z",
+      "ingested_at": "2026-05-22T22:35:18.000Z",
+      "title": "[RSS] Singapore Issues First Authorization for Ammonia Bunkering Trials",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1040",
+      "original_url": "https://maritime-executive.com/article/singapore-issues-first-authorization-for-ammonia-bunkering-trials",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "PAT:STS_SUSPECT",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/singapore-issues-first-authorization-for-ammonia-bunkering-trials",
+        "source_published_at": "2026-05-22T22:35:18.000Z",
+        "ingested_at": "2026-05-22T22:35:18.000Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/singapore-issues-first-authorization-for-ammonia-bunkering-trials\n\n### Zeit (UTC)\n2026-05-22T22:35:18Z\n\n### Published\n2026-05-22T22:35:18Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, PAT:STS_SUSPECT, SEV:1, SRC:MEDIA\n\n### Summary\nSingapore’s Maritime and Port Authority recently granted the first authorization for an ammonia bunker operation that will use ship-to-ship fuel trans...\n\n---\n_Ingested at 2026-05-22T23:18:59.745622+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 261f99c52d660d4a -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1037",
+      "number": 1037,
+      "id": "4505834481",
+      "ts": "2026-05-22T22:01:40.796Z",
+      "chronology_ts": "2026-05-22T22:01:40.796Z",
+      "issue_created_at": "2026-05-22T22:03:27.000Z",
+      "source_published_at": "2026-05-22T22:01:40.796Z",
+      "ingested_at": "2026-05-22T22:03:26.765Z",
+      "title": "[BSKY] hehe, first i need four wheels and brakes at the moment we do not know even what a circle is",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1037",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmhwqb6jn22h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmhwqb6jn22h",
+        "source_published_at": "2026-05-22T22:01:40.796Z",
+        "ingested_at": "2026-05-22T22:03:26.765Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:44978e593de4bec4c57c -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:44978e593de4bec4c57c -->\n\n### Text\nhehe, first i need four wheels and brakes\nat the moment we do not know even what a circle is\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T22:01:40.796Z\ningested_at: 2026-05-22T22:03:26.765Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmhwqb6jn22h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1038",
+      "number": 1038,
+      "id": "4505835140",
+      "ts": "2026-05-22T22:00:47.290Z",
+      "chronology_ts": "2026-05-22T22:00:47.290Z",
+      "issue_created_at": "2026-05-22T22:03:39.000Z",
+      "source_published_at": "2026-05-22T22:00:47.290Z",
+      "ingested_at": "2026-05-22T22:03:38.976Z",
+      "title": "[BSKY] A game doesn't just test how someone applies tactics. It shows you how they think, communicate, and handle pressure when the situation breaks against them. (Mem",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1038",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmhwooaao72a",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmhwooaao72a",
+        "source_published_at": "2026-05-22T22:00:47.290Z",
+        "ingested_at": "2026-05-22T22:03:38.976Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:5135c00deaa56eb526d4 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:5135c00deaa56eb526d4 -->\n\n### Text\nA game doesn't just test how someone applies tactics. It shows you how they think, communicate, and handle pressure when the situation breaks against them. (Members Only)\nListen here: warontherocks.com/episode/sold...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T22:00:47.290Z\ningested_at: 2026-05-22T22:03:38.976Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmhwooaao72a\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1041",
+      "number": 1041,
+      "id": "4506069547",
+      "ts": "2026-05-22T21:59:03.000Z",
+      "chronology_ts": "2026-05-22T21:59:03.000Z",
+      "issue_created_at": "2026-05-22T23:19:01.000Z",
+      "source_published_at": "2026-05-22T21:59:03.000Z",
+      "ingested_at": "2026-05-22T21:59:03.000Z",
+      "title": "[RSS] US Seizes Cocaine and Arrests Crewmember from a Tanker Arriving at LA Port",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1041",
+      "original_url": "https://maritime-executive.com/article/us-seizes-cocaine-and-arrests-crewmember-from-a-tanker-arriving-at-la-port",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:SECURITY_CRIME",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/us-seizes-cocaine-and-arrests-crewmember-from-a-tanker-arriving-at-la-port",
+        "source_published_at": "2026-05-22T21:59:03.000Z",
+        "ingested_at": "2026-05-22T21:59:03.000Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/us-seizes-cocaine-and-arrests-crewmember-from-a-tanker-arriving-at-la-port\n\n### Zeit (UTC)\n2026-05-22T21:59:03Z\n\n### Published\n2026-05-22T21:59:03Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, D:SECURITY_CRIME, SEV:1, SRC:MEDIA\n\n### Summary\nThe U.S. Department of Homeland Security, working with U.S. Coast Guard and Immigration and Customs Enforcement, seized 227 kg of cocaine and arrested...\n\n---\n_Ingested at 2026-05-22T23:19:00.930984+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: c1433b06ce49aac0 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1036",
+      "number": 1036,
+      "id": "4505725509",
+      "ts": "2026-05-22T21:00:22.000Z",
+      "chronology_ts": "2026-05-22T21:00:22.000Z",
+      "issue_created_at": "2026-05-22T21:35:35.000Z",
+      "source_published_at": "2026-05-22T21:00:22.000Z",
+      "ingested_at": "2026-05-22T21:00:22.000Z",
+      "title": "[RSS] NATO Monitors Russian Surveillance Ship Loitering Near NATO Exercise",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1036",
+      "original_url": "https://maritime-executive.com/article/nato-monitors-russian-surveillance-ship-loitering-near-nato-exercise",
+      "labels": [
+        "D:NEWS_INTEL",
+        "PAT:LOITERING",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/nato-monitors-russian-surveillance-ship-loitering-near-nato-exercise",
+        "source_published_at": "2026-05-22T21:00:22.000Z",
+        "ingested_at": "2026-05-22T21:00:22.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/nato-monitors-russian-surveillance-ship-loitering-near-nato-exercise\n\n### Zeit (UTC)\n2026-05-22T21:00:22Z\n\n### Published\n2026-05-22T21:00:22Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, PAT:LOITERING, SEV:1, SRC:MEDIA\n\n### Summary\nIt was a case of who’s watching whom, according to reports from NATO Maritime Command. A Russian “intelligence collection” warship was spotted by NATO...\n\n---\n_Ingested at 2026-05-22T21:35:35.166726+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 2bc15d24af63fe87 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1035",
+      "number": 1035,
+      "id": "4505437463",
+      "ts": "2026-05-22T20:30:08.395Z",
+      "chronology_ts": "2026-05-22T20:30:08.395Z",
+      "issue_created_at": "2026-05-22T20:30:25.000Z",
+      "source_published_at": "2026-05-22T20:30:08.395Z",
+      "ingested_at": "2026-05-22T20:30:24.951Z",
+      "title": "[BSKY] Accountability in the military rests on the willingness to ask hard questions, even when the answers are uncomfortable. warontherocks.com/2026/05/the-...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1035",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmhrmlmrbv2u",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmhrmlmrbv2u",
+        "source_published_at": "2026-05-22T20:30:08.395Z",
+        "ingested_at": "2026-05-22T20:30:24.951Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:0aeff22c476eb214e5d5 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:0aeff22c476eb214e5d5 -->\n\n### Text\nAccountability in the military rests on the willingness to ask hard questions, even when the answers are uncomfortable. warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T20:30:08.395Z\ningested_at: 2026-05-22T20:30:24.951Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmhrmlmrbv2u\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1031",
       "number": 1031,
@@ -60,6 +474,53 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/presidential-message-on-national-maritime-day\n\n### Zeit (UTC)\n2026-05-22T20:02:25Z\n\n### Published\n2026-05-22T20:02:25Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nFor over two and a half centuries, the dedicated members of the United States Merchant Marine have powered our economy, secured our commerce, and defe...\n\n---\n_Ingested at 2026-05-22T20:09:38.765397+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: caf16262a7e993df -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1034",
+      "number": 1034,
+      "id": "4505436122",
+      "ts": "2026-05-22T19:45:16.000Z",
+      "chronology_ts": "2026-05-22T19:45:16.000Z",
+      "issue_created_at": "2026-05-22T20:30:07.000Z",
+      "source_published_at": "2026-05-22T19:45:16.000Z",
+      "ingested_at": "2026-05-22T20:30:05.654Z",
+      "title": "[RSS] Russian Influence Drains Away in the South Caucasus",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1034",
+      "original_url": "https://cepa.org/article/russian-influence-drains-away-in-the-south-caucasus/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/russian-influence-drains-away-in-the-south-caucasus/",
+        "source_published_at": "2026-05-22T19:45:16.000Z",
+        "ingested_at": "2026-05-22T20:30:05.654Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:b2d66b611d7555bba64f -->\n<!-- VOODOO_INGEST_ID:cepa_feed:b2d66b611d7555bba64f -->\n\n### Text\nArmenia is building closer relations with the EU, underlining Russia’s diminishing influence in the South Caucasus.\n The post Russian Influence Drains Away in the South Caucasus appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T19:45:16.000Z\ningested_at: 2026-05-22T20:30:05.654Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/russian-influence-drains-away-in-the-south-caucasus/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1032",
@@ -1163,6 +1624,48 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:da4a266ca0f9ad2b47b0 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:da4a266ca0f9ad2b47b0 -->\n\n### Text\nThe UAE's decision to leave OPEC was three years in the making and is based on its view the world is near the “autumn of the hydrocarbon age”, meaning the country needs to maximize oil revenues while it can, a senior adviser to the president said.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T13:09:53.000Z\ningested_at: 2026-05-22T13:27:47.318Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/uae-left-opec-to-pump-more-as-end-of-oil-era-looms-presidential-adviser-says/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1039",
+      "number": 1039,
+      "id": "4505835217",
+      "ts": "2026-05-22T13:03:56.218Z",
+      "chronology_ts": "2026-05-22T13:03:56.218Z",
+      "issue_created_at": "2026-05-22T22:03:41.000Z",
+      "source_published_at": "2026-05-22T13:03:56.218Z",
+      "ingested_at": "2026-05-22T22:03:40.176Z",
+      "title": "[BSKY] #IMO #InternationalMaritimeOrganisation adopts updates #Beltrep & #Soundrep requiring vessel to report #insurance #Maritime #Shipping @mercoglianos.bsky.social",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1039",
+      "original_url": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mmgyopbsn22c",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "MaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mmgyopbsn22c",
+        "source_published_at": "2026-05-22T13:03:56.218Z",
+        "ingested_at": "2026-05-22T22:03:40.176Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:maritimekiwi_bsky:ebccbe3255dece1cc433 -->\n<!-- VOODOO_INGEST_ID:maritimekiwi_bsky:ebccbe3255dece1cc433 -->\n\n### Text\n#IMO #InternationalMaritimeOrganisation adopts updates #Beltrep & #Soundrep requiring vessel to report #insurance\n#Maritime #Shipping\n@mercoglianos.bsky.social\n@bartgonnissen.bsky.social\n@navalarchitect.bsky.social\n@pa.nton.cx\nSource #DMA #DanishMaritimeAuthority\nwww.dma.dk/news/2026/ma...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-22T13:03:56.218Z\ningested_at: 2026-05-22T22:03:40.176Z\n\n### Quelle\nMaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/maritimekiwi.bsky.social/post/3mmgyopbsn22c\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1011",
@@ -6302,6 +6805,48 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "maritime Geopolitik",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:0c1e05ec07f60438ef4f -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:0c1e05ec07f60438ef4f -->\n\n### Text\nThe Iran war has already burned through years of Tomahawk inventory in weeks. If that's the cost of a regional conflict, what does a fight with China look like? warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-20T19:45:05.593Z\ningested_at: 2026-05-20T20:08:26.136Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmco672x3d2b\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1042",
+      "number": 1042,
+      "id": "4506177582",
+      "ts": "2026-05-20T19:44:23.799Z",
+      "chronology_ts": "2026-05-20T19:44:23.799Z",
+      "issue_created_at": "2026-05-23T00:01:33.000Z",
+      "source_published_at": "2026-05-20T19:44:23.799Z",
+      "ingested_at": "2026-05-23T00:01:31.553Z",
+      "title": "[BSKY] The trend continues, with the RAF P-8s going NW out of Lossiemouth - and maybe the one that went NE today was possibly participating in Dynamic Mongoose; but al",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1042",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmco4wtsbk2n",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmco4wtsbk2n",
+        "source_published_at": "2026-05-20T19:44:23.799Z",
+        "ingested_at": "2026-05-23T00:01:31.553Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:68725a164453f60c94be -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:68725a164453f60c94be -->\n\n### Text\nThe trend continues, with the RAF P-8s going NW out of Lossiemouth - and maybe the one that went NE today was possibly participating in Dynamic Mongoose; but all speculation.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-20T19:44:23.799Z\ningested_at: 2026-05-23T00:01:31.553Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmco4wtsbk2n\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/910",
