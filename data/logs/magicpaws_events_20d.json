@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-23T08:32:38.177Z",
+  "generated_at": "2026-05-23T14:04:18.395Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,224 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-23T08:32:41.185Z",
+  "bundle_generated_at": "2026-05-23T14:04:22.468Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-03T08:32:38.177Z"
+    "cutoff_utc": "2026-05-03T14:04:18.395Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 849,
-    "active_events": 771,
-    "active_geo_events": 137,
-    "active_social_events": 296,
-    "active_social_geo_events": 33
+    "archive_events_total": 853,
+    "active_events": 775,
+    "active_geo_events": 138,
+    "active_social_events": 300,
+    "active_social_geo_events": 34
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1055",
+      "number": 1055,
+      "id": "4507862711",
+      "ts": "2026-05-23T10:57:46.418Z",
+      "chronology_ts": "2026-05-23T10:57:46.418Z",
+      "issue_created_at": "2026-05-23T11:06:39.000Z",
+      "source_published_at": "2026-05-23T10:57:46.418Z",
+      "ingested_at": "2026-05-23T11:06:38.376Z",
+      "title": "[BSKY] @tiafarris10.bsky.social, @spectrecrouton.bsky.social UNIVERSAL #IMO9384306 now underway as of 22 May 17:30h UTC, heading South East at 10 knots. Doesn't appear",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1055",
+      "original_url": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mmjc3zmvlk2y",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "MaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mmjc3zmvlk2y",
+        "source_published_at": "2026-05-23T10:57:46.418Z",
+        "ingested_at": "2026-05-23T11:06:38.376Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:maritimekiwi_bsky:bfad054054697dadf095 -->\n<!-- VOODOO_INGEST_ID:maritimekiwi_bsky:bfad054054697dadf095 -->\n\n### Text\n@tiafarris10.bsky.social, @spectrecrouton.bsky.social\nUNIVERSAL #IMO9384306 now underway as of 22 May 17:30h UTC, heading South East at 10 knots. Doesn't appear weather related. Maybe the Cuba trip has been postponed.\n@starboardintelligence.com link: app.starboard.nz/link/7qksxpc...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T10:57:46.418Z\ningested_at: 2026-05-23T11:06:38.376Z\n\n### Quelle\nMaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/maritimekiwi.bsky.social/post/3mmjc3zmvlk2y\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1054",
+      "number": 1054,
+      "id": "4507862603",
+      "ts": "2026-05-23T10:55:33.681Z",
+      "chronology_ts": "2026-05-23T10:55:33.681Z",
+      "issue_created_at": "2026-05-23T11:06:36.000Z",
+      "source_published_at": "2026-05-23T10:55:33.681Z",
+      "ingested_at": "2026-05-23T11:06:35.544Z",
+      "title": "[BSKY] 💎 Neuer ISPK-Policy Brief unseres Fellows Dr. Michael Rohschürmann: Von der Peripherie ins Zentrum – die neue Rolle Zentralasiens in der europäischen Sicherhei",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1054",
+      "original_url": "https://bsky.app/profile/ispk.bsky.social/post/3mmjby2zzns2b",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:BALTIC",
+        "SRC:BSKY",
+        "REG:FEHMARNBELT"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:BALTIC",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 54.323,
+        "lon": 10.123,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Kiel",
+        "matched_alias": "Kiel",
+        "matched_id": "port_kiel",
+        "radius_km": 12,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:BALTIC",
+          "REG:FEHMARNBELT"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 54.323,
+          "lon": 10.123,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Kiel",
+          "matched_alias": "Kiel",
+          "matched_id": "port_kiel",
+          "radius_km": 12,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:BALTIC",
+            "REG:FEHMARNBELT"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "ISPK (Bluesky) (ispk_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/ispk.bsky.social/post/3mmjby2zzns2b",
+        "source_published_at": "2026-05-23T10:55:33.681Z",
+        "ingested_at": "2026-05-23T11:06:35.544Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:ispk_bsky:ef7fe2fbd3e485346459 -->\n<!-- VOODOO_INGEST_ID:ispk_bsky:ef7fe2fbd3e485346459 -->\n\n### Text\n💎 Neuer ISPK-Policy Brief unseres Fellows Dr. Michael Rohschürmann: Von der Peripherie ins Zentrum – die neue Rolle Zentralasiens in der europäischen Sicherheitsarchitektur.\nDownload👇\nwww.ispk.uni-kiel.de/de/publikati...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T10:55:33.681Z\ningested_at: 2026-05-23T11:06:35.544Z\n\n### Quelle\nISPK (Bluesky) (ispk_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/ispk.bsky.social/post/3mmjby2zzns2b\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:BALTIC, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1053",
+      "number": 1053,
+      "id": "4507862289",
+      "ts": "2026-05-23T10:48:37.683Z",
+      "chronology_ts": "2026-05-23T10:48:37.683Z",
+      "issue_created_at": "2026-05-23T11:06:27.000Z",
+      "source_published_at": "2026-05-23T10:48:37.683Z",
+      "ingested_at": "2026-05-23T11:06:26.738Z",
+      "title": "[BSKY] Ah, i know what you mean. I find it unclear too. Did not spend too much time on graphics this time. Sorry\"!",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1053",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmjblochts2d",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmjblochts2d",
+        "source_published_at": "2026-05-23T10:48:37.683Z",
+        "ingested_at": "2026-05-23T11:06:26.738Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:78e684f77b2467eae44f -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:78e684f77b2467eae44f -->\n\n### Text\nAh, i know what you mean. I find it unclear too. Did not spend too much time on graphics this time. Sorry\"!\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T10:48:37.683Z\ningested_at: 2026-05-23T11:06:26.738Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmjblochts2d\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1052",
+      "number": 1052,
+      "id": "4507680704",
+      "ts": "2026-05-23T09:27:35.698Z",
+      "chronology_ts": "2026-05-23T09:27:35.698Z",
+      "issue_created_at": "2026-05-23T09:46:20.000Z",
+      "source_published_at": "2026-05-23T09:27:35.698Z",
+      "ingested_at": "2026-05-23T09:46:19.387Z",
+      "title": "[BSKY] Thanks for reading my material closely!",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1052",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmj52rkhmk2r",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmj52rkhmk2r",
+        "source_published_at": "2026-05-23T09:27:35.698Z",
+        "ingested_at": "2026-05-23T09:46:19.387Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:58a07495168d8bebc8a1 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:58a07495168d8bebc8a1 -->\n\n### Text\nThanks for reading my material closely!\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T09:27:35.698Z\ningested_at: 2026-05-23T09:46:19.387Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmj52rkhmk2r\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1048",
       "number": 1048,
