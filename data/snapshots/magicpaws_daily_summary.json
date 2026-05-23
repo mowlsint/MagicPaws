@@ -1,37 +1,62 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-23T14:04:18.395Z",
+  "generated_at": "2026-05-23T19:39:23.679Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 46,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-23",
-      "events_total": 7,
+      "events_total": 15,
       "p0_suspect": 0,
-      "geo_events": 1,
-      "social_events": 7,
+      "geo_events": 2,
+      "social_events": 8,
       "social_geo_events": 1,
-      "rss_media_events": 0,
+      "rss_media_events": 7,
       "top_domains": {
-        "D:NEWS_INTEL": 7
+        "D:NEWS_INTEL": 12,
+        "D:INFRA_CI": 2,
+        "D:CYBER_OT": 1
       },
       "top_regions": {
-        "REG:OTHER": 6,
+        "REG:OTHER": 7,
+        "REG:GLOBAL": 1,
+        "REG:NORTH_SEA": 1,
+        "REG:ATLANTIC_NE": 1,
         "REG:BALTIC": 1
       },
       "severity": {
-        "SEV:1": 7
+        "SEV:1": 15
       },
-      "hybrid_index_proxy": 8,
+      "hybrid_index_proxy": 19,
       "government_weirdness_proxy": {
-        "north_sea": 0,
+        "north_sea": 3,
         "baltic_sea": 2
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 6
+          "count": 7
+        },
+        {
+          "keyword": "cyber",
+          "count": 1
+        },
+        {
+          "keyword": "navy",
+          "count": 1
+        },
+        {
+          "keyword": "drone",
+          "count": 1
+        },
+        {
+          "keyword": "coast guard",
+          "count": 1
+        },
+        {
+          "keyword": "mpa",
+          "count": 1
         },
         {
           "keyword": "sar",
