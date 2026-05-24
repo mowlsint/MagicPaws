@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-24T08:45:34.566Z",
+  "generated_at": "2026-05-24T14:03:01.027Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,62 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-24T08:45:38.273Z",
+  "bundle_generated_at": "2026-05-24T14:03:04.457Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-04T08:45:34.566Z"
+    "cutoff_utc": "2026-05-04T14:03:01.027Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 899,
-    "active_events": 821,
-    "active_geo_events": 139,
-    "active_social_events": 307,
-    "active_social_geo_events": 34
+    "archive_events_total": 902,
+    "active_events": 822,
+    "active_geo_events": 141,
+    "active_social_events": 310,
+    "active_social_geo_events": 36
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1104",
+      "number": 1104,
+      "id": "4511699733",
+      "ts": "2026-05-24T13:08:11.000Z",
+      "chronology_ts": "2026-05-24T13:08:11.000Z",
+      "issue_created_at": "2026-05-24T13:12:38.000Z",
+      "source_published_at": "2026-05-24T13:08:11.000Z",
+      "ingested_at": "2026-05-24T13:12:36.974Z",
+      "title": "[X] Türkiye: Police seized 1,700,000 synthetic pharmaceutical pills, identified as illicit drug-type synthetic pills, in a TIR during a traffic stop in Kocaeli. Follow-up raids at addresses linked to the suspects uncovered 264 kg of prec…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1104",
+      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2058535531076628924",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:X"
+      ],
+      "source_type": "social_x",
+      "category": "D:SECURITY_CRIME",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "World Crime Intel (X) (worldcrimeintel_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2058535531076628924",
+        "source_published_at": "2026-05-24T13:08:11.000Z",
+        "ingested_at": "2026-05-24T13:12:36.974Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:worldcrimeintel_x:15f4c742f9b659165cf3 -->\n<!-- VOODOO_INGEST_ID:worldcrimeintel_x:15f4c742f9b659165cf3 -->\n\n### Text\nTürkiye: Police seized 1,700,000 synthetic pharmaceutical pills, identified as illicit drug-type synthetic pills, in a TIR during a traffic stop in Kocaeli.\nFollow-up raids at addresses linked to the suspects uncovered 264 kg of precursor chemicals, enough to produce an estimated 3,000,000 additional synthetic pills, as well as 19 pill production machines.\nThe pills and precursor materials were found across multiple locations, including a clandestine pill manufacturing site in the Darıca and Gebze districts. Nine suspects were detained, with one already remanded in custody and legal proceedings ongoing for the others.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T13:08:11.000Z\ningested_at: 2026-05-24T13:12:36.974Z\n\n### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2058535531076628924\n\n### Auto-Labels\nSRC:OSINT, D:SECURITY_CRIME, SRC:SOCIAL, SRC:X, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge…"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1101",
       "number": 1101,
@@ -762,6 +804,173 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:0c17bc72e496a3e586d1 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:0c17bc72e496a3e586d1 -->\n\n### Text\nI'd say weaving is very much not bullshit. My correlation matrix might be though =)\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T23:43:53.298Z\ningested_at: 2026-05-23T23:53:11.131Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmkmvx2e5c2m\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1102",
+      "number": 1102,
+      "id": "4511077300",
+      "ts": "2026-05-23T23:34:04.498Z",
+      "chronology_ts": "2026-05-23T23:34:04.498Z",
+      "issue_created_at": "2026-05-24T09:18:01.000Z",
+      "source_published_at": "2026-05-23T23:34:04.498Z",
+      "ingested_at": "2026-05-24T09:18:00.593Z",
+      "title": "[BSKY] May 23 and May 21 the Primorsk spoofer(s) again exhibited their aim mode. Five ships have been spoofed with tracks differing from normal spoof patterns. All to",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1102",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmkmefjq2c2m",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY",
+        "REG:BALTIC",
+        "REG:GULF_OF_FINLAND",
+        "REG:RUSSIA_BALTIC",
+        "REG:ENERGY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:BALTIC",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 60.35,
+        "lon": 28.62,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Primorsk, Russia",
+        "matched_alias": "Primorsk",
+        "matched_id": "port_primorsk_russia",
+        "radius_km": 18,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:BALTIC",
+          "REG:GULF_OF_FINLAND",
+          "REG:RUSSIA_BALTIC",
+          "REG:ENERGY"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 60.35,
+          "lon": 28.62,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Primorsk, Russia",
+          "matched_alias": "Primorsk",
+          "matched_id": "port_primorsk_russia",
+          "radius_km": 18,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:BALTIC",
+            "REG:GULF_OF_FINLAND",
+            "REG:RUSSIA_BALTIC",
+            "REG:ENERGY"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmkmefjq2c2m",
+        "source_published_at": "2026-05-23T23:34:04.498Z",
+        "ingested_at": "2026-05-24T09:18:00.593Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:80d2e980841c251091ca -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:80d2e980841c251091ca -->\n\n### Text\nMay 23 and May 21 the Primorsk spoofer(s) again exhibited their aim mode.\nFive ships have been spoofed with tracks differing from normal spoof patterns. All to inside Finland.\nAgain, does not prove intention to direct towards FI, but indicates there is a special aim function.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T23:34:04.498Z\ningested_at: 2026-05-24T09:18:00.593Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmkmefjq2c2m\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1103",
+      "number": 1103,
+      "id": "4511077774",
+      "ts": "2026-05-23T23:16:37.000Z",
+      "chronology_ts": "2026-05-23T23:16:37.000Z",
+      "issue_created_at": "2026-05-24T09:18:14.000Z",
+      "source_published_at": "2026-05-23T23:16:37.000Z",
+      "ingested_at": "2026-05-24T09:18:13.397Z",
+      "title": "[X] Colombia: Coast Guard units seized a total of 688.3 kg of cocaine off Buenaventura after a tip-off from the US Southern Command’s Joint Interagency Task Force. The operation involved intercepting two suspicious boats in Pacific coast…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1103",
+      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2058326261911482401",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:X",
+        "REG:SOUTH_AMERICA_WEST",
+        "REG:PACIFIC_SOUTH_AMERICA",
+        "REG:COLOMBIA_PACIFIC"
+      ],
+      "source_type": "social_x",
+      "category": "D:SECURITY_CRIME",
+      "region": "REG:SOUTH_AMERICA_WEST",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 3.89,
+        "lon": -77.07,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Buenaventura",
+        "matched_alias": "Buenaventura",
+        "matched_id": "port_buenaventura",
+        "radius_km": 26,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:SOUTH_AMERICA_WEST",
+          "REG:PACIFIC_SOUTH_AMERICA",
+          "REG:COLOMBIA_PACIFIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 3.89,
+          "lon": -77.07,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Buenaventura",
+          "matched_alias": "Buenaventura",
+          "matched_id": "port_buenaventura",
+          "radius_km": 26,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:SOUTH_AMERICA_WEST",
+            "REG:PACIFIC_SOUTH_AMERICA",
+            "REG:COLOMBIA_PACIFIC"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "World Crime Intel (X) (worldcrimeintel_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2058326261911482401",
+        "source_published_at": "2026-05-23T23:16:37.000Z",
+        "ingested_at": "2026-05-24T09:18:13.397Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:worldcrimeintel_x:16e3f2a1de1313329b41 -->\n<!-- VOODOO_INGEST_ID:worldcrimeintel_x:16e3f2a1de1313329b41 -->\n\n### Text\nColombia: Coast Guard units seized a total of 688.3 kg of cocaine off Buenaventura after a tip-off from the US Southern Command’s Joint Interagency Task Force.\nThe operation involved intercepting two suspicious boats in Pacific coastal waters; the first had a hidden compartment containing 369 rectangular packages and communications equipment, while the second held 300 packages of various sizes. Four suspects were arrested at the scene.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-23T23:16:37.000Z\ningested_at: 2026-05-24T09:18:13.397Z\n\n### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2058326261911482401\n\n### Auto-Labels\nSRC:OSINT, D:SECURITY_CRIME, SRC:SOCIAL, SRC:X, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1082",
@@ -40067,95 +40276,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "### Quelle\nRUSI – Latest Commentary (rusi_latest_commentary)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-04T23:00:00.000Z\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/us-blockade-hormuz-who-holds-advantage\n\n### Text\nThe efforts by the US and Iran to interfere with the flow of oil and gas from the Gulf mirror each other in their intent to affect any final settlement.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: rusi_latest_commentary\nsource_priority: 84\nitem_score: 5\nkeyword_hits: rf\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: 9007b4d9 SOURCE=rusi_latest_commentary -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/508",
-      "number": 508,
-      "id": "4436565701",
-      "ts": "2026-05-04T13:00:00.000Z",
-      "chronology_ts": "2026-05-04T13:00:00.000Z",
-      "issue_created_at": "2026-05-13T09:20:03.000Z",
-      "source_published_at": "2026-05-04T13:00:00.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] Powering data centers in emerging markets",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/508",
-      "original_url": "https://www.atlanticcouncil.org/in-depth-research-reports/report/powering-data-centers-in-emerging-markets/",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "Atlantic Council – Reports / Issue Briefs (atlantic_council_reports)",
-        "platform": "rss",
-        "link": "https://www.atlanticcouncil.org/in-depth-research-reports/report/powering-data-centers-in-emerging-markets/",
-        "source_published_at": "2026-05-04T13:00:00.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "### Quelle\nAtlantic Council – Reports / Issue Briefs (atlantic_council_reports)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-04T13:00:00.000Z\n\n### Link\nhttps://www.atlanticcouncil.org/in-depth-research-reports/report/powering-data-centers-in-emerging-markets/\n\n### Text\nThis report examines how emerging markets are increasingly powering the next wave of data centers, with recommendations for policymakers.\n\nThe post Powering data centers in emerging markets appeared first on Atlantic Council.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: atlantic_council_reports\nsource_priority: 86\nitem_score: 6\nkeyword_hits: port, mine\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: 9310c173 SOURCE=atlantic_council_reports -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/484",
-      "number": 484,
-      "id": "4436211433",
-      "ts": "2026-05-04T11:52:39.000Z",
-      "chronology_ts": "2026-05-04T11:52:39.000Z",
-      "issue_created_at": "2026-05-13T08:29:06.000Z",
-      "source_published_at": "2026-05-04T11:52:39.000Z",
-      "ingested_at": "2026-05-13T08:28:38.708Z",
-      "title": "[RSS] Was bleibt, wenn das Licht ausgeht",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/484",
-      "original_url": "https://die-flaschenpost.de/2026/05/04/was-bleibt-wenn-das-licht-ausgeht/",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:MEDIA"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": null,
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "Die Flaschenpost – RSS (die_flaschenpost_rss)",
-        "platform": "rss",
-        "link": "https://die-flaschenpost.de/2026/05/04/was-bleibt-wenn-das-licht-ausgeht/",
-        "source_published_at": "2026-05-04T11:52:39.000Z",
-        "ingested_at": "2026-05-13T08:28:38.708Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
-      "summary": "### Quelle\nDie Flaschenpost – RSS (die_flaschenpost_rss)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-04T11:52:39.000Z\n\n### Link\nhttps://die-flaschenpost.de/2026/05/04/was-bleibt-wenn-das-licht-ausgeht/\n\n### Text\nEs gibt Menschen, die irgendwann aufgehört haben, die Stabilität moderner Zivilisation für selbstverständlich zu halten. Nicht weil sie paranoid sind - sondern weil sie genau hingeschaut haben. Ingenieure, die wissen wie viele Redundanzen in einem Stromnetz fehlen. Ärzte, die gesehen haben wie schnell ein Krankenhaus ohne Nachschub kollabiert. Entwickler, die verstehen wie viele kritische Systeme auf Software ...\n\n### Extra\nIngest run: 2026-05-13T08:28:38.708Z\n\n<!-- VOODOO_INGEST: 8fcf8abc SOURCE=die_flaschenpost_rss -->"
     }
   ]
 }
