@@ -1,30 +1,34 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-24T14:03:01.027Z",
+  "generated_at": "2026-05-24T19:42:00.107Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 47,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-24",
-      "events_total": 9,
+      "events_total": 16,
       "p0_suspect": 0,
-      "geo_events": 0,
-      "social_events": 2,
-      "social_geo_events": 0,
-      "rss_media_events": 7,
+      "geo_events": 4,
+      "social_events": 5,
+      "social_geo_events": 1,
+      "rss_media_events": 11,
       "top_domains": {
+        "D:NEWS_INTEL": 8,
         "D:CYBER_OT": 6,
-        "D:NEWS_INTEL": 2,
-        "D:SECURITY_CRIME": 1
+        "D:SECURITY_CRIME": 2
       },
       "top_regions": {
-        "REG:OTHER": 9
+        "REG:OTHER": 11,
+        "REG:PERSIAN_GULF": 2,
+        "REG:GLOBAL": 1,
+        "REG:MEDITERRANEAN": 1,
+        "REG:SOUTH_CHINA_SEA": 1
       },
       "severity": {
-        "SEV:1": 9
+        "SEV:1": 16
       },
-      "hybrid_index_proxy": 10,
+      "hybrid_index_proxy": 19,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -32,7 +36,7 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 9
+          "count": 15
         },
         {
           "keyword": "cyber",
@@ -40,18 +44,26 @@
         },
         {
           "keyword": "sts",
-          "count": 2
+          "count": 3
         },
         {
           "keyword": "sar",
           "count": 2
         },
         {
-          "keyword": "mpa",
+          "keyword": "reconnaissance",
           "count": 1
         },
         {
-          "keyword": "isr",
+          "keyword": "navy",
+          "count": 1
+        },
+        {
+          "keyword": "coast guard",
+          "count": 1
+        },
+        {
+          "keyword": "mpa",
           "count": 1
         }
       ]
