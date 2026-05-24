@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-24T04:40:54.972Z",
+  "generated_at": "2026-05-24T08:45:34.566Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,103 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-24T04:40:57.868Z",
+  "bundle_generated_at": "2026-05-24T08:45:38.273Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-04T04:40:54.972Z"
+    "cutoff_utc": "2026-05-04T08:45:34.566Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 897,
-    "active_events": 819,
+    "archive_events_total": 899,
+    "active_events": 821,
     "active_geo_events": 139,
-    "active_social_events": 306,
+    "active_social_events": 307,
     "active_social_geo_events": 34
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1101",
+      "number": 1101,
+      "id": "4510725315",
+      "ts": "2026-05-24T06:14:18.086Z",
+      "chronology_ts": "2026-05-24T06:14:18.086Z",
+      "issue_created_at": "2026-05-24T06:33:13.000Z",
+      "source_published_at": "2026-05-24T06:14:18.086Z",
+      "ingested_at": "2026-05-24T06:33:13.121Z",
+      "title": "[BSKY] Kräv Postverket tillbaka nu. Post ska år 2026 delas ut 365 dagar om året inom två dagar i hela landet. Lösningar för att göra detta effektivt och säkert finns r",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1101",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmlcq2o5oc2y",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmlcq2o5oc2y",
+        "source_published_at": "2026-05-24T06:14:18.086Z",
+        "ingested_at": "2026-05-24T06:33:13.121Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:c829df4272f6371f750d -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:c829df4272f6371f750d -->\n\n### Text\nKräv Postverket tillbaka nu.\nPost ska år 2026 delas ut 365 dagar om året inom två dagar i hela landet. Lösningar för att göra detta effektivt och säkert finns redan.\nBolagisering och privatisering har ödelagt och förstört Sverige.\nSkola, sjukvård, järnväg, elnät mm.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T06:14:18.086Z\ningested_at: 2026-05-24T06:33:13.121Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmlcq2o5oc2y\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1100",
+      "number": 1100,
+      "id": "4510725104",
+      "ts": "2026-05-24T03:33:53.000Z",
+      "chronology_ts": "2026-05-24T03:33:53.000Z",
+      "issue_created_at": "2026-05-24T06:33:07.000Z",
+      "source_published_at": "2026-05-24T03:33:53.000Z",
+      "ingested_at": "2026-05-24T06:33:07.028Z",
+      "title": "[RSS] Ukraine Says It Hit Russia&#8217;s Sheskharis Oil Terminal On Black Sea",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1100",
+      "original_url": "https://gcaptain.com/ukraine-says-it-hit-russias-sheskharis-oil-terminal-on-black-sea/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/ukraine-says-it-hit-russias-sheskharis-oil-terminal-on-black-sea/",
+        "source_published_at": "2026-05-24T03:33:53.000Z",
+        "ingested_at": "2026-05-24T06:33:07.028Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:f8eb3de75797d684f357 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:f8eb3de75797d684f357 -->\n\n### Text\nKYIV, May 23 (Reuters) &#8211; The Ukrainian military said on Saturday it had struck Russia&#8217;s Sheskharis oil terminal &#8211; one of the largest on the Black Sea &#8211; and the nearby Grushova oil depot....\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T03:33:53.000Z\ningested_at: 2026-05-24T06:33:07.028Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/ukraine-says-it-hit-russias-sheskharis-oil-terminal-on-black-sea/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1099",
       "number": 1099,

@@ -1,19 +1,19 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-05-24T00:00:00.000Z",
-  "generated_at": "2026-05-24T04:40:54.972Z",
+  "snapshot_key": "2026-05-24T06:00:00.000Z",
+  "generated_at": "2026-05-24T08:45:34.566Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 897,
-    "events_72h": 161,
+    "events_total_archive": 899,
+    "events_72h": 158,
     "p0_suspect_72h": 0,
-    "geo_72h": 22,
-    "social_72h": 56,
-    "social_geo_72h": 8,
-    "rss_media_72h": 105
+    "geo_72h": 20,
+    "social_72h": 54,
+    "social_geo_72h": 6,
+    "rss_media_72h": 104
   },
   "sensors": {
     "hybrid_index_pct": 100,
@@ -22,11 +22,11 @@
       "baltic_sea_pct": 10
     },
     "keyword_barometer_pct": 100,
-    "keyword_hits_72h": 206
+    "keyword_hits_72h": 203
   },
   "density": {
     "domains_72h": {
-      "D:NEWS_INTEL": 105,
+      "D:NEWS_INTEL": 102,
       "D:CYBER_OT": 30,
       "D:INFRA_CI": 18,
       "D:SECURITY_CRIME": 4,
@@ -34,22 +34,21 @@
       "D:INCIDENT": 2
     },
     "regions_72h": {
-      "REG:OTHER": 85,
+      "REG:OTHER": 87,
       "REG:EUROPE": 13,
-      "REG:GLOBAL": 11,
-      "REG:ATLANTIC_NE": 10,
+      "REG:GLOBAL": 10,
+      "REG:ATLANTIC_NE": 8,
       "REG:PERSIAN_GULF": 6,
       "REG:NORTH_SEA": 4,
       "REG:CARIBBEAN": 3,
       "REG:BALTIC": 2,
       "REG:GULF_OF_ADEN": 1,
-      "REG:CHANNEL": 1,
-      "REG:RED_SEA": 1
+      "REG:CHANNEL": 1
     },
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 107
+        "count": 108
       },
       {
         "keyword": "cyber",
@@ -73,14 +72,14 @@
       },
       {
         "keyword": "isr",
-        "count": 8
-      },
-      {
-        "keyword": "navy",
-        "count": 7
+        "count": 6
       },
       {
         "keyword": "incident",
+        "count": 5
+      },
+      {
+        "keyword": "navy",
         "count": 5
       },
       {

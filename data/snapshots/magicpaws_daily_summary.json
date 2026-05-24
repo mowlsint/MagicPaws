@@ -1,39 +1,40 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-24T04:40:54.972Z",
+  "generated_at": "2026-05-24T08:45:34.566Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 47,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-24",
-      "events_total": 6,
+      "events_total": 8,
       "p0_suspect": 0,
       "geo_events": 0,
-      "social_events": 0,
+      "social_events": 1,
       "social_geo_events": 0,
-      "rss_media_events": 6,
+      "rss_media_events": 7,
       "top_domains": {
-        "D:CYBER_OT": 6
+        "D:CYBER_OT": 6,
+        "D:NEWS_INTEL": 2
       },
       "top_regions": {
-        "REG:OTHER": 6
+        "REG:OTHER": 8
       },
       "severity": {
-        "SEV:1": 6
+        "SEV:1": 8
       },
-      "hybrid_index_proxy": 7,
+      "hybrid_index_proxy": 9,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
       },
       "top_keywords": [
         {
-          "keyword": "cyber",
-          "count": 6
+          "keyword": "ot",
+          "count": 8
         },
         {
-          "keyword": "ot",
+          "keyword": "cyber",
           "count": 6
         },
         {
