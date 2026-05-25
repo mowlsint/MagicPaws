@@ -1,43 +1,49 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-25T10:50:58.214Z",
+  "generated_at": "2026-05-25T15:29:52.008Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 48,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-25",
-      "events_total": 10,
+      "events_total": 14,
       "p0_suspect": 0,
-      "geo_events": 1,
-      "social_events": 2,
+      "geo_events": 2,
+      "social_events": 5,
       "social_geo_events": 0,
-      "rss_media_events": 8,
+      "rss_media_events": 9,
       "top_domains": {
-        "D:NEWS_INTEL": 8,
+        "D:NEWS_INTEL": 12,
         "D:INCIDENT": 2
       },
       "top_regions": {
+        "REG:OTHER": 4,
         "REG:GLOBAL": 4,
-        "REG:OTHER": 2,
+        "REG:BALTIC": 1,
+        "REG:ATLANTIC_NE": 1,
         "REG:NORTH_SEA": 1
       },
       "severity": {
-        "SEV:1": 10
+        "SEV:1": 14
       },
-      "hybrid_index_proxy": 13,
+      "hybrid_index_proxy": 17,
       "government_weirdness_proxy": {
         "north_sea": 3,
-        "baltic_sea": 0
+        "baltic_sea": 2
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 3
+          "count": 6
         },
         {
           "keyword": "incident",
           "count": 2
+        },
+        {
+          "keyword": "navy",
+          "count": 1
         },
         {
           "keyword": "mpa",

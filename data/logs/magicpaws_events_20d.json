@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-25T10:50:58.214Z",
+  "generated_at": "2026-05-25T15:29:52.008Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,239 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-25T10:51:01.009Z",
+  "bundle_generated_at": "2026-05-25T15:29:55.066Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-05T10:50:58.214Z"
+    "cutoff_utc": "2026-05-05T15:29:52.008Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 931,
-    "active_events": 848,
-    "active_geo_events": 149,
-    "active_social_events": 320,
+    "archive_events_total": 935,
+    "active_events": 851,
+    "active_geo_events": 150,
+    "active_social_events": 323,
     "active_social_geo_events": 40
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1137",
+      "number": 1137,
+      "id": "4517694649",
+      "ts": "2026-05-25T14:30:16.257Z",
+      "chronology_ts": "2026-05-25T14:30:16.257Z",
+      "issue_created_at": "2026-05-25T14:43:39.000Z",
+      "source_published_at": "2026-05-25T14:30:16.257Z",
+      "ingested_at": "2026-05-25T14:43:38.177Z",
+      "title": "[BSKY] Memorial Day is not only about wars filed away in history, but also about lives lost in service to the nation and the obligations those losses place on the livi",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1137",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmoovu4siu2a",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmoovu4siu2a",
+        "source_published_at": "2026-05-25T14:30:16.257Z",
+        "ingested_at": "2026-05-25T14:43:38.177Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:b6fa24051ca15af44371 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:b6fa24051ca15af44371 -->\n\n### Text\nMemorial Day is not only about wars filed away in history, but also about lives lost in service to the nation and the obligations those losses place on the living. warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T14:30:16.257Z\ningested_at: 2026-05-25T14:43:38.177Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmoovu4siu2a\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1136",
+      "number": 1136,
+      "id": "4517693300",
+      "ts": "2026-05-25T13:25:02.000Z",
+      "chronology_ts": "2026-05-25T13:25:02.000Z",
+      "issue_created_at": "2026-05-25T14:43:26.000Z",
+      "source_published_at": "2026-05-25T13:25:02.000Z",
+      "ingested_at": "2026-05-25T14:43:25.413Z",
+      "title": "[RSS] Russia Says Magnetic Mines Found On Tanker At Ust-Lugaport",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1136",
+      "original_url": "https://gcaptain.com/russia-says-magnetic-mines-found-on-tanker-at-ust-lugaport/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "REG:BALTIC"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:BALTIC",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 57.2,
+        "lon": 19,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Baltic Sea",
+        "matched_alias": "Baltic Sea",
+        "matched_id": "baltic_sea",
+        "radius_km": 780,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:BALTIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 57.2,
+          "lon": 19,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Baltic Sea",
+          "matched_alias": "Baltic Sea",
+          "matched_id": "baltic_sea",
+          "radius_km": 780,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:BALTIC"
+          ]
+        },
+        {
+          "lat": 59.667,
+          "lon": 28.287,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Ust-Luga",
+          "matched_alias": "Ust-Luga",
+          "matched_id": "port_ust_luga",
+          "radius_km": 24,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:BALTIC",
+            "REG:GULF_OF_FINLAND",
+            "REG:RUSSIA_BALTIC"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/russia-says-magnetic-mines-found-on-tanker-at-ust-lugaport/",
+        "source_published_at": "2026-05-25T13:25:02.000Z",
+        "ingested_at": "2026-05-25T14:43:25.413Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:7af32af316dd804af9de -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:7af32af316dd804af9de -->\n\n### Text\nMOSCOW, May 25 (Reuters)&#160;&#8211;&#160;Several NATO-produced magnetic mines had been detected on a tanker in Russia&#8217;s Baltic Sea&#160;port&#160;of Ust-Luga, Russia&#8217;s Investigative Committee said on Monday. The committee said the mines were...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T13:25:02.000Z\ningested_at: 2026-05-25T14:43:25.413Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/russia-says-magnetic-mines-found-on-tanker-at-ust-lugaport/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1135",
+      "number": 1135,
+      "id": "4516671473",
+      "ts": "2026-05-25T11:30:18.846Z",
+      "chronology_ts": "2026-05-25T11:30:18.846Z",
+      "issue_created_at": "2026-05-25T11:49:25.000Z",
+      "source_published_at": "2026-05-25T11:30:18.846Z",
+      "ingested_at": "2026-05-25T11:49:24.016Z",
+      "title": "[BSKY] American MiG pilots spent years flying Soviet jets in secret, building a knowledge of enemy aircraft by actually sitting in the cockpit. (Members Only) Listen h",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1135",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmoeu2ly5b2i",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmoeu2ly5b2i",
+        "source_published_at": "2026-05-25T11:30:18.846Z",
+        "ingested_at": "2026-05-25T11:49:24.016Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:c4def8e46c9d843d1a15 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:c4def8e46c9d843d1a15 -->\n\n### Text\nAmerican MiG pilots spent years flying Soviet jets in secret, building a knowledge of enemy aircraft by actually sitting in the cockpit. (Members Only)\nListen here: warontherocks.com/episode/airm...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T11:30:18.846Z\ningested_at: 2026-05-25T11:49:24.016Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmoeu2ly5b2i\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1134",
+      "number": 1134,
+      "id": "4516669863",
+      "ts": "2026-05-25T07:19:21.467Z",
+      "chronology_ts": "2026-05-25T07:19:21.467Z",
+      "issue_created_at": "2026-05-25T11:49:10.000Z",
+      "source_published_at": "2026-05-25T07:19:21.467Z",
+      "ingested_at": "2026-05-25T11:49:08.780Z",
+      "title": "[BSKY] Latest technical briefing article: Rebuilding Faslane to secure the future of Royal Navy nuclear submarine operations www.navylookout.com/rebuilding-f...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1134",
+      "original_url": "https://bsky.app/profile/navylookout.bsky.social/post/3mmnwtcq3x42e",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Navy Lookout (Bluesky) (navylookout_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/navylookout.bsky.social/post/3mmnwtcq3x42e",
+        "source_published_at": "2026-05-25T07:19:21.467Z",
+        "ingested_at": "2026-05-25T11:49:08.780Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:navylookout_bsky:5b5b18dbefbce5631f97 -->\n<!-- VOODOO_INGEST_ID:navylookout_bsky:5b5b18dbefbce5631f97 -->\n\n### Text\nLatest technical briefing article:\nRebuilding Faslane to secure the future of Royal Navy nuclear submarine operations\nwww.navylookout.com/rebuilding-f...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T07:19:21.467Z\ningested_at: 2026-05-25T11:49:08.780Z\n\n### Quelle\nNavy Lookout (Bluesky) (navylookout_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/navylookout.bsky.social/post/3mmnwtcq3x42e\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1131",
       "number": 1131,
@@ -41645,53 +41864,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:72dcc308a16a0acc27d3 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:72dcc308a16a0acc27d3 -->\n\n### Text\nUkraine has impressed the world with the ingenuity, bravery and longevity of its defense against Russian aggression. Its next task is to build deterrence.\n The post After the Ukraine War: How to Deter the Next One appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-05T20:52:41.000Z\ningested_at: 2026-05-13T12:18:06.869Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/after-the-ukraine-war-how-to-deter-the-next-one/\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/503",
-      "number": 503,
-      "id": "4436565174",
-      "ts": "2026-05-05T12:50:01.000Z",
-      "chronology_ts": "2026-05-05T12:50:01.000Z",
-      "issue_created_at": "2026-05-13T09:19:59.000Z",
-      "source_published_at": "2026-05-05T12:50:01.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] Die destabilisierende Rolle der Vereinigten Arabischen Emirate in afrikanischen Konflikten",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/503",
-      "original_url": "https://www.swp-berlin.org/publikation/die-destabilisierende-rolle-der-vereinigten-arabischen-emirate-in-afrikanischen-konflikten",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE",
-        "D:CYBER_IT"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "SWP – Offizielle Publikationen DE (swp_publications_de)",
-        "platform": "rss",
-        "link": "https://www.swp-berlin.org/publikation/die-destabilisierende-rolle-der-vereinigten-arabischen-emirate-in-afrikanischen-konflikten",
-        "source_published_at": "2026-05-05T12:50:01.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
-      "summary": "### Quelle\nSWP – Offizielle Publikationen DE (swp_publications_de)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-05T12:50:01.000Z\n\n### Link\nhttps://www.swp-berlin.org/publikation/die-destabilisierende-rolle-der-vereinigten-arabischen-emirate-in-afrikanischen-konflikten\n\n### Text\nDie Vereinigten Arabischen Emirate (VAE) zählen inzwischen zu den aggressivsten externen Akteuren in afrikanischen Konflikten, besonders in Äthiopien, Libyen, Sudan und Somalia. Beharrlich leugnet die Führung in der emiratischen Hauptstadt Abu Dhabi ihre Unterstützung für bewaffnete Akteure, führte sie aber sogar während des amerikanisch-israelischen Kriegs gegen Iran fort – trotz dessen gravie­render Auswirkungen auf das eigene Land. Diese Unterstützung erschwert eine konstruktive Konfliktbearbeitung und verschärft humanitäre Krisen und regionale Instabilität. Sie untergräbt Europas Interesse an stabilen Handelswegen, Fluchtursachenbekämpfung und regionaler Integration. Daher sollte Deutschland das destabilisierende Vorgehen der VAE wesentlich stärker in den bilateralen Beziehungen gewichten, deutlicher kritisieren und gemeinsam mit seinen europäischen Partnern Sanktionen prüfen. Der Kontext des Irankriegs s…"
     }
   ]
 }
