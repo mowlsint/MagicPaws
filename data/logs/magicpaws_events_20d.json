@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-24T19:42:00.107Z",
+  "generated_at": "2026-05-25T04:54:11.163Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,649 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-24T19:42:02.921Z",
+  "bundle_generated_at": "2026-05-25T04:54:14.953Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-04T19:42:00.107Z"
+    "cutoff_utc": "2026-05-05T04:54:11.163Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 909,
-    "active_events": 829,
-    "active_geo_events": 145,
-    "active_social_events": 313,
-    "active_social_geo_events": 37
+    "archive_events_total": 923,
+    "active_events": 841,
+    "active_geo_events": 149,
+    "active_social_events": 318,
+    "active_social_geo_events": 40
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1124",
+      "number": 1124,
+      "id": "4514356189",
+      "ts": "2026-05-25T03:50:16.000Z",
+      "chronology_ts": "2026-05-25T03:50:16.000Z",
+      "issue_created_at": "2026-05-25T04:51:46.000Z",
+      "source_published_at": "2026-05-25T03:50:16.000Z",
+      "ingested_at": "2026-05-25T03:50:16.000Z",
+      "title": "[RSS] Kenya Acquires New Ferry for a Crossing Plagued by Safety Concerns",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1124",
+      "original_url": "https://maritime-executive.com/article/kenya-acquires-new-ferry-for-a-crossing-plagued-by-safety-concerns",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/kenya-acquires-new-ferry-for-a-crossing-plagued-by-safety-concerns",
+        "source_published_at": "2026-05-25T03:50:16.000Z",
+        "ingested_at": "2026-05-25T03:50:16.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/kenya-acquires-new-ferry-for-a-crossing-plagued-by-safety-concerns\n\n### Zeit (UTC)\n2026-05-25T03:50:16Z\n\n### Published\n2026-05-25T03:50:16Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nKenya is moving to address perennial challenges at the Likoni ferry crossing in the coastal city of Mombasa with the acquisition of a new vessel, whi...\n\n---\n_Ingested at 2026-05-25T04:51:46.111673+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b1c63ebb48438427 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1125",
+      "number": 1125,
+      "id": "4514356243",
+      "ts": "2026-05-25T02:20:49.000Z",
+      "chronology_ts": "2026-05-25T02:20:49.000Z",
+      "issue_created_at": "2026-05-25T04:51:47.000Z",
+      "source_published_at": "2026-05-25T02:20:49.000Z",
+      "ingested_at": "2026-05-25T02:20:49.000Z",
+      "title": "[RSS] Three Dead, One Injured in Lifeboat Accident on Malaysian FSO",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1125",
+      "original_url": "https://maritime-executive.com/article/three-dead-one-injured-in-lifeboat-accident-on-malaysian-fso",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/three-dead-one-injured-in-lifeboat-accident-on-malaysian-fso",
+        "source_published_at": "2026-05-25T02:20:49.000Z",
+        "ingested_at": "2026-05-25T02:20:49.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/three-dead-one-injured-in-lifeboat-accident-on-malaysian-fso\n\n### Zeit (UTC)\n2026-05-25T02:20:49Z\n\n### Published\n2026-05-25T02:20:49Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nOn Saturday, three men were killed and one was injured aboard a rig off Malaysia during maintenance work on a lifeboat, according to Ekonomi Rakyat. ...\n\n---\n_Ingested at 2026-05-25T04:51:47.230077+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 99a30a10e632b686 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1122",
+      "number": 1122,
+      "id": "4513407226",
+      "ts": "2026-05-24T23:23:27.000Z",
+      "chronology_ts": "2026-05-24T23:23:27.000Z",
+      "issue_created_at": "2026-05-25T00:13:39.000Z",
+      "source_published_at": "2026-05-24T23:23:27.000Z",
+      "ingested_at": "2026-05-24T23:23:27.000Z",
+      "title": "[RSS] The Aramid Shield: Snare Drones for Active Subsea Defense",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1122",
+      "original_url": "https://maritime-executive.com/article/the-aramid-shield-snare-drones-for-active-subsea-defense",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "P0:SUSPECT",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": true,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/the-aramid-shield-snare-drones-for-active-subsea-defense",
+        "source_published_at": "2026-05-24T23:23:27.000Z",
+        "ingested_at": "2026-05-24T23:23:27.000Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/the-aramid-shield-snare-drones-for-active-subsea-defense\n\n### Zeit (UTC)\n2026-05-24T23:23:27Z\n\n### Published\n2026-05-24T23:23:27Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, P0:SUSPECT, SEV:1, SRC:MEDIA\n\n### Summary\n[By Franciszek Kopczewski]In January and February 2025, Chinese-operated ships Shunxing 39 and Hong Tai 58 committed similar sabotage tactics. Both s...\n\n---\n_Ingested at 2026-05-25T00:13:38.718620+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 9f99e14251ac1cab -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1123",
+      "number": 1123,
+      "id": "4513407284",
+      "ts": "2026-05-24T23:07:27.000Z",
+      "chronology_ts": "2026-05-24T23:07:27.000Z",
+      "issue_created_at": "2026-05-25T00:13:40.000Z",
+      "source_published_at": "2026-05-24T23:07:27.000Z",
+      "ingested_at": "2026-05-24T23:07:27.000Z",
+      "title": "[RSS] Microplastics Could Affect the Ocean's Ability to Absorb Carbon",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1123",
+      "original_url": "https://maritime-executive.com/article/microplastics-could-affect-the-ocean-s-ability-to-absorb-carbon",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/microplastics-could-affect-the-ocean-s-ability-to-absorb-carbon",
+        "source_published_at": "2026-05-24T23:07:27.000Z",
+        "ingested_at": "2026-05-24T23:07:27.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/microplastics-could-affect-the-ocean-s-ability-to-absorb-carbon\n\n### Zeit (UTC)\n2026-05-24T23:07:27Z\n\n### Published\n2026-05-24T23:07:27Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\n[By Ingebjørg Hestvik]“We study how plastic affects what we call ecosystem services, that is, the services we receive from ecosystems. When the ocean...\n\n---\n_Ingested at 2026-05-25T00:13:39.942006+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 2baca53a843e2da7 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1119",
+      "number": 1119,
+      "id": "4513207141",
+      "ts": "2026-05-24T22:11:05.000Z",
+      "chronology_ts": "2026-05-24T22:11:05.000Z",
+      "issue_created_at": "2026-05-24T22:53:27.000Z",
+      "source_published_at": "2026-05-24T22:11:05.000Z",
+      "ingested_at": "2026-05-24T22:53:26.554Z",
+      "title": "[RSS] Supertanker With Iraq Crude Exits Persian Gulf As Talks Continue",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1119",
+      "original_url": "https://gcaptain.com/supertanker-with-iraq-crude-exits-persian-gulf-as-talks-continue/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "MAP:INFERRED",
+        "REG:PERSIAN_GULF"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 27.3,
+        "lon": 51.6,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Persian Gulf",
+        "matched_alias": "Persian Gulf",
+        "matched_id": "persian_gulf",
+        "radius_km": 520,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "persian_gulf",
+          "matched_name": "Persian Gulf",
+          "matched_alias": "Persian Gulf",
+          "lat": 27.3,
+          "lon": 51.6,
+          "radius_km": 520,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF"
+          ],
+          "score": 47,
+          "in_title": true
+        },
+        {
+          "matched_id": "arabian_sea",
+          "matched_name": "Arabian Sea",
+          "matched_alias": "Arabian Sea",
+          "lat": 15,
+          "lon": 63,
+          "radius_km": 1250,
+          "precision": "area",
+          "regions": [
+            "REG:ARABIAN_SEA",
+            "REG:INDIAN_OCEAN"
+          ],
+          "score": 21,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/supertanker-with-iraq-crude-exits-persian-gulf-as-talks-continue/",
+        "source_published_at": "2026-05-24T22:11:05.000Z",
+        "ingested_at": "2026-05-24T22:53:26.554Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:01c553622e463dafff3c -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:01c553622e463dafff3c -->\n\n### Text\nBy&#160;Julian Lee May 24, 2026 (Bloomberg) &#8211;A supertanker hauling Iraqi crude to China has left the Persian Gulf and crossed the US blockade line into the Arabian Sea, as talks...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T22:11:05.000Z\ningested_at: 2026-05-24T22:53:26.554Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/supertanker-with-iraq-crude-exits-persian-gulf-as-talks-continue/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1120",
+      "number": 1120,
+      "id": "4513207197",
+      "ts": "2026-05-24T22:07:04.560Z",
+      "chronology_ts": "2026-05-24T22:07:04.560Z",
+      "issue_created_at": "2026-05-24T22:53:28.000Z",
+      "source_published_at": "2026-05-24T22:07:04.560Z",
+      "ingested_at": "2026-05-24T22:53:27.706Z",
+      "title": "[BSKY] bsky.app/profile/erdb...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1120",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmmxxqujg22m",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmmxxqujg22m",
+        "source_published_at": "2026-05-24T22:07:04.560Z",
+        "ingested_at": "2026-05-24T22:53:27.706Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:6ebfc8b93e3f1b6b8b6c -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:6ebfc8b93e3f1b6b8b6c -->\n\n### Text\nbsky.app/profile/erdb...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T22:07:04.560Z\ningested_at: 2026-05-24T22:53:27.706Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmmxxqujg22m\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1121",
+      "number": 1121,
+      "id": "4513256579",
+      "ts": "2026-05-24T22:01:00.000Z",
+      "chronology_ts": "2026-05-24T22:01:00.000Z",
+      "issue_created_at": "2026-05-24T23:14:20.000Z",
+      "source_published_at": "2026-05-24T22:01:00.000Z",
+      "ingested_at": "2026-05-24T22:01:00.000Z",
+      "title": "[RSS] Ukraine Claims Attack on Russian Frigate Admiral Essen",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1121",
+      "original_url": "https://maritime-executive.com/article/ukraine-claims-attack-on-russian-frigate-admiral-essen",
+      "labels": [
+        "D:DRONE_UAS",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:BLACK_SEA",
+        "REG:RUSSIA_BLACK_SEA",
+        "REG:ENERGY"
+      ],
+      "source_type": "rss",
+      "category": "D:DRONE_UAS",
+      "region": "REG:BLACK_SEA",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 44.72,
+        "lon": 37.78,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Novorossiysk",
+        "matched_alias": "Novorossiysk",
+        "matched_id": "port_novorossiysk",
+        "radius_km": 28,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:BLACK_SEA",
+          "REG:RUSSIA_BLACK_SEA",
+          "REG:ENERGY"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 44.72,
+          "lon": 37.78,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Novorossiysk",
+          "matched_alias": "Novorossiysk",
+          "matched_id": "port_novorossiysk",
+          "radius_km": 28,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:BLACK_SEA",
+            "REG:RUSSIA_BLACK_SEA",
+            "REG:ENERGY"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/ukraine-claims-attack-on-russian-frigate-admiral-essen",
+        "source_published_at": "2026-05-24T22:01:00.000Z",
+        "ingested_at": "2026-05-24T22:01:00.000Z"
+      },
+      "report_category": "Drohnen / UxV",
+      "greybook_rubric": "Drohnen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/ukraine-claims-attack-on-russian-frigate-admiral-essen\n\n### Zeit (UTC)\n2026-05-24T22:01:00Z\n\n### Published\n2026-05-24T22:01:00Z\n\n### Auto-Labels\nCONF:MED, D:DRONE_UAS, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nUkraine's drone forces claim to have hit a Russian frigate at a pier in Novorossiysk, along with one of Russia's rare hovercraft-like fast missile co...\n\n---\n_Ingested at 2026-05-24T23:14:19.781923+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: fdb304de7bc8e88e -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1117",
+      "number": 1117,
+      "id": "4513026614",
+      "ts": "2026-05-24T21:40:28.000Z",
+      "chronology_ts": "2026-05-24T21:40:28.000Z",
+      "issue_created_at": "2026-05-24T21:51:49.000Z",
+      "source_published_at": "2026-05-24T21:40:28.000Z",
+      "ingested_at": "2026-05-24T21:51:48.721Z",
+      "title": "[RSS] Freed Gaza Flotilla Activists Allege Israeli Abuse",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1117",
+      "original_url": "https://gcaptain.com/freed-gaza-flotilla-activists-allege-israeli-abuse/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/freed-gaza-flotilla-activists-allege-israeli-abuse/",
+        "source_published_at": "2026-05-24T21:40:28.000Z",
+        "ingested_at": "2026-05-24T21:51:48.721Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:e2628a7881e7617ae5fb -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:e2628a7881e7617ae5fb -->\n\n### Text\nBy Anna Uras, Rami Ayyub and Layli Foroudi ROME/JERUSALEM/PARIS, May 22 (Reuters)&#160;&#8211;&#160;Activists released from Israeli custody after being detained on a flotilla trying to bring aid to Gaza were subjected...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T21:40:28.000Z\ningested_at: 2026-05-24T21:51:48.721Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/freed-gaza-flotilla-activists-allege-israeli-abuse/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1118",
+      "number": 1118,
+      "id": "4513026658",
+      "ts": "2026-05-24T21:07:44.556Z",
+      "chronology_ts": "2026-05-24T21:07:44.556Z",
+      "issue_created_at": "2026-05-24T21:51:51.000Z",
+      "source_published_at": "2026-05-24T21:07:44.556Z",
+      "ingested_at": "2026-05-24T21:51:50.213Z",
+      "title": "[BSKY] Spoofer milestone? Today the Kaliningrad spoofing system tricked a Swedish warship to believe it is in Kaliningrad. The false transmission reached all the way t",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1118",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmmunnrtyc2m",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY",
+        "MAP:INFERRED",
+        "REG:BALTIC",
+        "REG:RUSSIA_BALTIC",
+        "REG:KALININGRAD"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:BALTIC",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 54.705,
+        "lon": 20.5,
+        "precision": "port",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Kaliningrad",
+        "matched_alias": "Kaliningrad",
+        "matched_id": "port_kaliningrad",
+        "radius_km": 22,
+        "confidence": "medium_high",
+        "geo_role": "event_location_or_topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:BALTIC",
+          "REG:RUSSIA_BALTIC",
+          "REG:KALININGRAD"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "port_kaliningrad",
+          "matched_name": "Kaliningrad",
+          "matched_alias": "Kaliningrad",
+          "lat": 54.705,
+          "lon": 20.5,
+          "radius_km": 22,
+          "precision": "port",
+          "regions": [
+            "REG:BALTIC",
+            "REG:RUSSIA_BALTIC",
+            "REG:KALININGRAD"
+          ],
+          "score": 46,
+          "in_title": true
+        },
+        {
+          "matched_id": "port_karlskrona",
+          "matched_name": "Karlskrona",
+          "matched_alias": "Karlskrona",
+          "lat": 56.161,
+          "lon": 15.586,
+          "radius_km": 14,
+          "precision": "port",
+          "regions": [
+            "REG:BALTIC"
+          ],
+          "score": 20,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmmunnrtyc2m",
+        "source_published_at": "2026-05-24T21:07:44.556Z",
+        "ingested_at": "2026-05-24T21:51:50.213Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:b4c8ac3e60c500c01455 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:b4c8ac3e60c500c01455 -->\n\n### Text\nSpoofer milestone?\nToday the Kaliningrad spoofing system tricked a Swedish warship to believe it is in Kaliningrad.\nThe false transmission reached all the way to the naval base in Karlskrona, heart of Swedish naval operations.\nBound to not be a first, but first I see.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T21:07:44.556Z\ningested_at: 2026-05-24T21:51:50.213Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmmunnrtyc2m\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1112",
+      "number": 1112,
+      "id": "4512869945",
+      "ts": "2026-05-24T20:39:59.000Z",
+      "chronology_ts": "2026-05-24T20:39:59.000Z",
+      "issue_created_at": "2026-05-24T20:48:26.000Z",
+      "source_published_at": "2026-05-24T20:39:59.000Z",
+      "ingested_at": "2026-05-24T20:48:25.318Z",
+      "title": "[RSS] Shark Attack Kills Man On Australia&#8217;s Great Barrier Reef",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1112",
+      "original_url": "https://gcaptain.com/shark-attack-kills-man-on-australias-great-barrier-reef/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/shark-attack-kills-man-on-australias-great-barrier-reef/",
+        "source_published_at": "2026-05-24T20:39:59.000Z",
+        "ingested_at": "2026-05-24T20:48:25.318Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:25dddc3572756662658a -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:25dddc3572756662658a -->\n\n### Text\nCANBERRA, May 24 (Reuters)&#160;&#8211;&#160;A 39-year-old man has died after being attacked by a shark on Sunday while fishing on the Great Barrier Reef, police said, the second fatal shark attack...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T20:39:59.000Z\ningested_at: 2026-05-24T20:48:25.318Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/shark-attack-kills-man-on-australias-great-barrier-reef/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1116",
+      "number": 1116,
+      "id": "4512921361",
+      "ts": "2026-05-24T20:26:39.000Z",
+      "chronology_ts": "2026-05-24T20:26:39.000Z",
+      "issue_created_at": "2026-05-24T21:10:45.000Z",
+      "source_published_at": "2026-05-24T20:26:39.000Z",
+      "ingested_at": "2026-05-24T20:26:39.000Z",
+      "title": "[RSS] Op-Ed: America Needs Fully-Funded Hurricane Forecasting",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1116",
+      "original_url": "https://maritime-executive.com/article/op-ed-america-needs-fully-funded-hurricane-forecasting",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/op-ed-america-needs-fully-funded-hurricane-forecasting",
+        "source_published_at": "2026-05-24T20:26:39.000Z",
+        "ingested_at": "2026-05-24T20:26:39.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/op-ed-america-needs-fully-funded-hurricane-forecasting\n\n### Zeit (UTC)\n2026-05-24T20:26:39Z\n\n### Published\n2026-05-24T20:26:39Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\n[By Brian Tang]The 2026 Atlantic hurricane season starts June 1, and while early outlooks suggest that a developing El Niño might result in a tamer s...\n\n---\n_Ingested at 2026-05-24T21:10:44.863146+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: ea3a433d2454f661 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1114",
+      "number": 1114,
+      "id": "4512870367",
+      "ts": "2026-05-24T19:58:16.627Z",
+      "chronology_ts": "2026-05-24T19:58:16.627Z",
+      "issue_created_at": "2026-05-24T20:48:37.000Z",
+      "source_published_at": "2026-05-24T19:58:16.627Z",
+      "ingested_at": "2026-05-24T20:48:36.379Z",
+      "title": "[BSKY] \"Fri sprit och bredare trottoarer\" Tidelaget i ett nötskal om det inte vore för all vars liv de ödelägger och allt de förstör. J***la fascister och nazister hel",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1114",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmmqrgwpts2y",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmmqrgwpts2y",
+        "source_published_at": "2026-05-24T19:58:16.627Z",
+        "ingested_at": "2026-05-24T20:48:36.379Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:8544e7bfb02e4b93a052 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:8544e7bfb02e4b93a052 -->\n\n### Text\n\"Fri sprit och bredare trottoarer\"\nTidelaget i ett nötskal om det inte vore för all vars liv de ödelägger och allt de förstör.\nJ***la fascister och nazister hela bunten.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T19:58:16.627Z\ningested_at: 2026-05-24T20:48:36.379Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmmqrgwpts2y\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1109",
       "number": 1109,
@@ -142,6 +771,88 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "maritime Geopolitik",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/deal-nears-to-reopen-strait-of-hormuz-but-with-little-public-agreement\n\n### Zeit (UTC)\n2026-05-24T18:14:15Z\n\n### Published\n2026-05-24T18:14:15Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe U.S. and Iran have announced an outline of an agreement to extend their ceasefire and reopen the Strait of Hormuz. The deal has not yet been sign...\n\n---\n_Ingested at 2026-05-24T19:39:37.557934+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b17f2c79d27eb0d4 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1115",
+      "number": 1115,
+      "id": "4512870571",
+      "ts": "2026-05-24T18:10:39.000Z",
+      "chronology_ts": "2026-05-24T18:10:39.000Z",
+      "issue_created_at": "2026-05-24T20:48:43.000Z",
+      "source_published_at": "2026-05-24T18:10:39.000Z",
+      "ingested_at": "2026-05-24T20:48:42.312Z",
+      "title": "[X] Brazil: Federal Police [PF] seized 183 kg of cocaine in paste form, packed into 169 tabletes hidden in secret compartments of a foreign truck’s cabin and cargo area during a routine check on highway BR-277 near Balsa Nova, Paraná. Al…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1115",
+      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2058611649372684318",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:X",
+        "REG:SOUTH_AMERICA_EAST",
+        "REG:PARANA_RIVER",
+        "REG:ARGENTINA_INLAND"
+      ],
+      "source_type": "social_x",
+      "category": "D:SECURITY_CRIME",
+      "region": "REG:SOUTH_AMERICA_EAST",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": -32.8,
+        "lon": -60.72,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Rosario / San Lorenzo",
+        "matched_alias": "Paraná",
+        "matched_id": "port_rosario_san_lorenzo",
+        "radius_km": 42,
+        "confidence": "medium",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:SOUTH_AMERICA_EAST",
+          "REG:PARANA_RIVER",
+          "REG:ARGENTINA_INLAND"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": -32.8,
+          "lon": -60.72,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Rosario / San Lorenzo",
+          "matched_alias": "Paraná",
+          "matched_id": "port_rosario_san_lorenzo",
+          "radius_km": 42,
+          "confidence": "medium",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:SOUTH_AMERICA_EAST",
+            "REG:PARANA_RIVER",
+            "REG:ARGENTINA_INLAND"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "World Crime Intel (X) (worldcrimeintel_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2058611649372684318",
+        "source_published_at": "2026-05-24T18:10:39.000Z",
+        "ingested_at": "2026-05-24T20:48:42.312Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:worldcrimeintel_x:acbab5c58e8b1a86693a -->\n<!-- VOODOO_INGEST_ID:worldcrimeintel_x:acbab5c58e8b1a86693a -->\n\n### Text\nBrazil: Federal Police [PF] seized 183 kg of cocaine in paste form, packed into 169 tabletes hidden in secret compartments of a foreign truck’s cabin and cargo area during a routine check on highway BR-277 near Balsa Nova, Paraná.\nAlongside the drug haul, officers found two long guns (fuzis), a revolver, two pistols, and cell phones. The truck driver was arrested on the spot and taken to police headquarters in Curitiba, where he faces charges for international drug trafficking and illegal weapons trafficking.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T18:10:39.000Z\ningested_at: 2026-05-24T20:48:42.312Z\n\n### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2058611649372684318\n\n### Auto-Labels\nSRC:OSINT, D:SECURITY_CRIME, SRC:SOCIAL, SRC:X, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1110",
@@ -310,6 +1021,89 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\ngCaptain\n\n### Source\ngCaptain\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/lng-tanker-exits-hormuz-for-india-for-first-time-since-war-began/\n\n### Zeit (UTC)\n2026-05-24T16:14:37Z\n\n### Published\n2026-05-24T16:14:37Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nBy&#160;Stephen Stapczynski May 23, 2026 (Bloomberg) &#8211;A liquefied natural gas tanker carrying a shipment for India has exited the Strait of Hormuz, the first for the country from the Persian...\n\n---\n_Ingested at 2026-05-24T17:15:21.772371+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: e892d5647e66ec30 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1113",
+      "number": 1113,
+      "id": "4512870154",
+      "ts": "2026-05-24T15:23:49.000Z",
+      "chronology_ts": "2026-05-24T15:23:49.000Z",
+      "issue_created_at": "2026-05-24T20:48:32.000Z",
+      "source_published_at": "2026-05-24T15:23:49.000Z",
+      "ingested_at": "2026-05-24T20:48:29.860Z",
+      "title": "[X] RT by @TomSharpe134: The RAF’s Training Crisis: Hawk Failures, Red Arrows Struggles, and the AJT Decision Views my own, comments and corrections welcome. Thread drafted at Tampa Airport - en route back from SOF Week 1/25 The Royal Ai…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1113",
+      "original_url": "https://nitter.poast.org/MtarfaL/status/2058569667682218426",
+      "labels": [
+        "D:INFRA_CI",
+        "REG:NORTH_SEA",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:CHANNEL",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "DECAY:SLOW",
+        "SRC:ANALYST",
+        "SRC:NAVAL",
+        "SRC:ANALYSIS_POINTER",
+        "SRC:X",
+        "MAP:INFERRED"
+      ],
+      "source_type": "social_x",
+      "category": "D:INFRA_CI",
+      "region": "REG:NORTH_SEA",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 56,
+        "lon": 3.5,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "North Sea",
+        "matched_alias": "North Sea",
+        "matched_id": "north_sea",
+        "radius_km": 900,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "north_sea",
+          "matched_name": "North Sea",
+          "matched_alias": "North Sea",
+          "lat": 56,
+          "lon": 3.5,
+          "radius_km": 900,
+          "precision": "area",
+          "regions": [
+            "REG:NORTH_SEA"
+          ],
+          "score": 19,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "Tom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/MtarfaL/status/2058569667682218426",
+        "source_published_at": "2026-05-24T15:23:49.000Z",
+        "ingested_at": "2026-05-24T20:48:29.860Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:tom_sharpe_x:3fc04443cec0646cea27 -->\n<!-- VOODOO_INGEST_ID:tom_sharpe_x:3fc04443cec0646cea27 -->\n\n### Text\nThe RAF’s Training Crisis: Hawk Failures, Red Arrows Struggles, and the AJT Decision\nViews my own, comments and corrections welcome. Thread drafted at Tampa Airport - en route back from SOF Week\n1/25 The Royal Air Force (RAF) has built its reputation on excellence in the air. Yet today it faces deep, systemic challenges in military flying training. This thread attempts to examine the ongoing Hawk T2 reliability problems, the recent Red Arrows announcement, broader defence issues, the race to replace the Hawk, and what comes next. A sober (realistic) look at capability, strategy, and accountability just in time for the mythical DIP.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T15:23:49.000Z\ningested_at: 2026-05-24T20:48:29.860Z\n\n### Quelle\nTom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/MtarfaL/status/2058569667682218426\n\n### Auto-Labels\nSRC:OSINT, SRC:SOCIAL, SRC:ANALYST, SRC:NAVAL, SRC:ANALYSIS_POINTER, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:LOW, SEV:1, REG:NORTH_SE…"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1106",
@@ -40614,134 +41408,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
       "summary": "### Quelle\nSWP – Official Publications EN (swp_publications_en)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-05T08:52:33.000Z\n\n### Link\nhttps://www.swp-berlin.org/en/publication/turkey-capitalises-on-hormuz-disruption-connectivity-as-a-foreign-policy-strategy\n\n### Text\nThe US-Israel war against Iran and the standoff in the Strait of Hormuz are reshaping trade and transport links as well as changing regional connectivity across Eurasia. Disruptions to shipping and energy flows in the Strait, through which a fifth of global oil and gas trade passes in peacetime, are prompting regional actors to seek alternatives and creating openings for new transport corridors. Turkey is moving quickly to capitalise on this shift. Ankara is presenting itself as a relatively secure hub for trade, transport, and energy, turning connectivity into an instrument of strategic autonomy and regional influence.\n\nAs maritime routes become more vulnerable and fragmentation in the Middle East deepens, Turkey is increasingly focusing on three areas: energy corridors, air connectivity, and the South Caucasus.\n\nReinforcing its role as an energy hub\n\nLong central to Ankara’s ambitions, energy transit has gained rene…"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/528",
-      "number": 528,
-      "id": "4437770376",
-      "ts": "2026-05-04T23:00:00.000Z",
-      "chronology_ts": "2026-05-04T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T12:16:31.000Z",
-      "source_published_at": "2026-05-04T23:00:00.000Z",
-      "ingested_at": "2026-05-13T12:16:29.241Z",
-      "title": "[RSS] Episode 17: Industrial Mobilisation: Harnessing the Capacity of Defence Primes Andrea Thompson",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/528",
-      "original_url": "https://www.rusi.org/podcasts/talking-strategy/episode-17-industrial-mobilisation-harnessing-capacity-defence-primes-andrea-thompson",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Publications (rusi_latest_publications)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/podcasts/talking-strategy/episode-17-industrial-mobilisation-harnessing-capacity-defence-primes-andrea-thompson",
-        "source_published_at": "2026-05-04T23:00:00.000Z",
-        "ingested_at": "2026-05-13T12:16:29.241Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:a15587fb391433e4fd86 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:a15587fb391433e4fd86 -->\n\n### Text\nDespite an increasing focus on SMEs, effective industrial mobilisation must also better harness the power of traditional defence firms. Andrea Thompson from BAE Systems explains how.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-04T23:00:00.000Z\ningested_at: 2026-05-13T12:16:29.241Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/podcasts/talking-strategy/episode-17-industrial-mobilisation-harnessing-capacity-defence-primes-andrea-thompson\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/517",
-      "number": 517,
-      "id": "4436567207",
-      "ts": "2026-05-04T23:00:00.000Z",
-      "chronology_ts": "2026-05-04T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T09:20:14.000Z",
-      "source_published_at": "2026-05-04T23:00:00.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] The US Blockade of Hormuz: Who Holds the Advantage?",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/517",
-      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/us-blockade-hormuz-who-holds-advantage",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "DECAY:SLOW",
-        "REG:EUROPE",
-        "REG:PERSIAN_GULF"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": {
-        "lat": 27.3,
-        "lon": 51.6,
-        "precision": "area",
-        "method": "gazetteer_alias_content_only",
-        "matched_name": "Persian Gulf",
-        "matched_alias": "The Gulf",
-        "matched_id": "persian_gulf",
-        "radius_km": 520,
-        "confidence": "medium",
-        "geo_role": "topic_area",
-        "display_on_map": true,
-        "regions": [
-          "REG:PERSIAN_GULF"
-        ]
-      },
-      "geo_candidates": [
-        {
-          "lat": 27.3,
-          "lon": 51.6,
-          "precision": "area",
-          "method": "gazetteer_alias_content_only",
-          "matched_name": "Persian Gulf",
-          "matched_alias": "The Gulf",
-          "matched_id": "persian_gulf",
-          "radius_km": 520,
-          "confidence": "medium",
-          "geo_role": "topic_area",
-          "display_on_map": true,
-          "regions": [
-            "REG:PERSIAN_GULF"
-          ]
-        }
-      ],
-      "source_hint": {
-        "source": "RUSI – Latest Commentary (rusi_latest_commentary)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/explore-our-research/publications/commentary/us-blockade-hormuz-who-holds-advantage",
-        "source_published_at": "2026-05-04T23:00:00.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "### Quelle\nRUSI – Latest Commentary (rusi_latest_commentary)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-04T23:00:00.000Z\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/us-blockade-hormuz-who-holds-advantage\n\n### Text\nThe efforts by the US and Iran to interfere with the flow of oil and gas from the Gulf mirror each other in their intent to affect any final settlement.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: rusi_latest_commentary\nsource_priority: 84\nitem_score: 5\nkeyword_hits: rf\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: 9007b4d9 SOURCE=rusi_latest_commentary -->"
     }
   ]
 }
