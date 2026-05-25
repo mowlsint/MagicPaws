@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-25T15:29:52.008Z",
+  "generated_at": "2026-05-25T20:00:44.796Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,469 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-25T15:29:55.066Z",
+  "bundle_generated_at": "2026-05-25T20:00:48.804Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-05T15:29:52.008Z"
+    "cutoff_utc": "2026-05-05T20:00:44.796Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 935,
-    "active_events": 851,
-    "active_geo_events": 150,
-    "active_social_events": 323,
-    "active_social_geo_events": 40
+    "archive_events_total": 946,
+    "active_events": 862,
+    "active_geo_events": 152,
+    "active_social_events": 330,
+    "active_social_geo_events": 42
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1146",
+      "number": 1146,
+      "id": "4519232770",
+      "ts": "2026-05-25T19:54:00.000Z",
+      "chronology_ts": "2026-05-25T19:54:00.000Z",
+      "issue_created_at": "2026-05-25T19:58:20.000Z",
+      "source_published_at": "2026-05-25T19:54:00.000Z",
+      "ingested_at": "2026-05-25T19:54:00.000Z",
+      "title": "[RSS] Study: North American Ports are Getting Fewer Direct Connections",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1146",
+      "original_url": "https://maritime-executive.com/article/study-north-american-ports-are-getting-fewer-direct-connections",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/study-north-american-ports-are-getting-fewer-direct-connections",
+        "source_published_at": "2026-05-25T19:54:00.000Z",
+        "ingested_at": "2026-05-25T19:54:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/study-north-american-ports-are-getting-fewer-direct-connections\n\n### Zeit (UTC)\n2026-05-25T19:54:00Z\n\n### Published\n2026-05-25T19:54:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nOngoing shifts in global shipping network could be reducing Canadian ports’ connectivity, according to a recent analysis by the Bank of Canada. Based...\n\n---\n_Ingested at 2026-05-25T19:58:19.951366+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 4f7c3721c40967d5 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1147",
+      "number": 1147,
+      "id": "4519232848",
+      "ts": "2026-05-25T19:51:48.000Z",
+      "chronology_ts": "2026-05-25T19:51:48.000Z",
+      "issue_created_at": "2026-05-25T19:58:21.000Z",
+      "source_published_at": "2026-05-25T19:51:48.000Z",
+      "ingested_at": "2026-05-25T19:51:48.000Z",
+      "title": "[RSS] Russia Surveyed the Hulk of Arctic Metagaz in its Criminal Investigation",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1147",
+      "original_url": "https://maritime-executive.com/article/russia-surveyed-the-hulk-of-arctic-metagaz-in-its-criminal-investigation",
+      "labels": [
+        "D:NEWS_INTEL",
+        "PAT:SURVEYING",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/russia-surveyed-the-hulk-of-arctic-metagaz-in-its-criminal-investigation",
+        "source_published_at": "2026-05-25T19:51:48.000Z",
+        "ingested_at": "2026-05-25T19:51:48.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/russia-surveyed-the-hulk-of-arctic-metagaz-in-its-criminal-investigation\n\n### Zeit (UTC)\n2026-05-25T19:51:48Z\n\n### Published\n2026-05-25T19:51:48Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, PAT:SURVEYING, SEV:1, SRC:MEDIA\n\n### Summary\nThe Russian Investigative Committee released details after its survey of the wreck of the gas carrier Arctic Metagaz. It says it is continuing with th...\n\n---\n_Ingested at 2026-05-25T19:58:21.145830+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a9cf7f9fc075d5cf -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1145",
+      "number": 1145,
+      "id": "4519080638",
+      "ts": "2026-05-25T19:00:16.167Z",
+      "chronology_ts": "2026-05-25T19:00:16.167Z",
+      "issue_created_at": "2026-05-25T19:22:40.000Z",
+      "source_published_at": "2026-05-25T19:00:16.167Z",
+      "ingested_at": "2026-05-25T19:22:39.189Z",
+      "title": "[BSKY] Have a story about an American innovation born from war that shaped civilian life, the military, or society? We welcome your submissions. Selected contributors",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1145",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmp5ynm2ne24",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmp5ynm2ne24",
+        "source_published_at": "2026-05-25T19:00:16.167Z",
+        "ingested_at": "2026-05-25T19:22:39.189Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:c8cc8a804fb58792d88e -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:c8cc8a804fb58792d88e -->\n\n### Text\nHave a story about an American innovation born from war that shaped civilian life, the military, or society? We welcome your submissions. Selected contributors will compete for War on the Rocks memberships and cash prizes. warontherocks.com/cogs-of-war/...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T19:00:16.167Z\ningested_at: 2026-05-25T19:22:39.189Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmp5ynm2ne24\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1144",
+      "number": 1144,
+      "id": "4519077697",
+      "ts": "2026-05-25T18:43:11.568Z",
+      "chronology_ts": "2026-05-25T18:43:11.568Z",
+      "issue_created_at": "2026-05-25T19:21:57.000Z",
+      "source_published_at": "2026-05-25T18:43:11.568Z",
+      "ingested_at": "2026-05-25T19:21:55.918Z",
+      "title": "[BSKY] \"Helsingborg, a bottleneck of the Baltic, has shifted from a peripheral, quiet place to an area under watch. The small southern Swedish port city and the Øresun",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1144",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmp523zy622y",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "geo_candidates": [
+        {
+          "matched_id": "port_helsingborg",
+          "matched_name": "Helsingborg",
+          "matched_alias": "Helsingborg",
+          "lat": 56.043,
+          "lon": 12.695,
+          "radius_km": 10,
+          "precision": "port",
+          "regions": [
+            "REG:BALTIC",
+            "REG:DANISH_STRAITS",
+            "REG:ORESUND"
+          ],
+          "score": 46,
+          "in_title": true
+        },
+        {
+          "matched_id": "baltic_sea",
+          "matched_name": "Baltic Sea",
+          "matched_alias": "Baltic",
+          "lat": 57.2,
+          "lon": 19,
+          "radius_km": 780,
+          "precision": "area",
+          "regions": [
+            "REG:BALTIC"
+          ],
+          "score": 33,
+          "in_title": true
+        },
+        {
+          "matched_id": "oresund",
+          "matched_name": "Øresund",
+          "matched_alias": "Øresund",
+          "lat": 55.9,
+          "lon": 12.75,
+          "radius_km": 45,
+          "precision": "area",
+          "regions": [
+            "REG:BALTIC",
+            "REG:DANISH_STRAITS",
+            "REG:ORESUND"
+          ],
+          "score": 17,
+          "in_title": false
+        }
+      ],
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmp523zy622y",
+        "source_published_at": "2026-05-25T18:43:11.568Z",
+        "ingested_at": "2026-05-25T19:21:55.918Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:384447fc0395e6ff5129 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:384447fc0395e6ff5129 -->\n\n### Text\n\"Helsingborg, a bottleneck of the Baltic, has shifted from a peripheral, quiet place to an area under watch. The small southern Swedish port city and the Øresund Strait are now part of the Atlantic defensive architecture.\" @auonsson.bsky.social english.elpais.com/internationa...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T18:43:11.568Z\ningested_at: 2026-05-25T19:21:55.918Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmp523zy622y\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1148",
+      "number": 1148,
+      "id": "4519232914",
+      "ts": "2026-05-25T18:04:44.000Z",
+      "chronology_ts": "2026-05-25T18:04:44.000Z",
+      "issue_created_at": "2026-05-25T19:58:22.000Z",
+      "source_published_at": "2026-05-25T18:04:44.000Z",
+      "ingested_at": "2026-05-25T18:04:44.000Z",
+      "title": "[RSS] Royal Navy Reaches Tristan da Cunha in Most Significant Emergency Response",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1148",
+      "original_url": "https://maritime-executive.com/article/royal-navy-reaches-tristan-da-cunha-in-most-significant-emergency-response",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/royal-navy-reaches-tristan-da-cunha-in-most-significant-emergency-response",
+        "source_published_at": "2026-05-25T18:04:44.000Z",
+        "ingested_at": "2026-05-25T18:04:44.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/royal-navy-reaches-tristan-da-cunha-in-most-significant-emergency-response\n\n### Zeit (UTC)\n2026-05-25T18:04:44Z\n\n### Published\n2026-05-25T18:04:44Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nNearly two weeks after the UK organized its first-ever airdrop using a parachute jump to insert medical personnel to provide humanitarian support, HMS...\n\n---\n_Ingested at 2026-05-25T19:58:22.351597+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a4f58ffc6cfb2a36 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1143",
+      "number": 1143,
+      "id": "4518681619",
+      "ts": "2026-05-25T16:59:24.000Z",
+      "chronology_ts": "2026-05-25T16:59:24.000Z",
+      "issue_created_at": "2026-05-25T17:55:57.000Z",
+      "source_published_at": "2026-05-25T16:59:24.000Z",
+      "ingested_at": "2026-05-25T16:59:24.000Z",
+      "title": "[RSS] Russia Finds Two Mines Attached to Hull of LPG Carrier Arriving at Ust-Luga",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1143",
+      "original_url": "https://maritime-executive.com/article/russia-finds-two-mines-attached-to-hull-of-lpg-carrier-arriving-at-ust-luga",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:SECURITY_CRIME",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "geo_candidates": [
+        {
+          "matched_id": "port_ust_luga",
+          "matched_name": "Ust-Luga",
+          "matched_alias": "Ust-Luga",
+          "lat": 59.667,
+          "lon": 28.287,
+          "radius_km": 24,
+          "precision": "port",
+          "regions": [
+            "REG:BALTIC",
+            "REG:GULF_OF_FINLAND",
+            "REG:RUSSIA_BALTIC"
+          ],
+          "score": 43,
+          "in_title": true
+        },
+        {
+          "matched_id": "port_hull",
+          "matched_name": "Hull",
+          "matched_alias": "Hull",
+          "lat": 53.741,
+          "lon": -0.279,
+          "radius_km": 14,
+          "precision": "port",
+          "regions": [
+            "REG:NORTH_SEA",
+            "REG:HUMBER"
+          ],
+          "score": 31,
+          "in_title": true
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/russia-finds-two-mines-attached-to-hull-of-lpg-carrier-arriving-at-ust-luga",
+        "source_published_at": "2026-05-25T16:59:24.000Z",
+        "ingested_at": "2026-05-25T16:59:24.000Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/russia-finds-two-mines-attached-to-hull-of-lpg-carrier-arriving-at-ust-luga\n\n### Zeit (UTC)\n2026-05-25T16:59:24Z\n\n### Published\n2026-05-25T16:59:24Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, D:SECURITY_CRIME, SEV:1, SRC:MEDIA\n\n### Summary\nRussian officials are reporting that they thwarted an attempted terrorist attack after discovering mines attached to the hull of a tanker arriving fro...\n\n---\n_Ingested at 2026-05-25T17:55:57.747779+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 5dfdea7480bbb156 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1141",
+      "number": 1141,
+      "id": "4518447268",
+      "ts": "2026-05-25T16:53:13.000Z",
+      "chronology_ts": "2026-05-25T16:53:13.000Z",
+      "issue_created_at": "2026-05-25T17:04:12.000Z",
+      "source_published_at": "2026-05-25T16:53:13.000Z",
+      "ingested_at": "2026-05-25T17:04:11.052Z",
+      "title": "[X] Mexico: Authorities seized 54,960 liters of chemical precursors, identified as benzyl alcohol, stored in 240 drums inside two containers at the Manzanillo port customs, intended for synthetic drug production including fentanyl and me…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1141",
+      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2058954551055524031",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:X"
+      ],
+      "source_type": "social_x",
+      "category": "D:SECURITY_CRIME",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "World Crime Intel (X) (worldcrimeintel_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2058954551055524031",
+        "source_published_at": "2026-05-25T16:53:13.000Z",
+        "ingested_at": "2026-05-25T17:04:11.052Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:worldcrimeintel_x:9afd1a7da246ddd96ee7 -->\n<!-- VOODOO_INGEST_ID:worldcrimeintel_x:9afd1a7da246ddd96ee7 -->\n\n### Text\nMexico: Authorities seized 54,960 liters of chemical precursors, identified as benzyl alcohol, stored in 240 drums inside two containers at the Manzanillo port customs, intended for synthetic drug production including fentanyl and methamphetamine.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T16:53:13.000Z\ningested_at: 2026-05-25T17:04:11.052Z\n\n### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2058954551055524031\n\n### Auto-Labels\nSRC:OSINT, D:SECURITY_CRIME, SRC:SOCIAL, SRC:X, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1142",
+      "number": 1142,
+      "id": "4518447574",
+      "ts": "2026-05-25T16:45:07.199Z",
+      "chronology_ts": "2026-05-25T16:45:07.199Z",
+      "issue_created_at": "2026-05-25T17:04:14.000Z",
+      "source_published_at": "2026-05-25T16:45:07.199Z",
+      "ingested_at": "2026-05-25T17:04:13.252Z",
+      "title": "[BSKY] When soldiers lose one of their own, the mission does not stop. Grief and duty arrive at the same time, and the work of pressing on falls to those still standin",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1142",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmowh3n5w324",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmowh3n5w324",
+        "source_published_at": "2026-05-25T16:45:07.199Z",
+        "ingested_at": "2026-05-25T17:04:13.252Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:0481ed33a553cd4085b4 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:0481ed33a553cd4085b4 -->\n\n### Text\nWhen soldiers lose one of their own, the mission does not stop. Grief and duty arrive at the same time, and the work of pressing on falls to those still standing.\n warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T16:45:07.199Z\ningested_at: 2026-05-25T17:04:13.252Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmowh3n5w324\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1140",
+      "number": 1140,
+      "id": "4518446612",
+      "ts": "2026-05-25T16:43:52.137Z",
+      "chronology_ts": "2026-05-25T16:43:52.137Z",
+      "issue_created_at": "2026-05-25T17:04:04.000Z",
+      "source_published_at": "2026-05-25T16:43:52.137Z",
+      "ingested_at": "2026-05-25T17:04:02.677Z",
+      "title": "[BSKY] Så 76% tjänar över medelinkomsten i Sverige.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1140",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmoweqbidc25",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmoweqbidc25",
+        "source_published_at": "2026-05-25T16:43:52.137Z",
+        "ingested_at": "2026-05-25T17:04:02.677Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:84c5df30959d82c1662d -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:84c5df30959d82c1662d -->\n\n### Text\nSå 76% tjänar över medelinkomsten i Sverige.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T16:43:52.137Z\ningested_at: 2026-05-25T17:04:02.677Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmoweqbidc25\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1137",
       "number": 1137,
@@ -198,6 +647,88 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:c4def8e46c9d843d1a15 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:c4def8e46c9d843d1a15 -->\n\n### Text\nAmerican MiG pilots spent years flying Soviet jets in secret, building a knowledge of enemy aircraft by actually sitting in the cockpit. (Members Only)\nListen here: warontherocks.com/episode/airm...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T11:30:18.846Z\ningested_at: 2026-05-25T11:49:24.016Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmoeu2ly5b2i\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1138",
+      "number": 1138,
+      "id": "4518445797",
+      "ts": "2026-05-25T10:42:12.648Z",
+      "chronology_ts": "2026-05-25T10:42:12.648Z",
+      "issue_created_at": "2026-05-25T17:03:52.000Z",
+      "source_published_at": "2026-05-25T10:42:12.648Z",
+      "ingested_at": "2026-05-25T17:03:51.424Z",
+      "title": "[BSKY] #Russia's Federal Security Service (FSB) said several magnetic mines had been detected on a Belgian tanker in Ust-Luga port in Russia's Leningrad region www.mar",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1138",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmoc5zzuw22h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY",
+        "REG:BALTIC",
+        "REG:GULF_OF_FINLAND",
+        "REG:RUSSIA_BALTIC"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:BALTIC",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 59.667,
+        "lon": 28.287,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Ust-Luga",
+        "matched_alias": "Ust-Luga",
+        "matched_id": "port_ust_luga",
+        "radius_km": 24,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:BALTIC",
+          "REG:GULF_OF_FINLAND",
+          "REG:RUSSIA_BALTIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 59.667,
+          "lon": 28.287,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Ust-Luga",
+          "matched_alias": "Ust-Luga",
+          "matched_id": "port_ust_luga",
+          "radius_km": 24,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:BALTIC",
+            "REG:GULF_OF_FINLAND",
+            "REG:RUSSIA_BALTIC"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmoc5zzuw22h",
+        "source_published_at": "2026-05-25T10:42:12.648Z",
+        "ingested_at": "2026-05-25T17:03:51.424Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:8423bda728fe50915260 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:8423bda728fe50915260 -->\n\n### Text\n#Russia's Federal Security Service (FSB) said several magnetic mines had been detected on a Belgian tanker in Ust-Luga port in Russia's Leningrad region\nwww.marketscreener.com/news/russia-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T10:42:12.648Z\ningested_at: 2026-05-25T17:03:51.424Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmoc5zzuw22h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1134",
@@ -1255,6 +1786,89 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:8544e7bfb02e4b93a052 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:8544e7bfb02e4b93a052 -->\n\n### Text\n\"Fri sprit och bredare trottoarer\"\nTidelaget i ett nötskal om det inte vore för all vars liv de ödelägger och allt de förstör.\nJ***la fascister och nazister hela bunten.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T19:58:16.627Z\ningested_at: 2026-05-24T20:48:36.379Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmmqrgwpts2y\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1139",
+      "number": 1139,
+      "id": "4518446193",
+      "ts": "2026-05-24T18:57:48.000Z",
+      "chronology_ts": "2026-05-24T18:57:48.000Z",
+      "issue_created_at": "2026-05-25T17:03:58.000Z",
+      "source_published_at": "2026-05-24T18:57:48.000Z",
+      "ingested_at": "2026-05-25T17:03:55.903Z",
+      "title": "[X] RT by @TomSharpe134: A number of LUSV proposals have broken cover from British shipbuilders and designers. BMT's proposal is a long narrow wave piercing aebow, with weapons carried in PODS on a long protected weatherdeck aft.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1139",
+      "original_url": "https://nitter.poast.org/FennellJW/status/2058623515989844067",
+      "labels": [
+        "D:INFRA_CI",
+        "REG:NORTH_SEA",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:CHANNEL",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "DECAY:SLOW",
+        "SRC:ANALYST",
+        "SRC:NAVAL",
+        "SRC:ANALYSIS_POINTER",
+        "SRC:X",
+        "MAP:INFERRED"
+      ],
+      "source_type": "social_x",
+      "category": "D:INFRA_CI",
+      "region": "REG:NORTH_SEA",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 56,
+        "lon": 3.5,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "North Sea",
+        "matched_alias": "North Sea",
+        "matched_id": "north_sea",
+        "radius_km": 900,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "north_sea",
+          "matched_name": "North Sea",
+          "matched_alias": "North Sea",
+          "lat": 56,
+          "lon": 3.5,
+          "radius_km": 900,
+          "precision": "area",
+          "regions": [
+            "REG:NORTH_SEA"
+          ],
+          "score": 19,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "Tom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/FennellJW/status/2058623515989844067",
+        "source_published_at": "2026-05-24T18:57:48.000Z",
+        "ingested_at": "2026-05-25T17:03:55.903Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:tom_sharpe_x:9e006d9fcc98fd6706d8 -->\n<!-- VOODOO_INGEST_ID:tom_sharpe_x:9e006d9fcc98fd6706d8 -->\n\n### Text\nA number of LUSV proposals have broken cover from British shipbuilders and designers. BMT's proposal is a long narrow wave piercing aebow, with weapons carried in PODS on a long protected weatherdeck aft.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-24T18:57:48.000Z\ningested_at: 2026-05-25T17:03:55.903Z\n\n### Quelle\nTom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/FennellJW/status/2058623515989844067\n\n### Auto-Labels\nSRC:OSINT, SRC:SOCIAL, SRC:ANALYST, SRC:NAVAL, SRC:ANALYSIS_POINTER, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:LOW, SEV:1, REG:NORTH_SEA, REG:CHANNEL, SCORE:HYBRID_CONTEXT, DECAY:SLOW, SRC:X\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1109",
