@@ -1,31 +1,53 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-25T04:54:11.163Z",
+  "generated_at": "2026-05-25T10:50:58.214Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 48,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-25",
-      "events_total": 2,
+      "events_total": 10,
       "p0_suspect": 0,
-      "geo_events": 0,
-      "social_events": 0,
+      "geo_events": 1,
+      "social_events": 2,
       "social_geo_events": 0,
-      "rss_media_events": 2,
+      "rss_media_events": 8,
       "top_domains": {
-        "D:NEWS_INTEL": 2
+        "D:NEWS_INTEL": 8,
+        "D:INCIDENT": 2
       },
-      "top_regions": {},
+      "top_regions": {
+        "REG:GLOBAL": 4,
+        "REG:OTHER": 2,
+        "REG:NORTH_SEA": 1
+      },
       "severity": {
-        "SEV:1": 2
+        "SEV:1": 10
       },
-      "hybrid_index_proxy": 3,
+      "hybrid_index_proxy": 13,
       "government_weirdness_proxy": {
-        "north_sea": 0,
+        "north_sea": 3,
         "baltic_sea": 0
       },
-      "top_keywords": []
+      "top_keywords": [
+        {
+          "keyword": "ot",
+          "count": 3
+        },
+        {
+          "keyword": "incident",
+          "count": 2
+        },
+        {
+          "keyword": "mpa",
+          "count": 1
+        },
+        {
+          "keyword": "coast guard",
+          "count": 1
+        }
+      ]
     },
     {
       "date": "2026-05-24",
