@@ -1,0 +1,76 @@
+version: 1
+name: MAGIC PAWS live sensor regions
+updated_at: "2026-05-26"
+notes: >-
+  Government Weirdness is currently limited to North Sea/Channel approaches and Baltic Sea.
+  AISstream uses bounding boxes directly. ADS-B public radius endpoints are used as tiled circles
+  because adsb.fi v3 lat/lon/dist is radius-based and limited to 250 NM per request.
+regions:
+  north_sea_channel:
+    label_de: "Nordsee / Kanal / westliche Zufahrten"
+    weirdness_bucket: "north"
+    bbox:
+      # AISstream order: [[lat, lon], [lat, lon]]. Wide box intentionally covers the North Sea,
+      # Channel, western approaches behind the British Isles and the French Channel coast.
+      - [48.0, -13.5]
+      - [61.8, 10.8]
+    adsb_queries:
+      - { name: "western_approaches", lat: 55.0, lon: -8.5, dist_nm: 250 }
+      - { name: "north_sea_central", lat: 56.0, lon: 1.5, dist_nm: 250 }
+      - { name: "german_bight_skagerrak", lat: 56.0, lon: 8.0, dist_nm: 250 }
+      - { name: "english_channel", lat: 50.5, lon: 0.5, dist_nm: 250 }
+  baltic_sea:
+    label_de: "Ostsee / Dänische Meerengen / Golf von Finnland"
+    weirdness_bucket: "baltic"
+    bbox:
+      - [53.0, 8.0]
+      - [66.5, 31.8]
+    adsb_queries:
+      - { name: "danish_straits", lat: 55.5, lon: 11.5, dist_nm: 250 }
+      - { name: "central_baltic", lat: 57.3, lon: 19.0, dist_nm: 250 }
+      - { name: "gulf_of_finland", lat: 59.8, lon: 27.0, dist_nm: 250 }
+      - { name: "northern_baltic", lat: 63.2, lon: 22.0, dist_nm: 250 }
+authority_detection:
+  ais_name_regex: "(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)"
+  ais_ship_type_codes:
+    - 35   # military ops, where provided
+    - 50   # pilot vessel
+    - 51   # search and rescue vessel
+    - 53   # port tender
+    - 54   # anti-pollution equipment
+    - 55   # law enforcement
+    - 58   # medical transport
+  adsb_callsign_regex: "(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)"
+  adsb_type_regex: "(?i)(p-?8|p-?3|orion|poseidon|atl2|c295|cn235|be20|b350|dhc6|cl60|uav|mq-?9|helicopter|h145|aw139|s92)"
+navtex_logic:
+  vital_terms:
+    - cable
+    - pipeline
+    - subsea
+    - mine
+    - unexploded
+    - obstruction
+    - drifting
+    - adrift
+    - collision
+    - sunk
+    - restricted area
+    - exclusion zone
+    - security zone
+    - military exercise
+    - navwarn
+    - navtex
+    - gnss
+    - gps
+  obstacle_terms:
+    - obstruction
+    - obstacle
+    - hindrance
+    - hazard
+    - drifting
+    - adrift
+    - buoy off station
+    - wreck
+    - floating object
+    - mine
+    - explosive
