@@ -251,6 +251,176 @@ function itemAgeHours(item, nowMs = Date.now()) {
   return Math.max(0, (nowMs - ms) / 36e5);
 }
 
+
+// -----------------------------------------------------------------------------
+// Geo / route evidence helpers for route-source social posts
+// -----------------------------------------------------------------------------
+const ROUTE_GAZETTEER = [
+  { id:"port_ust_luga", name:"Ust-Luga", lat:59.67, lon:28.26, aliases:["ust-luga","ust luga","port of ust-luga","port ust-luga","ust-luga terminal"], regions:["REG:BALTIC","REG:GULF_OF_FINLAND","REG:RUSSIA_BALTIC"], type:"port" },
+  { id:"strait_gibraltar", name:"Strait of Gibraltar", lat:35.96, lon:-5.55, aliases:["strait of gibraltar","gibraltar strait","gibraltar"], regions:["REG:MEDITERRANEAN","REG:STRAIT_GIBRALTAR"], type:"strait" },
+  { id:"suez_canal", name:"Suez Canal", lat:29.97, lon:32.55, aliases:["suez canal","suez","port said","suez anchorage"], regions:["REG:SUEZ","REG:RED_SEA","REG:MEDITERRANEAN"], type:"chokepoint" },
+  { id:"bab_el_mandeb", name:"Bab el-Mandeb", lat:12.61, lon:43.33, aliases:["bab el-mandeb","bab al-mandab","bab el mandeb","bab al mandab"], regions:["REG:BAB_EL_MANDEB","REG:RED_SEA"], type:"strait" },
+  { id:"strait_hormuz", name:"Strait of Hormuz", lat:26.57, lon:56.25, aliases:["strait of hormuz","hormuz strait","hormuz"], regions:["REG:PERSIAN_GULF","REG:STRAIT_HORMUZ"], type:"strait" },
+  { id:"gulf_of_oman", name:"Gulf of Oman", lat:24.8, lon:58.4, aliases:["gulf of oman","goo"], regions:["REG:GULF_OF_OMAN"], type:"sea_area" },
+  { id:"gulf_of_aden", name:"Gulf of Aden", lat:12.5, lon:48.0, aliases:["gulf of aden","goa"], regions:["REG:GULF_OF_ADEN"], type:"sea_area" },
+  { id:"malacca_strait", name:"Malacca Strait", lat:3.0, lon:100.5, aliases:["malacca strait","strait of malacca","malacca"], regions:["REG:MALACCA_STRAIT"], type:"strait" },
+  { id:"singapore_strait", name:"Singapore Strait", lat:1.2, lon:103.75, aliases:["singapore strait","strait of singapore","singapore"], regions:["REG:SINGAPORE_STRAIT"], type:"strait" },
+  { id:"port_skagen", name:"Skagen", lat:57.72, lon:10.59, aliases:["skagen"], regions:["REG:NORTH_SEA","REG:SKAGERRAK","REG:DANISH_STRAITS"], type:"port_chokepoint" },
+  { id:"kattegat", name:"Kattegat", lat:57.0, lon:11.5, aliases:["kattegat"], regions:["REG:KATTEGAT","REG:DANISH_STRAITS"], type:"sea_area" },
+  { id:"oresund", name:"Øresund", lat:55.9, lon:12.75, aliases:["øresund","oresund","oeresund","the sound"], regions:["REG:ORESUND","REG:BALTIC","REG:DANISH_STRAITS"], type:"strait" },
+  { id:"bornholm", name:"Bornholm", lat:55.12, lon:14.92, aliases:["bornholm"], regions:["REG:BALTIC"], type:"island_area" },
+  { id:"gotland", name:"Gotland", lat:57.5, lon:18.55, aliases:["gotland"], regions:["REG:BALTIC","REG:GOTLAND_SEA"], type:"island_area" },
+  { id:"port_rotterdam", name:"Rotterdam", lat:51.948, lon:4.142, aliases:["rotterdam","port of rotterdam","maasvlakte"], regions:["REG:NORTH_SEA"], type:"port" },
+  { id:"port_antwerp", name:"Antwerp", lat:51.286, lon:4.315, aliases:["antwerp","antwerpen","port of antwerp","antwerp-bruges"], regions:["REG:NORTH_SEA","REG:CHANNEL"], type:"port" },
+  { id:"port_fujairah", name:"Fujairah", lat:25.18, lon:56.36, aliases:["fujairah","port of fujairah","fujairah anchorage"], regions:["REG:GULF_OF_OMAN","REG:PERSIAN_GULF"], type:"port" },
+  { id:"port_algeciras", name:"Algeciras", lat:36.14, lon:-5.44, aliases:["algeciras","port of algeciras"], regions:["REG:STRAIT_GIBRALTAR","REG:MEDITERRANEAN"], type:"port" },
+  { id:"port_tanger_med", name:"Tanger Med", lat:35.89, lon:-5.51, aliases:["tanger med","tangier med","port of tanger med"], regions:["REG:STRAIT_GIBRALTAR","REG:MEDITERRANEAN"], type:"port" },
+  { id:"port_santos", name:"Santos", lat:-23.96, lon:-46.31, aliases:["santos","port of santos"], regions:["REG:SOUTH_AMERICA_EAST"], type:"port", requireContext:["port","container","cocaine","shipping","vessel","ship","terminal"] },
+  { id:"port_cartagena_colombia", name:"Cartagena (Colombia)", lat:10.40, lon:-75.53, aliases:["cartagena colombia","cartagena de indias","port of cartagena"], regions:["REG:CARIBBEAN","REG:SOUTH_AMERICA_NORTH"], type:"port", requireContext:["colombia","port","container","cocaine","caribbean","vessel","ship"] },
+  { id:"port_guayaquil", name:"Guayaquil", lat:-2.27, lon:-79.91, aliases:["guayaquil","port of guayaquil"], regions:["REG:SOUTH_AMERICA_WEST"], type:"port" },
+  { id:"port_abidjan", name:"Abidjan", lat:5.26, lon:-4.02, aliases:["abidjan","port of abidjan"], regions:["REG:GULF_OF_GUINEA"], type:"port" },
+  { id:"port_tema", name:"Tema", lat:5.64, lon:0.01, aliases:["tema","port of tema"], regions:["REG:GULF_OF_GUINEA"], type:"port" },
+  { id:"port_lome", name:"Lomé", lat:6.13, lon:1.28, aliases:["lomé","lome","port of lome","port of lomé"], regions:["REG:GULF_OF_GUINEA"], type:"port" }
+];
+
+function escapeRegex(value) {
+  return String(value).replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function geoValidLatLon(lat, lon) {
+  return Number.isFinite(lat) && Number.isFinite(lon) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180;
+}
+
+function dmsToDecimal(deg, min = 0, sec = 0, hemi = "") {
+  let v = Number(deg) + Number(min || 0) / 60 + Number(sec || 0) / 3600;
+  if (/S|W/i.test(hemi)) v *= -1;
+  return v;
+}
+
+function extractCoordinatePairs(text) {
+  const t = String(text || "").replace(/(\d),(\d)/g, "$1.$2");
+  const out = [];
+  const seen = new Set();
+  function add(lat, lon, raw, method = "explicit_coordinate") {
+    lat = Number(lat); lon = Number(lon);
+    if (!geoValidLatLon(lat, lon)) return;
+    const key = `${lat.toFixed(5)},${lon.toFixed(5)}`;
+    if (seen.has(key)) return;
+    seen.add(key);
+    out.push({ lat, lon, raw: String(raw || "").slice(0, 120), method, confidence:"high", precision:"exact" });
+  }
+
+  const latLon = /(?:geo|position|pos|lat\/?lon|lat\s*[,=])?\s*[:=]?\s*(-?\d{1,2}\.\d{3,})\s*[,; ]\s*(?:lon\s*[:=]\s*)?(-?\d{1,3}\.\d{3,})/gi;
+  for (const m of t.matchAll(latLon)) add(m[1], m[2], m[0]);
+
+  const named = /lat(?:itude)?\s*[:=]\s*(-?\d{1,2}\.\d+)\D{1,30}lon(?:gitude)?\s*[:=]\s*(-?\d{1,3}\.\d+)/gi;
+  for (const m of t.matchAll(named)) add(m[1], m[2], m[0]);
+
+  const dm = /(\d{1,2})[°\s-]+(\d{1,2}(?:\.\d+)?)\s*([NS])\b[^\dNSWE]{0,16}(\d{1,3})[°\s-]+(\d{1,2}(?:\.\d+)?)\s*([EW])\b/gi;
+  for (const m of t.matchAll(dm)) add(dmsToDecimal(m[1], m[2], 0, m[3]), dmsToDecimal(m[4], m[5], 0, m[6]), m[0], "dm_coordinate");
+
+  const dms = /(\d{1,2})[°\s]+(\d{1,2})['’\s]+(\d{1,2}(?:\.\d+)?)?["”]?\s*([NS])\b[^\dNSWE]{0,16}(\d{1,3})[°\s]+(\d{1,2})['’\s]+(\d{1,2}(?:\.\d+)?)?["”]?\s*([EW])\b/gi;
+  for (const m of t.matchAll(dms)) add(dmsToDecimal(m[1], m[2], m[3] || 0, m[4]), dmsToDecimal(m[5], m[6], m[7] || 0, m[8]), m[0], "dms_coordinate");
+
+  return out.slice(0, 12);
+}
+
+function suppressPlaceFalsePositive(place, textLower) {
+  if (place.id === "port_hull" || place.name?.toLowerCase() === "hull") {
+    if (/\b(ship|vessel|carrier|tanker|bulk carrier|container ship|lpg carrier)\b.{0,24}\bhull\b|\bhull\b.{0,30}\b(attached|damage|breach|ship|vessel|carrier|tanker)\b/i.test(textLower)) return true;
+  }
+  if (Array.isArray(place.requireContext) && place.requireContext.length) {
+    return !place.requireContext.some(c => textLower.includes(String(c).toLowerCase()));
+  }
+  return false;
+}
+
+function extractPlaceHits(text) {
+  const raw = String(text || "");
+  const low = raw.toLowerCase();
+  const hits = [];
+  const seen = new Set();
+  for (const place of ROUTE_GAZETTEER) {
+    if (suppressPlaceFalsePositive(place, low)) continue;
+    for (const alias of place.aliases || []) {
+      const a = String(alias || "").toLowerCase();
+      if (!a || a.length < 3) continue;
+      const re = new RegExp(`(^|[^a-z0-9])${escapeRegex(a)}([^a-z0-9]|$)`, "i");
+      if (!re.test(raw)) continue;
+      if (seen.has(place.id)) continue;
+      seen.add(place.id);
+      const portContext = /\b(port|terminal|anchorage|arriv|depart|sail|transit|passed|heading|destination|eta|ais|vessel|ship|tanker|carrier|warship|naval|fleet|lng|lpg|oil|shadow|sanction)/i.test(raw);
+      hits.push({
+        matched_id: place.id,
+        matched_name: place.name,
+        matched_alias: alias,
+        lat: place.lat,
+        lon: place.lon,
+        radius_km: place.type === "port" ? 18 : 60,
+        precision: place.type === "port" ? "port" : "area",
+        method: "controlled_gazetteer",
+        confidence: portContext ? "medium_high" : "medium",
+        geo_role: "event_location_or_topic_area",
+        display_on_map: true,
+        regions: place.regions || [],
+        score: portContext ? 90 : 70
+      });
+    }
+  }
+  return hits.sort((a,b) => (b.score||0)-(a.score||0)).slice(0, 8);
+}
+
+function roleForWaypoint(text, hit, index, total) {
+  const low = String(text || "").toLowerCase();
+  const name = String(hit.matched_alias || hit.matched_name || "").toLowerCase();
+  const near = new RegExp(`(?:from|depart(?:ed|ing)?|left)\\s+(?:the\\s+)?${escapeRegex(name)}|${escapeRegex(name)}.{0,35}(?:depart|left|sailed)`, "i");
+  if (near.test(low)) return "origin";
+  const dest = new RegExp(`(?:to|towards|toward|heading\\s+to|destination|dest)\\s+(?:the\\s+)?${escapeRegex(name)}|${escapeRegex(name)}.{0,35}(?:destination|eta|arrival|arriv)`, "i");
+  if (dest.test(low)) return "destination";
+  if (/\bvia\b|\bpassed\b|\btransit/.test(low)) return "via";
+  if (total > 1 && index === 0) return "origin_or_first_reported";
+  if (total > 1 && index === total - 1) return "destination_or_last_reported";
+  return "candidate_anchor";
+}
+
+function extractGeoEvidence(text, item = {}, source = {}) {
+  const fullText = [text, item?.title, item?.summary, item?.description].filter(Boolean).join("\n");
+  const coordinates = extractCoordinatePairs(fullText);
+  const candidates = extractPlaceHits(fullText);
+  const routeSource = Boolean(source.route_source || source.routeSource || yamlScalarArray(source.labels).includes("PAT:ROUTE_OBSERVED") || yamlScalarArray(source.labels).includes("D:AIS_TRACK"));
+  const waypoints = [];
+
+  if (coordinates.length >= 2) {
+    for (const [i, c] of coordinates.entries()) waypoints.push({ name:`Coordinate ${i+1}`, lat:c.lat, lon:c.lon, role:i === 0 ? "origin_or_first_reported" : i === coordinates.length-1 ? "destination_or_last_reported" : "via", method:c.method, confidence:c.confidence });
+  } else if (routeSource && candidates.length >= 2) {
+    candidates.slice(0, 5).forEach((c, i) => waypoints.push({ name:c.matched_name, id:c.matched_id, lat:c.lat, lon:c.lon, role:roleForWaypoint(fullText, c, i, candidates.length), method:c.method, confidence:c.confidence }));
+  }
+
+  let geo = null;
+  if (coordinates.length) {
+    const c = coordinates[0];
+    geo = { lat:c.lat, lon:c.lon, precision:c.precision, method:c.method, matched_name:"explicit coordinate", matched_id:null, radius_km:null, confidence:c.confidence, geo_role:"event_location", display_on_map:true };
+  } else if (routeSource && candidates.length === 1 && candidates[0].score >= 85) {
+    const c = candidates[0];
+    geo = { lat:c.lat, lon:c.lon, precision:c.precision, method:"controlled_port_promotion", matched_name:c.matched_name, matched_id:c.matched_id, radius_km:c.radius_km, confidence:c.confidence, geo_role:"event_location_or_topic_area", display_on_map:true };
+  } else if (routeSource && waypoints.length) {
+    const w = waypoints[0];
+    geo = { lat:w.lat, lon:w.lon, precision:"route_waypoint", method:"social_route_waypoint", matched_name:w.name, matched_id:w.id || null, radius_km:null, confidence:w.confidence || "medium_high", geo_role:"event_location_or_topic_area", display_on_map:true };
+  }
+
+  const route = waypoints.length >= 2 ? {
+    type:"LineString",
+    coordinates: waypoints.map(w => [Number(w.lon), Number(w.lat)]),
+    waypoints,
+    method: coordinates.length >= 2 ? "explicit_coordinate_route" : "controlled_text_route",
+    confidence: coordinates.length >= 2 ? "high" : "medium_high",
+    display_on_map: true,
+    inferred: coordinates.length < 2
+  } : null;
+
+  return { geo, coordinates, geo_candidates: candidates, route, hasMap: Boolean(geo || route || candidates.length) };
+}
+
 function itemWithinLookback(source, item) {
   const explicit = numberOrNull(source.lookback_hours ?? source.lookbackHours);
   const fallback = DEFAULT_LOOKBACK_HOURS > 0 ? DEFAULT_LOOKBACK_HOURS : null;
@@ -346,7 +516,7 @@ function makeIngestId(source, item) {
   return `${source.id || "source"}:${sha256Short(stable, 20)}`;
 }
 
-function makeBody({ source, item, link, title, text, labels, ingestId, sourcePublishedAt, ingestedAt }) {
+function makeBody({ source, item, link, title, text, labels, ingestId, sourcePublishedAt, ingestedAt, geoEvidence = null }) {
   const platform =
     source.platform ||
     source.type ||
@@ -375,6 +545,34 @@ function makeBody({ source, item, link, title, text, labels, ingestId, sourcePub
     "### Link",
     link || "",
     "",
+    ...(geoEvidence?.geo ? [
+      "### Geo",
+      `Geo: ${Number(geoEvidence.geo.lat).toFixed(5)}, ${Number(geoEvidence.geo.lon).toFixed(5)}`,
+      `method: ${geoEvidence.geo.method || "unknown"}`,
+      `confidence: ${geoEvidence.geo.confidence || "unknown"}`,
+      `matched_name: ${geoEvidence.geo.matched_name || ""}`,
+      `matched_id: ${geoEvidence.geo.matched_id || ""}`,
+      `role: ${geoEvidence.geo.geo_role || "event_location"}`,
+      ""
+    ] : []),
+    ...((geoEvidence?.geo_candidates || []).length ? [
+      "### Geo Candidates",
+      JSON.stringify(geoEvidence.geo_candidates, null, 2),
+      ""
+    ] : []),
+    ...(geoEvidence?.route ? [
+      "### Route",
+      `route_detected: true`,
+      `method: ${geoEvidence.route.method}`,
+      `confidence: ${geoEvidence.route.confidence}`,
+      JSON.stringify(geoEvidence.route, null, 2),
+      ""
+    ] : []),
+    ...(geoEvidence?.hasMap ? [
+      "### Geo JSON",
+      JSON.stringify({ geo: geoEvidence.geo, geo_candidates: geoEvidence.geo_candidates || [], route: geoEvidence.route || null }, null, 2),
+      ""
+    ] : []),
     "### Auto-Labels",
     labels.join(", "),
     "",
@@ -882,7 +1080,13 @@ async function processSource(source, config, existingIndex) {
         continue;
       }
 
-      const labels = normalizeLabels(source, item, config);
+      const geoEvidence = extractGeoEvidence(`${item.title || ""}
+${item.text || ""}`, item, source);
+      let labels = normalizeLabels(source, item, config);
+      if (geoEvidence.hasMap && !labels.includes("MAP:YES")) labels.push("MAP:YES");
+      if (geoEvidence.route && !labels.includes("PAT:ROUTE_OBSERVED")) labels.push("PAT:ROUTE_OBSERVED");
+      if ((geoEvidence.geo || geoEvidence.route) && !labels.includes("D:AIS_TRACK") && (source.route_source || source.routeSource)) labels.push("D:AIS_TRACK");
+      labels = uniqueStrings(labels);
       const sourcePublishedAt = pickSourcePublishedAt(item);
       const ingestedAt = nowIso();
 
@@ -903,7 +1107,8 @@ async function processSource(source, config, existingIndex) {
         labels,
         ingestId,
         sourcePublishedAt,
-        ingestedAt
+        ingestedAt,
+        geoEvidence
       });
 
       const created = await createIssue({ title, body, labels });
