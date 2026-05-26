@@ -1,7 +1,14 @@
 {
   "ok": false,
   "source": "aisstream",
-  "generated_at": null,
+  "generated_at": "2026-05-26T18:13:10.710Z",
+  "window_seconds": 120,
+  "sample_seconds_requested": 120,
+  "regions": [
+    "north_sea_channel",
+    "baltic_sea"
+  ],
+  "item_count": 0,
   "items": [],
   "clusters_5nm": [],
   "summary": {
@@ -9,5 +16,16 @@
     "authority_vessels": 0,
     "by_region": {}
   },
-  "note": "Created as placeholder. GitHub Action writes live AIS sample every 30 minutes when AISSTREAM_API_KEY is configured."
+  "errors": [
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group",
+    "Invalid regular expression: /(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)/i: Invalid group"
+  ]
 }
