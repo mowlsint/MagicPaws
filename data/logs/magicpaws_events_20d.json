@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-26T04:35:58.294Z",
+  "generated_at": "2026-05-26T10:19:33.961Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,404 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-26T04:36:01.094Z",
+  "bundle_generated_at": "2026-05-26T10:19:36.831Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-06T04:35:58.294Z"
+    "cutoff_utc": "2026-05-06T10:19:33.961Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 955,
-    "active_events": 864,
-    "active_geo_events": 155,
-    "active_social_events": 334,
+    "archive_events_total": 964,
+    "active_events": 873,
+    "active_geo_events": 160,
+    "active_social_events": 339,
     "active_social_geo_events": 42
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1163",
+      "number": 1163,
+      "id": "4522726831",
+      "ts": "2026-05-26T08:30:06.398Z",
+      "chronology_ts": "2026-05-26T08:30:06.398Z",
+      "issue_created_at": "2026-05-26T08:34:40.000Z",
+      "source_published_at": "2026-05-26T08:30:06.398Z",
+      "ingested_at": "2026-05-26T08:34:38.953Z",
+      "title": "[BSKY] Memorial Day is not only about wars filed away in history, but also about lives lost in service to the nation and the obligations those losses place on the livi",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1163",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmqlaqrjua2a",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmqlaqrjua2a",
+        "source_published_at": "2026-05-26T08:30:06.398Z",
+        "ingested_at": "2026-05-26T08:34:38.953Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:c5f3fea4ea4277efdea1 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:c5f3fea4ea4277efdea1 -->\n\n### Text\nMemorial Day is not only about wars filed away in history, but also about lives lost in service to the nation and the obligations those losses place on the living. warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T08:30:06.398Z\ningested_at: 2026-05-26T08:34:38.953Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmqlaqrjua2a\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1162",
+      "number": 1162,
+      "id": "4522725630",
+      "ts": "2026-05-26T07:57:49.014Z",
+      "chronology_ts": "2026-05-26T07:57:49.014Z",
+      "issue_created_at": "2026-05-26T08:34:31.000Z",
+      "source_published_at": "2026-05-26T07:57:49.014Z",
+      "ingested_at": "2026-05-26T08:34:29.299Z",
+      "title": "[BSKY] Vessels tied to Moscow’s Arctic gas trade continue to access logistical support along the Norwegian coast. @nfd.regjeringen.no #LNG #Russia #nordkapp #arctic #n",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1162",
+      "original_url": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mmqjgys5zk2g",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "High North News (Bluesky) (highnorthnews_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mmqjgys5zk2g",
+        "source_published_at": "2026-05-26T07:57:49.014Z",
+        "ingested_at": "2026-05-26T08:34:29.299Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:highnorthnews_bsky:4c601f9d4532e9b9b8c8 -->\n<!-- VOODOO_INGEST_ID:highnorthnews_bsky:4c601f9d4532e9b9b8c8 -->\n\n### Text\nVessels tied to Moscow’s Arctic gas trade continue to access logistical support along the Norwegian coast.\n@nfd.regjeringen.no #LNG #Russia #nordkapp #arctic #norway #Shadowfleet #darkfleet #shipping #sanctions @ec.europa.eu\nen.highnorthnews.com/politics/uk-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T07:57:49.014Z\ningested_at: 2026-05-26T08:34:29.299Z\n\n### Quelle\nHigh North News (Bluesky) (highnorthnews_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/highnorthnews.bsky.social/post/3mmqjgys5zk2g\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1164",
+      "number": 1164,
+      "id": "4522727010",
+      "ts": "2026-05-26T07:17:48.368Z",
+      "chronology_ts": "2026-05-26T07:17:48.368Z",
+      "issue_created_at": "2026-05-26T08:34:42.000Z",
+      "source_published_at": "2026-05-26T07:17:48.368Z",
+      "ingested_at": "2026-05-26T08:34:41.042Z",
+      "title": "[BSKY] Tampnet and Starboard Maritime Intelligence have unveiled the world’s first operational integration of fibre-optic sensing into a live AI-powered maritime intel",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1164",
+      "original_url": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mmqh7hea6s2u",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "MaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mmqh7hea6s2u",
+        "source_published_at": "2026-05-26T07:17:48.368Z",
+        "ingested_at": "2026-05-26T08:34:41.042Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:maritimekiwi_bsky:c7a12cf1219e0de4be21 -->\n<!-- VOODOO_INGEST_ID:maritimekiwi_bsky:c7a12cf1219e0de4be21 -->\n\n### Text\nTampnet and Starboard Maritime Intelligence have unveiled the world’s first operational integration of fibre-optic sensing into a live AI-powered maritime intelligence platform, a move aimed at strengthening protection of critical subsea infrastructure.\nsplash247.com/tampnet-and-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T07:17:48.368Z\ningested_at: 2026-05-26T08:34:41.042Z\n\n### Quelle\nMaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/maritimekiwi.bsky.social/post/3mmqh7hea6s2u\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1161",
+      "number": 1161,
+      "id": "4522725446",
+      "ts": "2026-05-26T06:08:43.930Z",
+      "chronology_ts": "2026-05-26T06:08:43.930Z",
+      "issue_created_at": "2026-05-26T08:34:29.000Z",
+      "source_published_at": "2026-05-26T06:08:43.930Z",
+      "ingested_at": "2026-05-26T08:34:27.091Z",
+      "title": "[BSKY] Vakna Sverige, fascister styr landet med hjälp av nazister Hemlösa nekas sjukvård. Barn som fyller 18 år deporteras. De som arbetat och betalat skatt i decennie",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1161",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmqddww3fs24",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmqddww3fs24",
+        "source_published_at": "2026-05-26T06:08:43.930Z",
+        "ingested_at": "2026-05-26T08:34:27.091Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:af3a9f3b5a264939f288 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:af3a9f3b5a264939f288 -->\n\n### Text\nVakna Sverige, fascister styr landet med hjälp av nazister\nHemlösa nekas sjukvård.\nBarn som fyller 18 år deporteras.\nDe som arbetat och betalat skatt i decennier utvisas.\nDe som tjänar mer än medellönen får extra privilegier\n1000 miljarder i bidrag till kärnkraft.\nSkattepengar till vinster i bolag.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T06:08:43.930Z\ningested_at: 2026-05-26T08:34:27.091Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmqddww3fs24\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1159",
+      "number": 1159,
+      "id": "4522724725",
+      "ts": "2026-05-26T06:00:52.000Z",
+      "chronology_ts": "2026-05-26T06:00:52.000Z",
+      "issue_created_at": "2026-05-26T08:34:22.000Z",
+      "source_published_at": "2026-05-26T06:00:52.000Z",
+      "ingested_at": "2026-05-26T08:34:19.342Z",
+      "title": "[RSS] Beyond the Grade: Improving Feedback Quality to Build Adaptive Army Leaders",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1159",
+      "original_url": "https://smallwarsjournal.com/2026/05/26/improving-feedback-quality-to-build-adaptive-army-leaders/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/26/improving-feedback-quality-to-build-adaptive-army-leaders/",
+        "source_published_at": "2026-05-26T06:00:52.000Z",
+        "ingested_at": "2026-05-26T08:34:19.342Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:c11c61cb38ca38cc3ffe -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:c11c61cb38ca38cc3ffe -->\n\n### Text\n“Feedback is the breakfast of champions.” At Fort Leavenworth, this mantra greeted Soldiers daily on the electronic display board, a reminder from Lieutenant General (RET) Milford Beagle that growth begins with honest assessment. Across the Army, feedback is not optional—it is foundational. Army Doctrine Publication (ADP) 6-22, Army Leadership and the Profession makes performance counseling a core leader responsibility, requiring &#8230;\n Read more\n The post Beyond the Grade: Improving Feedback Quality to Build Adaptive Army Leaders appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T06:00:52.000Z\ningested_at: 2026-05-26T08:34:19.342Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/26/improving-feedback-quality-to-build-adaptive-army-leaders/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1160",
+      "number": 1160,
+      "id": "4522725098",
+      "ts": "2026-05-26T06:00:09.000Z",
+      "chronology_ts": "2026-05-26T06:00:09.000Z",
+      "issue_created_at": "2026-05-26T08:34:25.000Z",
+      "source_published_at": "2026-05-26T06:00:09.000Z",
+      "ingested_at": "2026-05-26T08:34:22.650Z",
+      "title": "[RSS] Who Protects the Headquarters? Training Headquarters Units to Fight",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1160",
+      "original_url": "https://smallwarsjournal.com/2026/05/26/training-headquarters-units-to-fight/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/26/training-headquarters-units-to-fight/",
+        "source_published_at": "2026-05-26T06:00:09.000Z",
+        "ingested_at": "2026-05-26T08:34:22.650Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:bc725586d531ac70f278 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:bc725586d531ac70f278 -->\n\n### Text\nAbstract: The war in Ukraine has shown that a headquarters unit that cannot hide, move, and restore communications while still directing the fight will be found and disrupted. Warfighter exercises rehearse this problem using special purpose forces and other rear-area threats. Given that the aim of protection is preserving combat power for continued campaigning, headquarters units at echelon should train &#8230;\n Read more\n The post Who Protects the Headquarters? Training Headquarters Units to Fight appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T06:00:09.000Z\ningested_at: 2026-05-26T08:34:22.650Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/26/training-headquarters-units-to-fight/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1158",
+      "number": 1158,
+      "id": "4521486976",
+      "ts": "2026-05-26T04:45:01.677Z",
+      "chronology_ts": "2026-05-26T04:45:01.677Z",
+      "issue_created_at": "2026-05-26T04:59:04.000Z",
+      "source_published_at": "2026-05-26T04:45:01.677Z",
+      "ingested_at": "2026-05-26T04:59:04.094Z",
+      "title": "[BSKY] European allies are competing to host U.S. forces instead of building the collective defense capacity that would make that scramble unnecessary. warontherocks.c",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1158",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmq6obrpxl23",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmq6obrpxl23",
+        "source_published_at": "2026-05-26T04:45:01.677Z",
+        "ingested_at": "2026-05-26T04:59:04.094Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:09d9621e35741d0fecc9 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:09d9621e35741d0fecc9 -->\n\n### Text\nEuropean allies are competing to host U.S. forces instead of building the collective defense capacity that would make that scramble unnecessary. warontherocks.com/2026/05/euro...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T04:45:01.677Z\ningested_at: 2026-05-26T04:59:04.094Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmq6obrpxl23\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1165",
+      "number": 1165,
+      "id": "4522782081",
+      "ts": "2026-05-26T03:21:52.000Z",
+      "chronology_ts": "2026-05-26T03:21:52.000Z",
+      "issue_created_at": "2026-05-26T08:43:25.000Z",
+      "source_published_at": "2026-05-26T03:21:52.000Z",
+      "ingested_at": "2026-05-26T03:21:52.000Z",
+      "title": "[RSS] Wärtsilä Expands Engine Production Capacity by Another 30 Percent",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1165",
+      "original_url": "https://maritime-executive.com/article/waertsilae-expands-engine-production-capacity-by-another-30-percent",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/waertsilae-expands-engine-production-capacity-by-another-30-percent",
+        "source_published_at": "2026-05-26T03:21:52.000Z",
+        "ingested_at": "2026-05-26T03:21:52.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/waertsilae-expands-engine-production-capacity-by-another-30-percent\n\n### Zeit (UTC)\n2026-05-26T03:21:52Z\n\n### Published\n2026-05-26T03:21:52Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nDemand for diesel engines is growing so quickly that technology group Wärtsilä is planning to expand production capacity by another 30 percent at its...\n\n---\n_Ingested at 2026-05-26T08:43:24.856538+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b955b822adbc4a7e -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1166",
+      "number": 1166,
+      "id": "4522782178",
+      "ts": "2026-05-26T00:18:22.000Z",
+      "chronology_ts": "2026-05-26T00:18:22.000Z",
+      "issue_created_at": "2026-05-26T08:43:26.000Z",
+      "source_published_at": "2026-05-26T00:18:22.000Z",
+      "ingested_at": "2026-05-26T00:18:22.000Z",
+      "title": "[RSS] Russia May Have Revived the Idea of a Seabed Ballistic Missile Launcher",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1166",
+      "original_url": "https://maritime-executive.com/article/russia-may-have-revived-the-idea-of-a-seabed-ballistic-missile-launcher",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "PAT:SURVEYING",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/russia-may-have-revived-the-idea-of-a-seabed-ballistic-missile-launcher",
+        "source_published_at": "2026-05-26T00:18:22.000Z",
+        "ingested_at": "2026-05-26T00:18:22.000Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/russia-may-have-revived-the-idea-of-a-seabed-ballistic-missile-launcher\n\n### Zeit (UTC)\n2026-05-26T00:18:22Z\n\n### Published\n2026-05-26T00:18:22Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, PAT:SURVEYING, SEV:1, SRC:MEDIA\n\n### Summary\nBack in the early 1960s, a team of engineers at General Dynamics' Astronautics division got permission to pursue an unusual project. With corporate f...\n\n---\n_Ingested at 2026-05-26T08:43:25.972347+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1c7170755af6562e -->"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1156",
       "number": 1156,
@@ -5682,18 +6066,55 @@
         "PAT:STS_SUSPECT",
         "SEV:1",
         "CONF:MED",
-        "SRC:MEDIA"
+        "SRC:MEDIA",
+        "MAP:INFERRED",
+        "REG:SINGAPORE_STRAIT",
+        "REG:SOUTHEAST_ASIA"
       ],
       "source_type": "rss",
       "category": "D:INFRA_CI",
-      "region": null,
+      "region": "REG:SINGAPORE_STRAIT",
       "severity": "SEV:1",
       "confidence": "CONF:MED",
       "phase0": {
         "suspect": false,
         "level": null
       },
-      "geo": null,
+      "geo": {
+        "lat": 1.264,
+        "lon": 103.84,
+        "precision": "port",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Singapore",
+        "matched_alias": "Singapore",
+        "matched_id": "port_singapore",
+        "radius_km": 30,
+        "confidence": "medium_high",
+        "geo_role": "event_location_or_topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:SINGAPORE_STRAIT",
+          "REG:SOUTHEAST_ASIA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "port_singapore",
+          "matched_name": "Singapore",
+          "matched_alias": "Singapore",
+          "lat": 1.264,
+          "lon": 103.84,
+          "radius_km": 30,
+          "precision": "port",
+          "regions": [
+            "REG:SINGAPORE_STRAIT",
+            "REG:SOUTHEAST_ASIA"
+          ],
+          "score": 44,
+          "in_title": true
+        }
+      ],
+      "geo_inferred": true,
       "source_hint": {
         "source": "The Maritime Executive",
         "platform": "rss",
@@ -6564,18 +6985,55 @@
         "D:NEWS_INTEL",
         "SEV:1",
         "CONF:MED",
-        "SRC:MEDIA"
+        "SRC:MEDIA",
+        "MAP:INFERRED",
+        "REG:SINGAPORE_STRAIT",
+        "REG:SOUTHEAST_ASIA"
       ],
       "source_type": "rss",
       "category": "D:NEWS_INTEL",
-      "region": null,
+      "region": "REG:SINGAPORE_STRAIT",
       "severity": "SEV:1",
       "confidence": "CONF:MED",
       "phase0": {
         "suspect": false,
         "level": null
       },
-      "geo": null,
+      "geo": {
+        "lat": 1.264,
+        "lon": 103.84,
+        "precision": "port",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Singapore",
+        "matched_alias": "Singapore",
+        "matched_id": "port_singapore",
+        "radius_km": 30,
+        "confidence": "medium_high",
+        "geo_role": "event_location_or_topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:SINGAPORE_STRAIT",
+          "REG:SOUTHEAST_ASIA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "port_singapore",
+          "matched_name": "Singapore",
+          "matched_alias": "Singapore",
+          "lat": 1.264,
+          "lon": 103.84,
+          "radius_km": 30,
+          "precision": "port",
+          "regions": [
+            "REG:SINGAPORE_STRAIT",
+            "REG:SOUTHEAST_ASIA"
+          ],
+          "score": 44,
+          "in_title": true
+        }
+      ],
+      "geo_inferred": true,
       "source_hint": {
         "source": "gCaptain",
         "platform": "rss",
@@ -25547,18 +26005,55 @@
         "D:NEWS_INTEL",
         "SEV:1",
         "CONF:MED",
-        "SRC:MEDIA"
+        "SRC:MEDIA",
+        "MAP:INFERRED",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN"
       ],
       "source_type": "rss",
       "category": "D:INFRA_CI",
-      "region": null,
+      "region": "REG:PERSIAN_GULF",
       "severity": "SEV:1",
       "confidence": "CONF:MED",
       "phase0": {
         "suspect": false,
         "level": null
       },
-      "geo": null,
+      "geo": {
+        "lat": 25.18,
+        "lon": 56.36,
+        "precision": "port",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Fujairah",
+        "matched_alias": "Fujairah",
+        "matched_id": "port_fujairah",
+        "radius_km": 25,
+        "confidence": "medium_high",
+        "geo_role": "event_location_or_topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "port_fujairah",
+          "matched_name": "Fujairah",
+          "matched_alias": "Fujairah",
+          "lat": 25.18,
+          "lon": 56.36,
+          "radius_km": 25,
+          "precision": "port",
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN"
+          ],
+          "score": 43,
+          "in_title": true
+        }
+      ],
+      "geo_inferred": true,
       "source_hint": {
         "source": "The Maritime Executive",
         "platform": "rss",
@@ -26218,18 +26713,55 @@
         "SEV:1",
         "CONF:LOW",
         "SRC:MEDIA",
-        "REG:OTHER"
+        "REG:OTHER",
+        "MAP:INFERRED",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN"
       ],
       "source_type": "rss",
       "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
+      "region": "REG:PERSIAN_GULF",
       "severity": "SEV:1",
       "confidence": "CONF:LOW",
       "phase0": {
         "suspect": false,
         "level": null
       },
-      "geo": null,
+      "geo": {
+        "lat": 25.18,
+        "lon": 56.36,
+        "precision": "port",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Fujairah",
+        "matched_alias": "Fujairah",
+        "matched_id": "port_fujairah",
+        "radius_km": 25,
+        "confidence": "medium_high",
+        "geo_role": "event_location_or_topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "port_fujairah",
+          "matched_name": "Fujairah",
+          "matched_alias": "Fujairah",
+          "lat": 25.18,
+          "lon": 56.36,
+          "radius_km": 25,
+          "precision": "port",
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN"
+          ],
+          "score": 18,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
       "source_hint": {
         "source": "gCaptain (RSS) (gcaptain_rss)",
         "platform": "rss",
@@ -26672,18 +27204,55 @@
         "D:NEWS_INTEL",
         "SEV:1",
         "CONF:MED",
-        "SRC:MEDIA"
+        "SRC:MEDIA",
+        "MAP:INFERRED",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN"
       ],
       "source_type": "rss",
       "category": "D:NEWS_INTEL",
-      "region": null,
+      "region": "REG:PERSIAN_GULF",
       "severity": "SEV:1",
       "confidence": "CONF:MED",
       "phase0": {
         "suspect": false,
         "level": null
       },
-      "geo": null,
+      "geo": {
+        "lat": 25.18,
+        "lon": 56.36,
+        "precision": "port",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Fujairah",
+        "matched_alias": "Fujairah",
+        "matched_id": "port_fujairah",
+        "radius_km": 25,
+        "confidence": "medium_high",
+        "geo_role": "event_location_or_topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "port_fujairah",
+          "matched_name": "Fujairah",
+          "matched_alias": "Fujairah",
+          "lat": 25.18,
+          "lon": 56.36,
+          "radius_km": 25,
+          "precision": "port",
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN"
+          ],
+          "score": 43,
+          "in_title": true
+        }
+      ],
+      "geo_inferred": true,
       "source_hint": {
         "source": "The Maritime Executive",
         "platform": "rss",

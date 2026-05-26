@@ -1,10 +1,62 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-26T04:35:58.294Z",
+  "generated_at": "2026-05-26T10:19:33.961Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
-  "days": 48,
+  "days": 49,
   "summary_window_days": 365,
   "daily_summary": [
+    {
+      "date": "2026-05-26",
+      "events_total": 9,
+      "p0_suspect": 0,
+      "geo_events": 0,
+      "social_events": 5,
+      "social_geo_events": 0,
+      "rss_media_events": 4,
+      "top_domains": {
+        "D:NEWS_INTEL": 8,
+        "D:INFRA_CI": 1
+      },
+      "top_regions": {
+        "REG:OTHER": 4,
+        "REG:GLOBAL": 2,
+        "REG:ATLANTIC_NE": 1
+      },
+      "severity": {
+        "SEV:1": 9
+      },
+      "hybrid_index_proxy": 11,
+      "government_weirdness_proxy": {
+        "north_sea": 0,
+        "baltic_sea": 0
+      },
+      "top_keywords": [
+        {
+          "keyword": "ot",
+          "count": 8
+        },
+        {
+          "keyword": "subsea",
+          "count": 1
+        },
+        {
+          "keyword": "mpa",
+          "count": 1
+        },
+        {
+          "keyword": "isr",
+          "count": 1
+        },
+        {
+          "keyword": "sar",
+          "count": 1
+        },
+        {
+          "keyword": "seabed",
+          "count": 1
+        }
+      ]
+    },
     {
       "date": "2026-05-25",
       "events_total": 33,
@@ -205,7 +257,7 @@
       "date": "2026-05-22",
       "events_total": 58,
       "p0_suspect": 0,
-      "geo_events": 8,
+      "geo_events": 10,
       "social_events": 25,
       "social_geo_events": 3,
       "rss_media_events": 33,
@@ -222,6 +274,7 @@
         "REG:EUROPE": 4,
         "REG:ATLANTIC_NE": 4,
         "REG:PERSIAN_GULF": 3,
+        "REG:SINGAPORE_STRAIT": 2,
         "REG:NORTH_SEA": 1,
         "REG:GULF_OF_ADEN": 1,
         "REG:BALTIC": 1
@@ -721,7 +774,7 @@
       "date": "2026-05-14",
       "events_total": 39,
       "p0_suspect": 0,
-      "geo_events": 8,
+      "geo_events": 11,
       "social_events": 1,
       "social_geo_events": 1,
       "rss_media_events": 38,
@@ -734,9 +787,9 @@
       },
       "top_regions": {
         "REG:GLOBAL": 8,
+        "REG:PERSIAN_GULF": 7,
         "REG:EUROPE": 5,
-        "REG:OTHER": 5,
-        "REG:PERSIAN_GULF": 4,
+        "REG:OTHER": 4,
         "REG:RED_SEA": 1,
         "REG:BAB_EL_MANDEB": 1,
         "REG:CARIBBEAN": 1,
