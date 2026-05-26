@@ -919,11 +919,11 @@ Wilhelmshaven JadeWeserPort"></textarea>
               <div class="panel" style="border-radius:12px;">
                 <div class="ph">
                   <div class="title">HYBRID-SEISMOGRAPH</div>
-                  <div class="meta">72h • stündliche Dichte</div>
+                  <div class="meta">Ø <select id="hybridWindow"><option value="6">6h</option><option value="12">12h</option><option value="24">24h</option><option value="48">48h</option></select> • lila Peak 72h</div>
                 </div>
                 <div class="pc">
                   <div class="sensorGrid">
-                    <div class="sensorCard"><div class="label">Hybrid-Index aktuell</div><div class="num"><span id="p0Pct">–</span>%</div><div class="hint">aus allen geladenen Events, nicht aus dem Filterstand</div></div>
+                    <div class="sensorCard"><div class="label">Hybrid-Index aktuell</div><div class="num"><span id="p0Pct">–</span>%</div><div class="hint">Durchschnitt im gewählten Zeitfenster</div></div>
                     <div class="sensorCard"><div class="label">72h-Spitze</div><div class="num"><span id="hybridPeak">–</span>%</div><div class="hint" id="hybridMeta">Baseline später via KV</div></div>
                   </div>
                   <div class="seismoWrap">
@@ -1091,7 +1091,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     events: [],
     filtered: [],
     map: null,
-    layers: { events: null, ciGroup: null, geoLocator: null },
+    layers: { events: null, routes: null, candidates: null, ciGroup: null, geoLocator: null },
     ciBounds: null,
     geoPoint: null,
     weatherData: null,
@@ -1192,6 +1192,60 @@ Wilhelmshaven JadeWeserPort"></textarea>
   function hasEventGeo(ev){
     return !!(ev?.geo && Number.isFinite(Number(ev.geo.lat)) && Number.isFinite(Number(ev.geo.lon)));
   }
+
+  function parseJsonSectionFromText(text, heading){
+    const re = new RegExp(`###\\s*${heading}\\s*\\n([\\s\\S]*?)(?=\\n###\\s|\\n---|$)`, "i");
+    const m = String(text || "").match(re);
+    if (!m) return null;
+    const raw = m[1].trim().replace(/^```json\s*/i, "").replace(/```$/i, "").trim();
+    try { return JSON.parse(raw); } catch(_e) { return null; }
+  }
+
+  function geoJsonFromEvent(ev){
+    if (ev?._geoJsonParsed) return ev._geoJsonParsed;
+    const gj = parseJsonSectionFromText(ev?.summary || ev?.body || "", "Geo JSON") || {};
+    ev._geoJsonParsed = gj;
+    return gj;
+  }
+
+  function geoCandidatesFromEvent(ev){
+    const direct = Array.isArray(ev?.geo_candidates) ? ev.geo_candidates : [];
+    const gj = geoJsonFromEvent(ev);
+    const fromJson = Array.isArray(gj?.geo_candidates) ? gj.geo_candidates : [];
+    return direct.length ? direct : fromJson;
+  }
+
+  function bestCandidatePoint(ev){
+    const candidates = geoCandidatesFromEvent(ev)
+      .filter(c => Number.isFinite(Number(c.lat)) && Number.isFinite(Number(c.lon)) && c.display_on_map !== false)
+      .sort((a,b)=>(Number(b.score)||0)-(Number(a.score)||0));
+    const best = candidates[0];
+    if (!best) return null;
+    const second = candidates[1];
+    const score = Number(best.score) || 0;
+    if (score >= 90 || !second || score - (Number(second.score)||0) >= 18) {
+      return { lat:Number(best.lat), lon:Number(best.lon), candidate:true, geo:{ method:best.method || "geo_candidate", matched_name:best.matched_name, confidence:best.confidence || "medium", radius_km:best.radius_km || null } };
+    }
+    return null;
+  }
+
+  function eventMapPoint(ev){
+    if (hasEventGeo(ev) && ev.geo.display_on_map !== false) return { lat:Number(ev.geo.lat), lon:Number(ev.geo.lon), candidate:false, geo:ev.geo };
+    const gj = geoJsonFromEvent(ev);
+    if (gj?.geo && Number.isFinite(Number(gj.geo.lat)) && Number.isFinite(Number(gj.geo.lon)) && gj.geo.display_on_map !== false) return { lat:Number(gj.geo.lat), lon:Number(gj.geo.lon), candidate:false, geo:gj.geo };
+    return bestCandidatePoint(ev);
+  }
+
+  function routeFromEvent(ev){
+    const direct = ev?.route;
+    const gj = geoJsonFromEvent(ev);
+    const route = direct?.coordinates?.length >= 2 ? direct : (gj?.route?.coordinates?.length >= 2 ? gj.route : null);
+    if (!route) return null;
+    const latLngs = route.coordinates.map(pair => [Number(pair[1]), Number(pair[0])]).filter(([lat,lon]) => Number.isFinite(lat) && Number.isFinite(lon));
+    if (latLngs.length < 2) return null;
+    return { ...route, latLngs };
+  }
+
 
   function cleanUrl(raw){
     return String(raw || "")
@@ -1676,81 +1730,49 @@ Wilhelmshaven JadeWeserPort"></textarea>
     });
   }
 
-  function scorePhaseZero(events){
-    const recent = events.filter(e => { const d = eventChronologyDate(e); return d ? daysAgo(d) <= 7 : false; });
-    let points = 0;
-
-    for (const e of recent){
-      const sev = (e.severity ?? "SEV:1");
-      const conf = (e.confidence ?? "CONF:LOW");
-      const labels = e.labels ?? [];
-      const p0 = e.phase0?.suspect ? 1 : 0;
-
-      const sevW = sev === "SEV:4" ? 9 : sev === "SEV:3" ? 6 : sev === "SEV:2" ? 3 : 1;
-      const confW = conf === "CONF:HIGH" ? 1.2 : conf === "CONF:MED" ? 1.0 : 0.8;
-
-      const ci = ["OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","OBJ:PORT","OBJ:VTS_WSV"].some(x => labels.includes(x));
-      const patterns = ["PAT:LOITERING","PAT:STS_SUSPECT","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:SURVEYING","PAT:ROUTE_DEVIATION","PAT:GNSS_JAM","PAT:GNSS_SPOOF"].some(x => labels.includes(x));
-      const vesselHot = ["V:SHADOW_FLEET","V:RUS_RESEARCH","V:RUS_WARSHIP"].some(x => labels.includes(x));
-
-      let evPts = sevW * confW;
-      if (p0) evPts *= 1.6;
-      if (ci) evPts *= 1.25;
-      if (patterns) evPts *= 1.20;
-      if (vesselHot) evPts *= 1.15;
-
-      points += evPts;
-    }
-    return clamp(Math.round((points / 90) * 100), 0, 100);
+  function scorePhaseZero(events, windowHours = 6){
+    const buckets = buildHybridHourlyBuckets(events, 72);
+    const recent = buckets.slice(-windowHours);
+    const avg = recent.length ? recent.reduce((sum,b)=>sum+(b.pct||0),0) / recent.length : 0;
+    return clamp(Math.round(avg), 0, 100);
   }
 
   function scoreAuthorityWeirdness(events, regionMode){
     const regionLabels = regionMode === "north"
-      ? ["REG:NORTH_SEA","REG:GER_BIGHT"]
-      : ["REG:BALTIC_SEA","REG:BALTIC"];
-
+      ? ["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"]
+      : ["REG:BALTIC_SEA","REG:BALTIC","REG:DANISH_STRAITS","REG:ORESUND","REG:GOTLAND_SEA","REG:GULF_OF_FINLAND"];
     const recent = events.filter(e => {
-      const d = eventChronologyDate(e);
+      const d = getEventChronologyMs(e);
       const labels = e.labels ?? [];
-      const inWindow = d ? daysAgo(d) <= 7 : false;
-      const regionHit = regionLabels.includes(e.region) || labels.some(l => regionLabels.includes(l));
+      const inWindow = d ? ((Date.now() - d) / 36e5) <= 72 : false;
+      const text = normalizeText((e.title ?? "") + " " + (e.summary ?? ""));
+      const regionHit = regionLabels.includes(e.region) || labels.some(l => regionLabels.includes(l)) ||
+        (regionMode === "north" && /north sea|nordsee|german bight|deutsche bucht|skagen|skagerrak|channel|ärmelkanal/.test(text)) ||
+        (regionMode !== "north" && /baltic|ostsee|øresund|oresund|kattegat|gotland|bornholm|gulf of finland|ust-luga|ust luga|danish straits|dänische/.test(text));
       return inWindow && regionHit;
     });
-
-    let w = 0;
-    const seen = new Set();
+    let points = 0; const seen = new Set();
     for (const e of recent){
       const labels = e.labels ?? [];
       const key = e.url || e.id || e.number || e.title;
-      if (seen.has(key)) continue;
-      seen.add(key);
-
-      const sev = (e.severity ?? "SEV:1");
-      const conf = (e.confidence ?? "CONF:LOW");
-      const sevW = sev === "SEV:4" ? 7 : sev === "SEV:3" ? 5 : sev === "SEV:2" ? 2.5 : 1;
-      const confW = conf === "CONF:HIGH" ? 1.1 : conf === "CONF:MED" ? 1.0 : 0.85;
-
-      const official = labels.includes("SRC:OFFICIAL");
-      const authorityVessel = labels.some(l => l.startsWith("V:AUTH_") || l === "V:SAR_UNIT" || l === "V:RUS_GOV" || l === "V:RUS_WARSHIP" || l === "V:RUS_AUXILIARY" || l === "V:RUS_RESEARCH");
-      const air = labels.includes("D:AIR_ACTIVITY");
-      const sar = labels.includes("D:SAR") || labels.includes("V:SAR_UNIT");
-      const navwarn = labels.includes("RF:NAVWARN") || labels.includes("RF:NAVTEX");
-      const rf = labels.includes("D:RF_SIGNAL") || labels.some(l => l.startsWith("RF:"));
-      const ci = ["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM"].some(x => labels.includes(x));
-
-      let evW = sevW * confW;
-      if (official) evW *= 1.20;
-      if (authorityVessel) evW *= 1.55;
-      if (air) evW *= 1.35;
-      if (sar) evW *= 1.20;
-      if (navwarn) evW *= 0.85; // context can explain activity; dampen slightly
-      if (rf) evW *= 1.20;
-      if (ci) evW *= 1.15;
-      w += evW;
+      if (seen.has(key)) continue; seen.add(key);
+      const text = normalizeText((e.title ?? "") + " " + (e.summary ?? "") + " " + labels.join(" "));
+      const ais = hasAny(e,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|\bsts\b|rendezvous/.test(text);
+      const adsb = hasAny(e,["SRC:ADSB","D:AIR_ACTIVITY","V:MPA","V:SAR_UNIT","V:AUTH_COAST_GUARD","PAT:RACETRACK","PAT:LOW_ORBIT"]) || /ads-?b|mpa|p-8|p8 poseidon|sar aircraft|coast guard aircraft|helicopter|racetrack|orbit|isr/.test(text);
+      const official = labels.includes("SRC:OFFICIAL") || hasAny(e,["RF:NAVWARN","RF:NAVTEX"]);
+      const ci = hasAny(e,["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","D:INFRA_CI"]);
+      const rf = hasAny(e,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"]) || labels.some(l => l.startsWith("RF:"));
+      let w = 0;
+      if (ais) w += 4.5;
+      if (adsb) w += 4.0;
+      if (official) w += 1.5;
+      if (ci) w += 1.2;
+      if (rf) w += 1.3;
+      if (ais && adsb) w *= 1.8;
+      else if ((ais || adsb) && (official || ci || rf)) w *= 1.35;
+      points += w;
     }
-
-    // Density proxy until Worker/KV provides 90-day baseline by source × domain.
-    return clamp(Math.round((w / 45) * 100), 0, 100);
+    return clamp(Math.round((points / 38) * 100), 0, 100);
   }
 
   function normalizeText(s){
@@ -1799,22 +1821,25 @@ Wilhelmshaven JadeWeserPort"></textarea>
     return buckets.map(b => ({...b, sources: b.sources.size}));
   }
 
-  function buildHybridHourlyBuckets(events){
+  function buildHybridHourlyBuckets(events, bucketCount = 72){
     const now = Date.now();
     const bucketMs = 60 * 60 * 1000;
-    const bucketCount = 72;
-    const buckets = Array.from({length: bucketCount}, (_, i) => ({ idx:i, score:0 }));
+    const buckets = Array.from({length: bucketCount}, (_, i) => ({ idx:i, score:0, count:0, pct:0 }));
+    const seen = new Set();
     for (const e of events){
       const eventMs = getEventChronologyMs(e);
       if (!eventMs) continue;
       const age = now - eventMs;
       if (age < 0 || age > bucketMs * bucketCount) continue;
+      const key = e.url || e.id || e.number || `${e.title}:${e.ts}`;
+      if (seen.has(`${Math.floor(eventMs/bucketMs)}:${key}`)) continue;
+      seen.add(`${Math.floor(eventMs/bucketMs)}:${key}`);
       const b = bucketCount - 1 - Math.floor(age / bucketMs);
       if (b < 0 || b >= bucketCount) continue;
       buckets[b].score += scoreEventForHybrid(e);
+      buckets[b].count += 1;
     }
-    const maxScore = Math.max(12, ...buckets.map(b => b.score));
-    return buckets.map(b => ({...b, pct: clamp(Math.round((b.score / maxScore) * 100), 0, 100)}));
+    return buckets.map(b => ({...b, pct: clamp(Math.round((b.score / 28) * 100), 0, 100)}));
   }
 
   function scoreEventForHybrid(e){
@@ -1826,8 +1851,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
     let v = sevW * confW;
     if (e.phase0?.suspect || labels.includes("P0:SUSPECT")) v *= 1.6;
     if (["OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","OBJ:PORT","OBJ:VTS_WSV"].some(x => labels.includes(x))) v *= 1.25;
-    if (["PAT:LOITERING","PAT:STS_SUSPECT","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:SURVEYING","PAT:ROUTE_DEVIATION","PAT:GNSS_JAM","PAT:GNSS_SPOOF","RF:GNSS_JAM","RF:GNSS_SPOOF"].some(x => labels.includes(x))) v *= 1.20;
-    if (["V:SHADOW_FLEET","V:RUS_RESEARCH","V:RUS_WARSHIP"].some(x => labels.includes(x))) v *= 1.15;
+    if (["PAT:LOITERING","PAT:STS_SUSPECT","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:SURVEYING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:GNSS_JAM","PAT:GNSS_SPOOF","RF:GNSS_JAM","RF:GNSS_SPOOF"].some(x => labels.includes(x))) v *= 1.20;
+    if (["V:SHADOW_FLEET","V:RUS_RESEARCH","V:RUS_WARSHIP","V:RUS_AUXILIARY","V:SANCTIONS_EVASION"].some(x => labels.includes(x))) v *= 1.15;
     return v;
   }
 
@@ -1900,16 +1925,17 @@ Wilhelmshaven JadeWeserPort"></textarea>
     el("kpiRss").textContent = String(rssCount);
     el("kpiFetch").textContent = nowStr();
 
-    // Instruments intentionally use all loaded events, not UI filters.
+    // Instruments use all loaded events, but the displayed Hybrid value is a rolling average.
     const instrumentEvents = state.events;
-    const hybrid = scorePhaseZero(instrumentEvents);
+    const hybridWindow = Number(el("hybridWindow")?.value || 6);
+    const hybridBuckets = buildHybridHourlyBuckets(instrumentEvents, 72);
+    const hybrid = scorePhaseZero(instrumentEvents, hybridWindow);
     el("p0Pct").textContent = String(hybrid);
 
-    const hybridBuckets = buildHybridHourlyBuckets(instrumentEvents);
     renderHybridSeismograph(hybridBuckets.map(b => b.pct));
     const hPeak = hybridBuckets.length ? Math.max(...hybridBuckets.map(b => b.pct)) : 0;
     el("hybridPeak").textContent = String(hPeak);
-    el("hybridMeta").textContent = `${hybridBuckets.length} h buckets • Seismograph proxy`;
+    el("hybridMeta").textContent = `Ø ${hybridWindow}h • Peak 72h • AIS/Route/Cyber/RF gewichtet`;
 
     const north = scoreAuthorityWeirdness(instrumentEvents, "north");
     const baltic = scoreAuthorityWeirdness(instrumentEvents, "baltic");
@@ -1949,6 +1975,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
     ).addTo(state.map);
 
     state.layers.events = L.layerGroup().addTo(state.map);
+    state.layers.routes = L.layerGroup().addTo(state.map);
+    state.layers.candidates = L.layerGroup().addTo(state.map);
     state.layers.ciGroup = L.layerGroup().addTo(state.map);
     state.layers.geoLocator = L.layerGroup().addTo(state.map);
     state.map.on("click", (ev) => setGeoLocator(ev.latlng.lat, ev.latlng.lng, "Map click"));
@@ -2086,6 +2114,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const showCI = el("mapShowCI").checked;
 
     state.layers.events.clearLayers();
+    state.layers.routes?.clearLayers();
+    state.layers.candidates?.clearLayers();
 
     const baseSrc = showEvents ? (onlyFiltered ? state.filtered : state.events) : [];
     const tw = el("mapTimeWindow")?.value || "480";
@@ -2098,25 +2128,39 @@ Wilhelmshaven JadeWeserPort"></textarea>
           return eventMs ? ((now.getTime() - eventMs) / (1000 * 60 * 60)) <= Number(tw) : false;
         });
 
-    const pts = src.filter(e => hasEventGeo(e) && e.geo.display_on_map !== false);
-    const socialPts = pts.filter(e => matchesSourceFilter(e, "social")).length;
-    const candidates = src.filter(e => !hasEventGeo(e) && Array.isArray(e.geo_candidates) && e.geo_candidates.length).length;
+    const mapItems = src.map(ev => ({ ev, point:eventMapPoint(ev), route:routeFromEvent(ev) }));
+    const pts = mapItems.filter(x => x.point && !x.point.candidate);
+    const candidatePts = mapItems.filter(x => x.point && x.point.candidate);
+    const routes = mapItems.filter(x => x.route);
+    const socialPts = pts.filter(x => matchesSourceFilter(x.ev, "social")).length;
+    const candidates = candidatePts.length;
 
     const ms = el("mapStatus");
     const label = tw === "all" ? "alle offenen" : (tw === "168" ? "7 Tage" : tw === "480" ? "20 Tage" : tw === "720" ? "30 Tage" : tw === "2160" ? "90 Tage" : `${tw}h`);
-    if (ms) ms.textContent = `MAP: ${label} • src=${src.length}/${baseSrc.length} geo=${pts.length} • social-geo=${socialPts} • cand=${candidates}`;
+    if (ms) ms.textContent = `MAP: ${label} • src=${src.length}/${baseSrc.length} geo=${pts.length} • social-geo=${socialPts} • cand=${candidates} • routes=${routes.length}`;
 
     let bounds = null;
-    for (const ev of pts){
-      const lat = Number(ev.geo.lat);
-      const lon = Number(ev.geo.lon);
-      const m = L.circleMarker([lat, lon], eventMarkerStyle(ev));
+    for (const {ev, route} of routes){
+      const latLngs = route.latLngs;
+      const line = L.polyline(latLngs, { color:"#b06cff", weight:2.4, opacity:0.78, dashArray: route.inferred ? "6 6" : null });
+      line.bindPopup(`<b>Route: ${escapeHtml(ev.title)}</b><br>${escapeHtml(route.method || "route")}`);
+      line.addTo(state.layers.routes);
+      for (const ll of latLngs) bounds = bounds ? bounds.extend(ll) : L.latLngBounds([ll,ll]);
+    }
+
+    for (const {ev, point} of [...pts, ...candidatePts]){
+      const lat = Number(point.lat);
+      const lon = Number(point.lon);
+      const style = eventMarkerStyle(ev);
+      if (point.candidate) { style.fillOpacity = 0.18; style.dashArray = "4 5"; style.radius = Math.max(4, (style.radius || 5) - 1); }
+      const m = L.circleMarker([lat, lon], style);
       const originalUrl = originalUrlFromEvent(ev);
       const popupUrl = originalUrl || ev.url;
       const popupLabel = originalUrl ? "Originalmeldung öffnen" : "GitHub Issue öffnen";
-      const geoMethod = ev.geo?.method ? `<br>Geo: ${escapeHtml(ev.geo.method)}${ev.geo?.matched_name ? " / " + escapeHtml(ev.geo.matched_name) : ""}` : "";
+      const geo = point.geo || ev.geo || {};
+      const geoMethod = geo?.method ? `<br>Geo: ${escapeHtml(geo.method)}${geo?.matched_name ? " / " + escapeHtml(geo.matched_name) : ""}${point.candidate ? " (Kandidat)" : ""}` : (point.candidate ? "<br>Geo: Kandidat" : "");
       m.bindPopup(`<b>${escapeHtml(ev.title)}</b><br>${escapeHtml(sourceKind(ev))}<br><a href="${escapeHtml(popupUrl)}" target="_blank" rel="noreferrer">${popupLabel}</a>${geoMethod}`);
-      m.addTo(state.layers.events);
+      m.addTo(point.candidate ? state.layers.candidates : state.layers.events);
       bounds = bounds ? bounds.extend([lat, lon]) : L.latLngBounds([[lat, lon],[lat, lon]]);
     }
 
@@ -2382,7 +2426,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
       confidence: ev.confidence ?? null,
       phase0: ev.phase0 ?? null,
       geo: ev.geo ?? null,
-      geo_candidates: Array.isArray(ev.geo_candidates) ? ev.geo_candidates : undefined,
+      geo_candidates: geoCandidatesFromEvent(ev).length ? geoCandidatesFromEvent(ev) : undefined,
+      route: routeFromEvent(ev) || undefined,
       geo_inferred: ev.geo_inferred || undefined,
       source_hint: sourceHint,
       report_category: inferReportCategory(ev),
@@ -3025,6 +3070,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   on("btnExport", "click", exportFiltered);
   on("btnArchiveExport", "click", exportArchiveLog);
   on("btnFit", "click", refreshMapLayers);
+  on("hybridWindow", "change", updateKPIsAndInstruments);
   on("btnGeoLocate", "click", locateFromGeoInput);
   on("btnGeoSearch", "click", searchGeoName);
   on("btnGeoCopy", "click", copyGeoLine);
