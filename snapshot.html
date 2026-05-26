@@ -3,13 +3,12 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot Interactive v5.32</title>
+  <title>MAGIC PAWS // Daily Snapshot</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,130 +16,206 @@
 
   <style>
     :root{
-      --bg:#050607; --panel:#0b0c0e; --panel2:#111317;
-      --text:#f5f5f5; --muted:#bdbdbd; --stroke:#b08800;
-      --stroke2:rgba(176,136,0,.45); --glow:rgba(176,136,0,.22);
-      --bad:#ff4d4d; --ok:#33d17a; --money:#ffd24d; --orange:#ff8a00;
-      --cyan:#49d8d2; --purple:#b06cff; --r:12px;
+      --bg:#050607;
+      --panel:#0b0c0e;
+      --panel2:#111317;
+      --text:#f5f5f5;
+      --muted:#bdbdbd;
+      --stroke:#b08800;
+      --stroke2:rgba(176,136,0,.45);
+      --glow:rgba(176,136,0,.24);
+      --bad:#ff4d4d;
+      --ok:#33d17a;
+      --money:#ffd24d;
+      --orange:#ff8a00;
+      --cyan:#49d8d2;
+      --purple:#b06cff;
+      --blue:#5aa0ff;
+      --r:12px;
     }
+
     *{box-sizing:border-box}
-    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:var(--bg);color:var(--text)}
+    html,body{margin:0; width:100%; min-height:100%; background:var(--bg); color:var(--text)}
     body{
-      font-family:"VT323",ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono",monospace;
+      font-family:"VT323", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
       letter-spacing:.2px;
       background:
-        radial-gradient(1100px 650px at 25% 18%, rgba(176,136,0,.10), transparent 62%),
-        radial-gradient(850px 620px at 88% 70%, rgba(255,77,77,.055), transparent 60%),
+        radial-gradient(1200px 800px at 20% 20%, rgba(176,136,0,.10), transparent 60%),
+        radial-gradient(900px 650px at 85% 60%, rgba(255,77,77,.06), transparent 58%),
         var(--bg);
     }
-    a{color:inherit;text-decoration:none}
+    a{color:inherit; text-decoration:none}
 
     .snapshot{
-      width:100vw;height:100vh;padding:8px;margin:0 auto;
-      display:grid;grid-template-rows:66px 1fr 24px;gap:7px;
-      min-width:1100px;min-height:700px;
+      width:1600px;
+      min-height:900px;
+      margin:0 auto;
+      padding:10px;
+      display:grid;
+      grid-template-rows:78px 34px 1fr 28px;
+      gap:8px;
     }
+
     .panel{
-      background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(0,0,0,.28)),var(--panel);
-      border:1px solid var(--stroke);border-radius:var(--r);
-      box-shadow:0 0 0 2px rgba(0,0,0,.55) inset,0 0 20px var(--glow);
+      background:linear-gradient(180deg, rgba(255,255,255,.035), rgba(0,0,0,.28)), var(--panel);
+      border:1px solid var(--stroke);
+      border-radius:var(--r);
+      box-shadow:0 0 0 2px rgba(0,0,0,.55) inset, 0 0 24px var(--glow);
       overflow:hidden;
     }
-    .ph{height:30px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 9px;border-bottom:1px solid rgba(176,136,0,.35);background:linear-gradient(90deg,rgba(176,136,0,.20),rgba(0,0,0,.05))}
-    .ph .title{font-size:18px;color:var(--money);text-transform:uppercase;white-space:nowrap;line-height:1}
-    .ph .meta{font-size:13px;color:var(--muted);text-align:right;white-space:nowrap;line-height:1}
-    .pc{padding:8px 9px}
+    .ph{
+      min-height:32px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:8px;
+      padding:7px 10px;
+      border-bottom:1px solid rgba(176,136,0,.35);
+      background:linear-gradient(90deg, rgba(176,136,0,.20), rgba(0,0,0,.05));
+    }
+    .ph .title{font-size:20px; color:var(--money); text-transform:uppercase; white-space:nowrap}
+    .ph .meta{font-size:15px; color:var(--muted); text-align:right}
+    .pc{padding:9px 10px}
 
-    .header{display:grid;grid-template-columns:78px minmax(430px,1fr) 192px 310px 238px;gap:7px;align-items:stretch}
-    .logoBox{display:grid;place-items:center;padding:5px}
-    .logoBox img{max-width:100%;max-height:56px;width:auto;height:56px;object-fit:contain;display:block;filter:brightness(1.08) contrast(1.08)}
-    .brand{padding:7px 9px;border-left:1px solid rgba(176,136,0,.28);overflow:hidden}
-    .brand h1{font-size:34px;line-height:.88;margin:0;color:var(--money);letter-spacing:1px;white-space:nowrap}
-    .brand .sub{font-size:20px;color:var(--text);margin-top:4px;white-space:nowrap}
-    .metaBox{padding:7px 9px;font-size:15.5px;line-height:1.13;color:var(--muted);overflow:hidden}
-    .metaBox b{color:var(--text);font-weight:400}
-    .classBox{padding:7px 10px;font-size:17px;line-height:1.18;color:var(--muted);text-transform:uppercase;overflow:hidden}
-    .classBox b{color:var(--money);font-weight:400}
+    .header{
+      display:grid;
+      grid-template-columns:74px 1fr 430px 300px;
+      gap:10px;
+      align-items:stretch;
+    }
+    .logoBox{display:grid; place-items:center; font-size:44px; color:var(--money)}
+    .brand{padding:8px 10px; border-left:1px solid rgba(176,136,0,.28)}
+    .brand h1{font-size:40px; line-height:.9; margin:0; color:var(--money); letter-spacing:1px}
+    .brand .sub{font-size:23px; color:var(--text); margin-top:4px}
+    .metaBox{padding:8px 10px; font-size:18px; line-height:1.15; color:var(--muted)}
+    .metaBox b{color:var(--text); font-weight:400}
+    .classBox{padding:8px 12px; font-size:20px; line-height:1.25; color:var(--muted); text-transform:uppercase}
+    .classBox b{color:var(--money); font-weight:400}
+
+    .nav{
+      display:grid;
+      grid-template-columns:160px 360px 1fr;
+      gap:8px;
+      align-items:stretch;
+    }
+    .navItem,.chip{
+      border:1px solid rgba(176,136,0,.55);
+      background:rgba(0,0,0,.28);
+      display:flex; align-items:center; justify-content:center;
+      border-radius:8px;
+      padding:3px 8px;
+      font-size:17px;
+      min-height:34px;
+      white-space:nowrap;
+    }
+    .chips{display:flex; align-items:center; gap:7px; overflow:hidden}
+    .chip.active{background:rgba(176,136,0,.20); color:var(--money); box-shadow:0 0 0 2px rgba(176,136,0,.12) inset}
+    .filterLabel{color:var(--money); padding:0 8px; font-size:17px; align-self:center}
 
     .main{
-      min-height:0;display:grid;
-      grid-template-columns:minmax(560px,1.22fr) minmax(470px,.86fr) 178px;
-      grid-template-rows:158px minmax(214px,.9fr) minmax(154px,.72fr);
-      gap:7px;
+      display:grid;
+      grid-template-columns:800px 1fr 190px;
+      grid-template-rows:190px 285px 235px;
+      gap:8px;
+      min-height:742px;
     }
-    .mapPanel{grid-column:1;grid-row:1 / span 2}
-    .shortPanel{grid-column:1;grid-row:3}
-    .indexPanel{grid-column:2;grid-row:1;width:38%}
-    .seismoPanel{grid-column:2;grid-row:1;margin-left:39%}
-    .domainPanel{grid-column:2;grid-row:2;width:46%}
-    .keywordPanel{grid-column:2;grid-row:2;margin-left:47%}
-    .analysisPanel{grid-column:2;grid-row:3}
-    .weirdPanel{grid-column:3;grid-row:1}
-    .statsPanel{grid-column:3;grid-row:2}
-    .sideBottom{grid-column:3;grid-row:3;display:grid;grid-template-rows:1fr 1fr;gap:7px;min-height:0}
+    .mapPanel{grid-row:1 / span 2; grid-column:1}
+    .shortPanel{grid-column:1; grid-row:3}
+    .indexPanel{grid-column:2; grid-row:1}
+    .seismoPanel{grid-column:2; grid-row:1; margin-left:230px}
+    .domainPanel{grid-column:2; grid-row:2}
+    .keywordPanel{grid-column:2; grid-row:2; margin-left:285px}
+    .analysisPanel{grid-column:2; grid-row:3}
+    .weirdPanel{grid-column:3; grid-row:1}
+    .statsPanel{grid-column:3; grid-row:2}
+    .navtexPanel{grid-column:3; grid-row:3}
+    .weatherPanel{grid-column:3; grid-row:3; margin-top:118px}
 
-    .mapWrap{position:relative;width:100%;height:calc(100% - 30px)}
-    #map{width:100%;height:100%;background:#071014}
-    .mapLegend{position:absolute;z-index:500;left:12px;top:12px;width:164px;background:rgba(0,0,0,.68);border:1px solid rgba(176,136,0,.42);border-radius:8px;padding:7px 8px;font-size:14px;line-height:1.25}
-    .legendTitle{color:var(--text);margin-bottom:4px}
-    .legendLine{display:flex;gap:6px;align-items:center;margin:4px 0}
-    .dot{display:inline-block;width:10px;height:10px;border-radius:50%;background:var(--muted);box-shadow:0 0 0 1px rgba(255,255,255,.2) inset;flex:0 0 auto}
-    .sev1{background:var(--ok)} .sev2{background:var(--money)} .sev3{background:var(--orange)} .sev4{background:var(--bad)} .cyan{background:var(--cyan)} .purple{background:var(--purple)} .orange{background:var(--orange)} .red{background:var(--bad)}
-
-    .scoreBig{font-size:66px;line-height:.82;color:var(--money);margin-top:14px;white-space:nowrap}
-    .scoreBig span:last-child{font-size:34px;color:var(--text)}
-    .status{font-size:27px;color:var(--orange);margin-top:12px;text-transform:uppercase}
-    .miniNote{font-size:12.5px;color:var(--muted);margin-top:6px;line-height:1.05}
-    .seismoSvg{width:100%;height:108px;display:block;background:rgba(0,0,0,.20);border-radius:8px}
-    .axisLabel{font-size:11px;fill:rgba(255,255,255,.64)}
-
-    table{width:100%;border-collapse:collapse;font-size:15.5px;line-height:1.02;table-layout:fixed}
-    th{color:var(--muted);font-weight:400;text-align:left;border-bottom:1px solid rgba(176,136,0,.35);padding:4px 3px;white-space:nowrap}
-    td{padding:4px 3px;border-bottom:1px solid rgba(255,255,255,.07);vertical-align:top;overflow:hidden;text-overflow:ellipsis}
-    tr:last-child td{border-bottom:0}.num{text-align:right;color:var(--money);white-space:nowrap}.sevDots{text-align:right;white-space:nowrap}.sevDots .dot{width:9px;height:9px;margin-left:2px}.barTrack{height:10px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden}.barFill{height:100%;width:0%;background:var(--money)}
-    .analysisTable{font-size:14px}.analysisTable td{padding:4px 3px}.smallSource{color:var(--money)}.age{color:var(--muted);text-align:right;white-space:nowrap}
-
-    .gaugeBlock{padding:8px 8px;border-bottom:1px solid rgba(176,136,0,.28)}.gaugeBlock:last-child{border-bottom:0}.gaugeLabel{font-size:19px;text-align:center}.gaugeValue{font-size:34px;color:var(--money);text-align:center;margin-top:2px}.gaugeBar{height:16px;border-radius:999px;background:linear-gradient(90deg,var(--ok),var(--money),var(--orange),var(--bad));border:1px solid rgba(255,255,255,.12);position:relative;margin-top:6px}.gaugeNeedle{position:absolute;top:-4px;width:3px;height:24px;background:#fff;transform:translateX(-50%);box-shadow:0 0 8px rgba(255,255,255,.9)}.gaugeScale{font-size:12px;color:var(--muted);display:flex;justify-content:space-between;margin-top:2px}
-
-    .metric{display:grid;grid-template-columns:26px 1fr;gap:7px;align-items:center;padding:7px;border-bottom:1px solid rgba(255,255,255,.08)}.metric:last-child{border-bottom:0}.metricIcon{font-size:21px;color:var(--money);text-align:center}.metricLabel{font-size:15px;color:var(--muted)}.metricValue{font-size:24px;color:var(--money);line-height:1}.metricValue.redText{color:var(--bad)}
-    .miniRows{font-size:15.5px;line-height:1.08}.miniRow{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px solid rgba(255,255,255,.08)}.miniRow:last-child{border-bottom:0}.good{color:var(--ok)}.warn{color:var(--money)}.elev{color:var(--orange)}.badText{color:var(--bad)}
-    .bullets{font-size:17px;line-height:1.12;margin:0;padding-left:20px}.bullets li{margin:0 0 4px 0}.bullets li::marker{color:var(--money)}.shortPanel .pc{height:calc(100% - 30px);overflow:hidden}
-
-    .footer{display:flex;gap:18px;align-items:center;justify-content:space-between;padding:3px 7px;color:var(--muted);font-size:13.5px;line-height:1;white-space:nowrap}.footer div:first-child{overflow:hidden;text-overflow:ellipsis}
-    .leaflet-container{background:#071014;font-family:inherit}.leaflet-control-attribution{display:none}.leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#0b0c0e;color:#f5f5f5;border:1px solid var(--stroke)}
-    .loading{position:fixed;inset:0;display:grid;place-items:center;z-index:9999;background:rgba(0,0,0,.82);color:var(--money);font-size:34px}.loading.hidden{display:none}
-
-
-    .clickLink{color:var(--text);text-decoration:none;border-bottom:1px dotted rgba(255,210,77,.55)}
-    .clickLink:hover{color:var(--money);border-bottom-color:var(--money)}
-    .openHint{color:var(--money);font-size:11px;margin-left:3px;opacity:.85}
-
-    .snapshotToolbar{
-      align-self:center;justify-self:center;width:100%;max-width:192px;height:42px;
-      display:flex;gap:6px;align-items:center;justify-content:center;
-      padding:5px;border:1px solid rgba(176,136,0,.60);border-radius:10px;
-      background:rgba(0,0,0,.42);box-shadow:0 0 18px rgba(176,136,0,.13);
+    #map{width:100%; height:624px; background:#0a1114; border-bottom-left-radius:var(--r); border-bottom-right-radius:var(--r)}
+    .mapLegend{
+      position:absolute; z-index:500; left:16px; top:46px; width:180px;
+      background:rgba(0,0,0,.64); border:1px solid rgba(176,136,0,.40); border-radius:8px; padding:9px 10px;
+      font-size:16px; line-height:1.35;
     }
-    .snapshotToolbar button{
-      cursor:pointer;border:1px solid rgba(176,136,0,.70);border-radius:8px;
-      background:linear-gradient(180deg,rgba(176,136,0,.20),rgba(0,0,0,.25));
-      color:var(--text);font-family:inherit;font-size:13px;line-height:1;padding:6px 8px;white-space:nowrap;
+    .mapWrap{position:relative}
+    .legendLine{display:flex; gap:7px; align-items:center; margin:5px 0}
+    .dot{display:inline-block; width:11px; height:11px; border-radius:50%; background:var(--muted); box-shadow:0 0 0 1px rgba(255,255,255,.2) inset}
+    .sev1{background:var(--ok)} .sev2{background:var(--money)} .sev3{background:var(--orange)} .sev4{background:var(--bad)}
+    .cyan{background:var(--cyan)} .purple{background:var(--purple)} .orange{background:var(--orange)} .red{background:var(--bad)}
+
+    .scoreBig{font-size:82px; line-height:.85; color:var(--money); margin-top:16px}
+    .scoreBig span{font-size:42px; color:var(--text)}
+    .status{font-size:30px; color:var(--orange); margin-top:14px; text-transform:uppercase}
+    .miniNote{font-size:14px; color:var(--muted); margin-top:8px}
+
+    .seismoPanel{width:calc(100% - 238px)}
+    .seismoSvg{width:100%; height:136px; display:block; background:rgba(0,0,0,.20); border-radius:8px}
+    .axisLabel{font-size:13px; fill:rgba(255,255,255,.62)}
+
+    table{width:100%; border-collapse:collapse; font-size:17px; line-height:1.1}
+    th{color:var(--muted); font-weight:400; text-align:left; border-bottom:1px solid rgba(176,136,0,.35); padding:5px 4px}
+    td{padding:5px 4px; border-bottom:1px solid rgba(255,255,255,.07); vertical-align:top}
+    tr:last-child td{border-bottom:0}
+    .num{text-align:right; color:var(--money)}
+    .sevDots{white-space:nowrap; text-align:right}
+    .sevDots .dot{width:10px; height:10px; margin-left:3px}
+    .domainPanel{width:277px}
+    .keywordPanel{width:calc(100% - 293px)}
+    .barTrack{height:12px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; min-width:84px}
+    .barFill{height:100%; width:0%; background:var(--money)}
+
+    .analysisPanel{width:100%}
+    .analysisTable{font-size:15.5px}
+    .analysisTable td{padding:5px 4px}
+    .smallSource{color:var(--money)}
+    .age{color:var(--muted); text-align:right; white-space:nowrap}
+
+    .gaugeBlock{padding:10px 10px; border-bottom:1px solid rgba(176,136,0,.28)}
+    .gaugeBlock:last-child{border-bottom:0}
+    .gaugeLabel{font-size:21px; text-align:center; color:var(--text)}
+    .gaugeValue{font-size:42px; color:var(--money); text-align:center; margin-top:4px}
+    .gaugeBar{height:18px; border-radius:999px; background:linear-gradient(90deg,var(--ok),var(--money),var(--orange),var(--bad)); border:1px solid rgba(255,255,255,.12); position:relative; margin-top:8px}
+    .gaugeNeedle{position:absolute; top:-4px; width:3px; height:26px; background:#fff; transform:translateX(-50%); box-shadow:0 0 8px rgba(255,255,255,.9)}
+    .gaugeScale{font-size:13px; color:var(--muted); display:flex; justify-content:space-between; margin-top:2px}
+
+    .metric{display:grid; grid-template-columns:32px 1fr; gap:8px; align-items:center; padding:8px 8px; border-bottom:1px solid rgba(255,255,255,.08)}
+    .metric:last-child{border-bottom:0}
+    .metricIcon{font-size:24px; color:var(--money); text-align:center}
+    .metricLabel{font-size:17px; color:var(--muted)}
+    .metricValue{font-size:27px; color:var(--money); line-height:1}
+    .metricValue.redText{color:var(--bad)}
+
+    .bullets{font-size:18px; line-height:1.15; columns:1; margin:0; padding-left:20px}
+    .bullets li{margin:0 0 5px 0}
+    .bullets li::marker{color:var(--money)}
+    .shortPanel .pc{height:198px; overflow:hidden}
+
+    .miniRows{font-size:17px; line-height:1.2}
+    .miniRow{display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.08)}
+    .miniRow:last-child{border-bottom:0}
+    .good{color:var(--ok)} .warn{color:var(--money)} .elev{color:var(--orange)} .badText{color:var(--bad)}
+
+    .footer{
+      display:flex; gap:20px; align-items:center; justify-content:space-between;
+      padding:4px 8px; color:var(--muted); font-size:15px;
     }
-    .snapshotToolbar button:hover{color:var(--money);border-color:var(--money)}
-    .snapshotToolbar.hiddenDuringCapture,.autoRender .snapshotToolbar{visibility:hidden!important}
 
-    /* Compact fix: Government-Weirdness muss Nordsee UND Ostsee sichtbar zeigen */
-    .weirdPanel{display:grid;grid-template-rows:24px 1fr 1fr;min-height:0}
-    .weirdPanel .ph{height:24px;padding:4px 8px}
-    .weirdPanel .ph .title{font-size:15px}
-    .weirdPanel .gaugeBlock{padding:3px 8px;min-height:0;display:flex;flex-direction:column;justify-content:center}
-    .weirdPanel .gaugeLabel{font-size:15px;line-height:1}
-    .weirdPanel .gaugeValue{font-size:24px;line-height:.95;margin-top:0}
-    .weirdPanel .gaugeBar{height:10px;margin-top:3px}
-    .weirdPanel .gaugeNeedle{top:-4px;height:18px}
-    .weirdPanel .gaugeScale{font-size:9px;line-height:1;margin-top:1px}
+    .leaflet-container{background:#071014; font-family:inherit}
+    .leaflet-control-attribution{display:none}
+    .leaflet-popup-content-wrapper,.leaflet-popup-tip{background:#0b0c0e; color:#f5f5f5; border:1px solid var(--stroke)}
 
-    @media print{@page{size:16in 9in;margin:0}body{background:#050607}.snapshot{width:1600px;height:900px}.loading,.snapshotToolbar{display:none!important}}
+    .loading{
+      position:fixed; inset:0; display:grid; place-items:center; z-index:9999;
+      background:rgba(0,0,0,.82); color:var(--money); font-size:34px;
+    }
+    .loading.hidden{display:none}
+
+    @media print{
+      @page{size:16in 9in; margin:0}
+      body{background:#050607}
+      .snapshot{margin:0; width:1600px; min-height:900px}
+      .loading{display:none!important}
+    }
   </style>
 </head>
 <body>
@@ -148,177 +223,560 @@
 
   <main class="snapshot" id="snapshotRoot">
     <header class="header panel">
-      <div class="logoBox"><img src="./assets/magic-paws-logo.jpg" alt="Magic Paws Logo" onerror="this.style.display='none';this.parentElement.textContent='🐾';" /></div>
-      <div class="brand"><h1>MAGIC PAWS // MARITIME PHASE ZERO</h1><div class="sub">TÄGLICHER SNAPSHOT / KURZLAGEBILD</div></div>
-      <nav class="snapshotToolbar" aria-label="Snapshot-Werkzeuge">
-        <button type="button" id="btnSavePng">PNG</button>
-        <button type="button" id="btnPrintPdf">PDF</button>
-      </nav>
-      <div class="metaBox"><div><b id="versionLabel">v5.32 “Social + Geo Snapshot”</b></div><div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div><div>Worker: <b id="workerLabel">–</b></div></div>
-      <div class="classBox"><div>Klassifikation: <b>UNCLASSIFIED</b></div><div>Zeitraum: <b id="periodLabel">letzte 36 Stunden</b></div><div>Raum: <b>Nordsee / Ostsee / Kanal / Mittelmeer</b></div></div>
+      <div class="logoBox">🐾</div>
+      <div class="brand">
+        <h1>MAGIC PAWS // MARITIME PHASE ZERO</h1>
+        <div class="sub">TÄGLICHER SNAPSHOT / KURZLAGEBILD</div>
+      </div>
+      <div class="metaBox">
+        <div><b id="versionLabel">v5.25 “Daily Snapshot”</b></div>
+        <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
+        <div>Worker: <b id="workerLabel">–</b></div>
+      </div>
+      <div class="classBox">
+        <div>Klassifikation: <b>UNCLASSIFIED</b></div>
+        <div>Zeitraum: <b id="periodLabel">letzte 36 Stunden</b></div>
+        <div>Raum: <b>Nordsee / Ostsee / Kanal / Mittelmeer</b></div>
+      </div>
     </header>
 
+    <nav class="nav">
+      <div class="navItem">⌂ Main Console</div>
+      <div class="navItem">Events • <span style="color:var(--money)">&nbsp;Map&nbsp;</span> • CI • Satellite</div>
+      <div class="chips"><span class="filterLabel">FILTER:</span><span class="chip active">ALL</span><span class="chip">MAP</span><span class="chip">VESSEL/TRACK</span><span class="chip">RF/GNSS</span><span class="chip">DRONE</span><span class="chip">AIR</span><span class="chip">INCIDENT</span><span class="chip">SECURITY</span><span class="chip">CYBER/OT</span><span class="chip">CI/PORT</span><span class="chip">SAT</span></div>
+    </nav>
+
     <section class="main">
-      <section class="panel mapPanel"><div class="ph"><div class="title">Lagekarte – Fokus Mittel-/Nordeuropa</div><div class="meta" id="mapMeta">lädt …</div></div><div class="mapWrap"><div class="mapLegend"><div class="legendTitle">LAGEPUNKTE</div><div class="legendLine"><span class="dot"></span><span>maritim</span></div><div class="legendLine"><span class="dot cyan"></span><span>KRITIS/Kabel/Port</span></div><div class="legendLine"><span class="dot orange"></span><span>Luft/Drohne</span></div><div class="legendLine"><span class="dot purple"></span><span>Cyber/RF/GNSS</span></div><div class="legendLine"><span class="dot red"></span><span>hoch/Hotspot</span></div></div><div id="map"></div></div></section>
+      <section class="panel mapPanel">
+        <div class="ph"><div class="title">Lagekarte – maritime Aktivitäten</div><div class="meta" id="mapMeta">lädt …</div></div>
+        <div class="mapWrap">
+          <div class="mapLegend">
+            <div style="color:var(--text); margin-bottom:5px;">EREIGNIS-TYPEN</div>
+            <div class="legendLine"><span class="dot"></span><span>Schiffsaktivität / Anomalie</span></div>
+            <div class="legendLine"><span class="dot cyan"></span><span>Infrastruktur / Kabel</span></div>
+            <div class="legendLine"><span class="dot orange"></span><span>Luft / Drohne</span></div>
+            <div class="legendLine"><span class="dot purple"></span><span>Cyber / Signal</span></div>
+            <div class="legendLine"><span class="dot red"></span><span>Hotspot / Häufung</span></div>
+          </div>
+          <div id="map"></div>
+        </div>
+      </section>
 
-      <section class="panel indexPanel"><div class="ph"><div class="title">Hybrid-Index</div><div class="meta" id="hybridMeta">36h</div></div><div class="pc"><div class="scoreBig"><span id="hybridScore">–</span><span> /100</span></div><div class="status" id="hybridStatus">–</div><div class="miniNote">aus Severity, P0, CI-/RF-/AIS-/Schattenflotten-Indikatoren</div></div></section>
-      <section class="panel seismoPanel"><div class="ph"><div class="title">Hybrid-Seismograph</div><div class="meta">72h</div></div><div class="pc"><svg class="seismoSvg" id="seismoSvg" viewBox="0 0 470 108" role="img"></svg></div></section>
+      <section class="panel indexPanel">
+        <div class="ph"><div class="title">Hybrid-Index aktuell</div><div class="meta" id="hybridMeta">36h</div></div>
+        <div class="pc">
+          <div class="scoreBig"><span id="hybridScore">–</span><span> /100</span></div>
+          <div class="status" id="hybridStatus">–</div>
+          <div class="miniNote">Heuristik aus Severity, P0, CI-Nähe, RF/GNSS, AIS und Schattenflotten-Indikatoren.</div>
+        </div>
+      </section>
 
-      <section class="panel domainPanel"><div class="ph"><div class="title">Domains / Quellen</div><div class="meta" id="domainMeta">36h</div></div><div class="pc"><table><thead><tr><th>Quelle</th><th class="num" style="width:44px">#</th><th class="sevDots" style="width:58px">Sev</th></tr></thead><tbody id="domainRows"></tbody></table></div></section>
-      <section class="panel keywordPanel"><div class="ph"><div class="title">Top-Schlagwörter</div><div class="meta" id="kwSubtitle">36h</div></div><div class="pc"><table><thead><tr><th style="width:18px">#</th><th>Schlagwort</th><th class="num" style="width:46px">#</th><th style="width:74px">Trend</th></tr></thead><tbody id="keywordRows"></tbody></table></div></section>
+      <section class="panel seismoPanel">
+        <div class="ph"><div class="title">Hybrid-Seismograph</div><div class="meta">72h • stündliche Dichte</div></div>
+        <div class="pc"><svg class="seismoSvg" id="seismoSvg" viewBox="0 0 470 136" role="img"></svg></div>
+      </section>
 
-      <section class="panel analysisPanel"><div class="ph"><div class="title">Analysen / Think Tanks (&lt;=14 Tage)</div><div class="meta" id="analysisMeta">frische Beiträge</div></div><div class="pc"><table class="analysisTable"><thead><tr><th style="width:76px">Datum</th><th style="width:98px">Quelle</th><th>Titel</th><th class="age" style="width:40px">Alt</th></tr></thead><tbody id="analysisRows"></tbody></table></div></section>
+      <section class="panel domainPanel">
+        <div class="ph"><div class="title">Meldungen nach Domain / Quelle</div><div class="meta" id="domainMeta">36h</div></div>
+        <div class="pc"><table><thead><tr><th>Quelle / Domain</th><th class="num">Anzahl</th><th class="sevDots">Severity</th></tr></thead><tbody id="domainRows"></tbody></table></div>
+      </section>
 
-      <section class="panel weirdPanel"><div class="ph"><div class="title">Gov-Weirdness</div></div><div class="gaugeBlock"><div class="gaugeLabel">Nordsee</div><div class="gaugeValue"><span id="weirdNorth">–</span>%</div><div class="gaugeBar"><div class="gaugeNeedle" id="weirdNorthNeedle"></div></div><div class="gaugeScale"><span>0</span><span>50</span><span>100</span></div></div><div class="gaugeBlock"><div class="gaugeLabel">Ostsee</div><div class="gaugeValue"><span id="weirdBaltic">–</span>%</div><div class="gaugeBar"><div class="gaugeNeedle" id="weirdBalticNeedle"></div></div><div class="gaugeScale"><span>0</span><span>50</span><span>100</span></div></div></section>
+      <section class="panel keywordPanel">
+        <div class="ph"><div class="title">Schlagwort-Barometer</div><div class="meta" id="kwSubtitle">Social + RSS • 36h</div></div>
+        <div class="pc"><table><thead><tr><th>#</th><th>Schlagwort</th><th class="num">Häufigkeit</th><th>Trend</th></tr></thead><tbody id="keywordRows"></tbody></table></div>
+      </section>
 
-      <section class="panel statsPanel"><div class="ph"><div class="title">Status</div></div><div class="metric"><div class="metricIcon">⌖</div><div><div class="metricLabel">Events im Fenster</div><div class="metricValue" id="eventsCount">–</div></div></div><div class="metric"><div class="metricIcon">⚠</div><div><div class="metricLabel">P0:SUSPECT</div><div class="metricValue redText" id="p0Count">–</div></div></div><div class="metric"><div class="metricIcon">◎</div><div><div class="metricLabel">GEO im Fokus</div><div class="metricValue" id="geoCount">–</div></div></div><div class="metric"><div class="metricIcon">✦</div><div><div class="metricLabel">Social</div><div class="metricValue" id="socialCount">–</div></div></div><div class="metric"><div class="metricIcon">⌖</div><div><div class="metricLabel">Social + GEO</div><div class="metricValue" id="socialGeoCount">–</div></div></div><div class="metric"><div class="metricIcon">◷</div><div><div class="metricLabel">Last Fetch</div><div class="metricValue" id="lastFetch">–</div></div></div></section>
+      <section class="panel weirdPanel">
+        <div class="ph"><div class="title">Government-Weirdness</div></div>
+        <div class="gaugeBlock"><div class="gaugeLabel">Nordsee</div><div class="gaugeValue"><span id="weirdNorth">–</span>%</div><div class="gaugeBar"><div class="gaugeNeedle" id="weirdNorthNeedle"></div></div><div class="gaugeScale"><span>0</span><span>50</span><span>100</span></div></div>
+        <div class="gaugeBlock"><div class="gaugeLabel">Ostsee</div><div class="gaugeValue"><span id="weirdBaltic">–</span>%</div><div class="gaugeBar"><div class="gaugeNeedle" id="weirdBalticNeedle"></div></div><div class="gaugeScale"><span>0</span><span>50</span><span>100</span></div></div>
+      </section>
 
-      <section class="panel shortPanel"><div class="ph"><div class="title">Kurzlage / Auffälligkeiten</div><div class="meta">automatisch verdichtet</div></div><div class="pc"><ul class="bullets" id="shortBullets"><li>lädt …</li></ul></div></section>
+      <section class="panel statsPanel">
+        <div class="ph"><div class="title">Snapshot-Status</div></div>
+        <div class="metric"><div class="metricIcon">⌖</div><div><div class="metricLabel">Events im Fenster</div><div class="metricValue" id="eventsCount">–</div></div></div>
+        <div class="metric"><div class="metricIcon">⚠</div><div><div class="metricLabel">P0:SUSPECT</div><div class="metricValue redText" id="p0Count">–</div></div></div>
+        <div class="metric"><div class="metricIcon">◎</div><div><div class="metricLabel">Mit GEO</div><div class="metricValue" id="geoCount">–</div></div></div>
+        <div class="metric"><div class="metricIcon">◷</div><div><div class="metricLabel">Last Fetch</div><div class="metricValue" id="lastFetch">–</div></div></div>
+      </section>
 
-      <div class="sideBottom"><section class="panel navtexPanel"><div class="ph"><div class="title">NAVTEX / NAVWARN</div><div class="meta" id="navtexMeta">–</div></div><div class="pc"><div class="miniRows" id="navtexRows"></div></div></section><section class="panel weatherPanel"><div class="ph"><div class="title">Wetterfenster</div><div class="meta">24–72h</div></div><div class="pc"><div class="miniRows" id="weatherRows"></div></div></section></div>
+      <section class="panel analysisPanel">
+        <div class="ph"><div class="title">Analysen / Think Tanks (&lt;=14 Tage)</div><div class="meta" id="analysisMeta">nur frische Beiträge</div></div>
+        <div class="pc"><table class="analysisTable"><thead><tr><th>Datum</th><th>Quelle</th><th>Titel</th><th class="age">Alter</th></tr></thead><tbody id="analysisRows"></tbody></table></div>
+      </section>
+
+      <section class="panel shortPanel">
+        <div class="ph"><div class="title">Kurzlage / Auffälligkeiten</div><div class="meta" id="shortMeta">automatisch verdichtet</div></div>
+        <div class="pc"><ul class="bullets" id="shortBullets"><li>lädt …</li></ul></div>
+      </section>
+
+      <section class="panel navtexPanel">
+        <div class="ph"><div class="title">NAVTEX / NAVWARN</div><div class="meta" id="navtexMeta">–</div></div>
+        <div class="pc"><div class="miniRows" id="navtexRows"></div></div>
+      </section>
+
+      <section class="panel weatherPanel">
+        <div class="ph"><div class="title">Wetterfenster</div><div class="meta">24–72h</div></div>
+        <div class="pc"><div class="miniRows" id="weatherRows"></div></div>
+      </section>
     </section>
 
-    <footer class="footer panel"><div>DISCLAIMER: ausschließlich OSINT- und Dashboard-Heuristik.</div><div>Zeitzone: UTC</div><div>Nächste Aktualisierung: täglich / GitHub Action</div><div>MAGIC PAWS // mowlsint</div></footer>
+    <footer class="footer panel">
+      <div>DISCLAIMER: Dieses Lagebild basiert auf offenen Quellen (OSINT) und Dashboard-Heuristiken. Keine geheimdienstliche Bewertung.</div>
+      <div>Zeitzone: UTC</div>
+      <div>Nächste Aktualisierung: täglich / per GitHub Action</div>
+      <div>MAGIC PAWS // mowlsint</div>
+    </footer>
   </main>
 
 <script>
 (() => {
   window.__MAGIC_PAWS_SNAPSHOT_READY__ = false;
+
   const BASE = "https://voodoo-hybrid-api.mowlsint.workers.dev";
   const params = new URLSearchParams(window.location.search);
   const HOURS = Math.max(1, Number(params.get("hours") || 36));
   const ANALYSIS_DAYS = Math.max(1, Number(params.get("analysisDays") || 14));
   const FRESH = params.get("fresh") === "1" || params.get("fresh") === "true";
-  const AUTO_RENDER = params.get("auto") === "1" || params.get("auto") === "true";
-  if (AUTO_RENDER) document.body.classList.add("autoRender");
-  const MAX_MARKERS = Math.max(20, Number(params.get("maxMarkers") || 120));
-  const GH_ISSUES_URL = "https://github.com/mowlsint/MagicPaws/issues";
-  const API = { bundle:`${BASE}/api/bundle${FRESH ? "?fresh=1" : ""}`, navtex:`${BASE}/api/navtex${FRESH ? "?fresh=1" : ""}`, weather:`${BASE}/api/weather${FRESH ? "?fresh=1" : ""}` };
-  const FOCUS = { minLat:34, maxLat:66.8, minLon:-13.5, maxLon:33.5 };
+  const MAX_MARKERS = Math.max(50, Number(params.get("maxMarkers") || 220));
+
+  const API = {
+    bundle: `${BASE}/api/bundle${FRESH ? "?fresh=1" : ""}`,
+    navtex: `${BASE}/api/navtex${FRESH ? "?fresh=1" : ""}`,
+    weather: `${BASE}/api/weather${FRESH ? "?fresh=1" : ""}`
+  };
 
   const el = id => document.getElementById(id);
-  const clamp = (n,a,b) => Math.max(a,Math.min(b,n));
-  const esc = s => String(s ?? "").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
-  const norm = s => String(s ?? "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g,"");
+  const clamp = (n,a,b) => Math.max(a, Math.min(b, n));
+  const esc = s => String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+  const norm = s => String(s ?? "").toLowerCase().normalize("NFKD").replace(/[\u0300-\u036f]/g, "");
   const now = new Date();
 
   const KEYWORDS = [
-    { label:"Cyber / OT", terms:["cyber","ransomware","ot","scada","vts","terminal operating system"] },
-    { label:"Port / Terminal", terms:["port","terminal","harbour","hafen","lng","offshore"] },
-    { label:"AIS / Spoofing", terms:["ais","ais gap","ais off","ais spoof","dark activity","dark vessel"] },
-    { label:"RF / GNSS", terms:["gps jamming","gnss jamming","jamming","spoofing","gnss spoofing","rf"] },
-    { label:"KRITIS / Kabel", terms:["cable","subsea cable","seekabel","kabel","kabelschaden","pipeline","windfarm"] },
-    { label:"Drohnen", terms:["drone","drohne","uas","uav","usv","uuv","auv"] },
-    { label:"Schattenflotte", terms:["shadow fleet","dark fleet","sanktionsflotte","sanctions evasion","sanctions avoidance"] },
-    { label:"Sabotage", terms:["sabotage","sabotageverdacht","diversion","диверсия","диверсія","sabotaż"] },
-    { label:"NAVWARN", terms:["navwarn","navtex","navigational warning","seewarnung"] },
-    { label:"Marine / Coast Guard", terms:["navy","marine","coast guard","sar","patrol","warship","kriegsschiff"] }
+    { label:"AIS Störung", terms:["ais", "ais gap", "ais off", "ais spoof", "dark activity", "dark vessel"] },
+    { label:"Sabotage Verdacht", terms:["sabotage", "sabotageverdacht", "diversion", "диверсия", "диверсія", "sabotaż"] },
+    { label:"Shadow Fleet", terms:["shadow fleet", "dark fleet", "sanktionsflotte", "sanctions evasion", "sanctions avoidance"] },
+    { label:"Kabelvorfall", terms:["cable", "subsea cable", "seekabel", "kabel", "kabelschaden", "pipeline"] },
+    { label:"Drohnen Aktivität", terms:["drone", "drohne", "uas", "uav", "usv", "uuv", "auv"] },
+    { label:"GPS Jamming", terms:["gps jamming", "gnss jamming", "jamming", "spoofing", "gnss spoofing"] },
+    { label:"Cyber / OT", terms:["cyber", "ransomware", "ot", "scada", "vts", "terminal operating system"] },
+    { label:"Marine / Coast Guard", terms:["navy", "marine", "coast guard", "sar", "patrol", "warship", "kriegsschiff"] },
+    { label:"NAVWARN / NAVTEX", terms:["navwarn", "navtex", "navigational warning", "seewarnung"] },
+    { label:"Port / Terminal", terms:["port", "terminal", "harbour", "hafen", "lng", "offshore"] }
   ];
 
   function parseMs(v){ const ms = Date.parse(String(v ?? "")); return Number.isFinite(ms) ? ms : 0; }
-  function summaryField(ev, field){ const txt=String(ev?.summary ?? ""); const re=new RegExp(`${field}\\s*[:=]\\s*([^\\n\\r]+)`,"i"); return (txt.match(re)||[])[1]?.trim() || null; }
-  function summaryZeitHeaderDate(ev){ const txt=String(ev?.summary ?? ""); const m=txt.match(/###\s*Zeit\s*\(UTC\)\s*\n\s*([^\n\r]+)/i); if(!m) return null; const v=m[1].trim(); return /^[a-z0-9_ -]+\s*:/i.test(v) ? null : v; }
-  function getEventChronologyMs(ev){ const fields=[ev?.source_published_at,ev?.sourcePublishedAt,ev?.published_at,ev?.publishedAt,ev?.source_hint?.source_published_at,ev?.source_hint?.sourcePublishedAt,summaryField(ev,"source_published_at"),summaryField(ev,"published_at"),summaryField(ev,"published"),summaryZeitHeaderDate(ev),ev?.ts]; for(const f of fields){ const ms=parseMs(f); if(ms) return ms; } return 0; }
-  function eventDate(ev){ const ms=getEventChronologyMs(ev); return ms ? new Date(ms) : null; }
-  function ageHours(ev){ const ms=getEventChronologyMs(ev); return ms ? (Date.now()-ms)/36e5 : Infinity; }
-  function ageDays(ev){ const ms=getEventChronologyMs(ev); return ms ? (Date.now()-ms)/864e5 : Infinity; }
-  function eventsSince(events,hours){ return events.filter(ev => ageHours(ev) <= hours && ageHours(ev) >= -1).sort((a,b)=>getEventChronologyMs(b)-getEventChronologyMs(a)); }
+  function summaryField(ev, field){
+    const txt = String(ev?.summary ?? "");
+    const re = new RegExp(`${field}\\s*[:=]\\s*([^\\n\\r]+)`, "i");
+    return (txt.match(re) || [])[1]?.trim() || null;
+  }
+  function summaryZeitHeaderDate(ev){
+    const txt = String(ev?.summary ?? "");
+    const m = txt.match(/###\s*Zeit\s*\(UTC\)\s*\n\s*([^\n\r]+)/i);
+    if (!m) return null;
+    const v = m[1].trim();
+    if (/^[a-z0-9_ -]+\s*:/i.test(v)) return null;
+    return v;
+  }
+  function getEventChronologyMs(ev){
+    const fields = [
+      ev?.source_published_at, ev?.sourcePublishedAt, ev?.published_at, ev?.publishedAt,
+      ev?.source_hint?.source_published_at, ev?.source_hint?.sourcePublishedAt,
+      summaryField(ev,"source_published_at"), summaryField(ev,"published_at"), summaryField(ev,"published"), summaryZeitHeaderDate(ev), ev?.ts
+    ];
+    for (const f of fields){ const ms = parseMs(f); if (ms) return ms; }
+    return 0;
+  }
+  function eventDate(ev){ const ms = getEventChronologyMs(ev); return ms ? new Date(ms) : null; }
+  function ageHours(ev){ const ms = getEventChronologyMs(ev); return ms ? (Date.now() - ms) / 36e5 : Infinity; }
+  function ageDays(ev){ const ms = getEventChronologyMs(ev); return ms ? (Date.now() - ms) / 864e5 : Infinity; }
+  function eventsSince(events, hours){ return events.filter(ev => ageHours(ev) <= hours && ageHours(ev) >= -1).sort((a,b)=>getEventChronologyMs(b)-getEventChronologyMs(a)); }
   function labels(ev){ return Array.isArray(ev?.labels) ? ev.labels : []; }
-  function sourceKind(ev){ const ls=labels(ev); const st=String(ev?.source_type||"").toLowerCase(); const platform=String(ev?.source_hint?.platform||"").toLowerCase(); const source=String(ev?.source_hint?.source||"").toLowerCase(); const title=String(ev?.title||"").toLowerCase(); const link=String(ev?.source_hint?.link||ev?.original_url||ev?.source_url||ev?.link||"").toLowerCase(); const hay=`${st} ${platform} ${source} ${title} ${link} ${ls.join(" ").toLowerCase()}`; if(st==="social_bsky" || /social[_ -]?bsky|bluesky|bsky/.test(hay)) return "social_bsky"; if(st==="social_x" || ls.includes("SRC:SOCIAL") || /social[_ -]?x|\[x\]|nitter|twitter|x\.com/.test(hay)) return "social_x"; if(st==="rss" || /\brss\b|feedburner|\.rss|\/feed/.test(hay)) return "rss"; if(st==="official" || ls.includes("SRC:OFFICIAL")) return "official"; if(st==="media" || ls.includes("SRC:MEDIA")) return "media"; return st || "other"; }
-  function isSocial(ev){ return sourceKind(ev).startsWith("social") || labels(ev).includes("SRC:SOCIAL"); }
-  function hasGeo(ev){ const lat=Number(ev?.geo?.lat), lon=Number(ev?.geo?.lon); return Number.isFinite(lat) && Number.isFinite(lon); }
-  function hasAny(ev,arr){ const ls=labels(ev); return arr.some(x => ls.includes(x)); }
+  function hasAny(ev, arr){ const ls = labels(ev); return arr.some(x => ls.includes(x)); }
   function eventText(ev){ return `${ev?.title ?? ""} ${ev?.summary ?? ""} ${labels(ev).join(" ")}`; }
-  function inFocus(ev){ const lat=Number(ev?.geo?.lat), lon=Number(ev?.geo?.lon); return Number.isFinite(lat) && Number.isFinite(lon) && lat>=FOCUS.minLat && lat<=FOCUS.maxLat && lon>=FOCUS.minLon && lon<=FOCUS.maxLon; }
 
-  function cleanUrl(raw){ return String(raw || "").trim().replace(/^<|>$/g,"").replace(/[),.;]+$/g,""); }
-  function sourceUrl(ev){ const direct=[ev?.original_url,ev?.source_url,ev?.link,ev?.source_hint?.link].map(cleanUrl).find(u=>/^https?:\/\//i.test(u) && !/github\.com\/[^/]+\/[^/]+\/issues\/\d+/i.test(u)); if(direct) return direct; const urls=String(ev?.summary||"").match(/https?:\/\/[^\s<>"']+/gi)||[]; return urls.map(cleanUrl).find(u=>!/github\.com\/[^/]+\/[^/]+\/issues\/\d+/i.test(u)) || ev?.url || ""; }
-  function hostFromUrl(url){ try{return new URL(url).hostname.replace(/^www\./,"");}catch{return "unbekannt";} }
-  function sourceName(ev){ const hint=ev?.source_hint?.source || ev?.source || null; if(hint && String(hint).trim() && String(hint).trim() !== "-") return String(hint).trim().slice(0,28); return hostFromUrl(sourceUrl(ev)).slice(0,28); }
-  function issueSearchUrl(query){ return `${GH_ISSUES_URL}?q=${encodeURIComponent(`is:issue is:open ${query}`)}`; }
-  function eventLink(ev){ const direct=sourceUrl(ev); if(/^https?:\/\//i.test(direct) && !/api\.github\.com/i.test(direct)) return direct; const issue=cleanUrl(ev?.html_url || ev?.issue_url || ""); if(/^https?:\/\//i.test(issue)) return issue; return issueSearchUrl(`"${String(ev?.title || sourceName(ev) || "").slice(0,70)}"`); }
-  function severityNum(ev){ const s=ev?.severity || labels(ev).find(l=>/^SEV:\d/.test(l)) || "SEV:1"; const n=Number(String(s).replace(/\D/g,"")); return clamp(Number.isFinite(n)?n:1,1,4); }
-  function sevClass(n){ return n>=4 ? "sev4" : n>=3 ? "sev3" : n>=2 ? "sev2" : "sev1"; }
-  function severityDots(n){ return Array.from({length:4},(_,i)=>`<span class="dot ${i < n ? sevClass(n) : ""}" style="opacity:${i < n ? 1 : .20}"></span>`).join(""); }
-  function colorForEvent(ev){ if(hasAny(ev,["D:INFRA_CI","OBJ:CABLE","OBJ:PIPELINE","OBJ:PORT","OBJ:WINDFARM"])) return "#49d8d2"; if(hasAny(ev,["D:DRONE_UAS","D:AIR_ACTIVITY"])) return "#ff8a00"; if(hasAny(ev,["D:CYBER_OT","D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"])) return "#b06cff"; return ["#33d17a","#ffd24d","#ff8a00","#ff4d4d"][severityNum(ev)-1]; }
-
-  function scoreEventForHybrid(ev){ const sev=severityNum(ev); let pts=sev===4?10:sev===3?7:sev===2?3:1; const conf=ev?.confidence || labels(ev).find(l=>/^CONF:/.test(l)) || ""; if(/HIGH/.test(conf)) pts*=1.2; else if(/LOW/.test(conf)) pts*=.85; if(ev?.phase0?.suspect || labels(ev).includes("P0:SUSPECT")) pts*=1.55; if(hasAny(ev,["OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","OBJ:PORT","OBJ:VTS_WSV","D:INFRA_CI"])) pts*=1.25; if(hasAny(ev,["PAT:LOITERING","PAT:STS_SUSPECT","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:SURVEYING","PAT:ROUTE_DEVIATION","PAT:GNSS_JAM","PAT:GNSS_SPOOF"])) pts*=1.2; if(hasAny(ev,["V:SHADOW_FLEET","V:RUS_RESEARCH","V:RUS_WARSHIP"])) pts*=1.15; return pts; }
-  function scorePhaseZero(events){ const total=events.reduce((a,e)=>a+scoreEventForHybrid(e),0); return clamp(Math.round((total/Math.max(70,events.length*5.5))*100),0,100); }
-  function statusFromScore(v){ return v>=75?"HOCH":v>=55?"ERHÖHT":v>=30?"BEOBACHTEN":"RUHIG"; }
-  function scoreAuthorityWeirdness(events,mode){
-    // Synced with index.html: Government-Weirdness must use all loaded events,
-    // then internally limit to last 7 days and exact Nordsee/Ostsee region labels.
-    const regionLabels = mode === "north"
-      ? ["REG:NORTH_SEA","REG:GER_BIGHT"]
-      : ["REG:BALTIC_SEA","REG:BALTIC"];
-
-    const recent = events.filter(ev => {
-      const inWindow = ageDays(ev) <= 7;
-      const ls = labels(ev);
-      const regionHit = regionLabels.includes(ev?.region) || ls.some(l => regionLabels.includes(l));
-      return inWindow && regionHit;
-    });
-
-    let w = 0;
-    const seen = new Set();
-    for (const ev of recent){
-      const ls = labels(ev);
-      const key = ev?.url || ev?.id || ev?.number || ev?.title;
-      if (seen.has(key)) continue;
-      seen.add(key);
-
-      const sev = ev?.severity || ls.find(l => /^SEV:\d/.test(l)) || "SEV:1";
-      const conf = ev?.confidence || ls.find(l => /^CONF:/.test(l)) || "CONF:LOW";
-      const sevW = sev === "SEV:4" ? 7 : sev === "SEV:3" ? 5 : sev === "SEV:2" ? 2.5 : 1;
-      const confW = conf === "CONF:HIGH" ? 1.1 : conf === "CONF:MED" ? 1.0 : 0.85;
-
-      const official = ls.includes("SRC:OFFICIAL");
-      const authorityVessel = ls.some(l => l.startsWith("V:AUTH_") || l === "V:SAR_UNIT" || l === "V:RUS_GOV" || l === "V:RUS_WARSHIP" || l === "V:RUS_AUXILIARY" || l === "V:RUS_RESEARCH");
-      const air = ls.includes("D:AIR_ACTIVITY");
-      const sar = ls.includes("D:SAR") || ls.includes("V:SAR_UNIT");
-      const navwarn = ls.includes("RF:NAVWARN") || ls.includes("RF:NAVTEX");
-      const rf = ls.includes("D:RF_SIGNAL") || ls.some(l => l.startsWith("RF:"));
-      const ci = ["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM"].some(x => ls.includes(x));
-
-      let evW = sevW * confW;
-      if (official) evW *= 1.20;
-      if (authorityVessel) evW *= 1.55;
-      if (air) evW *= 1.35;
-      if (sar) evW *= 1.20;
-      if (navwarn) evW *= 0.85;
-      if (rf) evW *= 1.20;
-      if (ci) evW *= 1.15;
-      w += evW;
-    }
-
-    return clamp(Math.round((w / 45) * 100), 0, 100);
+  function cleanUrl(raw){ return String(raw || "").trim().replace(/^<|>$/g, "").replace(/[),.;]+$/g, ""); }
+  function sourceUrl(ev){
+    const direct = [ev?.original_url, ev?.source_url, ev?.link, ev?.source_hint?.link].map(cleanUrl).find(u => /^https?:\/\//i.test(u) && !/github\.com\/[^/]+\/[^/]+\/issues\/\d+/i.test(u));
+    if (direct) return direct;
+    const txt = String(ev?.summary || "");
+    const urls = txt.match(/https?:\/\/[^\s<>"']+/gi) || [];
+    return urls.map(cleanUrl).find(u => !/github\.com\/[^/]+\/[^/]+\/issues\/\d+/i.test(u)) || ev?.url || "";
+  }
+  function hostFromUrl(url){ try { return new URL(url).hostname.replace(/^www\./, ""); } catch { return "unbekannt"; } }
+  function sourceName(ev){
+    const hint = ev?.source_hint?.source || ev?.source || null;
+    if (hint && String(hint).trim() && String(hint).trim() !== "-") return String(hint).trim().slice(0, 34);
+    return hostFromUrl(sourceUrl(ev));
   }
 
-  function buildHourlyBuckets(events){ const bucketMs=3600000,count=72; const buckets=Array.from({length:count},(_,idx)=>({idx,maritime:0,infra:0,cyber:0,drone:0,info:0})); for(const ev of events){ const ms=getEventChronologyMs(ev); if(!ms) continue; const age=Date.now()-ms; if(age<0||age>count*bucketMs) continue; const b=count-1-Math.floor(age/bucketMs); if(b<0||b>=count) continue; const s=scoreEventForHybrid(ev); if(hasAny(ev,["D:INFRA_CI","OBJ:CABLE","OBJ:PIPELINE","OBJ:PORT","OBJ:WINDFARM"])) buckets[b].infra+=s; else if(hasAny(ev,["D:CYBER_OT","D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"])) buckets[b].cyber+=s; else if(hasAny(ev,["D:DRONE_UAS","D:AIR_ACTIVITY"])) buckets[b].drone+=s; else if(hasAny(ev,["D:INFOOPS","D:NEWS_INTEL","SRC:THINKTANK","SRC:ANALYSIS"])) buckets[b].info+=s; else buckets[b].maritime+=s; } return buckets; }
-  function topDomains(events){ const m=new Map(); for(const ev of events){ const key=sourceName(ev)||hostFromUrl(sourceUrl(ev)); if(!m.has(key)) m.set(key,{key,count:0,maxSev:1,href:issueSearchUrl(`"${key}"`)}); const row=m.get(key); row.count++; row.maxSev=Math.max(row.maxSev,severityNum(ev)); } return [...m.values()].sort((a,b)=>b.count-a.count||b.maxSev-a.maxSev).slice(0,6); }
-  function topKeywords(events){ const rows=KEYWORDS.map(k=>({label:k.label,count:0})); for(const ev of events){ const t=norm(eventText(ev)); for(const r of rows){ const terms=KEYWORDS.find(k=>k.label===r.label).terms; for(const term of terms){ if(t.includes(norm(term))) r.count++; } } } return rows.filter(r=>r.count>0).sort((a,b)=>b.count-a.count).slice(0,7); }
-  function thinkTankAnalyses(events){ return events.filter(ev=>{ const t=norm(eventText(ev)); return ageDays(ev)<=ANALYSIS_DAYS && (hasAny(ev,["SRC:THINKTANK","SRC:ANALYSIS","SRC:ANALYST","SRC:ANALYSIS_POINTER"]) || /think.?tank|rusi|swp|chatham|csis|cepa|ecfr|cna|gids|dgap|atlantic council|small wars journal/.test(t)); }).sort((a,b)=>getEventChronologyMs(b)-getEventChronologyMs(a)).slice(0,5); }
+  function severityNum(ev){
+    const s = ev?.severity || labels(ev).find(l => /^SEV:\d/.test(l)) || "SEV:1";
+    const n = Number(String(s).replace(/\D/g,""));
+    return clamp(Number.isFinite(n) ? n : 1, 1, 4);
+  }
+  function sevClass(n){ return n >= 4 ? "sev4" : n >= 3 ? "sev3" : n >= 2 ? "sev2" : "sev1"; }
+  function severityDots(n){
+    const out = [];
+    for (let i=1; i<=4; i++) out.push(`<span class="dot ${i <= n ? sevClass(n) : ""}" style="opacity:${i <= n ? 1 : .20}"></span>`);
+    return out.join("");
+  }
+  function colorForEvent(ev){
+    const ls = labels(ev);
+    if (ls.includes("D:INFRA_CI")) return "#49d8d2";
+    if (ls.includes("D:DRONE_UAS") || ls.includes("D:AIR_ACTIVITY")) return "#ff8a00";
+    if (ls.includes("D:CYBER_OT") || ls.includes("D:RF_SIGNAL")) return "#b06cff";
+    return ["#33d17a", "#ffd24d", "#ff8a00", "#ff4d4d"][severityNum(ev)-1];
+  }
 
-  function drawSeismograph(events){ const svg=el("seismoSvg"); const buckets=buildHourlyBuckets(events); const cats=[["Maritim","maritime"],["KRITIS","infra"],["Cyber/RF","cyber"],["Drohne","drone"],["InfoOps","info"]]; const max=Math.max(10,...buckets.flatMap(b=>cats.map(([,k])=>b[k]))); let html=""; for(const y of [14,39,64,89]) html+=`<line x1="32" y1="${y}" x2="456" y2="${y}" stroke="rgba(255,255,255,.10)"/><text x="8" y="${y+4}" class="axisLabel">${Math.round((96-y)/96*100)}</text>`; cats.forEach(([label,key],ci)=>{ const x=66+ci*91; html+=`<line x1="${x}" y1="12" x2="${x}" y2="86" stroke="rgba(255,255,255,.12)"/><text x="${x}" y="102" text-anchor="middle" class="axisLabel">${esc(label)}</text>`; const sample=buckets.filter((_,i)=>i%9===0 || i>buckets.length-7).map(b=>b[key]); sample.forEach((v,i)=>{ const pct=clamp(Math.round((v/max)*100),0,100); const y=86-(pct/100)*72; const c=pct>=75?"#ff4d4d":pct>=50?"#ff8a00":pct>=25?"#ffd24d":"#33d17a"; const dx=(i-sample.length/2)*3.0; html+=`<circle cx="${(x+dx).toFixed(1)}" cy="${y.toFixed(1)}" r="3.6" fill="${c}" opacity="${pct?.95:.18}"/>`; }); }); svg.innerHTML=html; }
-  function renderDomainRows(events){ const rows=topDomains(events); const other=Math.max(0,events.length-rows.reduce((a,r)=>a+r.count,0)); const body=rows.map(r=>`<tr><td><a class="clickLink" href="${esc(r.href)}" target="_blank" rel="noopener noreferrer" title="GitHub-Issues zu dieser Quelle öffnen">${esc(r.key)}<span class="openHint">↗</span></a></td><td class="num">${r.count}</td><td class="sevDots">${severityDots(r.maxSev)}</td></tr>`); if(other) body.push(`<tr><td><a class="clickLink" href="${esc(issueSearchUrl(`is:open`))}" target="_blank" rel="noopener noreferrer">Weitere<span class="openHint">↗</span></a></td><td class="num">${other}</td><td></td></tr>`); body.push(`<tr><td style="color:var(--money)">GESAMT</td><td class="num">${events.length}</td><td></td></tr>`); el("domainRows").innerHTML=body.join(""); }
-  function renderKeywordRows(events){ const rows=topKeywords(events); const max=Math.max(1,...rows.map(r=>r.count)); el("keywordRows").innerHTML=(rows.length?rows:[{label:"keine Treffer",count:0}]).map((r,i)=>{ const pct=Math.round((r.count/max)*100); const color=i===0?"var(--bad)":i<=2?"var(--orange)":i<=4?"var(--money)":"var(--ok)"; return `<tr><td>${i+1}</td><td>${esc(r.label)}</td><td class="num">${r.count}</td><td><div class="barTrack"><div class="barFill" style="width:${pct}%;background:${color}"></div></div></td></tr>`; }).join(""); }
-  function renderAnalyses(events){ const rows=thinkTankAnalyses(events); el("analysisMeta").textContent=`${rows.length} Treffer <=${ANALYSIS_DAYS} Tage`; el("analysisRows").innerHTML=rows.length?rows.map(ev=>{ const d=eventDate(ev); const age=Math.max(0,Math.round(ageDays(ev))); const href=eventLink(ev); return `<tr><td>${d?d.toISOString().slice(0,10):"–"}</td><td class="smallSource">${esc(sourceName(ev))}</td><td><a class="clickLink" href="${esc(href)}" target="_blank" rel="noopener noreferrer" title="Quelle/Issue öffnen">${esc(String(ev.title||"").slice(0,80))}<span class="openHint">↗</span></a></td><td class="age">${age}T</td></tr>`; }).join(""):`<tr><td colspan="4" class="miniNote">Keine frischen Analyse-Treffer.</td></tr>`; }
-  function renderWeird(north,baltic){ el("weirdNorth").textContent=String(north); el("weirdBaltic").textContent=String(baltic); el("weirdNorthNeedle").style.left=`${north}%`; el("weirdBalticNeedle").style.left=`${baltic}%`; }
-  function renderStats(events,focusCount){ const p0=events.filter(e=>e?.phase0?.suspect || labels(e).includes("P0:SUSPECT")).length; const social=events.filter(isSocial).length; const socialGeo=events.filter(e=>isSocial(e)&&hasGeo(e)).length; el("eventsCount").textContent=events.length.toLocaleString("de-DE"); el("p0Count").textContent=String(p0); el("geoCount").textContent=String(focusCount); el("socialCount").textContent=String(social); el("socialGeoCount").textContent=String(socialGeo); el("lastFetch").textContent=now.toISOString().slice(11,16)+" UTC"; }
-  function renderShortlage(events,navtexData,focusCount){ const p0=events.filter(e=>e?.phase0?.suspect || labels(e).includes("P0:SUSPECT")).length; const high=events.filter(e=>severityNum(e)>=3).length; const social=events.filter(isSocial).length; const socialGeo=events.filter(e=>isSocial(e)&&hasGeo(e)).length; const north=events.filter(e=>e.region==="REG:NORTH_SEA" || labels(e).includes("REG:NORTH_SEA") || labels(e).includes("REG:GER_BIGHT")).length; const baltic=events.filter(e=>e.region==="REG:BALTIC" || labels(e).includes("REG:BALTIC") || labels(e).includes("REG:DANISH_STRAITS")).length; const ci=events.filter(e=>hasAny(e,["D:INFRA_CI","OBJ:CABLE","OBJ:PIPELINE","OBJ:PORT","OBJ:WINDFARM"])).length; const rf=events.filter(e=>hasAny(e,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"])).length; const shadow=events.filter(e=>hasAny(e,["V:SHADOW_FLEET","V:SANCTIONS_EVASION","D:SANCTIONS"])).length; const navCount=Array.isArray(navtexData?.items)?navtexData.items.length:null; const bullets=[`${events.length} Meldungen im ${HOURS}h-Fenster, davon ${high} mit erhöhter/hoher Severity.`,`Social-Anteil: ${social} Meldungen, davon ${socialGeo} mit GEO.`,`GEO-Fokus Mittel-/Nordeuropa: ${focusCount} lagekartenfähige Punkte.`,`Regionale Cluster: Nordsee ${north}, Ostsee/Dänische Meerengen ${baltic}.`]; if(p0) bullets.push(`${p0} Ereignisse mit P0:SUSPECT-Logik.`); if(ci) bullets.push(`${ci} Hinweise mit KRITIS-/Kabel-/Port-/Offshore-Bezug.`); if(rf) bullets.push(`${rf} RF-/GNSS-/AIS-nahe Hinweise oder Anomalien.`); if(shadow) bullets.push(`${shadow} Meldungen mit Schattenflotten-/Sanktionsbezug.`); if(navCount!==null) bullets.push(`NAVTEX/NAVWARN-Kontext: ${navCount} geladene Warnobjekte.`); el("shortBullets").innerHTML=bullets.slice(0,7).map(b=>`<li>${esc(b)}</li>`).join(""); }
-  function renderNavtex(data){ const items=Array.isArray(data?.items)?data.items:[]; el("navtexMeta").textContent=data?.fetched_at?new Date(data.fetched_at).toISOString().slice(11,16)+" UTC":"–"; const regionCounts=new Map(); for(const item of items){ const regs=Array.isArray(item.regions)&&item.regions.length?item.regions:["REG:OTHER"]; const r=regs[0]; regionCounts.set(r,(regionCounts.get(r)||0)+1); } const names={"REG:NORTH_SEA":"Nordsee","REG:GER_BIGHT":"Dt. Bucht","REG:BALTIC":"Ostsee","REG:DANISH_STRAITS":"Dänische Meerengen","REG:CHANNEL":"Ärmelkanal","REG:BLACK_SEA":"Schwarzes Meer"}; const rows=[...regionCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,4); el("navtexRows").innerHTML=rows.length?rows.map(([r,c])=>`<div class="miniRow"><span>${esc(names[r]||r)}</span><span class="${c>=6?'badText':c>=3?'elev':'good'}">${c}</span></div>`).join(""):`<div class="miniRow"><span>Keine Daten</span><span>–</span></div>`; }
-  function weatherSeverity(point){ const gust=Number(point?.next24?.wind_gusts_10m_max ?? point?.now?.wind_gusts_10m ?? 0); const vis=Number(point?.next24?.visibility_min ?? point?.now?.visibility ?? 99999); if(gust>=80||vis<500) return ["SCHLECHT","badText"]; if(gust>=60||vis<1000) return ["MÄßIG","warn"]; return ["GUT","good"]; }
-  function renderWeather(data){ const points=Array.isArray(data?.points)?data.points:[]; const map=new Map(); for(const p of points){ let name=p.name || p.region || "Seegebiet"; if(/Helgoland|German Bight/i.test(name)) name="Nordsee"; else if(/Gda|Gotland|Baltic|Copenhagen|Øresund|Oresund/i.test(name)) name="Ostsee"; else if(/Dover|Channel/i.test(name)) name="Ärmelkanal"; else if(/Cyprus|Mediterranean/i.test(name)) name="Mittelmeer Ost"; else if(/Black Sea|Odesa/i.test(name)) name="Schwarzes Meer"; if(!map.has(name)) map.set(name,p); } const rows=[...map.entries()].slice(0,4).map(([name,p])=>{ const [txt,cls]=weatherSeverity(p); return `<div class="miniRow"><span>${esc(name)}</span><span class="${cls}">${txt}</span></div>`; }); el("weatherRows").innerHTML=rows.length?rows.join(""):`<div class="miniRow"><span>Wetterdaten</span><span>–</span></div>`; }
-  function initMap(events){ if(typeof L==="undefined"){ el("map").innerHTML="<div style='padding:20px'>Leaflet nicht verfügbar.</div>"; return 0; } const map=L.map("map",{zoomControl:false,attributionControl:false,preferCanvas:true,scrollWheelZoom:false,dragging:false,doubleClickZoom:false,boxZoom:false,keyboard:false}).setView([53.8,8.8],4); L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",{maxZoom:10,crossOrigin:true}).addTo(map); const focusBounds=L.latLngBounds([[34,-13.5],[66.8,33.5]]); map.fitBounds(focusBounds,{padding:[8,8]}); map.setMaxBounds(focusBounds.pad(.08)); const focusEvents=events.filter(inFocus).slice(0,MAX_MARKERS); for(const ev of focusEvents){ const lat=Number(ev.geo.lat),lon=Number(ev.geo.lon),sev=severityNum(ev); L.circleMarker([lat,lon],{radius:sev>=4?5.8:sev>=3?4.9:4.0,color:colorForEvent(ev),weight:1.4,fillColor:colorForEvent(ev),fillOpacity:.72,opacity:.95}).bindPopup(`<b>${esc(ev.title)}</b><br>${esc(sourceName(ev))}<br>${esc(ev.severity || "")}`).addTo(map); } setTimeout(()=>map.invalidateSize(),150); el("mapMeta").textContent=`${focusEvents.length}/${events.filter(e=>e?.geo).length} GEO im Fokus`; return focusEvents.length; }
+  function scoreEventForHybrid(ev){
+    const sev = severityNum(ev);
+    let pts = sev === 4 ? 10 : sev === 3 ? 7 : sev === 2 ? 3 : 1;
+    const conf = ev?.confidence || labels(ev).find(l => /^CONF:/.test(l)) || "";
+    if (/HIGH/.test(conf)) pts *= 1.2; else if (/LOW/.test(conf)) pts *= .85;
+    if (ev?.phase0?.suspect || labels(ev).includes("P0:SUSPECT")) pts *= 1.55;
+    if (hasAny(ev,["OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","OBJ:PORT","OBJ:VTS_WSV"])) pts *= 1.25;
+    if (hasAny(ev,["PAT:LOITERING","PAT:STS_SUSPECT","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:SURVEYING","PAT:ROUTE_DEVIATION","PAT:GNSS_JAM","PAT:GNSS_SPOOF"])) pts *= 1.2;
+    if (hasAny(ev,["V:SHADOW_FLEET","V:RUS_RESEARCH","V:RUS_WARSHIP"])) pts *= 1.15;
+    return pts;
+  }
 
-  function snapshotFilename(ext){ const p=n=>String(n).padStart(2,"0"); const d=new Date(); return `MAGIC_PAWS_snapshot_${d.getUTCFullYear()}${p(d.getUTCMonth()+1)}${p(d.getUTCDate())}_${p(d.getUTCHours())}${p(d.getUTCMinutes())}Z_${HOURS}h.${ext}`; }
-  async function saveSnapshotPng(){ const toolbar=document.querySelector(".snapshotToolbar"); const btn=el("btnSavePng"); if(!window.html2canvas){ alert("PNG-Snapshot nicht verfügbar: html2canvas konnte nicht geladen werden. Für PDF bitte PDF nutzen."); return; } try{ toolbar?.classList.add("hiddenDuringCapture"); if(btn) btn.textContent="ERSTELLE PNG …"; await new Promise(r=>setTimeout(r,160)); const canvas=await window.html2canvas(el("snapshotRoot"),{backgroundColor:"#050607",scale:2,useCORS:true,allowTaint:false,logging:false,windowWidth:1600,windowHeight:900}); const a=document.createElement("a"); a.download=snapshotFilename("png"); a.href=canvas.toDataURL("image/png"); document.body.appendChild(a); a.click(); a.remove(); }catch(err){ console.error(err); alert("PNG-Snapshot fehlgeschlagen. Vermutlich blockiert ein Karten-Tile/CORS die Canvas-Erstellung. PDF-Druck funktioniert weiterhin."); }finally{ if(btn) btn.textContent="PNG"; toolbar?.classList.remove("hiddenDuringCapture"); } }
-  function printSnapshotPdf(){ window.print(); }
-  document.addEventListener("click", ev => { const png=ev.target.closest?.("#btnSavePng"); const pdf=ev.target.closest?.("#btnPrintPdf"); if(png){ ev.preventDefault(); saveSnapshotPng(); } if(pdf){ ev.preventDefault(); printSnapshotPdf(); } });
+  function parseJsonSectionFromText(text, heading){
+    const re = new RegExp(`###\\s*${heading}\\s*\\n([\\s\\S]*?)(?=\\n###\\s|\\n---|$)`, "i");
+    const m = String(text || "").match(re);
+    if (!m) return null;
+    const raw = m[1].trim().replace(/^```json\s*/i, "").replace(/```$/i, "").trim();
+    try { return JSON.parse(raw); } catch(_e) { return null; }
+  }
+  function geoJsonFromEvent(ev){
+    if (ev?._geoJsonParsed) return ev._geoJsonParsed;
+    const gj = parseJsonSectionFromText(ev?.summary || ev?.body || "", "Geo JSON") || {};
+    ev._geoJsonParsed = gj; return gj;
+  }
+  function geoCandidatesFromEvent(ev){
+    const direct = Array.isArray(ev?.geo_candidates) ? ev.geo_candidates : [];
+    const gj = geoJsonFromEvent(ev);
+    const fromJson = Array.isArray(gj?.geo_candidates) ? gj.geo_candidates : [];
+    return direct.length ? direct : fromJson;
+  }
+  function eventMapPoint(ev){
+    if (ev?.geo && Number.isFinite(Number(ev.geo.lat)) && Number.isFinite(Number(ev.geo.lon)) && ev.geo.display_on_map !== false) return {lat:Number(ev.geo.lat), lon:Number(ev.geo.lon), candidate:false, geo:ev.geo};
+    const gj = geoJsonFromEvent(ev);
+    if (gj?.geo && Number.isFinite(Number(gj.geo.lat)) && Number.isFinite(Number(gj.geo.lon)) && gj.geo.display_on_map !== false) return {lat:Number(gj.geo.lat), lon:Number(gj.geo.lon), candidate:false, geo:gj.geo};
+    const candidates = geoCandidatesFromEvent(ev).filter(c => Number.isFinite(Number(c.lat)) && Number.isFinite(Number(c.lon)) && c.display_on_map !== false).sort((a,b)=>(Number(b.score)||0)-(Number(a.score)||0));
+    const best = candidates[0], second = candidates[1];
+    if (best && ((Number(best.score)||0) >= 90 || !second || ((Number(best.score)||0) - (Number(second.score)||0)) >= 18)) return {lat:Number(best.lat), lon:Number(best.lon), candidate:true, geo:best};
+    return null;
+  }
+  function routeFromEvent(ev){
+    const direct = ev?.route;
+    const gj = geoJsonFromEvent(ev);
+    const route = direct?.coordinates?.length >= 2 ? direct : (gj?.route?.coordinates?.length >= 2 ? gj.route : null);
+    if (!route) return null;
+    const latLngs = route.coordinates.map(pair => [Number(pair[1]), Number(pair[0])]).filter(([lat,lon]) => Number.isFinite(lat) && Number.isFinite(lon));
+    return latLngs.length >= 2 ? {...route, latLngs} : null;
+  }
 
-  async function fetchJson(url,fallback){ try{ const res=await fetch(url,{cache:"no-store",credentials:"omit"}); const data=await res.json(); if(!res.ok||data?.ok===false) throw new Error(data?.error||`HTTP ${res.status}`); return data; }catch(err){ console.warn("Snapshot fetch failed",url,err); return fallback; } }
-  async function boot(){ el("workerLabel").textContent=new URL(BASE).hostname; el("periodLabel").textContent=`letzte ${HOURS} Stunden`; el("domainMeta").textContent=`${HOURS}h`; el("hybridMeta").textContent=`${HOURS}h`; el("kwSubtitle").textContent=`Social + RSS • ${HOURS}h`; const [bundle,navtex,weather]=await Promise.all([fetchJson(API.bundle,{events:[],source:null,generated_at:null}),fetchJson(API.navtex,{items:[]}),fetchJson(API.weather,{points:[]})]); const allEvents=Array.isArray(bundle?.events)?bundle.events:[]; const windowEvents=eventsSince(allEvents,HOURS); const analysisEvents=eventsSince(allEvents,ANALYSIS_DAYS*24); el("sourceLabel").textContent=bundle?.source?`${bundle.source.owner||"?"}/${bundle.source.repo||"?"}`:"Bundle"; el("standLabel").textContent=bundle?.generated_at?new Date(bundle.generated_at).toISOString().replace("T"," ").slice(0,16)+" UTC":"–"; const focusCount=initMap(windowEvents); const score=scorePhaseZero(windowEvents); el("hybridScore").textContent=String(score); el("hybridStatus").textContent=statusFromScore(score); renderStats(windowEvents,focusCount); renderWeird(scoreAuthorityWeirdness(allEvents,"north"),scoreAuthorityWeirdness(allEvents,"baltic")); drawSeismograph(allEvents); renderDomainRows(windowEvents); renderKeywordRows(windowEvents); renderAnalyses(analysisEvents); renderNavtex(navtex); renderWeather(weather); renderShortlage(windowEvents,navtex,focusCount); document.documentElement.dataset.snapshotReady="true"; window.__MAGIC_PAWS_SNAPSHOT_READY__=true; el("loading").classList.add("hidden"); }
-  boot().catch(err=>{ console.error(err); el("loading").innerHTML=`SNAPSHOT FEHLER<br><span style="font-size:20px;color:#fff">${esc(err.message||String(err))}</span>`; window.__MAGIC_PAWS_SNAPSHOT_READY__=true; });
+  function scorePhaseZero(events, windowHours = 6){
+    const buckets = buildHourlyBuckets(events);
+    const recent = buckets.slice(-windowHours);
+    const avg = recent.length ? recent.reduce((sum,b)=>sum+(b.pct || 0),0) / recent.length : 0;
+    return clamp(Math.round(avg),0,100);
+  }
+  function statusFromScore(v){ return v >= 75 ? "HOCH" : v >= 55 ? "ERHÖHT" : v >= 30 ? "BEOBACHTEN" : "RUHIG"; }
+
+  function scoreAuthorityWeirdness(events, mode){
+    const regs = mode === "north" ? ["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"] : ["REG:BALTIC","REG:BALTIC_SEA","REG:DANISH_STRAITS","REG:ORESUND","REG:GOTLAND_SEA","REG:GULF_OF_FINLAND"];
+    let score = 0; const seen = new Set();
+    for (const ev of events){
+      if (ageDays(ev) > 3) continue;
+      const ls = labels(ev); const text = norm(eventText(ev));
+      const regionHit = regs.includes(ev?.region) || ls.some(l => regs.includes(l)) || (mode === "north" && /north sea|nordsee|german bight|deutsche bucht|skagen|skagerrak|channel|ärmelkanal/.test(text)) || (mode !== "north" && /baltic|ostsee|øresund|oresund|kattegat|gotland|bornholm|gulf of finland|ust-luga|ust luga|danish straits|dänische/.test(text));
+      if (!regionHit) continue;
+      const key = ev?.url || ev?.id || ev?.number || ev?.title;
+      if (seen.has(key)) continue; seen.add(key);
+      const ais = hasAny(ev,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|\bsts\b|rendezvous/.test(text);
+      const adsb = hasAny(ev,["SRC:ADSB","D:AIR_ACTIVITY","V:MPA","V:SAR_UNIT","V:AUTH_COAST_GUARD","PAT:RACETRACK","PAT:LOW_ORBIT"]) || /ads-?b|mpa|p-8|p8 poseidon|sar aircraft|coast guard aircraft|helicopter|racetrack|orbit|isr/.test(text);
+      const official = ls.includes("SRC:OFFICIAL") || hasAny(ev,["RF:NAVWARN","RF:NAVTEX"]);
+      const ci = hasAny(ev,["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","D:INFRA_CI"]);
+      const rf = hasAny(ev,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"]) || ls.some(l => l.startsWith("RF:"));
+      let w = 0; if (ais) w += 4.5; if (adsb) w += 4.0; if (official) w += 1.5; if (ci) w += 1.2; if (rf) w += 1.3;
+      if (ais && adsb) w *= 1.8; else if ((ais || adsb) && (official || ci || rf)) w *= 1.35;
+      score += w;
+    }
+    return clamp(Math.round((score / 38) * 100),0,100);
+  }
+
+  function buildHourlyBuckets(events){
+    const bucketMs = 3600000; const count = 72;
+    const buckets = Array.from({length:count}, (_,idx)=>({idx, maritime:0, infra:0, cyber:0, drone:0, info:0, score:0, pct:0}));
+    const seen = new Set();
+    for (const ev of events){
+      const ms = getEventChronologyMs(ev); if (!ms) continue;
+      const age = Date.now() - ms; if (age < 0 || age > count * bucketMs) continue;
+      const b = count - 1 - Math.floor(age / bucketMs); if (b < 0 || b >= count) continue;
+      const key = ev.url || ev.id || ev.number || `${ev.title}:${ev.ts}`;
+      const dkey = `${Math.floor(ms/bucketMs)}:${key}`;
+      if (seen.has(dkey)) continue; seen.add(dkey);
+      const s = scoreEventForHybrid(ev);
+      buckets[b].score += s;
+      if (hasAny(ev,["D:INFRA_CI","OBJ:CABLE","OBJ:PIPELINE","OBJ:PORT","OBJ:WINDFARM"])) buckets[b].infra += s;
+      else if (hasAny(ev,["D:CYBER_OT","D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"])) buckets[b].cyber += s;
+      else if (hasAny(ev,["D:DRONE_UAS","D:AIR_ACTIVITY"])) buckets[b].drone += s;
+      else if (hasAny(ev,["D:INFOOPS","D:NEWS_INTEL","SRC:THINKTANK","SRC:ANALYSIS"])) buckets[b].info += s;
+      else buckets[b].maritime += s;
+    }
+    for (const b of buckets) b.pct = clamp(Math.round((b.score / 28) * 100),0,100);
+    return buckets;
+  }
+
+  function topDomains(events){
+    const m = new Map();
+    for (const ev of events){
+      const key = sourceName(ev) || hostFromUrl(sourceUrl(ev));
+      if (!m.has(key)) m.set(key, { key, count:0, maxSev:1 });
+      const row = m.get(key); row.count++; row.maxSev = Math.max(row.maxSev, severityNum(ev));
+    }
+    return [...m.values()].sort((a,b)=>b.count-a.count || b.maxSev-a.maxSev).slice(0,10);
+  }
+
+  function topKeywords(events){
+    const rows = KEYWORDS.map(k => ({ label:k.label, count:0 }));
+    for (const ev of events){
+      const t = norm(eventText(ev));
+      for (const r of rows){
+        const terms = KEYWORDS.find(k => k.label === r.label).terms;
+        let hit = 0;
+        for (const term of terms){ if (t.includes(norm(term))) hit++; }
+        if (hit) r.count += hit;
+      }
+    }
+    return rows.filter(r=>r.count>0).sort((a,b)=>b.count-a.count).slice(0,7);
+  }
+
+  function thinkTankAnalyses(events){
+    return events.filter(ev => {
+      const ls = labels(ev);
+      const t = norm(eventText(ev));
+      return ageDays(ev) <= ANALYSIS_DAYS && (hasAny(ev,["SRC:THINKTANK","SRC:ANALYSIS","SRC:ANALYST","SRC:ANALYSIS_POINTER"]) || /think.?tank|rusi|swp|chatham|csis|cepa|ecfr|cna|gids|dgap|atlantic council/.test(t));
+    }).sort((a,b)=>getEventChronologyMs(b)-getEventChronologyMs(a)).slice(0,7);
+  }
+
+  function drawSeismograph(events){
+    const svg = el("seismoSvg");
+    const buckets = buildHourlyBuckets(events);
+    const cats = [
+      ["Maritime", "maritime"], ["Infrastruktur", "infra"], ["Cyber/RF", "cyber"], ["Luft/Drohne", "drone"], ["InfoOps", "info"]
+    ];
+    const max = Math.max(10, ...buckets.flatMap(b => cats.map(([,k]) => b[k])));
+    let html = "";
+    for (const y of [16,44,72,100]) html += `<line x1="34" y1="${y}" x2="454" y2="${y}" stroke="rgba(255,255,255,.10)"/><text x="8" y="${y+4}" class="axisLabel">${Math.round((112-y)/112*100)}</text>`;
+    cats.forEach(([label,key], ci) => {
+      const x = 70 + ci * 88;
+      html += `<line x1="${x}" y1="14" x2="${x}" y2="104" stroke="rgba(255,255,255,.12)"/><text x="${x}" y="122" text-anchor="middle" class="axisLabel">${esc(label)}</text>`;
+      const sample = buckets.filter((_,i)=>i%8===0 || i > buckets.length-8).map(b => b[key]);
+      sample.forEach((v, i) => {
+        const pct = clamp(Math.round((v/max)*100),0,100);
+        const y = 104 - (pct/100)*88;
+        const c = pct >= 75 ? "#ff4d4d" : pct >= 50 ? "#ff8a00" : pct >= 25 ? "#ffd24d" : "#33d17a";
+        const dx = (i - sample.length/2) * 3.2;
+        html += `<circle cx="${(x+dx).toFixed(1)}" cy="${y.toFixed(1)}" r="4.2" fill="${c}" opacity="${pct ? .95 : .18}"/>`;
+      });
+    });
+    svg.innerHTML = html;
+  }
+
+  function renderDomainRows(events){
+    const rows = topDomains(events);
+    const total = events.length;
+    el("domainRows").innerHTML = rows.map(r => `<tr><td>${esc(r.key)}</td><td class="num">${r.count}</td><td class="sevDots">${severityDots(r.maxSev)}</td></tr>`).join("") + `<tr><td style="color:var(--money)">GESAMT</td><td class="num">${total}</td><td></td></tr>`;
+  }
+
+  function renderKeywordRows(events){
+    const rows = topKeywords(events);
+    const max = Math.max(1, ...rows.map(r=>r.count));
+    el("keywordRows").innerHTML = (rows.length ? rows : [{label:"keine Treffer",count:0}]).map((r,i)=>{
+      const pct = Math.round((r.count/max)*100);
+      const cls = i === 0 ? "sev4" : i <= 2 ? "sev3" : i <= 4 ? "sev2" : "sev1";
+      return `<tr><td>${i+1}</td><td>${esc(r.label)}</td><td class="num">${r.count}</td><td><div class="barTrack"><div class="barFill ${cls}" style="width:${pct}%"></div></div></td></tr>`;
+    }).join("");
+  }
+
+  function renderAnalyses(events){
+    const rows = thinkTankAnalyses(events);
+    el("analysisMeta").textContent = `${rows.length} Treffer <=${ANALYSIS_DAYS} Tage`;
+    el("analysisRows").innerHTML = rows.length ? rows.map(ev => {
+      const d = eventDate(ev);
+      const age = Math.max(0, Math.round(ageDays(ev)));
+      return `<tr><td>${d ? d.toISOString().slice(0,10) : "–"}</td><td class="smallSource">${esc(sourceName(ev))}</td><td>${esc(String(ev.title || "").slice(0,74))}</td><td class="age">${age} T</td></tr>`;
+    }).join("") : `<tr><td colspan="4" class="miniNote">Keine Think-Tank-/Analyse-Treffer im ${ANALYSIS_DAYS}-Tage-Fenster.</td></tr>`;
+  }
+
+  function renderWeird(north,baltic){
+    el("weirdNorth").textContent = String(north);
+    el("weirdBaltic").textContent = String(baltic);
+    el("weirdNorthNeedle").style.left = `${north}%`;
+    el("weirdBalticNeedle").style.left = `${baltic}%`;
+  }
+
+  function renderStats(events){
+    const p0 = events.filter(e => e?.phase0?.suspect || labels(e).includes("P0:SUSPECT")).length;
+    const geo = events.filter(e => e?.geo && Number.isFinite(Number(e.geo.lat)) && Number.isFinite(Number(e.geo.lon))).length;
+    el("eventsCount").textContent = events.length.toLocaleString("de-DE");
+    el("p0Count").textContent = String(p0);
+    el("geoCount").textContent = `${geo} (${events.length ? Math.round(geo/events.length*100) : 0}%)`;
+    el("lastFetch").textContent = now.toISOString().slice(11,16) + " UTC";
+  }
+
+  function renderShortlage(events, navtexData){
+    const p0 = events.filter(e => e?.phase0?.suspect || labels(e).includes("P0:SUSPECT")).length;
+    const geo = events.filter(e => e?.geo).length;
+    const high = events.filter(e => severityNum(e) >= 3).length;
+    const north = events.filter(e => e.region === "REG:NORTH_SEA" || labels(e).includes("REG:NORTH_SEA") || labels(e).includes("REG:GER_BIGHT")).length;
+    const baltic = events.filter(e => e.region === "REG:BALTIC" || labels(e).includes("REG:BALTIC") || labels(e).includes("REG:DANISH_STRAITS")).length;
+    const ci = events.filter(e => hasAny(e,["D:INFRA_CI","OBJ:CABLE","OBJ:PIPELINE","OBJ:PORT","OBJ:WINDFARM"])).length;
+    const rf = events.filter(e => hasAny(e,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"])).length;
+    const shadow = events.filter(e => hasAny(e,["V:SHADOW_FLEET","V:SANCTIONS_EVASION","D:SANCTIONS"])).length;
+    const navCount = Array.isArray(navtexData?.items) ? navtexData.items.length : null;
+
+    const bullets = [];
+    bullets.push(`${events.length} Meldungen im ${HOURS}h-Fenster, davon ${high} mit erhöhter/hoher Severity.`);
+    if (north || baltic) bullets.push(`Regionale Cluster: Nordsee ${north}, Ostsee/Dänische Meerengen ${baltic}.`);
+    if (p0) bullets.push(`${p0} Ereignisse mit P0:SUSPECT-Logik im aktuellen Fenster.`);
+    if (ci) bullets.push(`${ci} Hinweise mit KRITIS-/Kabel-/Port-/Offshore-Bezug.`);
+    if (rf) bullets.push(`${rf} RF-/GNSS-/AIS-nahe Störungshinweise oder Anomalien.`);
+    if (shadow) bullets.push(`${shadow} Meldungen mit Schattenflotten-/Sanktionsbezug.`);
+    if (geo) bullets.push(`${geo} Meldungen sind georeferenziert und lagekartenfähig.`);
+    if (navCount !== null) bullets.push(`NAVTEX/NAVWARN-Kontext: ${navCount} aktive bzw. geladene Warnobjekte.`);
+    el("shortBullets").innerHTML = bullets.slice(0,8).map(b => `<li>${esc(b)}</li>`).join("");
+  }
+
+  function renderNavtex(data){
+    const items = Array.isArray(data?.items) ? data.items : [];
+    el("navtexMeta").textContent = data?.fetched_at ? new Date(data.fetched_at).toISOString().slice(11,16)+" UTC" : "–";
+    const regionCounts = new Map();
+    for (const item of items){
+      const regs = Array.isArray(item.regions) && item.regions.length ? item.regions : ["REG:OTHER"];
+      const r = regs[0]; regionCounts.set(r, (regionCounts.get(r)||0)+1);
+    }
+    const labels = {"REG:NORTH_SEA":"Nordsee","REG:GER_BIGHT":"Dt. Bucht","REG:BALTIC":"Ostsee","REG:DANISH_STRAITS":"Dänische Meerengen","REG:CHANNEL":"Ärmelkanal","REG:BLACK_SEA":"Schwarzes Meer","REG:BISCAY_ATLANTIC_APPROACHES":"Biskaya/Atlantik"};
+    const rows = [...regionCounts.entries()].sort((a,b)=>b[1]-a[1]).slice(0,6);
+    el("navtexRows").innerHTML = rows.length ? rows.map(([r,c])=>`<div class="miniRow"><span>${esc(labels[r]||r)}</span><span class="${c>=6?'badText':c>=3?'elev':'good'}">${c}</span></div>`).join("") : `<div class="miniRow"><span>Keine Daten</span><span>–</span></div>`;
+  }
+
+  function weatherSeverity(point){
+    const gust = Number(point?.next24?.wind_gusts_10m_max ?? point?.now?.wind_gusts_10m ?? 0);
+    const vis = Number(point?.next24?.visibility_min ?? point?.now?.visibility ?? 99999);
+    if (gust >= 60 || vis < 1000) return ["MÄßIG", "warn"];
+    if (gust >= 80 || vis < 500) return ["SCHLECHT", "badText"];
+    return ["GUT", "good"];
+  }
+  function renderWeather(data){
+    const points = Array.isArray(data?.points) ? data.points : [];
+    const map = new Map();
+    for (const p of points){
+      let name = p.name || p.region || "Seegebiet";
+      if (/Helgoland|German Bight/i.test(name)) name = "Nordsee";
+      else if (/Gda|Gotland|Baltic|Copenhagen|Øresund|Oresund/i.test(name)) name = "Ostsee";
+      else if (/Dover|Channel/i.test(name)) name = "Ärmelkanal";
+      else if (/Cyprus|Mediterranean/i.test(name)) name = "Mittelmeer Ost";
+      else if (/Black Sea|Odesa/i.test(name)) name = "Schwarzes Meer";
+      if (!map.has(name)) map.set(name, p);
+    }
+    const rows = [...map.entries()].slice(0,5).map(([name,p]) => { const [txt, cls] = weatherSeverity(p); return `<div class="miniRow"><span>${esc(name)}</span><span class="${cls}">${txt}</span></div>`; });
+    el("weatherRows").innerHTML = rows.length ? rows.join("") : `<div class="miniRow"><span>Wetterdaten</span><span>–</span></div>`;
+  }
+
+  function initMap(events){
+    if (typeof L === "undefined") { el("map").innerHTML = "<div style='padding:20px'>Leaflet nicht verfügbar.</div>"; return; }
+    const map = L.map("map", { zoomControl:false, attributionControl:false, preferCanvas:true, scrollWheelZoom:false }).setView([53.2, 9.2], 4);
+    L.tileLayer("https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png", { maxZoom:10 }).addTo(map);
+    const bounds = L.latLngBounds([[34,-13],[66,33]]);
+    map.fitBounds(bounds, { padding:[8,8] });
+    const group = L.featureGroup().addTo(map);
+    const items = events.map(ev => ({ev, point:eventMapPoint(ev), route:routeFromEvent(ev)}));
+    const withGeo = items.filter(x => x.point).slice(0,MAX_MARKERS);
+    let routeCount = 0, candidateCount = 0;
+    for (const {ev, route} of items.filter(x => x.route).slice(0,80)){
+      const line = L.polyline(route.latLngs, {color:"#b06cff", weight:1.7, opacity:.72, dashArray: route.inferred ? "5 5" : null}).bindPopup(`<b>Route</b><br>${esc(ev.title || "")}`);
+      group.addLayer(line); routeCount++;
+    }
+    for (const {ev, point} of withGeo){
+      const lat = Number(point.lat), lon = Number(point.lon);
+      const sev = severityNum(ev);
+      if (point.candidate) candidateCount++;
+      const marker = L.circleMarker([lat, lon], {
+        radius: sev >= 4 ? 6.2 : sev >= 3 ? 5.2 : 4.2,
+        color: colorForEvent(ev), weight: point.candidate ? 1.1 : 1.4, dashArray: point.candidate ? "4 4" : null,
+        fillColor: colorForEvent(ev), fillOpacity: point.candidate ? .22 : .68, opacity:.95
+      }).bindPopup(`<b>${esc(ev.title)}</b><br>${esc(sourceName(ev))}<br>${esc(ev.severity || "")}${point.candidate ? "<br>Geo-Kandidat" : ""}`);
+      group.addLayer(marker);
+    }
+    if (withGeo.length || routeCount) {
+      try { map.fitBounds(group.getBounds().pad(.15), { padding:[12,12], maxZoom:5 }); } catch(_e) {}
+    }
+    setTimeout(()=>map.invalidateSize(),150);
+    el("mapMeta").textContent = `${withGeo.length}/${events.length} GEO • ${candidateCount} Kandidaten • ${routeCount} Routen`;
+  }
+
+  async function fetchJson(url, fallback){
+    try {
+      const res = await fetch(url, { cache:"no-store", credentials:"omit" });
+      const data = await res.json();
+      if (!res.ok || data?.ok === false) throw new Error(data?.error || `HTTP ${res.status}`);
+      return data;
+    } catch (err) {
+      console.warn("Snapshot fetch failed", url, err);
+      return fallback;
+    }
+  }
+
+  async function boot(){
+    el("workerLabel").textContent = new URL(BASE).hostname;
+    el("periodLabel").textContent = `letzte ${HOURS} Stunden`;
+    el("domainMeta").textContent = `${HOURS}h`;
+    el("hybridMeta").textContent = `Ø 6h • Peak/Seismograph 72h`;
+    el("kwSubtitle").textContent = `Social + RSS • ${HOURS}h`;
+
+    const [bundle, navtex, weather] = await Promise.all([
+      fetchJson(API.bundle, { events:[], source:null, generated_at:null }),
+      fetchJson(API.navtex, { items:[] }),
+      fetchJson(API.weather, { points:[] })
+    ]);
+
+    const allEvents = Array.isArray(bundle?.events) ? bundle.events : [];
+    const windowEvents = eventsSince(allEvents, HOURS);
+    const analysisEvents = eventsSince(allEvents, ANALYSIS_DAYS * 24);
+
+    el("sourceLabel").textContent = bundle?.source ? `${bundle.source.owner || "?"}/${bundle.source.repo || "?"}` : "Bundle";
+    el("standLabel").textContent = bundle?.generated_at ? new Date(bundle.generated_at).toISOString().replace("T"," ").slice(0,16)+" UTC" : "–";
+
+    const score = scorePhaseZero(allEvents, 6);
+    el("hybridScore").textContent = String(score);
+    el("hybridStatus").textContent = statusFromScore(score);
+
+    renderStats(windowEvents);
+    renderWeird(scoreAuthorityWeirdness(windowEvents,"north"), scoreAuthorityWeirdness(windowEvents,"baltic"));
+    drawSeismograph(allEvents);
+    renderDomainRows(windowEvents);
+    renderKeywordRows(windowEvents);
+    renderAnalyses(analysisEvents);
+    renderNavtex(navtex);
+    renderWeather(weather);
+    renderShortlage(windowEvents, navtex);
+    initMap(windowEvents);
+
+    document.documentElement.dataset.snapshotReady = "true";
+    window.__MAGIC_PAWS_SNAPSHOT_READY__ = true;
+    el("loading").classList.add("hidden");
+  }
+
+  boot().catch(err => {
+    console.error(err);
+    el("loading").innerHTML = `SNAPSHOT FEHLER<br><span style="font-size:20px;color:#fff">${esc(err.message || String(err))}</span>`;
+    window.__MAGIC_PAWS_SNAPSHOT_READY__ = true;
+  });
 })();
 </script>
 </body>
