@@ -1,0 +1,7669 @@
+version: 6
+name: MAGIC PAWS Maritime Gazetteer
+description: 'Controlled maritime gazetteer for inferred geolocation. MAGIC PAWS / MARITIME PHASE ZERO. Expanded global v4:
+  adds a larger Atlantic trade-port package for West Africa, Gulf of Guinea, Brazil, Colombia, Chile, Argentina, Guianas/Suriname
+  and the Caribbean. Exact issue-body coordinates override inferred places. Port coordinates are practical gazetteer anchors,
+  not official survey points. v5.32: adds controlled aliases for Gibraltar, Djibouti, GOA/GOO, Bering Sea, Norfolk and Long
+  Beach with runtime context safeguards. v6: adds route-source oriented ports/chokepoints and Ust-Luga promotion metadata
+  for MAGIC PAWS social geolocation.'
+places:
+- id: north_sea
+  canonical_name: North Sea
+  type: sea_area
+  precision: area
+  center:
+    lat: 56.0
+    lon: 3.5
+  radius_km: 900
+  regions:
+  - REG:NORTH_SEA
+  aliases:
+    de:
+    - Nordsee
+    en:
+    - North Sea
+    nl:
+    - Noordzee
+    da:
+    - Nordsøen
+    - Nordsoen
+    sv:
+    - Nordsjön
+    - Nordsjon
+    'no':
+    - Nordsjøen
+    - Nordsjoen
+- id: german_bight
+  canonical_name: German Bight
+  type: sea_area
+  precision: area
+  center:
+    lat: 54.2
+    lon: 7.5
+  radius_km: 180
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  aliases:
+    de:
+    - Deutsche Bucht
+    - deutsche Bucht
+    en:
+    - German Bight
+    nl:
+    - Duitse Bocht
+- id: baltic_sea
+  canonical_name: Baltic Sea
+  type: sea_area
+  precision: area
+  center:
+    lat: 57.2
+    lon: 19.0
+  radius_km: 780
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Ostsee
+    en:
+    - Baltic Sea
+    - Baltic
+    da:
+    - Østersøen
+    - Ostersoen
+    - Oestersoeen
+    sv:
+    - Östersjön
+    - Ostersjon
+    fi:
+    - Itämeri
+    - Itameri
+    pl:
+    - Morze Bałtyckie
+    - Morze Baltyckie
+    ru_latin:
+    - Baltiyskoye more
+    uk_latin:
+    - Baltiyske more
+- id: strait_gibraltar
+  canonical_name: Strait of Gibraltar
+  type: strait
+  precision: area
+  display_shape: circle
+  center:
+    lat: 35.96
+    lon: -5.55
+  radius_km: 45
+  regions:
+  - REG:MEDITERRANEAN
+  - REG:STRAIT_GIBRALTAR
+  - REG:BISCAY_ATLANTIC_APPROACHES
+  aliases:
+    de:
+    - Straße von Gibraltar
+    - Strasse von Gibraltar
+    - Gibraltarstraße
+    en:
+    - Strait of Gibraltar
+    - Gibraltar Strait
+    - Gibraltar
+    es:
+    - Estrecho de Gibraltar
+    fr:
+    - Détroit de Gibraltar
+- id: oresund
+  canonical_name: Øresund
+  type: strait
+  precision: area
+  display_shape: circle
+  center:
+    lat: 55.9
+    lon: 12.75
+  radius_km: 45
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:ORESUND
+  aliases:
+    de:
+    - Öresund
+    - Oeresund
+    en:
+    - Oresund
+    - The Sound
+    da:
+    - Øresund
+    sv:
+    - Öresund
+    no_diacritics:
+    - Oresund
+    - Oeresund
+- id: great_belt
+  canonical_name: Great Belt
+  type: strait
+  precision: area
+  center:
+    lat: 55.35
+    lon: 11.0
+  radius_km: 90
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:GREAT_BELT
+  aliases:
+    de:
+    - Großer Belt
+    - Grosser Belt
+    en:
+    - Great Belt
+    da:
+    - Storebælt
+    - Store Baelt
+- id: little_belt
+  canonical_name: Little Belt
+  type: strait
+  precision: area
+  center:
+    lat: 55.3
+    lon: 9.8
+  radius_km: 85
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:LITTLE_BELT
+  aliases:
+    de:
+    - Kleiner Belt
+    en:
+    - Little Belt
+    da:
+    - Lillebælt
+    - Lille Baelt
+- id: fehmarnbelt
+  canonical_name: Fehmarn Belt
+  type: strait
+  precision: area
+  center:
+    lat: 54.65
+    lon: 11.25
+  radius_km: 55
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:FEHMARNBELT
+  aliases:
+    de:
+    - Fehmarnbelt
+    - Fehmarn Belt
+    en:
+    - Fehmarn Belt
+    da:
+    - Femern Bælt
+    - Femern Baelt
+- id: dover_strait
+  canonical_name: Dover Strait
+  type: strait
+  precision: area
+  center:
+    lat: 51.0
+    lon: 1.45
+  radius_km: 55
+  regions:
+  - REG:CHANNEL
+  - REG:DOVER_STRAIT
+  aliases:
+    de:
+    - Straße von Dover
+    - Strasse von Dover
+    en:
+    - Dover Strait
+    - Strait of Dover
+    fr:
+    - Pas de Calais
+- id: bay_of_biscay
+  canonical_name: Bay of Biscay
+  type: sea_area
+  precision: area
+  center:
+    lat: 45.5
+    lon: -4.5
+  radius_km: 450
+  regions:
+  - REG:BISCAY_ATLANTIC_APPROACHES
+  - REG:BAY_OF_BISCAY
+  aliases:
+    de:
+    - Biskaya
+    en:
+    - Bay of Biscay
+    - Biscay
+    fr:
+    - Golfe de Gascogne
+    es:
+    - Golfo de Vizcaya
+- id: northern_black_sea_odesa
+  canonical_name: NW Black Sea / Odesa Approaches
+  type: sea_area
+  precision: area
+  center:
+    lat: 46.2
+    lon: 30.95
+  radius_km: 260
+  regions:
+  - REG:BLACK_SEA
+  - REG:BLACK_SEA_NORTH
+  aliases:
+    de:
+    - nördliches Schwarzes Meer
+    - noerdliches Schwarzes Meer
+    - Odessa-Zugänge
+    - Odesa-Zugänge
+    en:
+    - NW Black Sea
+    - northwestern Black Sea
+    - Odesa approaches
+    - Odessa approaches
+    - Ukraine approaches
+    uk_latin:
+    - Odesa
+    - Chorne more
+    ru_latin:
+    - Odessa
+    - Chernoye more
+- id: cyprus_eastern_med
+  canonical_name: Cyprus / Eastern Mediterranean
+  type: sea_area
+  precision: area
+  center:
+    lat: 34.7
+    lon: 33.2
+  radius_km: 350
+  regions:
+  - REG:MEDITERRANEAN
+  - REG:EASTERN_MED
+  - REG:CYPRUS_LEVANT
+  aliases:
+    de:
+    - Zypern
+    - östliches Mittelmeer
+    - Oestliches Mittelmeer
+    en:
+    - Cyprus
+    - Eastern Mediterranean
+    - East Med
+    - Cyprus approaches
+    tr:
+    - Kıbrıs
+    - Dogu Akdeniz
+    - Doğu Akdeniz
+- id: port_helgoland
+  canonical_name: Helgoland
+  type: island_port
+  precision: port
+  center:
+    lat: 54.182
+    lon: 7.887
+  radius_km: 8
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  aliases:
+    de:
+    - Helgoland
+    en:
+    - Heligoland
+    - Helgoland
+- id: port_copenhagen
+  canonical_name: Copenhagen
+  type: port
+  precision: port
+  center:
+    lat: 55.68
+    lon: 12.6
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:ORESUND
+  aliases:
+    de:
+    - Kopenhagen
+    en:
+    - Copenhagen
+    da:
+    - København
+    - Koebenhavn
+- id: port_brake
+  canonical_name: Brake
+  type: port
+  precision: port
+  center:
+    lat: 53.326
+    lon: 8.485
+  radius_km: 8
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:WESER
+  aliases:
+    de:
+    - Brake
+    - Brake Unterweser
+    - Hafen Brake
+    en:
+    - Brake
+    - Brake port
+    - Port of Brake
+- id: port_nordenham
+  canonical_name: Nordenham
+  type: port
+  precision: port
+  center:
+    lat: 53.486
+    lon: 8.484
+  radius_km: 9
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:WESER
+  aliases:
+    de:
+    - Nordenham
+    - Hafen Nordenham
+    - Blexen
+    en:
+    - Nordenham
+    - Port of Nordenham
+    - Blexen
+- id: port_bremen
+  canonical_name: Bremen
+  type: port
+  precision: port
+  center:
+    lat: 53.108
+    lon: 8.757
+  radius_km: 18
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:WESER
+  aliases:
+    de:
+    - Bremen
+    - Bremer Häfen
+    - Neustädter Hafen
+    - Industriehafen Bremen
+    en:
+    - Bremen
+    - Port of Bremen
+    - Bremen ports
+- id: port_cuxhaven
+  canonical_name: Cuxhaven
+  type: port
+  precision: port
+  center:
+    lat: 53.872
+    lon: 8.705
+  radius_km: 12
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:ELBE
+  aliases:
+    de:
+    - Cuxhaven
+    - Hafen Cuxhaven
+    en:
+    - Cuxhaven
+    - Port of Cuxhaven
+- id: port_emden
+  canonical_name: Emden
+  type: port
+  precision: port
+  center:
+    lat: 53.349
+    lon: 7.186
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:EMS
+  aliases:
+    de:
+    - Emden
+    - Hafen Emden
+    en:
+    - Emden
+    - Port of Emden
+- id: port_eemshaven
+  canonical_name: Eemshaven
+  type: port
+  precision: port
+  center:
+    lat: 53.444
+    lon: 6.832
+  radius_km: 12
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:EMS
+  aliases:
+    de:
+    - Eemshaven
+    en:
+    - Eemshaven
+    - Port of Eemshaven
+    nl:
+    - Eemshaven
+- id: port_delfzijl
+  canonical_name: Delfzijl
+  type: port
+  precision: port
+  center:
+    lat: 53.332
+    lon: 6.928
+  radius_km: 10
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:EMS
+  aliases:
+    de:
+    - Delfzijl
+    en:
+    - Delfzijl
+    - Port of Delfzijl
+    nl:
+    - Delfzijl
+- id: port_ijmuiden
+  canonical_name: IJmuiden
+  type: port
+  precision: port
+  center:
+    lat: 52.463
+    lon: 4.593
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  aliases:
+    de:
+    - IJmuiden
+    - Ijmuiden
+    en:
+    - IJmuiden
+    - Ijmuiden
+    - Port of IJmuiden
+    nl:
+    - IJmuiden
+    - Ijmuiden
+- id: port_amsterdam
+  canonical_name: Amsterdam
+  type: port
+  precision: port
+  center:
+    lat: 52.409
+    lon: 4.807
+  radius_km: 24
+  regions:
+  - REG:NORTH_SEA
+  aliases:
+    de:
+    - Amsterdam
+    - Hafen Amsterdam
+    en:
+    - Amsterdam
+    - Port of Amsterdam
+    nl:
+    - Amsterdam
+    - Haven Amsterdam
+- id: port_rotterdam
+  canonical_name: Rotterdam
+  type: port
+  precision: port
+  center:
+    lat: 51.948
+    lon: 4.142
+  radius_km: 35
+  regions:
+  - REG:NORTH_SEA
+  - REG:CHANNEL
+  aliases:
+    de:
+    - Rotterdam
+    - Hafen Rotterdam
+    - Maasvlakte
+    en:
+    - Rotterdam
+    - Port of Rotterdam
+    - Maasvlakte
+    nl:
+    - Rotterdam
+    - Haven Rotterdam
+    - Maasvlakte
+- id: port_antwerp
+  canonical_name: Antwerp
+  type: port
+  precision: port
+  center:
+    lat: 51.286
+    lon: 4.315
+  radius_km: 28
+  regions:
+  - REG:NORTH_SEA
+  - REG:CHANNEL
+  aliases:
+    de:
+    - Antwerpen
+    - Hafen Antwerpen
+    en:
+    - Antwerp
+    - Port of Antwerp
+    - Antwerp-Bruges
+    nl:
+    - Antwerpen
+    - Haven van Antwerpen
+- id: port_zeebrugge
+  canonical_name: Zeebrugge
+  type: port
+  precision: port
+  center:
+    lat: 51.333
+    lon: 3.207
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  - REG:CHANNEL
+  aliases:
+    de:
+    - Zeebrugge
+    en:
+    - Zeebrugge
+    - Port of Zeebrugge
+    - Bruges-Zeebrugge
+    nl:
+    - Zeebrugge
+- id: port_dunkirk
+  canonical_name: Dunkirk
+  type: port
+  precision: port
+  center:
+    lat: 51.039
+    lon: 2.339
+  radius_km: 18
+  regions:
+  - REG:CHANNEL
+  - REG:DOVER_STRAIT
+  aliases:
+    de:
+    - Dünkirchen
+    - Duenkirchen
+    en:
+    - Dunkirk
+    - Port of Dunkirk
+    fr:
+    - Dunkerque
+    - Port de Dunkerque
+- id: port_calais
+  canonical_name: Calais
+  type: port
+  precision: port
+  center:
+    lat: 50.966
+    lon: 1.858
+  radius_km: 10
+  regions:
+  - REG:CHANNEL
+  - REG:DOVER_STRAIT
+  aliases:
+    de:
+    - Calais
+    en:
+    - Calais
+    - Port of Calais
+    fr:
+    - Calais
+    - Port de Calais
+- id: port_dover
+  canonical_name: Dover
+  type: port
+  precision: port
+  center:
+    lat: 51.126
+    lon: 1.328
+  radius_km: 10
+  regions:
+  - REG:CHANNEL
+  - REG:DOVER_STRAIT
+  aliases:
+    de:
+    - Dover
+    en:
+    - Dover
+    - Port of Dover
+    - Dover Harbour
+- id: port_felixstowe
+  canonical_name: Felixstowe
+  type: port
+  precision: port
+  center:
+    lat: 51.954
+    lon: 1.323
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  - REG:CHANNEL
+  aliases:
+    de:
+    - Felixstowe
+    en:
+    - Felixstowe
+    - Port of Felixstowe
+- id: port_harwich
+  canonical_name: Harwich
+  type: port
+  precision: port
+  center:
+    lat: 51.946
+    lon: 1.284
+  radius_km: 12
+  regions:
+  - REG:NORTH_SEA
+  - REG:CHANNEL
+  aliases:
+    de:
+    - Harwich
+    en:
+    - Harwich
+    - Harwich Haven
+    - Port of Harwich
+- id: port_immingham
+  canonical_name: Immingham
+  type: port
+  precision: port
+  center:
+    lat: 53.628
+    lon: -0.187
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  - REG:HUMBER
+  aliases:
+    de:
+    - Immingham
+    en:
+    - Immingham
+    - Port of Immingham
+    - Humber ports
+- id: port_hull
+  canonical_name: Hull
+  type: port
+  precision: port
+  center:
+    lat: 53.741
+    lon: -0.279
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  - REG:HUMBER
+  aliases:
+    de:
+    - Hull
+    en:
+    - Hull
+    - Kingston upon Hull
+    - Port of Hull
+- id: port_teesside
+  canonical_name: Teesport
+  type: port
+  precision: port
+  center:
+    lat: 54.604
+    lon: -1.156
+  radius_km: 18
+  regions:
+  - REG:NORTH_SEA
+  aliases:
+    de:
+    - Teesport
+    - Teesside
+    en:
+    - Teesport
+    - Teesside
+    - Port of Tees
+    - River Tees
+- id: port_tyne
+  canonical_name: Port of Tyne
+  type: port
+  precision: port
+  center:
+    lat: 54.993
+    lon: -1.455
+  radius_km: 16
+  regions:
+  - REG:NORTH_SEA
+  aliases:
+    de:
+    - Tyne
+    - Newcastle Hafen
+    en:
+    - Port of Tyne
+    - Tyne
+    - Newcastle port
+    - North Shields
+- id: port_aberdeen
+  canonical_name: Aberdeen
+  type: port
+  precision: port
+  center:
+    lat: 57.143
+    lon: -2.078
+  radius_km: 16
+  regions:
+  - REG:NORTH_SEA
+  - REG:BRITISH_ISLES
+  aliases:
+    de:
+    - Aberdeen
+    en:
+    - Aberdeen
+    - Port of Aberdeen
+    - Aberdeen Harbour
+- id: port_peterhead
+  canonical_name: Peterhead
+  type: port
+  precision: port
+  center:
+    lat: 57.505
+    lon: -1.777
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  - REG:BRITISH_ISLES
+  aliases:
+    de:
+    - Peterhead
+    en:
+    - Peterhead
+    - Peterhead port
+    - Peterhead Harbour
+- id: port_stavanger
+  canonical_name: Stavanger
+  type: port
+  precision: port
+  center:
+    lat: 58.97
+    lon: 5.733
+  radius_km: 18
+  regions:
+  - REG:NORTH_SEA
+  - REG:NORWAY_COAST
+  aliases:
+    de:
+    - Stavanger
+    en:
+    - Stavanger
+    - Port of Stavanger
+    'no':
+    - Stavanger
+    - Stavanger havn
+- id: port_bergen
+  canonical_name: Bergen
+  type: port
+  precision: port
+  center:
+    lat: 60.397
+    lon: 5.322
+  radius_km: 18
+  regions:
+  - REG:NORTH_SEA
+  - REG:NORWAY_COAST
+  - REG:HIGH_NORTH_ARCTIC
+  aliases:
+    de:
+    - Bergen
+    en:
+    - Bergen
+    - Port of Bergen
+    'no':
+    - Bergen
+    - Bergen havn
+- id: port_kristiansand
+  canonical_name: Kristiansand
+  type: port
+  precision: port
+  center:
+    lat: 58.145
+    lon: 7.995
+  radius_km: 16
+  regions:
+  - REG:NORTH_SEA
+  - REG:SKAGERRAK
+  - REG:NORWAY_COAST
+  aliases:
+    de:
+    - Kristiansand
+    en:
+    - Kristiansand
+    - Port of Kristiansand
+    'no':
+    - Kristiansand
+    - Kristiansand havn
+- id: port_oslo
+  canonical_name: Oslo
+  type: port
+  precision: port
+  center:
+    lat: 59.902
+    lon: 10.746
+  radius_km: 18
+  regions:
+  - REG:SKAGERRAK
+  - REG:NORWAY_COAST
+  aliases:
+    de:
+    - Oslo
+    - Oslofjord
+    en:
+    - Oslo
+    - Port of Oslo
+    - Oslofjord
+    'no':
+    - Oslo
+    - Oslo havn
+    - Oslofjorden
+- id: port_gothenburg
+  canonical_name: Gothenburg
+  type: port
+  precision: port
+  center:
+    lat: 57.695
+    lon: 11.861
+  radius_km: 20
+  regions:
+  - REG:KATTEGAT
+  - REG:SKAGERRAK
+  - REG:BALTIC
+  aliases:
+    de:
+    - Göteborg
+    - Goeteborg
+    en:
+    - Gothenburg
+    - Port of Gothenburg
+    sv:
+    - Göteborg
+    - Goteborg
+    - Göteborgs hamn
+- id: port_aarhus
+  canonical_name: Aarhus
+  type: port
+  precision: port
+  center:
+    lat: 56.16
+    lon: 10.226
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:KATTEGAT
+  - REG:DANISH_STRAITS
+  aliases:
+    de:
+    - Aarhus
+    - Århus
+    en:
+    - Aarhus
+    - Aarhus port
+    - Port of Aarhus
+    da:
+    - Aarhus
+    - Århus
+    - Aarhus Havn
+- id: port_fredericia
+  canonical_name: Fredericia
+  type: port
+  precision: port
+  center:
+    lat: 55.563
+    lon: 9.752
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:LITTLE_BELT
+  aliases:
+    de:
+    - Fredericia
+    en:
+    - Fredericia
+    - Port of Fredericia
+    da:
+    - Fredericia
+    - Fredericia Havn
+- id: port_esbjerg
+  canonical_name: Esbjerg
+  type: port
+  precision: port
+  center:
+    lat: 55.467
+    lon: 8.439
+  radius_km: 16
+  regions:
+  - REG:NORTH_SEA
+  - REG:DANISH_WEST_COAST
+  aliases:
+    de:
+    - Esbjerg
+    en:
+    - Esbjerg
+    - Port of Esbjerg
+    da:
+    - Esbjerg
+    - Esbjerg Havn
+- id: port_frederikshavn
+  canonical_name: Frederikshavn
+  type: port
+  precision: port
+  center:
+    lat: 57.441
+    lon: 10.545
+  radius_km: 14
+  regions:
+  - REG:KATTEGAT
+  - REG:SKAGERRAK
+  - REG:BALTIC
+  aliases:
+    de:
+    - Frederikshavn
+    en:
+    - Frederikshavn
+    - Port of Frederikshavn
+    da:
+    - Frederikshavn
+    - Frederikshavn Havn
+- id: port_aalborg
+  canonical_name: Aalborg
+  type: port
+  precision: port
+  center:
+    lat: 57.05
+    lon: 9.922
+  radius_km: 14
+  regions:
+  - REG:SKAGERRAK
+  - REG:LIMFJORD
+  aliases:
+    de:
+    - Aalborg
+    - Ålborg
+    - Limfjord
+    en:
+    - Aalborg
+    - Port of Aalborg
+    - Limfjord
+    da:
+    - Aalborg
+    - Ålborg
+    - Aalborg Havn
+    - Limfjorden
+- id: port_malmo
+  canonical_name: Malmö
+  type: port
+  precision: port
+  center:
+    lat: 55.617
+    lon: 13.012
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:ORESUND
+  aliases:
+    de:
+    - Malmö
+    - Malmoe
+    - Malmo
+    en:
+    - Malmö
+    - Malmo
+    - Port of Malmö
+    - Copenhagen Malmö Port
+    sv:
+    - Malmö
+    - Malmö hamn
+- id: port_helsingborg
+  canonical_name: Helsingborg
+  type: port
+  precision: port
+  center:
+    lat: 56.043
+    lon: 12.695
+  radius_km: 10
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:ORESUND
+  aliases:
+    de:
+    - Helsingborg
+    en:
+    - Helsingborg
+    - Port of Helsingborg
+    sv:
+    - Helsingborg
+    - Helsingborgs hamn
+- id: port_trelleborg
+  canonical_name: Trelleborg
+  type: port
+  precision: port
+  center:
+    lat: 55.374
+    lon: 13.155
+  radius_km: 10
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Trelleborg
+    en:
+    - Trelleborg
+    - Port of Trelleborg
+    sv:
+    - Trelleborg
+    - Trelleborgs hamn
+- id: port_karlskrona
+  canonical_name: Karlskrona
+  type: port
+  precision: port
+  center:
+    lat: 56.161
+    lon: 15.586
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Karlskrona
+    en:
+    - Karlskrona
+    - Port of Karlskrona
+    sv:
+    - Karlskrona
+    - Karlskrona hamn
+- id: port_stockholm
+  canonical_name: Stockholm
+  type: port
+  precision: port
+  center:
+    lat: 59.33
+    lon: 18.12
+  radius_km: 24
+  regions:
+  - REG:BALTIC
+  - REG:GOTLAND_SEA
+  aliases:
+    de:
+    - Stockholm
+    en:
+    - Stockholm
+    - Ports of Stockholm
+    - Port of Stockholm
+    sv:
+    - Stockholm
+    - Stockholms hamnar
+- id: port_nynashamn
+  canonical_name: Nynäshamn
+  type: port
+  precision: port
+  center:
+    lat: 58.903
+    lon: 17.954
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:GOTLAND_SEA
+  aliases:
+    de:
+    - Nynäshamn
+    - Nynaeshamn
+    en:
+    - Nynäshamn
+    - Nynashamn
+    - Port of Nynäshamn
+    sv:
+    - Nynäshamn
+    - Nynäshamns hamn
+- id: port_visby
+  canonical_name: Visby
+  type: port
+  precision: port
+  center:
+    lat: 57.637
+    lon: 18.284
+  radius_km: 10
+  regions:
+  - REG:BALTIC
+  - REG:GOTLAND_SEA
+  aliases:
+    de:
+    - Visby
+    - Gotland
+    en:
+    - Visby
+    - Port of Visby
+    - Gotland
+    sv:
+    - Visby
+    - Visby hamn
+    - Gotland
+- id: port_helsinki
+  canonical_name: Helsinki
+  type: port
+  precision: port
+  center:
+    lat: 60.167
+    lon: 24.955
+  radius_km: 22
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  aliases:
+    de:
+    - Helsinki
+    - Helsingfors
+    en:
+    - Helsinki
+    - Port of Helsinki
+    fi:
+    - Helsinki
+    - Helsingin satama
+    sv:
+    - Helsingfors
+- id: port_kotka_hamina
+  canonical_name: Kotka-Hamina
+  type: port
+  precision: port
+  center:
+    lat: 60.47
+    lon: 26.93
+  radius_km: 28
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  aliases:
+    de:
+    - Kotka
+    - Hamina
+    - Kotka-Hamina
+    en:
+    - Kotka
+    - Hamina
+    - Kotka-Hamina
+    - Port of HaminaKotka
+    fi:
+    - Kotka
+    - Hamina
+    - HaminaKotka
+- id: port_turku
+  canonical_name: Turku
+  type: port
+  precision: port
+  center:
+    lat: 60.435
+    lon: 22.22
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  aliases:
+    de:
+    - Turku
+    - Åbo
+    en:
+    - Turku
+    - Port of Turku
+    fi:
+    - Turku
+    - Turun satama
+    sv:
+    - Åbo
+- id: port_rauma
+  canonical_name: Rauma
+  type: port
+  precision: port
+  center:
+    lat: 61.133
+    lon: 21.5
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  aliases:
+    de:
+    - Rauma
+    en:
+    - Rauma
+    - Port of Rauma
+    fi:
+    - Rauma
+    - Rauman satama
+- id: port_tallinn
+  canonical_name: Tallinn
+  type: port
+  precision: port
+  center:
+    lat: 59.444
+    lon: 24.753
+  radius_km: 18
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  aliases:
+    de:
+    - Tallinn
+    - Reval
+    en:
+    - Tallinn
+    - Port of Tallinn
+    et:
+    - Tallinn
+    - Tallinna Sadam
+- id: port_paldiski
+  canonical_name: Paldiski
+  type: port
+  precision: port
+  center:
+    lat: 59.35
+    lon: 24.05
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  aliases:
+    de:
+    - Paldiski
+    en:
+    - Paldiski
+    - Paldiski port
+    et:
+    - Paldiski
+- id: port_riga
+  canonical_name: Riga
+  type: port
+  precision: port
+  center:
+    lat: 57.0
+    lon: 24.1
+  radius_km: 22
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_RIGA
+  aliases:
+    de:
+    - Riga
+    en:
+    - Riga
+    - Port of Riga
+    - Freeport of Riga
+    lv:
+    - Rīga
+    - Riga
+- id: port_ventspils
+  canonical_name: Ventspils
+  type: port
+  precision: port
+  center:
+    lat: 57.395
+    lon: 21.55
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Ventspils
+    - Windau
+    en:
+    - Ventspils
+    - Port of Ventspils
+    lv:
+    - Ventspils
+- id: port_liepaja
+  canonical_name: Liepāja
+  type: port
+  precision: port
+  center:
+    lat: 56.515
+    lon: 21.01
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Liepaja
+    - Libau
+    en:
+    - Liepāja
+    - Liepaja
+    - Port of Liepāja
+    lv:
+    - Liepāja
+    - Liepaja
+- id: port_klaipeda
+  canonical_name: Klaipėda
+  type: port
+  precision: port
+  center:
+    lat: 55.705
+    lon: 21.128
+  radius_km: 18
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Klaipeda
+    - Memel
+    en:
+    - Klaipėda
+    - Klaipeda
+    - Port of Klaipeda
+    lt:
+    - Klaipėda
+    - Klaipeda
+- id: port_gdynia
+  canonical_name: Gdynia
+  type: port
+  precision: port
+  center:
+    lat: 54.54
+    lon: 18.55
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Gdingen
+    - Gdynia
+    en:
+    - Gdynia
+    - Port of Gdynia
+    pl:
+    - Gdynia
+    - Port Gdynia
+- id: port_szczecin_swinoujscie
+  canonical_name: Szczecin-Świnoujście
+  type: port
+  precision: port
+  center:
+    lat: 53.9
+    lon: 14.26
+  radius_km: 38
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Stettin
+    - Swinemünde
+    - Swinemuende
+    - Szczecin
+    - Świnoujście
+    en:
+    - Szczecin
+    - Świnoujście
+    - Swinoujscie
+    - Port of Szczecin
+    - Port of Swinoujscie
+    pl:
+    - Szczecin
+    - Świnoujście
+    - Swinoujscie
+    - Zespół portów Szczecin-Świnoujście
+- id: port_lubeck_travemunde
+  canonical_name: Lübeck-Travemünde
+  type: port
+  precision: port
+  center:
+    lat: 53.958
+    lon: 10.878
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  - REG:FEHMARNBELT
+  aliases:
+    de:
+    - Lübeck
+    - Luebeck
+    - Travemünde
+    - Travemuende
+    - Hafen Lübeck
+    en:
+    - Lübeck
+    - Lubeck
+    - Travemünde
+    - Travemunde
+    - Port of Lubeck
+- id: port_wismar
+  canonical_name: Wismar
+  type: port
+  precision: port
+  center:
+    lat: 53.898
+    lon: 11.458
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Wismar
+    - Hafen Wismar
+    en:
+    - Wismar
+    - Port of Wismar
+- id: port_sassnitz_mukran
+  canonical_name: Sassnitz-Mukran
+  type: port
+  precision: port
+  center:
+    lat: 54.485
+    lon: 13.587
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Sassnitz
+    - Mukran
+    - Fährhafen Sassnitz
+    - Hafen Mukran
+    en:
+    - Sassnitz
+    - Mukran
+    - Port of Sassnitz
+    - Mukran Port
+- id: port_gdansk
+  canonical_name: Gdańsk
+  type: port
+  precision: port
+  center:
+    lat: 54.45
+    lon: 18.75
+  radius_km: 18
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Danzig
+    en:
+    - Gdansk
+    - Gdańsk
+    pl:
+    - Gdańsk
+    - Gdansk
+- id: island_gotland
+  canonical_name: Gotland
+  type: island_area
+  precision: area
+  center:
+    lat: 57.63
+    lon: 18.3
+  radius_km: 85
+  regions:
+  - REG:BALTIC
+  - REG:GOTLAND_SEA
+  aliases:
+    de:
+    - Gotland
+    en:
+    - Gotland
+    sv:
+    - Gotland
+- id: port_kalundborg
+  canonical_name: Kalundborg
+  type: port
+  precision: port
+  center:
+    lat: 55.68
+    lon: 11.09
+  radius_km: 8
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:GREAT_BELT
+  aliases:
+    da:
+    - Kalundborg
+    en:
+    - Kalundborg
+    de:
+    - Kalundborg
+- id: port_oskarshamn
+  canonical_name: Oskarshamn
+  type: port
+  precision: port
+  center:
+    lat: 57.27
+    lon: 16.45
+  radius_km: 10
+  regions:
+  - REG:BALTIC
+  - REG:GOTLAND_SEA
+  aliases:
+    sv:
+    - Oskarshamn
+    en:
+    - Oskarshamn
+    de:
+    - Oskarshamn
+- id: port_kiel
+  canonical_name: Kiel
+  type: port
+  precision: port
+  center:
+    lat: 54.323
+    lon: 10.123
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:FEHMARNBELT
+  aliases:
+    de:
+    - Kiel
+    - Nord-Ostsee-Kanal
+    - Kieler Förde
+    - Kieler Foerde
+    en:
+    - Kiel
+    - Kiel Canal
+- id: port_rostock
+  canonical_name: Rostock
+  type: port
+  precision: port
+  center:
+    lat: 54.092
+    lon: 12.14
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Rostock
+    - Warnemünde
+    - Warnemuende
+    en:
+    - Rostock
+    - Warnemunde
+    - Warnemünde
+- id: port_hamburg
+  canonical_name: Hamburg
+  type: port
+  precision: port
+  center:
+    lat: 53.54
+    lon: 9.98
+  radius_km: 22
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  aliases:
+    de:
+    - Hamburg
+    - Hamburger Hafen
+    en:
+    - Hamburg
+    - Port of Hamburg
+- id: port_wilhelmshaven
+  canonical_name: Wilhelmshaven
+  type: port
+  precision: port
+  center:
+    lat: 53.53
+    lon: 8.16
+  radius_km: 18
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  aliases:
+    de:
+    - Wilhelmshaven
+    - JadeWeserPort
+    - Jade-Weser-Port
+    en:
+    - Wilhelmshaven
+    - JadeWeserPort
+    - Jade Weser Port
+- id: port_bremerhaven
+  canonical_name: Bremerhaven
+  type: port
+  precision: port
+  center:
+    lat: 53.54
+    lon: 8.58
+  radius_km: 15
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  aliases:
+    de:
+    - Bremerhaven
+    en:
+    - Bremerhaven
+- id: port_jask_iran
+  canonical_name: Jask
+  type: port_coastal_place
+  precision: port
+  center:
+    lat: 25.64
+    lon: 57.77
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_OMAN
+  - REG:ARABIAN_SEA
+  - REG:IRAN_COAST
+  aliases:
+    de:
+    - Jask
+    - Dschask
+    en:
+    - Jask
+    - Bandar-e Jask
+    - Bandar Jask
+    - Jask port
+    fa_latin:
+    - Bandar-e Jask
+    - Bandar Jask
+    - Jask
+- id: strait_hormuz
+  canonical_name: Strait of Hormuz
+  type: strait
+  precision: area
+  center:
+    lat: 26.56
+    lon: 56.25
+  radius_km: 85
+  regions:
+  - REG:PERSIAN_GULF
+  - REG:GULF_OF_OMAN
+  - REG:STRAIT_HORMUZ
+  aliases:
+    de:
+    - Straße von Hormus
+    - Strasse von Hormus
+    - Hormusstraße
+    - Hormuzstraße
+    en:
+    - Strait of Hormuz
+    - Hormuz Strait
+    fa_latin:
+    - Tangeh-ye Hormoz
+    - Tange-ye Hormoz
+    ar_latin:
+    - Madīq Hurmuz
+    - Madiq Hurmuz
+- id: gulf_of_oman
+  canonical_name: Gulf of Oman
+  type: sea_area
+  precision: area
+  center:
+    lat: 24.7
+    lon: 58.5
+  radius_km: 350
+  regions:
+  - REG:GULF_OF_OMAN
+  - REG:ARABIAN_SEA
+  aliases:
+    de:
+    - Golf von Oman
+    en:
+    - Gulf of Oman
+    fa_latin:
+    - Daryaye Oman
+    ar_latin:
+    - Khalij Uman
+    abbr:
+    - GOO
+- id: persian_gulf
+  canonical_name: Persian Gulf
+  type: sea_area
+  precision: area
+  center:
+    lat: 27.3
+    lon: 51.6
+  radius_km: 520
+  regions:
+  - REG:PERSIAN_GULF
+  aliases:
+    de:
+    - Persischer Golf
+    - Arabischer Golf
+    en:
+    - Persian Gulf
+    - Arabian Gulf
+    - The Gulf
+    fa_latin:
+    - Khalij-e Fars
+    ar_latin:
+    - Al-Khalij al-Arabi
+    - Al Khalij al Arabi
+- id: arabian_sea
+  canonical_name: Arabian Sea
+  type: sea_area
+  precision: area
+  center:
+    lat: 15.0
+    lon: 63.0
+  radius_km: 1250
+  regions:
+  - REG:ARABIAN_SEA
+  - REG:INDIAN_OCEAN
+  aliases:
+    de:
+    - Arabisches Meer
+    en:
+    - Arabian Sea
+    ar_latin:
+    - Bahr al-Arab
+    hi_latin:
+    - Arab Sagar
+- id: gulf_of_aden
+  canonical_name: Gulf of Aden
+  type: sea_area
+  precision: area
+  center:
+    lat: 12.3
+    lon: 48.5
+  radius_km: 520
+  regions:
+  - REG:GULF_OF_ADEN
+  - REG:HORN_OF_AFRICA
+  - REG:INDIAN_OCEAN
+  aliases:
+    de:
+    - Golf von Aden
+    en:
+    - Gulf of Aden
+    ar_latin:
+    - Khalij Adan
+    abbr:
+    - GOA
+- id: bab_el_mandeb
+  canonical_name: Bab el-Mandeb
+  type: strait
+  precision: area
+  center:
+    lat: 12.6
+    lon: 43.35
+  radius_km: 80
+  regions:
+  - REG:BAB_EL_MANDEB
+  - REG:RED_SEA
+  - REG:GULF_OF_ADEN
+  - REG:HORN_OF_AFRICA
+  aliases:
+    de:
+    - Bab el-Mandeb
+    - Bab al-Mandab
+    en:
+    - Bab el-Mandeb
+    - Bab al-Mandab
+    - Bab el Mandeb
+    - Bab al Mandab
+    ar_latin:
+    - Bab al-Mandab
+- id: red_sea
+  canonical_name: Red Sea
+  type: sea_area
+  precision: area
+  center:
+    lat: 20.0
+    lon: 38.0
+  radius_km: 980
+  regions:
+  - REG:RED_SEA
+  aliases:
+    de:
+    - Rotes Meer
+    en:
+    - Red Sea
+    ar_latin:
+    - Al-Bahr al-Ahmar
+    - Al Bahr al Ahmar
+- id: suez_canal
+  canonical_name: Suez Canal
+  type: canal
+  precision: area
+  center:
+    lat: 30.6
+    lon: 32.3
+  radius_km: 120
+  regions:
+  - REG:SUEZ_APPROACHES
+  - REG:RED_SEA
+  - REG:MEDITERRANEAN
+  aliases:
+    de:
+    - Suezkanal
+    - Sueskanal
+    - Suez-Kanal
+    en:
+    - Suez Canal
+    - Suez
+    fr:
+    - Canal de Suez
+    ar_latin:
+    - Qanat as-Suways
+- id: port_chabahar
+  canonical_name: Chabahar
+  type: port
+  precision: port
+  center:
+    lat: 25.29
+    lon: 60.62
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_OMAN
+  - REG:IRAN_COAST
+  - REG:ARABIAN_SEA
+  aliases:
+    de:
+    - Tschahbahar
+    - Chabahar
+    en:
+    - Chabahar
+    - Chabahar port
+    - Chabahar Port
+    fa_latin:
+    - Chabahar
+    - Chah Bahar
+- id: port_bandar_abbas
+  canonical_name: Bandar Abbas
+  type: port
+  precision: port
+  center:
+    lat: 27.18
+    lon: 56.28
+  radius_km: 20
+  regions:
+  - REG:PERSIAN_GULF
+  - REG:STRAIT_HORMUZ
+  - REG:IRAN_COAST
+  aliases:
+    de:
+    - Bandar Abbas
+    en:
+    - Bandar Abbas
+    - Bandar Abbas port
+    - Shahid Rajaee
+    - Shahid Rajaei
+    fa_latin:
+    - Bandar Abbas
+    - Shahid Rajaee
+- id: gulf_of_guinea
+  canonical_name: Gulf of Guinea
+  type: sea_area
+  precision: area
+  center:
+    lat: 1.5
+    lon: 3.0
+  radius_km: 900
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Golf von Guinea
+    en:
+    - Gulf of Guinea
+    fr:
+    - Golfe de Guinée
+    pt:
+    - Golfo da Guiné
+    es:
+    - Golfo de Guinea
+- id: cape_verde_approaches
+  canonical_name: Cape Verde Approaches
+  type: sea_area
+  precision: area
+  center:
+    lat: 15.3
+    lon: -23.6
+  radius_km: 350
+  regions:
+  - REG:CAPE_VERDE_APPROACHES
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Kap Verde
+    - Kapverden
+    - Kapverdische Inseln
+    en:
+    - Cape Verde
+    - Cabo Verde
+    - Cape Verde approaches
+    pt:
+    - Cabo Verde
+    fr:
+    - Cap-Vert
+- id: senegal_dakar_approaches
+  canonical_name: Dakar / Senegal Approaches
+  type: sea_area
+  precision: area
+  center:
+    lat: 14.65
+    lon: -17.45
+  radius_km: 160
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Senegal Küste
+    - Senegal-Küste
+    - Dakar-Zugänge
+    - Dakar Approaches
+    en:
+    - Senegal approaches
+    - Dakar approaches
+    - Senegal coast
+    - Dakar anchorage
+    fr:
+    - côte sénégalaise
+    - approches de Dakar
+    pt:
+    - costa do Senegal
+    - aproximações de Dakar
+- id: port_lagos
+  canonical_name: Lagos
+  type: port
+  precision: port
+  center:
+    lat: 6.43
+    lon: 3.4
+  radius_km: 25
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  aliases:
+    de:
+    - Lagos
+    en:
+    - Lagos
+    - Lagos port
+    - Apapa
+    - Tin Can Island
+    fr:
+    - Lagos
+- id: port_tema
+  canonical_name: Tema
+  type: port
+  precision: port
+  center:
+    lat: 5.64
+    lon: 0.01
+  radius_km: 15
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  aliases:
+    de:
+    - Tema
+    en:
+    - Tema
+    - Port of Tema
+    - Tema port
+    fr:
+    - Tema
+- id: port_abidjan
+  canonical_name: Abidjan
+  type: port
+  precision: port
+  center:
+    lat: 5.3
+    lon: -4.02
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  aliases:
+    de:
+    - Abidjan
+    en:
+    - Abidjan
+    - Port of Abidjan
+    - Abidjan port
+    fr:
+    - Abidjan
+    - Port d'Abidjan
+- id: caribbean_sea
+  canonical_name: Caribbean Sea
+  type: sea_area
+  precision: area
+  center:
+    lat: 15.0
+    lon: -75.0
+  radius_km: 1250
+  regions:
+  - REG:CARIBBEAN
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Karibik
+    - Karibisches Meer
+    en:
+    - Caribbean
+    - Caribbean Sea
+    es:
+    - Caribe
+    - Mar Caribe
+    fr:
+    - Caraïbes
+    - Mer des Caraïbes
+    nl:
+    - Caribische Zee
+- id: panama_canal
+  canonical_name: Panama Canal
+  type: canal
+  precision: area
+  center:
+    lat: 9.08
+    lon: -79.68
+  radius_km: 80
+  regions:
+  - REG:CARIBBEAN
+  - REG:PACIFIC_CENTRAL_AMERICA
+  aliases:
+    de:
+    - Panamakanal
+    - Panama-Kanal
+    en:
+    - Panama Canal
+    - Canal Zone
+    es:
+    - Canal de Panamá
+    - Canal de Panama
+    fr:
+    - Canal de Panama
+- id: port_santa_marta
+  canonical_name: Santa Marta
+  type: port
+  precision: port
+  center:
+    lat: 11.25
+    lon: -74.22
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:SOUTH_AMERICA_EAST
+  aliases:
+    de:
+    - Santa Marta
+    en:
+    - Santa Marta
+    - Port of Santa Marta
+    - Santa Marta port
+    es:
+    - Santa Marta
+    - Puerto de Santa Marta
+- id: port_cartagena_colombia
+  canonical_name: Cartagena, Colombia
+  type: port
+  precision: port
+  center:
+    lat: 10.4
+    lon: -75.53
+  radius_km: 25
+  regions:
+  - REG:CARIBBEAN
+  - REG:SOUTH_AMERICA_EAST
+  aliases:
+    de:
+    - Cartagena Kolumbien
+    - Cartagena de Indias
+    en:
+    - Cartagena Colombia
+    - Cartagena de Indias
+    - Port of Cartagena Colombia
+    es:
+    - Cartagena
+    - Cartagena de Indias
+    - Puerto de Cartagena
+- id: port_guayaquil
+  canonical_name: Guayaquil
+  type: port
+  precision: port
+  center:
+    lat: -2.28
+    lon: -79.9
+  radius_km: 35
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  aliases:
+    de:
+    - Guayaquil
+    en:
+    - Guayaquil
+    - Port of Guayaquil
+    - Guayaquil port
+    es:
+    - Guayaquil
+    - Puerto de Guayaquil
+- id: port_callao
+  canonical_name: Callao
+  type: port
+  precision: port
+  center:
+    lat: -12.05
+    lon: -77.15
+  radius_km: 20
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  aliases:
+    de:
+    - Callao
+    en:
+    - Callao
+    - Port of Callao
+    - Callao port
+    es:
+    - Callao
+    - Puerto del Callao
+- id: port_ust_luga
+  canonical_name: Ust-Luga
+  type: port
+  precision: port
+  center:
+    lat: 59.667
+    lon: 28.287
+  radius_km: 24
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  - REG:RUSSIA_BALTIC
+  aliases:
+    de:
+    - Ust-Luga
+    - Ust Luga
+    en:
+    - Ust-Luga
+    - Ust Luga
+    - Port of Ust-Luga
+    - Ust Luga port
+    - Ust-Luga port
+    - Ust-Luga terminal
+    - Port Ust Luga
+    ru_latin:
+    - Ust-Luga
+    - Ust Luga
+    - Port Ust-Luga
+  context_required:
+  - port
+  - terminal
+  - tanker
+  - LNG
+  - LPG
+  - Baltic
+  - Gulf of Finland
+  - Russia
+  - vessel
+  - ship
+  - AIS
+  promotion_terms:
+  - arriving at Ust-Luga
+  - arrived Ust-Luga
+  - departed Ust-Luga
+  - Port of Ust-Luga
+  - Ust-Luga terminal
+- id: port_primorsk_russia
+  canonical_name: Primorsk, Russia
+  type: port
+  precision: port
+  center:
+    lat: 60.35
+    lon: 28.62
+  radius_km: 18
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  - REG:RUSSIA_BALTIC
+  - REG:ENERGY
+  aliases:
+    de:
+    - Primorsk
+    - Primorsk Russland
+    - Ölhafen Primorsk
+    en:
+    - Primorsk
+    - Primorsk Russia
+    - Port of Primorsk
+    - Primorsk oil terminal
+    ru_latin:
+    - Primorsk
+    - Port Primorsk
+- id: port_vysotsk
+  canonical_name: Vysotsk
+  type: port
+  precision: port
+  center:
+    lat: 60.628
+    lon: 28.57
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  - REG:RUSSIA_BALTIC
+  - REG:ENERGY
+  aliases:
+    de:
+    - Vysotsk
+    - Wyssozki
+    en:
+    - Vysotsk
+    - Port of Vysotsk
+    - Vysotsk terminal
+    ru_latin:
+    - Vysotsk
+- id: port_saint_petersburg
+  canonical_name: Saint Petersburg
+  type: port
+  precision: port
+  center:
+    lat: 59.895
+    lon: 30.215
+  radius_km: 30
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  - REG:RUSSIA_BALTIC
+  aliases:
+    de:
+    - Sankt Petersburg
+    - St. Petersburg
+    - Petersburg
+    en:
+    - Saint Petersburg
+    - St Petersburg
+    - Port of Saint Petersburg
+    - Port of St Petersburg
+    ru_latin:
+    - Sankt-Peterburg
+    - Saint Petersburg
+    - St Petersburg
+- id: port_bronka
+  canonical_name: Bronka
+  type: port
+  precision: port
+  center:
+    lat: 59.95
+    lon: 29.67
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  - REG:RUSSIA_BALTIC
+  aliases:
+    de:
+    - Bronka
+    - Hafen Bronka
+    en:
+    - Bronka
+    - Port Bronka
+    - Bronka terminal
+    ru_latin:
+    - Bronka
+- id: port_kaliningrad
+  canonical_name: Kaliningrad
+  type: port
+  precision: port
+  center:
+    lat: 54.705
+    lon: 20.5
+  radius_km: 22
+  regions:
+  - REG:BALTIC
+  - REG:RUSSIA_BALTIC
+  - REG:KALININGRAD
+  aliases:
+    de:
+    - Kaliningrad
+    - Königsberg
+    - Koenigsberg
+    en:
+    - Kaliningrad
+    - Port of Kaliningrad
+    ru_latin:
+    - Kaliningrad
+- id: port_baltiysk
+  canonical_name: Baltiysk
+  type: port
+  precision: port
+  center:
+    lat: 54.644
+    lon: 19.914
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:RUSSIA_BALTIC
+  - REG:KALININGRAD
+  - REG:MILITARY
+  aliases:
+    de:
+    - Baltijsk
+    - Baltiysk
+    - Pillau
+    en:
+    - Baltiysk
+    - Baltijsk
+    - Baltiysk naval base
+    ru_latin:
+    - Baltiysk
+    - Baltijsk
+- id: port_murmansk
+  canonical_name: Murmansk
+  type: port
+  precision: port
+  center:
+    lat: 68.97
+    lon: 33.075
+  radius_km: 28
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:BARENTS_SEA
+  - REG:RUSSIA_ARCTIC
+  aliases:
+    de:
+    - Murmansk
+    en:
+    - Murmansk
+    - Port of Murmansk
+    ru_latin:
+    - Murmansk
+- id: port_severomorsk
+  canonical_name: Severomorsk
+  type: port
+  precision: port
+  center:
+    lat: 69.07
+    lon: 33.42
+  radius_km: 18
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:BARENTS_SEA
+  - REG:RUSSIA_ARCTIC
+  - REG:MILITARY
+  aliases:
+    de:
+    - Seweromorsk
+    - Severomorsk
+    en:
+    - Severomorsk
+    - Severomorsk naval base
+    - Northern Fleet base
+    ru_latin:
+    - Severomorsk
+- id: port_polyarny
+  canonical_name: Polyarny
+  type: port
+  precision: port
+  center:
+    lat: 69.198
+    lon: 33.45
+  radius_km: 16
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:BARENTS_SEA
+  - REG:RUSSIA_ARCTIC
+  - REG:MILITARY
+  aliases:
+    de:
+    - Poljarny
+    - Polyarny
+    en:
+    - Polyarny
+    - Polyarny naval base
+    ru_latin:
+    - Polyarny
+    - Poliarny
+- id: port_arkhangelsk
+  canonical_name: Arkhangelsk
+  type: port
+  precision: port
+  center:
+    lat: 64.54
+    lon: 40.53
+  radius_km: 30
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:WHITE_SEA
+  - REG:RUSSIA_ARCTIC
+  aliases:
+    de:
+    - Archangelsk
+    - Arkhangelsk
+    en:
+    - Arkhangelsk
+    - Archangelsk
+    - Port of Arkhangelsk
+    ru_latin:
+    - Arkhangelsk
+- id: port_severodvinsk
+  canonical_name: Severodvinsk
+  type: port
+  precision: port
+  center:
+    lat: 64.58
+    lon: 39.83
+  radius_km: 22
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:WHITE_SEA
+  - REG:RUSSIA_ARCTIC
+  - REG:MILITARY
+  aliases:
+    de:
+    - Sewerodwinsk
+    - Severodvinsk
+    en:
+    - Severodvinsk
+    - Severodvinsk shipyard
+    - Sevmash
+    ru_latin:
+    - Severodvinsk
+    - Sevmash
+- id: port_kandalaksha
+  canonical_name: Kandalaksha
+  type: port
+  precision: port
+  center:
+    lat: 67.15
+    lon: 32.41
+  radius_km: 18
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:WHITE_SEA
+  - REG:RUSSIA_ARCTIC
+  aliases:
+    de:
+    - Kandalakscha
+    - Kandalaksha
+    en:
+    - Kandalaksha
+    - Port of Kandalaksha
+    ru_latin:
+    - Kandalaksha
+- id: port_sabetta
+  canonical_name: Sabetta
+  type: port
+  precision: port
+  center:
+    lat: 71.27
+    lon: 72.07
+  radius_km: 24
+  regions:
+  - REG:ARCTIC
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:RUSSIA_ARCTIC
+  - REG:ENERGY
+  aliases:
+    de:
+    - Sabetta
+    - LNG Sabetta
+    - Jamal LNG
+    en:
+    - Sabetta
+    - Port of Sabetta
+    - Yamal LNG
+    - Sabetta LNG
+    ru_latin:
+    - Sabetta
+    - Yamal LNG
+- id: port_varandey
+  canonical_name: Varandey
+  type: offshore_terminal
+  precision: port
+  center:
+    lat: 68.85
+    lon: 58.2
+  radius_km: 28
+  regions:
+  - REG:ARCTIC
+  - REG:BARENTS_SEA
+  - REG:RUSSIA_ARCTIC
+  - REG:ENERGY
+  aliases:
+    de:
+    - Varandey
+    - Warandei
+    - Varandey Terminal
+    en:
+    - Varandey
+    - Varandey terminal
+    - Varandey offshore terminal
+    ru_latin:
+    - Varandey
+- id: port_novorossiysk
+  canonical_name: Novorossiysk
+  type: port
+  precision: port
+  center:
+    lat: 44.72
+    lon: 37.78
+  radius_km: 28
+  regions:
+  - REG:BLACK_SEA
+  - REG:RUSSIA_BLACK_SEA
+  - REG:ENERGY
+  aliases:
+    de:
+    - Noworossijsk
+    - Novorossiysk
+    en:
+    - Novorossiysk
+    - Port of Novorossiysk
+    - Novorossiysk oil terminal
+    ru_latin:
+    - Novorossiysk
+- id: port_tuapse
+  canonical_name: Tuapse
+  type: port
+  precision: port
+  center:
+    lat: 44.1
+    lon: 39.07
+  radius_km: 18
+  regions:
+  - REG:BLACK_SEA
+  - REG:RUSSIA_BLACK_SEA
+  - REG:ENERGY
+  aliases:
+    de:
+    - Tuapse
+    en:
+    - Tuapse
+    - Port of Tuapse
+    - Tuapse oil terminal
+    ru_latin:
+    - Tuapse
+- id: port_taman
+  canonical_name: Taman
+  type: port
+  precision: port
+  center:
+    lat: 45.12
+    lon: 36.68
+  radius_km: 24
+  regions:
+  - REG:BLACK_SEA
+  - REG:RUSSIA_BLACK_SEA
+  - REG:KERCH_STRAIT
+  aliases:
+    de:
+    - Taman
+    - Hafen Taman
+    en:
+    - Taman
+    - Port of Taman
+    - Taman terminal
+    ru_latin:
+    - Taman
+- id: port_kavkaz
+  canonical_name: Port Kavkaz
+  type: port
+  precision: port
+  center:
+    lat: 45.345
+    lon: 36.675
+  radius_km: 16
+  regions:
+  - REG:BLACK_SEA
+  - REG:KERCH_STRAIT
+  - REG:RUSSIA_BLACK_SEA
+  aliases:
+    de:
+    - Port Kavkaz
+    - Kaukasus Hafen
+    - Hafen Kavkaz
+    en:
+    - Port Kavkaz
+    - Kavkaz port
+    - Port Caucasus
+    ru_latin:
+    - Port Kavkaz
+    - Kavkaz
+- id: port_sochi
+  canonical_name: Sochi
+  type: port
+  precision: port
+  center:
+    lat: 43.58
+    lon: 39.72
+  radius_km: 18
+  regions:
+  - REG:BLACK_SEA
+  - REG:RUSSIA_BLACK_SEA
+  aliases:
+    de:
+    - Sotschi
+    - Sochi
+    en:
+    - Sochi
+    - Port of Sochi
+    ru_latin:
+    - Sochi
+- id: port_sevastopol
+  canonical_name: Sevastopol
+  type: port
+  precision: port
+  center:
+    lat: 44.616
+    lon: 33.525
+  radius_km: 24
+  regions:
+  - REG:BLACK_SEA
+  - REG:CRIMEA
+  - REG:MILITARY
+  aliases:
+    de:
+    - Sewastopol
+    - Sevastopol
+    en:
+    - Sevastopol
+    - Sevastopol naval base
+    ru_latin:
+    - Sevastopol
+    uk_latin:
+    - Sevastopol
+- id: port_kerch
+  canonical_name: Kerch
+  type: port
+  precision: port
+  center:
+    lat: 45.356
+    lon: 36.475
+  radius_km: 18
+  regions:
+  - REG:BLACK_SEA
+  - REG:KERCH_STRAIT
+  - REG:CRIMEA
+  aliases:
+    de:
+    - Kertsch
+    - Kerch
+    - Straße von Kertsch
+    en:
+    - Kerch
+    - Kerch Strait
+    - Port of Kerch
+    ru_latin:
+    - Kerch
+    uk_latin:
+    - Kerch
+- id: port_yeysk
+  canonical_name: Yeysk
+  type: port
+  precision: port
+  center:
+    lat: 46.705
+    lon: 38.27
+  radius_km: 16
+  regions:
+  - REG:AZOV_SEA
+  - REG:BLACK_SEA
+  - REG:RUSSIA_BLACK_SEA
+  aliases:
+    de:
+    - Jeisk
+    - Yeysk
+    - Eysk
+    en:
+    - Yeysk
+    - Eysk
+    - Port of Yeysk
+    ru_latin:
+    - Yeysk
+    - Eysk
+- id: port_taganrog
+  canonical_name: Taganrog
+  type: port
+  precision: port
+  center:
+    lat: 47.21
+    lon: 38.93
+  radius_km: 18
+  regions:
+  - REG:AZOV_SEA
+  - REG:BLACK_SEA
+  - REG:RUSSIA_BLACK_SEA
+  aliases:
+    de:
+    - Taganrog
+    en:
+    - Taganrog
+    - Port of Taganrog
+    ru_latin:
+    - Taganrog
+- id: port_rostov_on_don
+  canonical_name: Rostov-on-Don
+  type: river_port
+  precision: port
+  center:
+    lat: 47.217
+    lon: 39.72
+  radius_km: 24
+  regions:
+  - REG:AZOV_SEA
+  - REG:BLACK_SEA
+  - REG:RUSSIA_BLACK_SEA
+  aliases:
+    de:
+    - Rostow am Don
+    - Rostov am Don
+    - Rostov-on-Don
+    en:
+    - Rostov-on-Don
+    - Rostov on Don
+    - Port of Rostov-on-Don
+    ru_latin:
+    - Rostov-na-Donu
+    - Rostov-on-Don
+- id: port_constanta
+  canonical_name: Constanța
+  type: port
+  precision: port
+  center:
+    lat: 44.165
+    lon: 28.64
+  radius_km: 24
+  regions:
+  - REG:BLACK_SEA
+  - REG:NATO_EASTERN_FLANK
+  aliases:
+    de:
+    - Constanta
+    - Konstanza
+    en:
+    - Constanta
+    - Constanța
+    - Port of Constanta
+    ro:
+    - Constanța
+    - Constanta
+- id: port_varna
+  canonical_name: Varna
+  type: port
+  precision: port
+  center:
+    lat: 43.19
+    lon: 27.91
+  radius_km: 20
+  regions:
+  - REG:BLACK_SEA
+  - REG:NATO_EASTERN_FLANK
+  aliases:
+    de:
+    - Warna
+    - Varna
+    en:
+    - Varna
+    - Port of Varna
+    bg_latin:
+    - Varna
+- id: port_burgas
+  canonical_name: Burgas
+  type: port
+  precision: port
+  center:
+    lat: 42.49
+    lon: 27.48
+  radius_km: 20
+  regions:
+  - REG:BLACK_SEA
+  - REG:NATO_EASTERN_FLANK
+  - REG:ENERGY
+  aliases:
+    de:
+    - Burgas
+    en:
+    - Burgas
+    - Port of Burgas
+    bg_latin:
+    - Burgas
+- id: port_odesa
+  canonical_name: Odesa
+  type: port
+  precision: port
+  center:
+    lat: 46.5
+    lon: 30.745
+  radius_km: 24
+  regions:
+  - REG:BLACK_SEA
+  - REG:BLACK_SEA_NORTH
+  - REG:UKRAINE_COAST
+  aliases:
+    de:
+    - Odessa
+    - Odesa
+    en:
+    - Odesa
+    - Odessa
+    - Port of Odesa
+    - Port of Odessa
+    uk_latin:
+    - Odesa
+    ru_latin:
+    - Odessa
+- id: port_chornomorsk
+  canonical_name: Chornomorsk
+  type: port
+  precision: port
+  center:
+    lat: 46.315
+    lon: 30.66
+  radius_km: 18
+  regions:
+  - REG:BLACK_SEA
+  - REG:BLACK_SEA_NORTH
+  - REG:UKRAINE_COAST
+  aliases:
+    de:
+    - Tschornomorsk
+    - Chornomorsk
+    - Illichivsk
+    en:
+    - Chornomorsk
+    - Chernomorsk
+    - Illichivsk
+    - Port of Chornomorsk
+    uk_latin:
+    - Chornomorsk
+    ru_latin:
+    - Chernomorsk
+    - Illichivsk
+- id: port_pivdennyi
+  canonical_name: Pivdennyi
+  type: port
+  precision: port
+  center:
+    lat: 46.62
+    lon: 31.015
+  radius_km: 18
+  regions:
+  - REG:BLACK_SEA
+  - REG:BLACK_SEA_NORTH
+  - REG:UKRAINE_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Piwdennyj
+    - Pivdennyi
+    - Juschny
+    - Yuzhny
+    en:
+    - Pivdennyi
+    - Pivdennyy
+    - Yuzhny
+    - Yuzhny port
+    - Port Pivdennyi
+    uk_latin:
+    - Pivdennyi
+    ru_latin:
+    - Yuzhny
+- id: port_mykolaiv
+  canonical_name: Mykolaiv
+  type: river_port
+  precision: port
+  center:
+    lat: 46.965
+    lon: 31.99
+  radius_km: 24
+  regions:
+  - REG:BLACK_SEA
+  - REG:BLACK_SEA_NORTH
+  - REG:UKRAINE_COAST
+  aliases:
+    de:
+    - Mykolajiw
+    - Mykolaiv
+    - Nikolaev
+    en:
+    - Mykolaiv
+    - Nikolaev
+    - Port of Mykolaiv
+    uk_latin:
+    - Mykolaiv
+    ru_latin:
+    - Nikolaev
+- id: port_den_helder
+  canonical_name: Den Helder
+  type: port
+  precision: port
+  center:
+    lat: 52.955
+    lon: 4.78
+  radius_km: 16
+  regions:
+  - REG:NORTH_SEA
+  - REG:OFFSHORE
+  - REG:MILITARY
+  aliases:
+    de:
+    - Den Helder
+    en:
+    - Den Helder
+    - Port of Den Helder
+    - Den Helder naval base
+    nl:
+    - Den Helder
+- id: port_vlissingen
+  canonical_name: Vlissingen
+  type: port
+  precision: port
+  center:
+    lat: 51.45
+    lon: 3.69
+  radius_km: 18
+  regions:
+  - REG:NORTH_SEA
+  - REG:CHANNEL
+  aliases:
+    de:
+    - Vlissingen
+    - Flushing
+    en:
+    - Vlissingen
+    - Flushing
+    - Port of Vlissingen
+    nl:
+    - Vlissingen
+- id: port_ostend
+  canonical_name: Ostend
+  type: port
+  precision: port
+  center:
+    lat: 51.23
+    lon: 2.93
+  radius_km: 12
+  regions:
+  - REG:NORTH_SEA
+  - REG:CHANNEL
+  - REG:OFFSHORE
+  aliases:
+    de:
+    - Ostende
+    en:
+    - Ostend
+    - Port of Ostend
+    - Ostende
+    nl:
+    - Oostende
+    - Oostende haven
+    fr:
+    - Ostende
+- id: port_brunsbuttel
+  canonical_name: Brunsbüttel
+  type: port
+  precision: port
+  center:
+    lat: 53.895
+    lon: 9.145
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:ELBE
+  - REG:KIEL_CANAL
+  - REG:ENERGY
+  aliases:
+    de:
+    - Brunsbüttel
+    - Brunsbuettel
+    - Elbehafen Brunsbüttel
+    - LNG Brunsbüttel
+    en:
+    - Brunsbüttel
+    - Brunsbuettel
+    - Port of Brunsbüttel
+    - Brunsbuettel LNG
+- id: port_stade
+  canonical_name: Stade
+  type: port
+  precision: port
+  center:
+    lat: 53.625
+    lon: 9.525
+  radius_km: 14
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:ELBE
+  - REG:ENERGY
+  aliases:
+    de:
+    - Stade
+    - Bützfleth
+    - Buetzfleth
+    - Hafen Stade
+    - LNG Stade
+    en:
+    - Stade
+    - Bützfleth
+    - Buetzfleth
+    - Port of Stade
+    - Stade LNG
+- id: port_norddeich
+  canonical_name: Norddeich
+  type: port
+  precision: port
+  center:
+    lat: 53.625
+    lon: 7.16
+  radius_km: 10
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:OFFSHORE
+  aliases:
+    de:
+    - Norddeich
+    - Norddeich Mole
+    - Offshorehafen Norddeich
+    en:
+    - Norddeich
+    - Norddeich Mole
+    - Norddeich offshore port
+- id: port_borkum
+  canonical_name: Borkum
+  type: island_port
+  precision: port
+  center:
+    lat: 53.587
+    lon: 6.663
+  radius_km: 12
+  regions:
+  - REG:NORTH_SEA
+  - REG:GER_BIGHT
+  - REG:OFFSHORE
+  aliases:
+    de:
+    - Borkum
+    - Hafen Borkum
+    en:
+    - Borkum
+    - Port of Borkum
+- id: port_lubmin
+  canonical_name: Lubmin
+  type: port_coastal_place
+  precision: port
+  center:
+    lat: 54.145
+    lon: 13.64
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  - REG:ENERGY
+  - REG:KRITIS
+  aliases:
+    de:
+    - Lubmin
+    - Industriehafen Lubmin
+    - Nord Stream Anlandestation
+    - Greifswald-Lubmin
+    en:
+    - Lubmin
+    - Lubmin port
+    - Nord Stream landfall
+    - Greifswald-Lubmin
+- id: port_flensburg
+  canonical_name: Flensburg
+  type: port
+  precision: port
+  center:
+    lat: 54.79
+    lon: 9.435
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  aliases:
+    de:
+    - Flensburg
+    - Flensburger Förde
+    - Flensburger Foerde
+    en:
+    - Flensburg
+    - Flensburg Fjord
+    - Flensburger Foerde
+- id: port_puttgarden
+  canonical_name: Puttgarden
+  type: port
+  precision: port
+  center:
+    lat: 54.5
+    lon: 11.225
+  radius_km: 10
+  regions:
+  - REG:BALTIC
+  - REG:FEHMARNBELT
+  aliases:
+    de:
+    - Puttgarden
+    - Fährhafen Puttgarden
+    - Fehmarn
+    en:
+    - Puttgarden
+    - Puttgarden ferry port
+    - Fehmarn
+- id: port_stralsund
+  canonical_name: Stralsund
+  type: port
+  precision: port
+  center:
+    lat: 54.315
+    lon: 13.1
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  aliases:
+    de:
+    - Stralsund
+    - Hafen Stralsund
+    en:
+    - Stralsund
+    - Port of Stralsund
+- id: port_peenemunde
+  canonical_name: Peenemünde
+  type: port_coastal_place
+  precision: port
+  center:
+    lat: 54.135
+    lon: 13.77
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:MILITARY
+  aliases:
+    de:
+    - Peenemünde
+    - Peenemuende
+    en:
+    - Peenemünde
+    - Peenemuende
+    - Peenemunde
+- id: port_ronne
+  canonical_name: Rønne
+  type: port
+  precision: port
+  center:
+    lat: 55.1
+    lon: 14.695
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:BORNHOLM
+  - REG:OFFSHORE
+  aliases:
+    de:
+    - Rønne
+    - Roenne
+    - Bornholm
+    en:
+    - Rønne
+    - Ronne
+    - Port of Rønne
+    - Bornholm
+    da:
+    - Rønne
+    - Rønne Havn
+    - Bornholm
+- id: port_hirtshals
+  canonical_name: Hirtshals
+  type: port
+  precision: port
+  center:
+    lat: 57.59
+    lon: 9.97
+  radius_km: 12
+  regions:
+  - REG:SKAGERRAK
+  - REG:NORTH_SEA
+  - REG:FISHERY
+  aliases:
+    de:
+    - Hirtshals
+    en:
+    - Hirtshals
+    - Port of Hirtshals
+    da:
+    - Hirtshals
+    - Hirtshals Havn
+- id: port_thyboron
+  canonical_name: Thyborøn
+  type: port
+  precision: port
+  center:
+    lat: 56.7
+    lon: 8.22
+  radius_km: 12
+  regions:
+  - REG:NORTH_SEA
+  - REG:DANISH_WEST_COAST
+  - REG:FISHERY
+  - REG:OFFSHORE
+  aliases:
+    de:
+    - Thyborøn
+    - Thyboron
+    en:
+    - Thyborøn
+    - Thyboron
+    - Port of Thyboron
+    da:
+    - Thyborøn
+    - Thyborøn Havn
+- id: port_hanstholm
+  canonical_name: Hanstholm
+  type: port
+  precision: port
+  center:
+    lat: 57.12
+    lon: 8.6
+  radius_km: 12
+  regions:
+  - REG:NORTH_SEA
+  - REG:SKAGERRAK
+  - REG:FISHERY
+  aliases:
+    de:
+    - Hanstholm
+    en:
+    - Hanstholm
+    - Port of Hanstholm
+    da:
+    - Hanstholm
+    - Hanstholm Havn
+- id: port_odense_lindo
+  canonical_name: Odense / Lindø
+  type: port
+  precision: port
+  center:
+    lat: 55.475
+    lon: 10.545
+  radius_km: 18
+  regions:
+  - REG:BALTIC
+  - REG:DANISH_STRAITS
+  - REG:OFFSHORE
+  aliases:
+    de:
+    - Odense
+    - Lindø
+    - Lindo
+    en:
+    - Odense
+    - Port of Odense
+    - Lindø
+    - Lindo
+    - Lindoe Offshore Renewables Center
+    da:
+    - Odense
+    - Odense Havn
+    - Lindø
+- id: port_lulea
+  canonical_name: Luleå
+  type: port
+  precision: port
+  center:
+    lat: 65.585
+    lon: 22.17
+  radius_km: 18
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  - REG:HIGH_NORTH_ARCTIC
+  aliases:
+    de:
+    - Luleå
+    - Lulea
+    en:
+    - Luleå
+    - Lulea
+    - Port of Luleå
+    sv:
+    - Luleå
+    - Luleå hamn
+- id: port_umea
+  canonical_name: Umeå
+  type: port
+  precision: port
+  center:
+    lat: 63.7
+    lon: 20.34
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  aliases:
+    de:
+    - Umeå
+    - Umea
+    en:
+    - Umeå
+    - Umea
+    - Port of Umeå
+    sv:
+    - Umeå
+    - Umeå hamn
+- id: port_sundsvall
+  canonical_name: Sundsvall
+  type: port
+  precision: port
+  center:
+    lat: 62.39
+    lon: 17.315
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  aliases:
+    de:
+    - Sundsvall
+    en:
+    - Sundsvall
+    - Port of Sundsvall
+    sv:
+    - Sundsvall
+    - Sundsvalls hamn
+- id: port_gavle
+  canonical_name: Gävle
+  type: port
+  precision: port
+  center:
+    lat: 60.695
+    lon: 17.17
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  aliases:
+    de:
+    - Gävle
+    - Gaevle
+    - Gavle
+    en:
+    - Gävle
+    - Gavle
+    - Port of Gävle
+    sv:
+    - Gävle
+    - Gävle hamn
+- id: port_norrkoping
+  canonical_name: Norrköping
+  type: port
+  precision: port
+  center:
+    lat: 58.6
+    lon: 16.185
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  - REG:GOTLAND_SEA
+  aliases:
+    de:
+    - Norrköping
+    - Norrkoeping
+    - Norrkoping
+    en:
+    - Norrköping
+    - Norrkoping
+    - Port of Norrköping
+    sv:
+    - Norrköping
+    - Norrköpings hamn
+- id: port_oxelosund
+  canonical_name: Oxelösund
+  type: port
+  precision: port
+  center:
+    lat: 58.67
+    lon: 17.12
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:GOTLAND_SEA
+  aliases:
+    de:
+    - Oxelösund
+    - Oxeloesund
+    - Oxelosund
+    en:
+    - Oxelösund
+    - Oxelosund
+    - Port of Oxelösund
+    sv:
+    - Oxelösund
+    - Oxelösunds hamn
+- id: port_karlshamn
+  canonical_name: Karlshamn
+  type: port
+  precision: port
+  center:
+    lat: 56.165
+    lon: 14.865
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:ENERGY
+  aliases:
+    de:
+    - Karlshamn
+    en:
+    - Karlshamn
+    - Port of Karlshamn
+    sv:
+    - Karlshamn
+    - Karlshamns hamn
+- id: port_hanko
+  canonical_name: Hanko
+  type: port
+  precision: port
+  center:
+    lat: 59.825
+    lon: 22.965
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  aliases:
+    de:
+    - Hanko
+    - Hangö
+    - Hango
+    en:
+    - Hanko
+    - Hangö
+    - Port of Hanko
+    fi:
+    - Hanko
+    sv:
+    - Hangö
+- id: port_pori
+  canonical_name: Pori
+  type: port
+  precision: port
+  center:
+    lat: 61.595
+    lon: 21.485
+  radius_km: 18
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  aliases:
+    de:
+    - Pori
+    - Björneborg
+    en:
+    - Pori
+    - Port of Pori
+    fi:
+    - Pori
+    sv:
+    - Björneborg
+- id: port_kokkola
+  canonical_name: Kokkola
+  type: port
+  precision: port
+  center:
+    lat: 63.845
+    lon: 23.01
+  radius_km: 16
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  aliases:
+    de:
+    - Kokkola
+    - Karleby
+    en:
+    - Kokkola
+    - Port of Kokkola
+    fi:
+    - Kokkola
+    sv:
+    - Karleby
+- id: port_oulu
+  canonical_name: Oulu
+  type: port
+  precision: port
+  center:
+    lat: 65.015
+    lon: 25.39
+  radius_km: 18
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  - REG:HIGH_NORTH_ARCTIC
+  aliases:
+    de:
+    - Oulu
+    - Uleåborg
+    - Uleaborg
+    en:
+    - Oulu
+    - Port of Oulu
+    fi:
+    - Oulu
+    sv:
+    - Uleåborg
+- id: port_kemi_tornio
+  canonical_name: Kemi-Tornio
+  type: port
+  precision: port
+  center:
+    lat: 65.735
+    lon: 24.555
+  radius_km: 26
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_BOTHNIA
+  - REG:HIGH_NORTH_ARCTIC
+  aliases:
+    de:
+    - Kemi
+    - Tornio
+    - Torneå
+    en:
+    - Kemi
+    - Tornio
+    - Port of Kemi
+    - Port of Tornio
+    fi:
+    - Kemi
+    - Tornio
+    sv:
+    - Torneå
+- id: port_sillamae
+  canonical_name: Sillamäe
+  type: port
+  precision: port
+  center:
+    lat: 59.415
+    lon: 27.76
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_FINLAND
+  aliases:
+    de:
+    - Sillamäe
+    - Sillamae
+    en:
+    - Sillamäe
+    - Sillamae
+    - Port of Sillamäe
+    et:
+    - Sillamäe
+    - Sillamae
+- id: port_parnu
+  canonical_name: Pärnu
+  type: port
+  precision: port
+  center:
+    lat: 58.385
+    lon: 24.485
+  radius_km: 14
+  regions:
+  - REG:BALTIC
+  - REG:GULF_OF_RIGA
+  aliases:
+    de:
+    - Pärnu
+    - Pernau
+    - Paernu
+    en:
+    - Pärnu
+    - Parnu
+    - Port of Pärnu
+    et:
+    - Pärnu
+    - Parnu
+- id: port_kolobrzeg
+  canonical_name: Kołobrzeg
+  type: port
+  precision: port
+  center:
+    lat: 54.18
+    lon: 15.555
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:FISHERY
+  aliases:
+    de:
+    - Kolberg
+    - Kołobrzeg
+    - Kolobrzeg
+    en:
+    - Kołobrzeg
+    - Kolobrzeg
+    - Port of Kołobrzeg
+    pl:
+    - Kołobrzeg
+    - Kolobrzeg
+- id: port_ustka
+  canonical_name: Ustka
+  type: port
+  precision: port
+  center:
+    lat: 54.585
+    lon: 16.855
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:FISHERY
+  aliases:
+    de:
+    - Stolpmünde
+    - Stolpmuende
+    - Ustka
+    en:
+    - Ustka
+    - Port of Ustka
+    pl:
+    - Ustka
+- id: port_darlowo
+  canonical_name: Darłowo
+  type: port
+  precision: port
+  center:
+    lat: 54.435
+    lon: 16.38
+  radius_km: 12
+  regions:
+  - REG:BALTIC
+  - REG:FISHERY
+  aliases:
+    de:
+    - Rügenwalde
+    - Ruegenwalde
+    - Darłowo
+    - Darlowo
+    en:
+    - Darłowo
+    - Darlowo
+    - Port of Darłowo
+    pl:
+    - Darłowo
+    - Darlowo
+- id: port_narvik
+  canonical_name: Narvik
+  type: port
+  precision: port
+  center:
+    lat: 68.43
+    lon: 17.425
+  radius_km: 18
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:NORWAY_COAST
+  aliases:
+    de:
+    - Narvik
+    en:
+    - Narvik
+    - Port of Narvik
+    'no':
+    - Narvik
+    - Narvik havn
+- id: port_tromso
+  canonical_name: Tromsø
+  type: port
+  precision: port
+  center:
+    lat: 69.65
+    lon: 18.96
+  radius_km: 18
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:NORWAY_COAST
+  - REG:FISHERY
+  aliases:
+    de:
+    - Tromsø
+    - Tromso
+    en:
+    - Tromsø
+    - Tromso
+    - Port of Tromsø
+    'no':
+    - Tromsø
+    - Tromsø havn
+- id: port_hammerfest
+  canonical_name: Hammerfest
+  type: port
+  precision: port
+  center:
+    lat: 70.665
+    lon: 23.68
+  radius_km: 20
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:BARENTS_SEA
+  - REG:NORWAY_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Hammerfest
+    - Melkøya
+    - Melkoeya
+    en:
+    - Hammerfest
+    - Melkøya
+    - Melkoya
+    - Hammerfest LNG
+    'no':
+    - Hammerfest
+    - Melkøya
+- id: port_kirkenes
+  canonical_name: Kirkenes
+  type: port
+  precision: port
+  center:
+    lat: 69.725
+    lon: 30.045
+  radius_km: 18
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:BARENTS_SEA
+  - REG:NORWAY_COAST
+  aliases:
+    de:
+    - Kirkenes
+    en:
+    - Kirkenes
+    - Port of Kirkenes
+    'no':
+    - Kirkenes
+    - Kirkenes havn
+- id: port_mongstad
+  canonical_name: Mongstad
+  type: energy_terminal
+  precision: port
+  center:
+    lat: 60.81
+    lon: 5.03
+  radius_km: 18
+  regions:
+  - REG:NORTH_SEA
+  - REG:NORWAY_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Mongstad
+    - Mongstad Terminal
+    en:
+    - Mongstad
+    - Mongstad terminal
+    - Mongstad oil terminal
+    'no':
+    - Mongstad
+- id: port_sture
+  canonical_name: Sture
+  type: energy_terminal
+  precision: port
+  center:
+    lat: 60.625
+    lon: 4.84
+  radius_km: 16
+  regions:
+  - REG:NORTH_SEA
+  - REG:NORWAY_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Sture
+    - Sture Terminal
+    en:
+    - Sture
+    - Sture terminal
+    - Sture oil terminal
+    'no':
+    - Stureterminalen
+    - Sture
+- id: port_karsto
+  canonical_name: Kårstø
+  type: energy_terminal
+  precision: port
+  center:
+    lat: 59.275
+    lon: 5.515
+  radius_km: 16
+  regions:
+  - REG:NORTH_SEA
+  - REG:NORWAY_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Kårstø
+    - Karsto
+    - Kaarstoe
+    en:
+    - Kårstø
+    - Karsto
+    - Kaarstoe
+    - Kårstø gas terminal
+    'no':
+    - Kårstø
+    - Kårstøterminalen
+- id: port_santos
+  canonical_name: Santos
+  type: port
+  precision: port
+  center:
+    lat: -23.96
+    lon: -46.33
+  radius_km: 30
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Santos
+    en:
+    - Santos
+    - Port of Santos
+    - Santos port
+    pt:
+    - Santos
+    - Porto de Santos
+    es:
+    - Santos
+- id: malacca_strait
+  canonical_name: Malacca Strait
+  type: strait
+  precision: area
+  center:
+    lat: 3.0
+    lon: 100.5
+  radius_km: 500
+  regions:
+  - REG:MALACCA_STRAIT
+  - REG:INDO_PACIFIC
+  - REG:SOUTH_CHINA_SEA
+  aliases:
+    de:
+    - Straße von Malakka
+    - Strasse von Malakka
+    - Malakkastraße
+    en:
+    - Malacca Strait
+    - Strait of Malacca
+    id:
+    - Selat Malaka
+    ms:
+    - Selat Melaka
+- id: singapore_strait
+  canonical_name: Singapore Strait
+  type: strait
+  precision: area
+  center:
+    lat: 1.2
+    lon: 103.85
+  radius_km: 90
+  regions:
+  - REG:SINGAPORE_STRAIT
+  - REG:INDO_PACIFIC
+  - REG:SOUTH_CHINA_SEA
+  aliases:
+    de:
+    - Straße von Singapur
+    - Strasse von Singapur
+    en:
+    - Singapore Strait
+    - Strait of Singapore
+    ms:
+    - Selat Singapura
+    id:
+    - Selat Singapura
+- id: south_china_sea
+  canonical_name: South China Sea
+  type: sea_area
+  precision: area
+  center:
+    lat: 12.0
+    lon: 114.0
+  radius_km: 1500
+  regions:
+  - REG:SOUTH_CHINA_SEA
+  - REG:INDO_PACIFIC
+  aliases:
+    de:
+    - Südchinesisches Meer
+    - Suedchinesisches Meer
+    en:
+    - South China Sea
+    zh_latin:
+    - Nanhai
+    vi_latin:
+    - Bien Dong
+    - Biển Đông
+- id: taiwan_strait
+  canonical_name: Taiwan Strait
+  type: strait
+  precision: area
+  center:
+    lat: 24.0
+    lon: 119.5
+  radius_km: 280
+  regions:
+  - REG:TAIWAN_STRAIT
+  - REG:EAST_ASIA
+  - REG:INDO_PACIFIC
+  aliases:
+    de:
+    - Taiwanstraße
+    - Taiwanstrasse
+    - Straße von Taiwan
+    en:
+    - Taiwan Strait
+    - Strait of Taiwan
+    zh_latin:
+    - Taiwan Haixia
+- id: east_china_sea
+  canonical_name: East China Sea
+  type: sea_area
+  precision: area
+  center:
+    lat: 29.0
+    lon: 125.0
+  radius_km: 900
+  regions:
+  - REG:EAST_CHINA_SEA
+  - REG:EAST_ASIA
+  - REG:INDO_PACIFIC
+  aliases:
+    de:
+    - Ostchinesisches Meer
+    en:
+    - East China Sea
+    zh_latin:
+    - Donghai
+- id: korean_strait
+  canonical_name: Korea Strait
+  type: strait
+  precision: area
+  center:
+    lat: 34.8
+    lon: 129.5
+  radius_km: 250
+  regions:
+  - REG:EAST_ASIA
+  - REG:KOREA_STRAIT
+  aliases:
+    de:
+    - Koreastraße
+    - Koreastrasse
+    - Straße von Korea
+    en:
+    - Korea Strait
+    - Korean Strait
+    - Tsushima Strait
+    ja_latin:
+    - Tsushima Kaikyo
+    ko_latin:
+    - Daehan Haehyeop
+- id: greenland_iceland_uk_gap
+  canonical_name: GIUK Gap
+  type: sea_area
+  precision: area
+  center:
+    lat: 62.5
+    lon: -20.0
+  radius_km: 800
+  regions:
+  - REG:GIUK_GAP
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - GIUK-Lücke
+    - GIUK Lücke
+    - GIUK Gap
+    en:
+    - GIUK Gap
+    - Greenland-Iceland-UK Gap
+    - Greenland Iceland UK Gap
+- id: northwest_passage
+  canonical_name: Northwest Passage
+  type: sea_area
+  precision: area
+  center:
+    lat: 73.0
+    lon: -95.0
+  radius_km: 1400
+  regions:
+  - REG:ARCTIC
+  - REG:NORTH_AMERICA
+  aliases:
+    de:
+    - Nordwestpassage
+    en:
+    - Northwest Passage
+    - North-West Passage
+    fr:
+    - Passage du Nord-Ouest
+- id: baltimore_chesapeake
+  canonical_name: Baltimore / Chesapeake Bay
+  type: port_coastal_place
+  precision: area
+  center:
+    lat: 39.23
+    lon: -76.55
+  radius_km: 80
+  regions:
+  - REG:NORTH_AMERICA
+  - REG:US_EAST_COAST
+  aliases:
+    de:
+    - Baltimore
+    - Chesapeake Bay
+    en:
+    - Baltimore
+    - Port of Baltimore
+    - Chesapeake Bay
+    fr:
+    - Baltimore
+- id: mano_river_coast
+  canonical_name: Mano River Coast / Sierra Leone-Guinea-Liberia Approaches
+  type: sea_area
+  precision: area
+  center:
+    lat: 8.1
+    lon: -12.8
+  radius_km: 360
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  aliases:
+    de:
+    - Mano-River-Küste
+    - Guinea-Sierra-Leone-Liberia-Zugänge
+    en:
+    - Mano River Coast
+    - Sierra Leone approaches
+    - Guinea approaches
+    - Liberia approaches
+    fr:
+    - côte du fleuve Mano
+    - approches de Sierra Leone
+    - approches de Guinée
+- id: bight_of_benin
+  canonical_name: Bight of Benin
+  type: sea_area
+  precision: area
+  center:
+    lat: 5.3
+    lon: 1.7
+  radius_km: 420
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Bucht von Benin
+    en:
+    - Bight of Benin
+    fr:
+    - Golfe du Bénin
+    pt:
+    - Golfo do Benim
+- id: bight_of_bonny
+  canonical_name: Bight of Bonny
+  type: sea_area
+  precision: area
+  center:
+    lat: 3.9
+    lon: 7.6
+  radius_km: 430
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Bucht von Bonny
+    en:
+    - Bight of Bonny
+    - Bonny approaches
+    fr:
+    - Golfe du Bonny
+- id: guianas_coast
+  canonical_name: Guianas Coast
+  type: sea_area
+  precision: area
+  center:
+    lat: 6.3
+    lon: -55.2
+  radius_km: 650
+  regions:
+  - REG:GUIANAS
+  - REG:ATLANTIC
+  - REG:CARIBBEAN_APPROACHES
+  aliases:
+    de:
+    - Guayana-Küste
+    - Guianas-Küste
+    en:
+    - Guianas Coast
+    - Guyana Suriname French Guiana coast
+    fr:
+    - côte des Guyanes
+    nl:
+    - Guyana's kust
+- id: port_nouadhibou
+  canonical_name: Nouadhibou
+  type: port
+  precision: port
+  center:
+    lat: 20.9
+    lon: -17.04
+  radius_km: 22
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Nouadhibou
+    en:
+    - Nouadhibou
+    - Port of Nouadhibou
+    fr:
+    - Nouadhibou
+    - Port de Nouadhibou
+- id: port_nouakchott
+  canonical_name: Nouakchott
+  type: port
+  precision: port
+  center:
+    lat: 17.98
+    lon: -16.03
+  radius_km: 24
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Nouakchott
+    en:
+    - Nouakchott
+    - Port of Nouakchott
+    - Port de l'Amitié
+    fr:
+    - Nouakchott
+    - Port autonome de Nouakchott
+    - Port de l'Amitié
+- id: port_dakar
+  canonical_name: Dakar
+  type: port
+  precision: port
+  center:
+    lat: 14.68
+    lon: -17.43
+  radius_km: 28
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Dakar
+    - Hafen Dakar
+    en:
+    - Dakar
+    - Port of Dakar
+    - Dakar port
+    fr:
+    - Dakar
+    - Port de Dakar
+- id: port_banjul
+  canonical_name: Banjul
+  type: port
+  precision: port
+  center:
+    lat: 13.45
+    lon: -16.58
+  radius_km: 16
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Banjul
+    en:
+    - Banjul
+    - Port of Banjul
+    - Banjul port
+    fr:
+    - Banjul
+- id: port_bissau
+  canonical_name: Bissau
+  type: port
+  precision: port
+  center:
+    lat: 11.86
+    lon: -15.59
+  radius_km: 18
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Bissau
+    en:
+    - Bissau
+    - Port of Bissau
+    pt:
+    - Bissau
+    - Porto de Bissau
+    fr:
+    - Bissau
+- id: port_conakry
+  canonical_name: Conakry
+  type: port
+  precision: port
+  center:
+    lat: 9.51
+    lon: -13.71
+  radius_km: 24
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  aliases:
+    de:
+    - Conakry
+    - Konakry
+    en:
+    - Conakry
+    - Port of Conakry
+    - Conakry port
+    fr:
+    - Conakry
+    - Port de Conakry
+- id: port_kamsar
+  canonical_name: Kamsar
+  type: port
+  precision: port
+  center:
+    lat: 10.65
+    lon: -14.61
+  radius_km: 22
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  - REG:BAUXITE
+  aliases:
+    de:
+    - Kamsar
+    - Hafen Kamsar
+    - Bauxithafen Kamsar
+    en:
+    - Kamsar
+    - Port of Kamsar
+    - Kamsar port
+    - Kamsar bauxite terminal
+    fr:
+    - Kamsar
+    - Port de Kamsar
+- id: port_freetown
+  canonical_name: Freetown
+  type: port
+  precision: port
+  center:
+    lat: 8.49
+    lon: -13.23
+  radius_km: 24
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  aliases:
+    de:
+    - Freetown
+    - Hafen Freetown
+    en:
+    - Freetown
+    - Port of Freetown
+    - Queen Elizabeth II Quay
+    fr:
+    - Freetown
+- id: port_pepel
+  canonical_name: Pepel
+  type: port
+  precision: port
+  center:
+    lat: 8.59
+    lon: -13.05
+  radius_km: 12
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  - REG:MINING
+  aliases:
+    de:
+    - Pepel
+    - Hafen Pepel
+    en:
+    - Pepel
+    - Pepel port
+    - Pepel terminal
+    - Pepel iron ore terminal
+    fr:
+    - Pepel
+- id: port_sherbro_bonthe
+  canonical_name: Sherbro / Bonthe
+  type: port_coastal_place
+  precision: area
+  center:
+    lat: 7.53
+    lon: -12.5
+  radius_km: 32
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  aliases:
+    de:
+    - Sherbro
+    - Bonthe
+    - Sherbro Island
+    en:
+    - Sherbro
+    - Bonthe
+    - Sherbro Island
+    - Sherbro River
+    fr:
+    - Sherbro
+    - Bonthe
+- id: port_monrovia
+  canonical_name: Monrovia
+  type: port
+  precision: port
+  center:
+    lat: 6.34
+    lon: -10.8
+  radius_km: 22
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  aliases:
+    de:
+    - Monrovia
+    - Hafen Monrovia
+    en:
+    - Monrovia
+    - Freeport of Monrovia
+    - Port of Monrovia
+    fr:
+    - Monrovia
+- id: port_buchanan
+  canonical_name: Buchanan
+  type: port
+  precision: port
+  center:
+    lat: 5.88
+    lon: -10.05
+  radius_km: 18
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  - REG:MINING
+  aliases:
+    de:
+    - Buchanan
+    en:
+    - Buchanan
+    - Port of Buchanan
+    - Buchanan port
+    fr:
+    - Buchanan
+- id: port_greenville_liberia
+  canonical_name: Greenville, Liberia
+  type: port
+  precision: port
+  center:
+    lat: 5.01
+    lon: -9.04
+  radius_km: 14
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  aliases:
+    de:
+    - Greenville Liberia
+    - Greenville
+    en:
+    - Greenville Liberia
+    - Greenville port
+    - Port of Greenville
+    fr:
+    - Greenville Liberia
+- id: port_harper_liberia
+  canonical_name: Harper, Liberia
+  type: port
+  precision: port
+  center:
+    lat: 4.37
+    lon: -7.72
+  radius_km: 14
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:MANO_RIVER_COAST
+  aliases:
+    de:
+    - Harper Liberia
+    - Harper
+    en:
+    - Harper Liberia
+    - Harper port
+    - Port of Harper
+    fr:
+    - Harper Liberia
+- id: port_san_pedro_civ
+  canonical_name: San Pedro, Côte d'Ivoire
+  type: port
+  precision: port
+  center:
+    lat: 4.75
+    lon: -6.64
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  aliases:
+    de:
+    - San Pedro Elfenbeinküste
+    - San Pedro Côte d'Ivoire
+    en:
+    - San Pedro Ivory Coast
+    - San Pedro Côte d'Ivoire
+    - Port of San Pedro
+    fr:
+    - San Pedro
+    - Port de San Pedro
+- id: port_takoradi
+  canonical_name: Takoradi
+  type: port
+  precision: port
+  center:
+    lat: 4.89
+    lon: -1.75
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  aliases:
+    de:
+    - Takoradi
+    en:
+    - Takoradi
+    - Port of Takoradi
+    - Takoradi port
+    fr:
+    - Takoradi
+- id: port_lome
+  canonical_name: Lomé
+  type: port
+  precision: port
+  center:
+    lat: 6.13
+    lon: 1.28
+  radius_km: 16
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:BIGHT_OF_BENIN
+  aliases:
+    de:
+    - Lomé
+    - Lome
+    en:
+    - Lomé
+    - Lome
+    - Port of Lomé
+    - Port of Lome
+    fr:
+    - Lomé
+    - Port de Lomé
+- id: port_cotonou
+  canonical_name: Cotonou
+  type: port
+  precision: port
+  center:
+    lat: 6.35
+    lon: 2.43
+  radius_km: 16
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:BIGHT_OF_BENIN
+  aliases:
+    de:
+    - Cotonou
+    en:
+    - Cotonou
+    - Port of Cotonou
+    fr:
+    - Cotonou
+    - Port de Cotonou
+- id: port_lekki
+  canonical_name: Lekki Deep Sea Port
+  type: port
+  precision: port
+  center:
+    lat: 6.43
+    lon: 3.9
+  radius_km: 14
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:BIGHT_OF_BENIN
+  aliases:
+    de:
+    - Lekki
+    - Lekki Deep Sea Port
+    en:
+    - Lekki
+    - Lekki Deep Sea Port
+    - Lekki port
+    fr:
+    - Lekki
+- id: port_port_harcourt
+  canonical_name: Port Harcourt
+  type: port
+  precision: port
+  center:
+    lat: 4.75
+    lon: 7.02
+  radius_km: 22
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:BIGHT_OF_BONNY
+  aliases:
+    de:
+    - Port Harcourt
+    en:
+    - Port Harcourt
+    - Port Harcourt port
+    fr:
+    - Port Harcourt
+- id: port_onne
+  canonical_name: Onne
+  type: port
+  precision: port
+  center:
+    lat: 4.7
+    lon: 7.15
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:BIGHT_OF_BONNY
+  - REG:OFFSHORE
+  aliases:
+    de:
+    - Onne
+    - Onne Port
+    en:
+    - Onne
+    - Onne Port
+    - Federal Ocean Terminal Onne
+    - Onne Oil and Gas Free Zone
+    fr:
+    - Onne
+- id: port_warri
+  canonical_name: Warri
+  type: port
+  precision: port
+  center:
+    lat: 5.52
+    lon: 5.75
+  radius_km: 20
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:NIGER_DELTA
+  aliases:
+    de:
+    - Warri
+    en:
+    - Warri
+    - Warri port
+    - Port of Warri
+    fr:
+    - Warri
+- id: port_calabar
+  canonical_name: Calabar
+  type: port
+  precision: port
+  center:
+    lat: 4.95
+    lon: 8.32
+  radius_km: 20
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:BIGHT_OF_BONNY
+  aliases:
+    de:
+    - Calabar
+    en:
+    - Calabar
+    - Port of Calabar
+    - Calabar port
+    fr:
+    - Calabar
+- id: terminal_bonny
+  canonical_name: Bonny / NLNG Terminal
+  type: port
+  precision: port
+  center:
+    lat: 4.42
+    lon: 7.17
+  radius_km: 22
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:BIGHT_OF_BONNY
+  - REG:ENERGY
+  aliases:
+    de:
+    - Bonny
+    - Bonny Terminal
+    - NLNG Bonny
+    en:
+    - Bonny
+    - Bonny Terminal
+    - Bonny Island
+    - Nigeria LNG
+    - NLNG terminal
+    fr:
+    - Bonny
+- id: terminal_brass
+  canonical_name: Brass Terminal
+  type: port
+  precision: port
+  center:
+    lat: 4.3
+    lon: 6.24
+  radius_km: 20
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:NIGER_DELTA
+  - REG:ENERGY
+  aliases:
+    de:
+    - Brass Terminal
+    - Brass
+    en:
+    - Brass Terminal
+    - Brass oil terminal
+    - Brass LNG
+    fr:
+    - Brass
+- id: terminal_escravos
+  canonical_name: Escravos Terminal
+  type: port
+  precision: port
+  center:
+    lat: 5.56
+    lon: 5.18
+  radius_km: 20
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:NIGER_DELTA
+  - REG:ENERGY
+  aliases:
+    de:
+    - Escravos
+    - Escravos Terminal
+    en:
+    - Escravos
+    - Escravos Terminal
+    - Escravos oil terminal
+    fr:
+    - Escravos
+- id: terminal_forcados
+  canonical_name: Forcados Terminal
+  type: port
+  precision: port
+  center:
+    lat: 5.36
+    lon: 5.34
+  radius_km: 20
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:NIGER_DELTA
+  - REG:ENERGY
+  aliases:
+    de:
+    - Forcados
+    - Forcados Terminal
+    en:
+    - Forcados
+    - Forcados Terminal
+    - Forcados oil terminal
+    fr:
+    - Forcados
+- id: terminal_qua_iboe
+  canonical_name: Qua Iboe Terminal
+  type: port
+  precision: port
+  center:
+    lat: 4.57
+    lon: 8.05
+  radius_km: 22
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:NIGERIA_COAST
+  - REG:BIGHT_OF_BONNY
+  - REG:ENERGY
+  aliases:
+    de:
+    - Qua Iboe
+    - Qua Iboe Terminal
+    en:
+    - Qua Iboe
+    - Qua Iboe Terminal
+    - Qua Iboe oil terminal
+    fr:
+    - Qua Iboe
+- id: port_douala
+  canonical_name: Douala
+  type: port
+  precision: port
+  center:
+    lat: 4.05
+    lon: 9.7
+  radius_km: 24
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:CAMEROON_COAST
+  - REG:BIGHT_OF_BONNY
+  aliases:
+    de:
+    - Douala
+    en:
+    - Douala
+    - Port of Douala
+    - Douala port
+    fr:
+    - Douala
+    - Port de Douala
+- id: port_kribi
+  canonical_name: Kribi
+  type: port
+  precision: port
+  center:
+    lat: 2.94
+    lon: 9.91
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:CAMEROON_COAST
+  aliases:
+    de:
+    - Kribi
+    - Tiefseehafen Kribi
+    en:
+    - Kribi
+    - Kribi Deep Sea Port
+    - Port of Kribi
+    fr:
+    - Kribi
+    - Port de Kribi
+- id: port_limbe
+  canonical_name: Limbe
+  type: port
+  precision: port
+  center:
+    lat: 4.02
+    lon: 9.21
+  radius_km: 14
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:CAMEROON_COAST
+  aliases:
+    de:
+    - Limbe
+    - Victoria Kamerun
+    en:
+    - Limbe Cameroon
+    - Limbe port
+    - Victoria Cameroon
+    fr:
+    - Limbe
+- id: port_malabo
+  canonical_name: Malabo
+  type: port
+  precision: port
+  center:
+    lat: 3.75
+    lon: 8.78
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:EQUATORIAL_GUINEA
+  aliases:
+    de:
+    - Malabo
+    en:
+    - Malabo
+    - Port of Malabo
+    - Malabo port
+    es:
+    - Malabo
+    - Puerto de Malabo
+    fr:
+    - Malabo
+- id: port_bata
+  canonical_name: Bata
+  type: port
+  precision: port
+  center:
+    lat: 1.86
+    lon: 9.77
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:EQUATORIAL_GUINEA
+  aliases:
+    de:
+    - Bata
+    en:
+    - Bata
+    - Port of Bata
+    - Bata port
+    es:
+    - Bata
+    - Puerto de Bata
+    fr:
+    - Bata
+- id: terminal_punta_europa
+  canonical_name: Punta Europa
+  type: port
+  precision: port
+  center:
+    lat: 3.78
+    lon: 8.71
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:EQUATORIAL_GUINEA
+  - REG:ENERGY
+  aliases:
+    de:
+    - Punta Europa
+    en:
+    - Punta Europa
+    - Punta Europa terminal
+    - Equatorial Guinea LNG
+    es:
+    - Punta Europa
+    fr:
+    - Punta Europa
+- id: port_owendo_libreville
+  canonical_name: Owendo / Libreville
+  type: port
+  precision: port
+  center:
+    lat: 0.3
+    lon: 9.5
+  radius_km: 22
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:GABON_COAST
+  aliases:
+    de:
+    - Owendo
+    - Libreville
+    - Hafen Owendo
+    en:
+    - Owendo
+    - Libreville
+    - Port of Owendo
+    - Libreville port
+    fr:
+    - Owendo
+    - Libreville
+    - Port d'Owendo
+- id: port_port_gentil
+  canonical_name: Port-Gentil
+  type: port
+  precision: port
+  center:
+    lat: -0.72
+    lon: 8.78
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:GABON_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Port-Gentil
+    en:
+    - Port-Gentil
+    - Port Gentil
+    - Port-Gentil port
+    fr:
+    - Port-Gentil
+- id: terminal_gamba
+  canonical_name: Gamba Terminal
+  type: port
+  precision: port
+  center:
+    lat: -2.75
+    lon: 10.02
+  radius_km: 18
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:GABON_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Gamba
+    - Gamba Terminal
+    en:
+    - Gamba
+    - Gamba Terminal
+    - Gamba oil terminal
+    fr:
+    - Gamba
+- id: port_pointe_noire
+  canonical_name: Pointe-Noire
+  type: port
+  precision: port
+  center:
+    lat: -4.78
+    lon: 11.83
+  radius_km: 24
+  regions:
+  - REG:GULF_OF_GUINEA
+  - REG:WEST_AFRICA
+  - REG:CONGO_COAST
+  aliases:
+    de:
+    - Pointe-Noire
+    en:
+    - Pointe-Noire
+    - Pointe Noire
+    - Port of Pointe-Noire
+    fr:
+    - Pointe-Noire
+    - Port de Pointe-Noire
+- id: port_matadi
+  canonical_name: Matadi
+  type: port
+  precision: port
+  center:
+    lat: -5.82
+    lon: 13.47
+  radius_km: 22
+  regions:
+  - REG:WEST_AFRICA
+  - REG:CONGO_RIVER
+  - REG:DRC_COAST
+  aliases:
+    de:
+    - Matadi
+    en:
+    - Matadi
+    - Port of Matadi
+    fr:
+    - Matadi
+    - Port de Matadi
+- id: port_boma
+  canonical_name: Boma
+  type: port
+  precision: port
+  center:
+    lat: -5.85
+    lon: 13.05
+  radius_km: 18
+  regions:
+  - REG:WEST_AFRICA
+  - REG:CONGO_RIVER
+  - REG:DRC_COAST
+  aliases:
+    de:
+    - Boma
+    en:
+    - Boma
+    - Port of Boma
+    fr:
+    - Boma
+    - Port de Boma
+- id: port_banana_drc
+  canonical_name: Banana, DRC
+  type: port
+  precision: port
+  center:
+    lat: -6.02
+    lon: 12.4
+  radius_km: 18
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:DRC_COAST
+  aliases:
+    de:
+    - Banana DRC
+    - Banana Kongo
+    en:
+    - Banana DRC
+    - Banana port
+    - Port of Banana
+    fr:
+    - Banana RDC
+    - Port de Banana
+- id: port_luanda
+  canonical_name: Luanda
+  type: port
+  precision: port
+  center:
+    lat: -8.79
+    lon: 13.25
+  radius_km: 28
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:ANGOLA_COAST
+  aliases:
+    de:
+    - Luanda
+    en:
+    - Luanda
+    - Port of Luanda
+    pt:
+    - Luanda
+    - Porto de Luanda
+    fr:
+    - Luanda
+- id: port_lobito
+  canonical_name: Lobito
+  type: port
+  precision: port
+  center:
+    lat: -12.35
+    lon: 13.55
+  radius_km: 22
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:ANGOLA_COAST
+  aliases:
+    de:
+    - Lobito
+    en:
+    - Lobito
+    - Port of Lobito
+    pt:
+    - Lobito
+    - Porto do Lobito
+    fr:
+    - Lobito
+- id: port_soyo
+  canonical_name: Soyo
+  type: port
+  precision: port
+  center:
+    lat: -6.13
+    lon: 12.37
+  radius_km: 18
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:ANGOLA_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Soyo
+    en:
+    - Soyo
+    - Soyo port
+    - Angola LNG
+    pt:
+    - Soyo
+    - Porto do Soyo
+- id: port_cabinda
+  canonical_name: Cabinda
+  type: port
+  precision: port
+  center:
+    lat: -5.55
+    lon: 12.2
+  radius_km: 18
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:ANGOLA_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Cabinda
+    - Kabinda
+    en:
+    - Cabinda
+    - Cabinda port
+    pt:
+    - Cabinda
+- id: port_moçamedes_namibe
+  canonical_name: Moçâmedes / Namibe
+  type: port
+  precision: port
+  center:
+    lat: -15.19
+    lon: 12.15
+  radius_km: 18
+  regions:
+  - REG:WEST_AFRICA
+  - REG:ATLANTIC
+  - REG:ANGOLA_COAST
+  aliases:
+    de:
+    - Namibe
+    - Moçâmedes
+    - Mocamedes
+    en:
+    - Namibe
+    - Moçâmedes
+    - Mocamedes
+    - Port of Namibe
+    pt:
+    - Moçâmedes
+    - Namibe
+- id: port_walvis_bay
+  canonical_name: Walvis Bay
+  type: port
+  precision: port
+  center:
+    lat: -22.95
+    lon: 14.5
+  radius_km: 26
+  regions:
+  - REG:SOUTHERN_AFRICA
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Walvis Bay
+    - Walfischbucht
+    en:
+    - Walvis Bay
+    - Port of Walvis Bay
+    af:
+    - Walvisbaai
+- id: brazil_southeast_approaches
+  canonical_name: Southeast Brazil Approaches
+  type: sea_area
+  precision: area
+  center:
+    lat: -23.0
+    lon: -43.5
+  radius_km: 650
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Südostbrasilien-Zugänge
+    - Südost-Brasilien
+    en:
+    - Southeast Brazil approaches
+    - Brazil southeast coast
+    pt:
+    - Costa sudeste do Brasil
+- id: port_rio_de_janeiro
+  canonical_name: Rio de Janeiro
+  type: port
+  precision: port
+  center:
+    lat: -22.89
+    lon: -43.18
+  radius_km: 28
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Rio de Janeiro
+    - Hafen Rio de Janeiro
+    en:
+    - Rio de Janeiro
+    - Port of Rio de Janeiro
+    pt:
+    - Rio de Janeiro
+    - Porto do Rio de Janeiro
+    es:
+    - Río de Janeiro
+- id: port_itaguai
+  canonical_name: Itaguaí / Sepetiba
+  type: port
+  precision: port
+  center:
+    lat: -22.93
+    lon: -43.83
+  radius_km: 28
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Itaguaí
+    - Itaguai
+    - Sepetiba
+    en:
+    - Itaguaí
+    - Itaguai
+    - Sepetiba
+    - Port of Itaguai
+    pt:
+    - Itaguaí
+    - Porto de Itaguaí
+    - Sepetiba
+- id: port_paranagua
+  canonical_name: Paranaguá
+  type: port
+  precision: port
+  center:
+    lat: -25.51
+    lon: -48.51
+  radius_km: 26
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Paranaguá
+    - Paranagua
+    en:
+    - Paranaguá
+    - Paranagua
+    - Port of Paranagua
+    pt:
+    - Paranaguá
+    - Porto de Paranaguá
+- id: port_rio_grande_brazil
+  canonical_name: Rio Grande, Brazil
+  type: port
+  precision: port
+  center:
+    lat: -32.04
+    lon: -52.08
+  radius_km: 30
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Rio Grande Brasil
+    - Rio Grande do Sul Hafen
+    en:
+    - Rio Grande Brazil
+    - Port of Rio Grande
+    - Rio Grande port
+    pt:
+    - Rio Grande
+    - Porto do Rio Grande
+- id: port_itajai_navegantes
+  canonical_name: Itajaí / Navegantes
+  type: port
+  precision: port
+  center:
+    lat: -26.91
+    lon: -48.65
+  radius_km: 24
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Itajaí
+    - Itajai
+    - Navegantes
+    en:
+    - Itajaí
+    - Itajai
+    - Navegantes
+    - Portonave
+    - Port of Itajai
+    pt:
+    - Itajaí
+    - Navegantes
+    - Portonave
+- id: port_sao_francisco_do_sul
+  canonical_name: São Francisco do Sul
+  type: port
+  precision: port
+  center:
+    lat: -26.24
+    lon: -48.64
+  radius_km: 20
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - São Francisco do Sul
+    - Sao Francisco do Sul
+    en:
+    - São Francisco do Sul
+    - Sao Francisco do Sul
+    - Port of São Francisco do Sul
+    pt:
+    - São Francisco do Sul
+    - Porto de São Francisco do Sul
+- id: port_vitoria_tubarao
+  canonical_name: Vitória / Tubarão
+  type: port
+  precision: port
+  center:
+    lat: -20.29
+    lon: -40.25
+  radius_km: 28
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  - REG:MINING
+  aliases:
+    de:
+    - Vitória
+    - Vitoria
+    - Tubarão
+    - Tubarao
+    en:
+    - Vitória
+    - Vitoria
+    - Tubarão
+    - Tubarao
+    - Tubarão Terminal
+    - Port of Vitoria
+    pt:
+    - Vitória
+    - Tubarão
+    - Porto de Vitória
+- id: port_suape
+  canonical_name: Suape
+  type: port
+  precision: port
+  center:
+    lat: -8.39
+    lon: -34.96
+  radius_km: 24
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Suape
+    en:
+    - Suape
+    - Port of Suape
+    - Suape port
+    pt:
+    - Suape
+    - Porto de Suape
+- id: port_pecem
+  canonical_name: Pecém
+  type: port
+  precision: port
+  center:
+    lat: -3.55
+    lon: -38.82
+  radius_km: 22
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Pecém
+    - Pecem
+    en:
+    - Pecém
+    - Pecem
+    - Port of Pecem
+    pt:
+    - Pecém
+    - Porto do Pecém
+- id: port_fortaleza_mucuripe
+  canonical_name: Fortaleza / Mucuripe
+  type: port
+  precision: port
+  center:
+    lat: -3.72
+    lon: -38.48
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Fortaleza
+    - Mucuripe
+    en:
+    - Fortaleza
+    - Mucuripe
+    - Port of Fortaleza
+    pt:
+    - Fortaleza
+    - Mucuripe
+    - Porto de Fortaleza
+- id: port_salvador_aratu
+  canonical_name: Salvador / Aratu
+  type: port
+  precision: port
+  center:
+    lat: -12.91
+    lon: -38.48
+  radius_km: 26
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  aliases:
+    de:
+    - Salvador
+    - Aratu
+    en:
+    - Salvador
+    - Aratu
+    - Port of Salvador
+    - Aratu terminal
+    pt:
+    - Salvador
+    - Aratu
+    - Porto de Salvador
+- id: port_itaqui_sao_luis
+  canonical_name: Itaqui / São Luís
+  type: port
+  precision: port
+  center:
+    lat: -2.57
+    lon: -44.37
+  radius_km: 28
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  - REG:MINING
+  aliases:
+    de:
+    - Itaqui
+    - São Luís
+    - Sao Luis
+    - Ponta da Madeira
+    en:
+    - Itaqui
+    - São Luís
+    - Sao Luis
+    - Ponta da Madeira
+    - Port of Itaqui
+    pt:
+    - Itaqui
+    - São Luís
+    - Ponta da Madeira
+- id: port_vila_do_conde_barcarena
+  canonical_name: Vila do Conde / Barcarena
+  type: port
+  precision: port
+  center:
+    lat: -1.54
+    lon: -48.75
+  radius_km: 24
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:BRAZIL_COAST
+  - REG:AMAZON
+  aliases:
+    de:
+    - Vila do Conde
+    - Barcarena
+    en:
+    - Vila do Conde
+    - Barcarena
+    - Port of Vila do Conde
+    pt:
+    - Vila do Conde
+    - Barcarena
+    - Porto de Vila do Conde
+- id: port_manaus
+  canonical_name: Manaus
+  type: port
+  precision: port
+  center:
+    lat: -3.14
+    lon: -60.02
+  radius_km: 28
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:AMAZON
+  - REG:BRAZIL_INLAND
+  aliases:
+    de:
+    - Manaus
+    en:
+    - Manaus
+    - Port of Manaus
+    pt:
+    - Manaus
+    - Porto de Manaus
+- id: port_santarem_brazil
+  canonical_name: Santarém, Brazil
+  type: port
+  precision: port
+  center:
+    lat: -2.43
+    lon: -54.73
+  radius_km: 24
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:AMAZON
+  - REG:BRAZIL_INLAND
+  aliases:
+    de:
+    - Santarém Brasil
+    - Santarem Brasil
+    en:
+    - Santarém Brazil
+    - Santarem Brazil
+    - Port of Santarem
+    pt:
+    - Santarém
+    - Porto de Santarém
+- id: port_georgetown_guyana
+  canonical_name: Georgetown, Guyana
+  type: port
+  precision: port
+  center:
+    lat: 6.81
+    lon: -58.16
+  radius_km: 20
+  regions:
+  - REG:GUIANAS
+  - REG:ATLANTIC
+  - REG:CARIBBEAN_APPROACHES
+  aliases:
+    de:
+    - Georgetown Guyana
+    en:
+    - Georgetown Guyana
+    - Port of Georgetown
+    - Georgetown port
+    fr:
+    - Georgetown Guyana
+    nl:
+    - Georgetown Guyana
+- id: port_paramaribo
+  canonical_name: Paramaribo
+  type: port
+  precision: port
+  center:
+    lat: 5.83
+    lon: -55.16
+  radius_km: 20
+  regions:
+  - REG:GUIANAS
+  - REG:ATLANTIC
+  - REG:SURINAME_COAST
+  - REG:CARIBBEAN_APPROACHES
+  aliases:
+    de:
+    - Paramaribo
+    - Hafen Paramaribo
+    en:
+    - Paramaribo
+    - Port of Paramaribo
+    nl:
+    - Paramaribo
+    - Haven Paramaribo
+    fr:
+    - Paramaribo
+- id: port_nieuw_nickerie
+  canonical_name: Nieuw Nickerie
+  type: port
+  precision: port
+  center:
+    lat: 5.94
+    lon: -56.99
+  radius_km: 16
+  regions:
+  - REG:GUIANAS
+  - REG:ATLANTIC
+  - REG:SURINAME_COAST
+  aliases:
+    de:
+    - Nieuw Nickerie
+    - Nickerie
+    en:
+    - Nieuw Nickerie
+    - Nickerie port
+    nl:
+    - Nieuw Nickerie
+    - Nickerie
+- id: port_moengo
+  canonical_name: Moengo
+  type: port
+  precision: port
+  center:
+    lat: 5.61
+    lon: -54.41
+  radius_km: 18
+  regions:
+  - REG:GUIANAS
+  - REG:SURINAME_COAST
+  - REG:MINING
+  aliases:
+    de:
+    - Moengo
+    en:
+    - Moengo
+    - Moengo port
+    nl:
+    - Moengo
+- id: port_degrad_des_cannes
+  canonical_name: Dégrad des Cannes
+  type: port
+  precision: port
+  center:
+    lat: 4.85
+    lon: -52.27
+  radius_km: 18
+  regions:
+  - REG:GUIANAS
+  - REG:ATLANTIC
+  - REG:FRENCH_GUIANA
+  aliases:
+    de:
+    - Dégrad des Cannes
+    - Degrad des Cannes
+    - Cayenne Hafen
+    en:
+    - Dégrad des Cannes
+    - Degrad des Cannes
+    - Port of Dégrad des Cannes
+    - Cayenne port
+    fr:
+    - Dégrad des Cannes
+    - Port de Dégrad des Cannes
+- id: port_kourou
+  canonical_name: Kourou / Pariacabo
+  type: port
+  precision: port
+  center:
+    lat: 5.16
+    lon: -52.64
+  radius_km: 16
+  regions:
+  - REG:GUIANAS
+  - REG:ATLANTIC
+  - REG:FRENCH_GUIANA
+  aliases:
+    de:
+    - Kourou
+    - Pariacabo
+    en:
+    - Kourou
+    - Pariacabo port
+    fr:
+    - Kourou
+    - Pariacabo
+- id: port_puerto_cabello
+  canonical_name: Puerto Cabello
+  type: port
+  precision: port
+  center:
+    lat: 10.47
+    lon: -68.01
+  radius_km: 24
+  regions:
+  - REG:CARIBBEAN
+  - REG:SOUTH_AMERICA_EAST
+  - REG:VENEZUELA_COAST
+  aliases:
+    de:
+    - Puerto Cabello
+    en:
+    - Puerto Cabello
+    - Port of Puerto Cabello
+    es:
+    - Puerto Cabello
+    - Puerto de Puerto Cabello
+- id: port_la_guaira
+  canonical_name: La Guaira
+  type: port
+  precision: port
+  center:
+    lat: 10.6
+    lon: -66.94
+  radius_km: 20
+  regions:
+  - REG:CARIBBEAN
+  - REG:SOUTH_AMERICA_EAST
+  - REG:VENEZUELA_COAST
+  aliases:
+    de:
+    - La Guaira
+    en:
+    - La Guaira
+    - Port of La Guaira
+    es:
+    - La Guaira
+    - Puerto de La Guaira
+- id: terminal_jose_venezuela
+  canonical_name: Jose Terminal
+  type: port
+  precision: port
+  center:
+    lat: 10.11
+    lon: -64.88
+  radius_km: 22
+  regions:
+  - REG:CARIBBEAN
+  - REG:SOUTH_AMERICA_EAST
+  - REG:VENEZUELA_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Jose Terminal
+    - José Terminal
+    en:
+    - Jose Terminal
+    - José Terminal
+    - Jose oil terminal
+    es:
+    - Terminal José
+    - Jose
+- id: port_barranquilla
+  canonical_name: Barranquilla
+  type: port
+  precision: port
+  center:
+    lat: 10.96
+    lon: -74.77
+  radius_km: 24
+  regions:
+  - REG:CARIBBEAN
+  - REG:SOUTH_AMERICA_EAST
+  - REG:COLOMBIA_COAST
+  aliases:
+    de:
+    - Barranquilla
+    en:
+    - Barranquilla
+    - Port of Barranquilla
+    es:
+    - Barranquilla
+    - Puerto de Barranquilla
+- id: port_buenaventura
+  canonical_name: Buenaventura
+  type: port
+  precision: port
+  center:
+    lat: 3.89
+    lon: -77.07
+  radius_km: 26
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:COLOMBIA_PACIFIC
+  aliases:
+    de:
+    - Buenaventura
+    en:
+    - Buenaventura
+    - Port of Buenaventura
+    es:
+    - Buenaventura
+    - Puerto de Buenaventura
+- id: port_tumaco
+  canonical_name: Tumaco
+  type: port
+  precision: port
+  center:
+    lat: 1.81
+    lon: -78.76
+  radius_km: 20
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:COLOMBIA_PACIFIC
+  aliases:
+    de:
+    - Tumaco
+    en:
+    - Tumaco
+    - Port of Tumaco
+    es:
+    - Tumaco
+    - Puerto de Tumaco
+- id: port_covenas
+  canonical_name: Coveñas
+  type: port
+  precision: port
+  center:
+    lat: 9.4
+    lon: -75.68
+  radius_km: 22
+  regions:
+  - REG:CARIBBEAN
+  - REG:SOUTH_AMERICA_EAST
+  - REG:COLOMBIA_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Coveñas
+    - Covenas
+    en:
+    - Coveñas
+    - Covenas
+    - Coveñas terminal
+    es:
+    - Coveñas
+    - Terminal de Coveñas
+- id: port_puerto_bolivar_colombia
+  canonical_name: Puerto Bolívar, Colombia
+  type: port
+  precision: port
+  center:
+    lat: 12.25
+    lon: -71.97
+  radius_km: 20
+  regions:
+  - REG:CARIBBEAN
+  - REG:SOUTH_AMERICA_EAST
+  - REG:COLOMBIA_COAST
+  - REG:MINING
+  aliases:
+    de:
+    - Puerto Bolívar Kolumbien
+    - Puerto Bolivar Kolumbien
+    en:
+    - Puerto Bolívar Colombia
+    - Puerto Bolivar Colombia
+    - Port of Puerto Bolívar
+    es:
+    - Puerto Bolívar
+    - Puerto Bolivar
+- id: port_esmeraldas
+  canonical_name: Esmeraldas
+  type: port
+  precision: port
+  center:
+    lat: 0.98
+    lon: -79.65
+  radius_km: 20
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:ECUADOR_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Esmeraldas
+    en:
+    - Esmeraldas
+    - Port of Esmeraldas
+    es:
+    - Esmeraldas
+    - Puerto de Esmeraldas
+- id: port_manta
+  canonical_name: Manta
+  type: port
+  precision: port
+  center:
+    lat: -0.95
+    lon: -80.72
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:ECUADOR_COAST
+  aliases:
+    de:
+    - Manta
+    en:
+    - Manta
+    - Port of Manta
+    es:
+    - Manta
+    - Puerto de Manta
+- id: port_puerto_bolivar_ecuador
+  canonical_name: Puerto Bolívar, Ecuador
+  type: port
+  precision: port
+  center:
+    lat: -3.26
+    lon: -80.0
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:ECUADOR_COAST
+  aliases:
+    de:
+    - Puerto Bolívar Ecuador
+    - Puerto Bolivar Ecuador
+    en:
+    - Puerto Bolívar Ecuador
+    - Puerto Bolivar Ecuador
+    - Port of Puerto Bolivar
+    es:
+    - Puerto Bolívar
+    - Puerto Bolivar Ecuador
+- id: port_paita
+  canonical_name: Paita
+  type: port
+  precision: port
+  center:
+    lat: -5.08
+    lon: -81.11
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:PERU_COAST
+  aliases:
+    de:
+    - Paita
+    en:
+    - Paita
+    - Port of Paita
+    es:
+    - Paita
+    - Puerto de Paita
+- id: port_chancay
+  canonical_name: Chancay
+  type: port
+  precision: port
+  center:
+    lat: -11.57
+    lon: -77.27
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:PERU_COAST
+  aliases:
+    de:
+    - Chancay
+    en:
+    - Chancay
+    - Port of Chancay
+    - Chancay port
+    es:
+    - Chancay
+    - Puerto de Chancay
+- id: port_matarani
+  canonical_name: Matarani
+  type: port
+  precision: port
+  center:
+    lat: -17.0
+    lon: -72.1
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:PERU_COAST
+  aliases:
+    de:
+    - Matarani
+    en:
+    - Matarani
+    - Port of Matarani
+    es:
+    - Matarani
+    - Puerto de Matarani
+- id: port_ilo
+  canonical_name: Ilo
+  type: port
+  precision: port
+  center:
+    lat: -17.64
+    lon: -71.35
+  radius_km: 16
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:PERU_COAST
+  aliases:
+    de:
+    - Ilo
+    en:
+    - Ilo
+    - Port of Ilo
+    es:
+    - Ilo
+    - Puerto de Ilo
+- id: port_iquique
+  canonical_name: Iquique
+  type: port
+  precision: port
+  center:
+    lat: -20.21
+    lon: -70.15
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  aliases:
+    de:
+    - Iquique
+    en:
+    - Iquique
+    - Port of Iquique
+    es:
+    - Iquique
+    - Puerto de Iquique
+- id: port_mejillones
+  canonical_name: Mejillones
+  type: port
+  precision: port
+  center:
+    lat: -23.09
+    lon: -70.45
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  - REG:MINING
+  aliases:
+    de:
+    - Mejillones
+    en:
+    - Mejillones
+    - Port of Mejillones
+    - Mejillones terminal
+    es:
+    - Mejillones
+    - Puerto Mejillones
+- id: port_antofagasta
+  canonical_name: Antofagasta
+  type: port
+  precision: port
+  center:
+    lat: -23.65
+    lon: -70.4
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  - REG:MINING
+  aliases:
+    de:
+    - Antofagasta
+    en:
+    - Antofagasta
+    - Port of Antofagasta
+    es:
+    - Antofagasta
+    - Puerto de Antofagasta
+- id: port_quintero_ventanas
+  canonical_name: Quintero / Ventanas
+  type: port
+  precision: port
+  center:
+    lat: -32.78
+    lon: -71.53
+  radius_km: 20
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  - REG:ENERGY
+  aliases:
+    de:
+    - Quintero
+    - Ventanas
+    en:
+    - Quintero
+    - Ventanas
+    - Quintero terminal
+    - Ventanas port
+    es:
+    - Quintero
+    - Ventanas
+- id: port_valparaiso
+  canonical_name: Valparaíso
+  type: port
+  precision: port
+  center:
+    lat: -33.03
+    lon: -71.62
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  aliases:
+    de:
+    - Valparaíso
+    - Valparaiso
+    en:
+    - Valparaíso
+    - Valparaiso
+    - Port of Valparaiso
+    es:
+    - Valparaíso
+    - Puerto de Valparaíso
+- id: port_san_antonio_chile
+  canonical_name: San Antonio, Chile
+  type: port
+  precision: port
+  center:
+    lat: -33.58
+    lon: -71.62
+  radius_km: 20
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  aliases:
+    de:
+    - San Antonio Chile
+    en:
+    - San Antonio Chile
+    - Port of San Antonio
+    es:
+    - San Antonio
+    - Puerto San Antonio
+- id: port_san_vicente_talcahuano
+  canonical_name: San Vicente / Talcahuano
+  type: port
+  precision: port
+  center:
+    lat: -36.73
+    lon: -73.13
+  radius_km: 22
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  aliases:
+    de:
+    - San Vicente Chile
+    - Talcahuano
+    en:
+    - San Vicente Chile
+    - Talcahuano
+    - Port of San Vicente
+    es:
+    - San Vicente
+    - Talcahuano
+    - Puerto San Vicente
+- id: port_lirquen
+  canonical_name: Lirquén
+  type: port
+  precision: port
+  center:
+    lat: -36.7
+    lon: -72.98
+  radius_km: 16
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  aliases:
+    de:
+    - Lirquén
+    - Lirquen
+    en:
+    - Lirquén
+    - Lirquen
+    - Port of Lirquen
+    es:
+    - Lirquén
+    - Puerto Lirquén
+- id: port_coronel
+  canonical_name: Coronel
+  type: port
+  precision: port
+  center:
+    lat: -37.03
+    lon: -73.15
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  aliases:
+    de:
+    - Coronel
+    en:
+    - Coronel
+    - Port of Coronel
+    es:
+    - Coronel
+    - Puerto Coronel
+- id: port_puerto_montt
+  canonical_name: Puerto Montt
+  type: port
+  precision: port
+  center:
+    lat: -41.48
+    lon: -72.94
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:CHILE_COAST
+  aliases:
+    de:
+    - Puerto Montt
+    en:
+    - Puerto Montt
+    - Port of Puerto Montt
+    es:
+    - Puerto Montt
+    - Puerto de Puerto Montt
+- id: port_punta_arenas
+  canonical_name: Punta Arenas
+  type: port
+  precision: port
+  center:
+    lat: -53.16
+    lon: -70.91
+  radius_km: 20
+  regions:
+  - REG:SOUTH_AMERICA_WEST
+  - REG:PACIFIC_SOUTH_AMERICA
+  - REG:MAGELLAN_STRAIT
+  aliases:
+    de:
+    - Punta Arenas
+    - Magellanstraße
+    en:
+    - Punta Arenas
+    - Port of Punta Arenas
+    - Strait of Magellan
+    es:
+    - Punta Arenas
+    - Estrecho de Magallanes
+- id: port_buenos_aires
+  canonical_name: Buenos Aires
+  type: port
+  precision: port
+  center:
+    lat: -34.59
+    lon: -58.37
+  radius_km: 28
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:RIO_DE_LA_PLATA
+  - REG:ARGENTINA_COAST
+  aliases:
+    de:
+    - Buenos Aires
+    - Hafen Buenos Aires
+    en:
+    - Buenos Aires
+    - Port of Buenos Aires
+    es:
+    - Buenos Aires
+    - Puerto de Buenos Aires
+- id: port_la_plata
+  canonical_name: La Plata
+  type: port
+  precision: port
+  center:
+    lat: -34.86
+    lon: -57.89
+  radius_km: 22
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:RIO_DE_LA_PLATA
+  - REG:ARGENTINA_COAST
+  aliases:
+    de:
+    - La Plata
+    en:
+    - La Plata
+    - Port of La Plata
+    es:
+    - La Plata
+    - Puerto La Plata
+- id: port_bahia_blanca
+  canonical_name: Bahía Blanca
+  type: port
+  precision: port
+  center:
+    lat: -38.78
+    lon: -62.27
+  radius_km: 30
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:ARGENTINA_COAST
+  aliases:
+    de:
+    - Bahía Blanca
+    - Bahia Blanca
+    en:
+    - Bahía Blanca
+    - Bahia Blanca
+    - Port of Bahia Blanca
+    es:
+    - Bahía Blanca
+    - Puerto Bahía Blanca
+- id: port_rosario_san_lorenzo
+  canonical_name: Rosario / San Lorenzo
+  type: port_coastal_place
+  precision: area
+  center:
+    lat: -32.8
+    lon: -60.72
+  radius_km: 42
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:PARANA_RIVER
+  - REG:ARGENTINA_INLAND
+  aliases:
+    de:
+    - Rosario
+    - San Lorenzo
+    - San Martín
+    - Paraná
+    en:
+    - Rosario
+    - San Lorenzo
+    - San Martin
+    - Parana River ports
+    - Up River ports
+    es:
+    - Rosario
+    - San Lorenzo
+    - San Martín
+    - Puertos Up River
+- id: port_quequen_necochea
+  canonical_name: Quequén / Necochea
+  type: port
+  precision: port
+  center:
+    lat: -38.57
+    lon: -58.7
+  radius_km: 22
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:ARGENTINA_COAST
+  aliases:
+    de:
+    - Quequén
+    - Quequen
+    - Necochea
+    en:
+    - Quequén
+    - Quequen
+    - Necochea
+    - Port of Quequen
+    es:
+    - Quequén
+    - Necochea
+    - Puerto Quequén
+- id: port_mar_del_plata
+  canonical_name: Mar del Plata
+  type: port
+  precision: port
+  center:
+    lat: -38.03
+    lon: -57.54
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:ARGENTINA_COAST
+  aliases:
+    de:
+    - Mar del Plata
+    en:
+    - Mar del Plata
+    - Port of Mar del Plata
+    es:
+    - Mar del Plata
+    - Puerto de Mar del Plata
+- id: port_puerto_madryn
+  canonical_name: Puerto Madryn
+  type: port
+  precision: port
+  center:
+    lat: -42.77
+    lon: -65.04
+  radius_km: 20
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:ARGENTINA_COAST
+  - REG:PATAGONIA
+  aliases:
+    de:
+    - Puerto Madryn
+    en:
+    - Puerto Madryn
+    - Port of Puerto Madryn
+    es:
+    - Puerto Madryn
+    - Puerto de Puerto Madryn
+- id: port_ushuaia
+  canonical_name: Ushuaia
+  type: port
+  precision: port
+  center:
+    lat: -54.81
+    lon: -68.31
+  radius_km: 18
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:ARGENTINA_COAST
+  - REG:TIERRA_DEL_FUEGO
+  aliases:
+    de:
+    - Ushuaia
+    - Feuerland
+    en:
+    - Ushuaia
+    - Port of Ushuaia
+    - Tierra del Fuego
+    es:
+    - Ushuaia
+    - Puerto de Ushuaia
+    - Tierra del Fuego
+- id: port_montevideo
+  canonical_name: Montevideo
+  type: port
+  precision: port
+  center:
+    lat: -34.91
+    lon: -56.21
+  radius_km: 26
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:ATLANTIC
+  - REG:RIO_DE_LA_PLATA
+  - REG:URUGUAY_COAST
+  aliases:
+    de:
+    - Montevideo
+    en:
+    - Montevideo
+    - Port of Montevideo
+    es:
+    - Montevideo
+    - Puerto de Montevideo
+- id: port_nueva_palmira
+  canonical_name: Nueva Palmira
+  type: port
+  precision: port
+  center:
+    lat: -33.88
+    lon: -58.41
+  radius_km: 22
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:URUGUAY_COAST
+  - REG:PARANA_RIVER
+  aliases:
+    de:
+    - Nueva Palmira
+    en:
+    - Nueva Palmira
+    - Port of Nueva Palmira
+    es:
+    - Nueva Palmira
+    - Puerto de Nueva Palmira
+- id: port_asuncion
+  canonical_name: Asunción
+  type: port
+  precision: port
+  center:
+    lat: -25.28
+    lon: -57.64
+  radius_km: 22
+  regions:
+  - REG:SOUTH_AMERICA_EAST
+  - REG:PARAGUAY_RIVER
+  - REG:PARAGUAY_INLAND
+  aliases:
+    de:
+    - Asunción
+    - Asuncion
+    en:
+    - Asunción
+    - Asuncion
+    - Port of Asuncion
+    es:
+    - Asunción
+    - Puerto de Asunción
+- id: port_colon_cristobal
+  canonical_name: Colón / Cristóbal
+  type: port
+  precision: port
+  center:
+    lat: 9.36
+    lon: -79.9
+  radius_km: 24
+  regions:
+  - REG:CARIBBEAN
+  - REG:PANAMA_CANAL
+  - REG:CARIBBEAN_APPROACHES
+  aliases:
+    de:
+    - Colón
+    - Colon
+    - Cristóbal
+    - Cristobal
+    en:
+    - Colón
+    - Colon
+    - Cristóbal
+    - Cristobal
+    - Manzanillo International Terminal
+    - MIT Panama
+    es:
+    - Colón
+    - Cristóbal
+    - Puerto de Cristóbal
+- id: port_balboa
+  canonical_name: Balboa
+  type: port
+  precision: port
+  center:
+    lat: 8.96
+    lon: -79.57
+  radius_km: 20
+  regions:
+  - REG:PACIFIC_CENTRAL_AMERICA
+  - REG:PANAMA_CANAL
+  aliases:
+    de:
+    - Balboa
+    en:
+    - Balboa
+    - Port of Balboa
+    es:
+    - Balboa
+    - Puerto de Balboa
+- id: port_kingston_jamaica
+  canonical_name: Kingston, Jamaica
+  type: port
+  precision: port
+  center:
+    lat: 17.97
+    lon: -76.8
+  radius_km: 22
+  regions:
+  - REG:CARIBBEAN
+  - REG:JAMAICA
+  aliases:
+    de:
+    - Kingston Jamaika
+    en:
+    - Kingston Jamaica
+    - Port of Kingston
+    - Kingston port
+    es:
+    - Kingston Jamaica
+- id: port_montego_bay
+  canonical_name: Montego Bay
+  type: port
+  precision: port
+  center:
+    lat: 18.47
+    lon: -77.92
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:JAMAICA
+  aliases:
+    de:
+    - Montego Bay
+    en:
+    - Montego Bay
+    - Port of Montego Bay
+    es:
+    - Montego Bay
+- id: port_mariel
+  canonical_name: Mariel
+  type: port
+  precision: port
+  center:
+    lat: 23.01
+    lon: -82.75
+  radius_km: 20
+  regions:
+  - REG:CARIBBEAN
+  - REG:CUBA
+  aliases:
+    de:
+    - Mariel
+    - Hafen Mariel
+    en:
+    - Mariel
+    - Port of Mariel
+    - Mariel Special Development Zone
+    es:
+    - Mariel
+    - Puerto del Mariel
+    - Zona Especial de Desarrollo Mariel
+- id: port_havana
+  canonical_name: Havana
+  type: port
+  precision: port
+  center:
+    lat: 23.14
+    lon: -82.35
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:CUBA
+  aliases:
+    de:
+    - Havanna
+    - Havana
+    en:
+    - Havana
+    - Port of Havana
+    es:
+    - La Habana
+    - Puerto de La Habana
+- id: port_santiago_de_cuba
+  canonical_name: Santiago de Cuba
+  type: port
+  precision: port
+  center:
+    lat: 20.02
+    lon: -75.83
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:CUBA
+  aliases:
+    de:
+    - Santiago de Cuba
+    en:
+    - Santiago de Cuba
+    - Port of Santiago de Cuba
+    es:
+    - Santiago de Cuba
+    - Puerto de Santiago de Cuba
+- id: port_cienfuegos
+  canonical_name: Cienfuegos
+  type: port
+  precision: port
+  center:
+    lat: 22.15
+    lon: -80.45
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:CUBA
+  aliases:
+    de:
+    - Cienfuegos
+    en:
+    - Cienfuegos
+    - Port of Cienfuegos
+    es:
+    - Cienfuegos
+    - Puerto de Cienfuegos
+- id: port_caucedo
+  canonical_name: Caucedo
+  type: port
+  precision: port
+  center:
+    lat: 18.43
+    lon: -69.64
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:DOMINICAN_REPUBLIC
+  aliases:
+    de:
+    - Caucedo
+    en:
+    - Caucedo
+    - DP World Caucedo
+    - Caucedo port
+    es:
+    - Caucedo
+    - Puerto Caucedo
+- id: port_santo_domingo
+  canonical_name: Santo Domingo
+  type: port
+  precision: port
+  center:
+    lat: 18.47
+    lon: -69.88
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:DOMINICAN_REPUBLIC
+  aliases:
+    de:
+    - Santo Domingo
+    en:
+    - Santo Domingo
+    - Port of Santo Domingo
+    es:
+    - Santo Domingo
+    - Puerto de Santo Domingo
+- id: port_haina
+  canonical_name: Rio Haina
+  type: port
+  precision: port
+  center:
+    lat: 18.42
+    lon: -70.03
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:DOMINICAN_REPUBLIC
+  aliases:
+    de:
+    - Haina
+    - Rio Haina
+    en:
+    - Rio Haina
+    - Haina
+    - Port of Haina
+    es:
+    - Río Haina
+    - Haina
+    - Puerto Haina
+- id: port_port_au_prince
+  canonical_name: Port-au-Prince
+  type: port
+  precision: port
+  center:
+    lat: 18.56
+    lon: -72.35
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:HAITI
+  aliases:
+    de:
+    - Port-au-Prince
+    - Port au Prince
+    en:
+    - Port-au-Prince
+    - Port au Prince
+    - Port of Port-au-Prince
+    fr:
+    - Port-au-Prince
+- id: port_cap_haitien
+  canonical_name: Cap-Haïtien
+  type: port
+  precision: port
+  center:
+    lat: 19.76
+    lon: -72.2
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:HAITI
+  aliases:
+    de:
+    - Cap-Haïtien
+    - Cap Haitien
+    en:
+    - Cap-Haïtien
+    - Cap Haitien
+    - Port of Cap Haitien
+    fr:
+    - Cap-Haïtien
+- id: port_freeport_bahamas
+  canonical_name: Freeport, Bahamas
+  type: port
+  precision: port
+  center:
+    lat: 26.52
+    lon: -78.77
+  radius_km: 22
+  regions:
+  - REG:CARIBBEAN
+  - REG:BAHAMAS
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Freeport Bahamas
+    en:
+    - Freeport Bahamas
+    - Freeport Container Port
+    - Port of Freeport
+    es:
+    - Freeport Bahamas
+- id: port_nassau
+  canonical_name: Nassau
+  type: port
+  precision: port
+  center:
+    lat: 25.08
+    lon: -77.35
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:BAHAMAS
+  - REG:ATLANTIC
+  aliases:
+    de:
+    - Nassau
+    en:
+    - Nassau
+    - Port of Nassau
+    es:
+    - Nassau
+- id: port_port_of_spain
+  canonical_name: Port of Spain
+  type: port
+  precision: port
+  center:
+    lat: 10.65
+    lon: -61.51
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:TRINIDAD_TOBAGO
+  - REG:SOUTH_AMERICA_APPROACHES
+  aliases:
+    de:
+    - Port of Spain
+    - Port-of-Spain
+    en:
+    - Port of Spain
+    - Port-of-Spain
+    es:
+    - Puerto España
+    - Port of Spain
+- id: port_point_lisas
+  canonical_name: Point Lisas
+  type: port
+  precision: port
+  center:
+    lat: 10.39
+    lon: -61.5
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:TRINIDAD_TOBAGO
+  - REG:ENERGY
+  aliases:
+    de:
+    - Point Lisas
+    en:
+    - Point Lisas
+    - Point Lisas port
+    - Point Lisas Industrial Port
+    es:
+    - Point Lisas
+- id: port_galeota
+  canonical_name: Galeota
+  type: port
+  precision: port
+  center:
+    lat: 10.14
+    lon: -60.99
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:TRINIDAD_TOBAGO
+  - REG:ENERGY
+  aliases:
+    de:
+    - Galeota
+    en:
+    - Galeota
+    - Galeota port
+    - Galeota Point
+    es:
+    - Galeota
+- id: port_bridgetown
+  canonical_name: Bridgetown
+  type: port
+  precision: port
+  center:
+    lat: 13.1
+    lon: -59.63
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:BARBADOS
+  aliases:
+    de:
+    - Bridgetown
+    en:
+    - Bridgetown
+    - Port of Bridgetown
+    es:
+    - Bridgetown
+- id: port_st_georges_grenada
+  canonical_name: St. George's, Grenada
+  type: port
+  precision: port
+  center:
+    lat: 12.05
+    lon: -61.75
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:GRENADA
+  aliases:
+    de:
+    - St. George's Grenada
+    - Saint George's Grenada
+    en:
+    - St. George's Grenada
+    - Saint George's Grenada
+    - Port of St George's
+    es:
+    - San Jorge Granada
+- id: port_castries
+  canonical_name: Castries
+  type: port
+  precision: port
+  center:
+    lat: 14.01
+    lon: -60.99
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:SAINT_LUCIA
+  aliases:
+    de:
+    - Castries
+    en:
+    - Castries
+    - Port of Castries
+    fr:
+    - Castries
+    es:
+    - Castries
+- id: port_vieux_fort
+  canonical_name: Vieux Fort
+  type: port
+  precision: port
+  center:
+    lat: 13.72
+    lon: -60.95
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:SAINT_LUCIA
+  aliases:
+    de:
+    - Vieux Fort
+    en:
+    - Vieux Fort
+    - Vieux Fort port
+    fr:
+    - Vieux Fort
+- id: port_kingstown
+  canonical_name: Kingstown
+  type: port
+  precision: port
+  center:
+    lat: 13.15
+    lon: -61.23
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:SAINT_VINCENT
+  aliases:
+    de:
+    - Kingstown
+    en:
+    - Kingstown
+    - Port of Kingstown
+    es:
+    - Kingstown
+- id: port_roseau
+  canonical_name: Roseau
+  type: port
+  precision: port
+  center:
+    lat: 15.3
+    lon: -61.39
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:DOMINICA
+  aliases:
+    de:
+    - Roseau
+    en:
+    - Roseau
+    - Port of Roseau
+    fr:
+    - Roseau
+- id: port_st_johns_antigua
+  canonical_name: St. John's, Antigua
+  type: port
+  precision: port
+  center:
+    lat: 17.12
+    lon: -61.85
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:ANTIGUA_BARBUDA
+  aliases:
+    de:
+    - St. John's Antigua
+    - Saint John's Antigua
+    en:
+    - St. John's Antigua
+    - Saint John's Antigua
+    - Port of St John's
+    es:
+    - Saint John's Antigua
+- id: port_basseterre
+  canonical_name: Basseterre
+  type: port
+  precision: port
+  center:
+    lat: 17.3
+    lon: -62.72
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:SAINT_KITTS_NEVIS
+  aliases:
+    de:
+    - Basseterre
+    en:
+    - Basseterre
+    - Port of Basseterre
+    fr:
+    - Basseterre
+- id: port_willemstad_curacao
+  canonical_name: Willemstad, Curaçao
+  type: port
+  precision: port
+  center:
+    lat: 12.11
+    lon: -68.94
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:DUTCH_CARIBBEAN
+  aliases:
+    de:
+    - Willemstad Curaçao
+    - Willemstad Curacao
+    en:
+    - Willemstad Curaçao
+    - Willemstad Curacao
+    - Port of Willemstad
+    nl:
+    - Willemstad
+    - Curaçao
+    es:
+    - Willemstad Curazao
+- id: port_oranjestad_aruba
+  canonical_name: Oranjestad, Aruba
+  type: port
+  precision: port
+  center:
+    lat: 12.52
+    lon: -70.04
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:DUTCH_CARIBBEAN
+  aliases:
+    de:
+    - Oranjestad Aruba
+    en:
+    - Oranjestad Aruba
+    - Port of Oranjestad
+    nl:
+    - Oranjestad Aruba
+    es:
+    - Oranjestad Aruba
+- id: port_kralendijk_bonaire
+  canonical_name: Kralendijk, Bonaire
+  type: port
+  precision: port
+  center:
+    lat: 12.15
+    lon: -68.28
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:DUTCH_CARIBBEAN
+  aliases:
+    de:
+    - Kralendijk Bonaire
+    en:
+    - Kralendijk Bonaire
+    - Port of Kralendijk
+    nl:
+    - Kralendijk Bonaire
+    es:
+    - Kralendijk Bonaire
+- id: port_fort_de_france
+  canonical_name: Fort-de-France
+  type: port
+  precision: port
+  center:
+    lat: 14.6
+    lon: -61.07
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:MARTINIQUE
+  aliases:
+    de:
+    - Fort-de-France
+    - Fort de France
+    en:
+    - Fort-de-France
+    - Fort de France
+    - Port of Fort-de-France
+    fr:
+    - Fort-de-France
+    - Port de Fort-de-France
+- id: port_pointe_a_pitre
+  canonical_name: Pointe-à-Pitre
+  type: port
+  precision: port
+  center:
+    lat: 16.24
+    lon: -61.53
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:GUADELOUPE
+  aliases:
+    de:
+    - Pointe-à-Pitre
+    - Pointe-a-Pitre
+    en:
+    - Pointe-à-Pitre
+    - Pointe-a-Pitre
+    - Port of Pointe-à-Pitre
+    fr:
+    - Pointe-à-Pitre
+    - Port de Pointe-à-Pitre
+- id: port_san_juan_pr
+  canonical_name: San Juan, Puerto Rico
+  type: port
+  precision: port
+  center:
+    lat: 18.46
+    lon: -66.11
+  radius_km: 20
+  regions:
+  - REG:CARIBBEAN
+  - REG:PUERTO_RICO
+  aliases:
+    de:
+    - San Juan Puerto Rico
+    en:
+    - San Juan Puerto Rico
+    - Port of San Juan
+    es:
+    - San Juan Puerto Rico
+    - Puerto de San Juan
+- id: port_ponce
+  canonical_name: Ponce
+  type: port
+  precision: port
+  center:
+    lat: 17.97
+    lon: -66.62
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:PUERTO_RICO
+  aliases:
+    de:
+    - Ponce
+    en:
+    - Ponce
+    - Port of Ponce
+    es:
+    - Ponce
+    - Puerto de Ponce
+- id: port_st_thomas
+  canonical_name: St. Thomas
+  type: port
+  precision: port
+  center:
+    lat: 18.34
+    lon: -64.93
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:US_VIRGIN_ISLANDS
+  aliases:
+    de:
+    - St. Thomas
+    - Saint Thomas
+    en:
+    - St. Thomas
+    - Saint Thomas
+    - Charlotte Amalie
+    es:
+    - Santo Tomás
+- id: port_st_croix
+  canonical_name: St. Croix
+  type: port
+  precision: port
+  center:
+    lat: 17.7
+    lon: -64.75
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:US_VIRGIN_ISLANDS
+  - REG:ENERGY
+  aliases:
+    de:
+    - St. Croix
+    - Saint Croix
+    en:
+    - St. Croix
+    - Saint Croix
+    - Port of St Croix
+    - Christiansted
+    - Frederiksted
+    es:
+    - Santa Cruz Islas Vírgenes
+- id: port_belize_city
+  canonical_name: Belize City
+  type: port
+  precision: port
+  center:
+    lat: 17.5
+    lon: -88.19
+  radius_km: 16
+  regions:
+  - REG:CARIBBEAN
+  - REG:CENTRAL_AMERICA
+  aliases:
+    de:
+    - Belize City
+    en:
+    - Belize City
+    - Port of Belize
+    es:
+    - Ciudad de Belice
+- id: port_big_creek_belize
+  canonical_name: Big Creek, Belize
+  type: port
+  precision: port
+  center:
+    lat: 16.52
+    lon: -88.37
+  radius_km: 14
+  regions:
+  - REG:CARIBBEAN
+  - REG:CENTRAL_AMERICA
+  aliases:
+    de:
+    - Big Creek Belize
+    en:
+    - Big Creek Belize
+    - Port of Big Creek
+    es:
+    - Big Creek Belice
+- id: port_puerto_cortes
+  canonical_name: Puerto Cortés
+  type: port
+  precision: port
+  center:
+    lat: 15.84
+    lon: -87.95
+  radius_km: 20
+  regions:
+  - REG:CARIBBEAN
+  - REG:CENTRAL_AMERICA
+  aliases:
+    de:
+    - Puerto Cortés
+    - Puerto Cortes
+    en:
+    - Puerto Cortés
+    - Puerto Cortes
+    - Port of Puerto Cortes
+    es:
+    - Puerto Cortés
+    - Puerto Cortes
+- id: port_puerto_limon_moin
+  canonical_name: Puerto Limón / Moín
+  type: port
+  precision: port
+  center:
+    lat: 10.0
+    lon: -83.05
+  radius_km: 20
+  regions:
+  - REG:CARIBBEAN
+  - REG:CENTRAL_AMERICA
+  aliases:
+    de:
+    - Puerto Limón
+    - Puerto Limon
+    - Moín
+    - Moin
+    en:
+    - Puerto Limón
+    - Puerto Limon
+    - Moín
+    - Moin
+    - Port of Moin
+    - APM Terminals Moin
+    es:
+    - Puerto Limón
+    - Moín
+- id: port_veracruz
+  canonical_name: Veracruz
+  type: port
+  precision: port
+  center:
+    lat: 19.2
+    lon: -96.14
+  radius_km: 22
+  regions:
+  - REG:CARIBBEAN
+  - REG:GULF_OF_MEXICO
+  - REG:MEXICO_COAST
+  aliases:
+    de:
+    - Veracruz
+    en:
+    - Veracruz
+    - Port of Veracruz
+    es:
+    - Veracruz
+    - Puerto de Veracruz
+- id: port_altamira
+  canonical_name: Altamira
+  type: port
+  precision: port
+  center:
+    lat: 22.4
+    lon: -97.9
+  radius_km: 22
+  regions:
+  - REG:CARIBBEAN
+  - REG:GULF_OF_MEXICO
+  - REG:MEXICO_COAST
+  aliases:
+    de:
+    - Altamira
+    en:
+    - Altamira
+    - Port of Altamira
+    es:
+    - Altamira
+    - Puerto de Altamira
+- id: port_progreso
+  canonical_name: Progreso
+  type: port
+  precision: port
+  center:
+    lat: 21.3
+    lon: -89.66
+  radius_km: 18
+  regions:
+  - REG:CARIBBEAN
+  - REG:GULF_OF_MEXICO
+  - REG:MEXICO_COAST
+  aliases:
+    de:
+    - Progreso
+    - Puerto Progreso
+    en:
+    - Progreso
+    - Port of Progreso
+    es:
+    - Progreso
+    - Puerto Progreso
+- id: port_gibraltar
+  canonical_name: Gibraltar
+  type: port
+  precision: port
+  center:
+    lat: 36.1408
+    lon: -5.3536
+  radius_km: 12
+  regions:
+  - REG:STRAIT_GIBRALTAR
+  - REG:MEDITERRANEAN
+  - REG:BISCAY_ATLANTIC_APPROACHES
+  aliases:
+    en:
+    - Gibraltar
+    - Port of Gibraltar
+    - Gibraltar Harbour
+    es:
+    - Gibraltar
+    de:
+    - Gibraltar
+- id: port_djibouti
+  canonical_name: Djibouti
+  type: port
+  precision: port
+  center:
+    lat: 11.604
+    lon: 43.145
+  radius_km: 20
+  regions:
+  - REG:HORN_OF_AFRICA
+  - REG:GULF_OF_ADEN
+  - REG:RED_SEA
+  aliases:
+    en:
+    - Djibouti
+    - Port of Djibouti
+    fr:
+    - Djibouti
+    - Port de Djibouti
+    de:
+    - Dschibuti
+    - Djibouti
+- id: bering_sea
+  canonical_name: Bering Sea
+  type: sea_area
+  precision: area
+  center:
+    lat: 58.8
+    lon: -177.0
+  radius_km: 900
+  regions:
+  - REG:HIGH_NORTH_ARCTIC
+  - REG:BERING_SEA
+  - REG:PACIFIC
+  aliases:
+    en:
+    - Bering Sea
+    de:
+    - Beringmeer
+    - Bering Sea
+- id: port_norfolk_us
+  canonical_name: Norfolk
+  type: port
+  precision: port
+  center:
+    lat: 36.9467
+    lon: -76.33
+  radius_km: 18
+  regions:
+  - REG:US_EAST_COAST
+  - REG:ATLANTIC_WEST
+  aliases:
+    en:
+    - Norfolk
+    - Naval Station Norfolk
+    - Norfolk Naval Station
+    - Port of Norfolk
+- id: port_long_beach
+  canonical_name: Long Beach
+  type: port
+  precision: port
+  center:
+    lat: 33.7542
+    lon: -118.2165
+  radius_km: 20
+  regions:
+  - REG:US_WEST_COAST
+  - REG:PACIFIC
+  aliases:
+    en:
+    - Long Beach
+    - Port of Long Beach
+- id: port_algeciras
+  canonical_name: Algeciras
+  type: port
+  precision: port
+  center:
+    lat: 36.14
+    lon: -5.44
+  radius_km: 18
+  regions:
+  - REG:MEDITERRANEAN
+  - REG:STRAIT_GIBRALTAR
+  aliases:
+    en:
+    - Algeciras
+    - Port of Algeciras
+    es:
+    - Algeciras
+    - Puerto de Algeciras
+- id: port_tanger_med
+  canonical_name: Tanger Med
+  type: port
+  precision: port
+  center:
+    lat: 35.89
+    lon: -5.51
+  radius_km: 18
+  regions:
+  - REG:MEDITERRANEAN
+  - REG:STRAIT_GIBRALTAR
+  aliases:
+    en:
+    - Tanger Med
+    - Tangier Med
+    - Port of Tanger Med
+    fr:
+    - Tanger Med
+- id: port_fujairah
+  canonical_name: Fujairah
+  type: port
+  precision: port
+  center:
+    lat: 25.18
+    lon: 56.36
+  radius_km: 25
+  regions:
+  - REG:PERSIAN_GULF
+  - REG:GULF_OF_OMAN
+  aliases:
+    en:
+    - Fujairah
+    - Port of Fujairah
+    - Fujairah anchorage
+- id: port_singapore
+  canonical_name: Singapore
+  type: port
+  precision: port
+  center:
+    lat: 1.264
+    lon: 103.84
+  radius_km: 30
+  regions:
+  - REG:SINGAPORE_STRAIT
+  - REG:SOUTHEAST_ASIA
+  aliases:
+    en:
+    - Singapore
+    - Port of Singapore
+    - Singapore port
+- id: port_colombo
+  canonical_name: Colombo
+  type: port
+  precision: port
+  center:
+    lat: 6.95
+    lon: 79.84
+  radius_km: 18
+  regions:
+  - REG:INDIAN_OCEAN
+  aliases:
+    en:
+    - Colombo
+    - Port of Colombo
+matching_notes:
+- Exact coordinates in issue bodies override gazetteer inference.
+- Area matches should be displayed as circles or soft markers, never as exact event locations.
+- Port coordinates are practical gazetteer anchors for OSINT routing, not official survey-grade positions.
+- Prefer explicit issue labels or coordinates for ambiguous names such as Cartagena, San Antonio, Georgetown, Greenville or
+  Santos.
+- v4 adds Atlantic trade-port coverage for West Africa, Gulf of Guinea, Brazil, Colombia, Chile, Argentina, Guianas/Suriname
+  and the Caribbean.
+curation_notes:
+  generated_for: MAGIC PAWS // MARITIME PHASE ZERO
+  added_package: West Africa, South America Atlantic/Pacific trade ports, Guianas/Suriname and Caribbean
+  added_count: 152
+  skipped_existing_ids: []
+  validation: json.loads roundtrip; duplicate-id check

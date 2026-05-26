@@ -1,0 +1,1007 @@
+version: 1
+endpoints:
+  hybrid_api_base: https://voodoo-hybrid-api.mowlsint.workers.dev
+  social_bridge_base: https://voodoo-social-bridge.mowlsint.workers.dev
+defaults:
+  domain_fallback: D:NEWS_INTEL
+  severity_fallback: SEV:1
+  confidence_fallback: CONF:LOW
+  base_labels:
+  - SRC:OSINT
+sources:
+- id: ukho_navwarn
+  name: UKHO / Admiralty MSI – Radio Navigational Warnings
+  type: html
+  url: https://msi.admiralty.co.uk/RadioNavigationalWarnings
+  labels:
+  - RF:NAVWARN
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  region_hint: REG:ATLANTIC_NE
+  priority: 95
+- id: ukmto_home
+  name: UKMTO – Maritime Trade Operations (Home)
+  type: html
+  url: https://www.ukmto.org/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  region_hint: REG:MED
+  priority: 90
+- id: nato_shipping_centre
+  name: NATO Shipping Centre (News/Advisories)
+  type: html
+  url: https://www.shipping.nato.int/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  region_hint: REG:ATLANTIC_NE
+  priority: 80
+- id: bsh_warnings
+  name: BSH – Nautische Warnnachrichten / Navigationswarnungen
+  type: html
+  url: https://www.bsh.de/DE/THEMEN/Schifffahrt/Nautische_Warnnachrichten/nautische_warnnachrichten_node.html
+  labels:
+  - RF:NAVWARN
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  region_hint: REG:GER_BIGHT
+  priority: 85
+- id: elwis_warnings
+  name: ELWIS – Nachrichten für Seefahrer / Verkehr & Warnungen
+  type: html
+  url: https://www.elwis.de/DE/Service/NfS/nfs-node.html
+  labels:
+  - RF:NAVWARN
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  region_hint: REG:INLAND_WATERWAYS
+  priority: 75
+- id: sjofartsverket_navwarn
+  name: Sjöfartsverket (SE) – Navigationsvarningar
+  type: html
+  url: https://www.sjofartsverket.se/en/Maritime-services/Notices-to-mariners/
+  labels:
+  - RF:NAVWARN
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  region_hint: REG:BALTIC
+  priority: 80
+- id: dma_navwarn
+  name: Danish Maritime Authority – Nautical Information / Warnings
+  type: html
+  url: https://www.dma.dk/safety-at-sea/navigational-information
+  labels:
+  - RF:NAVWARN
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  region_hint: REG:BALTIC
+  priority: 75
+- id: rws_shipping
+  name: Rijkswaterstaat – Shipping / Waterinfo (NL)
+  type: html
+  url: https://www.rijkswaterstaat.nl/
+  labels:
+  - D:INFRA_CI
+  - OBJ:WATERWAY
+  - SRC:OFFICIAL
+  region_hint: REG:ATLANTIC_NE
+  priority: 60
+- id: gpsjam
+  name: GPSJam – GNSS interference heatmap
+  type: html
+  url: https://gpsjam.org/
+  labels:
+  - D:RF_SIGNAL
+  - PAT:GNSS_JAM
+  - SRC:OSINT
+  region_hint: REG:OTHER
+  priority: 85
+- id: rfnosblog_x
+  name: Russia Maritime Watch (X) – RFNOSBlog
+  type: social_x
+  handle: RFNOSBlog
+  bridge_path: /x/RFNOSBlog
+  labels:
+  - D:AIS_TRACK
+  - V:RUS_WARSHIP
+  - SRC:SOCIAL
+  - MAP:YES
+  - PAT:ROUTE_OBSERVED
+  - V:RUS_AUXILIARY
+  region_hint: REG:OTHER
+  priority: 92
+  max_items: 18
+  lookback_hours: 168
+  allow_backfill: false
+  geo_priority: high
+  route_source: true
+  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+- id: shortwave78_x
+  name: Shortwave Observer (X) – shortwave78
+  type: social_x
+  handle: shortwave78
+  bridge_path: /x/shortwave78
+  labels:
+  - D:RF_SIGNAL
+  - PAT:RF_BURST
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 70
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: tankertrackers_x
+  name: TankerTrackers (X)
+  type: social_x
+  handle: TankerTrackers
+  bridge_path: /x/TankerTrackers
+  labels:
+  - D:AIS_TRACK
+  - V:SHADOW_FLEET
+  - V:SANCTIONS_EVASION
+  - SRC:SOCIAL
+  - MAP:YES
+  - PAT:ROUTE_OBSERVED
+  - PAT:STS_SUSPECT
+  region_hint: REG:OTHER
+  priority: 88
+  max_items: 18
+  lookback_hours: 168
+  allow_backfill: false
+  geo_priority: high
+  route_source: true
+  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+- id: starboardintel_x
+  name: Starboard Maritime Intelligence (X)
+  type: social_x
+  handle: StarboardIntel
+  bridge_path: /x/StarboardIntel
+  labels:
+  - D:AIS_TRACK
+  - SRC:SOCIAL
+  - MAP:YES
+  - PAT:ROUTE_OBSERVED
+  region_hint: REG:OTHER
+  priority: 80
+  max_items: 18
+  lookback_hours: 168
+  allow_backfill: false
+  geo_priority: high
+  route_source: true
+  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+- id: maritime_int_x
+  name: Maritime Intelligence Support Group (X)
+  type: social_x
+  handle: maritime_int
+  bridge_path: /x/maritime_int
+  labels:
+  - D:AIS_TRACK
+  - SRC:SOCIAL
+  - MAP:YES
+  - PAT:ROUTE_OBSERVED
+  region_hint: REG:OTHER
+  priority: 72
+  max_items: 18
+  lookback_hours: 168
+  allow_backfill: false
+  geo_priority: high
+  route_source: true
+  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+- id: maritime_exec_rss
+  name: The Maritime Executive (RSS)
+  type: rss
+  url: https://maritime-executive.com/articles.rss
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  region_hint: REG:OTHER
+  priority: 80
+- id: gcaptain_rss
+  name: gCaptain (RSS)
+  type: rss
+  url: https://gcaptain.com/feed/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  region_hint: REG:OTHER
+  priority: 70
+- id: vesseltracker_news
+  name: Vesseltracker News (DE) – News page
+  type: html
+  url: https://www.vesseltracker.com/de/news.html
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  region_hint: REG:OTHER
+  priority: 60
+- id: certeu_advisories_rss
+  name: CERT-EU – Security Advisories (RSS)
+  type: rss
+  url: https://cert.europa.eu/publications/security-advisories-rss
+  labels:
+  - D:CYBER_OT
+  - SRC:OFFICIAL
+  region_hint: REG:OTHER
+  priority: 85
+- id: certeu_threatintel_rss
+  name: CERT-EU – Threat Intelligence (RSS)
+  type: rss
+  url: https://cert.europa.eu/publications/threat-intelligence-rss
+  labels:
+  - D:CYBER_OT
+  - SRC:OFFICIAL
+  region_hint: REG:OTHER
+  priority: 75
+- id: certeu_guidance_rss
+  name: CERT-EU – Security Guidance (RSS)
+  type: rss
+  url: https://cert.europa.eu/publications/security-guidance-rss
+  labels:
+  - D:CYBER_OT
+  - SRC:OFFICIAL
+  region_hint: REG:OTHER
+  priority: 60
+- id: gfw_dataset_page
+  name: Global Fishing Watch – datasets & code (page)
+  type: html
+  url: https://globalfishingwatch.org/dataset-and-code-fishing-effort/
+  labels:
+  - D:AIS_TRACK
+  - V:FISHING
+  - SRC:OSINT
+  region_hint: REG:OTHER
+  priority: 55
+- id: gfw_userguide
+  name: Global Fishing Watch – map/user guide (page)
+  type: html
+  url: https://globalfishingwatch.org/user-guide/
+  labels:
+  - D:AIS_TRACK
+  - V:FISHING
+  - SRC:OSINT
+  region_hint: REG:OTHER
+  priority: 45
+- id: auonsson_bsky
+  name: auonsson (Bluesky)
+  type: social_bsky
+  handle: auonsson.bsky.social
+  bridge_path: /bsky/auonsson.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 70
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: klart_skepp_blog_rss
+  name: Klart Skepp! (Blogspot RSS)
+  type: rss
+  url: https://klartskeppnu.blogspot.com/feeds/posts/default?alt=rss
+  labels:
+  - SRC:OSINT
+  - SRC:MEDIA
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - CONF:LOW
+  - SEV:1
+  - REG:BALTIC
+  region_hint: REG:BALTIC
+  priority: 54
+  max_items: 5
+  lookback_hours: 168
+  allow_backfill: false
+  map_weight: 0.3
+  score_weight: 0.6
+- id: oiuye_bsky
+  name: oiuye (Bluesky)
+  type: social_bsky
+  handle: oiuye.bsky.social
+  bridge_path: /bsky/oiuye.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 60
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: warontherocks_bsky
+  name: War on the Rocks (Bluesky)
+  type: social_bsky
+  handle: warontherocks.bsky.social
+  bridge_path: /bsky/warontherocks.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 50
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: noelreports_bsky
+  name: NOELREPORTS (Bluesky)
+  type: social_bsky
+  handle: noelreports.bsky.social
+  bridge_path: /bsky/noelreports.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 70
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: navylookout_bsky
+  name: Navy Lookout (Bluesky)
+  type: social_bsky
+  handle: navylookout.bsky.social
+  bridge_path: /bsky/navylookout.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:ATLANTIC_NE
+  priority: 70
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: highnorthnews_bsky
+  name: High North News (Bluesky)
+  type: social_bsky
+  handle: highnorthnews.bsky.social
+  bridge_path: /bsky/highnorthnews.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:ATLANTIC_NE
+  priority: 60
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: ispk_bsky
+  name: ISPK (Bluesky)
+  type: social_bsky
+  handle: ispk.bsky.social
+  bridge_path: /bsky/ispk.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:BALTIC
+  priority: 55
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: jakobbohr_bsky
+  name: Jakob Kjøgx Bohr (Bluesky)
+  type: social_bsky
+  handle: jakobbohr.bsky.social
+  bridge_path: /bsky/jakobbohr.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:BALTIC
+  priority: 55
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: maritimekiwi_bsky
+  name: MaritimeKiwi / Mark Douglas (Bluesky)
+  type: social_bsky
+  handle: maritimekiwi.bsky.social
+  bridge_path: /bsky/maritimekiwi.bsky.social
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 50
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: warshipcam_bsky
+  name: WarshipCam (Bluesky) – warship sightings and port/transit photos
+  type: social_bsky
+  handle: warshipcam.bsky.social
+  bridge_path: /bsky/warshipcam.bsky.social
+  labels:
+  - D:AIS_TRACK
+  - D:AIR_ACTIVITY
+  - V:AUTH_NAVY
+  - SRC:SOCIAL
+  - SRC:BSKY
+  - MAP:YES
+  - PAT:ROUTE_OBSERVED
+  - CONF:LOW
+  - SEV:1
+  region_hint: REG:OTHER
+  priority: 84
+  max_items: 30
+  lookback_hours: 168
+  allow_backfill: false
+  geo_priority: high
+  route_source: true
+  map_policy: prefer_port_transit_photo_location_then_route_then_region
+- id: warshipcam_x
+  name: WarshipCam (X) – warship sightings and port/transit photos
+  type: social_x
+  handle: WarshipCam
+  bridge_path: /x/WarshipCam
+  labels:
+  - D:AIS_TRACK
+  - V:AUTH_NAVY
+  - SRC:SOCIAL
+  - SRC:X
+  - MAP:YES
+  - PAT:ROUTE_OBSERVED
+  - CONF:LOW
+  - SEV:1
+  region_hint: REG:OTHER
+  priority: 82
+  max_items: 24
+  lookback_hours: 168
+  allow_backfill: false
+  geo_priority: high
+  route_source: true
+  enabled: false
+  note: Enable if the social bridge can fetch this X account reliably.
+- id: te3ej_x
+  name: TJ / te3ej (X) – ship routes and geodata
+  type: social_x
+  handle: te3ej
+  bridge_path: /x/te3ej
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  - D:AIS_TRACK
+  - MAP:YES
+  - PAT:ROUTE_OBSERVED
+  - SRC:X
+  - CONF:LOW
+  - SEV:1
+  region_hint: REG:OTHER
+  priority: 90
+  max_items: 30
+  lookback_hours: 168
+  allow_backfill: false
+  geo_priority: high
+  route_source: true
+  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+- id: worldcrimeintel_x
+  name: World Crime Intel (X)
+  type: social_x
+  handle: WorldCrimeIntel
+  bridge_path: /x/WorldCrimeIntel
+  labels:
+  - D:SECURITY_CRIME
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 55
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: penpizzareport_x
+  name: Pentagon Pizza Report (X)
+  type: social_x
+  handle: PenPizzaReport
+  bridge_path: /x/PenPizzaReport
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 40
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: pizzintwatch_x
+  name: Pizza Intelligence Watch (X)
+  type: social_x
+  handle: pizzintwatch
+  bridge_path: /x/pizzintwatch
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:OTHER
+  priority: 35
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: rijkswaterstaat_x
+  name: Rijkswaterstaat (X)
+  type: social_x
+  handle: Rijkswaterstaat
+  bridge_path: /x/Rijkswaterstaat
+  labels:
+  - D:INFRA_CI
+  - OBJ:WATERWAY
+  - SRC:SOCIAL
+  region_hint: REG:ATLANTIC_NE
+  priority: 50
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: navylookout_x
+  name: Navy Lookout (X)
+  type: social_x
+  handle: NavyLookout
+  bridge_path: /x/NavyLookout
+  labels:
+  - D:NEWS_INTEL
+  - SRC:SOCIAL
+  region_hint: REG:ATLANTIC_NE
+  priority: 70
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: die_flaschenpost_rss
+  name: Die Flaschenpost – RSS
+  type: rss
+  url: https://die-flaschenpost.de/feed/
+  labels:
+  - SRC:OSINT
+  - SRC:MEDIA
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - CONF:LOW
+  - SEV:1
+  - REG:OTHER
+  region_hint: REG:OTHER
+  priority: 35
+  max_items: 5
+  lookback_hours: 168
+  allow_backfill: false
+  map_weight: 0
+  score_weight: 0.4
+- id: die_flaschenpost_aussenpolitik_rss
+  name: Die Flaschenpost – Außenpolitik
+  type: rss
+  url: https://die-flaschenpost.de/category/deutschland-nachrichten/aussenpolitik/feed/
+  labels:
+  - SRC:OSINT
+  - SRC:MEDIA
+  - SRC:CIVIL_SOCIETY
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - D:CYBER_IT
+  - D:INFRA_CI
+  - CONF:LOW
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:EUROPE
+  priority: 66
+- id: alex_kohler_x
+  name: Alex Kohler (X)
+  type: social_x
+  handle: AlexKohler1
+  bridge_path: /x/AlexKohler1
+  labels:
+  - SRC:OSINT
+  - SRC:SOCIAL
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - CONF:LOW
+  - SEV:1
+  - REG:EUROPE
+  region_hint: REG:EUROPE
+  priority: 72
+  max_items: 8
+  lookback_hours: 72
+  allow_backfill: false
+  map_weight: 0.2
+  score_weight: 0.8
+- id: swp_publications_de
+  name: SWP – Offizielle Publikationen DE
+  type: rss
+  url: https://www.swp-berlin.org/SWPPublications.xml
+  labels:
+  - SRC:THINKTANK
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - D:CYBER_IT
+  - D:INFRA_CI
+  - CONF:MED
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:EUROPE
+  priority: 86
+- id: swp_publications_en
+  name: SWP – Official Publications EN
+  type: rss
+  url: https://www.swp-berlin.org/en/SWPPublications.xml
+  labels:
+  - SRC:THINKTANK
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - D:CYBER_IT
+  - D:INFRA_CI
+  - CONF:MED
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:EUROPE
+  priority: 84
+- id: rusi_latest_publications
+  name: RUSI – Latest Publications
+  type: rss
+  url: https://www.rusi.org/rss/latest-publications.xml
+  labels:
+  - SRC:THINKTANK
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - D:MARITIME_SECURITY
+  - D:SANCTIONS
+  - D:INFRA_CI
+  - CONF:MED
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:EUROPE
+  priority: 88
+- id: rusi_latest_commentary
+  name: RUSI – Latest Commentary
+  type: rss
+  url: https://www.rusi.org/rss/latest-commentary.xml
+  labels:
+  - SRC:THINKTANK
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - D:MARITIME_SECURITY
+  - D:SANCTIONS
+  - D:INFRA_CI
+  - CONF:MED
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:EUROPE
+  priority: 84
+- id: atlantic_council_reports
+  name: Atlantic Council – Reports / Issue Briefs
+  type: rss
+  url: https://www.atlanticcouncil.org/category/in-depth-research-reports/feed/
+  labels:
+  - SRC:THINKTANK
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - D:MARITIME_SECURITY
+  - D:SANCTIONS
+  - D:INFRA_CI
+  - CONF:MED
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:EUROPE
+  priority: 86
+- id: cepa_feed
+  name: CEPA – Center for European Policy Analysis
+  type: rss
+  url: https://cepa.org/feed/
+  labels:
+  - SRC:THINKTANK
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - D:SANCTIONS
+  - D:INFRA_CI
+  - CONF:MED
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:EUROPE
+  priority: 78
+- id: gids_feed
+  name: GIDS Hamburg – Beiträge
+  type: rss
+  url: https://gids-hamburg.de/feed/
+  labels:
+  - SRC:THINKTANK
+  - SRC:ANALYSIS
+  - D:NEWS_INTEL
+  - D:MARITIME_SECURITY
+  - D:INFRA_CI
+  - CONF:MED
+  - SEV:1
+  - REG:NORTH_SEA
+  - REG:BALTIC
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:NORTH_SEA
+  priority: 82
+- id: ispk_x
+  name: ISPK Kiel – X
+  type: social_x
+  handle: ISPK_org
+  bridge_path: /x/ISPK_org
+  labels:
+  - SRC:THINKTANK
+  - SRC:SOCIAL
+  - SRC:ANALYSIS_POINTER
+  - D:NEWS_INTEL
+  - D:MARITIME_SECURITY
+  - D:INFRA_CI
+  - CONF:LOW
+  - SEV:1
+  - REG:BALTIC
+  - SCORE:HYBRID_CONTEXT
+  - DECAY:SLOW
+  region_hint: REG:BALTIC
+  priority: 76
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: julian_pawlak_x
+  name: Julian Pawlak – Maritime Security / Baltic / Northern Flank
+  type: social_x
+  handle: jupawlak
+  bridge_path: /x/jupawlak
+  labels:
+  - SRC:OSINT
+  - SRC:SOCIAL
+  - SRC:ANALYST
+  - SRC:ANALYSIS_POINTER
+  - D:MARITIME_SECURITY
+  - D:INFRA_CI
+  - D:NEWS_INTEL
+  - CONF:LOW
+  - SEV:1
+  - REG:BALTIC
+  - REG:NORTH_SEA
+  - SCORE:HYBRID_CONTEXT
+  - DECAY:SLOW
+  region_hint: REG:BALTIC
+  priority: 74
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: sal_mercogliano_x
+  name: Sal Mercogliano / WGOW Shipping – X
+  type: social_x
+  handle: mercoglianos
+  bridge_path: /x/mercoglianos
+  labels:
+  - SRC:OSINT
+  - SRC:SOCIAL
+  - SRC:ANALYST
+  - SRC:SHIPPING_EXPERT
+  - SRC:ANALYSIS_POINTER
+  - D:MARITIME_SECURITY
+  - D:SANCTIONS
+  - D:SHIPPING
+  - CONF:LOW
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - DECAY:SLOW
+  region_hint: REG:GLOBAL
+  priority: 72
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: tom_sharpe_x
+  name: Tom Sharpe – Naval / Maritime Security – X
+  type: social_x
+  handle: TomSharpe134
+  bridge_path: /x/TomSharpe134
+  labels:
+  - SRC:OSINT
+  - SRC:SOCIAL
+  - SRC:ANALYST
+  - SRC:NAVAL
+  - SRC:ANALYSIS_POINTER
+  - D:MARITIME_SECURITY
+  - D:SANCTIONS
+  - D:INFRA_CI
+  - CONF:LOW
+  - SEV:1
+  - REG:NORTH_SEA
+  - REG:CHANNEL
+  - SCORE:HYBRID_CONTEXT
+  - DECAY:SLOW
+  region_hint: REG:NORTH_SEA
+  priority: 70
+  max_items: 12
+  lookback_hours: 168
+  allow_backfill: false
+- id: small_wars_journal_rss
+  name: Small Wars Journal – Maritime / Irregular Warfare
+  type: rss
+  url: https://smallwarsjournal.com/feed
+  labels:
+  - SRC:OSINT
+  - SRC:ANALYSIS
+  - SRC:DEFENCE_MEDIA
+  - D:NEWS_INTEL
+  - D:MARITIME_SECURITY
+  - D:SANCTIONS
+  - CONF:LOW
+  - SEV:1
+  - SCORE:HYBRID_CONTEXT
+  - MAP:NO
+  - DECAY:SLOW
+  region_hint: REG:GLOBAL
+  priority: 64
+- id: uk_mca_org
+  name: UK Maritime and Coastguard Agency – GOV.UK organisation/news
+  type: html
+  url: https://www.gov.uk/government/organisations/maritime-and-coastguard-agency
+  labels:
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  - OBJ:AUTHORITY
+  region_hint: REG:BRITISH_ISLES
+  priority: 78
+- id: hm_coastguard_news
+  name: HM Coastguard – News and media
+  type: html
+  url: https://hmcoastguard.uk/news
+  labels:
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  - OBJ:COASTGUARD
+  region_hint: REG:BRITISH_ISLES
+  priority: 78
+- id: uscg_news_rss
+  name: US Coast Guard News – RSS
+  type: html
+  url: https://www.news.uscg.mil/RSS/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  - OBJ:COASTGUARD
+  region_hint: REG:OTHER
+  priority: 65
+- id: uscg_navcen_rss_info
+  name: USCG NAVCEN – RSS / navigation resources
+  type: html
+  url: https://www.navcen.uscg.gov/subscribe-email-rss-feeds
+  labels:
+  - D:RF_SIGNAL
+  - SRC:OFFICIAL
+  - OBJ:NAVIGATION
+  region_hint: REG:OTHER
+  priority: 65
+- id: unsc_sanctions_rss_updates
+  name: UN Security Council – RSS updates UNSC Consolidated List
+  type: html
+  url: https://main.un.org/securitycouncil/en/rss-updates-unsc-consolidated-list
+  labels:
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  - V:SANCTIONS_EVASION
+  region_hint: REG:OTHER
+  priority: 72
+- id: eu_sanctions_map
+  name: EU Sanctions Map
+  type: html
+  url: https://www.sanctionsmap.eu/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  - V:SANCTIONS_EVASION
+  - V:SHADOW_FLEET
+  region_hint: REG:OTHER
+  priority: 75
+- id: nato_shipping_centre_watch
+  name: NATO Shipping Centre – maritime security watch
+  type: html
+  url: https://shipping.nato.int/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:OFFICIAL
+  - OBJ:MARITIME_SECURITY
+  region_hint: REG:ATLANTIC_NE
+  priority: 78
+- id: porttechnology_news
+  name: Port Technology International – News RSS page
+  type: html
+  url: https://www.porttechnology.org/rss-feeds/news/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  - OBJ:PORT
+  region_hint: REG:OTHER
+  priority: 62
+- id: porttechnology_security_cyber
+  name: Port Technology International – Security / Cyber topic
+  type: html
+  url: https://www.porttechnology.org/news-topic/safety-and-security/
+  labels:
+  - D:CYBER_OT
+  - D:INFRA_CI
+  - SRC:MEDIA
+  - OBJ:PORT
+  region_hint: REG:OTHER
+  priority: 66
+- id: safety4sea_home
+  name: SAFETY4SEA – Maritime news
+  type: html
+  url: https://safety4sea.com/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  region_hint: REG:OTHER
+  priority: 64
+- id: safety4sea_psc
+  name: SAFETY4SEA – PSC focus
+  type: html
+  url: https://safety4sea.com/category/psc-focus/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  - OBJ:PSC
+  region_hint: REG:OTHER
+  priority: 66
+- id: safety4sea_cyber
+  name: SAFETY4SEA – Cyber security
+  type: html
+  url: https://safety4sea.com/category/cyber-security/
+  labels:
+  - D:CYBER_OT
+  - SRC:MEDIA
+  region_hint: REG:OTHER
+  priority: 66
+- id: offshore_energy_news
+  name: Offshore Energy – News
+  type: html
+  url: https://www.offshore-energy.biz/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  - OBJ:OFFSHORE
+  region_hint: REG:OTHER
+  priority: 62
+- id: container_news
+  name: Container News
+  type: html
+  url: https://container-news.com/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  - OBJ:CONTAINER
+  region_hint: REG:OTHER
+  priority: 58
+- id: splash247_news
+  name: Splash247 – Maritime news
+  type: html
+  url: https://splash247.com/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  region_hint: REG:OTHER
+  priority: 60
+- id: rivieramm_news
+  name: Riviera Maritime Media – News
+  type: html
+  url: https://www.rivieramm.com/news-content-hub
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  region_hint: REG:OTHER
+  priority: 58
+- id: the_loadstar_ocean
+  name: The Loadstar – Ocean freight / supply chain
+  type: html
+  url: https://theloadstar.com/
+  labels:
+  - D:NEWS_INTEL
+  - SRC:MEDIA
+  - OBJ:SUPPLY_CHAIN
+  region_hint: REG:OTHER
+  priority: 58
+geo_ingest_policy:
+  route_sources: source.route_source=true or label PAT:ROUTE_OBSERVED
+  priority:
+  - explicit_coordinates
+  - route_waypoints
+  - controlled_gazetteer
+  - geo_candidates
+  - region_hint
+  notes:
+  - Exact coordinates override all inferred places.
+  - Route-source social posts may create route waypoints when controlled maritime places are detected.
