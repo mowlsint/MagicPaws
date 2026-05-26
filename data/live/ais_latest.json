@@ -1,0 +1,13 @@
+{
+  "ok": false,
+  "source": "aisstream",
+  "generated_at": null,
+  "items": [],
+  "clusters_5nm": [],
+  "summary": {
+    "total": 0,
+    "authority_vessels": 0,
+    "by_region": {}
+  },
+  "note": "Created as placeholder. GitHub Action writes live AIS sample every 30 minutes when AISSTREAM_API_KEY is configured."
+}

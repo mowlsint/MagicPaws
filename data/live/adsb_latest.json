@@ -1,0 +1,12 @@
+{
+  "ok": false,
+  "source": "adsb.fi",
+  "generated_at": null,
+  "items": [],
+  "summary": {
+    "total": 0,
+    "authority_aircraft": 0,
+    "by_region": {}
+  },
+  "note": "Created as placeholder. GitHub Action writes ADS-B maritime sample every 15 minutes."
+}
