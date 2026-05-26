@@ -41,6 +41,11 @@ const MAX_SOCIAL_ITEMS_PER_SOURCE = Number(process.env.MAX_SOCIAL_ITEMS_PER_SOUR
 const DEFAULT_LOOKBACK_HOURS = Number(process.env.DEFAULT_LOOKBACK_HOURS || 0);
 const MAX_EXISTING_ISSUES = Number(process.env.MAX_EXISTING_ISSUES || 1000);
 const DRY_RUN = process.env.DRY_RUN === "1";
+
+const NTFY_ENABLED = String(process.env.NTFY_ENABLED || "").toLowerCase() === "true" || process.env.NTFY_ENABLED === "1";
+const NTFY_URL = process.env.NTFY_URL || "";
+const NTFY_TOKEN = process.env.NTFY_TOKEN || "";
+const NTFY_MIN_LEVEL = String(process.env.NTFY_MIN_LEVEL || "HIGH").toUpperCase();
 // Source-level fetch/item errors should not make the whole hourly GitHub Action red by default.
 // Set FAIL_ON_SOURCE_ERRORS=1 only when you explicitly want strict CI behavior.
 const FAIL_ON_SOURCE_ERRORS = process.env.FAIL_ON_SOURCE_ERRORS === "1";
@@ -459,6 +464,7 @@ function labelColorFor(label) {
   if (label.startsWith("MAP:")) return "cfd3d7";
   if (label.startsWith("DECAY:")) return "bfdadc";
   if (label.startsWith("SCORE:")) return "1d76db";
+  if (label.startsWith("ALERT:")) return label === "ALERT:CRITICAL" ? "b60205" : (label === "ALERT:HIGH" ? "d93f0b" : "fbca04");
   if (label.startsWith("V:")) return "0052cc";
   if (label.startsWith("PAT:")) return "006b75";
   return "ededed";
@@ -516,7 +522,7 @@ function makeIngestId(source, item) {
   return `${source.id || "source"}:${sha256Short(stable, 20)}`;
 }
 
-function makeBody({ source, item, link, title, text, labels, ingestId, sourcePublishedAt, ingestedAt, geoEvidence = null }) {
+function makeBody({ source, item, link, title, text, labels, ingestId, sourcePublishedAt, ingestedAt, geoEvidence = null, priorityAlert = null }) {
   const platform =
     source.platform ||
     source.type ||
@@ -573,12 +579,140 @@ function makeBody({ source, item, link, title, text, labels, ingestId, sourcePub
       JSON.stringify({ geo: geoEvidence.geo, geo_candidates: geoEvidence.geo_candidates || [], route: geoEvidence.route || null }, null, 2),
       ""
     ] : []),
+    ...(priorityAlert && priorityAlert.level && priorityAlert.level !== "NONE" ? [
+      "### Priority Alert",
+      `level: ${priorityAlert.level}`,
+      `score: ${priorityAlert.score}`,
+      `reasons: ${(priorityAlert.reasons || []).join("; ")}`,
+      "",
+    ] : []),
     "### Auto-Labels",
     labels.join(", "),
     "",
     "---",
     `ingest_version: ${VERSION}`
   ].join("\n");
+}
+
+
+// -----------------------------------------------------------------------------
+// Priority alerting / ntfy push
+// -----------------------------------------------------------------------------
+const ALERT_RANK = { NONE: 0, WATCH: 1, HIGH: 2, CRITICAL: 3 };
+
+function alertRank(level) {
+  return ALERT_RANK[String(level || "NONE").toUpperCase()] || 0;
+}
+
+function alertMinRank() {
+  return alertRank(NTFY_MIN_LEVEL || "HIGH") || ALERT_RANK.HIGH;
+}
+
+function textHasAny(text, patterns) {
+  return (patterns || []).some((p) => p.test(text));
+}
+
+function classifyPriorityAlert({ title = "", text = "", labels = [], geoEvidence = null, source = {}, link = "" }) {
+  const raw = `${title}\n${text}\n${labels.join(" ")}\n${source?.name || ""}\n${source?.id || ""}\n${link || ""}`;
+  const t = raw.toLowerCase();
+  const reasons = [];
+  let score = 0;
+
+  const add = (points, reason) => {
+    score += points;
+    if (reason && !reasons.includes(reason)) reasons.push(reason);
+  };
+
+  const explosive = /\b(mine|mines|limpet mine|naval mine|sea mine|explosive device|explosive|ied|bomb|munition|unexploded ordnance|uxo|sprengsatz|sprengstoff|haftmine|seemine|mine attached)\b/i;
+  const hardIncident = /\b(sabotage|terrorist attack|attempted attack|attack|arson|explosion|blast|collision|grounding|fire|sinking|hijack|kidnap|armed robbery|boarding|interdiction|seizure)\b/i;
+  const ci = /\b(subsea|seabed|cable|pipeline|lng|lpg|gas terminal|oil terminal|offshore|wind farm|windfarm|platform|terminal|port|harbour|harbor|hafen|kritis|critical infrastructure)\b/i;
+  const vessel = /\b(vessel|ship|tanker|carrier|cargo|container ship|bulk carrier|warship|frigate|patrol vessel|lpg carrier|lng carrier|schiff|frachter|tanker)\b/i;
+  const routeAis = /\b(ais gap|ais off|dark vessel|dark activity|loitering|ship-to-ship|\bsts\b|rendezvous|route deviation|spoofing|jamming|gnss|gps)\b/i;
+  const navwarnVital = /\b(navtex|navwarn|navigational warning|mine|explosive|obstruction|hazard|restricted area|exclusion zone|firing exercise|military exercise|cable|pipeline|wreck|drifting object)\b/i;
+  const strategicPlace = /\b(ust[-\s]?luga|primorsk|gulf of finland|baltic|north sea|german bight|skagen|kattegat|bornholm|gotland|gibraltar|suez|bab el[-\s]?mandeb|hormuz|black sea|red sea|kerch|novorossiysk)\b/i;
+
+  if (explosive.test(raw)) add(5, "Explosivmittel/Minenbezug");
+  if (hardIncident.test(raw)) add(4, "harter Sicherheitsvorfall");
+  if (ci.test(raw)) add(2, "KRITIS-/Hafen-/Energiebezug");
+  if (vessel.test(raw)) add(2, "Schiffsbezug");
+  if (routeAis.test(raw)) add(2, "AIS-/Route-/GNSS-Muster");
+  if (navwarnVital.test(raw)) add(1, "NAVTEX/NAVWARN- oder nautischer Gefahrenbezug");
+  if (strategicPlace.test(raw)) add(2, "strategischer maritimer Raum");
+
+  if (labels.includes("D:SECURITY_CRIME")) add(2, "Security-Crime-Label");
+  if (labels.includes("D:INFRA_CI")) add(2, "KRITIS-Label");
+  if (labels.includes("D:RF_SIGNAL")) add(1, "RF/GNSS-Label");
+  if (labels.includes("D:AIS_TRACK")) add(1, "AIS-/Track-Label");
+  if (labels.includes("P0:SUSPECT")) add(2, "P0:SUSPECT");
+  if (labels.includes("CONF:HIGH")) add(2, "hohe Konfidenz");
+  else if (labels.includes("CONF:MED")) add(1, "mittlere Konfidenz");
+  if (labels.includes("SEV:3") || labels.includes("SEV:4")) add(2, "erhöhte Severity");
+  else if (labels.includes("SEV:2")) add(1, "mittlere Severity");
+
+  if (geoEvidence?.geo || (geoEvidence?.geo_candidates || []).length) add(1, "georeferenzierbar");
+
+  // Critical override: mines/explosives plus vessel/port/CI should never drown in normal RSS.
+  const criticalOverride = explosive.test(raw) && (vessel.test(raw) || ci.test(raw) || strategicPlace.test(raw));
+  let level = "NONE";
+  if (criticalOverride || score >= 12) level = "CRITICAL";
+  else if (score >= 8) level = "HIGH";
+  else if (score >= 5) level = "WATCH";
+
+  const titleShort = String(title || "MAGIC PAWS Alert").replace(/^\[[^\]]+\]\s*/, "").slice(0, 160);
+  return {
+    level,
+    score,
+    reasons: reasons.slice(0, 8),
+    title: level === "NONE" ? "" : `MAGIC PAWS ${level}: ${titleShort}`,
+    tags: level === "CRITICAL" ? "rotating_light,ship,warning" : (level === "HIGH" ? "warning,ship" : "eyes,ship")
+  };
+}
+
+function alertBody(priorityAlert, { title = "", source = {}, link = "", issueUrl = "", labels = [] }) {
+  const src = source?.name || source?.id || "Unknown source";
+  const reasons = (priorityAlert?.reasons || []).map((r) => `- ${r}`).join("\n");
+  const target = issueUrl || link || "";
+  return [
+    priorityAlert?.title || `MAGIC PAWS ${priorityAlert?.level || "ALERT"}`,
+    "",
+    `Quelle: ${src}`,
+    labels?.length ? `Labels: ${labels.join(", ")}` : "",
+    priorityAlert?.score != null ? `Alert-Score: ${priorityAlert.score}` : "",
+    reasons ? `Warum:\n${reasons}` : "",
+    target ? `\nOpen: ${target}` : ""
+  ].filter(Boolean).join("\n");
+}
+
+async function sendNtfyAlert(priorityAlert, context = {}) {
+  if (!priorityAlert || alertRank(priorityAlert.level) < alertMinRank()) return;
+  if (!NTFY_ENABLED || !NTFY_URL) return;
+  if (DRY_RUN) {
+    console.log(`[DRY_RUN] Would send ntfy alert: ${priorityAlert.level} ${priorityAlert.title}`);
+    return;
+  }
+
+  const headers = {
+    "Title": priorityAlert.title.slice(0, 250),
+    "Priority": priorityAlert.level === "CRITICAL" ? "5" : "4",
+    "Tags": priorityAlert.tags || "warning,ship",
+    "Content-Type": "text/plain; charset=utf-8"
+  };
+  const clickUrl = context.issueUrl || context.link || "";
+  if (clickUrl) headers["Click"] = clickUrl;
+  if (NTFY_TOKEN) headers.Authorization = `Bearer ${NTFY_TOKEN}`;
+
+  try {
+    const res = await fetch(NTFY_URL, {
+      method: "POST",
+      headers,
+      body: alertBody(priorityAlert, context)
+    });
+    const txt = await res.text().catch(() => "");
+    if (!res.ok) console.warn(`ntfy alert failed ${res.status}: ${txt.slice(0, 300)}`);
+    else console.log(`ntfy alert sent: ${priorityAlert.level}`);
+  } catch (e) {
+    console.warn(`ntfy alert failed: ${e.message}`);
+  }
 }
 
 // -----------------------------------------------------------------------------
@@ -1097,6 +1231,20 @@ ${item.text || ""}`, item, source);
         "[OSINT]";
 
       const title = safeIssueTitle(item.title, `${prefix} `);
+      const priorityAlert = classifyPriorityAlert({
+        title,
+        text: item.text || item.title,
+        labels,
+        geoEvidence,
+        source,
+        link
+      });
+
+      if (priorityAlert.level && priorityAlert.level !== "NONE") {
+        const alertLabel = `ALERT:${priorityAlert.level}`;
+        if (!labels.includes(alertLabel)) labels.push(alertLabel);
+        labels = uniqueStrings(labels);
+      }
 
       const body = makeBody({
         source,
@@ -1108,10 +1256,18 @@ ${item.text || ""}`, item, source);
         ingestId,
         sourcePublishedAt,
         ingestedAt,
-        geoEvidence
+        geoEvidence,
+        priorityAlert
       });
 
       const created = await createIssue({ title, body, labels });
+      await sendNtfyAlert(priorityAlert, {
+        title,
+        source,
+        link,
+        issueUrl: created?.html_url || created?.url || "",
+        labels
+      });
 
       stats.created++;
 
