@@ -1,7 +1,7 @@
 {
-  "version": 5,
+  "version": 6,
   "name": "MAGIC PAWS Maritime Gazetteer",
-  "description": "Controlled maritime gazetteer for inferred geolocation. MAGIC PAWS / MARITIME PHASE ZERO. Expanded global v4: adds a larger Atlantic trade-port package for West Africa, Gulf of Guinea, Brazil, Colombia, Chile, Argentina, Guianas/Suriname and the Caribbean. Exact issue-body coordinates override inferred places. Port coordinates are practical gazetteer anchors, not official survey points. v5.32: adds controlled aliases for Gibraltar, Djibouti, GOA/GOO, Bering Sea, Norfolk and Long Beach with runtime context safeguards.",
+  "description": "Controlled maritime gazetteer for inferred geolocation. MAGIC PAWS / MARITIME PHASE ZERO. Expanded global v4: adds a larger Atlantic trade-port package for West Africa, Gulf of Guinea, Brazil, Colombia, Chile, Argentina, Guianas/Suriname and the Caribbean. Exact issue-body coordinates override inferred places. Port coordinates are practical gazetteer anchors, not official survey points. v5.32: adds controlled aliases for Gibraltar, Djibouti, GOA/GOO, Bering Sea, Norfolk and Long Beach with runtime context safeguards. v6: adds route-source oriented ports/chokepoints and Ust-Luga promotion metadata for MAGIC PAWS social geolocation.",
   "places": [
     {
       "id": "north_sea",
@@ -3001,14 +3001,38 @@
         "en": [
           "Ust-Luga",
           "Ust Luga",
-          "Port of Ust-Luga"
+          "Port of Ust-Luga",
+          "Ust Luga port",
+          "Ust-Luga port",
+          "Ust-Luga terminal",
+          "Port Ust Luga"
         ],
         "ru_latin": [
           "Ust-Luga",
           "Ust Luga",
           "Port Ust-Luga"
         ]
-      }
+      },
+      "context_required": [
+        "port",
+        "terminal",
+        "tanker",
+        "LNG",
+        "LPG",
+        "Baltic",
+        "Gulf of Finland",
+        "Russia",
+        "vessel",
+        "ship",
+        "AIS"
+      ],
+      "promotion_terms": [
+        "arriving at Ust-Luga",
+        "arrived Ust-Luga",
+        "departed Ust-Luga",
+        "Port of Ust-Luga",
+        "Ust-Luga terminal"
+      ]
     },
     {
       "id": "port_primorsk_russia",
@@ -10293,6 +10317,120 @@
         "en": [
           "Long Beach",
           "Port of Long Beach"
+        ]
+      }
+    },
+    {
+      "id": "port_algeciras",
+      "canonical_name": "Algeciras",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 36.14,
+        "lon": -5.44
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:MEDITERRANEAN",
+        "REG:STRAIT_GIBRALTAR"
+      ],
+      "aliases": {
+        "en": [
+          "Algeciras",
+          "Port of Algeciras"
+        ],
+        "es": [
+          "Algeciras",
+          "Puerto de Algeciras"
+        ]
+      }
+    },
+    {
+      "id": "port_tanger_med",
+      "canonical_name": "Tanger Med",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 35.89,
+        "lon": -5.51
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:MEDITERRANEAN",
+        "REG:STRAIT_GIBRALTAR"
+      ],
+      "aliases": {
+        "en": [
+          "Tanger Med",
+          "Tangier Med",
+          "Port of Tanger Med"
+        ],
+        "fr": [
+          "Tanger Med"
+        ]
+      }
+    },
+    {
+      "id": "port_fujairah",
+      "canonical_name": "Fujairah",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 25.18,
+        "lon": 56.36
+      },
+      "radius_km": 25,
+      "regions": [
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN"
+      ],
+      "aliases": {
+        "en": [
+          "Fujairah",
+          "Port of Fujairah",
+          "Fujairah anchorage"
+        ]
+      }
+    },
+    {
+      "id": "port_singapore",
+      "canonical_name": "Singapore",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 1.264,
+        "lon": 103.84
+      },
+      "radius_km": 30,
+      "regions": [
+        "REG:SINGAPORE_STRAIT",
+        "REG:SOUTHEAST_ASIA"
+      ],
+      "aliases": {
+        "en": [
+          "Singapore",
+          "Port of Singapore",
+          "Singapore port"
+        ]
+      }
+    },
+    {
+      "id": "port_colombo",
+      "canonical_name": "Colombo",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 6.95,
+        "lon": 79.84
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:INDIAN_OCEAN"
+      ],
+      "aliases": {
+        "en": [
+          "Colombo",
+          "Port of Colombo"
         ]
       }
     }
