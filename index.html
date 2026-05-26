@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.32 "Social + Geo Controls"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.33 "Geo Hybrid Hotfix"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -1116,6 +1116,21 @@ Wilhelmshaven JadeWeserPort"></textarea>
   function nowStr(){ return new Date().toLocaleString(); }
   function uniq(arr){ return [...new Set(arr)].sort(); }
   function clamp(n,a,b){ return Math.max(a, Math.min(b, n)); }
+  function labelsOf(ev){ return Array.isArray(ev?.labels) ? ev.labels : []; }
+  function mpHasAnyLabel(ev, wanted){
+    const ls = labelsOf(ev);
+    return (wanted || []).some(x => ls.includes(x));
+  }
+  function anyLabelStartsEv(ev, prefixes){
+    const ls = labelsOf(ev);
+    return ls.some(l => (prefixes || []).some(p => String(l).startsWith(p)));
+  }
+
+  // Compatibility guard: older cached dashboard code used hasAny(). Keep a safe global alias.
+  window.hasAny = window.hasAny || function(ev, wanted){
+    const ls = Array.isArray(ev?.labels) ? ev.labels : [];
+    return (wanted || []).some(x => ls.includes(x));
+  };
 
 
   // First-pass keyword tiers. Keep broad; tune after we see real 90-day baseline noise.
@@ -1757,11 +1772,11 @@ Wilhelmshaven JadeWeserPort"></textarea>
       const key = e.url || e.id || e.number || e.title;
       if (seen.has(key)) continue; seen.add(key);
       const text = normalizeText((e.title ?? "") + " " + (e.summary ?? "") + " " + labels.join(" "));
-      const ais = hasAny(e,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|\bsts\b|rendezvous/.test(text);
-      const adsb = hasAny(e,["SRC:ADSB","D:AIR_ACTIVITY","V:MPA","V:SAR_UNIT","V:AUTH_COAST_GUARD","PAT:RACETRACK","PAT:LOW_ORBIT"]) || /ads-?b|mpa|p-8|p8 poseidon|sar aircraft|coast guard aircraft|helicopter|racetrack|orbit|isr/.test(text);
-      const official = labels.includes("SRC:OFFICIAL") || hasAny(e,["RF:NAVWARN","RF:NAVTEX"]);
-      const ci = hasAny(e,["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","D:INFRA_CI"]);
-      const rf = hasAny(e,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"]) || labels.some(l => l.startsWith("RF:"));
+      const ais = mpHasAnyLabel(e,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|\bsts\b|rendezvous/.test(text);
+      const adsb = mpHasAnyLabel(e,["SRC:ADSB","D:AIR_ACTIVITY","V:MPA","V:SAR_UNIT","V:AUTH_COAST_GUARD","PAT:RACETRACK","PAT:LOW_ORBIT"]) || /ads-?b|mpa|p-8|p8 poseidon|sar aircraft|coast guard aircraft|helicopter|racetrack|orbit|isr/.test(text);
+      const official = labels.includes("SRC:OFFICIAL") || mpHasAnyLabel(e,["RF:NAVWARN","RF:NAVTEX"]);
+      const ci = mpHasAnyLabel(e,["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","D:INFRA_CI"]);
+      const rf = mpHasAnyLabel(e,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"]) || labels.some(l => l.startsWith("RF:"));
       let w = 0;
       if (ais) w += 4.5;
       if (adsb) w += 4.0;
