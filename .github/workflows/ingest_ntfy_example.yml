@@ -1,0 +1,28 @@
+name: Magic Paws Ingest (ntfy example)
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "*/30 * * * *"
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install yaml fast-xml-parser
+      - name: Run Magic Paws ingest with ntfy alerts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NTFY_ENABLED: ${{ secrets.NTFY_ENABLED }}
+          NTFY_URL: ${{ secrets.NTFY_URL }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          NTFY_MIN_LEVEL: HIGH
+        run: node scripts/ingest.mjs
