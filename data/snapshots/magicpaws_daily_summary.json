@@ -1,34 +1,36 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-26T16:11:41.610Z",
+  "generated_at": "2026-05-26T20:27:03.813Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 49,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-26",
-      "events_total": 40,
+      "events_total": 62,
       "p0_suspect": 0,
-      "geo_events": 8,
-      "social_events": 17,
+      "geo_events": 10,
+      "social_events": 19,
       "social_geo_events": 6,
-      "rss_media_events": 23,
+      "rss_media_events": 43,
       "top_domains": {
-        "D:NEWS_INTEL": 38,
-        "D:CYBER_OT": 1,
-        "D:INFRA_CI": 1
+        "D:NEWS_INTEL": 57,
+        "D:INFRA_CI": 3,
+        "D:SECURITY_CRIME": 1,
+        "D:CYBER_OT": 1
       },
       "top_regions": {
-        "REG:OTHER": 21,
-        "REG:GLOBAL": 8,
+        "REG:OTHER": 26,
+        "REG:GLOBAL": 9,
         "REG:ATLANTIC_NE": 5,
+        "REG:PERSIAN_GULF": 2,
         "REG:BALTIC": 2,
         "REG:STRAIT_GIBRALTAR": 2
       },
       "severity": {
-        "SEV:1": 40
+        "SEV:1": 62
       },
-      "hybrid_index_proxy": 47,
+      "hybrid_index_proxy": 76,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 5
@@ -36,19 +38,23 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 33
+          "count": 42
         },
         {
           "keyword": "mpa",
-          "count": 5
+          "count": 9
         },
         {
           "keyword": "isr",
-          "count": 5
+          "count": 6
         },
         {
           "keyword": "navy",
-          "count": 4
+          "count": 5
+        },
+        {
+          "keyword": "incident",
+          "count": 3
         },
         {
           "keyword": "subsea",
@@ -59,10 +65,6 @@
           "count": 2
         },
         {
-          "keyword": "incident",
-          "count": 2
-        },
-        {
           "keyword": "patrol",
           "count": 2
         }
@@ -70,35 +72,35 @@
     },
     {
       "date": "2026-05-25",
-      "events_total": 46,
+      "events_total": 50,
       "p0_suspect": 0,
-      "geo_events": 6,
+      "geo_events": 9,
       "social_events": 15,
       "social_geo_events": 1,
-      "rss_media_events": 31,
+      "rss_media_events": 35,
       "top_domains": {
-        "D:NEWS_INTEL": 40,
-        "D:INCIDENT": 3,
+        "D:NEWS_INTEL": 43,
+        "D:INCIDENT": 4,
         "D:SECURITY_CRIME": 2,
         "D:INFRA_CI": 1
       },
       "top_regions": {
         "REG:OTHER": 15,
         "REG:GLOBAL": 15,
+        "REG:PERSIAN_GULF": 2,
+        "REG:GER_BIGHT": 2,
+        "REG:CARIBBEAN": 2,
         "REG:BALTIC": 2,
-        "REG:PERSIAN_GULF": 1,
         "REG:EUROPE": 1,
-        "REG:GER_BIGHT": 1,
-        "REG:CARIBBEAN": 1,
         "REG:ATLANTIC_NE": 1,
         "REG:NORTH_SEA": 1
       },
       "severity": {
-        "SEV:1": 46
+        "SEV:1": 50
       },
-      "hybrid_index_proxy": 57,
+      "hybrid_index_proxy": 62,
       "government_weirdness_proxy": {
-        "north_sea": 6,
+        "north_sea": 9,
         "baltic_sea": 5
       },
       "top_keywords": [
@@ -108,11 +110,11 @@
         },
         {
           "keyword": "incident",
-          "count": 3
+          "count": 4
         },
         {
           "keyword": "navy",
-          "count": 3
+          "count": 4
         },
         {
           "keyword": "mpa",

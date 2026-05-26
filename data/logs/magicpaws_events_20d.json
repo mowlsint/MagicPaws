@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-26T16:11:41.610Z",
+  "generated_at": "2026-05-26T20:27:03.813Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,645 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-26T16:11:45.204Z",
+  "bundle_generated_at": "2026-05-26T20:27:07.606Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-06T16:11:41.610Z"
+    "cutoff_utc": "2026-05-06T20:27:03.813Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1058,
-    "active_events": 966,
-    "active_geo_events": 174,
-    "active_social_events": 354,
+    "archive_events_total": 1084,
+    "active_events": 991,
+    "active_geo_events": 179,
+    "active_social_events": 356,
     "active_social_geo_events": 50
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1281",
+      "number": 1281,
+      "id": "4526905735",
+      "ts": "2026-05-26T18:58:07.000Z",
+      "chronology_ts": "2026-05-26T18:58:07.000Z",
+      "issue_created_at": "2026-05-26T19:27:55.000Z",
+      "source_published_at": "2026-05-26T18:58:07.000Z",
+      "ingested_at": "2026-05-26T18:58:07.000Z",
+      "title": "[RSS] Oman Leverages its Influence With Iran to Resolve Strait of Hormuz Impasse",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1281",
+      "original_url": "https://maritime-executive.com/article/oman-leverages-its-influence-with-iran-to-resolve-strait-of-hormuz-impasse",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/oman-leverages-its-influence-with-iran-to-resolve-strait-of-hormuz-impasse",
+        "source_published_at": "2026-05-26T18:58:07.000Z",
+        "ingested_at": "2026-05-26T18:58:07.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/oman-leverages-its-influence-with-iran-to-resolve-strait-of-hormuz-impasse\n\n### Zeit (UTC)\n2026-05-26T18:58:07Z\n\n### Published\n2026-05-26T18:58:07Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nIn parallel with ceasefire talks between American and Iranian diplomats in Islamabad and Doha, Oman hosted an Iranian delegation in Muscat on May 24...\n\n---\n_Ingested at 2026-05-26T19:27:55.555771+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 8187087bedbbe94f -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1282",
+      "number": 1282,
+      "id": "4526905849",
+      "ts": "2026-05-26T18:30:19.000Z",
+      "chronology_ts": "2026-05-26T18:30:19.000Z",
+      "issue_created_at": "2026-05-26T19:27:57.000Z",
+      "source_published_at": "2026-05-26T18:30:19.000Z",
+      "ingested_at": "2026-05-26T18:30:19.000Z",
+      "title": "[RSS] Seafarers Begin Strike Against Three Ships Owned by Iceland’s Eimskip",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1282",
+      "original_url": "https://maritime-executive.com/article/seafarers-begin-strike-against-three-ships-owned-by-iceland-s-eimskip",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/seafarers-begin-strike-against-three-ships-owned-by-iceland-s-eimskip",
+        "source_published_at": "2026-05-26T18:30:19.000Z",
+        "ingested_at": "2026-05-26T18:30:19.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/seafarers-begin-strike-against-three-ships-owned-by-iceland-s-eimskip\n\n### Zeit (UTC)\n2026-05-26T18:30:19Z\n\n### Published\n2026-05-26T18:30:19Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe bosuns and able seamen represented by the Icelandic Seamen’s Union (SI) followed through on their earlier threat and began a strike on Monday, Ma...\n\n---\n_Ingested at 2026-05-26T19:27:56.781880+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a204098117e49b1f -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1283",
+      "number": 1283,
+      "id": "4526905955",
+      "ts": "2026-05-26T18:29:00.000Z",
+      "chronology_ts": "2026-05-26T18:29:00.000Z",
+      "issue_created_at": "2026-05-26T19:27:58.000Z",
+      "source_published_at": "2026-05-26T18:29:00.000Z",
+      "ingested_at": "2026-05-26T18:29:00.000Z",
+      "title": "[RSS] Little Sign of Movement at Iran's Oil Terminals Amidst Ongoing Talks",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1283",
+      "original_url": "https://maritime-executive.com/article/little-sign-of-movement-at-iran-s-oil-terminals-amidst-ongoing-talks",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/little-sign-of-movement-at-iran-s-oil-terminals-amidst-ongoing-talks",
+        "source_published_at": "2026-05-26T18:29:00.000Z",
+        "ingested_at": "2026-05-26T18:29:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/little-sign-of-movement-at-iran-s-oil-terminals-amidst-ongoing-talks\n\n### Zeit (UTC)\n2026-05-26T18:29:00Z\n\n### Published\n2026-05-26T18:29:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nOver the course of Monday night, US Central Command conducted limited strikes on Iranian targets that it claimed were a threat to US forces. The targ...\n\n---\n_Ingested at 2026-05-26T19:27:58.035175+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 30278601047d9480 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1280",
+      "number": 1280,
+      "id": "4526464119",
+      "ts": "2026-05-26T18:15:42.603Z",
+      "chronology_ts": "2026-05-26T18:15:42.603Z",
+      "issue_created_at": "2026-05-26T18:21:41.000Z",
+      "source_published_at": "2026-05-26T18:15:42.603Z",
+      "ingested_at": "2026-05-26T18:21:40.630Z",
+      "title": "[BSKY] For years, former Iranian President Mahmoud Ahmadinejad was a divisive figure in East politics. Now, for the United States and Israel, his record against Iran's",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1280",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmrlxuz6l72z",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmrlxuz6l72z",
+        "source_published_at": "2026-05-26T18:15:42.603Z",
+        "ingested_at": "2026-05-26T18:21:40.630Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:29ea5fb3aff9ce3f9cf6 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:29ea5fb3aff9ce3f9cf6 -->\n\n### Text\nFor years, former Iranian President Mahmoud Ahmadinejad was a divisive figure in East politics. Now, for the United States and Israel, his record against Iran's security establishment makes him worth a second look. (Members Only)\nListen here: warontherocks.com/episode/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T18:15:42.603Z\ningested_at: 2026-05-26T18:21:40.630Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmrlxuz6l72z\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1279",
+      "number": 1279,
+      "id": "4526463768",
+      "ts": "2026-05-26T18:15:05.000Z",
+      "chronology_ts": "2026-05-26T18:15:05.000Z",
+      "issue_created_at": "2026-05-26T18:21:37.000Z",
+      "source_published_at": "2026-05-26T18:15:05.000Z",
+      "ingested_at": "2026-05-26T18:21:35.985Z",
+      "title": "[RSS] African Drones &#124; C/O Futures Book Review",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1279",
+      "original_url": "https://smallwarsjournal.com/2026/05/26/african-drones-c-o-futures-book-review/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/26/african-drones-c-o-futures-book-review/",
+        "source_published_at": "2026-05-26T18:15:05.000Z",
+        "ingested_at": "2026-05-26T18:21:35.985Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:7808dc05e47f65823f83 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:7808dc05e47f65823f83 -->\n\n### Text\nLisa J. Campbell reviewed Drones in the African Battlespaces, edited by Wayne Stephen Coetzee and Dries Putter, in a recent C/O Futures Book Review. The book is a collection of articles on drone technology in Africa. Here’s a quick summary of Cambell’s findings. Most scholarship on African security comes from European and American researchers. This volume draws primarily on African &#8230;\n Read more\n The post African Drones | C/O Futures Book Review appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T18:15:05.000Z\ningested_at: 2026-05-26T18:21:35.985Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/26/african-drones-c-o-futures-book-review/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"S…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1274",
+      "number": 1274,
+      "id": "4526390899",
+      "ts": "2026-05-26T17:42:32.000Z",
+      "chronology_ts": "2026-05-26T17:42:32.000Z",
+      "issue_created_at": "2026-05-26T18:09:38.000Z",
+      "source_published_at": "2026-05-26T17:42:32.000Z",
+      "ingested_at": "2026-05-26T18:09:37.224Z",
+      "title": "[RSS] Quad Nations Launch Fiji Port Plan, Critical Minerals Pact Amid China Tensions",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1274",
+      "original_url": "https://gcaptain.com/quad-nations-launch-fiji-port-plan-critical-minerals-pact-amid-china-tensions/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/quad-nations-launch-fiji-port-plan-critical-minerals-pact-amid-china-tensions/",
+        "source_published_at": "2026-05-26T17:42:32.000Z",
+        "ingested_at": "2026-05-26T18:09:37.224Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:a9969f27fc8005fa9def -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:a9969f27fc8005fa9def -->\n\n### Text\nNEW DELHI, May 26 (Reuters)&#160;&#8211;&#160;The foreign ministers of&#160;Australia, India, Japan and the U.S. agreed to jointly build a port in Fiji and signed pacts covering critical minerals and energy security,...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T17:42:32.000Z\ningested_at: 2026-05-26T18:09:37.224Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/quad-nations-launch-fiji-port-plan-critical-minerals-pact-amid-china-tensions/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1275",
+      "number": 1275,
+      "id": "4526391073",
+      "ts": "2026-05-26T17:38:00.000Z",
+      "chronology_ts": "2026-05-26T17:38:00.000Z",
+      "issue_created_at": "2026-05-26T18:09:39.000Z",
+      "source_published_at": "2026-05-26T17:38:00.000Z",
+      "ingested_at": "2026-05-26T18:09:38.644Z",
+      "title": "[RSS] U.S. Gives Green Light to Scrap Iran-Linked Ships, Buyer Says",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1275",
+      "original_url": "https://gcaptain.com/u-s-gives-green-light-to-scrap-iran-linked-ships-buyer-says/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/u-s-gives-green-light-to-scrap-iran-linked-ships-buyer-says/",
+        "source_published_at": "2026-05-26T17:38:00.000Z",
+        "ingested_at": "2026-05-26T18:09:38.644Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:5eacaee1693177fff5e8 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:5eacaee1693177fff5e8 -->\n\n### Text\nGMS, a major buyer of ships and offshore vessels for recycling, says it has received the first US permit to purchase carriers sanctioned over Iran.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T17:38:00.000Z\ningested_at: 2026-05-26T18:09:38.644Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/u-s-gives-green-light-to-scrap-iran-linked-ships-buyer-says/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1276",
+      "number": 1276,
+      "id": "4526391213",
+      "ts": "2026-05-26T17:33:55.000Z",
+      "chronology_ts": "2026-05-26T17:33:55.000Z",
+      "issue_created_at": "2026-05-26T18:09:40.000Z",
+      "source_published_at": "2026-05-26T17:33:55.000Z",
+      "ingested_at": "2026-05-26T18:09:39.896Z",
+      "title": "[RSS] Iran Says New U.S. Strikes Violate Ceasefire",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1276",
+      "original_url": "https://gcaptain.com/iran-says-new-u-s-strikes-violate-ceasefire/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/iran-says-new-u-s-strikes-violate-ceasefire/",
+        "source_published_at": "2026-05-26T17:33:55.000Z",
+        "ingested_at": "2026-05-26T18:09:39.896Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:1b6ec70e2aaced727abb -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:1b6ec70e2aaced727abb -->\n\n### Text\nIran said the United States had violated a ceasefire after the U.S. conducted what it called defensive strikes in southern Iran, while U.S. Secretary of State Marco Rubio said negotiating a deal to halt the conflict could \"take a few days.\"\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T17:33:55.000Z\ningested_at: 2026-05-26T18:09:39.896Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/iran-says-new-u-s-strikes-violate-ceasefire/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1278",
+      "number": 1278,
+      "id": "4526392043",
+      "ts": "2026-05-26T17:31:04.355Z",
+      "chronology_ts": "2026-05-26T17:31:04.355Z",
+      "issue_created_at": "2026-05-26T18:09:51.000Z",
+      "source_published_at": "2026-05-26T17:31:04.355Z",
+      "ingested_at": "2026-05-26T18:09:49.715Z",
+      "title": "[BSKY] Join War on the Rocks and gain access to content trusted by policymakers, military leaders, and strategic thinkers worldwide. warontherocks.com/membership/",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1278",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmrji3qikg2a",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmrji3qikg2a",
+        "source_published_at": "2026-05-26T17:31:04.355Z",
+        "ingested_at": "2026-05-26T18:09:49.715Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:b1cef1be605a8ceed896 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:b1cef1be605a8ceed896 -->\n\n### Text\nJoin War on the Rocks and gain access to content trusted by policymakers, military leaders, and strategic thinkers worldwide. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T17:31:04.355Z\ningested_at: 2026-05-26T18:09:49.715Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmrji3qikg2a\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1277",
+      "number": 1277,
+      "id": "4526391357",
+      "ts": "2026-05-26T17:29:59.000Z",
+      "chronology_ts": "2026-05-26T17:29:59.000Z",
+      "issue_created_at": "2026-05-26T18:09:42.000Z",
+      "source_published_at": "2026-05-26T17:29:59.000Z",
+      "ingested_at": "2026-05-26T18:09:41.117Z",
+      "title": "[RSS] U.S. Military Denies Reported Restart of U.S. Naval Escorts in Strait of Hormuz",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1277",
+      "original_url": "https://gcaptain.com/u-s-military-denies-reported-restart-of-u-s-naval-escorts-in-strait-of-hormuz/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "MAP:YES",
+        "MAP:INFERRED",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "strait_hormuz",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "lat": 26.56,
+          "lon": 56.25,
+          "radius_km": 85,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ],
+          "score": 51,
+          "in_title": true
+        },
+        {
+          "matched_id": "persian_gulf",
+          "matched_name": "Persian Gulf",
+          "matched_alias": "Persian Gulf",
+          "lat": 27.3,
+          "lon": 51.6,
+          "radius_km": 520,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF"
+          ],
+          "score": 22,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/u-s-military-denies-reported-restart-of-u-s-naval-escorts-in-strait-of-hormuz/",
+        "source_published_at": "2026-05-26T17:29:59.000Z",
+        "ingested_at": "2026-05-26T18:09:41.117Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:54ba89589354f0a2a269 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:54ba89589354f0a2a269 -->\n\n### Text\nU.S. Central Command on Tuesday publicly denied reports that the U.S. Navy has resumed escorting commercial ships through the Strait of Hormuz under the previously suspended “Project Freedom” operation, directly...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T17:29:59.000Z\ningested_at: 2026-05-26T18:09:41.117Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/u-s-military-denies-reported-restart-of-u-s-naval-escorts-in-strait-of-hormuz/\n\n### Geo Candidates\n[\n  {\n    \"matched_id\": \"strait_hormuz\",\n    \"matched_name\": \"Strait of Hormuz\",\n    \"matched_alias\": \"strait of hormuz\",\n    \"lat\": 26.57,\n    \"lon\": 56.25,\n    \"radius_km\": 60,\n    \"precision\": \"area\",\n    \"method\": \"controlled_gazetteer\",\n    \"confidence\": \"medium_high\",\n    \"geo_role\": \"event_location_or_topic_area\",\n    \"display_on_map\": true,\n    \"regions\": [\n      \"REG:PERSIAN_GULF\",\n      \"REG:STRAIT_HORMUZ\"\n    ],\n    \"score\": 90\n  }\n]\n\n### Geo JSON\n{\n  \"geo\": null,\n  \"geo_candidates\": [\n    {\n      \"matched_id\": \"strait_hormuz\",\n      \"matched…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1284",
+      "number": 1284,
+      "id": "4526906068",
+      "ts": "2026-05-26T16:57:59.000Z",
+      "chronology_ts": "2026-05-26T16:57:59.000Z",
+      "issue_created_at": "2026-05-26T19:27:59.000Z",
+      "source_published_at": "2026-05-26T16:57:59.000Z",
+      "ingested_at": "2026-05-26T16:57:59.000Z",
+      "title": "[RSS] Seychelles Arrests Eight Iranians and Destroys Dhow Smuggling $23M of Drugs",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1284",
+      "original_url": "https://maritime-executive.com/article/seychelles-arrests-eight-iranians-and-destroys-dhow-smuggling-23m-of-drugs",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:SECURITY_CRIME",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/seychelles-arrests-eight-iranians-and-destroys-dhow-smuggling-23m-of-drugs",
+        "source_published_at": "2026-05-26T16:57:59.000Z",
+        "ingested_at": "2026-05-26T16:57:59.000Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/seychelles-arrests-eight-iranians-and-destroys-dhow-smuggling-23m-of-drugs\n\n### Zeit (UTC)\n2026-05-26T16:57:59Z\n\n### Published\n2026-05-26T16:57:59Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, D:SECURITY_CRIME, SEV:1, SRC:MEDIA\n\n### Summary\nAuthorities in the Seychelles have arrested eight Iranian nationals suspected of drug trafficking. Its Defence Force intercepted a stateless dhow that...\n\n---\n_Ingested at 2026-05-26T19:27:59.286000+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 9dc890403b96b3c0 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1262",
+      "number": 1262,
+      "id": "4525935400",
+      "ts": "2026-05-26T16:13:26.000Z",
+      "chronology_ts": "2026-05-26T16:13:26.000Z",
+      "issue_created_at": "2026-05-26T16:52:32.000Z",
+      "source_published_at": "2026-05-26T16:13:26.000Z",
+      "ingested_at": "2026-05-26T16:13:26.000Z",
+      "title": "[RSS] Greek Crude Oil Tanker off Oman Reports Explosion and Fuel Leak",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1262",
+      "original_url": "https://maritime-executive.com/article/greek-crude-oil-tanker-off-oman-reports-explosion-and-fuel-leak",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/greek-crude-oil-tanker-off-oman-reports-explosion-and-fuel-leak",
+        "source_published_at": "2026-05-26T16:13:26.000Z",
+        "ingested_at": "2026-05-26T16:13:26.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/greek-crude-oil-tanker-off-oman-reports-explosion-and-fuel-leak\n\n### Zeit (UTC)\n2026-05-26T16:13:26Z\n\n### Published\n2026-05-26T16:13:26Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nA crude oil supertanker reported an explosion on Tuesday while it was off Oman near Muscat. The incident came shortly after Iran’s IRGC vowed revenge...\n\n---\n_Ingested at 2026-05-26T16:52:32.719835+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 0b240d59de551e76 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1263",
+      "number": 1263,
+      "id": "4525935510",
+      "ts": "2026-05-26T16:12:00.000Z",
+      "chronology_ts": "2026-05-26T16:12:00.000Z",
+      "issue_created_at": "2026-05-26T16:52:34.000Z",
+      "source_published_at": "2026-05-26T16:12:00.000Z",
+      "ingested_at": "2026-05-26T16:12:00.000Z",
+      "title": "[RSS] PSSR Under MSC.560(108): What Seafarers Need to Know in 2026",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1263",
+      "original_url": "https://maritime-executive.com/article/pssr-under-msc-560-108-what-seafarers-need-to-know-in-2026",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/pssr-under-msc-560-108-what-seafarers-need-to-know-in-2026",
+        "source_published_at": "2026-05-26T16:12:00.000Z",
+        "ingested_at": "2026-05-26T16:12:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/pssr-under-msc-560-108-what-seafarers-need-to-know-in-2026\n\n### Zeit (UTC)\n2026-05-26T16:12:00Z\n\n### Published\n2026-05-26T16:12:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nTalk to seafarers or crew managers today and one topic keeps surfacing: the STCW Personal Safety and Social Responsibilities (PSSR) course. On paper,...\n\n---\n_Ingested at 2026-05-26T16:52:33.905192+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 833cfea97b749da7 -->"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1178",
       "number": 1178,
@@ -1068,6 +1693,280 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "maritime Geopolitik",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:d3e6993e1e1102fd2f85 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:d3e6993e1e1102fd2f85 -->\n\n### Text\nRussia's Federal Security Service announced on Monday that divers had discovered magnetic explosive devices attached to the hull of a Liberia-flagged liquefied petroleum gas tanker in the Baltic Sea port of Ust-Luga, in what the Kremlin has described as a thwarted terrorist attack.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-26T14:11:24.000Z\ningested_at: 2026-05-26T15:42:56.592Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/mines-on-lpg-tanker-point-to-dangerous-new-front-in-baltic-war/\n\n### Geo Candidates\n[\n  {\n    \"matched_id\": \"port_ust_luga\",\n    \"matched_name\": \"Ust-Luga\",\n    \"matched_alias\": \"ust-luga\",\n    \"lat\": 59.67,\n    \"lon\": 28.26,\n    \"radius_km\": 18,\n    \"precision\": \"port\",\n    \"method\": \"controlled_gazetteer\",\n    \"confidence\": \"medium_high\",\n    \"geo_role\": \"event_location_or_topic_area\",\n    \"display_on_map\": true,\n    \"regions\": [\n      \"REG:BALTIC\",\n      \"REG:GULF_OF_FINLAND\",\n      \"REG:RUSSIA_BALTIC\"\n    ],\n    \"score\": 90\n  }\n]\n\n### Geo JSON\n{\n  \"geo\": null,\n  \"geo_candidates\":…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1264",
+      "number": 1264,
+      "id": "4525935612",
+      "ts": "2026-05-26T13:06:05.000Z",
+      "chronology_ts": "2026-05-26T13:06:05.000Z",
+      "issue_created_at": "2026-05-26T16:52:35.000Z",
+      "source_published_at": "2026-05-26T13:06:05.000Z",
+      "ingested_at": "2026-05-26T13:06:05.000Z",
+      "title": "[RSS] Bureau Veritas Showcases Next-Generation Remote Inspection at Posidonia",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1264",
+      "original_url": "https://maritime-executive.com/article/bureau-veritas-showcases-next-generation-remote-inspection-at-posidonia",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/bureau-veritas-showcases-next-generation-remote-inspection-at-posidonia",
+        "source_published_at": "2026-05-26T13:06:05.000Z",
+        "ingested_at": "2026-05-26T13:06:05.000Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/bureau-veritas-showcases-next-generation-remote-inspection-at-posidonia\n\n### Zeit (UTC)\n2026-05-26T13:06:05Z\n\n### Published\n2026-05-26T13:06:05Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nBureau Veritas Marine & Offshore (BV) will launch its latest Remote Inspection Technique (RIT) center in Athens, Greece, during a Digital Solutions Se...\n\n---\n_Ingested at 2026-05-26T16:52:35.141140+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 5c5787877dc0cc10 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1265",
+      "number": 1265,
+      "id": "4525935722",
+      "ts": "2026-05-26T13:01:46.000Z",
+      "chronology_ts": "2026-05-26T13:01:46.000Z",
+      "issue_created_at": "2026-05-26T16:52:36.000Z",
+      "source_published_at": "2026-05-26T13:01:46.000Z",
+      "ingested_at": "2026-05-26T13:01:46.000Z",
+      "title": "[RSS] ABS SeaTech Innovation Exchange Launches Greek-U.S. Tech Collaboration",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1265",
+      "original_url": "https://maritime-executive.com/article/abs-seatech-innovation-exchange-launches-greek-u-s-tech-collaboration",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/abs-seatech-innovation-exchange-launches-greek-u-s-tech-collaboration",
+        "source_published_at": "2026-05-26T13:01:46.000Z",
+        "ingested_at": "2026-05-26T13:01:46.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/abs-seatech-innovation-exchange-launches-greek-u-s-tech-collaboration\n\n### Zeit (UTC)\n2026-05-26T13:01:46Z\n\n### Published\n2026-05-26T13:01:46Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nIn an industry first, ABS has launched the ABS SeaTech Innovation Exchange, consisting of two advanced technology centers in Athens, Greece, and Houst...\n\n---\n_Ingested at 2026-05-26T16:52:36.349350+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 95cb269af93f210f -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1266",
+      "number": 1266,
+      "id": "4525935805",
+      "ts": "2026-05-26T12:57:08.000Z",
+      "chronology_ts": "2026-05-26T12:57:08.000Z",
+      "issue_created_at": "2026-05-26T16:52:37.000Z",
+      "source_published_at": "2026-05-26T12:57:08.000Z",
+      "ingested_at": "2026-05-26T12:57:08.000Z",
+      "title": "[RSS] Canal Barge Company Repowers M/V Hallie M. Merrick with Mitsubishi Engines",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1266",
+      "original_url": "https://maritime-executive.com/article/canal-barge-company-repowers-m-v-hallie-m-merrick-with-mitsubishi-engines",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/canal-barge-company-repowers-m-v-hallie-m-merrick-with-mitsubishi-engines",
+        "source_published_at": "2026-05-26T12:57:08.000Z",
+        "ingested_at": "2026-05-26T12:57:08.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/canal-barge-company-repowers-m-v-hallie-m-merrick-with-mitsubishi-engines\n\n### Zeit (UTC)\n2026-05-26T12:57:08Z\n\n### Published\n2026-05-26T12:57:08Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nCanal Barge Company has repowered the M/V Hallie M. Merrick with two Mitsubishi S12R Tier 3 engines rated at 1100 horsepower at 1800 RPM. The project...\n\n---\n_Ingested at 2026-05-26T16:52:37.545866+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1baaabf554a97246 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1267",
+      "number": 1267,
+      "id": "4525935974",
+      "ts": "2026-05-26T12:54:10.000Z",
+      "chronology_ts": "2026-05-26T12:54:10.000Z",
+      "issue_created_at": "2026-05-26T16:52:38.000Z",
+      "source_published_at": "2026-05-26T12:54:10.000Z",
+      "ingested_at": "2026-05-26T12:54:10.000Z",
+      "title": "[RSS] U.S. Center for Maritime Innovation Convenes Industry & Government Leaders",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1267",
+      "original_url": "https://maritime-executive.com/article/u-s-center-for-maritime-innovation-convenes-industry-government-leaders",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/u-s-center-for-maritime-innovation-convenes-industry-government-leaders",
+        "source_published_at": "2026-05-26T12:54:10.000Z",
+        "ingested_at": "2026-05-26T12:54:10.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/u-s-center-for-maritime-innovation-convenes-industry-government-leaders\n\n### Zeit (UTC)\n2026-05-26T12:54:10Z\n\n### Published\n2026-05-26T12:54:10Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe U.S. Center for Maritime Innovation (USCMI), with the Maritime Administration and facilitated by the American Bureau of Shipping (ABS), convened m...\n\n---\n_Ingested at 2026-05-26T16:52:38.724122+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 6eed3c3433d5f457 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1268",
+      "number": 1268,
+      "id": "4525936146",
+      "ts": "2026-05-26T12:48:31.000Z",
+      "chronology_ts": "2026-05-26T12:48:31.000Z",
+      "issue_created_at": "2026-05-26T16:52:40.000Z",
+      "source_published_at": "2026-05-26T12:48:31.000Z",
+      "ingested_at": "2026-05-26T12:48:31.000Z",
+      "title": "[RSS] C&C Marine & Repair Builds M/V Deborah H. Valentine for Canal Barge Company",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1268",
+      "original_url": "https://maritime-executive.com/article/c-c-marine-repair-builds-m-v-deborah-h-valentine-for-canal-barge-company",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/c-c-marine-repair-builds-m-v-deborah-h-valentine-for-canal-barge-company",
+        "source_published_at": "2026-05-26T12:48:31.000Z",
+        "ingested_at": "2026-05-26T12:48:31.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/c-c-marine-repair-builds-m-v-deborah-h-valentine-for-canal-barge-company\n\n### Zeit (UTC)\n2026-05-26T12:48:31Z\n\n### Published\n2026-05-26T12:48:31Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe M/V Deborah H. Valentine, built by C&C Marine & Repair LLC for Canal Barge Company, marks the second vessel delivered under a four-boat constructi...\n\n---\n_Ingested at 2026-05-26T16:52:39.828746+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 01e1b5c4d5332f5a -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1269",
+      "number": 1269,
+      "id": "4525936243",
+      "ts": "2026-05-26T12:42:01.000Z",
+      "chronology_ts": "2026-05-26T12:42:01.000Z",
+      "issue_created_at": "2026-05-26T16:52:41.000Z",
+      "source_published_at": "2026-05-26T12:42:01.000Z",
+      "ingested_at": "2026-05-26T12:42:01.000Z",
+      "title": "[RSS] C&C Marine & Repair Builds M/V Cabby H. Boone for Canal Barge Company",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1269",
+      "original_url": "https://maritime-executive.com/article/c-c-marine-repair-builds-m-v-cabby-h-boone-for-canal-barge-company",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/c-c-marine-repair-builds-m-v-cabby-h-boone-for-canal-barge-company",
+        "source_published_at": "2026-05-26T12:42:01.000Z",
+        "ingested_at": "2026-05-26T12:42:01.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/c-c-marine-repair-builds-m-v-cabby-h-boone-for-canal-barge-company\n\n### Zeit (UTC)\n2026-05-26T12:42:01Z\n\n### Published\n2026-05-26T12:42:01Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nC&C Marine & Repair LLC has completed the M/V Cabby H. Boone for Canal Barge Company, the third vessel in an ongoing four-boat construction program at...\n\n---\n_Ingested at 2026-05-26T16:52:40.961932+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 6dac46949d2c55e3 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1270",
+      "number": 1270,
+      "id": "4525936348",
+      "ts": "2026-05-26T12:38:06.000Z",
+      "chronology_ts": "2026-05-26T12:38:06.000Z",
+      "issue_created_at": "2026-05-26T16:52:42.000Z",
+      "source_published_at": "2026-05-26T12:38:06.000Z",
+      "ingested_at": "2026-05-26T12:38:06.000Z",
+      "title": "[RSS] Wallem Group Reports Progress Across its ESG Priorities",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1270",
+      "original_url": "https://maritime-executive.com/article/wallem-group-reports-progress-across-its-esg-priorities",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/wallem-group-reports-progress-across-its-esg-priorities",
+        "source_published_at": "2026-05-26T12:38:06.000Z",
+        "ingested_at": "2026-05-26T12:38:06.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/wallem-group-reports-progress-across-its-esg-priorities\n\n### Zeit (UTC)\n2026-05-26T12:38:06Z\n\n### Published\n2026-05-26T12:38:06Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nA new Environmental, Social and Governance (ESG) report from Wallem Group, a leading maritime services provider, highlights how broadening staff welln...\n\n---\n_Ingested at 2026-05-26T16:52:42.199148+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: e76d3441546ecbde -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1219",
@@ -2203,6 +3102,45 @@
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/waertsilae-expands-engine-production-capacity-by-another-30-percent\n\n### Zeit (UTC)\n2026-05-26T03:21:52Z\n\n### Published\n2026-05-26T03:21:52Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nDemand for diesel engines is growing so quickly that technology group Wärtsilä is planning to expand production capacity by another 30 percent at its...\n\n---\n_Ingested at 2026-05-26T08:43:24.856538+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b955b822adbc4a7e -->"
     },
     {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1271",
+      "number": 1271,
+      "id": "4525936425",
+      "ts": "2026-05-26T03:21:52.000Z",
+      "chronology_ts": "2026-05-26T03:21:52.000Z",
+      "issue_created_at": "2026-05-26T16:52:43.000Z",
+      "source_published_at": "2026-05-26T03:21:52.000Z",
+      "ingested_at": "2026-05-26T03:21:52.000Z",
+      "title": "[RSS] Wärtsilä Expands Engine Production Capacity by Another 30 Percent",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1271",
+      "original_url": "https://maritime-executive.com/article/waertsilae-expands-engine-production-capacity-by-another-30-percent",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/waertsilae-expands-engine-production-capacity-by-another-30-percent",
+        "source_published_at": "2026-05-26T03:21:52.000Z",
+        "ingested_at": "2026-05-26T03:21:52.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/waertsilae-expands-engine-production-capacity-by-another-30-percent\n\n### Zeit (UTC)\n2026-05-26T03:21:52Z\n\n### Published\n2026-05-26T03:21:52Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nDemand for diesel engines is growing so quickly that technology group Wärtsilä is planning to expand production capacity by another 30 percent at its...\n\n---\n_Ingested at 2026-05-26T16:52:43.330896+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b955b822adbc4a7e -->"
+    },
+    {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1166",
       "number": 1166,
       "id": "4522782178",
@@ -2242,6 +3180,47 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/russia-may-have-revived-the-idea-of-a-seabed-ballistic-missile-launcher\n\n### Zeit (UTC)\n2026-05-26T00:18:22Z\n\n### Published\n2026-05-26T00:18:22Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, PAT:SURVEYING, SEV:1, SRC:MEDIA\n\n### Summary\nBack in the early 1960s, a team of engineers at General Dynamics' Astronautics division got permission to pursue an unusual project. With corporate f...\n\n---\n_Ingested at 2026-05-26T08:43:25.972347+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1c7170755af6562e -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1272",
+      "number": 1272,
+      "id": "4525936509",
+      "ts": "2026-05-26T00:18:22.000Z",
+      "chronology_ts": "2026-05-26T00:18:22.000Z",
+      "issue_created_at": "2026-05-26T16:52:44.000Z",
+      "source_published_at": "2026-05-26T00:18:22.000Z",
+      "ingested_at": "2026-05-26T00:18:22.000Z",
+      "title": "[RSS] Russia May Have Revived the Idea of a Seabed Ballistic Missile Launcher",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1272",
+      "original_url": "https://maritime-executive.com/article/russia-may-have-revived-the-idea-of-a-seabed-ballistic-missile-launcher",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "PAT:SURVEYING",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/russia-may-have-revived-the-idea-of-a-seabed-ballistic-missile-launcher",
+        "source_published_at": "2026-05-26T00:18:22.000Z",
+        "ingested_at": "2026-05-26T00:18:22.000Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/russia-may-have-revived-the-idea-of-a-seabed-ballistic-missile-launcher\n\n### Zeit (UTC)\n2026-05-26T00:18:22Z\n\n### Published\n2026-05-26T00:18:22Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, PAT:SURVEYING, SEV:1, SRC:MEDIA\n\n### Summary\nBack in the early 1960s, a team of engineers at General Dynamics' Astronautics division got permission to pursue an unusual project. With corporate f...\n\n---\n_Ingested at 2026-05-26T16:52:44.510568+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1c7170755af6562e -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1156",
@@ -2363,6 +3342,85 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "maritime Geopolitik",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/possible-clash-reported-near-bandar-abbas-as-ceasefire-deal-edges-closer\n\n### Zeit (UTC)\n2026-05-25T23:24:28Z\n\n### Published\n2026-05-25T23:24:28Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nFollowing multiple social media reports of explosions along Iran's Strait of Hormuz coastline, the semi-official Fars News Agency claims that Iranian...\n\n---\n_Ingested at 2026-05-26T04:34:04.734271+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 6ee8769c3f45408b -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1273",
+      "number": 1273,
+      "id": "4525936616",
+      "ts": "2026-05-25T23:24:28.000Z",
+      "chronology_ts": "2026-05-25T23:24:28.000Z",
+      "issue_created_at": "2026-05-26T16:52:45.000Z",
+      "source_published_at": "2026-05-25T23:24:28.000Z",
+      "ingested_at": "2026-05-25T23:24:28.000Z",
+      "title": "[RSS] Fatal Skirmish Reported in Strait of Hormuz as Ceasefire Deal Edges Closer",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1273",
+      "original_url": "https://maritime-executive.com/article/possible-clash-reported-near-bandar-abbas-as-ceasefire-deal-edges-closer",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/possible-clash-reported-near-bandar-abbas-as-ceasefire-deal-edges-closer",
+        "source_published_at": "2026-05-25T23:24:28.000Z",
+        "ingested_at": "2026-05-25T23:24:28.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/possible-clash-reported-near-bandar-abbas-as-ceasefire-deal-edges-closer\n\n### Zeit (UTC)\n2026-05-25T23:24:28Z\n\n### Published\n2026-05-25T23:24:28Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nFollowing multiple social media reports of explosions along Iran's Strait of Hormuz coastline, the semi-official Fars News Agency claims that Iranian...\n\n---\n_Ingested at 2026-05-26T16:52:45.648392+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 6ee8769c3f45408b -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1168",
@@ -2490,6 +3548,83 @@
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/eight-injured-during-cargo-ship-fire-in-hamburg\n\n### Zeit (UTC)\n2026-05-25T22:15:53Z\n\n### Published\n2026-05-25T22:15:53Z\n\n### Auto-Labels\nCONF:MED, D:INCIDENT, D:NEWS_INTEL, REG:GER_BIGHT, SEV:1, SRC:MEDIA\n\n### Summary\nThe fire department in Hamburg, Germany, is reporting it received a callout on Sunday, May 24, for reports of smoke coming from a cargo ship docked at...\n\n---\n_Ingested at 2026-05-25T23:21:22.826501+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 8b82e6c136de5ccd -->"
     },
     {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1285",
+      "number": 1285,
+      "id": "4526906267",
+      "ts": "2026-05-25T22:15:53.000Z",
+      "chronology_ts": "2026-05-25T22:15:53.000Z",
+      "issue_created_at": "2026-05-26T19:28:00.000Z",
+      "source_published_at": "2026-05-25T22:15:53.000Z",
+      "ingested_at": "2026-05-25T22:15:53.000Z",
+      "title": "[RSS] Eight Injured During Cargo Ship Fire in Hamburg",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1285",
+      "original_url": "https://maritime-executive.com/article/eight-injured-during-cargo-ship-fire-in-hamburg",
+      "labels": [
+        "D:INCIDENT",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:GER_BIGHT",
+        "REG:NORTH_SEA"
+      ],
+      "source_type": "rss",
+      "category": "D:INCIDENT",
+      "region": "REG:GER_BIGHT",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 53.54,
+        "lon": 9.98,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Hamburg",
+        "matched_alias": "Hamburg",
+        "matched_id": "port_hamburg",
+        "radius_km": 22,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA",
+          "REG:GER_BIGHT"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 53.54,
+          "lon": 9.98,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Hamburg",
+          "matched_alias": "Hamburg",
+          "matched_id": "port_hamburg",
+          "radius_km": 22,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:NORTH_SEA",
+            "REG:GER_BIGHT"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/eight-injured-during-cargo-ship-fire-in-hamburg",
+        "source_published_at": "2026-05-25T22:15:53.000Z",
+        "ingested_at": "2026-05-25T22:15:53.000Z"
+      },
+      "report_category": "Zwischenfälle / Safety / Störungen",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/eight-injured-during-cargo-ship-fire-in-hamburg\n\n### Zeit (UTC)\n2026-05-25T22:15:53Z\n\n### Published\n2026-05-25T22:15:53Z\n\n### Auto-Labels\nCONF:MED, D:INCIDENT, D:NEWS_INTEL, REG:GER_BIGHT, SEV:1, SRC:MEDIA\n\n### Summary\nThe fire department in Hamburg, Germany, is reporting it received a callout on Sunday, May 24, for reports of smoke coming from a cargo ship docked at...\n\n---\n_Ingested at 2026-05-26T19:28:00.492618+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 8b82e6c136de5ccd -->"
+    },
+    {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1153",
       "number": 1153,
       "id": "4519806222",
@@ -2608,6 +3743,82 @@
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/bulk-cargo-ship-arrives-in-cuba-carrying-aid-from-china\n\n### Zeit (UTC)\n2026-05-25T21:19:22Z\n\n### Published\n2026-05-25T21:19:22Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAid shipments are continuing to arrive in Cuba despite the U.S. efforts to apply pressure on the Communist government of the Caribbean island. In the...\n\n---\n_Ingested at 2026-05-25T23:21:24.216751+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 4edd82074eab28e4 -->"
     },
     {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1286",
+      "number": 1286,
+      "id": "4526906395",
+      "ts": "2026-05-25T21:19:22.000Z",
+      "chronology_ts": "2026-05-25T21:19:22.000Z",
+      "issue_created_at": "2026-05-26T19:28:02.000Z",
+      "source_published_at": "2026-05-25T21:19:22.000Z",
+      "ingested_at": "2026-05-25T21:19:22.000Z",
+      "title": "[RSS] Bulk Cargo Ship Arrives in Cuba Carrying Aid from China",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1286",
+      "original_url": "https://maritime-executive.com/article/bulk-cargo-ship-arrives-in-cuba-carrying-aid-from-china",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:CARIBBEAN",
+        "REG:ATLANTIC"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:CARIBBEAN",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 15,
+        "lon": -75,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Caribbean Sea",
+        "matched_alias": "Caribbean",
+        "matched_id": "caribbean_sea",
+        "radius_km": 1250,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:CARIBBEAN",
+          "REG:ATLANTIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 15,
+          "lon": -75,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Caribbean Sea",
+          "matched_alias": "Caribbean",
+          "matched_id": "caribbean_sea",
+          "radius_km": 1250,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:CARIBBEAN",
+            "REG:ATLANTIC"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/bulk-cargo-ship-arrives-in-cuba-carrying-aid-from-china",
+        "source_published_at": "2026-05-25T21:19:22.000Z",
+        "ingested_at": "2026-05-25T21:19:22.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/bulk-cargo-ship-arrives-in-cuba-carrying-aid-from-china\n\n### Zeit (UTC)\n2026-05-25T21:19:22Z\n\n### Published\n2026-05-25T21:19:22Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAid shipments are continuing to arrive in Cuba despite the U.S. efforts to apply pressure on the Communist government of the Caribbean island. In the...\n\n---\n_Ingested at 2026-05-26T19:28:01.737166+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 4edd82074eab28e4 -->"
+    },
+    {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1152",
       "number": 1152,
       "id": "4519649450",
@@ -2645,6 +3856,45 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "maritime Geopolitik",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/taiwan-attempts-to-row-back-us-navy-secretary-s-comments-on-arms-sales\n\n### Zeit (UTC)\n2026-05-25T20:56:00Z\n\n### Published\n2026-05-25T20:56:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nTaiwanese officials have been busy downplaying a comment by newly-appointed Acting Secretary of the Navy Hung Cao, who told a Senate committee last w...\n\n---\n_Ingested at 2026-05-25T21:33:56.444787+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 80761680e2093901 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1287",
+      "number": 1287,
+      "id": "4526906507",
+      "ts": "2026-05-25T20:56:00.000Z",
+      "chronology_ts": "2026-05-25T20:56:00.000Z",
+      "issue_created_at": "2026-05-26T19:28:03.000Z",
+      "source_published_at": "2026-05-25T20:56:00.000Z",
+      "ingested_at": "2026-05-25T20:56:00.000Z",
+      "title": "[RSS] Taiwan Attempts to Row Back US Navy Secretary's Comments on Arms Sales",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1287",
+      "original_url": "https://maritime-executive.com/article/taiwan-attempts-to-row-back-us-navy-secretary-s-comments-on-arms-sales",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/taiwan-attempts-to-row-back-us-navy-secretary-s-comments-on-arms-sales",
+        "source_published_at": "2026-05-25T20:56:00.000Z",
+        "ingested_at": "2026-05-25T20:56:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/taiwan-attempts-to-row-back-us-navy-secretary-s-comments-on-arms-sales\n\n### Zeit (UTC)\n2026-05-25T20:56:00Z\n\n### Published\n2026-05-25T20:56:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nTaiwanese officials have been busy downplaying a comment by newly-appointed Acting Secretary of the Navy Hung Cao, who told a Senate committee last w...\n\n---\n_Ingested at 2026-05-26T19:28:02.957198+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 80761680e2093901 -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1151",
@@ -48195,52 +49445,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-06T23:00:00.000Z\n\n### Link\nhttps://www.rusi.org/members-event-recordings/recording-emerging-technology-and-democratic-processes\n\n### Text\nAn expert panel examine how emerging technologies are reshaping the information environment at the heart of democratic processes.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: rusi_latest_publications\nsource_priority: 88\nitem_score: 5\nkeyword_hits: mine\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: 180c7e17 SOURCE=rusi_latest_publications -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/564",
-      "number": 564,
-      "id": "4437780591",
-      "ts": "2026-05-06T17:07:51.000Z",
-      "chronology_ts": "2026-05-06T17:07:51.000Z",
-      "issue_created_at": "2026-05-13T12:18:02.000Z",
-      "source_published_at": "2026-05-06T17:07:51.000Z",
-      "ingested_at": "2026-05-13T12:18:00.786Z",
-      "title": "[RSS] Bulgaria: Hope Despite the Noise",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/564",
-      "original_url": "https://cepa.org/article/bulgaria-hope-despite-the-noise/",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
-        "platform": "rss",
-        "link": "https://cepa.org/article/bulgaria-hope-despite-the-noise/",
-        "source_published_at": "2026-05-06T17:07:51.000Z",
-        "ingested_at": "2026-05-13T12:18:00.786Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:b2f29674ed3becd945e5 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:b2f29674ed3becd945e5 -->\n\n### Text\nBulgaria has finally elected a strong government. But don’t assume its Kremlin-friendly instincts will be the defining feature.\n The post Bulgaria: Hope Despite the Noise appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-06T17:07:51.000Z\ningested_at: 2026-05-13T12:18:00.786Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/bulgaria-hope-despite-the-noise/\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
     }
   ]
 }
