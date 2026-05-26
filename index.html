@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.35 "Weirdness Calibration"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.37 "Priority Alerts + ntfy"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -153,6 +153,31 @@
     .toggle input{width:auto; transform: scale(1.15);}
 
     .list{margin-top:12px}
+
+    .priorityAlerts{
+      margin-top:12px;
+      display:grid;
+      gap:8px;
+    }
+    .priorityAlerts.empty{display:none}
+    .alertCard{
+      border:1px solid rgba(255,210,77,.55);
+      border-radius:14px;
+      padding:10px 12px;
+      background:linear-gradient(180deg, rgba(255,210,77,.10), rgba(0,0,0,.28));
+      box-shadow:0 0 0 2px rgba(0,0,0,.42) inset, 0 0 20px rgba(255,210,77,.07);
+    }
+    .alertCard.critical{border-color:rgba(255,77,77,.82); background:linear-gradient(180deg, rgba(255,77,77,.14), rgba(0,0,0,.30));}
+    .alertCard.high{border-color:rgba(255,138,0,.75); background:linear-gradient(180deg, rgba(255,138,0,.12), rgba(0,0,0,.30));}
+    .alertCard.watch{border-color:rgba(255,210,77,.55);}
+    .alertHead{display:flex; justify-content:space-between; gap:10px; align-items:flex-start; flex-wrap:wrap;}
+    .alertLevel{font-size:16px; letter-spacing:.06em; text-transform:uppercase; padding:3px 8px; border-radius:999px; border:1px solid rgba(255,255,255,.22);}
+    .alertLevel.critical{color:#ffb8b8; border-color:rgba(255,77,77,.75)}
+    .alertLevel.high{color:#ffd9a3; border-color:rgba(255,138,0,.75)}
+    .alertLevel.watch{color:var(--money); border-color:rgba(255,210,77,.55)}
+    .alertTitle{font-size:21px; line-height:1.05;}
+    .alertReason{margin-top:6px; font-size:16px; color:rgba(255,255,255,.82);}
+    .alertMeta{margin-top:5px; font-size:15px; color:var(--muted);}
     .event{
       padding:12px;
       border-radius:var(--r);
@@ -834,6 +859,7 @@
             <div class="hint" style="margin-bottom:8px;">
               Map-Marker erscheinen bei fertigem <b>geo</b>, explizitem <b>Geo: 53.5100, 8.1500</b> oder sicherer Archiv-Nachgeolokalisierung.
             </div>
+            <div class="priorityAlerts empty" id="priorityAlerts"></div>
             <div class="list" id="list"></div>
             <div class="hint" id="foot">–</div>
           </div>
@@ -919,7 +945,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
               <div class="panel" style="border-radius:12px;">
                 <div class="ph">
                   <div class="title">HYBRID-SEISMOGRAPH</div>
-                  <div class="meta">Ø <select id="hybridWindow"><option value="6">6h</option><option value="12">12h</option><option value="24">24h</option><option value="48">48h</option></select> • lila Peak 72h</div>
+                  <div class="meta">Ø <select id="hybridWindow"><option value="72" selected>72h</option><option value="36">36h</option></select> • lila Peak 72h</div>
                 </div>
                 <div class="pc">
                   <div class="sensorGrid">
@@ -967,7 +993,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
                       <div class="meter" style="width:100%; height:22px; border-radius:999px;"><div class="fill" id="weirdBalticFill" style="height:100%; width:0%;"></div></div>
                     </div>
                   </div>
-                  <div class="hint" style="margin-top:8px;">Heuristik v5.35: kalibrierte AIS-/ADS-B-Sensorik, Behördenmeldungs-Abweichung ±25% zur 14-Tage-Norm und NAVTEX/NAVWARN nur bei tatsächlichen Vitalsignalen.</div>
+                  <div class="hint" style="margin-top:8px;">Heuristik v5.37: kalibrierte AIS-/ADS-B-Sensorik, Behördenmeldungs-Abweichung ±25% zur 14-Tage-Norm und NAVTEX/NAVWARN nur bei tatsächlichen Vitalsignalen.</div>
                 </div>
               </div>
 
@@ -1371,6 +1397,73 @@ Wilhelmshaven JadeWeserPort"></textarea>
     return ms > 0 ? new Date(ms) : null;
   }
 
+
+  const PRIORITY_ALERT_RANK = { NONE:0, WATCH:1, HIGH:2, CRITICAL:3 };
+  function priorityAlertRank(level){ return PRIORITY_ALERT_RANK[String(level || "NONE").toUpperCase()] || 0; }
+  function eventFullText(ev){ return `${ev?.title || ""}\n${ev?.summary || ""}\n${labelsOf(ev).join(" ")}\n${ev?.source_hint?.source || ""}\n${ev?.original_url || ""}`; }
+  function inferPriorityAlert(ev){
+    const labels = labelsOf(ev);
+    const explicit = labels.find(l => /^ALERT:(CRITICAL|HIGH|WATCH)$/i.test(l));
+    const raw = eventFullText(ev);
+    const low = raw.toLowerCase();
+    const reasons = [];
+    let score = 0;
+    const add = (n,r) => { score += n; if(r && !reasons.includes(r)) reasons.push(r); };
+    const reExplosive = /\b(mine|mines|limpet mine|naval mine|sea mine|explosive device|explosive|ied|bomb|munition|uxo|unexploded ordnance|haftmine|seemine|sprengsatz|mine attached)\b/i;
+    const reIncident = /\b(sabotage|terrorist attack|attempted attack|attack|arson|explosion|blast|collision|grounding|fire|sinking|hijack|kidnap|armed robbery|boarding|interdiction|seizure)\b/i;
+    const reCI = /\b(subsea|seabed|cable|pipeline|lng|lpg|gas terminal|oil terminal|offshore|wind farm|windfarm|platform|terminal|port|harbour|harbor|hafen|kritis|critical infrastructure)\b/i;
+    const reVessel = /\b(vessel|ship|tanker|carrier|cargo|container ship|bulk carrier|warship|frigate|patrol vessel|lpg carrier|lng carrier|schiff|frachter|tanker)\b/i;
+    const reRoute = /\b(ais gap|ais off|dark vessel|dark activity|loitering|ship-to-ship|\bsts\b|rendezvous|route deviation|spoofing|jamming|gnss|gps)\b/i;
+    const reNav = /\b(navtex|navwarn|navigational warning|mine|obstruction|hazard|restricted area|exclusion zone|firing exercise|military exercise|wreck|drifting object)\b/i;
+    const rePlace = /\b(ust[-\s]?luga|primorsk|gulf of finland|baltic|north sea|german bight|skagen|kattegat|bornholm|gotland|gibraltar|suez|bab el[-\s]?mandeb|hormuz|black sea|red sea|kerch|novorossiysk)\b/i;
+    if (reExplosive.test(raw)) add(5, "Explosivmittel/Minenbezug");
+    if (reIncident.test(raw)) add(4, "harter Sicherheitsvorfall");
+    if (reCI.test(raw)) add(2, "KRITIS-/Hafen-/Energiebezug");
+    if (reVessel.test(raw)) add(2, "Schiffsbezug");
+    if (reRoute.test(raw)) add(2, "AIS-/Route-/GNSS-Muster");
+    if (reNav.test(raw)) add(1, "NAVTEX/NAVWARN-/Gefahrenbezug");
+    if (rePlace.test(raw)) add(2, "strategischer maritimer Raum");
+    if (labels.includes("D:SECURITY_CRIME")) add(2, "Security-Crime-Label");
+    if (labels.includes("D:INFRA_CI")) add(2, "KRITIS-Label");
+    if (labels.includes("D:RF_SIGNAL")) add(1, "RF/GNSS-Label");
+    if (labels.includes("D:AIS_TRACK")) add(1, "AIS-/Track-Label");
+    if (labels.includes("P0:SUSPECT")) add(2, "P0:SUSPECT");
+    if (labels.includes("CONF:HIGH")) add(2, "hohe Konfidenz"); else if (labels.includes("CONF:MED")) add(1, "mittlere Konfidenz");
+    if (labels.includes("SEV:3") || labels.includes("SEV:4")) add(2, "erhöhte Severity"); else if (labels.includes("SEV:2")) add(1, "mittlere Severity");
+    if (ev.geo || (ev.geo_candidates || []).length) add(1, "georeferenzierbar");
+    let level = explicit ? explicit.split(":")[1].toUpperCase() : "NONE";
+    const criticalOverride = reExplosive.test(raw) && (reVessel.test(raw) || reCI.test(raw) || rePlace.test(raw));
+    if (!explicit) {
+      if (criticalOverride || score >= 12) level = "CRITICAL";
+      else if (score >= 8) level = "HIGH";
+      else if (score >= 5) level = "WATCH";
+    }
+    return { level, score, reasons, rank: priorityAlertRank(level) };
+  }
+  function renderPriorityAlerts(){
+    const box = el("priorityAlerts");
+    if (!box) return;
+    const hours = selectedDisplayWindowHours();
+    const alerts = state.events
+      .filter(ev => isWithinHours(ev, hours))
+      .map(ev => ({ ev, alert: inferPriorityAlert(ev) }))
+      .filter(x => x.alert.rank >= PRIORITY_ALERT_RANK.WATCH)
+      .sort((a,b) => (b.alert.rank - a.alert.rank) || (b.alert.score - a.alert.score) || (getEventChronologyMs(b.ev) - getEventChronologyMs(a.ev)))
+      .slice(0, 6);
+    if (!alerts.length) { box.classList.add("empty"); box.innerHTML = ""; return; }
+    box.classList.remove("empty");
+    box.innerHTML = alerts.map(({ev, alert}) => {
+      const level = String(alert.level || "WATCH").toLowerCase();
+      const when = eventChronologyDate(ev)?.toLocaleString() || "–";
+      const url = originalUrlFromEvent(ev) || ev.url || "#";
+      const reasons = (alert.reasons || []).slice(0,3).join(" • ");
+      return `<div class="alertCard ${level}">
+        <div class="alertHead"><div><div class="alertTitle"><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">${escapeHtml(ev.title || "Priority Alert")}</a></div><div class="alertMeta">#${escapeHtml(ev.number ?? "?")} • ${escapeHtml(when)} • Score ${escapeHtml(alert.score)}</div></div><div class="alertLevel ${level}">${escapeHtml(alert.level)}</div></div>
+        <div class="alertReason">${escapeHtml(reasons || "priorisierte maritime Lagekomponente")}</div>
+      </div>`;
+    }).join("");
+  }
+
   function applyFilters(){
     const q = el("q").value.trim().toLowerCase();
     const domain = el("domain").value;
@@ -1400,6 +1493,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     filtered.sort((a,b)=> getEventChronologyMs(b) - getEventChronologyMs(a));
     state.filtered = filtered;
     updateLogWindowNote();
+    renderPriorityAlerts();
 
     renderEvents();
     updateKPIsAndInstruments();
@@ -2079,7 +2173,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
 
     // Instruments use all loaded events, but the displayed Hybrid value is a rolling average.
     const instrumentEvents = state.events;
-    const hybridWindow = Number(el("hybridWindow")?.value || 6);
+    const hybridWindow = Number(el("hybridWindow")?.value || 72);
     const hybridBuckets = buildHybridHourlyBuckets(instrumentEvents, 72);
     const hybridBase = scorePhaseZero(instrumentEvents, hybridWindow);
     const hybrid = clamp(hybridBase + navtexHybridBoost(), 0, 100);
