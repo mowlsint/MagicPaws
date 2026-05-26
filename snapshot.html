@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot v5.34 Live Sensors</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.37c Priority Alerts Snapshot Hotfix</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -236,7 +236,7 @@
         <div class="sub">TÄGLICHER SNAPSHOT / KURZLAGEBILD</div>
       </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.25 “Daily Snapshot”</b></div>
+        <div><b id="versionLabel">v5.37c “Priority Alerts Snapshot Hotfix”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
@@ -400,6 +400,7 @@
     for (const f of fields){ const ms = parseMs(f); if (ms) return ms; }
     return 0;
   }
+  function msOf(ev){ return getEventChronologyMs(ev); }
   function eventDate(ev){ const ms = getEventChronologyMs(ev); return ms ? new Date(ms) : null; }
   function ageHours(ev){ const ms = getEventChronologyMs(ev); return ms ? (Date.now() - ms) / 36e5 : Infinity; }
   function ageDays(ev){ const ms = getEventChronologyMs(ev); return ms ? (Date.now() - ms) / 864e5 : Infinity; }
