@@ -407,7 +407,7 @@
   function eventInWeirdRegion(ev, mode){ const ls=labels(ev); const t=norm(eventText(ev)); if(mode==="north") return ev.region==="REG:NORTH_SEA"||ev.region==="REG:GER_BIGHT"||ev.region==="REG:CHANNEL"||ls.some(l=>["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"].includes(l))||/north sea|nordsee|german bight|deutsche bucht|skagen|skagerrak|channel|aermelkanal|ärmelkanal|dover/.test(t); return ev.region==="REG:BALTIC"||ev.region==="REG:BALTIC_SEA"||ls.some(l=>["REG:BALTIC","REG:BALTIC_SEA","REG:DANISH_STRAITS","REG:ORESUND","REG:GULF_OF_FINLAND"].includes(l))||/baltic|ostsee|oresund|øresund|kattegat|bornholm|gotland|gulf of finland|ust-luga|ust luga/.test(t); }
   function authorityDeviation(events, mode){ const cur=events.filter(ev=>ageHours(ev)<=24 && isAuthorityReport(ev) && eventInWeirdRegion(ev,mode)).length; const nowD=new Date(); const sameWE=d=>((d.getUTCDay()===0||d.getUTCDay()===6)===(nowD.getUTCDay()===0||nowD.getUTCDay()===6)); const m=new Map(); for(const ev of events){ const ms=getEventChronologyMs(ev); if(!ms) continue; const age=(Date.now()-ms)/864e5; if(age<=1||age>15) continue; const d=new Date(ms); if(!sameWE(d)) continue; if(isAuthorityReport(ev)&&eventInWeirdRegion(ev,mode)){ const k=d.toISOString().slice(0,10); m.set(k,(m.get(k)||0)+1); }} const vals=[...m.values()]; const avg=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:0; const dev=avg>0?(cur-avg)/avg:(cur>0?1:0); return {cur,avg,dev,abs:Math.abs(dev),outside:Math.abs(dev)>=.25}; }
   function navtexItems(data){ return Array.isArray(data?.items)?data.items:(Array.isArray(data?.warnings)?data.warnings:(Array.isArray(data?.messages)?data.messages:[])); }
-  function navtexSignal(data, mode){ const rows=navtexItems(data).filter(it=>{ const t=norm([it?.title,it?.text,it?.message,it?.summary,it?.description,it?.body,it?.region,...(Array.isArray(it?.regions)?it.regions:[])].join(" ")); if(mode==="north") return /north sea|nordsee|german bight|deutsche bucht|channel|dover|skagerrak|REG:NORTH_SEA|REG:GER_BIGHT|REG:CHANNEL/i.test(t); return /baltic|ostsee|oresund|øresund|kattegat|bornholm|gotland|gulf of finland|ust-luga|ust luga|REG:BALTIC/i.test(t); }); let vital=0, obst=0; const rooms=new Map(); for(const it of rows){ const t=norm(JSON.stringify(it)); if(/cable|pipeline|subsea|mine|unexploded|collision|restricted area|exclusion zone|security zone|military exercise|gnss|gps|navwarn|navtex/.test(t)) vital++; if(/obstruction|obstacle|hindrance|hazard|drifting|adrift|buoy off station|wreck|floating object|mine|explosive/.test(t)){ obst++; const key=(Array.isArray(it?.regions)&&it.regions[0])||it?.region||mode; rooms.set(key,(rooms.get(key)||0)+1); }} return { total:rows.length, vitalCount:vital, obstacleCount:obst, clusteredObstacles:[...rooms.values()].filter(n=>n>=2).reduce((a,b)=>a+b,0)}; }
+  function navtexSignal(data, mode){ const rows=navtexItems(data).filter(it=>{ const t=norm([it?.title,it?.text,it?.message,it?.summary,it?.description,it?.body,it?.region,...(Array.isArray(it?.regions)?it.regions:[])].join(" ")); if(mode==="north") return /north sea|nordsee|german bight|deutsche bucht|channel|dover|skagerrak|REG:NORTH_SEA|REG:GER_BIGHT|REG:CHANNEL/i.test(t); return /baltic|ostsee|oresund|øresund|kattegat|bornholm|gotland|gulf of finland|ust-luga|ust luga|REG:BALTIC/i.test(t); }); let vital=0, obst=0; const rooms=new Map(); for(const it of rows){ const t=norm(JSON.stringify(it)); if(/cable|pipeline|subsea|mine|unexploded|collision|sunk|restricted area|exclusion zone|security zone|military exercise|gnss|gps|gps jamming|spoofing/.test(t)) vital++; if(/obstruction|obstacle|hindrance|hazard|drifting|adrift|buoy off station|wreck|floating object|mine|explosive/.test(t)){ obst++; const key=(Array.isArray(it?.regions)&&it.regions[0])||it?.region||mode; rooms.set(key,(rooms.get(key)||0)+1); }} return { total:rows.length, vitalCount:vital, obstacleCount:obst, clusteredObstacles:[...rooms.values()].filter(n=>n>=2).reduce((a,b)=>a+b,0)}; }
 
   function cleanUrl(raw){ return String(raw || "").trim().replace(/^<|>$/g, "").replace(/[),.;]+$/g, ""); }
   function sourceUrl(ev){
@@ -502,7 +502,7 @@
   function scoreAuthorityWeirdness(events, mode, navtexData = null){
     let score = 0; const seen = new Set();
     for (const ev of events){
-      if (ageDays(ev) > 3 || !eventInWeirdRegion(ev, mode)) continue;
+      if (ageDays(ev) > 1 || !eventInWeirdRegion(ev, mode)) continue;
       const key = ev.url || ev.number || ev.title; if (seen.has(key)) continue; seen.add(key);
       const ls = labels(ev), text = norm(eventText(ev));
       const ais = hasAny(ev,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|sts|rendezvous/.test(text);
@@ -517,11 +517,11 @@
     const aisAuthority = liveItems("ais", mode).filter(x=>x.authority_like || (x.flags||[]).includes("authority_like")).length;
     const adsbAuthority = liveItems("adsb", mode).filter(x=>x.authority_like || (x.flags||[]).includes("authority_like")).length;
     const clusters = liveAisClusters(mode).filter(c=>Number(c.count)>2).length;
-    score += Math.min(18, aisAuthority*2.2) + Math.min(18, adsbAuthority*2.0) + clusters*10;
-    if (aisAuthority && adsbAuthority) score += 8;
-    const dev = authorityDeviation(events, mode); if (dev.outside) score += clamp(Math.round(dev.abs*18), 4, 22);
-    const nav = navtexSignal(navtexData, mode); score += Math.min(18, nav.vitalCount*2.8 + nav.clusteredObstacles*4.5);
-    return clamp(Math.round((score / 58) * 100),0,100);
+    score += Math.min(10, aisAuthority*1.0) + Math.min(12, adsbAuthority*1.2) + Math.min(20, clusters*8);
+    if (aisAuthority && adsbAuthority) score += 5;
+    const dev = authorityDeviation(events, mode); if (dev.outside) score += clamp(Math.round(dev.abs*8), 2, 12);
+    const nav = navtexSignal(navtexData, mode); score += Math.min(12, nav.vitalCount*1.6 + nav.clusteredObstacles*3.0);
+    return clamp(Math.round((score / 95) * 100),0,100);
   }
 
   function buildHourlyBuckets(events){
