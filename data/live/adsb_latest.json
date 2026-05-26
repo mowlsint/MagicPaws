@@ -1,12 +1,70 @@
 {
   "ok": false,
   "source": "adsb.fi",
-  "generated_at": null,
+  "generated_at": "2026-05-26T18:10:50.028Z",
+  "api_base": "https://opendata.adsb.fi/api",
+  "regions": [
+    "north_sea_channel",
+    "baltic_sea"
+  ],
+  "calls": [
+    {
+      "region": "north_sea_channel",
+      "name": "western_approaches",
+      "total": 142
+    },
+    {
+      "region": "north_sea_channel",
+      "name": "north_sea_central",
+      "total": 193
+    },
+    {
+      "region": "north_sea_channel",
+      "name": "german_bight_skagerrak",
+      "total": 175
+    },
+    {
+      "region": "north_sea_channel",
+      "name": "english_channel",
+      "total": 550
+    },
+    {
+      "region": "baltic_sea",
+      "name": "danish_straits",
+      "total": 182
+    },
+    {
+      "region": "baltic_sea",
+      "name": "central_baltic",
+      "total": 78
+    },
+    {
+      "region": "baltic_sea",
+      "name": "gulf_of_finland",
+      "total": 25
+    },
+    {
+      "region": "baltic_sea",
+      "name": "northern_baltic",
+      "total": 22
+    }
+  ],
+  "item_count": 0,
   "items": [],
   "summary": {
     "total": 0,
     "authority_aircraft": 0,
     "by_region": {}
   },
-  "note": "Created as placeholder. GitHub Action writes ADS-B maritime sample every 15 minutes."
+  "attribution": "ADS-B data via adsb.fi open data API. Respect adsb.fi terms and rate limits.",
+  "errors": [
+    "western_approaches: Invalid regular expression: /(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)/i: Invalid group",
+    "north_sea_central: Invalid regular expression: /(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)/i: Invalid group",
+    "german_bight_skagerrak: Invalid regular expression: /(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)/i: Invalid group",
+    "english_channel: Invalid regular expression: /(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)/i: Invalid group",
+    "danish_straits: Invalid regular expression: /(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)/i: Invalid group",
+    "central_baltic: Invalid regular expression: /(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)/i: Invalid group",
+    "gulf_of_finland: Invalid regular expression: /(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)/i: Invalid group",
+    "northern_baltic: Invalid regular expression: /(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)/i: Invalid group"
+  ]
 }
