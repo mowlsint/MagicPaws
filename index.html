@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.34 "Live Sensors North/Baltic"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.35 "Weirdness Calibration"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -967,7 +967,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
                       <div class="meter" style="width:100%; height:22px; border-radius:999px;"><div class="fill" id="weirdBalticFill" style="height:100%; width:0%;"></div></div>
                     </div>
                   </div>
-                  <div class="hint" style="margin-top:8px;">Heuristik v5.34: AIS-Live-Sample, ADS-B-Kacheln, Behördenmeldungs-Abweichung ±25% zur 14-Tage-Norm und NAVTEX/NAVWARN-Vitalsignale.</div>
+                  <div class="hint" style="margin-top:8px;">Heuristik v5.35: kalibrierte AIS-/ADS-B-Sensorik, Behördenmeldungs-Abweichung ±25% zur 14-Tage-Norm und NAVTEX/NAVWARN nur bei tatsächlichen Vitalsignalen.</div>
                 </div>
               </div>
 
@@ -1861,7 +1861,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const rooms = new Map();
     for (const it of rows){
       const t = navtexText(it);
-      if (/cable|pipeline|subsea|mine|unexploded|collision|restricted area|exclusion zone|security zone|military exercise|gnss|gps|navwarn|navtex/.test(t)) vitalCount++;
+      if (/cable|pipeline|subsea|mine|unexploded|collision|sunk|restricted area|exclusion zone|security zone|military exercise|gnss|gps|gps jamming|spoofing/.test(t)) vitalCount++;
       if (obstacle.test(t)) obstacleCount++;
       const key = (Array.isArray(it?.regions) && it.regions[0]) || it?.region || it?.area || (regionMode === "north" ? "north" : "baltic");
       if (obstacle.test(t)) rooms.set(key, (rooms.get(key)||0)+1);
@@ -1883,7 +1883,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const recent = events.filter(e => {
       const d = getEventChronologyMs(e);
       const labels = e.labels ?? [];
-      const inWindow = d ? ((Date.now() - d) / 36e5) <= 72 : false;
+      const inWindow = d ? ((Date.now() - d) / 36e5) <= 24 : false;
       return inWindow && eventInWeirdRegion(e, regionMode);
     });
     let points = 0; const seen = new Set();
@@ -1913,18 +1913,18 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const aisAuthority = aisItems.filter(x => x.authority_like || (x.flags||[]).includes("authority_like")).length;
     const adsbAuthority = adsbItems.filter(x => x.authority_like || (x.flags||[]).includes("authority_like")).length;
     const aisClusters = liveAisClusters(regionMode).filter(c => Number(c.count) > 2).length;
-    points += Math.min(18, aisAuthority * 2.2);
-    points += Math.min(18, adsbAuthority * 2.0);
-    points += aisClusters * 10;
-    if (aisAuthority && adsbAuthority) points += 8;
+    points += Math.min(10, aisAuthority * 1.0);
+    points += Math.min(12, adsbAuthority * 1.2);
+    points += Math.min(20, aisClusters * 8);
+    if (aisAuthority && adsbAuthority) points += 5;
 
     const dev = authorityReportDeviation(events, regionMode);
-    if (dev.outside25) points += clamp(Math.round(dev.absDeviation * 18), 4, 22);
+    if (dev.outside25) points += clamp(Math.round(dev.absDeviation * 8), 2, 12);
 
     const nav = navtexSignal(regionMode);
-    points += Math.min(18, nav.vitalCount * 2.8 + nav.clusteredObstacles * 4.5);
+    points += Math.min(12, nav.vitalCount * 1.6 + nav.clusteredObstacles * 3.0);
 
-    return clamp(Math.round((points / 58) * 100), 0, 100);
+    return clamp(Math.round((points / 95) * 100), 0, 100);
   }
 
   function normalizeText(s){
