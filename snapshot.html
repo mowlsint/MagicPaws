@@ -114,7 +114,7 @@
 
     .main{
       display:grid;
-      grid-template-columns:790px 220px 305px 245px;
+      grid-template-columns:760px 235px 295px 256px;
       grid-template-rows:170px 320px 115px 95px;
       gap:8px;
       min-height:724px;
@@ -170,14 +170,23 @@
     .smallSource{color:var(--money)}
     .age{color:var(--muted); text-align:right; white-space:nowrap}
 
-    .gaugeBlock{padding:7px 8px; border-bottom:0; display:inline-block; width:calc(50% - 2px); vertical-align:top}
-    .weirdPanel .ph{margin-bottom:2px}
-    .weirdPanel .gaugeBlock:last-child{border-bottom:0}
-    .gaugeLabel{font-size:18px; text-align:center; color:var(--text)}
-    .gaugeValue{font-size:30px; color:var(--money); text-align:center; margin-top:2px}
-    .gaugeBar{height:14px; border-radius:999px; background:linear-gradient(90deg,var(--ok),var(--money),var(--orange),var(--bad)); border:1px solid rgba(255,255,255,.12); position:relative; margin-top:6px}
-    .gaugeNeedle{position:absolute; top:-3px; width:3px; height:20px; background:#fff; transform:translateX(-50%); box-shadow:0 0 8px rgba(255,255,255,.9)}
-    .gaugeScale{font-size:11px; color:var(--muted); display:flex; justify-content:space-between; margin-top:1px}
+    .weirdPanel{overflow:hidden}
+    .weirdPanel .ph{min-height:28px; padding:5px 8px}
+    .weirdPanel .ph .title{font-size:17px; letter-spacing:.2px}
+    .weirdGrid{display:grid; grid-template-columns:1fr 1fr; gap:6px; padding:6px; height:calc(100% - 29px)}
+    .gaugeBlock{
+      min-width:0;
+      padding:6px 7px;
+      border:1px solid rgba(176,136,0,.34);
+      border-radius:9px;
+      background:rgba(0,0,0,.24);
+      overflow:hidden;
+    }
+    .gaugeLabel{font-size:16px; text-align:center; color:var(--text); white-space:nowrap}
+    .gaugeValue{font-size:28px; color:var(--money); text-align:center; margin-top:1px; line-height:1}
+    .gaugeBar{height:13px; border-radius:999px; background:linear-gradient(90deg,var(--ok),var(--money),var(--orange),var(--bad)); border:1px solid rgba(255,255,255,.12); position:relative; margin-top:6px}
+    .gaugeNeedle{position:absolute; top:-3px; width:3px; height:19px; background:#fff; transform:translateX(-50%); box-shadow:0 0 8px rgba(255,255,255,.9)}
+    .gaugeScale{font-size:10px; color:var(--muted); display:flex; justify-content:space-between; margin-top:1px}
 
     .metric{display:grid; grid-template-columns:28px 1fr; gap:8px; align-items:center; padding:7px 8px; border-bottom:1px solid rgba(255,255,255,.08)}
     .metric:last-child{border-bottom:0}
@@ -237,7 +246,7 @@
         <div class="sub">TÄGLICHER SNAPSHOT / KURZLAGEBILD</div>
       </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.37d “Snapshot Layout Fix”</b></div>
+        <div><b id="versionLabel">v5.37e “Weirdness Layout Fix”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
@@ -295,9 +304,11 @@
       </section>
 
       <section class="panel weirdPanel">
-        <div class="ph"><div class="title">Government-Weirdness</div></div>
-        <div class="gaugeBlock"><div class="gaugeLabel">Nordsee</div><div class="gaugeValue"><span id="weirdNorth">–</span>%</div><div class="gaugeBar"><div class="gaugeNeedle" id="weirdNorthNeedle"></div></div><div class="gaugeScale"><span>0</span><span>50</span><span>100</span></div></div>
-        <div class="gaugeBlock"><div class="gaugeLabel">Ostsee</div><div class="gaugeValue"><span id="weirdBaltic">–</span>%</div><div class="gaugeBar"><div class="gaugeNeedle" id="weirdBalticNeedle"></div></div><div class="gaugeScale"><span>0</span><span>50</span><span>100</span></div></div>
+        <div class="ph"><div class="title">Gov-Weirdness</div><div class="meta">Nordsee / Ostsee</div></div>
+        <div class="weirdGrid">
+          <div class="gaugeBlock"><div class="gaugeLabel">Nordsee</div><div class="gaugeValue"><span id="weirdNorth">–</span>%</div><div class="gaugeBar"><div class="gaugeNeedle" id="weirdNorthNeedle"></div></div><div class="gaugeScale"><span>0</span><span>50</span><span>100</span></div></div>
+          <div class="gaugeBlock"><div class="gaugeLabel">Ostsee</div><div class="gaugeValue"><span id="weirdBaltic">–</span>%</div><div class="gaugeBar"><div class="gaugeNeedle" id="weirdBalticNeedle"></div></div><div class="gaugeScale"><span>0</span><span>50</span><span>100</span></div></div>
+        </div>
       </section>
 
       <section class="panel statsPanel">
