@@ -56,6 +56,10 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ github.token }}
           GH_TOKEN: ${{ github.token }}
+          NTFY_ENABLED: ${{ secrets.NTFY_ENABLED }}
+          NTFY_URL: ${{ secrets.NTFY_URL }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
+          NTFY_MIN_LEVEL: HIGH
 
       - name: Decide whether to snapshot
         id: snapcheck
