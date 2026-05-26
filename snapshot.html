@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.34 Live Sensors</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -345,6 +345,11 @@
     navtex: `${BASE}/api/navtex${FRESH ? "?fresh=1" : ""}`,
     weather: `${BASE}/api/weather${FRESH ? "?fresh=1" : ""}`
   };
+  const REPO_LIVE = {
+    ais: "./data/live/ais_latest.json",
+    adsb: "./data/live/adsb_latest.json"
+  };
+  const liveSensors = { ais:null, adsb:null };
 
   const el = id => document.getElementById(id);
   const clamp = (n,a,b) => Math.max(a, Math.min(b, n));
@@ -395,6 +400,14 @@
   function labels(ev){ return Array.isArray(ev?.labels) ? ev.labels : []; }
   function hasAny(ev, arr){ const ls = labels(ev); return arr.some(x => ls.includes(x)); }
   function eventText(ev){ return `${ev?.title ?? ""} ${ev?.summary ?? ""} ${labels(ev).join(" ")}`; }
+  function liveFresh(sensor, minutes){ const ms = parseMs(sensor?.generated_at); return !!ms && (Date.now()-ms) <= minutes*60000; }
+  function liveItems(kind, regionMode=null){ const s = kind === "ais" ? liveSensors.ais : liveSensors.adsb; const max = kind === "ais" ? 90 : 45; if (!liveFresh(s,max)) return []; return (Array.isArray(s?.items)?s.items:[]).filter(x => !regionMode || x.weirdness_bucket === regionMode || x.region_id === regionMode); }
+  function liveAisClusters(regionMode){ const s = liveSensors.ais; if (!liveFresh(s,90)) return []; return (Array.isArray(s?.clusters_5nm)?s.clusters_5nm:[]).filter(c => { const lat=Number(c?.center?.lat), lon=Number(c?.center?.lon); if (!Number.isFinite(lat)||!Number.isFinite(lon)) return true; const north=lat>=48&&lat<=61.8&&lon>=-13.5&&lon<=10.8; const baltic=lat>=53&&lat<=66.5&&lon>=8&&lon<=31.8; return regionMode === "north" ? north : regionMode === "baltic" ? baltic : true; }); }
+  function isAuthorityReport(ev){ const t=norm(eventText(ev)); const ls=labels(ev); return ls.includes("SRC:OFFICIAL")||ls.includes("SRC:GOV")||ls.includes("RF:NAVTEX")||ls.includes("RF:NAVWARN")||/\b(coast guard|kustwacht|kystvakt|navy|naval|marine|sar|mpa|patrol|police|customs|douane|bundespolizei|bundeswehr|wsv|bsh|havariekommando|ukmto|authority|authorities|government|defence|defense|official)\b/.test(t); }
+  function eventInWeirdRegion(ev, mode){ const ls=labels(ev); const t=norm(eventText(ev)); if(mode==="north") return ev.region==="REG:NORTH_SEA"||ev.region==="REG:GER_BIGHT"||ev.region==="REG:CHANNEL"||ls.some(l=>["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"].includes(l))||/north sea|nordsee|german bight|deutsche bucht|skagen|skagerrak|channel|aermelkanal|ärmelkanal|dover/.test(t); return ev.region==="REG:BALTIC"||ev.region==="REG:BALTIC_SEA"||ls.some(l=>["REG:BALTIC","REG:BALTIC_SEA","REG:DANISH_STRAITS","REG:ORESUND","REG:GULF_OF_FINLAND"].includes(l))||/baltic|ostsee|oresund|øresund|kattegat|bornholm|gotland|gulf of finland|ust-luga|ust luga/.test(t); }
+  function authorityDeviation(events, mode){ const cur=events.filter(ev=>ageHours(ev)<=24 && isAuthorityReport(ev) && eventInWeirdRegion(ev,mode)).length; const nowD=new Date(); const sameWE=d=>((d.getUTCDay()===0||d.getUTCDay()===6)===(nowD.getUTCDay()===0||nowD.getUTCDay()===6)); const m=new Map(); for(const ev of events){ const ms=getEventChronologyMs(ev); if(!ms) continue; const age=(Date.now()-ms)/864e5; if(age<=1||age>15) continue; const d=new Date(ms); if(!sameWE(d)) continue; if(isAuthorityReport(ev)&&eventInWeirdRegion(ev,mode)){ const k=d.toISOString().slice(0,10); m.set(k,(m.get(k)||0)+1); }} const vals=[...m.values()]; const avg=vals.length?vals.reduce((a,b)=>a+b,0)/vals.length:0; const dev=avg>0?(cur-avg)/avg:(cur>0?1:0); return {cur,avg,dev,abs:Math.abs(dev),outside:Math.abs(dev)>=.25}; }
+  function navtexItems(data){ return Array.isArray(data?.items)?data.items:(Array.isArray(data?.warnings)?data.warnings:(Array.isArray(data?.messages)?data.messages:[])); }
+  function navtexSignal(data, mode){ const rows=navtexItems(data).filter(it=>{ const t=norm([it?.title,it?.text,it?.message,it?.summary,it?.description,it?.body,it?.region,...(Array.isArray(it?.regions)?it.regions:[])].join(" ")); if(mode==="north") return /north sea|nordsee|german bight|deutsche bucht|channel|dover|skagerrak|REG:NORTH_SEA|REG:GER_BIGHT|REG:CHANNEL/i.test(t); return /baltic|ostsee|oresund|øresund|kattegat|bornholm|gotland|gulf of finland|ust-luga|ust luga|REG:BALTIC/i.test(t); }); let vital=0, obst=0; const rooms=new Map(); for(const it of rows){ const t=norm(JSON.stringify(it)); if(/cable|pipeline|subsea|mine|unexploded|collision|restricted area|exclusion zone|security zone|military exercise|gnss|gps|navwarn|navtex/.test(t)) vital++; if(/obstruction|obstacle|hindrance|hazard|drifting|adrift|buoy off station|wreck|floating object|mine|explosive/.test(t)){ obst++; const key=(Array.isArray(it?.regions)&&it.regions[0])||it?.region||mode; rooms.set(key,(rooms.get(key)||0)+1); }} return { total:rows.length, vitalCount:vital, obstacleCount:obst, clusteredObstacles:[...rooms.values()].filter(n=>n>=2).reduce((a,b)=>a+b,0)}; }
 
   function cleanUrl(raw){ return String(raw || "").trim().replace(/^<|>$/g, "").replace(/[),.;]+$/g, ""); }
   function sourceUrl(ev){
@@ -486,26 +499,29 @@
   }
   function statusFromScore(v){ return v >= 75 ? "HOCH" : v >= 55 ? "ERHÖHT" : v >= 30 ? "BEOBACHTEN" : "RUHIG"; }
 
-  function scoreAuthorityWeirdness(events, mode){
-    const regs = mode === "north" ? ["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"] : ["REG:BALTIC","REG:BALTIC_SEA","REG:DANISH_STRAITS","REG:ORESUND","REG:GOTLAND_SEA","REG:GULF_OF_FINLAND"];
+  function scoreAuthorityWeirdness(events, mode, navtexData = null){
     let score = 0; const seen = new Set();
     for (const ev of events){
-      if (ageDays(ev) > 3) continue;
-      const ls = labels(ev); const text = norm(eventText(ev));
-      const regionHit = regs.includes(ev?.region) || ls.some(l => regs.includes(l)) || (mode === "north" && /north sea|nordsee|german bight|deutsche bucht|skagen|skagerrak|channel|ärmelkanal/.test(text)) || (mode !== "north" && /baltic|ostsee|øresund|oresund|kattegat|gotland|bornholm|gulf of finland|ust-luga|ust luga|danish straits|dänische/.test(text));
-      if (!regionHit) continue;
-      const key = ev?.url || ev?.id || ev?.number || ev?.title;
-      if (seen.has(key)) continue; seen.add(key);
-      const ais = hasAny(ev,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|\bsts\b|rendezvous/.test(text);
-      const adsb = hasAny(ev,["SRC:ADSB","D:AIR_ACTIVITY","V:MPA","V:SAR_UNIT","V:AUTH_COAST_GUARD","PAT:RACETRACK","PAT:LOW_ORBIT"]) || /ads-?b|mpa|p-8|p8 poseidon|sar aircraft|coast guard aircraft|helicopter|racetrack|orbit|isr/.test(text);
-      const official = ls.includes("SRC:OFFICIAL") || hasAny(ev,["RF:NAVWARN","RF:NAVTEX"]);
+      if (ageDays(ev) > 3 || !eventInWeirdRegion(ev, mode)) continue;
+      const key = ev.url || ev.number || ev.title; if (seen.has(key)) continue; seen.add(key);
+      const ls = labels(ev), text = norm(eventText(ev));
+      const ais = hasAny(ev,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|sts|rendezvous/.test(text);
+      const adsb = hasAny(ev,["SRC:ADSB","D:AIR_ACTIVITY","V:MPA","V:SAR_UNIT","V:AUTH_COAST_GUARD","PAT:RACETRACK","PAT:LOW_ORBIT"]) || /ads-?b|mpa|p-8|sar aircraft|coast guard aircraft|helicopter|racetrack|orbit|isr/.test(text);
+      const official = isAuthorityReport(ev);
       const ci = hasAny(ev,["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","D:INFRA_CI"]);
-      const rf = hasAny(ev,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"]) || ls.some(l => l.startsWith("RF:"));
+      const rf = hasAny(ev,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"]);
       let w = 0; if (ais) w += 4.5; if (adsb) w += 4.0; if (official) w += 1.5; if (ci) w += 1.2; if (rf) w += 1.3;
-      if (ais && adsb) w *= 1.8; else if ((ais || adsb) && (official || ci || rf)) w *= 1.35;
+      if (ais && adsb) w *= 1.8; else if ((ais||adsb)&&(official||ci||rf)) w *= 1.35;
       score += w;
     }
-    return clamp(Math.round((score / 38) * 100),0,100);
+    const aisAuthority = liveItems("ais", mode).filter(x=>x.authority_like || (x.flags||[]).includes("authority_like")).length;
+    const adsbAuthority = liveItems("adsb", mode).filter(x=>x.authority_like || (x.flags||[]).includes("authority_like")).length;
+    const clusters = liveAisClusters(mode).filter(c=>Number(c.count)>2).length;
+    score += Math.min(18, aisAuthority*2.2) + Math.min(18, adsbAuthority*2.0) + clusters*10;
+    if (aisAuthority && adsbAuthority) score += 8;
+    const dev = authorityDeviation(events, mode); if (dev.outside) score += clamp(Math.round(dev.abs*18), 4, 22);
+    const nav = navtexSignal(navtexData, mode); score += Math.min(18, nav.vitalCount*2.8 + nav.clusteredObstacles*4.5);
+    return clamp(Math.round((score / 58) * 100),0,100);
   }
 
   function buildHourlyBuckets(events){
@@ -739,11 +755,15 @@
     el("hybridMeta").textContent = `Ø 6h • Peak/Seismograph 72h`;
     el("kwSubtitle").textContent = `Social + RSS • ${HOURS}h`;
 
-    const [bundle, navtex, weather] = await Promise.all([
+    const [bundle, navtex, weather, aisLive, adsbLive] = await Promise.all([
       fetchJson(API.bundle, { events:[], source:null, generated_at:null }),
       fetchJson(API.navtex, { items:[] }),
-      fetchJson(API.weather, { points:[] })
+      fetchJson(API.weather, { points:[] }),
+      fetchJson(REPO_LIVE.ais, { items:[], clusters_5nm:[] }),
+      fetchJson(REPO_LIVE.adsb, { items:[] })
     ]);
+    liveSensors.ais = aisLive;
+    liveSensors.adsb = adsbLive;
 
     const allEvents = Array.isArray(bundle?.events) ? bundle.events : [];
     const windowEvents = eventsSince(allEvents, HOURS);
@@ -752,12 +772,13 @@
     el("sourceLabel").textContent = bundle?.source ? `${bundle.source.owner || "?"}/${bundle.source.repo || "?"}` : "Bundle";
     el("standLabel").textContent = bundle?.generated_at ? new Date(bundle.generated_at).toISOString().replace("T"," ").slice(0,16)+" UTC" : "–";
 
-    const score = scorePhaseZero(allEvents, 6);
+    const navBoost = clamp(Math.round((navtexSignal(navtex,"north").vitalCount + navtexSignal(navtex,"baltic").vitalCount) * 2.5 + (navtexSignal(navtex,"north").clusteredObstacles + navtexSignal(navtex,"baltic").clusteredObstacles) * 4), 0, 24);
+    const score = clamp(scorePhaseZero(allEvents, 6) + navBoost, 0, 100);
     el("hybridScore").textContent = String(score);
     el("hybridStatus").textContent = statusFromScore(score);
 
     renderStats(windowEvents);
-    renderWeird(scoreAuthorityWeirdness(windowEvents,"north"), scoreAuthorityWeirdness(windowEvents,"baltic"));
+    renderWeird(scoreAuthorityWeirdness(allEvents,"north",navtex), scoreAuthorityWeirdness(allEvents,"baltic",navtex));
     drawSeismograph(allEvents);
     renderDomainRows(windowEvents);
     renderKeywordRows(windowEvents);
