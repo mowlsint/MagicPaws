@@ -1,6 +1,6 @@
 {
   "schema_version": 3,
-  "ts": "2026-05-26T15:44:21.570Z",
+  "ts": "2026-05-26T15:49:47.033Z",
   "bucket_start_utc": "2026-05-26T15:00:00.000Z",
   "bucket_end_utc": "2026-05-26T18:00:00.000Z",
   "bucket_hours": 3,
@@ -12,20 +12,20 @@
   },
   "counts": {
     "open_events_total": 947,
-    "open_events_deduped_total": 899,
-    "recent_72h_events": 92,
-    "recent_72h_deduped_events": 52,
-    "recent_72h_source_capped_weighted_events": 23.85,
-    "current_bucket_events": 92,
-    "current_bucket_deduped_events": 52,
-    "current_bucket_source_capped_weighted_events": 23.85,
-    "duplicate_events_total": 48,
-    "duplicate_events_72h": 40,
-    "duplicate_events_bucket": 40,
-    "social_rss_events_72h": 92,
-    "social_rss_deduped_events_72h": 52,
-    "social_rss_events_bucket": 92,
-    "social_rss_deduped_events_bucket": 52,
+    "open_events_deduped_total": 900,
+    "recent_72h_events": 94,
+    "recent_72h_deduped_events": 53,
+    "recent_72h_source_capped_weighted_events": 24.85,
+    "current_bucket_events": 94,
+    "current_bucket_deduped_events": 53,
+    "current_bucket_source_capped_weighted_events": 24.85,
+    "duplicate_events_total": 47,
+    "duplicate_events_72h": 41,
+    "duplicate_events_bucket": 41,
+    "social_rss_events_72h": 94,
+    "social_rss_deduped_events_72h": 53,
+    "social_rss_events_bucket": 94,
+    "social_rss_deduped_events_bucket": 53,
     "p0_suspect_72h": 0,
     "geo_total": 88,
     "geo_72h": 12,
@@ -34,11 +34,11 @@
   "sensors": {
     "hybrid_seismograph_pct": 14,
     "hybrid_window_hours": 6,
-    "hybrid_72h_peak_pct": 83,
+    "hybrid_72h_peak_pct": 85,
     "hybrid_windows_pct": {
       "6": 14,
       "12": 7,
-      "24": 3,
+      "24": 4,
       "48": 2
     },
     "keyword_barometer_pct": 53,
@@ -87,7 +87,7 @@
         0.08
       ]
     },
-    "hybrid_weighted_points_72h": 23.12,
+    "hybrid_weighted_points_72h": 23.92,
     "hybrid_hourly_buckets_72h": [
       {
         "idx": 0,
@@ -517,14 +517,14 @@
       },
       {
         "idx": 71,
-        "points": 23.12,
-        "pct": 83,
-        "events": 52
+        "points": 23.92,
+        "pct": 85,
+        "events": 53
       }
     ],
     "keyword_weighted_hits_bucket": 10.55,
     "keyword_raw_hits_bucket": 22,
-    "keyword_scored_events_bucket": 52,
+    "keyword_scored_events_bucket": 53,
     "government_weirdness_north_sea_points": 0,
     "government_weirdness_baltic_sea_points": 0,
     "government_weirdness_north_sea_events": 0,
@@ -627,6 +627,10 @@
       "count": 8
     },
     {
+      "source_id": "die_flaschenpost_rss",
+      "count": 2
+    },
+    {
       "source_id": "maritimekiwi_bsky",
       "count": 2
     },
@@ -652,10 +656,6 @@
     },
     {
       "source_id": "auonsson_bsky",
-      "count": 2
-    },
-    {
-      "source_id": "swp_publications_en",
       "count": 2
     }
   ],
@@ -681,6 +681,10 @@
       "count": 2
     },
     {
+      "source_id": "die_flaschenpost_rss",
+      "count": 1
+    },
+    {
       "source_id": "maritimekiwi_bsky",
       "count": 1
     },
@@ -703,54 +707,50 @@
     {
       "source_id": "navylookout_bsky",
       "count": 1
-    },
-    {
-      "source_id": "auonsson_bsky",
-      "count": 1
     }
   ],
   "domain_counts_72h": {
     "D:AIS_TRACK": 1,
     "D:CYBER_OT": 1,
     "D:INFRA_CI": 32,
-    "D:NEWS_INTEL": 58
+    "D:NEWS_INTEL": 60
   },
   "domain_counts_72h_deduped": {
     "D:AIS_TRACK": 1,
     "D:CYBER_OT": 1,
     "D:INFRA_CI": 21,
-    "D:NEWS_INTEL": 29
+    "D:NEWS_INTEL": 30
   },
   "region_counts_72h": {
     "REG:ATLANTIC_NE": 4,
     "REG:BALTIC": 2,
     "REG:EUROPE": 32,
     "REG:GLOBAL": 20,
-    "REG:OTHER": 34
+    "REG:OTHER": 36
   },
   "region_counts_72h_deduped": {
     "REG:ATLANTIC_NE": 2,
     "REG:BALTIC": 1,
     "REG:EUROPE": 21,
     "REG:GLOBAL": 10,
-    "REG:OTHER": 18
+    "REG:OTHER": 19
   },
   "baseline_observations": {
     "note": "Raw baseline observations for later 90-day normalization. Scores are not yet baseline-normalized.",
     "source_kind_counts_bucket": {
-      "rss": 77,
+      "rss": 79,
       "social": 15
     },
     "source_kind_counts_bucket_deduped": {
-      "rss": 44,
+      "rss": 45,
       "social": 8
     },
     "source_kind_counts_72h": {
-      "rss": 77,
+      "rss": 79,
       "social": 15
     },
     "source_kind_counts_72h_deduped": {
-      "rss": 44,
+      "rss": 45,
       "social": 8
     },
     "source_domain_counts_bucket": {
@@ -758,6 +758,7 @@
       "auonsson_bsky|D:NEWS_INTEL": 2,
       "cepa_feed|D:INFRA_CI": 20,
       "certeu_advisories_rss|D:CYBER_OT": 1,
+      "die_flaschenpost_rss|D:NEWS_INTEL": 2,
       "gcaptain_rss|D:NEWS_INTEL": 24,
       "highnorthnews_bsky|D:NEWS_INTEL": 2,
       "ispk_bsky|D:NEWS_INTEL": 2,
@@ -775,6 +776,7 @@
       "auonsson_bsky|D:NEWS_INTEL": 1,
       "cepa_feed|D:INFRA_CI": 10,
       "certeu_advisories_rss|D:CYBER_OT": 1,
+      "die_flaschenpost_rss|D:NEWS_INTEL": 1,
       "gcaptain_rss|D:NEWS_INTEL": 12,
       "highnorthnews_bsky|D:NEWS_INTEL": 1,
       "ispk_bsky|D:NEWS_INTEL": 1,
@@ -792,6 +794,7 @@
       "auonsson_bsky|D:NEWS_INTEL": 2,
       "cepa_feed|D:INFRA_CI": 20,
       "certeu_advisories_rss|D:CYBER_OT": 1,
+      "die_flaschenpost_rss|D:NEWS_INTEL": 2,
       "gcaptain_rss|D:NEWS_INTEL": 24,
       "highnorthnews_bsky|D:NEWS_INTEL": 2,
       "ispk_bsky|D:NEWS_INTEL": 2,
@@ -809,6 +812,7 @@
       "auonsson_bsky|D:NEWS_INTEL": 1,
       "cepa_feed|D:INFRA_CI": 10,
       "certeu_advisories_rss|D:CYBER_OT": 1,
+      "die_flaschenpost_rss|D:NEWS_INTEL": 1,
       "gcaptain_rss|D:NEWS_INTEL": 12,
       "highnorthnews_bsky|D:NEWS_INTEL": 1,
       "ispk_bsky|D:NEWS_INTEL": 1,
@@ -826,6 +830,7 @@
       "auonsson_bsky|REG:OTHER": 2,
       "cepa_feed|REG:EUROPE": 20,
       "certeu_advisories_rss|REG:OTHER": 1,
+      "die_flaschenpost_rss|REG:OTHER": 2,
       "gcaptain_rss|REG:OTHER": 24,
       "highnorthnews_bsky|REG:ATLANTIC_NE": 2,
       "ispk_bsky|REG:BALTIC": 2,
@@ -843,6 +848,7 @@
       "auonsson_bsky|REG:OTHER": 1,
       "cepa_feed|REG:EUROPE": 10,
       "certeu_advisories_rss|REG:OTHER": 1,
+      "die_flaschenpost_rss|REG:OTHER": 1,
       "gcaptain_rss|REG:OTHER": 12,
       "highnorthnews_bsky|REG:ATLANTIC_NE": 1,
       "ispk_bsky|REG:BALTIC": 1,
@@ -858,6 +864,7 @@
     "duplicate_sources_bucket": {
       "auonsson_bsky": 1,
       "cepa_feed": 10,
+      "die_flaschenpost_rss": 1,
       "gcaptain_rss": 12,
       "highnorthnews_bsky": 1,
       "ispk_bsky": 1,
@@ -871,6 +878,7 @@
     "duplicate_sources_72h": {
       "auonsson_bsky": 1,
       "cepa_feed": 10,
+      "die_flaschenpost_rss": 1,
       "gcaptain_rss": 12,
       "highnorthnews_bsky": 1,
       "ispk_bsky": 1,
@@ -926,6 +934,13 @@
       },
       {
         "source_id": "certeu_advisories_rss",
+        "source_kind": "rss",
+        "raw_events": 1,
+        "weighted_events": 1,
+        "capped_events": 0
+      },
+      {
+        "source_id": "die_flaschenpost_rss",
         "source_kind": "rss",
         "raw_events": 1,
         "weighted_events": 1,
@@ -1033,6 +1048,13 @@
       },
       {
         "source_id": "certeu_advisories_rss",
+        "source_kind": "rss",
+        "raw_events": 1,
+        "weighted_events": 1,
+        "capped_events": 0
+      },
+      {
+        "source_id": "die_flaschenpost_rss",
         "source_kind": "rss",
         "raw_events": 1,
         "weighted_events": 1,
