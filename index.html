@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.37 "Priority Alerts + ntfy"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.37b "Priority Alerts + ntfy Hotfix"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -1182,7 +1182,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   };
 
   function escapeHtml(s){
-    return (s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    return String(s ?? "").replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   }
 
   function buildSelectOptions(selectEl, values){
