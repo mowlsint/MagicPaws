@@ -102,6 +102,131 @@ async function listOpenIssues(owner, repo, pages = ISSUE_PAGES) {
   return out;
 }
 
+
+function parseJsonSection(body, heading) {
+  const re = new RegExp(`###\\s*${heading}\\s*\\n([\\s\\S]*?)(?=\\n###\\s|\\n---|$)`, "i");
+  const m = String(body || "").match(re);
+  if (!m) return null;
+  const raw = m[1].trim().replace(/^```json\s*/i, "").replace(/```$/i, "").trim();
+  try { return JSON.parse(raw); } catch { return null; }
+}
+
+function parseGeoJsonFromBody(body) {
+  return parseJsonSection(body, "Geo JSON") || {};
+}
+
+function validGeoPoint(g) {
+  return !!(g && Number.isFinite(Number(g.lat)) && Number.isFinite(Number(g.lon)) && Math.abs(Number(g.lat)) <= 90 && Math.abs(Number(g.lon)) <= 180);
+}
+
+function parseRouteFromBody(body) {
+  const gj = parseGeoJsonFromBody(body);
+  if (gj?.route?.coordinates?.length >= 2) return gj.route;
+  const route = parseJsonSection(body, "Route");
+  if (route?.coordinates?.length >= 2) return route;
+  return null;
+}
+
+function suppressHullFalsePositive(text) {
+  return /\b(ship|vessel|carrier|tanker|bulk carrier|container ship|lpg carrier)\b.{0,24}\bhull\b|\bhull\b.{0,30}\b(attached|damage|breach|ship|vessel|carrier|tanker)\b/i.test(String(text || ""));
+}
+
+const SNAPSHOT_GAZETTEER = [
+  { matched_id:"port_ust_luga", matched_name:"Ust-Luga", aliases:["Ust-Luga","Ust Luga","Port of Ust-Luga","Ust-Luga terminal"], lat:59.67, lon:28.26, radius_km:18, regions:["REG:BALTIC","REG:GULF_OF_FINLAND","REG:RUSSIA_BALTIC"], score:95 },
+  { matched_id:"strait_gibraltar", matched_name:"Strait of Gibraltar", aliases:["Strait of Gibraltar","Gibraltar Strait","Gibraltar"], lat:35.96, lon:-5.55, radius_km:45, regions:["REG:MEDITERRANEAN","REG:STRAIT_GIBRALTAR"], score:82 },
+  { matched_id:"suez_canal", matched_name:"Suez Canal", aliases:["Suez Canal","Suez"], lat:29.97, lon:32.55, radius_km:55, regions:["REG:SUEZ","REG:RED_SEA"], score:82 },
+  { matched_id:"strait_hormuz", matched_name:"Strait of Hormuz", aliases:["Strait of Hormuz","Hormuz Strait","Hormuz"], lat:26.57, lon:56.25, radius_km:60, regions:["REG:PERSIAN_GULF","REG:STRAIT_HORMUZ"], score:82 },
+  { matched_id:"bab_el_mandeb", matched_name:"Bab el-Mandeb", aliases:["Bab el-Mandeb","Bab al-Mandab","Bab el Mandeb"], lat:12.61, lon:43.33, radius_km:55, regions:["REG:BAB_EL_MANDEB","REG:RED_SEA"], score:82 },
+  { matched_id:"port_skagen", matched_name:"Skagen", aliases:["Skagen"], lat:57.72, lon:10.59, radius_km:30, regions:["REG:SKAGERRAK","REG:DANISH_STRAITS"], score:80 },
+  { matched_id:"port_rotterdam", matched_name:"Rotterdam", aliases:["Rotterdam","Port of Rotterdam","Maasvlakte"], lat:51.948, lon:4.142, radius_km:35, regions:["REG:NORTH_SEA"], score:80 },
+  { matched_id:"port_hull", matched_name:"Hull", aliases:["Hull","Port of Hull"], lat:53.74, lon:-0.33, radius_km:18, regions:["REG:NORTH_SEA"], score:70 }
+];
+
+function inferGeoCandidatesFromText(text) {
+  const raw = String(text || "");
+  const low = raw.toLowerCase();
+  const out = [];
+  const seen = new Set();
+  const maritimeContext = /\b(port|terminal|anchorage|arriv|depart|sail|transit|passed|heading|destination|eta|ais|vessel|ship|tanker|carrier|warship|naval|fleet|lng|lpg|oil|shadow|sanction)\b/i.test(raw);
+  for (const p of SNAPSHOT_GAZETTEER) {
+    if (p.matched_id === "port_hull" && suppressHullFalsePositive(raw)) continue;
+    for (const alias of p.aliases || []) {
+      const a = String(alias).toLowerCase();
+      if (!a) continue;
+      if (!new RegExp(`(^|[^a-z0-9])${a.replace(/[.*+?^${}()|[\]\\]/g,"\\$&")}([^a-z0-9]|$)`, "i").test(raw)) continue;
+      if (seen.has(p.matched_id)) continue;
+      seen.add(p.matched_id);
+      out.push({ ...p, matched_alias: alias, method:"snapshot_controlled_gazetteer", precision:p.radius_km <= 25 ? "port" : "area", confidence: maritimeContext ? "medium_high" : "medium", display_on_map:true, score:(p.score || 70) + (maritimeContext ? 5 : 0) });
+    }
+  }
+  return out.sort((a,b)=>(b.score||0)-(a.score||0)).slice(0,6);
+}
+
+function promoteGeoFromCandidates(candidates) {
+  if (!Array.isArray(candidates) || !candidates.length) return null;
+  const [best, second] = candidates;
+  if (!best || !Number.isFinite(Number(best.lat)) || !Number.isFinite(Number(best.lon))) return null;
+  if (best.score >= 90 || !second || (best.score - (second.score || 0)) >= 18) {
+    return { lat:Number(best.lat), lon:Number(best.lon), precision:best.precision || "port_or_area", method:best.method || "geo_candidate_promotion", matched_name:best.matched_name, matched_id:best.matched_id, radius_km:best.radius_km || null, confidence:best.confidence || "medium", geo_role:"event_location_or_topic_area", display_on_map:true, inferred:true };
+  }
+  return null;
+}
+
+function scoreHybridEventPoints(e) {
+  const labels = e.labels || [];
+  const sev = e.severity || "SEV:1";
+  const conf = e.confidence || "CONF:LOW";
+  const eventFactor = Number.isFinite(Number(e.score_factor)) ? Number(e.score_factor) : 1;
+  const sevW = sev === "SEV:4" ? 9 : sev === "SEV:3" ? 6 : sev === "SEV:2" ? 3 : 1;
+  const confW = conf === "CONF:HIGH" ? 1.2 : conf === "CONF:MED" ? 1.0 : 0.8;
+  const ci = hasAny(labels, ["OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","OBJ:PORT","OBJ:VTS_WSV"]) || labels.includes("D:INFRA_CI");
+  const patterns = hasAny(labels, ["PAT:LOITERING","PAT:STS_SUSPECT","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:SURVEYING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:GNSS_JAM","PAT:GNSS_SPOOF","PAT:RF_BURST"]);
+  const vesselHot = hasAny(labels, ["V:SHADOW_FLEET","V:RUS_RESEARCH","V:RUS_WARSHIP","V:RUS_AUXILIARY","V:SANCTIONS_EVASION"]);
+  const rfCyber = labels.includes("D:RF_SIGNAL") || labels.includes("D:CYBER_OT") || anyLabelStarts(labels, ["RF:"]);
+  let evPts = sevW * confW;
+  if (e.phase0_suspect) evPts *= 1.6;
+  if (ci) evPts *= 1.25;
+  if (patterns) evPts *= 1.2;
+  if (vesselHot) evPts *= 1.15;
+  if (rfCyber) evPts *= 1.1;
+  return evPts * eventFactor;
+}
+
+function buildHybridHourlyBuckets(events, hours = 72, now = new Date()) {
+  const buckets = Array.from({ length: hours }, (_, i) => ({ idx:i, start:null, points:0, pct:0, events:0 }));
+  const bucketMs = 3600000;
+  for (const e of events || []) {
+    const d = parseDate(e.ts);
+    if (!d) continue;
+    const age = now.getTime() - d.getTime();
+    if (age < 0 || age >= hours * bucketMs) continue;
+    const idx = hours - 1 - Math.floor(age / bucketMs);
+    if (idx < 0 || idx >= buckets.length) continue;
+    buckets[idx].points += scoreHybridEventPoints(e);
+    buckets[idx].events += 1;
+  }
+  for (const b of buckets) b.pct = clamp(Math.round((b.points / 28) * 100));
+  return buckets;
+}
+
+function scoreHybridWindow(events, windowHours = 6, peakHours = 72, now = new Date()) {
+  const buckets = buildHybridHourlyBuckets(events, peakHours, now);
+  const last = buckets.slice(-windowHours);
+  const avg = last.length ? last.reduce((s,b)=>s+b.pct,0) / last.length : 0;
+  const peak = buckets.length ? Math.max(...buckets.map(b=>b.pct)) : 0;
+  const windows = {};
+  for (const h of [6,12,24,48]) {
+    const part = buckets.slice(-h);
+    windows[String(h)] = part.length ? Math.round(part.reduce((s,b)=>s+b.pct,0) / part.length) : 0;
+  }
+  return { score: clamp(Math.round(avg)), peak_score: peak, window_hours: windowHours, peak_hours: peakHours, windows, hourly_buckets: buckets.map(b => ({ idx:b.idx, points:Number(b.points.toFixed(2)), pct:b.pct, events:b.events })), weighted_points: Number(buckets.reduce((s,b)=>s+b.points,0).toFixed(2)) };
+}
+
+function eventHasAnyText(e, terms) {
+  const hay = `${e.title || ""}\n${e.body || ""}\n${(e.labels || []).join(" ")}`.toLowerCase();
+  return terms.some(t => hay.includes(t));
+}
+
 function issueToEvent(issue) {
   const labels = (issue.labels || [])
     .map((l) => (typeof l === "string" ? l : l?.name))
@@ -125,10 +250,15 @@ function issueToEvent(issue) {
     body.match(/Geo\s*[:=]\s*(-?\d{1,2}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)/i) ||
     body.match(/(-?\d{1,2}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)/);
 
-  const geo =
-    latLonMatch
-      ? { lat: Number(latLonMatch[1]), lon: Number(latLonMatch[2]) }
-      : null;
+  const geoJson = parseGeoJsonFromBody(body);
+  let geo = validGeoPoint(geoJson.geo)
+    ? geoJson.geo
+    : (latLonMatch ? { lat: Number(latLonMatch[1]), lon: Number(latLonMatch[2]), method: "explicit_coordinate", confidence: "high", display_on_map: true } : null);
+  let geo_candidates = Array.isArray(geoJson.geo_candidates) ? geoJson.geo_candidates : [];
+  if (!geo_candidates.length) geo_candidates = inferGeoCandidatesFromText(`${issue.title || ""}
+${body}`);
+  if (!geo) geo = promoteGeoFromCandidates(geo_candidates);
+  const route = parseRouteFromBody(body);
 
   return {
     id: String(issue.id),
@@ -149,6 +279,8 @@ function issueToEvent(issue) {
     phase0_suspect: labels.includes("P0:SUSPECT"),
     phase0_level: labels.find((l) => l === "P0:LOW" || l === "P0:MED" || l === "P0:HIGH") || null,
     geo,
+    geo_candidates,
+    route,
   };
 }
 
@@ -524,50 +656,9 @@ function scoreKeywordBarometer(events, kwCfg) {
 }
 
 function scoreHybridSeismograph(events) {
-  let points = 0;
-
-  for (const e of events) {
-    const labels = e.labels || [];
-    const sev = e.severity || "SEV:1";
-    const conf = e.confidence || "CONF:LOW";
-    const eventFactor = Number.isFinite(Number(e.score_factor)) ? Number(e.score_factor) : 1;
-
-    const sevW = sev === "SEV:4" ? 9 : sev === "SEV:3" ? 6 : sev === "SEV:2" ? 3 : 1;
-    const confW = conf === "CONF:HIGH" ? 1.2 : conf === "CONF:MED" ? 1.0 : 0.8;
-
-    const ci = hasAny(labels, ["OBJ:CABLE", "OBJ:PIPELINE", "OBJ:WINDFARM", "OBJ:PORT", "OBJ:VTS_WSV"]) ||
-      labels.includes("D:INFRA_CI");
-
-    const patterns = hasAny(labels, [
-      "PAT:LOITERING",
-      "PAT:STS_SUSPECT",
-      "PAT:AIS_GAP",
-      "PAT:DARK_ACTIVITY",
-      "PAT:SURVEYING",
-      "PAT:ROUTE_DEVIATION",
-      "PAT:GNSS_JAM",
-      "PAT:GNSS_SPOOF",
-      "PAT:RF_BURST",
-    ]);
-
-    const vesselHot = hasAny(labels, ["V:SHADOW_FLEET", "V:RUS_RESEARCH", "V:RUS_WARSHIP", "V:SANCTIONS_EVASION"]);
-    const rfCyber = labels.includes("D:RF_SIGNAL") || labels.includes("D:CYBER_OT") || anyLabelStarts(labels, ["RF:"]);
-
-    let evPts = sevW * confW;
-    if (e.phase0_suspect) evPts *= 1.6;
-    if (ci) evPts *= 1.25;
-    if (patterns) evPts *= 1.2;
-    if (vesselHot) evPts *= 1.15;
-    if (rfCyber) evPts *= 1.1;
-
-    points += evPts * eventFactor;
-  }
-
-  return {
-    score: clamp(Math.round((points / 120) * 100)),
-    weighted_points: Number(points.toFixed(2)),
-  };
+  return scoreHybridWindow(events, 6, 72, new Date());
 }
+
 
 function eventInRegion(e, regionId) {
   const labels = e.labels || [];
@@ -599,68 +690,39 @@ function eventInRegion(e, regionId) {
 function scoreGovernmentWeirdness(events, regionId) {
   const regional = events.filter((e) => eventInRegion(e, regionId));
   let points = 0;
+  let ais_signal_events = 0;
+  let adsb_signal_events = 0;
+  let coupled_signal_events = 0;
 
   for (const e of regional) {
     const labels = e.labels || [];
-    const sev = e.severity || "SEV:1";
-    const conf = e.confidence || "CONF:LOW";
     const eventFactor = Number.isFinite(Number(e.score_factor)) ? Number(e.score_factor) : 1;
+    const ais = hasAny(labels, ["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || eventHasAnyText(e, ["ais gap","dark vessel","loitering","route deviation","ship-to-ship"," sts ","rendezvous"]);
+    const adsb = hasAny(labels, ["SRC:ADSB","D:AIR_ACTIVITY","V:MPA","V:SAR_UNIT","V:AUTH_COAST_GUARD","PAT:RACETRACK","PAT:LOW_ORBIT"]) || eventHasAnyText(e, ["ads-b","adsb","mpa","p-8","p8 poseidon","sar aircraft","coast guard aircraft","helicopter","racetrack","orbit","isr"]);
+    const official = labels.includes("SRC:OFFICIAL") || hasAny(labels, ["RF:NAVWARN","RF:NAVTEX"]);
+    const ci = hasAny(labels, ["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM"]) || labels.includes("D:INFRA_CI");
+    const rf = labels.includes("D:RF_SIGNAL") || anyLabelStarts(labels, ["RF:"]) || hasAny(labels, ["PAT:GNSS_JAM","PAT:GNSS_SPOOF"]);
 
-    const official = labels.includes("SRC:OFFICIAL");
-    const social = labels.includes("SRC:SOCIAL");
-    const govVessel = hasAny(labels, [
-      "V:AUTH_COAST_GUARD",
-      "V:AUTH_CUSTOMS",
-      "V:AUTH_POLICE",
-      "V:AUTH_NAVY",
-      "V:SAR_UNIT",
-      "V:RUS_WARSHIP",
-      "V:RUS_AUXILIARY",
-      "V:RUS_RESEARCH",
-      "V:RUS_GOV",
-    ]);
-
-    const authorityDomain = hasAny(labels, ["D:AIR_ACTIVITY", "D:SAR", "D:RF_SIGNAL"]) ||
-      anyLabelStarts(labels, ["RF:"]) ||
-      labels.includes("RF:NAVWARN") ||
-      labels.includes("RF:NAVTEX");
-
-    const ci = hasAny(labels, ["OBJ:PORT", "OBJ:VTS_WSV", "OBJ:CABLE", "OBJ:PIPELINE", "OBJ:WINDFARM"]) ||
-      labels.includes("D:INFRA_CI");
-
-    const pattern = hasAny(labels, [
-      "PAT:RENDEZVOUS",
-      "PAT:LOITERING",
-      "PAT:SURVEYING",
-      "PAT:ROUTE_DEVIATION",
-      "PAT:GNSS_JAM",
-      "PAT:GNSS_SPOOF",
-      "PAT:RF_BURST",
-    ]);
-
-    const sevW = sev === "SEV:4" ? 6 : sev === "SEV:3" ? 4 : sev === "SEV:2" ? 2 : 1;
-    const confW = conf === "CONF:HIGH" ? 1.0 : conf === "CONF:MED" ? 1.1 : 1.2;
-
-    let evPts = sevW * confW;
-
-    if (official) evPts *= 1.2;
-    if (social) evPts *= 0.9;
-    if (govVessel) evPts *= 1.4;
-    if (authorityDomain) evPts *= 1.3;
-    if (ci) evPts *= 1.15;
-    if (pattern) evPts *= 1.2;
-    if (e.phase0_suspect) evPts *= 1.1;
+    let evPts = 0;
+    if (ais) { evPts += 4.5; ais_signal_events++; }
+    if (adsb) { evPts += 4.0; adsb_signal_events++; }
+    if (official) evPts += 1.5;
+    if (ci) evPts += 1.2;
+    if (rf) evPts += 1.3;
+    if (ais && adsb) { evPts *= 1.8; coupled_signal_events++; }
+    else if ((ais || adsb) && (official || ci || rf)) evPts *= 1.35;
 
     points += evPts * eventFactor;
   }
 
   return {
-    score: clamp(Math.round((points / 45) * 100)),
+    score: clamp(Math.round((points / 38) * 100)),
     weighted_points: Number(points.toFixed(2)),
     regional_events: regional.length,
-    regional_weighted_events: Number(
-      regional.reduce((sum, e) => sum + (Number(e.score_factor) || 0), 0).toFixed(2)
-    ),
+    regional_weighted_events: Number(regional.reduce((sum, e) => sum + (Number(e.score_factor) || 0), 0).toFixed(2)),
+    ais_signal_events,
+    adsb_signal_events,
+    coupled_signal_events,
   };
 }
 
@@ -766,7 +828,7 @@ async function main() {
 
   const keywordCfg = loadKeywordConfig();
 
-  const hybrid = scoreHybridSeismograph(capped72.events);
+  const hybrid = scoreHybridWindow(capped72.events, Number(process.env.HYBRID_WINDOW_HOURS || 6), 72, now);
   const keyword = scoreKeywordBarometer(cappedBucket.events, keywordCfg);
   const govNorth = scoreGovernmentWeirdness(capped72.events, "north_sea");
   const govBaltic = scoreGovernmentWeirdness(capped72.events, "baltic_sea");
@@ -805,10 +867,13 @@ async function main() {
       // Gazetteer-/Text-Geocoding läuft im Worker und wird in Punkt 5 harmonisiert.
       geo_total: events.filter((e) => !!e.geo).length,
       geo_72h: recent72.filter((e) => !!e.geo).length,
-      geo_count_method: "explicit_coordinates_only",
+      geo_count_method: "explicit_coordinates_or_controlled_candidates",
     },
     sensors: {
       hybrid_seismograph_pct: hybrid.score,
+      hybrid_window_hours: hybrid.window_hours,
+      hybrid_72h_peak_pct: hybrid.peak_score,
+      hybrid_windows_pct: hybrid.windows,
       keyword_barometer_pct: keyword.score,
       government_weirdness: {
         north_sea_pct: govNorth.score,
@@ -819,6 +884,7 @@ async function main() {
       scoring_input_note: "Sensor scores use deduped events plus source caps. Raw counts remain available for baseline analysis.",
       source_cap_profile: SOURCE_CAP_PROFILE,
       hybrid_weighted_points_72h: hybrid.weighted_points,
+      hybrid_hourly_buckets_72h: hybrid.hourly_buckets,
       keyword_weighted_hits_bucket: keyword.weighted_hits,
       keyword_raw_hits_bucket: keyword.raw_hits,
       keyword_scored_events_bucket: keyword.scored_events,
