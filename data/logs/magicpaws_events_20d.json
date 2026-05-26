@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-25T20:00:44.796Z",
+  "generated_at": "2026-05-26T04:35:58.294Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,506 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-25T20:00:48.804Z",
+  "bundle_generated_at": "2026-05-26T04:36:01.094Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-05T20:00:44.796Z"
+    "cutoff_utc": "2026-05-06T04:35:58.294Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 946,
-    "active_events": 862,
-    "active_geo_events": 152,
-    "active_social_events": 330,
+    "archive_events_total": 955,
+    "active_events": 864,
+    "active_geo_events": 155,
+    "active_social_events": 334,
     "active_social_geo_events": 42
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1156",
+      "number": 1156,
+      "id": "4520227863",
+      "ts": "2026-05-25T23:30:15.107Z",
+      "chronology_ts": "2026-05-25T23:30:15.107Z",
+      "issue_created_at": "2026-05-26T00:01:45.000Z",
+      "source_published_at": "2026-05-25T23:30:15.107Z",
+      "ingested_at": "2026-05-26T00:01:44.003Z",
+      "title": "[BSKY] US adversaries are integrating fast, and American partners are starting to do the same without asking Washington. What does that shift mean for US global influe",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1156",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmpn3frggv2p",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmpn3frggv2p",
+        "source_published_at": "2026-05-25T23:30:15.107Z",
+        "ingested_at": "2026-05-26T00:01:44.003Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:b6e723a7714f8ec309f8 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:b6e723a7714f8ec309f8 -->\n\n### Text\nUS adversaries are integrating fast, and American partners are starting to do the same without asking Washington. What does that shift mean for US global influence? (Members Only)\nListen here: warontherocks.com/episode/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T23:30:15.107Z\ningested_at: 2026-05-26T00:01:44.003Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmpn3frggv2p\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1157",
+      "number": 1157,
+      "id": "4521385156",
+      "ts": "2026-05-25T23:24:28.000Z",
+      "chronology_ts": "2026-05-25T23:24:28.000Z",
+      "issue_created_at": "2026-05-26T04:34:04.000Z",
+      "source_published_at": "2026-05-25T23:24:28.000Z",
+      "ingested_at": "2026-05-25T23:24:28.000Z",
+      "title": "[RSS] Fatal Skirmish Reported in Strait of Hormuz as Ceasefire Deal Edges Closer",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1157",
+      "original_url": "https://maritime-executive.com/article/possible-clash-reported-near-bandar-abbas-as-ceasefire-deal-edges-closer",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/possible-clash-reported-near-bandar-abbas-as-ceasefire-deal-edges-closer",
+        "source_published_at": "2026-05-25T23:24:28.000Z",
+        "ingested_at": "2026-05-25T23:24:28.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/possible-clash-reported-near-bandar-abbas-as-ceasefire-deal-edges-closer\n\n### Zeit (UTC)\n2026-05-25T23:24:28Z\n\n### Published\n2026-05-25T23:24:28Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nFollowing multiple social media reports of explosions along Iran's Strait of Hormuz coastline, the semi-official Fars News Agency claims that Iranian...\n\n---\n_Ingested at 2026-05-26T04:34:04.734271+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 6ee8769c3f45408b -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1154",
+      "number": 1154,
+      "id": "4520064836",
+      "ts": "2026-05-25T22:15:53.000Z",
+      "chronology_ts": "2026-05-25T22:15:53.000Z",
+      "issue_created_at": "2026-05-25T23:21:23.000Z",
+      "source_published_at": "2026-05-25T22:15:53.000Z",
+      "ingested_at": "2026-05-25T22:15:53.000Z",
+      "title": "[RSS] Eight Injured During Cargo Ship Fire in Hamburg",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1154",
+      "original_url": "https://maritime-executive.com/article/eight-injured-during-cargo-ship-fire-in-hamburg",
+      "labels": [
+        "D:INCIDENT",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:GER_BIGHT",
+        "REG:NORTH_SEA"
+      ],
+      "source_type": "rss",
+      "category": "D:INCIDENT",
+      "region": "REG:GER_BIGHT",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 53.54,
+        "lon": 9.98,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Hamburg",
+        "matched_alias": "Hamburg",
+        "matched_id": "port_hamburg",
+        "radius_km": 22,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA",
+          "REG:GER_BIGHT"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 53.54,
+          "lon": 9.98,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Hamburg",
+          "matched_alias": "Hamburg",
+          "matched_id": "port_hamburg",
+          "radius_km": 22,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:NORTH_SEA",
+            "REG:GER_BIGHT"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/eight-injured-during-cargo-ship-fire-in-hamburg",
+        "source_published_at": "2026-05-25T22:15:53.000Z",
+        "ingested_at": "2026-05-25T22:15:53.000Z"
+      },
+      "report_category": "Zwischenfälle / Safety / Störungen",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/eight-injured-during-cargo-ship-fire-in-hamburg\n\n### Zeit (UTC)\n2026-05-25T22:15:53Z\n\n### Published\n2026-05-25T22:15:53Z\n\n### Auto-Labels\nCONF:MED, D:INCIDENT, D:NEWS_INTEL, REG:GER_BIGHT, SEV:1, SRC:MEDIA\n\n### Summary\nThe fire department in Hamburg, Germany, is reporting it received a callout on Sunday, May 24, for reports of smoke coming from a cargo ship docked at...\n\n---\n_Ingested at 2026-05-25T23:21:22.826501+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 8b82e6c136de5ccd -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1153",
+      "number": 1153,
+      "id": "4519806222",
+      "ts": "2026-05-25T21:40:07.797Z",
+      "chronology_ts": "2026-05-25T21:40:07.797Z",
+      "issue_created_at": "2026-05-25T22:14:44.000Z",
+      "source_published_at": "2026-05-25T21:40:07.797Z",
+      "ingested_at": "2026-05-25T22:14:43.906Z",
+      "title": "[BSKY] If you’re working where defense meets innovation, @Cogs0fWar is for you. Follow our dedicated vertical on defense technology and industrial base issues for cutt",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1153",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmpgwj2lol23",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmpgwj2lol23",
+        "source_published_at": "2026-05-25T21:40:07.797Z",
+        "ingested_at": "2026-05-25T22:14:43.906Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:8c008b1cc7db16170c16 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:8c008b1cc7db16170c16 -->\n\n### Text\nIf you’re working where defense meets innovation, @Cogs0fWar is for you. Follow our dedicated vertical on defense technology and industrial base issues for cutting-edge analysis. warontherocks.com/category/ver...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T21:40:07.797Z\ningested_at: 2026-05-25T22:14:43.906Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmpgwj2lol23\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1155",
+      "number": 1155,
+      "id": "4520065037",
+      "ts": "2026-05-25T21:19:22.000Z",
+      "chronology_ts": "2026-05-25T21:19:22.000Z",
+      "issue_created_at": "2026-05-25T23:21:24.000Z",
+      "source_published_at": "2026-05-25T21:19:22.000Z",
+      "ingested_at": "2026-05-25T21:19:22.000Z",
+      "title": "[RSS] Bulk Cargo Ship Arrives in Cuba Carrying Aid from China",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1155",
+      "original_url": "https://maritime-executive.com/article/bulk-cargo-ship-arrives-in-cuba-carrying-aid-from-china",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:CARIBBEAN",
+        "REG:ATLANTIC"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:CARIBBEAN",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 15,
+        "lon": -75,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Caribbean Sea",
+        "matched_alias": "Caribbean",
+        "matched_id": "caribbean_sea",
+        "radius_km": 1250,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:CARIBBEAN",
+          "REG:ATLANTIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 15,
+          "lon": -75,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Caribbean Sea",
+          "matched_alias": "Caribbean",
+          "matched_id": "caribbean_sea",
+          "radius_km": 1250,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:CARIBBEAN",
+            "REG:ATLANTIC"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/bulk-cargo-ship-arrives-in-cuba-carrying-aid-from-china",
+        "source_published_at": "2026-05-25T21:19:22.000Z",
+        "ingested_at": "2026-05-25T21:19:22.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/bulk-cargo-ship-arrives-in-cuba-carrying-aid-from-china\n\n### Zeit (UTC)\n2026-05-25T21:19:22Z\n\n### Published\n2026-05-25T21:19:22Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAid shipments are continuing to arrive in Cuba despite the U.S. efforts to apply pressure on the Communist government of the Caribbean island. In the...\n\n---\n_Ingested at 2026-05-25T23:21:24.216751+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 4edd82074eab28e4 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1152",
+      "number": 1152,
+      "id": "4519649450",
+      "ts": "2026-05-25T20:56:00.000Z",
+      "chronology_ts": "2026-05-25T20:56:00.000Z",
+      "issue_created_at": "2026-05-25T21:33:56.000Z",
+      "source_published_at": "2026-05-25T20:56:00.000Z",
+      "ingested_at": "2026-05-25T20:56:00.000Z",
+      "title": "[RSS] Taiwan Attempts to Row Back US Navy Secretary's Comments on Arms Sales",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1152",
+      "original_url": "https://maritime-executive.com/article/taiwan-attempts-to-row-back-us-navy-secretary-s-comments-on-arms-sales",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/taiwan-attempts-to-row-back-us-navy-secretary-s-comments-on-arms-sales",
+        "source_published_at": "2026-05-25T20:56:00.000Z",
+        "ingested_at": "2026-05-25T20:56:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/taiwan-attempts-to-row-back-us-navy-secretary-s-comments-on-arms-sales\n\n### Zeit (UTC)\n2026-05-25T20:56:00Z\n\n### Published\n2026-05-25T20:56:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nTaiwanese officials have been busy downplaying a comment by newly-appointed Acting Secretary of the Navy Hung Cao, who told a Senate committee last w...\n\n---\n_Ingested at 2026-05-25T21:33:56.444787+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 80761680e2093901 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1151",
+      "number": 1151,
+      "id": "4519506598",
+      "ts": "2026-05-25T20:30:09.916Z",
+      "chronology_ts": "2026-05-25T20:30:09.916Z",
+      "issue_created_at": "2026-05-25T21:00:52.000Z",
+      "source_published_at": "2026-05-25T20:30:09.916Z",
+      "ingested_at": "2026-05-25T21:00:51.627Z",
+      "title": "[BSKY] Accountability in the military rests on the willingness to ask hard questions, even when the answers are uncomfortable. warontherocks.com/2026/05/the-...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1151",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmpczfphkk2w",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmpczfphkk2w",
+        "source_published_at": "2026-05-25T20:30:09.916Z",
+        "ingested_at": "2026-05-25T21:00:51.627Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:85e2261d118bf96d50d5 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:85e2261d118bf96d50d5 -->\n\n### Text\nAccountability in the military rests on the willingness to ask hard questions, even when the answers are uncomfortable. warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T20:30:09.916Z\ningested_at: 2026-05-25T21:00:51.627Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmpczfphkk2w\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1150",
+      "number": 1150,
+      "id": "4519506222",
+      "ts": "2026-05-25T20:10:02.096Z",
+      "chronology_ts": "2026-05-25T20:10:02.096Z",
+      "issue_created_at": "2026-05-25T21:00:46.000Z",
+      "source_published_at": "2026-05-25T20:10:02.096Z",
+      "ingested_at": "2026-05-25T21:00:45.212Z",
+      "title": "[BSKY] Strange that FSB can't keep track of their own mines better. They should no better where they put them.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1150",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmpbvf6og224",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmpbvf6og224",
+        "source_published_at": "2026-05-25T20:10:02.096Z",
+        "ingested_at": "2026-05-25T21:00:45.212Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:b48b8683b19b8f1ea98a -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:b48b8683b19b8f1ea98a -->\n\n### Text\nStrange that FSB can't keep track of their own mines better.\nThey should no better where they put them.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T20:10:02.096Z\ningested_at: 2026-05-25T21:00:45.212Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmpbvf6og224\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1149",
+      "number": 1149,
+      "id": "4519506124",
+      "ts": "2026-05-25T19:55:27.000Z",
+      "chronology_ts": "2026-05-25T19:55:27.000Z",
+      "issue_created_at": "2026-05-25T21:00:44.000Z",
+      "source_published_at": "2026-05-25T19:55:27.000Z",
+      "ingested_at": "2026-05-25T21:00:42.565Z",
+      "title": "[RSS] 5/25/26 National Security and Korean News and Commentary",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1149",
+      "original_url": "https://smallwarsjournal.com/2026/05/25/5-25-26-national-security-and-korean-news-and-commentary/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/25/5-25-26-national-security-and-korean-news-and-commentary/",
+        "source_published_at": "2026-05-25T19:55:27.000Z",
+        "ingested_at": "2026-05-25T21:00:42.565Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:f8b5f5eef164460efc14 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:f8b5f5eef164460efc14 -->\n\n### Text\nAccess National Security News HERE. Access Korean News HERE. National Security News: 1. Constitutional Convention begins &#124; May 25, 1787 2. War, Memory, and the Sons We Lose 3. Trump Says He Is in No Rush for an Iran Deal That Is Far From Finished 4. Opinion &#124; Will Trump Bail Out Iran’s Regime? 5. Pope Leo Warns of Risks From A.I. in 42,300-Word Encyclical &#8230;\n Read more\n The post 5/25/26 National Security and Korean News and Commentary appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-25T19:55:27.000Z\ningested_at: 2026-05-25T21:00:42.565Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/25/5-25-26-national-security-and-korean-news-and-commentary/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ningest_version: MAGIC PAWS…"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1146",
       "number": 1146,
@@ -42148,336 +42634,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:3f3f45f4a027888339ab -->\n<!-- VOODOO_INGEST_ID:cepa_feed:3f3f45f4a027888339ab -->\n\n### Text\nEurope’s defense industry supply chains are technology dependent, fragile and lack surge capacity. Private capital can help if legislators act.\n The post How Private Capital Can Accelerate European Rearmament appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-06T16:00:48.000Z\ningested_at: 2026-05-13T12:18:02.819Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/how-private-capital-can-accelerate-european-rearmament/\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/527",
-      "number": 527,
-      "id": "4437769975",
-      "ts": "2026-05-05T23:00:00.000Z",
-      "chronology_ts": "2026-05-05T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T12:16:28.000Z",
-      "source_published_at": "2026-05-05T23:00:00.000Z",
-      "ingested_at": "2026-05-13T12:16:26.760Z",
-      "title": "[RSS] Strategic Access, Strategic Pressure: Sanctions in UK Offensive Cyber Policy",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/527",
-      "original_url": "https://www.rusi.org/explore-our-research/publications/cyber-effects-perspectives/strategic-access-strategic-pressure-sanctions-uk-offensive-cyber-policy",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Publications (rusi_latest_publications)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/explore-our-research/publications/cyber-effects-perspectives/strategic-access-strategic-pressure-sanctions-uk-offensive-cyber-policy",
-        "source_published_at": "2026-05-05T23:00:00.000Z",
-        "ingested_at": "2026-05-13T12:16:26.760Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Cyber- und IT-Sicherheit",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:73cf64a34e344da2d588 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:73cf64a34e344da2d588 -->\n\n### Text\nSanctions limit adversaries’ technology access. In designing them, UK policy makers need to also consider sanctions’ future effect on cyber espionage and effects operations.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-05T23:00:00.000Z\ningested_at: 2026-05-13T12:16:26.760Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/cyber-effects-perspectives/strategic-access-strategic-pressure-sanctions-uk-offensive-cyber-policy\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/526",
-      "number": 526,
-      "id": "4437769689",
-      "ts": "2026-05-05T23:00:00.000Z",
-      "chronology_ts": "2026-05-05T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T12:16:26.000Z",
-      "source_published_at": "2026-05-05T23:00:00.000Z",
-      "ingested_at": "2026-05-13T12:16:23.761Z",
-      "title": "[RSS] AI Will Not Start Nuclear War – But It May Change How We Think About It",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/526",
-      "original_url": "https://www.rusi.org/networks/uk-poni/nuclear-reactions/ai-will-not-start-nuclear-war-it-may-change-how-we-think-about-it",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Publications (rusi_latest_publications)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/networks/uk-poni/nuclear-reactions/ai-will-not-start-nuclear-war-it-may-change-how-we-think-about-it",
-        "source_published_at": "2026-05-05T23:00:00.000Z",
-        "ingested_at": "2026-05-13T12:16:23.761Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:dbc3aa4777d4e6f206a5 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:dbc3aa4777d4e6f206a5 -->\n\n### Text\nMisconceived notions about AI-assisted analysis dramatically overlook the parallels between contemporary intelligence processes and the future form of Artificial Generative Intelligence.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-05T23:00:00.000Z\ningested_at: 2026-05-13T12:16:23.761Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/networks/uk-poni/nuclear-reactions/ai-will-not-start-nuclear-war-it-may-change-how-we-think-about-it\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/516",
-      "number": 516,
-      "id": "4436567153",
-      "ts": "2026-05-05T23:00:00.000Z",
-      "chronology_ts": "2026-05-05T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T09:20:14.000Z",
-      "source_published_at": "2026-05-05T23:00:00.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] Understanding the Relaxation of Japan’s Defence Export Rules",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/516",
-      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/understanding-relaxation-japans-defence-export-rules",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Commentary (rusi_latest_commentary)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/explore-our-research/publications/commentary/understanding-relaxation-japans-defence-export-rules",
-        "source_published_at": "2026-05-05T23:00:00.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "### Quelle\nRUSI – Latest Commentary (rusi_latest_commentary)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-05T23:00:00.000Z\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/understanding-relaxation-japans-defence-export-rules\n\n### Text\nTakaichi is doubling down on the strategic bet made by Abe, that the benefits of a more self-reliant defence posture and engaged international security role outweigh the costs.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: rusi_latest_commentary\nsource_priority: 84\nitem_score: 5\nkeyword_hits: port\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: 9467a107 SOURCE=rusi_latest_commentary -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/515",
-      "number": 515,
-      "id": "4436567104",
-      "ts": "2026-05-05T23:00:00.000Z",
-      "chronology_ts": "2026-05-05T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T09:20:13.000Z",
-      "source_published_at": "2026-05-05T23:00:00.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] AI-Enabled Vulnerability Discovery Is Reshaping National Cyber Defence",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/515",
-      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/ai-enabled-vulnerability-discovery-reshaping-national-cyber-defence",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Commentary (rusi_latest_commentary)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/explore-our-research/publications/commentary/ai-enabled-vulnerability-discovery-reshaping-national-cyber-defence",
-        "source_published_at": "2026-05-05T23:00:00.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Cyber- und IT-Sicherheit",
-      "summary": "### Quelle\nRUSI – Latest Commentary (rusi_latest_commentary)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-05T23:00:00.000Z\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/ai-enabled-vulnerability-discovery-reshaping-national-cyber-defence\n\n### Text\nThe risk that AI-enabled vulnerability discovery tools will be misused is real. How can the UK minimise its strategic dependence and stay capable in cyber defence?\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: rusi_latest_commentary\nsource_priority: 84\nitem_score: 6\nkeyword_hits: cyber, uk\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: 9c416bd3 SOURCE=rusi_latest_commentary -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/498",
-      "number": 498,
-      "id": "4436564607",
-      "ts": "2026-05-05T23:00:00.000Z",
-      "chronology_ts": "2026-05-05T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T09:19:55.000Z",
-      "source_published_at": "2026-05-05T23:00:00.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] The Role of Private Sector Intelligence in a Divided World",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/498",
-      "original_url": "https://www.rusi.org/news-and-comment/video-commentary/role-private-sector-intelligence-divided-world",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Publications (rusi_latest_publications)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/news-and-comment/video-commentary/role-private-sector-intelligence-divided-world",
-        "source_published_at": "2026-05-05T23:00:00.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-05T23:00:00.000Z\n\n### Link\nhttps://www.rusi.org/news-and-comment/video-commentary/role-private-sector-intelligence-divided-world\n\n### Text\nLong before governments built dedicated intelligence services, private actors were already collecting and analysing strategic information – insuring ships, protecting trade secrets and mapping risk.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: rusi_latest_publications\nsource_priority: 88\nitem_score: 5\nkeyword_hits: ship\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: f85f6788 SOURCE=rusi_latest_publications -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/566",
-      "number": 566,
-      "id": "4437781121",
-      "ts": "2026-05-05T20:54:48.000Z",
-      "chronology_ts": "2026-05-05T20:54:48.000Z",
-      "issue_created_at": "2026-05-13T12:18:06.000Z",
-      "source_published_at": "2026-05-05T20:54:48.000Z",
-      "ingested_at": "2026-05-13T12:18:04.785Z",
-      "title": "[RSS] Sunset for the Russian Language",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/566",
-      "original_url": "https://cepa.org/article/sunset-for-the-russian-language/",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
-        "platform": "rss",
-        "link": "https://cepa.org/article/sunset-for-the-russian-language/",
-        "source_published_at": "2026-05-05T20:54:48.000Z",
-        "ingested_at": "2026-05-13T12:18:04.785Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:505cd2c7ef3cbc0331a8 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:505cd2c7ef3cbc0331a8 -->\n\n### Text\nRussian was in retreat even before the full-scale war of aggression against Ukraine four years ago. Its imperial behavior has accelerated the process.\n The post Sunset for the Russian Language   appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-05T20:54:48.000Z\ningested_at: 2026-05-13T12:18:04.785Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/sunset-for-the-russian-language/\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/567",
-      "number": 567,
-      "id": "4437781348",
-      "ts": "2026-05-05T20:52:41.000Z",
-      "chronology_ts": "2026-05-05T20:52:41.000Z",
-      "issue_created_at": "2026-05-13T12:18:08.000Z",
-      "source_published_at": "2026-05-05T20:52:41.000Z",
-      "ingested_at": "2026-05-13T12:18:06.869Z",
-      "title": "[RSS] After the Ukraine War: How to Deter the Next One",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/567",
-      "original_url": "https://cepa.org/article/after-the-ukraine-war-how-to-deter-the-next-one/",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
-        "platform": "rss",
-        "link": "https://cepa.org/article/after-the-ukraine-war-how-to-deter-the-next-one/",
-        "source_published_at": "2026-05-05T20:52:41.000Z",
-        "ingested_at": "2026-05-13T12:18:06.869Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:72dcc308a16a0acc27d3 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:72dcc308a16a0acc27d3 -->\n\n### Text\nUkraine has impressed the world with the ingenuity, bravery and longevity of its defense against Russian aggression. Its next task is to build deterrence.\n The post After the Ukraine War: How to Deter the Next One appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-05T20:52:41.000Z\ningested_at: 2026-05-13T12:18:06.869Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/after-the-ukraine-war-how-to-deter-the-next-one/\n\n### Auto-Labels\nSRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v1.0 \"Source Published Time + Social Bridge\""
     }
   ]
 }

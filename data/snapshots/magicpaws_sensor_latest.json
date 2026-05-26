@@ -1,45 +1,47 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-05-25T18:00:00.000Z",
-  "generated_at": "2026-05-25T20:00:44.796Z",
+  "snapshot_key": "2026-05-26T00:00:00.000Z",
+  "generated_at": "2026-05-26T04:35:58.294Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 946,
-    "events_72h": 112,
+    "events_total_archive": 955,
+    "events_72h": 108,
     "p0_suspect_72h": 1,
-    "geo_72h": 17,
-    "social_72h": 42,
+    "geo_72h": 20,
+    "social_72h": 40,
     "social_geo_72h": 9,
-    "rss_media_72h": 70
+    "rss_media_72h": 68
   },
   "sensors": {
     "hybrid_index_pct": 100,
     "government_weirdness": {
-      "north_sea_pct": 22,
-      "baltic_sea_pct": 15
+      "north_sea_pct": 24,
+      "baltic_sea_pct": 13
     },
     "keyword_barometer_pct": 100,
-    "keyword_hits_72h": 161
+    "keyword_hits_72h": 153
   },
   "density": {
     "domains_72h": {
-      "D:NEWS_INTEL": 65,
+      "D:NEWS_INTEL": 63,
       "D:CYBER_OT": 30,
-      "D:SECURITY_CRIME": 8,
-      "D:INFRA_CI": 6,
-      "D:INCIDENT": 2,
+      "D:SECURITY_CRIME": 6,
+      "D:INFRA_CI": 5,
+      "D:INCIDENT": 3,
       "D:DRONE_UAS": 1
     },
     "regions_72h": {
-      "REG:OTHER": 66,
+      "REG:OTHER": 64,
       "REG:GLOBAL": 7,
       "REG:BALTIC": 5,
+      "REG:PERSIAN_GULF": 4,
       "REG:NORTH_SEA": 4,
-      "REG:PERSIAN_GULF": 3,
       "REG:ATLANTIC_NE": 2,
+      "REG:GER_BIGHT": 1,
+      "REG:CARIBBEAN": 1,
       "REG:BLACK_SEA": 1,
       "REG:SOUTH_AMERICA_EAST": 1,
       "REG:MEDITERRANEAN": 1,
@@ -49,19 +51,19 @@
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 81
+        "count": 78
       },
       {
         "keyword": "cyber",
         "count": 30
       },
       {
-        "keyword": "sts",
-        "count": 10
-      },
-      {
         "keyword": "mpa",
         "count": 8
+      },
+      {
+        "keyword": "sts",
+        "count": 7
       },
       {
         "keyword": "sar",
@@ -69,14 +71,14 @@
       },
       {
         "keyword": "incident",
+        "count": 6
+      },
+      {
+        "keyword": "navy",
         "count": 5
       },
       {
         "keyword": "coast guard",
-        "count": 5
-      },
-      {
-        "keyword": "navy",
         "count": 4
       },
       {

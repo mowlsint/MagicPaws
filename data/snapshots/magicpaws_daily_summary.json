@@ -1,50 +1,61 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-25T20:00:44.796Z",
+  "generated_at": "2026-05-26T04:35:58.294Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 48,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-25",
-      "events_total": 24,
+      "events_total": 33,
       "p0_suspect": 0,
-      "geo_events": 3,
-      "social_events": 11,
+      "geo_events": 6,
+      "social_events": 15,
       "social_geo_events": 1,
-      "rss_media_events": 13,
+      "rss_media_events": 18,
       "top_domains": {
-        "D:NEWS_INTEL": 20,
-        "D:SECURITY_CRIME": 2,
-        "D:INCIDENT": 2
+        "D:NEWS_INTEL": 28,
+        "D:INCIDENT": 3,
+        "D:SECURITY_CRIME": 2
       },
       "top_regions": {
-        "REG:OTHER": 9,
-        "REG:GLOBAL": 4,
+        "REG:OTHER": 13,
+        "REG:GLOBAL": 5,
         "REG:BALTIC": 2,
+        "REG:PERSIAN_GULF": 1,
+        "REG:GER_BIGHT": 1,
+        "REG:CARIBBEAN": 1,
         "REG:ATLANTIC_NE": 1,
         "REG:NORTH_SEA": 1
       },
       "severity": {
-        "SEV:1": 24
+        "SEV:1": 33
       },
-      "hybrid_index_proxy": 30,
+      "hybrid_index_proxy": 41,
       "government_weirdness_proxy": {
-        "north_sea": 3,
+        "north_sea": 6,
         "baltic_sea": 5
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 12
-        },
-        {
-          "keyword": "navy",
-          "count": 2
+          "count": 16
         },
         {
           "keyword": "incident",
-          "count": 2
+          "count": 3
+        },
+        {
+          "keyword": "navy",
+          "count": 3
+        },
+        {
+          "keyword": "sar",
+          "count": 1
+        },
+        {
+          "keyword": "sts",
+          "count": 1
         },
         {
           "keyword": "mpa",
