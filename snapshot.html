@@ -190,6 +190,13 @@
     .bullets li::marker{color:var(--money)}
     .shortPanel .pc{height:198px; overflow:hidden}
 
+    .alertBullet{border:1px solid rgba(255,210,77,.40); border-radius:8px; padding:4px 7px; margin:3px 0; background:rgba(255,210,77,.06)}
+    .alertBullet.critical{border-color:rgba(255,77,77,.75); background:rgba(255,77,77,.10)}
+    .alertBullet.high{border-color:rgba(255,138,0,.75); background:rgba(255,138,0,.09)}
+    .alertLabel{color:var(--money); text-transform:uppercase; margin-right:5px}
+    .alertBullet.critical .alertLabel{color:#ffb8b8}
+    .alertBullet.high .alertLabel{color:#ffd9a3}
+
     .miniRows{font-size:17px; line-height:1.2}
     .miniRow{display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.08)}
     .miniRow:last-child{border-bottom:0}
@@ -263,7 +270,7 @@
       </section>
 
       <section class="panel indexPanel">
-        <div class="ph"><div class="title">Hybrid-Index aktuell</div><div class="meta" id="hybridMeta">36h</div></div>
+        <div class="ph"><div class="title">Hybrid-Index aktuell</div><div class="meta" id="hybridMeta">72h</div></div>
         <div class="pc">
           <div class="scoreBig"><span id="hybridScore">–</span><span> /100</span></div>
           <div class="status" id="hybridStatus">–</div>
@@ -277,12 +284,12 @@
       </section>
 
       <section class="panel domainPanel">
-        <div class="ph"><div class="title">Meldungen nach Domain / Quelle</div><div class="meta" id="domainMeta">36h</div></div>
+        <div class="ph"><div class="title">Meldungen nach Domain / Quelle</div><div class="meta" id="domainMeta">72h</div></div>
         <div class="pc"><table><thead><tr><th>Quelle / Domain</th><th class="num">Anzahl</th><th class="sevDots">Severity</th></tr></thead><tbody id="domainRows"></tbody></table></div>
       </section>
 
       <section class="panel keywordPanel">
-        <div class="ph"><div class="title">Schlagwort-Barometer</div><div class="meta" id="kwSubtitle">Social + RSS • 36h</div></div>
+        <div class="ph"><div class="title">Schlagwort-Barometer</div><div class="meta" id="kwSubtitle">Social + RSS • 72h</div></div>
         <div class="pc"><table><thead><tr><th>#</th><th>Schlagwort</th><th class="num">Häufigkeit</th><th>Trend</th></tr></thead><tbody id="keywordRows"></tbody></table></div>
       </section>
 
@@ -491,7 +498,7 @@
     return latLngs.length >= 2 ? {...route, latLngs} : null;
   }
 
-  function scorePhaseZero(events, windowHours = 6){
+  function scorePhaseZero(events, windowHours = 72){
     const buckets = buildHourlyBuckets(events);
     const recent = buckets.slice(-windowHours);
     const avg = recent.length ? recent.reduce((sum,b)=>sum+(b.pct || 0),0) / recent.length : 0;
@@ -645,6 +652,47 @@
     el("lastFetch").textContent = now.toISOString().slice(11,16) + " UTC";
   }
 
+
+  const SNAP_ALERT_RANK = { NONE:0, WATCH:1, HIGH:2, CRITICAL:3 };
+  function snapLabels(ev){ return Array.isArray(ev?.labels) ? ev.labels : []; }
+  function snapText(ev){ return `${ev?.title || ""}\n${ev?.summary || ""}\n${snapLabels(ev).join(" ")}`; }
+  function inferSnapshotAlert(ev){
+    const labels = snapLabels(ev);
+    const explicit = labels.find(l => /^ALERT:(CRITICAL|HIGH|WATCH)$/i.test(l));
+    const raw = snapText(ev);
+    let score = 0;
+    const reasons = [];
+    const add = (n,r) => { score += n; if(r && !reasons.includes(r)) reasons.push(r); };
+    const explosive = /\b(mine|mines|limpet mine|naval mine|sea mine|explosive device|explosive|ied|bomb|munition|uxo|haftmine|seemine|sprengsatz|mine attached)\b/i;
+    const incident = /\b(sabotage|terrorist attack|attempted attack|attack|explosion|blast|collision|grounding|fire|sinking|boarding|interdiction|seizure)\b/i;
+    const ci = /\b(subsea|seabed|cable|pipeline|lng|lpg|terminal|port|harbour|hafen|offshore|wind farm|critical infrastructure|kritis)\b/i;
+    const vessel = /\b(vessel|ship|tanker|carrier|lpg carrier|lng carrier|warship|patrol vessel|schiff|frachter)\b/i;
+    const place = /\b(ust[-\s]?luga|gulf of finland|baltic|north sea|german bight|skagen|bornholm|gotland|gibraltar|suez|hormuz|red sea|black sea)\b/i;
+    if (explosive.test(raw)) add(5,"Explosivmittel/Minenbezug");
+    if (incident.test(raw)) add(4,"harter Sicherheitsvorfall");
+    if (ci.test(raw)) add(2,"KRITIS-/Hafen-/Energiebezug");
+    if (vessel.test(raw)) add(2,"Schiffsbezug");
+    if (place.test(raw)) add(2,"strategischer Raum");
+    if (labels.includes("D:SECURITY_CRIME")) add(2,"Security-Crime");
+    if (labels.includes("D:INFRA_CI")) add(2,"KRITIS");
+    if (labels.includes("CONF:MED")) add(1,"CONF:MED");
+    if (labels.includes("CONF:HIGH")) add(2,"CONF:HIGH");
+    let level = explicit ? explicit.split(":")[1].toUpperCase() : "NONE";
+    if (!explicit) {
+      if ((explosive.test(raw) && (vessel.test(raw) || ci.test(raw) || place.test(raw))) || score >= 12) level = "CRITICAL";
+      else if (score >= 8) level = "HIGH";
+      else if (score >= 5) level = "WATCH";
+    }
+    return { level, score, reasons, rank: SNAP_ALERT_RANK[level] || 0 };
+  }
+  function priorityAlertBullets(events){
+    return events.map(ev => ({ ev, alert: inferSnapshotAlert(ev) }))
+      .filter(x => x.alert.rank >= SNAP_ALERT_RANK.WATCH)
+      .sort((a,b) => (b.alert.rank-a.alert.rank) || (b.alert.score-a.alert.score) || (msOf(b.ev)-msOf(a.ev)))
+      .slice(0,3)
+      .map(({ev,alert}) => `<li class="alertBullet ${String(alert.level).toLowerCase()}"><span class="alertLabel">${esc(alert.level)}</span>${esc((ev.title || "Alert").slice(0,130))}</li>`);
+  }
+
   function renderShortlage(events, navtexData){
     const p0 = events.filter(e => e?.phase0?.suspect || labels(e).includes("P0:SUSPECT")).length;
     const geo = events.filter(e => e?.geo).length;
@@ -665,7 +713,8 @@
     if (shadow) bullets.push(`${shadow} Meldungen mit Schattenflotten-/Sanktionsbezug.`);
     if (geo) bullets.push(`${geo} Meldungen sind georeferenziert und lagekartenfähig.`);
     if (navCount !== null) bullets.push(`NAVTEX/NAVWARN-Kontext: ${navCount} aktive bzw. geladene Warnobjekte.`);
-    el("shortBullets").innerHTML = bullets.slice(0,8).map(b => `<li>${esc(b)}</li>`).join("");
+    const alertBullets = priorityAlertBullets(events);
+    el("shortBullets").innerHTML = alertBullets.concat(bullets.slice(0,8).map(b => `<li>${esc(b)}</li>`)).join("");
   }
 
   function renderNavtex(data){
@@ -773,7 +822,7 @@
     el("standLabel").textContent = bundle?.generated_at ? new Date(bundle.generated_at).toISOString().replace("T"," ").slice(0,16)+" UTC" : "–";
 
     const navBoost = clamp(Math.round((navtexSignal(navtex,"north").vitalCount + navtexSignal(navtex,"baltic").vitalCount) * 2.5 + (navtexSignal(navtex,"north").clusteredObstacles + navtexSignal(navtex,"baltic").clusteredObstacles) * 4), 0, 24);
-    const score = clamp(scorePhaseZero(allEvents, 6) + navBoost, 0, 100);
+    const score = clamp(scorePhaseZero(allEvents, 72) + navBoost, 0, 100);
     el("hybridScore").textContent = String(score);
     el("hybridStatus").textContent = statusFromScore(score);
 
