@@ -114,24 +114,24 @@
 
     .main{
       display:grid;
-      grid-template-columns:800px 1fr 190px;
-      grid-template-rows:190px 285px 235px;
+      grid-template-columns:790px 220px 305px 245px;
+      grid-template-rows:170px 320px 115px 95px;
       gap:8px;
-      min-height:742px;
+      min-height:724px;
     }
     .mapPanel{grid-row:1 / span 2; grid-column:1}
-    .shortPanel{grid-column:1; grid-row:3}
+    .shortPanel{grid-column:1; grid-row:3 / span 2}
     .indexPanel{grid-column:2; grid-row:1}
-    .seismoPanel{grid-column:2; grid-row:1; margin-left:230px}
+    .seismoPanel{grid-column:3; grid-row:1}
     .domainPanel{grid-column:2; grid-row:2}
-    .keywordPanel{grid-column:2; grid-row:2; margin-left:285px}
-    .analysisPanel{grid-column:2; grid-row:3}
-    .weirdPanel{grid-column:3; grid-row:1}
-    .statsPanel{grid-column:3; grid-row:2}
-    .navtexPanel{grid-column:3; grid-row:3}
-    .weatherPanel{grid-column:3; grid-row:3; margin-top:118px}
+    .keywordPanel{grid-column:3; grid-row:2}
+    .analysisPanel{grid-column:2 / span 2; grid-row:3 / span 2}
+    .weirdPanel{grid-column:4; grid-row:1}
+    .statsPanel{grid-column:4; grid-row:2}
+    .navtexPanel{grid-column:4; grid-row:3}
+    .weatherPanel{grid-column:4; grid-row:4}
 
-    #map{width:100%; height:624px; background:#0a1114; border-bottom-left-radius:var(--r); border-bottom-right-radius:var(--r)}
+    #map{width:100%; height:456px; background:#0a1114; border-bottom-left-radius:var(--r); border-bottom-right-radius:var(--r)}
     .mapLegend{
       position:absolute; z-index:500; left:16px; top:46px; width:180px;
       background:rgba(0,0,0,.64); border:1px solid rgba(176,136,0,.40); border-radius:8px; padding:9px 10px;
@@ -148,44 +148,45 @@
     .status{font-size:30px; color:var(--orange); margin-top:14px; text-transform:uppercase}
     .miniNote{font-size:14px; color:var(--muted); margin-top:8px}
 
-    .seismoPanel{width:calc(100% - 238px)}
+    .seismoPanel{width:100%}
     .seismoSvg{width:100%; height:136px; display:block; background:rgba(0,0,0,.20); border-radius:8px}
     .axisLabel{font-size:13px; fill:rgba(255,255,255,.62)}
 
-    table{width:100%; border-collapse:collapse; font-size:17px; line-height:1.1}
+    table{width:100%; border-collapse:collapse; font-size:15.5px; line-height:1.1}
     th{color:var(--muted); font-weight:400; text-align:left; border-bottom:1px solid rgba(176,136,0,.35); padding:5px 4px}
     td{padding:5px 4px; border-bottom:1px solid rgba(255,255,255,.07); vertical-align:top}
     tr:last-child td{border-bottom:0}
     .num{text-align:right; color:var(--money)}
     .sevDots{white-space:nowrap; text-align:right}
     .sevDots .dot{width:10px; height:10px; margin-left:3px}
-    .domainPanel{width:277px}
-    .keywordPanel{width:calc(100% - 293px)}
+    .domainPanel{width:100%}
+    .keywordPanel{width:100%}
     .barTrack{height:12px; background:rgba(255,255,255,.08); border-radius:999px; overflow:hidden; min-width:84px}
     .barFill{height:100%; width:0%; background:var(--money)}
 
     .analysisPanel{width:100%}
-    .analysisTable{font-size:15.5px}
+    .analysisTable{font-size:14px}
     .analysisTable td{padding:5px 4px}
     .smallSource{color:var(--money)}
     .age{color:var(--muted); text-align:right; white-space:nowrap}
 
-    .gaugeBlock{padding:10px 10px; border-bottom:1px solid rgba(176,136,0,.28)}
-    .gaugeBlock:last-child{border-bottom:0}
-    .gaugeLabel{font-size:21px; text-align:center; color:var(--text)}
-    .gaugeValue{font-size:42px; color:var(--money); text-align:center; margin-top:4px}
-    .gaugeBar{height:18px; border-radius:999px; background:linear-gradient(90deg,var(--ok),var(--money),var(--orange),var(--bad)); border:1px solid rgba(255,255,255,.12); position:relative; margin-top:8px}
-    .gaugeNeedle{position:absolute; top:-4px; width:3px; height:26px; background:#fff; transform:translateX(-50%); box-shadow:0 0 8px rgba(255,255,255,.9)}
-    .gaugeScale{font-size:13px; color:var(--muted); display:flex; justify-content:space-between; margin-top:2px}
+    .gaugeBlock{padding:7px 8px; border-bottom:0; display:inline-block; width:calc(50% - 2px); vertical-align:top}
+    .weirdPanel .ph{margin-bottom:2px}
+    .weirdPanel .gaugeBlock:last-child{border-bottom:0}
+    .gaugeLabel{font-size:18px; text-align:center; color:var(--text)}
+    .gaugeValue{font-size:30px; color:var(--money); text-align:center; margin-top:2px}
+    .gaugeBar{height:14px; border-radius:999px; background:linear-gradient(90deg,var(--ok),var(--money),var(--orange),var(--bad)); border:1px solid rgba(255,255,255,.12); position:relative; margin-top:6px}
+    .gaugeNeedle{position:absolute; top:-3px; width:3px; height:20px; background:#fff; transform:translateX(-50%); box-shadow:0 0 8px rgba(255,255,255,.9)}
+    .gaugeScale{font-size:11px; color:var(--muted); display:flex; justify-content:space-between; margin-top:1px}
 
-    .metric{display:grid; grid-template-columns:32px 1fr; gap:8px; align-items:center; padding:8px 8px; border-bottom:1px solid rgba(255,255,255,.08)}
+    .metric{display:grid; grid-template-columns:28px 1fr; gap:8px; align-items:center; padding:7px 8px; border-bottom:1px solid rgba(255,255,255,.08)}
     .metric:last-child{border-bottom:0}
-    .metricIcon{font-size:24px; color:var(--money); text-align:center}
-    .metricLabel{font-size:17px; color:var(--muted)}
-    .metricValue{font-size:27px; color:var(--money); line-height:1}
+    .metricIcon{font-size:21px; color:var(--money); text-align:center}
+    .metricLabel{font-size:15px; color:var(--muted)}
+    .metricValue{font-size:22px; color:var(--money); line-height:1}
     .metricValue.redText{color:var(--bad)}
 
-    .bullets{font-size:18px; line-height:1.15; columns:1; margin:0; padding-left:20px}
+    .bullets{font-size:17px; line-height:1.12; columns:1; margin:0; padding-left:18px}
     .bullets li{margin:0 0 5px 0}
     .bullets li::marker{color:var(--money)}
     .shortPanel .pc{height:198px; overflow:hidden}
@@ -197,7 +198,7 @@
     .alertBullet.critical .alertLabel{color:#ffb8b8}
     .alertBullet.high .alertLabel{color:#ffd9a3}
 
-    .miniRows{font-size:17px; line-height:1.2}
+    .miniRows{font-size:15px; line-height:1.15}
     .miniRow{display:flex; justify-content:space-between; gap:10px; padding:5px 0; border-bottom:1px solid rgba(255,255,255,.08)}
     .miniRow:last-child{border-bottom:0}
     .good{color:var(--ok)} .warn{color:var(--money)} .elev{color:var(--orange)} .badText{color:var(--bad)}
@@ -236,7 +237,7 @@
         <div class="sub">TÄGLICHER SNAPSHOT / KURZLAGEBILD</div>
       </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.37c “Priority Alerts Snapshot Hotfix”</b></div>
+        <div><b id="versionLabel">v5.37d “Snapshot Layout Fix”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
