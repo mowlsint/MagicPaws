@@ -1,0 +1,327 @@
+version: 3
+name: MAGIC PAWS Geo Rules
+description: Rules for event geolocation. v3 adds social route extraction, Ust-Luga port promotion, Hull false-positive suppression,
+  and map fallback from controlled geo_candidates.
+priority:
+- social_explicit_coordinate
+- explicit_geo_coordinate
+- navwarn_coordinate
+- port_unlocode
+- geo_candidate_map_fallback
+- controlled_port_promotion
+- social_route_waypoint
+- controlled_text_rule
+- gazetteer_port_or_place
+- gazetteer_sea_area_or_strait
+- navtex_context
+- navarea_context
+- region_hint_only
+precision_policy:
+  explicit_geo_coordinate:
+    precision: exact
+    confidence: high
+    map_marker: solid
+    may_write_geo: true
+  navwarn_coordinate:
+    precision: exact_or_warning_coordinate
+    confidence: high
+    map_marker: solid
+    may_write_geo: true
+  port_unlocode:
+    precision: port
+    confidence: high
+    map_marker: solid
+    may_write_geo: true
+  controlled_text_rule:
+    precision: port_or_area
+    confidence: medium_high
+    map_marker: solid_soft_or_circle
+    may_write_geo: true
+    notes:
+    - Use only for curated maritime locations and abbreviations with required context.
+    - 'Examples: Gibraltar with naval/strait context; GOA only with Gulf-of-Aden context; GOO only with Hormuz/Oman/Iran context.'
+  gazetteer_port_or_place:
+    precision: port_or_place
+    confidence: medium_high
+    map_marker: solid_soft
+    may_write_geo: true
+  gazetteer_sea_area_or_strait:
+    precision: area
+    confidence: medium
+    map_marker: circle
+    may_write_geo: true
+  navtex_context:
+    precision: warning_context
+    confidence: medium
+    map_marker: soft_area
+    may_write_geo: false
+  navarea_context:
+    precision: warning_area
+    confidence: low_without_specific_place
+    map_marker: none_or_large_area
+    may_write_geo: false
+  region_hint_only:
+    precision: region
+    confidence: low
+    map_marker: no_exact_marker
+    may_write_geo: false
+  social_explicit_coordinate:
+    precision: exact
+    confidence: high
+    map_marker: solid
+    may_write_geo: true
+    notes:
+    - For X/Bsky route sources, decimal, DM and DMS coordinates in post text are treated as direct evidence.
+  social_route_waypoint:
+    precision: route_waypoint
+    confidence: medium_high
+    map_marker: route_line_and_soft_anchor
+    may_write_geo: true
+    notes:
+    - Use when a route source mentions two or more controlled maritime places or explicit waypoints.
+  controlled_port_promotion:
+    precision: port
+    confidence: medium_high
+    map_marker: solid_soft
+    may_write_geo: true
+    notes:
+    - Promote curated ports such as Ust-Luga when port/arrival/departure/transit context exists.
+  geo_candidate_map_fallback:
+    precision: candidate
+    confidence: medium
+    map_marker: hollow_or_dashed
+    may_write_geo: false
+    notes:
+    - If geo is empty but the top controlled candidate is strong and unambiguous, snapshot/index may render it as a candidate
+      marker.
+ambiguity_policy:
+  multiple_matches:
+    action: store_candidates_do_not_pin
+    field: geo_candidates
+  generic_terms:
+  - Channel
+  - Sound
+  - Belt
+  - Bay
+  - Port
+  - Strait
+  - The Gulf
+  blocked_short_aliases:
+  - Jose
+  - Santos
+  - Ford
+  - Anson
+  - Storis
+  - Enterprise
+  - Victoria
+  require_maritime_context_for_generic_terms: true
+  if_title_and_body_disagree:
+    action: store_candidates_do_not_pin
+  false_positive_suppression:
+  - id: hull_ship_part_not_port
+    block_place_id: port_hull
+    match:
+    - hull
+    block_if_near_any:
+    - ship
+    - vessel
+    - carrier
+    - tanker
+    - attached
+    - attached to
+    - on the hull
+    - ship hull
+    - vessel hull
+    - LPG carrier
+    - bulk carrier
+    - container ship
+    notes: Do not geocode Hull UK when hull means the vessel body.
+controlled_text_rules:
+- id: port_gibraltar
+  match:
+  - Gibraltar
+  require_any_context:
+  - submarine
+  - naval
+  - navy
+  - warship
+  - vessel
+  - ship
+  - port
+  - strait
+  - transit
+  - maritime
+  may_write_geo: true
+- id: port_djibouti
+  match:
+  - Djibouti
+  require_any_context:
+  - ship
+  - shipping
+  - naval
+  - fleet
+  - port
+  - vessel
+  - Gulf of Aden
+  - GOA
+  - Red Sea
+  - frigate
+  - piracy
+  may_write_geo: true
+- id: gulf_of_aden
+  match:
+  - Gulf of Aden
+  - GOA
+  require_any_context:
+  - Djibouti
+  - Aden
+  - Somalia
+  - Yemen
+  - Red Sea
+  - Bab el-Mandeb
+  - frigate
+  - naval
+  - piracy
+  - shipping
+  - CdeG
+  may_write_geo: true
+- id: gulf_of_oman
+  match:
+  - Gulf of Oman
+  - GOO
+  require_any_context:
+  - Hormuz
+  - Oman
+  - Iran
+  - UAE
+  - Emirates
+  - Arabian Sea
+  - tanker
+  - shipping
+  - naval
+  may_write_geo: true
+- id: bering_sea
+  match:
+  - Bering Sea
+  require_any_context:
+  - Coast Guard
+  - icebreaker
+  - patrol
+  - deployment
+  - ship
+  - vessel
+  - maritime
+  - fishing
+  - Arctic
+  may_write_geo: true
+- id: port_norfolk_us
+  match:
+  - Norfolk
+  require_any_context:
+  - USS
+  - US Navy
+  - navy
+  - naval
+  - carrier
+  - warship
+  - pier
+  - submarine
+  - deployment
+  - fleet
+  - CVN
+  may_write_geo: true
+- id: port_long_beach
+  match:
+  - Long Beach
+  require_any_context:
+  - port
+  - cargo
+  - container
+  - terminal
+  - shipping
+  - supply chain
+  - vessel
+  - ship
+  - maritime
+  may_write_geo: true
+- id: port_ust_luga
+  match:
+  - Ust-Luga
+  - Ust Luga
+  - Port of Ust-Luga
+  - port Ust-Luga
+  require_any_context:
+  - port
+  - terminal
+  - tanker
+  - LNG
+  - LPG
+  - oil
+  - departure
+  - departed
+  - arrival
+  - arriving
+  - arrived
+  - cargo
+  - Baltic
+  - Gulf of Finland
+  - Russia
+  - shadow fleet
+  - sanctions
+  - AIS
+  - vessel
+  - ship
+  may_write_geo: true
+  promotion: prefer_over_generic_candidates
+output_shape:
+  inferred_geo:
+    geo:
+      lat: number
+      lon: number
+      precision: exact|port|area|region|warning_context
+      method: explicit_coordinate|navwarn_coordinate|controlled_text_rule|gazetteer_alias|unlocode|navtex_context|navarea_context
+      matched_name: string
+      matched_id: string
+      radius_km: number|null
+      confidence: high|medium_high|medium|low
+      geo_role: event_location|topic_area|event_location_or_topic_area
+      display_on_map: boolean
+    geo_candidates:
+    - matched_id: string
+      matched_name: string
+      matched_alias: string
+      score: number
+    region_labels:
+    - REG:*
+safety_notes:
+- Do not infer exact coordinates from broad regions.
+- Do not pin NAVAREA-only matches.
+- Do not pin generic place names without maritime context.
+- Do not pin ambiguous person/place aliases such as Jose, Santos, Ford or Anson.
+- Show area matches as circles or soft markers.
+- Keep source evidence visible in reports.
+route_extraction_policy:
+  enabled_for:
+  - source.route_source=true
+  - labels include PAT:ROUTE_OBSERVED
+  - labels include D:AIS_TRACK
+  write_sections:
+  - Geo
+  - Geo Candidates
+  - Route
+  - Geo JSON
+  waypoint_roles:
+  - origin
+  - destination
+  - via
+  - passed
+  - reported_position
+  - candidate_anchor
+  map_rendering:
+    explicit_route: solid line
+    inferred_route: dashed line
+    candidate_anchor: hollow marker
+  safety:
+  - Do not infer routes from generic country names alone.
+  - Do not pin regions as exact markers.
+  - Keep original post link in popup/report.
