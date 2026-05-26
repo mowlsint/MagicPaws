@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.33 "Geo Hybrid Hotfix"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.34 "Live Sensors North/Baltic"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -967,7 +967,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
                       <div class="meter" style="width:100%; height:22px; border-radius:999px;"><div class="fill" id="weirdBalticFill" style="height:100%; width:0%;"></div></div>
                     </div>
                   </div>
-                  <div class="hint" style="margin-top:8px;">Heuristik: Government-/SAR-/Marine-/Official-Aktivität, Air-/RF-/NAVWARN-Signale und Event-Dichte als vorläufiger Cluster-Proxy. Echte ADS-B-/AIS-Baseline folgt später im Worker.</div>
+                  <div class="hint" style="margin-top:8px;">Heuristik v5.34: AIS-Live-Sample, ADS-B-Kacheln, Behördenmeldungs-Abweichung ±25% zur 14-Tage-Norm und NAVTEX/NAVWARN-Vitalsignale.</div>
                 </div>
               </div>
 
@@ -1080,7 +1080,9 @@ Wilhelmshaven JadeWeserPort"></textarea>
     active20d: "./data/logs/magicpaws_events_20d.json",
     manifest: "./data/archive/magicpaws_archive_manifest.json",
     dailySummary: "./data/snapshots/magicpaws_daily_summary.json",
-    sensorLatest: "./data/snapshots/magicpaws_sensor_latest.json"
+    sensorLatest: "./data/snapshots/magicpaws_sensor_latest.json",
+    aisLatest: "./data/live/ais_latest.json",
+    adsbLatest: "./data/live/adsb_latest.json"
   };
 
   // show worker host
@@ -1091,13 +1093,14 @@ Wilhelmshaven JadeWeserPort"></textarea>
     events: [],
     filtered: [],
     map: null,
-    layers: { events: null, routes: null, candidates: null, ciGroup: null, geoLocator: null },
+    layers: { events: null, routes: null, candidates: null, aisLive: null, adsbLive: null, ciGroup: null, geoLocator: null },
     ciBounds: null,
     geoPoint: null,
     weatherData: null,
     navtexData: null,
     navtexMiniMap: null,
     navtexMiniLayers: null,
+    liveSensors: { ais:null, adsb:null },
     liveEvents: [],
     archiveEvents: [],
     dailySummary: [],
@@ -1549,11 +1552,13 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
 
   async function loadRepoArchiveBase(){
-    const [activePack, manifest, dailyPack, sensorLatest] = await Promise.all([
+    const [activePack, manifest, dailyPack, sensorLatest, aisLatest, adsbLatest] = await Promise.all([
       fetchRepoJsonMaybe(REPO_DATA.active20d, "20d-log"),
       fetchRepoJsonMaybe(REPO_DATA.manifest, "archive-manifest"),
       fetchRepoJsonMaybe(REPO_DATA.dailySummary, "daily-summary"),
-      fetchRepoJsonMaybe(REPO_DATA.sensorLatest, "sensor-latest")
+      fetchRepoJsonMaybe(REPO_DATA.sensorLatest, "sensor-latest"),
+      fetchRepoJsonMaybe(REPO_DATA.aisLatest, "ais-live"),
+      fetchRepoJsonMaybe(REPO_DATA.adsbLatest, "adsb-live")
     ]);
 
     const activeEvents = Array.isArray(activePack?.events) ? activePack.events : [];
@@ -1561,6 +1566,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.repoArchive.manifest = manifest;
     state.repoArchive.dailySummaryPack = dailyPack;
     state.repoArchive.sensorLatest = sensorLatest;
+    state.liveSensors.ais = aisLatest;
+    state.liveSensors.adsb = adsbLatest;
 
     const manifestCount = Number(manifest?.total_events || 0);
     const activeCount = activeEvents.length;
@@ -1752,6 +1759,123 @@ Wilhelmshaven JadeWeserPort"></textarea>
     return clamp(Math.round(avg), 0, 100);
   }
 
+
+  function liveSensorFresh(sensor, maxAgeMinutes){
+    const ms = parseDateMs(sensor?.generated_at);
+    if (!ms) return false;
+    return (Date.now() - ms) <= maxAgeMinutes * 60 * 1000;
+  }
+  function liveItems(kind, regionMode = null){
+    const sensor = kind === "ais" ? state.liveSensors.ais : state.liveSensors.adsb;
+    const maxAge = kind === "ais" ? 90 : 45;
+    if (!liveSensorFresh(sensor, maxAge)) return [];
+    const arr = Array.isArray(sensor?.items) ? sensor.items : [];
+    return arr.filter(x => !regionMode || x.weirdness_bucket === regionMode || x.region_id === regionMode);
+  }
+  function liveAisClusters(regionMode){
+    const sensor = state.liveSensors.ais;
+    if (!liveSensorFresh(sensor, 90)) return [];
+    const clusters = Array.isArray(sensor?.clusters_5nm) ? sensor.clusters_5nm : [];
+    return clusters.filter(c => {
+      const lat = Number(c?.center?.lat), lon = Number(c?.center?.lon);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) return !regionMode;
+      const north = lat >= 48 && lat <= 61.8 && lon >= -13.5 && lon <= 10.8;
+      const baltic = lat >= 53 && lat <= 66.5 && lon >= 8 && lon <= 31.8;
+      return regionMode === "north" ? north : regionMode === "baltic" ? baltic : true;
+    });
+  }
+  function isAuthorityReport(ev){
+    const labels = ev.labels ?? [];
+    const t = normalizeText((ev.title ?? "") + " " + (ev.summary ?? "") + " " + labels.join(" "));
+    return labels.includes("SRC:OFFICIAL") || labels.includes("SRC:GOV") || labels.includes("RF:NAVTEX") || labels.includes("RF:NAVWARN") ||
+      /\b(coast guard|kustwacht|kystvakt|navy|naval|marine|sar|mpa|patrol|police|customs|douane|bundespolizei|bundeswehr|wsv|bsh|havariekommando|ukmto|authority|authorities|government|defence|defense|official)\b/.test(t);
+  }
+  function eventInWeirdRegion(ev, regionMode){
+    const labels = ev.labels ?? [];
+    const t = normalizeText((ev.title ?? "") + " " + (ev.summary ?? "") + " " + labels.join(" "));
+    if (regionMode === "north") return ev.region === "REG:NORTH_SEA" || ev.region === "REG:GER_BIGHT" || ev.region === "REG:CHANNEL" || labels.some(l => ["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"].includes(l)) || /north sea|nordsee|german bight|deutsche bucht|skagen|skagerrak|channel|aermelkanal|ärmelkanal|dover/.test(t);
+    return ev.region === "REG:BALTIC" || ev.region === "REG:BALTIC_SEA" || labels.some(l => ["REG:BALTIC","REG:BALTIC_SEA","REG:DANISH_STRAITS","REG:ORESUND","REG:GOTLAND_SEA","REG:GULF_OF_FINLAND"].includes(l)) || /baltic|ostsee|oresund|øresund|kattegat|bornholm|gotland|gulf of finland|ust-luga|ust luga|danish straits|daenische|dänische/.test(t);
+  }
+  function authorityReportDeviation(events, regionMode){
+    const now = new Date();
+    const currentStart = Date.now() - 24*60*60*1000;
+    const sameWeekend = d => {
+      const wd = d.getUTCDay();
+      const nw = now.getUTCDay();
+      return (wd === 0 || wd === 6) === (nw === 0 || nw === 6);
+    };
+    const current = events.filter(ev => {
+      const ms = getEventChronologyMs(ev);
+      return ms >= currentStart && isAuthorityReport(ev) && eventInWeirdRegion(ev, regionMode);
+    }).length;
+    const buckets = new Map();
+    for (const ev of events){
+      const ms = getEventChronologyMs(ev); if (!ms) continue;
+      const ageDays = (Date.now() - ms) / 864e5;
+      if (ageDays <= 1 || ageDays > 15) continue;
+      if (!isAuthorityReport(ev) || !eventInWeirdRegion(ev, regionMode)) continue;
+      const d = new Date(ms);
+      if (!sameWeekend(d)) continue;
+      const key = d.toISOString().slice(0,10);
+      buckets.set(key, (buckets.get(key)||0)+1);
+    }
+    let vals = [...buckets.values()];
+    if (vals.length < 2) {
+      const all = new Map();
+      for (const ev of events){
+        const ms = getEventChronologyMs(ev); if (!ms) continue;
+        const ageDays = (Date.now() - ms) / 864e5;
+        if (ageDays <= 1 || ageDays > 15) continue;
+        if (!isAuthorityReport(ev) || !eventInWeirdRegion(ev, regionMode)) continue;
+        const key = new Date(ms).toISOString().slice(0,10);
+        all.set(key, (all.get(key)||0)+1);
+      }
+      vals = [...all.values()];
+    }
+    const avg = vals.length ? vals.reduce((a,b)=>a+b,0) / vals.length : 0;
+    const deviation = avg > 0 ? (current - avg) / avg : (current > 0 ? 1 : 0);
+    return { current, baseline: avg, deviation, absDeviation: Math.abs(deviation), outside25: Math.abs(deviation) >= 0.25 };
+  }
+  function navtexItems(){
+    const d = state.navtexData;
+    if (!d) return [];
+    for (const key of ["items","warnings","messages","features"]){
+      if (Array.isArray(d[key])) return d[key];
+    }
+    return [];
+  }
+  function navtexText(item){
+    return normalizeText([item?.title, item?.text, item?.message, item?.summary, item?.description, item?.body, item?.properties?.title, item?.properties?.description, item?.region, ...(Array.isArray(item?.regions)?item.regions:[])].join(" "));
+  }
+  function navtexRegionHit(item, regionMode){
+    const t = navtexText(item);
+    const regs = Array.isArray(item?.regions) ? item.regions : [];
+    if (regionMode === "north") return regs.some(r => ["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"].includes(r)) || /north sea|nordsee|german bight|deutsche bucht|channel|dover|skagerrak/.test(t);
+    return regs.some(r => ["REG:BALTIC","REG:BALTIC_SEA","REG:DANISH_STRAITS","REG:ORESUND","REG:GULF_OF_FINLAND"].includes(r)) || /baltic|ostsee|oresund|øresund|kattegat|bornholm|gotland|gulf of finland|ust-luga|ust luga/.test(t);
+  }
+  function navtexSignal(regionMode){
+    const vital = /cable|pipeline|subsea|mine|unexploded|obstruction|drifting|adrift|collision|sunk|restricted area|exclusion zone|security zone|military exercise|navwarn|navtex|gnss|gps/.test.bind(/cable|pipeline|subsea|mine|unexploded|obstruction|drifting|adrift|collision|sunk|restricted area|exclusion zone|security zone|military exercise|navwarn|navtex|gnss|gps/);
+    const obstacle = /obstruction|obstacle|hindrance|hazard|drifting|adrift|buoy off station|wreck|floating object|mine|explosive/;
+    const rows = navtexItems().filter(it => navtexRegionHit(it, regionMode));
+    let vitalCount = 0, obstacleCount = 0;
+    const rooms = new Map();
+    for (const it of rows){
+      const t = navtexText(it);
+      if (/cable|pipeline|subsea|mine|unexploded|collision|restricted area|exclusion zone|security zone|military exercise|gnss|gps|navwarn|navtex/.test(t)) vitalCount++;
+      if (obstacle.test(t)) obstacleCount++;
+      const key = (Array.isArray(it?.regions) && it.regions[0]) || it?.region || it?.area || (regionMode === "north" ? "north" : "baltic");
+      if (obstacle.test(t)) rooms.set(key, (rooms.get(key)||0)+1);
+    }
+    const clusteredObstacles = [...rooms.values()].filter(n => n >= 2).reduce((a,b)=>a+b,0);
+    return { total: rows.length, vitalCount, obstacleCount, clusteredObstacles };
+  }
+  function navtexHybridBoost(){
+    const n = navtexSignal("north"), b = navtexSignal("baltic");
+    const vital = n.vitalCount + b.vitalCount;
+    const clusters = n.clusteredObstacles + b.clusteredObstacles;
+    return clamp(Math.round(vital * 2.5 + clusters * 4), 0, 24);
+  }
+
   function scoreAuthorityWeirdness(events, regionMode){
     const regionLabels = regionMode === "north"
       ? ["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"]
@@ -1760,11 +1884,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
       const d = getEventChronologyMs(e);
       const labels = e.labels ?? [];
       const inWindow = d ? ((Date.now() - d) / 36e5) <= 72 : false;
-      const text = normalizeText((e.title ?? "") + " " + (e.summary ?? ""));
-      const regionHit = regionLabels.includes(e.region) || labels.some(l => regionLabels.includes(l)) ||
-        (regionMode === "north" && /north sea|nordsee|german bight|deutsche bucht|skagen|skagerrak|channel|ärmelkanal/.test(text)) ||
-        (regionMode !== "north" && /baltic|ostsee|øresund|oresund|kattegat|gotland|bornholm|gulf of finland|ust-luga|ust luga|danish straits|dänische/.test(text));
-      return inWindow && regionHit;
+      return inWindow && eventInWeirdRegion(e, regionMode);
     });
     let points = 0; const seen = new Set();
     for (const e of recent){
@@ -1772,9 +1892,9 @@ Wilhelmshaven JadeWeserPort"></textarea>
       const key = e.url || e.id || e.number || e.title;
       if (seen.has(key)) continue; seen.add(key);
       const text = normalizeText((e.title ?? "") + " " + (e.summary ?? "") + " " + labels.join(" "));
-      const ais = mpHasAnyLabel(e,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|\bsts\b|rendezvous/.test(text);
+      const ais = mpHasAnyLabel(e,["SRC:AIS","D:AIS_TRACK","PAT:AIS_GAP","PAT:DARK_ACTIVITY","PAT:LOITERING","PAT:ROUTE_DEVIATION","PAT:ROUTE_OBSERVED","PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|sts|rendezvous/.test(text);
       const adsb = mpHasAnyLabel(e,["SRC:ADSB","D:AIR_ACTIVITY","V:MPA","V:SAR_UNIT","V:AUTH_COAST_GUARD","PAT:RACETRACK","PAT:LOW_ORBIT"]) || /ads-?b|mpa|p-8|p8 poseidon|sar aircraft|coast guard aircraft|helicopter|racetrack|orbit|isr/.test(text);
-      const official = labels.includes("SRC:OFFICIAL") || mpHasAnyLabel(e,["RF:NAVWARN","RF:NAVTEX"]);
+      const official = isAuthorityReport(e);
       const ci = mpHasAnyLabel(e,["OBJ:PORT","OBJ:VTS_WSV","OBJ:CABLE","OBJ:PIPELINE","OBJ:WINDFARM","D:INFRA_CI"]);
       const rf = mpHasAnyLabel(e,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"]) || labels.some(l => l.startsWith("RF:"));
       let w = 0;
@@ -1787,7 +1907,24 @@ Wilhelmshaven JadeWeserPort"></textarea>
       else if ((ais || adsb) && (official || ci || rf)) w *= 1.35;
       points += w;
     }
-    return clamp(Math.round((points / 38) * 100), 0, 100);
+
+    const aisItems = liveItems("ais", regionMode);
+    const adsbItems = liveItems("adsb", regionMode);
+    const aisAuthority = aisItems.filter(x => x.authority_like || (x.flags||[]).includes("authority_like")).length;
+    const adsbAuthority = adsbItems.filter(x => x.authority_like || (x.flags||[]).includes("authority_like")).length;
+    const aisClusters = liveAisClusters(regionMode).filter(c => Number(c.count) > 2).length;
+    points += Math.min(18, aisAuthority * 2.2);
+    points += Math.min(18, adsbAuthority * 2.0);
+    points += aisClusters * 10;
+    if (aisAuthority && adsbAuthority) points += 8;
+
+    const dev = authorityReportDeviation(events, regionMode);
+    if (dev.outside25) points += clamp(Math.round(dev.absDeviation * 18), 4, 22);
+
+    const nav = navtexSignal(regionMode);
+    points += Math.min(18, nav.vitalCount * 2.8 + nav.clusteredObstacles * 4.5);
+
+    return clamp(Math.round((points / 58) * 100), 0, 100);
   }
 
   function normalizeText(s){
@@ -1944,13 +2081,14 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const instrumentEvents = state.events;
     const hybridWindow = Number(el("hybridWindow")?.value || 6);
     const hybridBuckets = buildHybridHourlyBuckets(instrumentEvents, 72);
-    const hybrid = scorePhaseZero(instrumentEvents, hybridWindow);
+    const hybridBase = scorePhaseZero(instrumentEvents, hybridWindow);
+    const hybrid = clamp(hybridBase + navtexHybridBoost(), 0, 100);
     el("p0Pct").textContent = String(hybrid);
 
     renderHybridSeismograph(hybridBuckets.map(b => b.pct));
     const hPeak = hybridBuckets.length ? Math.max(...hybridBuckets.map(b => b.pct)) : 0;
     el("hybridPeak").textContent = String(hPeak);
-    el("hybridMeta").textContent = `Ø ${hybridWindow}h • Peak 72h • AIS/Route/Cyber/RF gewichtet`;
+    el("hybridMeta").textContent = `Ø ${hybridWindow}h + NAVTEX • Peak 72h • AIS/ADS-B live proxy`;
 
     const north = scoreAuthorityWeirdness(instrumentEvents, "north");
     const baltic = scoreAuthorityWeirdness(instrumentEvents, "baltic");
@@ -1992,6 +2130,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.layers.events = L.layerGroup().addTo(state.map);
     state.layers.routes = L.layerGroup().addTo(state.map);
     state.layers.candidates = L.layerGroup().addTo(state.map);
+    state.layers.aisLive = L.layerGroup().addTo(state.map);
+    state.layers.adsbLive = L.layerGroup().addTo(state.map);
     state.layers.ciGroup = L.layerGroup().addTo(state.map);
     state.layers.geoLocator = L.layerGroup().addTo(state.map);
     state.map.on("click", (ev) => setGeoLocator(ev.latlng.lat, ev.latlng.lng, "Map click"));
@@ -2121,6 +2261,41 @@ Wilhelmshaven JadeWeserPort"></textarea>
     };
   }
 
+
+  function renderLiveSensorLayers(bounds){
+    state.layers.aisLive?.clearLayers();
+    state.layers.adsbLive?.clearLayers();
+    let nextBounds = bounds || null;
+    const ais = liveItems("ais");
+    const adsb = liveItems("adsb");
+    for (const it of ais){
+      const lat = Number(it.lat), lon = Number(it.lon);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
+      const authority = it.authority_like || (it.flags || []).includes("authority_like");
+      const marker = L.circleMarker([lat, lon], { radius: authority ? 6 : 3.5, color: authority ? "#ff4dff" : "#49d8d2", weight: authority ? 2.2 : 1.2, fillColor: authority ? "#b06cff" : "#49d8d2", fillOpacity: authority ? 0.65 : 0.38 });
+      marker.bindPopup(`<b>AIS ${authority ? "Behörde/Patrol?" : "Live"}</b><br>${escapeHtml(it.name || it.mmsi || "unknown")}<br>${escapeHtml(it.region_label_de || it.region_id || "")}<br>SOG ${escapeHtml(String(it.sog ?? "–"))} kn • COG ${escapeHtml(String(it.cog ?? "–"))}`);
+      marker.addTo(state.layers.aisLive);
+      nextBounds = nextBounds ? nextBounds.extend([lat,lon]) : L.latLngBounds([[lat,lon],[lat,lon]]);
+    }
+    for (const c of liveAisClusters(null)){
+      const lat = Number(c?.center?.lat), lon = Number(c?.center?.lon);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
+      const ring = L.circle([lat, lon], { radius: 9260, color:"#ff4dff", weight:2, fillOpacity:0.06, dashArray:"7 5" });
+      ring.bindPopup(`<b>AIS Behördencluster</b><br>${Number(c.count)||0} Einheiten im 5-sm-Umkreis<br>${escapeHtml((c.names||[]).join(", "))}`);
+      ring.addTo(state.layers.aisLive);
+    }
+    for (const it of adsb){
+      const lat = Number(it.lat), lon = Number(it.lon);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
+      const authority = it.authority_like || (it.flags || []).includes("authority_like");
+      const marker = L.circleMarker([lat, lon], { radius: authority ? 6 : 3.5, color: authority ? "#ffd24d" : "#5aa0ff", weight: authority ? 2.2 : 1.1, fillColor: authority ? "#ff8a00" : "#5aa0ff", fillOpacity: authority ? 0.70 : 0.35 });
+      marker.bindPopup(`<b>ADS-B ${authority ? "Gov/Mil/SAR?" : "Live"}</b><br>${escapeHtml(it.callsign || it.hex || "unknown")}<br>${escapeHtml(it.type_code || it.description || "")}<br>${escapeHtml(it.region_label_de || it.region_id || "")}`);
+      marker.addTo(state.layers.adsbLive);
+      nextBounds = nextBounds ? nextBounds.extend([lat,lon]) : L.latLngBounds([[lat,lon],[lat,lon]]);
+    }
+    return nextBounds;
+  }
+
   function refreshMapLayers(){
     if (!state.map) return;
 
@@ -2152,7 +2327,11 @@ Wilhelmshaven JadeWeserPort"></textarea>
 
     const ms = el("mapStatus");
     const label = tw === "all" ? "alle offenen" : (tw === "168" ? "7 Tage" : tw === "480" ? "20 Tage" : tw === "720" ? "30 Tage" : tw === "2160" ? "90 Tage" : `${tw}h`);
-    if (ms) ms.textContent = `MAP: ${label} • src=${src.length}/${baseSrc.length} geo=${pts.length} • social-geo=${socialPts} • cand=${candidates} • routes=${routes.length}`;
+    if (ms) {
+      const aisLive = liveItems("ais").length;
+      const adsbLive = liveItems("adsb").length;
+      ms.textContent = `MAP: ${label} • src=${src.length}/${baseSrc.length} geo=${pts.length} • cand=${candidates} • routes=${routes.length} • AIS=${aisLive} • ADS-B=${adsbLive}`;
+    }
 
     let bounds = null;
     for (const {ev, route} of routes){
@@ -2178,6 +2357,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
       m.addTo(point.candidate ? state.layers.candidates : state.layers.events);
       bounds = bounds ? bounds.extend([lat, lon]) : L.latLngBounds([[lat, lon],[lat, lon]]);
     }
+
+    bounds = renderLiveSensorLayers(bounds);
 
     if (showCI) {
       if (!state.map.hasLayer(state.layers.ciGroup)) state.layers.ciGroup.addTo(state.map);
