@@ -366,9 +366,10 @@
   };
   const REPO_LIVE = {
     ais: "./data/live/ais_latest.json",
-    adsb: "./data/live/adsb_latest.json"
+    adsb: "./data/live/adsb_latest.json",
+    drift: "./data/live/ais_drift_candidates.json"
   };
-  const liveSensors = { ais:null, adsb:null };
+  const liveSensors = { ais:null, adsb:null, drift:null };
 
   const el = id => document.getElementById(id);
   const clamp = (n,a,b) => Math.max(a, Math.min(b, n));
@@ -421,7 +422,7 @@
   function hasAny(ev, arr){ const ls = labels(ev); return arr.some(x => ls.includes(x)); }
   function eventText(ev){ return `${ev?.title ?? ""} ${ev?.summary ?? ""} ${labels(ev).join(" ")}`; }
   function liveFresh(sensor, minutes){ const ms = parseMs(sensor?.generated_at); return !!ms && (Date.now()-ms) <= minutes*60000; }
-  function liveItems(kind, regionMode=null){ const s = kind === "ais" ? liveSensors.ais : liveSensors.adsb; const max = kind === "ais" ? 90 : 45; if (!liveFresh(s,max)) return []; return (Array.isArray(s?.items)?s.items:[]).filter(x => !regionMode || x.weirdness_bucket === regionMode || x.region_id === regionMode); }
+  function liveItems(kind, regionMode=null){ const s = kind === "ais" ? liveSensors.ais : kind === "drift" ? liveSensors.drift : liveSensors.adsb; const max = kind === "ais" ? 90 : kind === "drift" ? 120 : 45; if (!liveFresh(s,max)) return []; const now=Date.now(); return (Array.isArray(s?.items)?s.items:[]).filter(x => { if (x.expires_at && Date.parse(x.expires_at) && Date.parse(x.expires_at) < now) return false; return !regionMode || x.weirdness_bucket === regionMode || x.region_id === regionMode; }); }
   function liveAisClusters(regionMode){ const s = liveSensors.ais; if (!liveFresh(s,90)) return []; return (Array.isArray(s?.clusters_5nm)?s.clusters_5nm:[]).filter(c => { const lat=Number(c?.center?.lat), lon=Number(c?.center?.lon); if (!Number.isFinite(lat)||!Number.isFinite(lon)) return true; const north=lat>=48&&lat<=61.8&&lon>=-13.5&&lon<=10.8; const baltic=lat>=53&&lat<=66.5&&lon>=8&&lon<=31.8; return regionMode === "north" ? north : regionMode === "baltic" ? baltic : true; }); }
   function isAuthorityReport(ev){ const t=norm(eventText(ev)); const ls=labels(ev); return ls.includes("SRC:OFFICIAL")||ls.includes("SRC:GOV")||ls.includes("RF:NAVTEX")||ls.includes("RF:NAVWARN")||/\b(coast guard|kustwacht|kystvakt|navy|naval|marine|sar|mpa|patrol|police|customs|douane|bundespolizei|bundeswehr|wsv|bsh|havariekommando|ukmto|authority|authorities|government|defence|defense|official)\b/.test(t); }
   function eventInWeirdRegion(ev, mode){ const ls=labels(ev); const t=norm(eventText(ev)); if(mode==="north") return ev.region==="REG:NORTH_SEA"||ev.region==="REG:GER_BIGHT"||ev.region==="REG:CHANNEL"||ls.some(l=>["REG:NORTH_SEA","REG:GER_BIGHT","REG:CHANNEL","REG:SKAGERRAK"].includes(l))||/north sea|nordsee|german bight|deutsche bucht|skagen|skagerrak|channel|aermelkanal|ärmelkanal|dover/.test(t); return ev.region==="REG:BALTIC"||ev.region==="REG:BALTIC_SEA"||ls.some(l=>["REG:BALTIC","REG:BALTIC_SEA","REG:DANISH_STRAITS","REG:ORESUND","REG:GULF_OF_FINLAND"].includes(l))||/baltic|ostsee|oresund|øresund|kattegat|bornholm|gotland|gulf of finland|ust-luga|ust luga/.test(t); }
@@ -536,9 +537,14 @@
     }
     const aisAuthority = liveItems("ais", mode).filter(x=>x.authority_like || (x.flags||[]).includes("authority_like")).length;
     const adsbAuthority = liveItems("adsb", mode).filter(x=>x.authority_like || (x.flags||[]).includes("authority_like")).length;
-    const clusters = liveAisClusters(mode).filter(c=>Number(c.count)>2).length;
+    const clusters = liveAisClusters(mode).filter(c=>Number(c)>2).length;
+    const driftItems = liveItems("drift", mode);
+    const driftCandidates = driftItems.filter(x=>x.type === "DRIFT_CANDIDATE").length;
+    const agroundCandidates = driftItems.filter(x=>x.type === "AGROUND_INCIDENT").length;
     score += Math.min(10, aisAuthority*1.0) + Math.min(12, adsbAuthority*1.2) + Math.min(20, clusters*8);
+    score += Math.min(12, driftCandidates*3) + Math.min(18, agroundCandidates*9);
     if (aisAuthority && adsbAuthority) score += 5;
+    if (driftItems.length && (aisAuthority || adsbAuthority || clusters)) score += 5;
     const dev = authorityDeviation(events, mode); if (dev.outside) score += clamp(Math.round(dev.abs*8), 2, 12);
     const nav = navtexSignal(navtexData, mode); score += Math.min(12, nav.vitalCount*1.6 + nav.clusteredObstacles*3.0);
     return clamp(Math.round((score / 95) * 100),0,100);
@@ -716,6 +722,7 @@
     const rf = events.filter(e => hasAny(e,["D:RF_SIGNAL","PAT:GNSS_JAM","PAT:GNSS_SPOOF"])).length;
     const shadow = events.filter(e => hasAny(e,["V:SHADOW_FLEET","V:SANCTIONS_EVASION","D:SANCTIONS"])).length;
     const navCount = Array.isArray(navtexData?.items) ? navtexData.items.length : null;
+    const driftItems = liveItems("drift");
 
     const bullets = [];
     bullets.push(`${events.length} Meldungen im ${HOURS}h-Fenster, davon ${high} mit erhöhter/hoher Severity.`);
@@ -725,6 +732,7 @@
     if (rf) bullets.push(`${rf} RF-/GNSS-/AIS-nahe Störungshinweise oder Anomalien.`);
     if (shadow) bullets.push(`${shadow} Meldungen mit Schattenflotten-/Sanktionsbezug.`);
     if (geo) bullets.push(`${geo} Meldungen sind georeferenziert und lagekartenfähig.`);
+    if (driftItems.length) bullets.push(`AIS-Drift/Low-Speed: ${driftItems.length} aktive Kandidaten mit TTL, davon ${driftItems.filter(x => x.type === "AGROUND_INCIDENT").length} aground/Incident.`);
     if (navCount !== null) bullets.push(`NAVTEX/NAVWARN-Kontext: ${navCount} aktive bzw. geladene Warnobjekte.`);
     const alertBullets = priorityAlertBullets(events);
     el("shortBullets").innerHTML = alertBullets.concat(bullets.slice(0,8).map(b => `<li>${esc(b)}</li>`)).join("");
@@ -817,15 +825,17 @@
     el("hybridMeta").textContent = `Ø 6h • Peak/Seismograph 72h`;
     el("kwSubtitle").textContent = `Social + RSS • ${HOURS}h`;
 
-    const [bundle, navtex, weather, aisLive, adsbLive] = await Promise.all([
+    const [bundle, navtex, weather, aisLive, adsbLive, driftLive] = await Promise.all([
       fetchJson(API.bundle, { events:[], source:null, generated_at:null }),
       fetchJson(API.navtex, { items:[] }),
       fetchJson(API.weather, { points:[] }),
       fetchJson(REPO_LIVE.ais, { items:[], clusters_5nm:[] }),
-      fetchJson(REPO_LIVE.adsb, { items:[] })
+      fetchJson(REPO_LIVE.adsb, { items:[] }),
+      fetchJson(REPO_LIVE.drift, { items:[] })
     ]);
     liveSensors.ais = aisLive;
     liveSensors.adsb = adsbLive;
+    liveSensors.drift = driftLive;
 
     const allEvents = Array.isArray(bundle?.events) ? bundle.events : [];
     const windowEvents = eventsSince(allEvents, HOURS);
