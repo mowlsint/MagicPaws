@@ -1,29 +1,33 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-27T04:51:04.596Z",
+  "generated_at": "2026-05-27T10:31:51.883Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 50,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-27",
-      "events_total": 3,
+      "events_total": 12,
       "p0_suspect": 0,
       "geo_events": 1,
-      "social_events": 2,
+      "social_events": 6,
       "social_geo_events": 0,
-      "rss_media_events": 1,
+      "rss_media_events": 6,
       "top_domains": {
-        "D:NEWS_INTEL": 3
+        "D:NEWS_INTEL": 10,
+        "D:DRONE_UAS": 1,
+        "D:INFRA_CI": 1
       },
       "top_regions": {
-        "REG:OTHER": 2,
+        "REG:OTHER": 5,
+        "REG:GLOBAL": 2,
+        "REG:ATLANTIC_NE": 1,
         "REG:PERSIAN_GULF": 1
       },
       "severity": {
-        "SEV:1": 3
+        "SEV:1": 12
       },
-      "hybrid_index_proxy": 4,
+      "hybrid_index_proxy": 15,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -31,24 +35,40 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 2
+          "count": 5
         },
         {
           "keyword": "sts",
+          "count": 2
+        },
+        {
+          "keyword": "mpa",
+          "count": 1
+        },
+        {
+          "keyword": "navy",
+          "count": 1
+        },
+        {
+          "keyword": "drone",
+          "count": 1
+        },
+        {
+          "keyword": "uas",
           "count": 1
         }
       ]
     },
     {
       "date": "2026-05-26",
-      "events_total": 80,
+      "events_total": 81,
       "p0_suspect": 0,
-      "geo_events": 14,
-      "social_events": 25,
-      "social_geo_events": 6,
+      "geo_events": 15,
+      "social_events": 26,
+      "social_geo_events": 7,
       "rss_media_events": 55,
       "top_domains": {
-        "D:NEWS_INTEL": 72,
+        "D:NEWS_INTEL": 73,
         "D:INFRA_CI": 3,
         "D:INCIDENT": 2,
         "D:DRONE_UAS": 1,
@@ -60,24 +80,24 @@
         "REG:GLOBAL": 10,
         "REG:ATLANTIC_NE": 5,
         "REG:PERSIAN_GULF": 3,
-        "REG:BALTIC": 2,
+        "REG:BALTIC": 3,
         "REG:STRAIT_GIBRALTAR": 2,
         "REG:NORTH_SEA": 1,
         "REG:BLACK_SEA": 1,
         "REG:SOUTH_AMERICA_WEST": 1
       },
       "severity": {
-        "SEV:1": 80
+        "SEV:1": 81
       },
       "hybrid_index_proxy": 100,
       "government_weirdness_proxy": {
         "north_sea": 3,
-        "baltic_sea": 5
+        "baltic_sea": 7
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 51
+          "count": 52
         },
         {
           "keyword": "mpa",
@@ -96,16 +116,16 @@
           "count": 5
         },
         {
+          "keyword": "drone",
+          "count": 3
+        },
+        {
           "keyword": "disruption",
           "count": 3
         },
         {
           "keyword": "subsea",
           "count": 3
-        },
-        {
-          "keyword": "drone",
-          "count": 2
         }
       ]
     },
@@ -896,30 +916,30 @@
     },
     {
       "date": "2026-05-13",
-      "events_total": 60,
+      "events_total": 61,
       "p0_suspect": 0,
-      "geo_events": 12,
+      "geo_events": 13,
       "social_events": 16,
       "social_geo_events": 1,
-      "rss_media_events": 44,
+      "rss_media_events": 45,
       "top_domains": {
         "D:NEWS_INTEL": 49,
-        "D:INFRA_CI": 10,
+        "D:INFRA_CI": 11,
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
         "REG:OTHER": 19,
         "REG:EUROPE": 9,
         "REG:GLOBAL": 8,
-        "REG:PERSIAN_GULF": 6,
+        "REG:PERSIAN_GULF": 7,
         "REG:NORTH_AMERICA": 2,
         "REG:NORTH_SEA": 1,
         "REG:ATLANTIC_NE": 1
       },
       "severity": {
-        "SEV:1": 60
+        "SEV:1": 61
       },
-      "hybrid_index_proxy": 76,
+      "hybrid_index_proxy": 77,
       "government_weirdness_proxy": {
         "north_sea": 2,
         "baltic_sea": 0
