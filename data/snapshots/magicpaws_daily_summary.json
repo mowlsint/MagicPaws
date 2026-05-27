@@ -1,57 +1,59 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-27T10:31:51.883Z",
+  "generated_at": "2026-05-27T16:13:49.567Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 50,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-27",
-      "events_total": 12,
+      "events_total": 27,
       "p0_suspect": 0,
-      "geo_events": 1,
-      "social_events": 6,
-      "social_geo_events": 0,
-      "rss_media_events": 6,
+      "geo_events": 5,
+      "social_events": 14,
+      "social_geo_events": 2,
+      "rss_media_events": 13,
       "top_domains": {
-        "D:NEWS_INTEL": 10,
-        "D:DRONE_UAS": 1,
-        "D:INFRA_CI": 1
+        "D:NEWS_INTEL": 20,
+        "D:INFRA_CI": 5,
+        "D:SECURITY_CRIME": 1,
+        "D:DRONE_UAS": 1
       },
       "top_regions": {
-        "REG:OTHER": 5,
-        "REG:GLOBAL": 2,
-        "REG:ATLANTIC_NE": 1,
-        "REG:PERSIAN_GULF": 1
+        "REG:OTHER": 11,
+        "REG:EUROPE": 4,
+        "REG:PERSIAN_GULF": 3,
+        "REG:ATLANTIC_NE": 3,
+        "REG:GLOBAL": 3
       },
       "severity": {
-        "SEV:1": 12
+        "SEV:1": 27
       },
-      "hybrid_index_proxy": 15,
+      "hybrid_index_proxy": 33,
       "government_weirdness_proxy": {
         "north_sea": 0,
-        "baltic_sea": 0
+        "baltic_sea": 5
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 5
+          "count": 16
         },
         {
           "keyword": "sts",
+          "count": 3
+        },
+        {
+          "keyword": "navy",
+          "count": 2
+        },
+        {
+          "keyword": "drone",
           "count": 2
         },
         {
           "keyword": "mpa",
-          "count": 1
-        },
-        {
-          "keyword": "navy",
-          "count": 1
-        },
-        {
-          "keyword": "drone",
-          "count": 1
+          "count": 2
         },
         {
           "keyword": "uas",
@@ -61,18 +63,18 @@
     },
     {
       "date": "2026-05-26",
-      "events_total": 81,
+      "events_total": 84,
       "p0_suspect": 0,
-      "geo_events": 15,
-      "social_events": 26,
-      "social_geo_events": 7,
-      "rss_media_events": 55,
+      "geo_events": 17,
+      "social_events": 28,
+      "social_geo_events": 9,
+      "rss_media_events": 56,
       "top_domains": {
         "D:NEWS_INTEL": 73,
-        "D:INFRA_CI": 3,
+        "D:INFRA_CI": 5,
         "D:INCIDENT": 2,
+        "D:SECURITY_CRIME": 2,
         "D:DRONE_UAS": 1,
-        "D:SECURITY_CRIME": 1,
         "D:CYBER_OT": 1
       },
       "top_regions": {
@@ -81,27 +83,29 @@
         "REG:ATLANTIC_NE": 5,
         "REG:PERSIAN_GULF": 3,
         "REG:BALTIC": 3,
+        "REG:NORTH_SEA": 2,
         "REG:STRAIT_GIBRALTAR": 2,
-        "REG:NORTH_SEA": 1,
+        "REG:EUROPE": 1,
         "REG:BLACK_SEA": 1,
-        "REG:SOUTH_AMERICA_WEST": 1
+        "REG:SOUTH_AMERICA_WEST": 1,
+        "REG:SOUTH_AMERICA_EAST": 1
       },
       "severity": {
-        "SEV:1": 81
+        "SEV:1": 84
       },
       "hybrid_index_proxy": 100,
       "government_weirdness_proxy": {
-        "north_sea": 3,
+        "north_sea": 5,
         "baltic_sea": 7
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 52
+          "count": 55
         },
         {
           "keyword": "mpa",
-          "count": 9
+          "count": 10
         },
         {
           "keyword": "isr",
@@ -112,12 +116,12 @@
           "count": 6
         },
         {
-          "keyword": "navy",
+          "keyword": "drone",
           "count": 5
         },
         {
-          "keyword": "drone",
-          "count": 3
+          "keyword": "navy",
+          "count": 5
         },
         {
           "keyword": "disruption",
