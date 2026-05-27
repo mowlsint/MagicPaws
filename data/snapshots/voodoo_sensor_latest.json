@@ -1,8 +1,8 @@
 {
   "schema_version": 3,
-  "ts": "2026-05-27T12:16:32.019Z",
-  "bucket_start_utc": "2026-05-27T12:00:00.000Z",
-  "bucket_end_utc": "2026-05-27T15:00:00.000Z",
+  "ts": "2026-05-27T21:49:43.745Z",
+  "bucket_start_utc": "2026-05-27T21:00:00.000Z",
+  "bucket_end_utc": "2026-05-28T00:00:00.000Z",
   "bucket_hours": 3,
   "source": {
     "type": "github_issues",
@@ -13,37 +13,37 @@
   "counts": {
     "open_events_total": 1000,
     "open_events_deduped_total": 953,
-    "recent_72h_events": 162,
-    "recent_72h_deduped_events": 121,
-    "recent_72h_source_capped_weighted_events": 40.48,
-    "current_bucket_events": 4,
-    "current_bucket_deduped_events": 4,
-    "current_bucket_source_capped_weighted_events": 3.65,
+    "recent_72h_events": 217,
+    "recent_72h_deduped_events": 176,
+    "recent_72h_source_capped_weighted_events": 49.84,
+    "current_bucket_events": 9,
+    "current_bucket_deduped_events": 9,
+    "current_bucket_source_capped_weighted_events": 7.65,
     "duplicate_events_total": 47,
     "duplicate_events_72h": 41,
     "duplicate_events_bucket": 0,
-    "social_rss_events_72h": 162,
-    "social_rss_deduped_events_72h": 121,
-    "social_rss_events_bucket": 4,
-    "social_rss_deduped_events_bucket": 4,
+    "social_rss_events_72h": 217,
+    "social_rss_deduped_events_72h": 176,
+    "social_rss_events_bucket": 9,
+    "social_rss_deduped_events_bucket": 9,
     "p0_suspect_72h": 0,
-    "geo_total": 95,
-    "geo_72h": 20,
+    "geo_total": 91,
+    "geo_72h": 24,
     "geo_count_method": "explicit_coordinates_or_controlled_candidates"
   },
   "sensors": {
-    "hybrid_seismograph_pct": 7,
+    "hybrid_seismograph_pct": 9,
     "hybrid_window_hours": 6,
-    "hybrid_72h_peak_pct": 62,
+    "hybrid_72h_peak_pct": 46,
     "hybrid_windows_pct": {
-      "6": 7,
-      "12": 4,
-      "24": 6,
-      "48": 3
+      "6": 9,
+      "12": 8,
+      "24": 5,
+      "48": 4
     },
-    "keyword_barometer_pct": 2,
+    "keyword_barometer_pct": 7,
     "government_weirdness": {
-      "north_sea_pct": 18,
+      "north_sea_pct": 11,
       "baltic_sea_pct": 0
     }
   },
@@ -87,7 +87,7 @@
         0.08
       ]
     },
-    "hybrid_weighted_points_72h": 38.73,
+    "hybrid_weighted_points_72h": 47.3,
     "hybrid_hourly_buckets_72h": [
       {
         "idx": 0,
@@ -229,27 +229,27 @@
       },
       {
         "idx": 23,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 0.3,
+        "pct": 1,
+        "events": 2
       },
       {
         "idx": 24,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 0.15,
+        "pct": 1,
+        "events": 1
       },
       {
         "idx": 25,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 0.15,
+        "pct": 1,
+        "events": 1
       },
       {
         "idx": 26,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 0.22,
+        "pct": 1,
+        "events": 1
       },
       {
         "idx": 27,
@@ -265,9 +265,9 @@
       },
       {
         "idx": 29,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 0.15,
+        "pct": 1,
+        "events": 1
       },
       {
         "idx": 30,
@@ -283,15 +283,15 @@
       },
       {
         "idx": 32,
-        "points": 0.15,
-        "pct": 1,
-        "events": 1
+        "points": 0,
+        "pct": 0,
+        "events": 0
       },
       {
         "idx": 33,
-        "points": 0.3,
-        "pct": 1,
-        "events": 2
+        "points": 0,
+        "pct": 0,
+        "events": 0
       },
       {
         "idx": 34,
@@ -301,15 +301,15 @@
       },
       {
         "idx": 35,
-        "points": 0.15,
-        "pct": 1,
-        "events": 1
+        "points": 0,
+        "pct": 0,
+        "events": 0
       },
       {
         "idx": 36,
-        "points": 0.22,
-        "pct": 1,
-        "events": 1
+        "points": 0,
+        "pct": 0,
+        "events": 0
       },
       {
         "idx": 37,
@@ -319,15 +319,15 @@
       },
       {
         "idx": 38,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 0.45,
+        "pct": 2,
+        "events": 3
       },
       {
         "idx": 39,
-        "points": 0.15,
-        "pct": 1,
-        "events": 1
+        "points": 0.64,
+        "pct": 2,
+        "events": 4
       },
       {
         "idx": 40,
@@ -337,147 +337,147 @@
       },
       {
         "idx": 41,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 13,
+        "pct": 46,
+        "events": 53
       },
       {
         "idx": 42,
-        "points": 0,
-        "pct": 0,
-        "events": 0
-      },
-      {
-        "idx": 43,
-        "points": 0,
-        "pct": 0,
-        "events": 0
-      },
-      {
-        "idx": 44,
-        "points": 0,
-        "pct": 0,
-        "events": 0
-      },
-      {
-        "idx": 45,
-        "points": 0,
-        "pct": 0,
-        "events": 0
-      },
-      {
-        "idx": 46,
-        "points": 0,
-        "pct": 0,
-        "events": 0
-      },
-      {
-        "idx": 47,
-        "points": 0,
-        "pct": 0,
-        "events": 0
-      },
-      {
-        "idx": 48,
-        "points": 1.09,
-        "pct": 4,
-        "events": 7
-      },
-      {
-        "idx": 49,
-        "points": 0,
-        "pct": 0,
-        "events": 0
-      },
-      {
-        "idx": 50,
-        "points": 0,
-        "pct": 0,
-        "events": 0
-      },
-      {
-        "idx": 51,
-        "points": 17.3,
-        "pct": 62,
-        "events": 55
-      },
-      {
-        "idx": 52,
-        "points": 0.15,
-        "pct": 1,
-        "events": 1
-      },
-      {
-        "idx": 53,
-        "points": 0.54,
-        "pct": 2,
-        "events": 5
-      },
-      {
-        "idx": 54,
-        "points": 0.63,
-        "pct": 2,
-        "events": 5
-      },
-      {
-        "idx": 55,
         "points": 0.3,
         "pct": 1,
         "events": 2
       },
       {
-        "idx": 56,
-        "points": 0.92,
-        "pct": 3,
-        "events": 5
+        "idx": 43,
+        "points": 0.15,
+        "pct": 1,
+        "events": 1
       },
       {
-        "idx": 57,
-        "points": 0.64,
+        "idx": 44,
+        "points": 1.03,
+        "pct": 4,
+        "events": 9
+      },
+      {
+        "idx": 45,
+        "points": 0.45,
         "pct": 2,
-        "events": 5
+        "events": 3
       },
       {
-        "idx": 58,
-        "points": 2.15,
-        "pct": 8,
+        "idx": 46,
+        "points": 0.4,
+        "pct": 1,
         "events": 4
       },
       {
-        "idx": 59,
+        "idx": 47,
         "points": 0.21,
         "pct": 1,
         "events": 2
       },
       {
-        "idx": 60,
-        "points": 1.4,
-        "pct": 5,
-        "events": 2
+        "idx": 48,
+        "points": 2.2,
+        "pct": 8,
+        "events": 7
       },
       {
-        "idx": 61,
-        "points": 0.65,
+        "idx": 49,
+        "points": 0.56,
         "pct": 2,
+        "events": 3
+      },
+      {
+        "idx": 50,
+        "points": 0.15,
+        "pct": 1,
         "events": 1
       },
       {
-        "idx": 62,
-        "points": 0.41,
+        "idx": 51,
+        "points": 0.19,
+        "pct": 1,
+        "events": 1
+      },
+      {
+        "idx": 52,
+        "points": 0.3,
         "pct": 1,
         "events": 2
       },
       {
-        "idx": 63,
+        "idx": 53,
+        "points": 0.06,
+        "pct": 0,
+        "events": 1
+      },
+      {
+        "idx": 54,
+        "points": 0.06,
+        "pct": 0,
+        "events": 1
+      },
+      {
+        "idx": 55,
         "points": 0,
         "pct": 0,
         "events": 0
       },
       {
-        "idx": 64,
+        "idx": 56,
+        "points": 0,
+        "pct": 0,
+        "events": 0
+      },
+      {
+        "idx": 57,
+        "points": 1.29,
+        "pct": 5,
+        "events": 7
+      },
+      {
+        "idx": 58,
         "points": 0.06,
         "pct": 0,
         "events": 1
+      },
+      {
+        "idx": 59,
+        "points": 0,
+        "pct": 0,
+        "events": 0
+      },
+      {
+        "idx": 60,
+        "points": 0,
+        "pct": 0,
+        "events": 0
+      },
+      {
+        "idx": 61,
+        "points": 1.91,
+        "pct": 7,
+        "events": 6
+      },
+      {
+        "idx": 62,
+        "points": 0.82,
+        "pct": 3,
+        "events": 4
+      },
+      {
+        "idx": 63,
+        "points": 2.47,
+        "pct": 9,
+        "events": 7
+      },
+      {
+        "idx": 64,
+        "points": 4.07,
+        "pct": 15,
+        "events": 15
       },
       {
         "idx": 65,
@@ -487,50 +487,50 @@
       },
       {
         "idx": 66,
-        "points": 3.2,
+        "points": 3.06,
         "pct": 11,
         "events": 7
       },
       {
         "idx": 67,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 0.3,
+        "pct": 1,
+        "events": 2
       },
       {
         "idx": 68,
-        "points": 0.16,
-        "pct": 1,
-        "events": 1
+        "points": 0.74,
+        "pct": 3,
+        "events": 5
       },
       {
         "idx": 69,
-        "points": 0,
-        "pct": 0,
-        "events": 0
+        "points": 3.59,
+        "pct": 13,
+        "events": 7
       },
       {
         "idx": 70,
-        "points": 5.01,
-        "pct": 18,
-        "events": 6
+        "points": 0.62,
+        "pct": 2,
+        "events": 3
       },
       {
         "idx": 71,
-        "points": 2.92,
-        "pct": 10,
-        "events": 4
+        "points": 7.22,
+        "pct": 26,
+        "events": 9
       }
     ],
-    "keyword_weighted_hits_bucket": 0.45,
-    "keyword_raw_hits_bucket": 1,
-    "keyword_scored_events_bucket": 4,
-    "government_weirdness_north_sea_points": 7.02,
-    "government_weirdness_baltic_sea_points": 0,
-    "government_weirdness_north_sea_events": 3,
-    "government_weirdness_baltic_sea_events": 5,
-    "government_weirdness_north_sea_weighted_events": 1.5,
-    "government_weirdness_baltic_sea_weighted_events": 1.83,
+    "keyword_weighted_hits_bucket": 1.31,
+    "keyword_raw_hits_bucket": 3,
+    "keyword_scored_events_bucket": 9,
+    "government_weirdness_north_sea_points": 4.36,
+    "government_weirdness_baltic_sea_points": 0.18,
+    "government_weirdness_north_sea_events": 4,
+    "government_weirdness_baltic_sea_events": 6,
+    "government_weirdness_north_sea_weighted_events": 1.95,
+    "government_weirdness_baltic_sea_weighted_events": 1.61,
     "keyword_config_loaded": true,
     "keyword_config_version": 2,
     "cold_start_note": "Scores are cold-start density values until a 90-day baseline exists."
@@ -540,36 +540,106 @@
       "term": "KRITIS",
       "tier": "B",
       "count": 1,
+      "weighted": 0.7
+    },
+    {
+      "term": "NAVTEX",
+      "tier": "C",
+      "count": 1,
       "weighted": 0.45
+    },
+    {
+      "term": "drone",
+      "tier": "A",
+      "count": 1,
+      "weighted": 0.16
     }
   ],
   "top_sources_72h": [
     {
-      "source_id": "gcaptain_rss",
-      "count": 31
+      "source_id": "The Maritime Executive",
+      "count": 48
     },
     {
-      "source_id": "The Maritime Executive",
-      "count": 30
+      "source_id": "gcaptain_rss",
+      "count": 38
     },
     {
       "source_id": "small_wars_journal_rss",
-      "count": 25
+      "count": 26
     },
     {
       "source_id": "cepa_feed",
-      "count": 20
+      "count": 26
     },
     {
       "source_id": "warontherocks_bsky",
-      "count": 14
+      "count": 20
     },
     {
       "source_id": "rusi_latest_publications",
-      "count": 10
+      "count": 11
     },
     {
       "source_id": "auonsson_bsky",
+      "count": 8
+    },
+    {
+      "source_id": "certeu_advisories_rss",
+      "count": 6
+    },
+    {
+      "source_id": "oiuye_bsky",
+      "count": 6
+    },
+    {
+      "source_id": "highnorthnews_bsky",
+      "count": 5
+    },
+    {
+      "source_id": "maritimekiwi_bsky",
+      "count": 3
+    },
+    {
+      "source_id": "worldcrimeintel_x",
+      "count": 3
+    }
+  ],
+  "top_sources_72h_deduped": [
+    {
+      "source_id": "The Maritime Executive",
+      "count": 48
+    },
+    {
+      "source_id": "gcaptain_rss",
+      "count": 26
+    },
+    {
+      "source_id": "warontherocks_bsky",
+      "count": 19
+    },
+    {
+      "source_id": "small_wars_journal_rss",
+      "count": 16
+    },
+    {
+      "source_id": "cepa_feed",
+      "count": 16
+    },
+    {
+      "source_id": "rusi_latest_publications",
+      "count": 11
+    },
+    {
+      "source_id": "auonsson_bsky",
+      "count": 7
+    },
+    {
+      "source_id": "certeu_advisories_rss",
+      "count": 6
+    },
+    {
+      "source_id": "oiuye_bsky",
       "count": 5
     },
     {
@@ -577,239 +647,187 @@
       "count": 4
     },
     {
-      "source_id": "oiuye_bsky",
-      "count": 4
-    },
-    {
-      "source_id": "gCaptain",
-      "count": 3
-    },
-    {
-      "source_id": "die_flaschenpost_rss",
-      "count": 2
-    },
-    {
-      "source_id": "maritimekiwi_bsky",
-      "count": 2
-    }
-  ],
-  "top_sources_72h_deduped": [
-    {
-      "source_id": "The Maritime Executive",
-      "count": 30
-    },
-    {
-      "source_id": "gcaptain_rss",
-      "count": 19
-    },
-    {
-      "source_id": "small_wars_journal_rss",
-      "count": 15
-    },
-    {
-      "source_id": "warontherocks_bsky",
-      "count": 13
-    },
-    {
-      "source_id": "rusi_latest_publications",
-      "count": 10
-    },
-    {
-      "source_id": "cepa_feed",
-      "count": 10
-    },
-    {
-      "source_id": "auonsson_bsky",
-      "count": 4
-    },
-    {
-      "source_id": "highnorthnews_bsky",
-      "count": 3
-    },
-    {
-      "source_id": "oiuye_bsky",
-      "count": 3
-    },
-    {
-      "source_id": "gCaptain",
-      "count": 3
-    },
-    {
-      "source_id": "atlantic_council_reports",
-      "count": 2
-    },
-    {
       "source_id": "worldcrimeintel_x",
-      "count": 1
+      "count": 3
+    },
+    {
+      "source_id": "gCaptain",
+      "count": 3
     }
   ],
   "domain_counts_72h": {
     "D:AIS_TRACK": 1,
-    "D:CYBER_OT": 1,
+    "D:CYBER_OT": 6,
     "D:DRONE_UAS": 2,
     "D:INCIDENT": 3,
-    "D:INFRA_CI": 38,
-    "D:NEWS_INTEL": 115,
-    "D:SECURITY_CRIME": 2
+    "D:INFRA_CI": 47,
+    "D:NEWS_INTEL": 154,
+    "D:SECURITY_CRIME": 4
   },
   "domain_counts_72h_deduped": {
     "D:AIS_TRACK": 1,
-    "D:CYBER_OT": 1,
+    "D:CYBER_OT": 6,
     "D:DRONE_UAS": 2,
     "D:INCIDENT": 3,
-    "D:INFRA_CI": 27,
-    "D:NEWS_INTEL": 85,
-    "D:SECURITY_CRIME": 2
+    "D:INFRA_CI": 36,
+    "D:NEWS_INTEL": 124,
+    "D:SECURITY_CRIME": 4
   },
   "region_counts_72h": {
-    "REG:ATLANTIC_NE": 6,
+    "REG:ATLANTIC_NE": 8,
     "REG:BALTIC": 2,
-    "REG:EUROPE": 34,
+    "REG:EUROPE": 41,
     "REG:GER_BIGHT": 1,
-    "REG:GLOBAL": 25,
-    "REG:NORTH_SEA": 2,
-    "REG:OTHER": 61,
-    "REG:UNKNOWN": 31
+    "REG:GLOBAL": 26,
+    "REG:NORTH_SEA": 3,
+    "REG:OTHER": 87,
+    "REG:UNKNOWN": 49
   },
   "region_counts_72h_deduped": {
-    "REG:ATLANTIC_NE": 4,
+    "REG:ATLANTIC_NE": 6,
     "REG:BALTIC": 1,
-    "REG:EUROPE": 23,
+    "REG:EUROPE": 30,
     "REG:GER_BIGHT": 1,
-    "REG:GLOBAL": 15,
-    "REG:NORTH_SEA": 2,
-    "REG:OTHER": 44,
-    "REG:UNKNOWN": 31
+    "REG:GLOBAL": 16,
+    "REG:NORTH_SEA": 3,
+    "REG:OTHER": 70,
+    "REG:UNKNOWN": 49
   },
   "baseline_observations": {
     "note": "Raw baseline observations for later 90-day normalization. Scores are not yet baseline-normalized.",
     "source_kind_counts_bucket": {
-      "rss": 3,
-      "social": 1
+      "rss": 6,
+      "social": 3
     },
     "source_kind_counts_bucket_deduped": {
-      "rss": 3,
-      "social": 1
+      "rss": 6,
+      "social": 3
     },
     "source_kind_counts_72h": {
-      "rss": 126,
-      "social": 36
+      "rss": 164,
+      "social": 53
     },
     "source_kind_counts_72h_deduped": {
-      "rss": 92,
-      "social": 29
+      "rss": 130,
+      "social": 46
     },
     "source_domain_counts_bucket": {
-      "gcaptain_rss|D:NEWS_INTEL": 2,
+      "auonsson_bsky|D:NEWS_INTEL": 1,
+      "cepa_feed|D:INFRA_CI": 2,
+      "certeu_advisories_rss|D:CYBER_OT": 3,
       "small_wars_journal_rss|D:NEWS_INTEL": 1,
+      "tom_sharpe_x|D:INFRA_CI": 1,
       "warontherocks_bsky|D:NEWS_INTEL": 1
     },
     "source_domain_counts_bucket_deduped": {
-      "gcaptain_rss|D:NEWS_INTEL": 2,
+      "auonsson_bsky|D:NEWS_INTEL": 1,
+      "cepa_feed|D:INFRA_CI": 2,
+      "certeu_advisories_rss|D:CYBER_OT": 3,
       "small_wars_journal_rss|D:NEWS_INTEL": 1,
+      "tom_sharpe_x|D:INFRA_CI": 1,
       "warontherocks_bsky|D:NEWS_INTEL": 1
     },
     "source_domain_counts_72h": {
       "atlantic_council_reports|D:INFRA_CI": 2,
-      "auonsson_bsky|D:NEWS_INTEL": 5,
-      "cepa_feed|D:INFRA_CI": 20,
-      "certeu_advisories_rss|D:CYBER_OT": 1,
+      "auonsson_bsky|D:NEWS_INTEL": 8,
+      "cepa_feed|D:INFRA_CI": 26,
+      "certeu_advisories_rss|D:CYBER_OT": 6,
       "die_flaschenpost_rss|D:NEWS_INTEL": 2,
-      "gcaptain_rss|D:NEWS_INTEL": 31,
+      "gcaptain_rss|D:NEWS_INTEL": 38,
       "gCaptain|D:INCIDENT": 2,
       "gCaptain|D:NEWS_INTEL": 1,
-      "highnorthnews_bsky|D:NEWS_INTEL": 4,
+      "highnorthnews_bsky|D:NEWS_INTEL": 5,
       "ispk_bsky|D:NEWS_INTEL": 2,
-      "maritimekiwi_bsky|D:NEWS_INTEL": 2,
-      "navylookout_bsky|D:NEWS_INTEL": 2,
-      "oiuye_bsky|D:NEWS_INTEL": 4,
-      "rusi_latest_publications|D:INFRA_CI": 10,
-      "small_wars_journal_rss|D:NEWS_INTEL": 25,
+      "maritimekiwi_bsky|D:NEWS_INTEL": 3,
+      "navylookout_bsky|D:NEWS_INTEL": 3,
+      "oiuye_bsky|D:NEWS_INTEL": 6,
+      "rusi_latest_publications|D:INFRA_CI": 11,
+      "small_wars_journal_rss|D:NEWS_INTEL": 26,
       "swp_publications_en|D:INFRA_CI": 2,
       "The Maritime Executive|D:DRONE_UAS": 2,
       "The Maritime Executive|D:INCIDENT": 1,
-      "The Maritime Executive|D:INFRA_CI": 3,
-      "The Maritime Executive|D:NEWS_INTEL": 23,
+      "The Maritime Executive|D:INFRA_CI": 4,
+      "The Maritime Executive|D:NEWS_INTEL": 40,
       "The Maritime Executive|D:SECURITY_CRIME": 1,
-      "tom_sharpe_x|D:INFRA_CI": 1,
-      "warontherocks_bsky|D:NEWS_INTEL": 14,
+      "tom_sharpe_x|D:INFRA_CI": 2,
+      "warontherocks_bsky|D:NEWS_INTEL": 20,
       "warshipcam_bsky|D:AIS_TRACK": 1,
-      "worldcrimeintel_x|D:SECURITY_CRIME": 1
+      "worldcrimeintel_x|D:SECURITY_CRIME": 3
     },
     "source_domain_counts_72h_deduped": {
       "atlantic_council_reports|D:INFRA_CI": 2,
-      "auonsson_bsky|D:NEWS_INTEL": 4,
-      "cepa_feed|D:INFRA_CI": 10,
-      "certeu_advisories_rss|D:CYBER_OT": 1,
+      "auonsson_bsky|D:NEWS_INTEL": 7,
+      "cepa_feed|D:INFRA_CI": 16,
+      "certeu_advisories_rss|D:CYBER_OT": 6,
       "die_flaschenpost_rss|D:NEWS_INTEL": 1,
-      "gcaptain_rss|D:NEWS_INTEL": 19,
+      "gcaptain_rss|D:NEWS_INTEL": 26,
       "gCaptain|D:INCIDENT": 2,
       "gCaptain|D:NEWS_INTEL": 1,
-      "highnorthnews_bsky|D:NEWS_INTEL": 3,
+      "highnorthnews_bsky|D:NEWS_INTEL": 4,
       "ispk_bsky|D:NEWS_INTEL": 1,
-      "maritimekiwi_bsky|D:NEWS_INTEL": 1,
-      "navylookout_bsky|D:NEWS_INTEL": 1,
-      "oiuye_bsky|D:NEWS_INTEL": 3,
-      "rusi_latest_publications|D:INFRA_CI": 10,
-      "small_wars_journal_rss|D:NEWS_INTEL": 15,
+      "maritimekiwi_bsky|D:NEWS_INTEL": 2,
+      "navylookout_bsky|D:NEWS_INTEL": 2,
+      "oiuye_bsky|D:NEWS_INTEL": 5,
+      "rusi_latest_publications|D:INFRA_CI": 11,
+      "small_wars_journal_rss|D:NEWS_INTEL": 16,
       "swp_publications_en|D:INFRA_CI": 1,
       "The Maritime Executive|D:DRONE_UAS": 2,
       "The Maritime Executive|D:INCIDENT": 1,
-      "The Maritime Executive|D:INFRA_CI": 3,
-      "The Maritime Executive|D:NEWS_INTEL": 23,
+      "The Maritime Executive|D:INFRA_CI": 4,
+      "The Maritime Executive|D:NEWS_INTEL": 40,
       "The Maritime Executive|D:SECURITY_CRIME": 1,
-      "tom_sharpe_x|D:INFRA_CI": 1,
-      "warontherocks_bsky|D:NEWS_INTEL": 13,
+      "tom_sharpe_x|D:INFRA_CI": 2,
+      "warontherocks_bsky|D:NEWS_INTEL": 19,
       "warshipcam_bsky|D:AIS_TRACK": 1,
-      "worldcrimeintel_x|D:SECURITY_CRIME": 1
+      "worldcrimeintel_x|D:SECURITY_CRIME": 3
     },
     "source_region_counts_72h": {
       "atlantic_council_reports|REG:EUROPE": 2,
-      "auonsson_bsky|REG:OTHER": 5,
-      "cepa_feed|REG:EUROPE": 20,
-      "certeu_advisories_rss|REG:OTHER": 1,
+      "auonsson_bsky|REG:OTHER": 8,
+      "cepa_feed|REG:EUROPE": 26,
+      "certeu_advisories_rss|REG:OTHER": 6,
       "die_flaschenpost_rss|REG:OTHER": 2,
-      "gcaptain_rss|REG:OTHER": 31,
+      "gcaptain_rss|REG:OTHER": 38,
       "gCaptain|REG:NORTH_SEA": 1,
       "gCaptain|REG:UNKNOWN": 2,
-      "highnorthnews_bsky|REG:ATLANTIC_NE": 4,
+      "highnorthnews_bsky|REG:ATLANTIC_NE": 5,
       "ispk_bsky|REG:BALTIC": 2,
-      "maritimekiwi_bsky|REG:OTHER": 2,
-      "navylookout_bsky|REG:ATLANTIC_NE": 2,
-      "oiuye_bsky|REG:OTHER": 4,
-      "rusi_latest_publications|REG:EUROPE": 10,
-      "small_wars_journal_rss|REG:GLOBAL": 25,
+      "maritimekiwi_bsky|REG:OTHER": 3,
+      "navylookout_bsky|REG:ATLANTIC_NE": 3,
+      "oiuye_bsky|REG:OTHER": 6,
+      "rusi_latest_publications|REG:EUROPE": 11,
+      "small_wars_journal_rss|REG:GLOBAL": 26,
       "swp_publications_en|REG:EUROPE": 2,
       "The Maritime Executive|REG:GER_BIGHT": 1,
-      "The Maritime Executive|REG:UNKNOWN": 29,
-      "tom_sharpe_x|REG:NORTH_SEA": 1,
-      "warontherocks_bsky|REG:OTHER": 14,
+      "The Maritime Executive|REG:UNKNOWN": 47,
+      "tom_sharpe_x|REG:NORTH_SEA": 2,
+      "warontherocks_bsky|REG:OTHER": 20,
       "warshipcam_bsky|REG:OTHER": 1,
-      "worldcrimeintel_x|REG:OTHER": 1
+      "worldcrimeintel_x|REG:OTHER": 3
     },
     "source_region_counts_72h_deduped": {
       "atlantic_council_reports|REG:EUROPE": 2,
-      "auonsson_bsky|REG:OTHER": 4,
-      "cepa_feed|REG:EUROPE": 10,
-      "certeu_advisories_rss|REG:OTHER": 1,
+      "auonsson_bsky|REG:OTHER": 7,
+      "cepa_feed|REG:EUROPE": 16,
+      "certeu_advisories_rss|REG:OTHER": 6,
       "die_flaschenpost_rss|REG:OTHER": 1,
-      "gcaptain_rss|REG:OTHER": 19,
+      "gcaptain_rss|REG:OTHER": 26,
       "gCaptain|REG:NORTH_SEA": 1,
       "gCaptain|REG:UNKNOWN": 2,
-      "highnorthnews_bsky|REG:ATLANTIC_NE": 3,
+      "highnorthnews_bsky|REG:ATLANTIC_NE": 4,
       "ispk_bsky|REG:BALTIC": 1,
-      "maritimekiwi_bsky|REG:OTHER": 1,
-      "navylookout_bsky|REG:ATLANTIC_NE": 1,
-      "oiuye_bsky|REG:OTHER": 3,
-      "rusi_latest_publications|REG:EUROPE": 10,
-      "small_wars_journal_rss|REG:GLOBAL": 15,
+      "maritimekiwi_bsky|REG:OTHER": 2,
+      "navylookout_bsky|REG:ATLANTIC_NE": 2,
+      "oiuye_bsky|REG:OTHER": 5,
+      "rusi_latest_publications|REG:EUROPE": 11,
+      "small_wars_journal_rss|REG:GLOBAL": 16,
       "swp_publications_en|REG:EUROPE": 1,
       "The Maritime Executive|REG:GER_BIGHT": 1,
-      "The Maritime Executive|REG:UNKNOWN": 29,
-      "tom_sharpe_x|REG:NORTH_SEA": 1,
-      "warontherocks_bsky|REG:OTHER": 13,
+      "The Maritime Executive|REG:UNKNOWN": 47,
+      "tom_sharpe_x|REG:NORTH_SEA": 2,
+      "warontherocks_bsky|REG:OTHER": 19,
       "warshipcam_bsky|REG:OTHER": 1,
-      "worldcrimeintel_x|REG:OTHER": 1
+      "worldcrimeintel_x|REG:OTHER": 3
     },
     "duplicate_sources_bucket": {},
     "duplicate_sources_72h": {
@@ -828,15 +846,36 @@
     },
     "source_caps_bucket": [
       {
-        "source_id": "gcaptain_rss",
+        "source_id": "certeu_advisories_rss",
+        "source_kind": "rss",
+        "raw_events": 3,
+        "weighted_events": 2,
+        "capped_events": 2
+      },
+      {
+        "source_id": "cepa_feed",
         "source_kind": "rss",
         "raw_events": 2,
         "weighted_events": 1.65,
         "capped_events": 1
       },
       {
+        "source_id": "auonsson_bsky",
+        "source_kind": "social",
+        "raw_events": 1,
+        "weighted_events": 1,
+        "capped_events": 0
+      },
+      {
         "source_id": "small_wars_journal_rss",
         "source_kind": "rss",
+        "raw_events": 1,
+        "weighted_events": 1,
+        "capped_events": 0
+      },
+      {
+        "source_id": "tom_sharpe_x",
+        "source_kind": "social",
         "raw_events": 1,
         "weighted_events": 1,
         "capped_events": 0
@@ -853,47 +892,68 @@
       {
         "source_id": "The Maritime Executive",
         "source_kind": "rss",
-        "raw_events": 30,
-        "weighted_events": 6.05,
-        "capped_events": 29
+        "raw_events": 48,
+        "weighted_events": 8.75,
+        "capped_events": 47
       },
       {
         "source_id": "gcaptain_rss",
         "source_kind": "rss",
-        "raw_events": 19,
-        "weighted_events": 4.4,
-        "capped_events": 18
-      },
-      {
-        "source_id": "small_wars_journal_rss",
-        "source_kind": "rss",
-        "raw_events": 15,
-        "weighted_events": 3.8,
-        "capped_events": 14
+        "raw_events": 26,
+        "weighted_events": 5.45,
+        "capped_events": 25
       },
       {
         "source_id": "warontherocks_bsky",
         "source_kind": "social",
-        "raw_events": 13,
-        "weighted_events": 2.45,
-        "capped_events": 12
+        "raw_events": 19,
+        "weighted_events": 2.93,
+        "capped_events": 18
       },
       {
         "source_id": "cepa_feed",
         "source_kind": "rss",
-        "raw_events": 10,
-        "weighted_events": 3.05,
-        "capped_events": 9
+        "raw_events": 16,
+        "weighted_events": 3.95,
+        "capped_events": 15
+      },
+      {
+        "source_id": "small_wars_journal_rss",
+        "source_kind": "rss",
+        "raw_events": 16,
+        "weighted_events": 3.95,
+        "capped_events": 15
       },
       {
         "source_id": "rusi_latest_publications",
         "source_kind": "rss",
-        "raw_events": 10,
-        "weighted_events": 3.05,
-        "capped_events": 9
+        "raw_events": 11,
+        "weighted_events": 3.2,
+        "capped_events": 10
       },
       {
         "source_id": "auonsson_bsky",
+        "source_kind": "social",
+        "raw_events": 7,
+        "weighted_events": 1.97,
+        "capped_events": 6
+      },
+      {
+        "source_id": "certeu_advisories_rss",
+        "source_kind": "rss",
+        "raw_events": 6,
+        "weighted_events": 2.45,
+        "capped_events": 5
+      },
+      {
+        "source_id": "oiuye_bsky",
+        "source_kind": "social",
+        "raw_events": 5,
+        "weighted_events": 1.81,
+        "capped_events": 4
+      },
+      {
+        "source_id": "highnorthnews_bsky",
         "source_kind": "social",
         "raw_events": 4,
         "weighted_events": 1.73,
@@ -907,14 +967,7 @@
         "capped_events": 2
       },
       {
-        "source_id": "highnorthnews_bsky",
-        "source_kind": "social",
-        "raw_events": 3,
-        "weighted_events": 1.65,
-        "capped_events": 2
-      },
-      {
-        "source_id": "oiuye_bsky",
+        "source_id": "worldcrimeintel_x",
         "source_kind": "social",
         "raw_events": 3,
         "weighted_events": 1.65,
@@ -928,11 +981,25 @@
         "capped_events": 1
       },
       {
-        "source_id": "certeu_advisories_rss",
-        "source_kind": "rss",
-        "raw_events": 1,
-        "weighted_events": 1,
-        "capped_events": 0
+        "source_id": "maritimekiwi_bsky",
+        "source_kind": "social",
+        "raw_events": 2,
+        "weighted_events": 1.45,
+        "capped_events": 1
+      },
+      {
+        "source_id": "navylookout_bsky",
+        "source_kind": "social",
+        "raw_events": 2,
+        "weighted_events": 1.45,
+        "capped_events": 1
+      },
+      {
+        "source_id": "tom_sharpe_x",
+        "source_kind": "social",
+        "raw_events": 2,
+        "weighted_events": 1.45,
+        "capped_events": 1
       },
       {
         "source_id": "die_flaschenpost_rss",
@@ -949,20 +1016,6 @@
         "capped_events": 0
       },
       {
-        "source_id": "maritimekiwi_bsky",
-        "source_kind": "social",
-        "raw_events": 1,
-        "weighted_events": 1,
-        "capped_events": 0
-      },
-      {
-        "source_id": "navylookout_bsky",
-        "source_kind": "social",
-        "raw_events": 1,
-        "weighted_events": 1,
-        "capped_events": 0
-      },
-      {
         "source_id": "swp_publications_en",
         "source_kind": "rss",
         "raw_events": 1,
@@ -970,21 +1023,7 @@
         "capped_events": 0
       },
       {
-        "source_id": "tom_sharpe_x",
-        "source_kind": "social",
-        "raw_events": 1,
-        "weighted_events": 1,
-        "capped_events": 0
-      },
-      {
         "source_id": "warshipcam_bsky",
-        "source_kind": "social",
-        "raw_events": 1,
-        "weighted_events": 1,
-        "capped_events": 0
-      },
-      {
-        "source_id": "worldcrimeintel_x",
         "source_kind": "social",
         "raw_events": 1,
         "weighted_events": 1,
