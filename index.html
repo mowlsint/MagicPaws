@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.37b "Priority Alerts + ntfy Hotfix"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.38 "AIS Drift Detector"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -1108,6 +1108,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     dailySummary: "./data/snapshots/magicpaws_daily_summary.json",
     sensorLatest: "./data/snapshots/magicpaws_sensor_latest.json",
     aisLatest: "./data/live/ais_latest.json",
+    aisDrift: "./data/live/ais_drift_candidates.json",
     adsbLatest: "./data/live/adsb_latest.json"
   };
 
@@ -1119,14 +1120,14 @@ Wilhelmshaven JadeWeserPort"></textarea>
     events: [],
     filtered: [],
     map: null,
-    layers: { events: null, routes: null, candidates: null, aisLive: null, adsbLive: null, ciGroup: null, geoLocator: null },
+    layers: { events: null, routes: null, candidates: null, aisLive: null, adsbLive: null, driftLive: null, ciGroup: null, geoLocator: null },
     ciBounds: null,
     geoPoint: null,
     weatherData: null,
     navtexData: null,
     navtexMiniMap: null,
     navtexMiniLayers: null,
-    liveSensors: { ais:null, adsb:null },
+    liveSensors: { ais:null, adsb:null, drift:null },
     liveEvents: [],
     archiveEvents: [],
     dailySummary: [],
@@ -1646,12 +1647,13 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
 
   async function loadRepoArchiveBase(){
-    const [activePack, manifest, dailyPack, sensorLatest, aisLatest, adsbLatest] = await Promise.all([
+    const [activePack, manifest, dailyPack, sensorLatest, aisLatest, aisDrift, adsbLatest] = await Promise.all([
       fetchRepoJsonMaybe(REPO_DATA.active20d, "20d-log"),
       fetchRepoJsonMaybe(REPO_DATA.manifest, "archive-manifest"),
       fetchRepoJsonMaybe(REPO_DATA.dailySummary, "daily-summary"),
       fetchRepoJsonMaybe(REPO_DATA.sensorLatest, "sensor-latest"),
       fetchRepoJsonMaybe(REPO_DATA.aisLatest, "ais-live"),
+      fetchRepoJsonMaybe(REPO_DATA.aisDrift, "ais-drift"),
       fetchRepoJsonMaybe(REPO_DATA.adsbLatest, "adsb-live")
     ]);
 
@@ -1661,6 +1663,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.repoArchive.dailySummaryPack = dailyPack;
     state.repoArchive.sensorLatest = sensorLatest;
     state.liveSensors.ais = aisLatest;
+    state.liveSensors.drift = aisDrift;
     state.liveSensors.adsb = adsbLatest;
 
     const manifestCount = Number(manifest?.total_events || 0);
@@ -1860,11 +1863,15 @@ Wilhelmshaven JadeWeserPort"></textarea>
     return (Date.now() - ms) <= maxAgeMinutes * 60 * 1000;
   }
   function liveItems(kind, regionMode = null){
-    const sensor = kind === "ais" ? state.liveSensors.ais : state.liveSensors.adsb;
-    const maxAge = kind === "ais" ? 90 : 45;
+    const sensor = kind === "ais" ? state.liveSensors.ais : kind === "drift" ? state.liveSensors.drift : state.liveSensors.adsb;
+    const maxAge = kind === "ais" ? 90 : kind === "drift" ? 120 : 45;
     if (!liveSensorFresh(sensor, maxAge)) return [];
     const arr = Array.isArray(sensor?.items) ? sensor.items : [];
-    return arr.filter(x => !regionMode || x.weirdness_bucket === regionMode || x.region_id === regionMode);
+    const now = Date.now();
+    return arr.filter(x => {
+      if (x.expires_at && Date.parse(x.expires_at) && Date.parse(x.expires_at) < now) return false;
+      return !regionMode || x.weirdness_bucket === regionMode || x.region_id === regionMode;
+    });
   }
   function liveAisClusters(regionMode){
     const sensor = state.liveSensors.ais;
@@ -2004,13 +2011,19 @@ Wilhelmshaven JadeWeserPort"></textarea>
 
     const aisItems = liveItems("ais", regionMode);
     const adsbItems = liveItems("adsb", regionMode);
+    const driftItems = liveItems("drift", regionMode);
     const aisAuthority = aisItems.filter(x => x.authority_like || (x.flags||[]).includes("authority_like")).length;
     const adsbAuthority = adsbItems.filter(x => x.authority_like || (x.flags||[]).includes("authority_like")).length;
     const aisClusters = liveAisClusters(regionMode).filter(c => Number(c.count) > 2).length;
+    const driftCandidates = driftItems.filter(x => x.type === "DRIFT_CANDIDATE").length;
+    const agroundCandidates = driftItems.filter(x => x.type === "AGROUND_INCIDENT").length;
     points += Math.min(10, aisAuthority * 1.0);
     points += Math.min(12, adsbAuthority * 1.2);
     points += Math.min(20, aisClusters * 8);
+    points += Math.min(12, driftCandidates * 3);
+    points += Math.min(18, agroundCandidates * 9);
     if (aisAuthority && adsbAuthority) points += 5;
+    if (driftItems.length && (aisAuthority || adsbAuthority || aisClusters)) points += 5;
 
     const dev = authorityReportDeviation(events, regionMode);
     if (dev.outside25) points += clamp(Math.round(dev.absDeviation * 8), 2, 12);
@@ -2225,6 +2238,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.layers.routes = L.layerGroup().addTo(state.map);
     state.layers.candidates = L.layerGroup().addTo(state.map);
     state.layers.aisLive = L.layerGroup().addTo(state.map);
+    state.layers.driftLive = L.layerGroup().addTo(state.map);
     state.layers.adsbLive = L.layerGroup().addTo(state.map);
     state.layers.ciGroup = L.layerGroup().addTo(state.map);
     state.layers.geoLocator = L.layerGroup().addTo(state.map);
@@ -2359,6 +2373,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   function renderLiveSensorLayers(bounds){
     state.layers.aisLive?.clearLayers();
     state.layers.adsbLive?.clearLayers();
+    state.layers.driftLive?.clearLayers();
     let nextBounds = bounds || null;
     const ais = liveItems("ais");
     const adsb = liveItems("adsb");
@@ -2377,6 +2392,28 @@ Wilhelmshaven JadeWeserPort"></textarea>
       const ring = L.circle([lat, lon], { radius: 9260, color:"#ff4dff", weight:2, fillOpacity:0.06, dashArray:"7 5" });
       ring.bindPopup(`<b>AIS Behördencluster</b><br>${Number(c.count)||0} Einheiten im 5-sm-Umkreis<br>${escapeHtml((c.names||[]).join(", "))}`);
       ring.addTo(state.layers.aisLive);
+    }
+    for (const it of liveItems("drift")){
+      const lat = Number(it.lat), lon = Number(it.lon);
+      if (!Number.isFinite(lat) || !Number.isFinite(lon)) continue;
+      const aground = it.type === "AGROUND_INCIDENT";
+      const color = aground ? "#ff4d4d" : "#ff8a00";
+      const fill = aground ? "#ff4d4d" : "#ffd24d";
+      const marker = L.circleMarker([lat, lon], { radius: aground ? 8 : 7, color, weight: 2.4, fillColor: fill, fillOpacity: 0.82 });
+      const ring = L.circle([lat, lon], { radius: Math.max(3704, Number(it.max_radius_nm || 2) * 1852), color, weight: 1.8, fillOpacity: 0.05, dashArray: "5 5" });
+      const reason = Array.isArray(it.reason) ? it.reason.slice(0,3).join("<br>• ") : "";
+      const popup = `<b>AIS ${aground ? "Aground / Incident" : "Drift-/Low-Speed-Kandidat"}</b><br>` +
+        `${escapeHtml(it.name || it.mmsi || "unknown")}<br>` +
+        `${escapeHtml(it.region_label_de || it.region_id || "")}<br>` +
+        `Dauer: ${escapeHtml(String(it.duration_minutes ?? "–"))} min • Ø SOG: ${escapeHtml(String(it.avg_sog ?? "–"))} kn<br>` +
+        `Radius: ${escapeHtml(String(it.max_radius_nm ?? "–"))} sm • Distanz: ${escapeHtml(String(it.displacement_nm ?? "–"))} sm<br>` +
+        `Status: ${escapeHtml(it.nav_status_text || String(it.nav_status ?? "–"))}<br>` +
+        (reason ? `• ${reason}` : "");
+      marker.bindPopup(popup);
+      ring.bindPopup(popup);
+      ring.addTo(state.layers.driftLive);
+      marker.addTo(state.layers.driftLive);
+      nextBounds = nextBounds ? nextBounds.extend([lat,lon]) : L.latLngBounds([[lat,lon],[lat,lon]]);
     }
     for (const it of adsb){
       const lat = Number(it.lat), lon = Number(it.lon);
