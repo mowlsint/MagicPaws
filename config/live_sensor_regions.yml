@@ -74,3 +74,69 @@ navtex_logic:
     - floating object
     - mine
     - explosive
+
+drift_detection:
+  enabled: true
+  sog_below_kn: 2.5
+  min_duration_minutes: 60
+  eval_lookback_hours: 6
+  track_history_ttl_hours: 24
+  active_ttl_minutes: 90
+  max_radius_nm: 3.0
+  min_displacement_nm: 0.25
+  min_track_distance_nm: 0.45
+  slow_ratio_min: 0.75
+  # Exclude normal static states. Keep aground because it may be an incident.
+  exclude_nav_status:
+    - 1   # at anchor
+    - 5   # moored
+  fishing_nav_status:
+    - 7   # engaged in fishing
+  fishing_ship_type_codes:
+    - 30  # fishing vessel
+  notes: >-
+    Low-speed/drift detection is intentionally conservative. It keeps SOG-below-threshold tracks only
+    when they remain inside a limited radius but show more movement than ordinary anchor drift.
+    Port/anchorage safety zones suppress normal waiting, moored and anchored traffic. Aground is retained.
+  safety_zones:
+    # North Sea / Channel / Western Approaches
+    - { id: rotterdam_maasvlakte, name: Rotterdam / Maasvlakte, type: port_anchor_safety, lat: 51.95, lon: 4.05, radius_nm: 14, safety_margin_nm: 3 }
+    - { id: antwerp_scheldt, name: Antwerp / Scheldt Approaches, type: port_anchor_safety, lat: 51.30, lon: 4.25, radius_nm: 12, safety_margin_nm: 3 }
+    - { id: zeebrugge, name: Zeebrugge, type: port_anchor_safety, lat: 51.33, lon: 3.20, radius_nm: 9, safety_margin_nm: 2 }
+    - { id: dunkirk_calais, name: Dunkirk / Calais, type: port_anchor_safety, lat: 51.00, lon: 2.10, radius_nm: 14, safety_margin_nm: 2 }
+    - { id: dover_strait_ports, name: Dover Strait Ports, type: port_anchor_safety, lat: 51.05, lon: 1.45, radius_nm: 12, safety_margin_nm: 2 }
+    - { id: felixstowe_harwich, name: Felixstowe / Harwich, type: port_anchor_safety, lat: 51.95, lon: 1.30, radius_nm: 12, safety_margin_nm: 2 }
+    - { id: thames_estuary, name: Thames Estuary Anchorages, type: port_anchor_safety, lat: 51.50, lon: 1.10, radius_nm: 18, safety_margin_nm: 3 }
+    - { id: humber, name: Humber / Hull / Immingham, type: port_anchor_safety, lat: 53.65, lon: -0.15, radius_nm: 18, safety_margin_nm: 3 }
+    - { id: tees_tyne, name: Tees / Tyne, type: port_anchor_safety, lat: 54.90, lon: -1.15, radius_nm: 16, safety_margin_nm: 3 }
+    - { id: aberdeen, name: Aberdeen, type: port_anchor_safety, lat: 57.15, lon: -2.00, radius_nm: 10, safety_margin_nm: 2 }
+    - { id: orkney_scapa, name: Orkney / Scapa Flow, type: port_anchor_safety, lat: 58.90, lon: -3.05, radius_nm: 16, safety_margin_nm: 2 }
+    - { id: hamburg_elbe, name: Hamburg / Lower Elbe, type: port_anchor_safety, lat: 53.80, lon: 9.20, radius_nm: 22, safety_margin_nm: 3 }
+    - { id: cuxhaven_elbe, name: Cuxhaven / Elbe Approaches, type: port_anchor_safety, lat: 53.90, lon: 8.75, radius_nm: 12, safety_margin_nm: 2 }
+    - { id: wilhelmshaven_jade, name: Wilhelmshaven / Jade, type: port_anchor_safety, lat: 53.58, lon: 8.15, radius_nm: 15, safety_margin_nm: 3 }
+    - { id: bremerhaven_weser, name: Bremerhaven / Weser, type: port_anchor_safety, lat: 53.58, lon: 8.55, radius_nm: 14, safety_margin_nm: 3 }
+    - { id: emden_eems, name: Emden / Ems / Eemshaven, type: port_anchor_safety, lat: 53.42, lon: 6.95, radius_nm: 18, safety_margin_nm: 3 }
+    - { id: ijmuiden_amsterdam, name: IJmuiden / Amsterdam Approaches, type: port_anchor_safety, lat: 52.48, lon: 4.55, radius_nm: 14, safety_margin_nm: 2 }
+    - { id: esbjerg, name: Esbjerg, type: port_anchor_safety, lat: 55.45, lon: 8.40, radius_nm: 10, safety_margin_nm: 2 }
+    - { id: skagen_anchorage, name: Skagen / Kattegat Anchorage, type: anchorage_safety, lat: 57.75, lon: 10.75, radius_nm: 18, safety_margin_nm: 3 }
+
+    # Baltic / Danish Straits / Gulf of Finland
+    - { id: kiel, name: Kiel / Kiel Canal Approaches, type: port_anchor_safety, lat: 54.35, lon: 10.15, radius_nm: 13, safety_margin_nm: 2 }
+    - { id: luebeck_travemuende, name: Lübeck / Travemünde, type: port_anchor_safety, lat: 53.96, lon: 10.88, radius_nm: 9, safety_margin_nm: 2 }
+    - { id: rostock_warnemuende, name: Rostock / Warnemünde, type: port_anchor_safety, lat: 54.18, lon: 12.10, radius_nm: 10, safety_margin_nm: 2 }
+    - { id: sassnitz_mukran, name: Sassnitz / Mukran, type: port_anchor_safety, lat: 54.48, lon: 13.60, radius_nm: 9, safety_margin_nm: 2 }
+    - { id: copenhagen_malmoe, name: Copenhagen / Malmö / Øresund, type: port_anchor_safety, lat: 55.70, lon: 12.70, radius_nm: 16, safety_margin_nm: 3 }
+    - { id: great_belt, name: Great Belt Waiting Areas, type: anchorage_safety, lat: 55.35, lon: 11.00, radius_nm: 16, safety_margin_nm: 3 }
+    - { id: gothenburg, name: Gothenburg, type: port_anchor_safety, lat: 57.70, lon: 11.85, radius_nm: 14, safety_margin_nm: 2 }
+    - { id: gdańsk_gdynia, name: Gdańsk / Gdynia, type: port_anchor_safety, lat: 54.48, lon: 18.72, radius_nm: 16, safety_margin_nm: 3 }
+    - { id: kaliningrad_baltiysk, name: Kaliningrad / Baltiysk, type: port_anchor_safety, lat: 54.65, lon: 19.90, radius_nm: 14, safety_margin_nm: 3 }
+    - { id: klaipeda, name: Klaipėda, type: port_anchor_safety, lat: 55.72, lon: 21.10, radius_nm: 11, safety_margin_nm: 2 }
+    - { id: ventspils, name: Ventspils, type: port_anchor_safety, lat: 57.40, lon: 21.55, radius_nm: 12, safety_margin_nm: 2 }
+    - { id: riga, name: Riga / Gulf of Riga, type: port_anchor_safety, lat: 57.05, lon: 24.10, radius_nm: 18, safety_margin_nm: 3 }
+    - { id: tallinn, name: Tallinn, type: port_anchor_safety, lat: 59.45, lon: 24.75, radius_nm: 13, safety_margin_nm: 2 }
+    - { id: helsinki, name: Helsinki, type: port_anchor_safety, lat: 60.12, lon: 24.95, radius_nm: 14, safety_margin_nm: 2 }
+    - { id: kotka_hamina, name: Kotka / Hamina, type: port_anchor_safety, lat: 60.45, lon: 26.95, radius_nm: 14, safety_margin_nm: 2 }
+    - { id: primorsk, name: Primorsk, type: port_anchor_safety, lat: 60.35, lon: 28.70, radius_nm: 13, safety_margin_nm: 2 }
+    - { id: ust_luga, name: Ust-Luga, type: port_anchor_safety, lat: 59.68, lon: 28.40, radius_nm: 16, safety_margin_nm: 3 }
+    - { id: st_petersburg, name: St Petersburg / Kronstadt, type: port_anchor_safety, lat: 59.95, lon: 30.05, radius_nm: 20, safety_margin_nm: 3 }
+
