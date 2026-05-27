@@ -1,0 +1,33 @@
+{
+  "ok": true,
+  "source": "aisstream",
+  "generated_at": "2026-05-27T15:52:25.834Z",
+  "description": "Low-speed/drift candidates from AISstream history. Excludes at anchor/moored and configured port/anchorage safety zones; aground remains included as possible incident.",
+  "criteria": {
+    "sog_below_kn": 2.5,
+    "min_duration_minutes": 60,
+    "eval_lookback_hours": 6,
+    "track_history_ttl_hours": 24,
+    "active_ttl_minutes": 90,
+    "excluded_nav_status": [
+      "at_anchor",
+      "moored"
+    ],
+    "aground_policy": "kept_as_possible_incident"
+  },
+  "item_count": 0,
+  "items": [],
+  "summary": {
+    "total": 0,
+    "by_region": {},
+    "suppressed": {
+      "port_or_anchor": 0,
+      "anchored_or_moored": 0,
+      "fishing_likely": 0,
+      "insufficient_track": 0,
+      "too_fast": 0,
+      "too_wide": 0,
+      "anchor_drift_like": 0
+    }
+  }
+}
