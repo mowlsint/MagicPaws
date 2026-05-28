@@ -31,7 +31,7 @@ regions:
       - { name: "gulf_of_finland", lat: 59.8, lon: 27.0, dist_nm: 250 }
       - { name: "northern_baltic", lat: 63.2, lon: 22.0, dist_nm: 250 }
 authority_detection:
-  ais_name_regex: "(?i)(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)"
+  ais_name_regex: "(coast\\s*guard|police|customs|douane|tull|kustwacht|kystvakt|kystvakten|border\\s*guard|navy|marine|warship|patrol|sar|rescue|bundespolizei|bundeswehr|wsv|havariekommando|frontex|emsa|pilot|port\\s+authority)"
   ais_ship_type_codes:
     - 35   # military ops, where provided
     - 50   # pilot vessel
@@ -40,8 +40,8 @@ authority_detection:
     - 54   # anti-pollution equipment
     - 55   # law enforcement
     - 58   # medical transport
-  adsb_callsign_regex: "(?i)(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)"
-  adsb_type_regex: "(?i)(p-?8|p-?3|orion|poseidon|atl2|c295|cn235|be20|b350|dhc6|cl60|uav|mq-?9|helicopter|h145|aw139|s92)"
+  adsb_callsign_regex: "(nato|gaf|gny|k-?35|p-?8|poseidon|p-?3|orion|atl2|c295|cn235|mpa|sar|rescue|coast|guard|police|customs|douane|frontex|emsa|navy|marine|patrol|isr|raven|eagle|lion|fny|rrr|rfr|noaf|svf|daf|faf|itaf|plf|fraf|cgn|bpol)"
+  adsb_type_regex: "(p-?8|p-?3|orion|poseidon|atl2|c295|cn235|be20|b350|dhc6|cl60|uav|mq-?9|helicopter|h145|aw139|s92)"
 navtex_logic:
   vital_terms:
     - cable
