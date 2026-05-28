@@ -1,15 +1,11 @@
 version: 3
 name: MAGIC PAWS Geo Rules
-description: Rules for event geolocation. v3 adds social route extraction, Ust-Luga port promotion, Hull false-positive suppression,
-  and map fallback from controlled geo_candidates.
+description: Rules for event geolocation. v3 adds global maritime hub support, explicit false-positive guards, port-promotion
+  rules and better handling for route/track OSINT.
 priority:
-- social_explicit_coordinate
 - explicit_geo_coordinate
 - navwarn_coordinate
 - port_unlocode
-- geo_candidate_map_fallback
-- controlled_port_promotion
-- social_route_waypoint
 - controlled_text_rule
 - gazetteer_port_or_place
 - gazetteer_sea_area_or_strait
@@ -65,35 +61,6 @@ precision_policy:
     confidence: low
     map_marker: no_exact_marker
     may_write_geo: false
-  social_explicit_coordinate:
-    precision: exact
-    confidence: high
-    map_marker: solid
-    may_write_geo: true
-    notes:
-    - For X/Bsky route sources, decimal, DM and DMS coordinates in post text are treated as direct evidence.
-  social_route_waypoint:
-    precision: route_waypoint
-    confidence: medium_high
-    map_marker: route_line_and_soft_anchor
-    may_write_geo: true
-    notes:
-    - Use when a route source mentions two or more controlled maritime places or explicit waypoints.
-  controlled_port_promotion:
-    precision: port
-    confidence: medium_high
-    map_marker: solid_soft
-    may_write_geo: true
-    notes:
-    - Promote curated ports such as Ust-Luga when port/arrival/departure/transit context exists.
-  geo_candidate_map_fallback:
-    precision: candidate
-    confidence: medium
-    map_marker: hollow_or_dashed
-    may_write_geo: false
-    notes:
-    - If geo is empty but the top controlled candidate is strong and unambiguous, snapshot/index may render it as a candidate
-      marker.
 ambiguity_policy:
   multiple_matches:
     action: store_candidates_do_not_pin
@@ -117,25 +84,35 @@ ambiguity_policy:
   require_maritime_context_for_generic_terms: true
   if_title_and_body_disagree:
     action: store_candidates_do_not_pin
-  false_positive_suppression:
-  - id: hull_ship_part_not_port
-    block_place_id: port_hull
-    match:
-    - hull
-    block_if_near_any:
-    - ship
-    - vessel
-    - carrier
-    - tanker
-    - attached
-    - attached to
-    - on the hull
+  contextual_false_positives:
+  - term: Hull
+    block_when_near:
+    - hull of
+    - attached to hull
     - ship hull
     - vessel hull
-    - LPG carrier
-    - bulk carrier
-    - container ship
-    notes: Do not geocode Hull UK when hull means the vessel body.
+    - tanker hull
+    - carrier hull
+    - on the hull
+    - under the hull
+    note: Do not resolve Hull as UK port when the word clearly means ship structure.
+  - term: Santos
+    block_bare_alias: true
+    allow_when_near:
+    - Port of Santos
+    - Santos port
+    - Santos Brazil
+    - Porto de Santos
+    note: Bare Santos is person/place ambiguous; require maritime/Brazil port context.
+  - term: Channel
+    block_bare_alias: true
+    allow_when_near:
+    - English Channel
+    - Dover Strait
+    - Kiel Canal
+    - Suez Canal
+    - Panama Canal
+    note: Generic channel/canal terms need context.
 controlled_text_rules:
 - id: port_gibraltar
   match:
@@ -249,30 +226,230 @@ controlled_text_rules:
   - Ust-Luga
   - Ust Luga
   - Port of Ust-Luga
-  - port Ust-Luga
+  - Ust-Luga port
   require_any_context:
-  - port
-  - terminal
+  - ship
+  - vessel
   - tanker
-  - LNG
   - LPG
+  - LNG
   - oil
-  - departure
-  - departed
-  - arrival
-  - arriving
-  - arrived
+  - port
+  - mine
+  - sanction
+  - Russia
+  - Baltic
   - cargo
+  - arriving
+  - departed
+  may_write_geo: true
+  promotion: port_context_over_generic_matches
+- id: port_primorsk_ru
+  match:
+  - Primorsk
+  - Port of Primorsk
+  - Primorsk oil terminal
+  require_any_context:
+  - tanker
+  - oil
+  - port
+  - Russia
   - Baltic
   - Gulf of Finland
+  - ship
+  - vessel
+  - sanction
+  may_write_geo: true
+- id: skagen_area
+  match:
+  - Skagen
+  - Skagen roads
+  - Skagen anchorage
+  require_any_context:
+  - ship
+  - vessel
+  - tanker
+  - AIS
+  - route
+  - anchorage
+  - transit
+  - Kattegat
+  - North Sea
+  - Baltic
+  may_write_geo: true
+- id: gulf_of_finland
+  match:
+  - Gulf of Finland
+  - Finnischer Meerbusen
+  require_any_context:
   - Russia
-  - shadow fleet
-  - sanctions
+  - Finland
+  - Estonia
+  - Ust-Luga
+  - Primorsk
+  - St Petersburg
+  - Baltic
+  - ship
+  - vessel
+  - AIS
+  may_write_geo: true
+- id: port_port_said
+  match:
+  - Port Said
+  require_any_context:
+  - Suez
+  - canal
+  - ship
+  - vessel
+  - convoy
+  - Red Sea
+  - Mediterranean
+  may_write_geo: true
+- id: port_suez
+  match:
+  - Port of Suez
+  - Suez port
+  - Suez anchorage
+  require_any_context:
+  - ship
+  - vessel
+  - canal
+  - convoy
+  - Red Sea
+  - tanker
+  may_write_geo: true
+- id: port_fujairah
+  match:
+  - Fujairah
+  - Port of Fujairah
+  - Fujairah anchorage
+  require_any_context:
+  - tanker
+  - bunkering
+  - STS
+  - Hormuz
+  - Oman
+  - UAE
+  - ship
+  - vessel
+  - anchorage
+  may_write_geo: true
+- id: strait_malacca
+  match:
+  - Strait of Malacca
+  - Malacca Strait
+  require_any_context:
+  - ship
+  - shipping
+  - tanker
+  - piracy
+  - transit
   - AIS
   - vessel
-  - ship
   may_write_geo: true
-  promotion: prefer_over_generic_candidates
+- id: singapore_strait
+  match:
+  - Singapore Strait
+  - Singapore approaches
+  require_any_context:
+  - ship
+  - shipping
+  - tanker
+  - collision
+  - transit
+  - AIS
+  - vessel
+  may_write_geo: true
+- id: port_singapore
+  match:
+  - Port of Singapore
+  - Singapore port
+  require_any_context:
+  - port
+  - ship
+  - vessel
+  - container
+  - bunkering
+  - terminal
+  - maritime
+  may_write_geo: true
+- id: bosporus
+  match:
+  - Bosporus
+  - Bosphorus
+  - Istanbul Strait
+  require_any_context:
+  - ship
+  - vessel
+  - Black Sea
+  - transit
+  - tanker
+  - grain
+  - warship
+  may_write_geo: true
+- id: dardanelles
+  match:
+  - Dardanelles
+  - Canakkale Strait
+  - Çanakkale Strait
+  require_any_context:
+  - ship
+  - vessel
+  - Black Sea
+  - transit
+  - tanker
+  - grain
+  - warship
+  may_write_geo: true
+- id: port_santos_context
+  match:
+  - Port of Santos
+  - Santos port
+  - Santos Brazil
+  - Porto de Santos
+  require_any_context:
+  - port
+  - container
+  - cocaine
+  - customs
+  - drug
+  - ship
+  - vessel
+  - Brazil
+  - Brazilian
+  may_write_geo: true
+- id: port_cartagena_co
+  match:
+  - Cartagena Colombia
+  - Cartagena de Indias
+  - Port of Cartagena
+  require_any_context:
+  - port
+  - container
+  - cocaine
+  - customs
+  - drug
+  - ship
+  - vessel
+  - Colombia
+  - Caribbean
+  may_write_geo: true
+- id: gulf_of_guinea
+  match:
+  - Gulf of Guinea
+  require_any_context:
+  - piracy
+  - kidnapping
+  - tanker
+  - ship
+  - vessel
+  - security
+  - offshore
+  - Nigeria
+  - Benin
+  - Togo
+  - Ghana
+  may_write_geo: true
 output_shape:
   inferred_geo:
     geo:
@@ -301,27 +478,34 @@ safety_notes:
 - Show area matches as circles or soft markers.
 - Keep source evidence visible in reports.
 route_extraction_policy:
-  enabled_for:
-  - source.route_source=true
-  - labels include PAT:ROUTE_OBSERVED
-  - labels include D:AIS_TRACK
-  write_sections:
-  - Geo
-  - Geo Candidates
-  - Route
-  - Geo JSON
-  waypoint_roles:
-  - origin
-  - destination
+  enabled: true
+  route_markers:
+  - ->
+  - →
+  - from
+  - to
   - via
   - passed
-  - reported_position
-  - candidate_anchor
-  map_rendering:
-    explicit_route: solid line
-    inferred_route: dashed line
-    candidate_anchor: hollow marker
-  safety:
-  - Do not infer routes from generic country names alone.
-  - Do not pin regions as exact markers.
-  - Keep original post link in popup/report.
+  - heading
+  - destination
+  - dest
+  - arriving
+  - departed
+  notes:
+  - Treat route waypoints as route evidence; do not overwrite exact event coordinates.
+  - Use controlled/gazetteer places as waypoints when text contains explicit route language.
+health_policy:
+  geo_match_rate:
+    green_min: 0.35
+    orange_min: 0.15
+    note: For mixed RSS/social OSINT, low exact-GEO share is normal. Red should mean truly poor geocoding, not merely many
+      global articles.
+  sources_count:
+    prefer_fields:
+    - source_hint.source
+    - source_line
+    - source_id
+    - source_type
+    - original_url
+    - labels SRC:*
+    - 'summary ### Quelle'
