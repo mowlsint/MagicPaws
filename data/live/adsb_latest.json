@@ -1,7 +1,7 @@
 {
   "ok": false,
   "source": "adsb.fi",
-  "generated_at": "2026-05-28T09:59:47.080Z",
+  "generated_at": "2026-05-28T11:36:33.793Z",
   "api_base": "https://opendata.adsb.fi/api",
   "regions": [
     "north_sea_channel",
@@ -11,42 +11,42 @@
     {
       "region": "north_sea_channel",
       "name": "western_approaches",
-      "total": 266
+      "total": 248
     },
     {
       "region": "north_sea_channel",
       "name": "north_sea_central",
-      "total": 379
+      "total": 364
     },
     {
       "region": "north_sea_channel",
       "name": "german_bight_skagerrak",
-      "total": 320
+      "total": 316
     },
     {
       "region": "north_sea_channel",
       "name": "english_channel",
-      "total": 998
+      "total": 1026
     },
     {
       "region": "baltic_sea",
       "name": "danish_straits",
-      "total": 320
+      "total": 298
     },
     {
       "region": "baltic_sea",
       "name": "central_baltic",
-      "total": 136
+      "total": 138
     },
     {
       "region": "baltic_sea",
       "name": "gulf_of_finland",
-      "total": 34
+      "total": 48
     },
     {
       "region": "baltic_sea",
       "name": "northern_baltic",
-      "total": 32
+      "total": 46
     }
   ],
   "item_count": 0,
