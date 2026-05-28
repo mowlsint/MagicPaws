@@ -8,25 +8,54 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: magicpaws-fetch-adsb
+  cancel-in-progress: false
+
 jobs:
   fetch-adsb:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: "24"
+
       - name: Install dependencies
         run: npm install yaml
+
       - name: Fetch ADS-B maritime tiles
         env:
           ADSB_API_BASE: "https://opendata.adsb.fi/api"
           ADSB_REQUEST_DELAY_MS: "1200"
         run: node scripts/fetch_adsb.mjs
+
       - name: Commit live ADS-B data
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+
           git add data/live/adsb_latest.json data/live/adsb_history.ndjson
-          git diff --cached --quiet || git commit -m "Update MAGIC PAWS ADS-B live sensor"
-          git push
+
+          if git diff --cached --quiet; then
+            echo "No ADS-B live data changes to commit."
+            exit 0
+          fi
+
+          git commit -m "Update MAGIC PAWS ADS-B live sensor"
+
+          echo "Rebasing on latest main before push..."
+          git pull --rebase --autostash origin main
+
+          echo "Pushing ADS-B live data..."
+          if git push origin HEAD:main; then
+            echo "Push successful."
+            exit 0
+          fi
+
+          echo "First push failed. Retrying after fresh rebase..."
+          git pull --rebase --autostash origin main
+          git push origin HEAD:main
