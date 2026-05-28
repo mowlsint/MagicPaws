@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-28T16:34:54.194Z",
+  "generated_at": "2026-05-28T20:38:19.741Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,1041 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-28T16:34:57.275Z",
+  "bundle_generated_at": "2026-05-28T20:38:24.123Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-08T16:34:54.194Z"
+    "cutoff_utc": "2026-05-08T20:38:19.741Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1262,
-    "active_events": 1161,
-    "active_geo_events": 201,
-    "active_social_events": 416,
+    "archive_events_total": 1285,
+    "active_events": 1184,
+    "active_geo_events": 203,
+    "active_social_events": 420,
     "active_social_geo_events": 57
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1483",
+      "number": 1483,
+      "id": "4543612390",
+      "ts": "2026-05-28T20:33:01.000Z",
+      "chronology_ts": "2026-05-28T20:33:01.000Z",
+      "issue_created_at": "2026-05-28T20:33:57.000Z",
+      "source_published_at": "2026-05-28T20:33:01.000Z",
+      "ingested_at": "2026-05-28T20:33:56.459Z",
+      "title": "[RSS] U.S. Targets Iran Shipping Network With New Sanctions",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1483",
+      "original_url": "https://gcaptain.com/u-s-targets-iran-shipping-network-with-new-sanctions/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/u-s-targets-iran-shipping-network-with-new-sanctions/",
+        "source_published_at": "2026-05-28T20:33:01.000Z",
+        "ingested_at": "2026-05-28T20:33:56.459Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:d5c30064e15ce13f2d49 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:d5c30064e15ce13f2d49 -->\n\n### Text\nThe U.S. Treasury Department on Thursday unveiled a fresh round of sanctions targeting a network of shipping companies, tanker operators, and commercial facilitators allegedly involved in Iranian petroleum and petrochemical...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T20:33:01.000Z\ningested_at: 2026-05-28T20:33:56.459Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/u-s-targets-iran-shipping-network-with-new-sanctions/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1480",
+      "number": 1480,
+      "id": "4543609326",
+      "ts": "2026-05-28T20:10:55.000Z",
+      "chronology_ts": "2026-05-28T20:10:55.000Z",
+      "issue_created_at": "2026-05-28T20:33:29.000Z",
+      "source_published_at": "2026-05-28T20:10:55.000Z",
+      "ingested_at": "2026-05-28T20:33:27.233Z",
+      "title": "[RSS] A framework for US-Japan cooperation in the Arctic",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1480",
+      "original_url": "https://www.atlanticcouncil.org/in-depth-research-reports/a-framework-for-us-japan-cooperation-in-the-arctic/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Atlantic Council – Reports / Issue Briefs (atlantic_council_reports)",
+        "platform": "rss",
+        "link": "https://www.atlanticcouncil.org/in-depth-research-reports/a-framework-for-us-japan-cooperation-in-the-arctic/",
+        "source_published_at": "2026-05-28T20:10:55.000Z",
+        "ingested_at": "2026-05-28T20:33:27.233Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:atlantic_council_reports:ac4dd9a4541ac2395807 -->\n<!-- VOODOO_INGEST_ID:atlantic_council_reports:ac4dd9a4541ac2395807 -->\n\n### Text\nJapan's status as a maritime state and proximity to the Arctic Ocean means it is easily affected by climate-driven environmental shifts, evolving maritime routes, and infrastructure changes in the Arctic. How should it approach the rapidly changing region?\n The post A framework for US-Japan cooperation in the Arctic appeared first on Atlantic Council .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T20:10:55.000Z\ningested_at: 2026-05-28T20:33:27.233Z\n\n### Quelle\nAtlantic Council – Reports / Issue Briefs (atlantic_council_reports)\n\n### Plattform\nrss\n\n### Link\nhttps://www.atlanticcouncil.org/in-depth-research-reports/a-framework-for-us-japan-cooperation-in-the-arctic/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1484",
+      "number": 1484,
+      "id": "4543612496",
+      "ts": "2026-05-28T19:50:19.000Z",
+      "chronology_ts": "2026-05-28T19:50:19.000Z",
+      "issue_created_at": "2026-05-28T20:33:58.000Z",
+      "source_published_at": "2026-05-28T19:50:19.000Z",
+      "ingested_at": "2026-05-28T20:33:57.687Z",
+      "title": "[RSS] Cheniere Moves Ahead With Sabine Pass LNG Expansion",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1484",
+      "original_url": "https://gcaptain.com/cheniere-moves-ahead-with-sabine-pass-lng-expansion/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/cheniere-moves-ahead-with-sabine-pass-lng-expansion/",
+        "source_published_at": "2026-05-28T19:50:19.000Z",
+        "ingested_at": "2026-05-28T20:33:57.687Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:0a96a2d5656581550cfa -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:0a96a2d5656581550cfa -->\n\n### Text\nCheniere Energy Partners has taken a key step toward expanding its flagship Sabine Pass LNG export terminal in Louisiana, signing an engineering, procurement and construction contract with Bechtel for the...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T19:50:19.000Z\ningested_at: 2026-05-28T20:33:57.687Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/cheniere-moves-ahead-with-sabine-pass-lng-expansion/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1481",
+      "number": 1481,
+      "id": "4543611000",
+      "ts": "2026-05-28T19:37:54.000Z",
+      "chronology_ts": "2026-05-28T19:37:54.000Z",
+      "issue_created_at": "2026-05-28T20:33:43.000Z",
+      "source_published_at": "2026-05-28T19:37:54.000Z",
+      "ingested_at": "2026-05-28T20:33:41.468Z",
+      "title": "[RSS] Reality Check: Breaking Free From China&#8217;s Drone Ecosystem is Harder Than You Think",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1481",
+      "original_url": "https://cepa.org/article/reality-check-breaking-free-from-chinas-drone-ecosystem-is-harder-than-you-think/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/reality-check-breaking-free-from-chinas-drone-ecosystem-is-harder-than-you-think/",
+        "source_published_at": "2026-05-28T19:37:54.000Z",
+        "ingested_at": "2026-05-28T20:33:41.468Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:8565b96366a890a9796c -->\n<!-- VOODOO_INGEST_ID:cepa_feed:8565b96366a890a9796c -->\n\n### Text\nChina controls the global supply of drones. It will be challenging to cut this dependency.\n The post Reality Check: Breaking Free From China&#8217;s Drone Ecosystem is Harder Than You Think appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T19:37:54.000Z\ningested_at: 2026-05-28T20:33:41.468Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/reality-check-breaking-free-from-chinas-drone-ecosystem-is-harder-than-you-think/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1485",
+      "number": 1485,
+      "id": "4543612605",
+      "ts": "2026-05-28T19:37:40.000Z",
+      "chronology_ts": "2026-05-28T19:37:40.000Z",
+      "issue_created_at": "2026-05-28T20:33:59.000Z",
+      "source_published_at": "2026-05-28T19:37:40.000Z",
+      "ingested_at": "2026-05-28T20:33:58.846Z",
+      "title": "[RSS] UK Court Upholds ‘Virtually Unbreakable’ Liability Shield in Solong-Stena Immaculate Collision",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1485",
+      "original_url": "https://gcaptain.com/uk-court-upholds-virtually-unbreakable-liability-shield-in-solong-stena-immaculate-collision/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "ALERT:WATCH"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/uk-court-upholds-virtually-unbreakable-liability-shield-in-solong-stena-immaculate-collision/",
+        "source_published_at": "2026-05-28T19:37:40.000Z",
+        "ingested_at": "2026-05-28T20:33:58.846Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:76d92bf1c531924d8d4a -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:76d92bf1c531924d8d4a -->\n\n### Text\nA London Admiralty Court judge has ruled that the owners of the containership Solong can limit their financial liability for the catastrophic 2025 collision with the tanker Stena Immaculate, delivering a closely watched...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T19:37:40.000Z\ningested_at: 2026-05-28T20:33:58.846Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/uk-court-upholds-virtually-unbreakable-liability-shield-in-solong-stena-immaculate-collision/\n\n### Priority Alert\nlevel: WATCH\nscore: 6\nreasons: harter Sicherheitsvorfall; Schiffsbezug\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1, ALERT:WATCH\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1482",
+      "number": 1482,
+      "id": "4543611197",
+      "ts": "2026-05-28T19:25:31.000Z",
+      "chronology_ts": "2026-05-28T19:25:31.000Z",
+      "issue_created_at": "2026-05-28T20:33:45.000Z",
+      "source_published_at": "2026-05-28T19:25:31.000Z",
+      "ingested_at": "2026-05-28T20:33:43.546Z",
+      "title": "[RSS] The MATCH Act and Multilateral Cooperation",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1482",
+      "original_url": "https://cepa.org/article/the-match-act-and-multilateral-cooperation/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/the-match-act-and-multilateral-cooperation/",
+        "source_published_at": "2026-05-28T19:25:31.000Z",
+        "ingested_at": "2026-05-28T20:33:43.546Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:e144bdbd042cce967eef -->\n<!-- VOODOO_INGEST_ID:cepa_feed:e144bdbd042cce967eef -->\n\n### Text\nThe MATCH Act would ask allies to follow the US on semiconductor equipment export restrictions. Unfortunately, key parts of this effort are divorced from reality.\n The post The MATCH Act and Multilateral Cooperation appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T19:25:31.000Z\ningested_at: 2026-05-28T20:33:43.546Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/the-match-act-and-multilateral-cooperation/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1478",
+      "number": 1478,
+      "id": "4543290142",
+      "ts": "2026-05-28T19:02:38.000Z",
+      "chronology_ts": "2026-05-28T19:02:38.000Z",
+      "issue_created_at": "2026-05-28T19:44:41.000Z",
+      "source_published_at": "2026-05-28T19:02:38.000Z",
+      "ingested_at": "2026-05-28T19:02:38.000Z",
+      "title": "[RSS] Sanctioned Russian Tanker Carrying Diesel to Cuba Diverts to the South",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1478",
+      "original_url": "https://maritime-executive.com/article/sanctioned-russian-tanker-carrying-diesel-to-cuba-diverts-to-the-south",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/sanctioned-russian-tanker-carrying-diesel-to-cuba-diverts-to-the-south",
+        "source_published_at": "2026-05-28T19:02:38.000Z",
+        "ingested_at": "2026-05-28T19:02:38.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/sanctioned-russian-tanker-carrying-diesel-to-cuba-diverts-to-the-south\n\n### Zeit (UTC)\n2026-05-28T19:02:38Z\n\n### Published\n2026-05-28T19:02:38Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nA sanctioned Russian-flag tanker that is loaded with a cargo of diesel appeared to divert south, possibly heading to South America after lingering in...\n\n---\n_Ingested at 2026-05-28T19:44:40.818410+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 16b8270eba182d11 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1486",
+      "number": 1486,
+      "id": "4543612705",
+      "ts": "2026-05-28T18:53:46.000Z",
+      "chronology_ts": "2026-05-28T18:53:46.000Z",
+      "issue_created_at": "2026-05-28T20:34:01.000Z",
+      "source_published_at": "2026-05-28T18:53:46.000Z",
+      "ingested_at": "2026-05-28T20:34:00.197Z",
+      "title": "[RSS] Marine Exchange of Puget Sound and Wärtsilä Form Strategic Partnership to Deploy the Pacific Northwest’s First Unified Digital Maritime Information Exchange Platform",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1486",
+      "original_url": "https://gcaptain.com/marine-exchange-of-puget-sound-and-wartsila-form-strategic-partnership-to-deploy-the-pacific-northwests-first-unified-digital-maritime-information-exchange-platform/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/marine-exchange-of-puget-sound-and-wartsila-form-strategic-partnership-to-deploy-the-pacific-northwests-first-unified-digital-maritime-information-exchange-platform/",
+        "source_published_at": "2026-05-28T18:53:46.000Z",
+        "ingested_at": "2026-05-28T20:34:00.197Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:19c0ffd3f46043e622d4 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:19c0ffd3f46043e622d4 -->\n\n### Text\nThe partnership marks the first North American deployment of Wärtsilä&#8217;s PortLink platform — already operational across four continents — bringing proven port management technology to reduce vessel congestion and improve...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T18:53:46.000Z\ningested_at: 2026-05-28T20:34:00.197Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/marine-exchange-of-puget-sound-and-wartsila-form-strategic-partnership-to-deploy-the-pacific-northwests-first-unified-digital-maritime-information-exchange-platform/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1488",
+      "number": 1488,
+      "id": "4543613665",
+      "ts": "2026-05-28T18:00:32.681Z",
+      "chronology_ts": "2026-05-28T18:00:32.681Z",
+      "issue_created_at": "2026-05-28T20:34:09.000Z",
+      "source_published_at": "2026-05-28T18:00:32.681Z",
+      "ingested_at": "2026-05-28T20:34:08.534Z",
+      "title": "[BSKY] This is a really solid article but if you have access you should read the longer academic article from Comparative Strategy as well. I think it's a really impor",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1488",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmwm2m373c2m",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmwm2m373c2m",
+        "source_published_at": "2026-05-28T18:00:32.681Z",
+        "ingested_at": "2026-05-28T20:34:08.534Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:6428a555b116c03137b6 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:6428a555b116c03137b6 -->\n\n### Text\nThis is a really solid article but if you have access you should read the longer academic article from Comparative Strategy as well. I think it's a really important one.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T18:00:32.681Z\ningested_at: 2026-05-28T20:34:08.534Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmwm2m373c2m\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1479",
+      "number": 1479,
+      "id": "4543290398",
+      "ts": "2026-05-28T17:55:46.000Z",
+      "chronology_ts": "2026-05-28T17:55:46.000Z",
+      "issue_created_at": "2026-05-28T19:44:42.000Z",
+      "source_published_at": "2026-05-28T17:55:46.000Z",
+      "ingested_at": "2026-05-28T17:55:46.000Z",
+      "title": "[RSS] Drone Attacks on Three Sanctioned Shadow Fleet Tankers in the Black Sea",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1479",
+      "original_url": "https://maritime-executive.com/article/drone-attacks-on-three-sanctioned-shadow-fleet-tankers-in-the-black-sea",
+      "labels": [
+        "D:DRONE_UAS",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:DRONE_UAS",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/drone-attacks-on-three-sanctioned-shadow-fleet-tankers-in-the-black-sea",
+        "source_published_at": "2026-05-28T17:55:46.000Z",
+        "ingested_at": "2026-05-28T17:55:46.000Z"
+      },
+      "report_category": "Drohnen / UxV",
+      "greybook_rubric": "Drohnen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/drone-attacks-on-three-sanctioned-shadow-fleet-tankers-in-the-black-sea\n\n### Zeit (UTC)\n2026-05-28T17:55:46Z\n\n### Published\n2026-05-28T17:55:46Z\n\n### Auto-Labels\nCONF:MED, D:DRONE_UAS, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nReports from Turkey are indicating that three shadow fleet tankers that had transited into the Black Sea came under attack on Thursday, May 28. One of...\n\n---\n_Ingested at 2026-05-28T19:44:42.140427+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: d654cd4f3f7d9a49 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1476",
+      "number": 1476,
+      "id": "4542632474",
+      "ts": "2026-05-28T17:31:54.114Z",
+      "chronology_ts": "2026-05-28T17:31:54.114Z",
+      "issue_created_at": "2026-05-28T18:01:09.000Z",
+      "source_published_at": "2026-05-28T17:31:54.114Z",
+      "ingested_at": "2026-05-28T18:01:08.350Z",
+      "title": "[BSKY] 16 Gripen C/D som Ukraina skulle haft för 3 år sedan Men nu när de köper Gripen E, då kan de få 16 plan Pengar, dålig opinionssiffror och valår Hur många Ukrain",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1476",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmwkhf4pxs2b",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmwkhf4pxs2b",
+        "source_published_at": "2026-05-28T17:31:54.114Z",
+        "ingested_at": "2026-05-28T18:01:08.350Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:52e2a61e509cdaadaccf -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:52e2a61e509cdaadaccf -->\n\n### Text\n16 Gripen C/D som Ukraina skulle haft för 3 år sedan\nMen nu när de köper Gripen E, då kan de få 16 plan\nPengar, dålig opinionssiffror och valår\nHur många Ukrainare har dött pga att de inte fått Gripen ännu? Hur många har lemlästats?\nSverige har en cynisk fascistisk regering år 2026\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T17:31:54.114Z\ningested_at: 2026-05-28T18:01:08.350Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmwkhf4pxs2b\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1477",
+      "number": 1477,
+      "id": "4542633089",
+      "ts": "2026-05-28T17:31:05.791Z",
+      "chronology_ts": "2026-05-28T17:31:05.791Z",
+      "issue_created_at": "2026-05-28T18:01:14.000Z",
+      "source_published_at": "2026-05-28T17:31:05.791Z",
+      "ingested_at": "2026-05-28T18:01:13.312Z",
+      "title": "[BSKY] Join War on the Rocks and gain access to content trusted by policymakers, military leaders, and strategic thinkers worldwide. warontherocks.com/membership/",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1477",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmwkfxgija2h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmwkfxgija2h",
+        "source_published_at": "2026-05-28T17:31:05.791Z",
+        "ingested_at": "2026-05-28T18:01:13.312Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:ab067a7b0c9f99c89cdd -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:ab067a7b0c9f99c89cdd -->\n\n### Text\nJoin War on the Rocks and gain access to content trusted by policymakers, military leaders, and strategic thinkers worldwide. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T17:31:05.791Z\ningested_at: 2026-05-28T18:01:13.312Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmwkfxgija2h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1475",
+      "number": 1475,
+      "id": "4542632205",
+      "ts": "2026-05-28T16:39:41.000Z",
+      "chronology_ts": "2026-05-28T16:39:41.000Z",
+      "issue_created_at": "2026-05-28T18:01:07.000Z",
+      "source_published_at": "2026-05-28T16:39:41.000Z",
+      "ingested_at": "2026-05-28T18:01:04.708Z",
+      "title": "[RSS] 5/28/26 National Security and Korean News and Commentary",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1475",
+      "original_url": "https://smallwarsjournal.com/2026/05/28/5-28-26-national-security-and-korean-news-and-commentary/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/28/5-28-26-national-security-and-korean-news-and-commentary/",
+        "source_published_at": "2026-05-28T16:39:41.000Z",
+        "ingested_at": "2026-05-28T18:01:04.708Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:c43c874259a7ea787324 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:c43c874259a7ea787324 -->\n\n### Text\nAccess National Security News HERE. Access Korean News HERE. National Security News: 1. The Rise of a Hardline Four-Star General Tipped to Be the Next Army Chief 2. Trump’s Least Bad Option in Iran: The Logic Behind a Limited Deal 3. How Japan Should Spend Its Soaring Defense Budget 4. What a US defence industry trip to Taiwan says about Taipei’s efforts to overhaul &#8230;\n Read more\n The post 5/28/26 National Security and Korean News and Commentary appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T16:39:41.000Z\ningested_at: 2026-05-28T18:01:04.708Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/28/5-28-26-national-security-and-korean-news-and-commentary/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ningest_version: MAGIC PAW…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1466",
+      "number": 1466,
+      "id": "4542277422",
+      "ts": "2026-05-28T16:32:21.000Z",
+      "chronology_ts": "2026-05-28T16:32:21.000Z",
+      "issue_created_at": "2026-05-28T17:02:41.000Z",
+      "source_published_at": "2026-05-28T16:32:21.000Z",
+      "ingested_at": "2026-05-28T16:32:21.000Z",
+      "title": "[RSS] U.S. Forces and Others Stand by In Case Iran Negotiations Collapse",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1466",
+      "original_url": "https://maritime-executive.com/article/u-s-forces-and-others-stand-by-in-case-iran-negotiations-collapse",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/u-s-forces-and-others-stand-by-in-case-iran-negotiations-collapse",
+        "source_published_at": "2026-05-28T16:32:21.000Z",
+        "ingested_at": "2026-05-28T16:32:21.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/u-s-forces-and-others-stand-by-in-case-iran-negotiations-collapse\n\n### Zeit (UTC)\n2026-05-28T16:32:21Z\n\n### Published\n2026-05-28T16:32:21Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAfter the prospect over the weekend of May 23-24 that a negotiated end to the conflict between Iran and the United States was close, signals from bot...\n\n---\n_Ingested at 2026-05-28T17:02:41.683578+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a875f3116e43f529 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1470",
+      "number": 1470,
+      "id": "4542630562",
+      "ts": "2026-05-28T16:22:41.000Z",
+      "chronology_ts": "2026-05-28T16:22:41.000Z",
+      "issue_created_at": "2026-05-28T18:00:53.000Z",
+      "source_published_at": "2026-05-28T16:22:41.000Z",
+      "ingested_at": "2026-05-28T18:00:52.344Z",
+      "title": "[RSS] Diana Shipping Sweetens Bid for Genco as Takeover Battle Escalates",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1470",
+      "original_url": "https://gcaptain.com/diana-shipping-sweetens-bid-for-genco-as-takeover-battle-escalates/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/diana-shipping-sweetens-bid-for-genco-as-takeover-battle-escalates/",
+        "source_published_at": "2026-05-28T16:22:41.000Z",
+        "ingested_at": "2026-05-28T18:00:52.344Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:ae60b3fa2b2fd2bb2fca -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:ae60b3fa2b2fd2bb2fca -->\n\n### Text\nDry bulk shipping takeover drama intensified Thursday as Diana Shipping Inc. raised its all-cash offer for Genco Shipping &#38; Trading Limited to $24.80 per share, increasing pressure on Genco’s board...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T16:22:41.000Z\ningested_at: 2026-05-28T18:00:52.344Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/diana-shipping-sweetens-bid-for-genco-as-takeover-battle-escalates/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1471",
+      "number": 1471,
+      "id": "4542630752",
+      "ts": "2026-05-28T16:01:03.000Z",
+      "chronology_ts": "2026-05-28T16:01:03.000Z",
+      "issue_created_at": "2026-05-28T18:00:55.000Z",
+      "source_published_at": "2026-05-28T16:01:03.000Z",
+      "ingested_at": "2026-05-28T18:00:53.701Z",
+      "title": "[RSS] U.S. Treasury Warns Oman Over Hormuz Toll System",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1471",
+      "original_url": "https://gcaptain.com/u-s-treasury-warns-oman-over-hormuz-toll-system/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "MAP:YES"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "geo_candidates": [
+        {
+          "matched_id": "strait_hormuz",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "lat": 26.56,
+          "lon": 56.25,
+          "radius_km": 85,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ],
+          "score": 26,
+          "in_title": false
+        },
+        {
+          "matched_id": "persian_gulf",
+          "matched_name": "Persian Gulf",
+          "matched_alias": "Persian Gulf",
+          "lat": 27.3,
+          "lon": 51.6,
+          "radius_km": 520,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF"
+          ],
+          "score": 22,
+          "in_title": false
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/u-s-treasury-warns-oman-over-hormuz-toll-system/",
+        "source_published_at": "2026-05-28T16:01:03.000Z",
+        "ingested_at": "2026-05-28T18:00:53.701Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:52d47f5ab733addc111b -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:52d47f5ab733addc111b -->\n\n### Text\nU.S. Treasury Secretary Scott Bessent on Thursday warned Oman that Washington is prepared to aggressively sanction any country or entity involved in facilitating an Iranian-linked tolling system in the Strait...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T16:01:03.000Z\ningested_at: 2026-05-28T18:00:53.701Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/u-s-treasury-warns-oman-over-hormuz-toll-system/\n\n### Geo Candidates\n[\n  {\n    \"matched_id\": \"strait_hormuz\",\n    \"matched_name\": \"Strait of Hormuz\",\n    \"matched_alias\": \"hormuz\",\n    \"lat\": 26.57,\n    \"lon\": 56.25,\n    \"radius_km\": 60,\n    \"precision\": \"area\",\n    \"method\": \"controlled_gazetteer\",\n    \"confidence\": \"medium_high\",\n    \"geo_role\": \"event_location_or_topic_area\",\n    \"display_on_map\": true,\n    \"regions\": [\n      \"REG:PERSIAN_GULF\",\n      \"REG:STRAIT_HORMUZ\"\n    ],\n    \"score\": 90\n  }\n]\n\n### Geo JSON\n{\n  \"geo\": null,\n  \"geo_candidates\": [\n    {\n      \"matched_id\": \"strait_hormuz\",\n      \"matched_name\": \"Strait of Hormuz\",\n      \"matched_…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1472",
+      "number": 1472,
+      "id": "4542631009",
+      "ts": "2026-05-28T15:48:56.000Z",
+      "chronology_ts": "2026-05-28T15:48:56.000Z",
+      "issue_created_at": "2026-05-28T18:00:56.000Z",
+      "source_published_at": "2026-05-28T15:48:56.000Z",
+      "ingested_at": "2026-05-28T18:00:55.310Z",
+      "title": "[RSS] Report Says Iran and U.S. Reach Outline Ceasefire Deal After Latest Attacks",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1472",
+      "original_url": "https://gcaptain.com/report-says-iran-and-u-s-reach-outline-ceasefire-deal-after-latest-attacks/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/report-says-iran-and-u-s-reach-outline-ceasefire-deal-after-latest-attacks/",
+        "source_published_at": "2026-05-28T15:48:56.000Z",
+        "ingested_at": "2026-05-28T18:00:55.310Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:9546f8cda00907dd6a93 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:9546f8cda00907dd6a93 -->\n\n### Text\nBy Jana Choukeir, Enas Alashray and Phil Stewart WASHINGTON/DUBAI, May 28 (Reuters)&#160;&#8211;&#160;The United States and Iran have reached an outline agreement to extend their ceasefire pending the approval of President...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T15:48:56.000Z\ningested_at: 2026-05-28T18:00:55.310Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/report-says-iran-and-u-s-reach-outline-ceasefire-deal-after-latest-attacks/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1468",
+      "number": 1468,
+      "id": "4542627769",
+      "ts": "2026-05-28T15:27:53.000Z",
+      "chronology_ts": "2026-05-28T15:27:53.000Z",
+      "issue_created_at": "2026-05-28T18:00:28.000Z",
+      "source_published_at": "2026-05-28T15:27:53.000Z",
+      "ingested_at": "2026-05-28T18:00:26.061Z",
+      "title": "[RSS] Information fires: Building C-C5ISRT advantage in competition",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1468",
+      "original_url": "https://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/information-fires-building-c-c5isrt-advantage-in-competition/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Atlantic Council – Reports / Issue Briefs (atlantic_council_reports)",
+        "platform": "rss",
+        "link": "https://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/information-fires-building-c-c5isrt-advantage-in-competition/",
+        "source_published_at": "2026-05-28T15:27:53.000Z",
+        "ingested_at": "2026-05-28T18:00:26.061Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:atlantic_council_reports:8089e0220838f458d8f6 -->\n<!-- VOODOO_INGEST_ID:atlantic_council_reports:8089e0220838f458d8f6 -->\n\n### Text\nCountering adversary command, control, communications, computers, cyber, intelligence, surveillance, reconnaissance, and targeting (C5ISRT) has emerged as a critical operational priority.\n The post Information fires: Building C-C5ISRT advantage in competition  appeared first on Atlantic Council .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T15:27:53.000Z\ningested_at: 2026-05-28T18:00:26.061Z\n\n### Quelle\nAtlantic Council – Reports / Issue Briefs (atlantic_council_reports)\n\n### Plattform\nrss\n\n### Link\nhttps://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/information-fires-building-c-c5isrt-advantage-in-competition/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1473",
+      "number": 1473,
+      "id": "4542631145",
+      "ts": "2026-05-28T15:21:03.000Z",
+      "chronology_ts": "2026-05-28T15:21:03.000Z",
+      "issue_created_at": "2026-05-28T18:00:58.000Z",
+      "source_published_at": "2026-05-28T15:21:03.000Z",
+      "ingested_at": "2026-05-28T18:00:56.719Z",
+      "title": "[RSS] TotalEnergies Made Middle East Oil Mega-Trades After Noticing US Navy Buildup in Gulf in February, CEO Says",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1473",
+      "original_url": "https://gcaptain.com/totalenergies-made-middle-east-oil-mega-trades-after-noticing-us-navy-buildup-in-gulf-in-february-ceo-says/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "REG:PERSIAN_GULF"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 27.3,
+        "lon": 51.6,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Persian Gulf",
+        "matched_alias": "The Gulf",
+        "matched_id": "persian_gulf",
+        "radius_km": 520,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 27.3,
+          "lon": 51.6,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Persian Gulf",
+          "matched_alias": "The Gulf",
+          "matched_id": "persian_gulf",
+          "radius_km": 520,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/totalenergies-made-middle-east-oil-mega-trades-after-noticing-us-navy-buildup-in-gulf-in-february-ceo-says/",
+        "source_published_at": "2026-05-28T15:21:03.000Z",
+        "ingested_at": "2026-05-28T18:00:56.719Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:fbec8f5fe09efefe3841 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:fbec8f5fe09efefe3841 -->\n\n### Text\nFrench oil major TotalEnergies TTEF.PA made the decision to buy large amounts of Middle East crude in March after its traders noticed the U.S. Navy amassing ships near the Gulf in February, its CEO told French newspaper Le Figaro in an interview published on Thursday.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T15:21:03.000Z\ningested_at: 2026-05-28T18:00:56.719Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/totalenergies-made-middle-east-oil-mega-trades-after-noticing-us-navy-buildup-in-gulf-in-february-ceo-says/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1469",
+      "number": 1469,
+      "id": "4542628021",
+      "ts": "2026-05-28T15:18:41.000Z",
+      "chronology_ts": "2026-05-28T15:18:41.000Z",
+      "issue_created_at": "2026-05-28T18:00:31.000Z",
+      "source_published_at": "2026-05-28T15:18:41.000Z",
+      "ingested_at": "2026-05-28T18:00:28.993Z",
+      "title": "[RSS] Promote the antidote: Reducing the risk from toxins",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1469",
+      "original_url": "https://www.atlanticcouncil.org/in-depth-research-reports/report/promote-the-antidote-reducing-the-risk-of-toxins/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Atlantic Council – Reports / Issue Briefs (atlantic_council_reports)",
+        "platform": "rss",
+        "link": "https://www.atlanticcouncil.org/in-depth-research-reports/report/promote-the-antidote-reducing-the-risk-of-toxins/",
+        "source_published_at": "2026-05-28T15:18:41.000Z",
+        "ingested_at": "2026-05-28T18:00:28.993Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:atlantic_council_reports:7ebee367dab458cea215 -->\n<!-- VOODOO_INGEST_ID:atlantic_council_reports:7ebee367dab458cea215 -->\n\n### Text\nThe policymaking community is not fully aware of the expansion of the threat from toxins. In this report, the Bipartisan Commission on Biodefense at Atlantic Council outlines the threat and how to negate it.\n The post Promote the antidote: Reducing the risk from toxins appeared first on Atlantic Council .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T15:18:41.000Z\ningested_at: 2026-05-28T18:00:28.993Z\n\n### Quelle\nAtlantic Council – Reports / Issue Briefs (atlantic_council_reports)\n\n### Plattform\nrss\n\n### Link\nhttps://www.atlanticcouncil.org/in-depth-research-reports/report/promote-the-antidote-reducing-the-risk-of-toxins/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1474",
+      "number": 1474,
+      "id": "4542631316",
+      "ts": "2026-05-28T15:17:29.000Z",
+      "chronology_ts": "2026-05-28T15:17:29.000Z",
+      "issue_created_at": "2026-05-28T18:00:59.000Z",
+      "source_published_at": "2026-05-28T15:17:29.000Z",
+      "ingested_at": "2026-05-28T18:00:58.293Z",
+      "title": "[RSS] Merchant Ships Desert Strait of Hormuz Amid Renewed US Strikes",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1474",
+      "original_url": "https://gcaptain.com/merchant-ships-desert-strait-of-hormuz-amid-renewed-us-strikes/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "MAP:YES",
+        "MAP:INFERRED",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "strait_hormuz",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "lat": 26.56,
+          "lon": 56.25,
+          "radius_km": 85,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ],
+          "score": 51,
+          "in_title": true
+        },
+        {
+          "matched_id": "persian_gulf",
+          "matched_name": "Persian Gulf",
+          "matched_alias": "Persian Gulf",
+          "lat": 27.3,
+          "lon": 51.6,
+          "radius_km": 520,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF"
+          ],
+          "score": 22,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/merchant-ships-desert-strait-of-hormuz-amid-renewed-us-strikes/",
+        "source_published_at": "2026-05-28T15:17:29.000Z",
+        "ingested_at": "2026-05-28T18:00:58.293Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:14101b8c744075baf44c -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:14101b8c744075baf44c -->\n\n### Text\nTraffic through the Strait of Hormuz appeared all but deserted on Thursday as commercial operators remain wary of renewed military escalation.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T15:17:29.000Z\ningested_at: 2026-05-28T18:00:58.293Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/merchant-ships-desert-strait-of-hormuz-amid-renewed-us-strikes/\n\n### Geo Candidates\n[\n  {\n    \"matched_id\": \"strait_hormuz\",\n    \"matched_name\": \"Strait of Hormuz\",\n    \"matched_alias\": \"strait of hormuz\",\n    \"lat\": 26.57,\n    \"lon\": 56.25,\n    \"radius_km\": 60,\n    \"precision\": \"area\",\n    \"method\": \"controlled_gazetteer\",\n    \"confidence\": \"medium_high\",\n    \"geo_role\": \"event_location_or_topic_area\",\n    \"display_on_map\": true,\n    \"regions\": [\n      \"REG:PERSIAN_GULF\",\n      \"REG:STRAIT_HORMUZ\"\n    ],\n    \"score\": 90\n  }\n]\n\n### Geo JSON\n{\n  \"geo\": null,\n  \"geo_candidates\": [\n    {\n      \"matched_id\": \"strait_hormuz\",\n      \"matched_name\": \"Strait of Hormuz\",\n      \"matched_alias\": \"strait of hormuz\",\n      \"lat\": 26.…"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1465",
       "number": 1465,
@@ -377,6 +1398,50 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:dc14043f5d0a28b43f03 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:dc14043f5d0a28b43f03 -->\n\n### Text\nThe new prime minister is moving swiftly to uproot the old regime and to ensure Hungarians understand its excesses.\n The post Hungary’s Blitz of Change appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T13:14:21.000Z\ningested_at: 2026-05-28T14:35:30.047Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/hungarys-blitz-of-change/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1487",
+      "number": 1487,
+      "id": "4543613255",
+      "ts": "2026-05-28T12:45:33.365Z",
+      "chronology_ts": "2026-05-28T12:45:33.365Z",
+      "issue_created_at": "2026-05-28T20:34:05.000Z",
+      "source_published_at": "2026-05-28T12:45:33.365Z",
+      "ingested_at": "2026-05-28T20:34:04.389Z",
+      "title": "[BSKY] 🚨🚨🚨 Two shadow fleet tankers were reportedly struck by drones this morning while conducting a ship-to-ship transfer in the Black Sea off northern 🇹🇷 Turkey",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1487",
+      "original_url": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mmw2hecefk27",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "D:MARITIME_SECURITY",
+        "SRC:BSKY",
+        "ALERT:WATCH"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "MaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mmw2hecefk27",
+        "source_published_at": "2026-05-28T12:45:33.365Z",
+        "ingested_at": "2026-05-28T20:34:04.389Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:maritimekiwi_bsky:3d1ec99b86118a6763c6 -->\n<!-- VOODOO_INGEST_ID:maritimekiwi_bsky:3d1ec99b86118a6763c6 -->\n\n### Text\n🚨🚨🚨 Two shadow fleet tankers were reportedly struck by drones this morning while conducting a ship-to-ship transfer in the Black Sea off northern 🇹🇷 Turkey\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T12:45:33.365Z\ningested_at: 2026-05-28T20:34:04.389Z\n\n### Quelle\nMaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/maritimekiwi.bsky.social/post/3mmw2hecefk27\n\n### Priority Alert\nlevel: WATCH\nscore: 6\nreasons: Schiffsbezug; AIS-/Route-/GNSS-Muster; strategischer maritimer Raum\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, D:MARITIME_SECURITY, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1, ALERT:WATCH\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1462",
@@ -2376,6 +3441,54 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:8a61282619161dc51943 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:8a61282619161dc51943 -->\n\n### Text\nAs Iraq faces regional war, fiscal uncertainty and armed-group politics, Ankara is seeking to turn security cooperation, trade and connectivity into strategic leverage.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T23:00:00.000Z\ningested_at: 2026-05-28T10:51:17.928Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/turkeys-iraq-gambit-amid-strait-hormuz-crisis\n\n### Geo Candidates\n[\n  {\n    \"matched_id\": \"strait_hormuz\",\n    \"matched_name\": \"Strait of Hormuz\",\n    \"matched_alias\": \"strait of hormuz\",\n    \"lat\": 26.57,\n    \"lon\": 56.25,\n    \"radius_km\": 60,\n    \"precision\": \"area\",\n    \"method\": \"controlled_gazetteer\",\n    \"confidence\": \"medium\",\n    \"geo_role\": \"event_location_or_topic_area\",\n    \"display_on_map\": true,\n    \"regions\": [\n      \"REG:PERSIAN_GULF\",\n      \"REG:STRAIT_HORMUZ\"\n    ],\n    \"score\": 70\n  }\n]\n\n### Geo JSON\n{\n  \"geo\": null,\n  \"geo_candidates\": [\n    {\n      \"matched_id\": \"strait_hormuz\",\n     …"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1467",
+      "number": 1467,
+      "id": "4542627341",
+      "ts": "2026-05-27T23:00:00.000Z",
+      "chronology_ts": "2026-05-27T23:00:00.000Z",
+      "issue_created_at": "2026-05-28T18:00:24.000Z",
+      "source_published_at": "2026-05-27T23:00:00.000Z",
+      "ingested_at": "2026-05-28T18:00:22.273Z",
+      "title": "[RSS] ‘Always On’ and Defence Industry in the UK: Its Nature, Importance, Challenges and Ways Forward",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1467",
+      "original_url": "https://www.rusi.org/explore-our-research/publications/rusi-newsbrief/always-and-defence-industry-uk-its-nature-importance-challenges-and-ways-forward",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "RUSI – Latest Publications (rusi_latest_publications)",
+        "platform": "rss",
+        "link": "https://www.rusi.org/explore-our-research/publications/rusi-newsbrief/always-and-defence-industry-uk-its-nature-importance-challenges-and-ways-forward",
+        "source_published_at": "2026-05-27T23:00:00.000Z",
+        "ingested_at": "2026-05-28T18:00:22.273Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:a82689ab7aff4d1cc077 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:a82689ab7aff4d1cc077 -->\n\n### Text\nThe significant implications of the Government ambition for the UK’s defence industry to be ‘always on’.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T23:00:00.000Z\ningested_at: 2026-05-28T18:00:22.273Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/rusi-newsbrief/always-and-defence-industry-uk-its-nature-importance-challenges-and-ways-forward\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1421",
@@ -27157,7 +28270,6 @@
           "in_title": true
         }
       ],
-      "geo_inferred": true,
       "source_hint": {
         "source": "auonsson (Bluesky) (auonsson_bsky)",
         "platform": "social_bsky",
