@@ -1,9 +1,9 @@
 {
   "ok": true,
   "source": "aisstream",
-  "generated_at": "2026-05-28T11:42:59.576Z",
+  "generated_at": "2026-05-28T12:28:31.028Z",
   "window_seconds": 1,
-  "sample_seconds_requested": 120,
+  "sample_seconds_requested": 1800,
   "regions": [
     "north_sea_channel",
     "baltic_sea"
