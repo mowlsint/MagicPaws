@@ -1,4 +1,8 @@
-version: 1
+# MAGIC PAWS // MARITIME PHASE ZERO
+# sources.yml v2 – source taxonomy / route-source cleanup / WarshipCam added
+# Generated for mowlsint Magic Paws. Extra metadata keys are ignored by ingest if unsupported.
+
+version: 2
 endpoints:
   hybrid_api_base: https://voodoo-hybrid-api.mowlsint.workers.dev
   social_bridge_base: https://voodoo-social-bridge.mowlsint.workers.dev
@@ -104,19 +108,23 @@ sources:
   bridge_path: /x/RFNOSBlog
   labels:
   - D:AIS_TRACK
+  - D:MARITIME_SECURITY
   - V:RUS_WARSHIP
-  - SRC:SOCIAL
-  - MAP:YES
+  - V:WARSHIP
   - PAT:ROUTE_OBSERVED
-  - V:RUS_AUXILIARY
+  - PAT:VESSEL_SIGHTING
+  - MAP:YES
+  - SRC:SOCIAL
+  - SRC:X
   region_hint: REG:OTHER
   priority: 92
-  max_items: 18
+  max_items: 24
   lookback_hours: 168
   allow_backfill: false
-  geo_priority: high
   route_source: true
-  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+  geo_priority: high
+  map_enabled: true
+  source_profile: warship_route_social
 - id: shortwave78_x
   name: Shortwave Observer (X) – shortwave78
   type: social_x
@@ -125,12 +133,18 @@ sources:
   labels:
   - D:RF_SIGNAL
   - PAT:RF_BURST
+  - PAT:GNSS_JAM
+  - MAP:YES
   - SRC:SOCIAL
+  - SRC:X
   region_hint: REG:OTHER
-  priority: 70
-  max_items: 12
+  priority: 76
+  max_items: 16
   lookback_hours: 168
   allow_backfill: false
+  geo_priority: medium
+  map_enabled: true
+  source_profile: rf_gnss_social
 - id: tankertrackers_x
   name: TankerTrackers (X)
   type: social_x
@@ -138,20 +152,24 @@ sources:
   bridge_path: /x/TankerTrackers
   labels:
   - D:AIS_TRACK
+  - D:SANCTIONS
+  - D:NEWS_INTEL
   - V:SHADOW_FLEET
   - V:SANCTIONS_EVASION
-  - SRC:SOCIAL
-  - MAP:YES
   - PAT:ROUTE_OBSERVED
   - PAT:STS_SUSPECT
+  - MAP:YES
+  - SRC:SOCIAL
+  - SRC:X
   region_hint: REG:OTHER
-  priority: 88
-  max_items: 18
+  priority: 90
+  max_items: 24
   lookback_hours: 168
   allow_backfill: false
-  geo_priority: high
   route_source: true
-  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+  geo_priority: high
+  map_enabled: true
+  source_profile: shadow_fleet_route_social
 - id: starboardintel_x
   name: Starboard Maritime Intelligence (X)
   type: social_x
@@ -159,17 +177,21 @@ sources:
   bridge_path: /x/StarboardIntel
   labels:
   - D:AIS_TRACK
-  - SRC:SOCIAL
-  - MAP:YES
+  - D:MARITIME_SECURITY
   - PAT:ROUTE_OBSERVED
+  - PAT:VESSEL_SIGHTING
+  - MAP:YES
+  - SRC:SOCIAL
+  - SRC:X
   region_hint: REG:OTHER
-  priority: 80
-  max_items: 18
+  priority: 82
+  max_items: 20
   lookback_hours: 168
   allow_backfill: false
-  geo_priority: high
   route_source: true
-  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+  geo_priority: high
+  map_enabled: true
+  source_profile: maritime_intelligence_route_social
 - id: maritime_int_x
   name: Maritime Intelligence Support Group (X)
   type: social_x
@@ -177,17 +199,21 @@ sources:
   bridge_path: /x/maritime_int
   labels:
   - D:AIS_TRACK
-  - SRC:SOCIAL
-  - MAP:YES
+  - D:MARITIME_SECURITY
   - PAT:ROUTE_OBSERVED
+  - PAT:VESSEL_SIGHTING
+  - MAP:YES
+  - SRC:SOCIAL
+  - SRC:X
   region_hint: REG:OTHER
-  priority: 72
-  max_items: 18
+  priority: 80
+  max_items: 20
   lookback_hours: 168
   allow_backfill: false
-  geo_priority: high
   route_source: true
-  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+  geo_priority: high
+  map_enabled: true
+  source_profile: maritime_intelligence_route_social
 - id: maritime_exec_rss
   name: The Maritime Executive (RSS)
   type: rss
@@ -268,13 +294,21 @@ sources:
   handle: auonsson.bsky.social
   bridge_path: /bsky/auonsson.bsky.social
   labels:
+  - D:RF_SIGNAL
   - D:NEWS_INTEL
+  - PAT:GNSS_JAM
+  - PAT:GNSS_SPOOF
+  - MAP:YES
   - SRC:SOCIAL
+  - SRC:BSKY
   region_hint: REG:OTHER
-  priority: 70
-  max_items: 12
+  priority: 76
+  max_items: 18
   lookback_hours: 168
   allow_backfill: false
+  geo_priority: medium
+  map_enabled: true
+  source_profile: rf_gnss_social
 - id: klart_skepp_blog_rss
   name: Klart Skepp! (Blogspot RSS)
   type: rss
@@ -339,13 +373,21 @@ sources:
   handle: navylookout.bsky.social
   bridge_path: /bsky/navylookout.bsky.social
   labels:
+  - D:MARITIME_SECURITY
   - D:NEWS_INTEL
+  - V:WARSHIP
+  - PAT:VESSEL_SIGHTING
+  - MAP:YES
   - SRC:SOCIAL
+  - SRC:BSKY
   region_hint: REG:ATLANTIC_NE
-  priority: 70
-  max_items: 12
+  priority: 78
+  max_items: 18
   lookback_hours: 168
   allow_backfill: false
+  geo_priority: medium
+  map_enabled: true
+  source_profile: naval_maritime_social
 - id: highnorthnews_bsky
   name: High North News (Bluesky)
   type: social_bsky
@@ -353,12 +395,17 @@ sources:
   bridge_path: /bsky/highnorthnews.bsky.social
   labels:
   - D:NEWS_INTEL
+  - D:SANCTIONS
+  - D:MARITIME_SECURITY
   - SRC:SOCIAL
+  - SRC:BSKY
   region_hint: REG:ATLANTIC_NE
-  priority: 60
-  max_items: 12
+  priority: 70
+  max_items: 18
   lookback_hours: 168
   allow_backfill: false
+  geo_priority: medium
+  source_profile: arctic_shadow_media_social
 - id: ispk_bsky
   name: ISPK (Bluesky)
   type: social_bsky
@@ -392,80 +439,40 @@ sources:
   bridge_path: /bsky/maritimekiwi.bsky.social
   labels:
   - D:NEWS_INTEL
-  - SRC:SOCIAL
-  region_hint: REG:OTHER
-  priority: 50
-  max_items: 12
-  lookback_hours: 168
-  allow_backfill: false
-- id: warshipcam_bsky
-  name: WarshipCam (Bluesky) – warship sightings and port/transit photos
-  type: social_bsky
-  handle: warshipcam.bsky.social
-  bridge_path: /bsky/warshipcam.bsky.social
-  labels:
-  - D:AIS_TRACK
-  - D:AIR_ACTIVITY
-  - V:AUTH_NAVY
+  - D:MARITIME_SECURITY
   - SRC:SOCIAL
   - SRC:BSKY
-  - MAP:YES
-  - PAT:ROUTE_OBSERVED
-  - CONF:LOW
-  - SEV:1
   region_hint: REG:OTHER
-  priority: 84
-  max_items: 30
+  priority: 62
+  max_items: 16
   lookback_hours: 168
   allow_backfill: false
-  geo_priority: high
-  route_source: true
-  map_policy: prefer_port_transit_photo_location_then_route_then_region
-- id: warshipcam_x
-  name: WarshipCam (X) – warship sightings and port/transit photos
-  type: social_x
-  handle: WarshipCam
-  bridge_path: /x/WarshipCam
-  labels:
-  - D:AIS_TRACK
-  - V:AUTH_NAVY
-  - SRC:SOCIAL
-  - SRC:X
-  - MAP:YES
-  - PAT:ROUTE_OBSERVED
-  - CONF:LOW
-  - SEV:1
-  region_hint: REG:OTHER
-  priority: 82
-  max_items: 24
-  lookback_hours: 168
-  allow_backfill: false
-  geo_priority: high
-  route_source: true
-  enabled: false
-  note: Enable if the social bridge can fetch this X account reliably.
+  geo_priority: medium
+  source_profile: maritime_media_social
 - id: te3ej_x
-  name: TJ / te3ej (X) – ship routes and geodata
+  name: TJ / te3ej (X) – vessel route / geo posts
   type: social_x
   handle: te3ej
   bridge_path: /x/te3ej
   labels:
-  - D:NEWS_INTEL
-  - SRC:SOCIAL
   - D:AIS_TRACK
-  - MAP:YES
+  - D:NEWS_INTEL
   - PAT:ROUTE_OBSERVED
+  - PAT:VESSEL_SIGHTING
+  - MAP:YES
+  - SRC:SOCIAL
   - SRC:X
   - CONF:LOW
   - SEV:1
-  region_hint: REG:OTHER
-  priority: 90
+  region_hint: REG:GLOBAL
+  priority: 92
   max_items: 30
   lookback_hours: 168
   allow_backfill: false
-  geo_priority: high
   route_source: true
-  map_policy: prefer_explicit_geo_then_route_then_controlled_gazetteer
+  geo_priority: high
+  map_enabled: true
+  source_profile: route_geo_social
 - id: worldcrimeintel_x
   name: World Crime Intel (X)
   type: social_x
@@ -525,13 +532,21 @@ sources:
   handle: NavyLookout
   bridge_path: /x/NavyLookout
   labels:
+  - D:MARITIME_SECURITY
   - D:NEWS_INTEL
+  - V:WARSHIP
+  - PAT:VESSEL_SIGHTING
+  - MAP:YES
   - SRC:SOCIAL
+  - SRC:X
   region_hint: REG:ATLANTIC_NE
-  priority: 70
-  max_items: 12
+  priority: 78
+  max_items: 18
   lookback_hours: 168
   allow_backfill: false
+  geo_priority: medium
+  map_enabled: true
+  source_profile: naval_maritime_social
 - id: die_flaschenpost_rss
   name: Die Flaschenpost – RSS
   type: rss
@@ -994,14 +1009,73 @@ sources:
   - OBJ:SUPPLY_CHAIN
   region_hint: REG:OTHER
   priority: 58
-geo_ingest_policy:
-  route_sources: source.route_source=true or label PAT:ROUTE_OBSERVED
-  priority:
-  - explicit_coordinates
-  - route_waypoints
-  - controlled_gazetteer
-  - geo_candidates
-  - region_hint
-  notes:
-  - Exact coordinates override all inferred places.
-  - Route-source social posts may create route waypoints when controlled maritime places are detected.
+- id: warshipcam_bsky
+  name: WarshipCam (Bluesky) – naval vessel sightings
+  type: social_bsky
+  handle: warshipcam.bsky.social
+  bridge_path: /bsky/warshipcam.bsky.social
+  labels:
+  - D:AIS_TRACK
+  - D:MARITIME_SECURITY
+  - D:NEWS_INTEL
+  - V:WARSHIP
+  - PAT:VESSEL_SIGHTING
+  - PAT:ROUTE_OBSERVED
+  - MAP:YES
+  - SRC:SOCIAL
+  - SRC:BSKY
+  - CONF:LOW
+  - SEV:1
+  region_hint: REG:GLOBAL
+  priority: 84
+  max_items: 20
+  lookback_hours: 168
+  allow_backfill: false
+  route_source: true
+  geo_priority: high
+  map_enabled: true
+  source_profile: warship_sighting_social
+- id: warshipcam_x
+  name: WarshipCam (X) – naval vessel sightings
+  type: social_x
+  handle: WarshipCam
+  bridge_path: /x/WarshipCam
+  labels:
+  - D:AIS_TRACK
+  - D:MARITIME_SECURITY
+  - D:NEWS_INTEL
+  - V:WARSHIP
+  - PAT:VESSEL_SIGHTING
+  - PAT:ROUTE_OBSERVED
+  - MAP:YES
+  - SRC:SOCIAL
+  - SRC:X
+  - CONF:LOW
+  - SEV:1
+  region_hint: REG:GLOBAL
+  priority: 76
+  max_items: 16
+  lookback_hours: 168
+  allow_backfill: false
+  route_source: true
+  geo_priority: high
+  map_enabled: true
+  source_profile: warship_sighting_social
+  enabled: true
+source_profiles:
+  route_geo_social:
+    description: Social accounts that frequently post vessel positions, routes, screenshots or coordinates.
+    default_map_policy: promote explicit coordinates and controlled gazetteer matches; do not create hard alerts without corroboration.
+  warship_sighting_social:
+    description: Naval/warship sighting accounts. Useful for route and presence indicators; usually C-level unless corroborated.
+  shadow_fleet_route_social:
+    description: Tanker/shadow-fleet movement and STS indicators. Prefer map display, but keep confidence low unless corroborated.
+  rf_gnss_social:
+    description: RF/GNSS/jamming/spoofing hints. Useful for correlation with AIS/ADS-B/NAVTEX.
+source_health:
+  dashboard_logic: Sources lamp should count source_hint.source, source_type, source_line, source_id, summary Quelle/Source blocks, source labels and URL hostnames.
+  green_min_unique_sources_in_window: 8
+  orange_min_unique_sources_in_window: 4
+  notes: Health is not a direct GitHub workflow status. It measures diversity of loaded events in the selected dashboard window.
+name: MAGIC PAWS Sources – cleaned source taxonomy v2
+updated_at: '2026-05-28'
