@@ -63,6 +63,26 @@ const DASHBOARD_URL = process.env.MAGICPAWS_DASHBOARD_URL || "https://mowlsint.g
 function nowIso(){ return new Date().toISOString(); }
 function norm(s){ return String(s ?? "").trim(); }
 function asNum(v){ const n = Number(v); return Number.isFinite(n) ? n : null; }
+
+function cleanRegexPattern(value, fallback = ""){
+  let raw = String(value ?? fallback ?? "").trim();
+  // Config files sometimes contain PCRE/Python inline flags like (?i).
+  // JavaScript RegExp uses the second argument ("i"), so strip inline flags safely.
+  raw = raw
+    .replace(/^\(\?[a-zA-Z]+\)/, "")
+    .replace(/\(\?i\)/g, "")
+    .replace(/\(\?-i\)/g, "");
+  return raw || fallback;
+}
+function safeRegExp(value, fallback = "", flags = "i"){
+  const pattern = cleanRegexPattern(value, fallback);
+  try {
+    return new RegExp(pattern, flags);
+  } catch (err) {
+    console.warn(`Invalid regex pattern "${pattern}", using fallback: ${err.message}`);
+    return new RegExp(cleanRegexPattern(fallback, ""), flags);
+  }
+}
 function clamp(n, min, max){ return Math.max(min, Math.min(max, n)); }
 function msOf(v){ const t = Date.parse(norm(v)); return Number.isFinite(t) ? t : 0; }
 function addMinutes(iso, minutes){ return new Date(msOf(iso) + minutes * 60_000).toISOString(); }
@@ -101,7 +121,7 @@ function navStatusText(code){
   return map[n] || (Number.isFinite(n) ? `status_${n}` : "unknown");
 }
 function boolAuthority(item, rules){
-  const nameRe = new RegExp(rules.ais_name_regex || "coast guard|police|customs|navy|patrol|sar|rescue", "i");
+  const nameRe = safeRegExp(rules.ais_name_regex, "coast guard|police|customs|navy|patrol|sar|rescue", "i");
   const typeSet = new Set((rules.ais_ship_type_codes || []).map(Number));
   const text = [item.name, item.callsign, item.destination, item.type_text].map(norm).join(" ");
   return nameRe.test(text) || typeSet.has(Number(item.ship_type));
