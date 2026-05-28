@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-28T04:42:44.950Z",
+  "generated_at": "2026-05-28T10:34:32.393Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,287 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-28T04:42:47.941Z",
+  "bundle_generated_at": "2026-05-28T10:34:36.129Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-08T04:42:44.950Z"
+    "cutoff_utc": "2026-05-08T10:34:32.393Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1228,
-    "active_events": 1128,
+    "archive_events_total": 1235,
+    "active_events": 1135,
     "active_geo_events": 198,
-    "active_social_events": 396,
+    "active_social_events": 399,
     "active_social_geo_events": 56
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1436",
+      "number": 1436,
+      "id": "4538335916",
+      "ts": "2026-05-28T06:27:05.350Z",
+      "chronology_ts": "2026-05-28T06:27:05.350Z",
+      "issue_created_at": "2026-05-28T06:50:21.000Z",
+      "source_published_at": "2026-05-28T06:27:05.350Z",
+      "ingested_at": "2026-05-28T06:50:19.775Z",
+      "title": "[BSKY] Logotypen till armbindeln har varit mitt framför våra ögon alla dessa år.... symbolen för den nya tidens fascism.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1436",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mmvfcmaaus2l",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mmvfcmaaus2l",
+        "source_published_at": "2026-05-28T06:27:05.350Z",
+        "ingested_at": "2026-05-28T06:50:19.775Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:18b6786da994b7f939e9 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:18b6786da994b7f939e9 -->\n\n### Text\nLogotypen till armbindeln har varit mitt framför våra ögon alla dessa år.... symbolen för den nya tidens fascism.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T06:27:05.350Z\ningested_at: 2026-05-28T06:50:19.775Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmvfcmaaus2l\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1437",
+      "number": 1437,
+      "id": "4538336251",
+      "ts": "2026-05-28T06:16:01.791Z",
+      "chronology_ts": "2026-05-28T06:16:01.791Z",
+      "issue_created_at": "2026-05-28T06:50:25.000Z",
+      "source_published_at": "2026-05-28T06:16:01.791Z",
+      "ingested_at": "2026-05-28T06:50:23.827Z",
+      "title": "[BSKY] The military spends years hardening bodies and sharpening minds for combat. It spends almost nothing preparing warfighters for the moment their values collide w",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1437",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmveotvk6n2p",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmveotvk6n2p",
+        "source_published_at": "2026-05-28T06:16:01.791Z",
+        "ingested_at": "2026-05-28T06:50:23.827Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:8f675d84121deb1a01b9 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:8f675d84121deb1a01b9 -->\n\n### Text\nThe military spends years hardening bodies and sharpening minds for combat. It spends almost nothing preparing warfighters for the moment their values collide with the reality of war. warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T06:16:01.791Z\ningested_at: 2026-05-28T06:50:23.827Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmveotvk6n2p\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1433",
+      "number": 1433,
+      "id": "4538334685",
+      "ts": "2026-05-28T06:00:27.000Z",
+      "chronology_ts": "2026-05-28T06:00:27.000Z",
+      "issue_created_at": "2026-05-28T06:50:12.000Z",
+      "source_published_at": "2026-05-28T06:00:27.000Z",
+      "ingested_at": "2026-05-28T06:50:09.899Z",
+      "title": "[RSS] Missile Defense, The Future of Arms Control, and the Three-Body Problem",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1433",
+      "original_url": "https://smallwarsjournal.com/2026/05/28/future-of-arms-control-and-the-three-body-problem/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/28/future-of-arms-control-and-the-three-body-problem/",
+        "source_published_at": "2026-05-28T06:00:27.000Z",
+        "ingested_at": "2026-05-28T06:50:09.899Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:a97c673a4fa727edb4cb -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:a97c673a4fa727edb4cb -->\n\n### Text\nThe expiration of New START and China&#8217;s impending intercontinental ballistic missile parity have rendered the bilateral logic of Mutual Assured Destruction inadequate for managing an emerging three-way nuclear competition. This article draws on David Goldfischer&#8217;s Mutual Defense Emphasis (MDE) framework – in which treaty-limited ground-based defenses expand only as offensive forces decline – and explores how it can be applied &#8230;\n Read more\n The post Missile Defense, The Future of Arms Control, and the Three-Body Problem appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T06:00:27.000Z\ningested_at: 2026-05-28T06:50:09.899Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/28/future-of-arms-control-and-the-three-body-problem/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SC…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1434",
+      "number": 1434,
+      "id": "4538335018",
+      "ts": "2026-05-28T06:00:19.000Z",
+      "chronology_ts": "2026-05-28T06:00:19.000Z",
+      "issue_created_at": "2026-05-28T06:50:14.000Z",
+      "source_published_at": "2026-05-28T06:00:19.000Z",
+      "ingested_at": "2026-05-28T06:50:12.288Z",
+      "title": "[RSS] The “Like” Liaison: On Social Media and Diplomacy",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1434",
+      "original_url": "https://smallwarsjournal.com/2026/05/28/the-like-liaison-on-social-media-and-diplomacy/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/28/the-like-liaison-on-social-media-and-diplomacy/",
+        "source_published_at": "2026-05-28T06:00:19.000Z",
+        "ingested_at": "2026-05-28T06:50:12.288Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:07091371b49dc7e8b513 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:07091371b49dc7e8b513 -->\n\n### Text\nIntroduction The internet and digital domain are becoming increasingly a larger part of both governance and civilian life. Specifically, social media has played a role in enhancing the magnitude in which private citizens of nations can independently connect with one another. Previously, the practice of citizen-diplomacy, defined as private citizens engaging with one another to influence international relations, was limited &#8230;\n Read more\n The post The “Like” Liaison: On Social Media and Diplomacy appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T06:00:19.000Z\ningested_at: 2026-05-28T06:50:12.288Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/28/the-like-liaison-on-social-media-and-diplomacy/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, …"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1435",
+      "number": 1435,
+      "id": "4538335366",
+      "ts": "2026-05-28T06:00:04.000Z",
+      "chronology_ts": "2026-05-28T06:00:04.000Z",
+      "issue_created_at": "2026-05-28T06:50:16.000Z",
+      "source_published_at": "2026-05-28T06:00:04.000Z",
+      "ingested_at": "2026-05-28T06:50:14.829Z",
+      "title": "[RSS] Neutrality as Vulnerability: Russia’s Hybrid Playbook in Moldova",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1435",
+      "original_url": "https://smallwarsjournal.com/2026/05/28/neutrality-as-vulnerability-russias-hybrid-playbook-in-moldova/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/28/neutrality-as-vulnerability-russias-hybrid-playbook-in-moldova/",
+        "source_published_at": "2026-05-28T06:00:04.000Z",
+        "ingested_at": "2026-05-28T06:50:14.829Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:a376ccd1782cf87d3a8e -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:a376ccd1782cf87d3a8e -->\n\n### Text\nEditor’s Note: this article is being republished with the permission of the Irregular Warfare Initiative as part of a republishing arrangement between IWI and SWJ. The original article was published on March 24, 2026 and is available here.  Moldova’s September elections reaffirmed its pro-EU course, but continued and increased Russian hybrid and military pressure make constitutional neutrality untenable. Russia’s continued “peacekeeping” presence within &#8230;\n Read more\n The post Neutrality as Vulnerability: Russia’s Hybrid Playbook in Moldova appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T06:00:04.000Z\ningested_at: 2026-05-28T06:50:14.829Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/28/neutrality-as-vulnerability-russias-hybrid-playbook-in-moldova/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTION…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1432",
+      "number": 1432,
+      "id": "4538333981",
+      "ts": "2026-05-28T05:27:05.075Z",
+      "chronology_ts": "2026-05-28T05:27:05.075Z",
+      "issue_created_at": "2026-05-28T06:50:04.000Z",
+      "source_published_at": "2026-05-28T05:27:05.075Z",
+      "ingested_at": "2026-05-28T06:50:03.108Z",
+      "title": "[BSKY] Amazing, new challenge unlocked. Thank you!",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1432",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmvbxcqjek2m",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmvbxcqjek2m",
+        "source_published_at": "2026-05-28T05:27:05.075Z",
+        "ingested_at": "2026-05-28T06:50:03.108Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:6527a4336ee6e61d7c4e -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:6527a4336ee6e61d7c4e -->\n\n### Text\nAmazing, new challenge unlocked. Thank you!\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T05:27:05.075Z\ningested_at: 2026-05-28T06:50:03.108Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmvbxcqjek2m\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1431",
       "number": 1431,
@@ -255,6 +522,45 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/study-greek-islands-could-benefit-from-floating-nuclear-power-by-2035\n\n### Zeit (UTC)\n2026-05-28T01:16:42Z\n\n### Published\n2026-05-28T01:16:42Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nGreece's utility sector has invested heavily in renewables in recent years, and now generates so much solar power that it faces a high rate of curtai...\n\n---\n_Ingested at 2026-05-28T04:39:19.322827+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b6013ab00fa11ca0 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1438",
+      "number": 1438,
+      "id": "4539062896",
+      "ts": "2026-05-28T00:58:21.000Z",
+      "chronology_ts": "2026-05-28T00:58:21.000Z",
+      "issue_created_at": "2026-05-28T08:53:07.000Z",
+      "source_published_at": "2026-05-28T00:58:21.000Z",
+      "ingested_at": "2026-05-28T00:58:21.000Z",
+      "title": "[RSS] Russia's \"Syria Express\" Convoys May Be Combining Multiple AIS Tricks",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1438",
+      "original_url": "https://maritime-executive.com/article/russia-s-syria-express-convoys-may-be-combining-multiple-ais-tricks",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/russia-s-syria-express-convoys-may-be-combining-multiple-ais-tricks",
+        "source_published_at": "2026-05-28T00:58:21.000Z",
+        "ingested_at": "2026-05-28T00:58:21.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/russia-s-syria-express-convoys-may-be-combining-multiple-ais-tricks\n\n### Zeit (UTC)\n2026-05-28T00:58:21Z\n\n### Published\n2026-05-28T00:58:21Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAfter withdrawing significant military assets from Syria after the fall of Bashar al-Assad at the end of 2024, Russia appears interested in reestabli...\n\n---\n_Ingested at 2026-05-28T08:53:07.351461+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 907666c2168f1035 -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1429",
