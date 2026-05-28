@@ -85,6 +85,20 @@
       background: rgba(255,255,255,.04);
     }
 
+
+    .healthBar{margin-bottom:12px; padding:8px 10px;}
+    .healthGrid{display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:8px; align-items:stretch;}
+    .healthItem{min-width:0; border:1px solid rgba(176,136,0,.34); background:rgba(0,0,0,.22); border-radius:10px; padding:7px 8px; display:flex; flex-direction:column; gap:4px; min-height:58px;}
+    .healthTop{display:flex; align-items:center; gap:8px; min-width:0;}
+    .lamp{width:12px; height:12px; border-radius:50%; flex:0 0 12px; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset, 0 0 10px rgba(255,255,255,.12);}
+    .lamp.green{background:var(--ok); box-shadow:0 0 10px rgba(51,209,122,.45)}
+    .lamp.orange{background:var(--orange); box-shadow:0 0 10px rgba(255,138,0,.45)}
+    .lamp.red{background:var(--bad); box-shadow:0 0 10px rgba(255,77,77,.45)}
+    .lamp.gray{background:var(--muted); box-shadow:none}
+    .healthLabel{font-size:17px; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .healthMeta{font-size:14px; color:var(--money); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .healthReason{font-size:13px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
     .grid{
       display:grid;
       grid-template-columns: 1.6fr 1fr;
@@ -723,6 +737,7 @@
     }
 
     @media (max-width: 1100px){
+      .healthGrid{grid-template-columns:repeat(3,minmax(0,1fr));}
       .grid{grid-template-columns:1fr;}
       #map{height:460px;}
       .controls{grid-template-columns:1fr 1fr;}
@@ -736,6 +751,7 @@
       .weatherGrid{grid-template-columns:1fr;}
     }
     @media (max-width: 560px){
+      .healthGrid{grid-template-columns:repeat(2,minmax(0,1fr));}
       .controls{grid-template-columns:1fr;}
       .seismoLegend{grid-template-columns:1fr;}
       .sideGrid .weatherGrid{grid-template-columns:1fr;}
@@ -752,7 +768,7 @@
       <div class="brand">
         <div class="brandLine">
           <h1>MAGIC PAWS // MARITIME PHASE ZERO</h1>
-          <span class="ver">v5.32 “Social + Geo Controls”</span>
+          <span class="ver">v5.40 “System Health Lamps”</span>
         </div>
         <div class="sub">
           Source: <span id="src">–</span> • Stand: <span id="stand">–</span> • Worker: <span class="hint" id="wkr">–</span>
@@ -774,6 +790,12 @@
           <button class="btn secondary" id="btnExport">REPORT EXPORT</button>
           <button class="btn secondary" id="btnArchiveExport">LOG/ARCHIV EXPORT</button>
         </div>
+      </div>
+    </div>
+
+    <div class="panel healthBar">
+      <div class="healthGrid" id="healthStrip">
+        <div class="healthItem"><div class="healthTop"><span class="lamp gray"></span><span class="healthLabel">System Health</span></div><div class="healthMeta">lädt …</div><div class="healthReason">Status wird berechnet</div></div>
       </div>
     </div>
 
@@ -1109,7 +1131,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
     sensorLatest: "./data/snapshots/magicpaws_sensor_latest.json",
     aisLatest: "./data/live/ais_latest.json",
     aisDrift: "./data/live/ais_drift_candidates.json",
-    adsbLatest: "./data/live/adsb_latest.json"
+    adsbLatest: "./data/live/adsb_latest.json",
+    ntfyState: "./data/live/ais_drift_alert_state.json"
   };
 
   // show worker host
@@ -1127,7 +1150,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     navtexData: null,
     navtexMiniMap: null,
     navtexMiniLayers: null,
-    liveSensors: { ais:null, adsb:null, drift:null },
+    liveSensors: { ais:null, adsb:null, drift:null, ntfy:null },
     liveEvents: [],
     archiveEvents: [],
     dailySummary: [],
@@ -1441,6 +1464,119 @@ Wilhelmshaven JadeWeserPort"></textarea>
     }
     return { level, score, reasons, rank: priorityAlertRank(level) };
   }
+
+  function generatedMs(obj){
+    if (!obj || typeof obj !== "object") return 0;
+    const fields = [obj.generated_at, obj.updated_at, obj.last_updated, obj.fetched_at, obj.timestamp, obj.last_success_at, obj.ts];
+    for (const f of fields){ const ms = parseDateMs(f); if (ms) return ms; }
+    return 0;
+  }
+  function ageMinutesFromObj(obj){
+    const ms = generatedMs(obj);
+    return ms ? Math.max(0, (Date.now() - ms) / 60000) : Infinity;
+  }
+  function fmtAgeMinutes(mins){
+    if (!Number.isFinite(mins)) return "ohne Zeit";
+    if (mins < 90) return `${Math.round(mins)} min`;
+    const hrs = mins / 60;
+    if (hrs < 48) return `${hrs.toFixed(1).replace('.',',')} h`;
+    return `${(hrs/24).toFixed(1).replace('.',',')} d`;
+  }
+  function countItems(obj){
+    if (!obj || typeof obj !== "object") return 0;
+    if (Array.isArray(obj.items)) return obj.items.length;
+    if (Array.isArray(obj.events)) return obj.events.length;
+    if (Array.isArray(obj.vessels)) return obj.vessels.length;
+    if (Number.isFinite(Number(obj.item_count))) return Number(obj.item_count);
+    if (Number.isFinite(Number(obj.count))) return Number(obj.count);
+    return 0;
+  }
+  function healthStatusByAge(ageM, greenMax, orangeMax){
+    if (!Number.isFinite(ageM)) return "red";
+    if (ageM <= greenMax) return "green";
+    if (ageM <= orangeMax) return "orange";
+    return "red";
+  }
+  function getHealthSystems(){
+    const hours = selectedDisplayWindowHours();
+    const relevant = state.events.filter(ev => isWithinHours(ev, hours));
+    const geoHits = relevant.filter(ev => ev.geo || (Array.isArray(ev.geo_candidates) && ev.geo_candidates.length)).length;
+    const geoRate = relevant.length ? geoHits / relevant.length : 0;
+    const uniqueSources = new Set(relevant.map(ev => String(ev.source_name || ev.source || ev.domain || "?")).filter(Boolean));
+    const latestEventAgeM = state.events.length ? Math.max(0, (Date.now() - getEventChronologyMs(state.events[0]))/60000) : Infinity;
+    const recent24 = state.events.filter(ev => isWithinHours(ev, 24)).length;
+
+    const ais = state.liveSensors.ais;
+    const aisCount = countItems(ais);
+    const aisAge = ageMinutesFromObj(ais);
+    let aisStatus = !ais ? 'red' : healthStatusByAge(aisAge,45,120);
+    if (aisStatus === 'green' && aisCount <= 0) aisStatus = 'orange';
+    if (ais?.error) aisStatus = 'red';
+
+    const adsb = state.liveSensors.adsb;
+    const adsbCount = countItems(adsb);
+    const adsbAge = ageMinutesFromObj(adsb);
+    let adsbStatus = !adsb ? 'red' : healthStatusByAge(adsbAge,25,60);
+    if (adsbStatus === 'green' && adsbCount <= 0) adsbStatus = 'orange';
+    if (adsb?.error) adsbStatus = 'red';
+
+    const drift = state.liveSensors.drift;
+    const driftCount = countItems(drift);
+    const driftAge = ageMinutesFromObj(drift);
+    let driftStatus = !drift ? 'red' : healthStatusByAge(driftAge,45,120);
+    if (drift?.error) driftStatus = 'red';
+
+    let ingestStatus = 'red';
+    if (latestEventAgeM <= 120 && recent24 >= 3) ingestStatus = 'green';
+    else if (latestEventAgeM <= 360 || recent24 > 0) ingestStatus = 'orange';
+
+    const snap = state.repoArchive.sensorLatest;
+    const snapAge = ageMinutesFromObj(snap);
+    const snapStatus = !snap ? 'red' : healthStatusByAge(snapAge,240,480);
+
+    let geoStatus = 'red';
+    if (geoRate >= 0.55) geoStatus = 'green'; else if (geoRate >= 0.30) geoStatus = 'orange';
+
+    let srcStatus = 'red';
+    if (uniqueSources.size >= 8) srcStatus = 'green'; else if (uniqueSources.size >= 4) srcStatus = 'orange';
+
+    const nav = state.navtexData;
+    const navAge = ageMinutesFromObj(nav);
+    let navStatus = !nav ? 'red' : healthStatusByAge(navAge,240,720);
+    const navItems = Array.isArray(nav?.items) ? nav.items.length : Number(nav?.item_count || 0);
+    if (navStatus === 'green' && navItems <= 0) navStatus = 'orange';
+
+    const ntfy = state.liveSensors.ntfy;
+    let ntfyStatus = 'orange';
+    let ntfyReason = 'State-Datei fehlt';
+    if (ntfy){
+      const age = ageMinutesFromObj(ntfy);
+      ntfyStatus = healthStatusByAge(age, 720, 2880);
+      const sent = Number(ntfy.sent_count || ntfy.alerts_sent || 0);
+      ntfyReason = `State ${fmtAgeMinutes(age)} • gesendet ${sent}`;
+      if (ntfy?.error) { ntfyStatus = 'red'; ntfyReason = ntfy.error; }
+    }
+
+    const systems = [
+      { key:'ais', label:'AISstream', status:aisStatus, meta:`${aisCount} Ziele • ${fmtAgeMinutes(aisAge)}`, reason:ais?.error || (aisCount <= 0 ? 'Datei frisch, aber leer oder kein Treffer' : 'Live-AIS-Datei frisch') },
+      { key:'adsb', label:'ADS-B', status:adsbStatus, meta:`${adsbCount} Tracks • ${fmtAgeMinutes(adsbAge)}`, reason:adsb?.error || (adsbCount <= 0 ? 'Datei leer oder Feed ohne Treffer' : 'ADS-B-Datei frisch') },
+      { key:'drift', label:'Drift', status:driftStatus, meta:`${driftCount} Kandidaten • ${fmtAgeMinutes(driftAge)}`, reason:drift?.error || 'AIS Drift Detector' },
+      { key:'ingest', label:'Ingest', status:ingestStatus, meta:`${recent24} Events / 24h`, reason:`Neuestes Event ${fmtAgeMinutes(latestEventAgeM)} alt` },
+      { key:'snapshot', label:'Snapshot', status:snapStatus, meta:fmtAgeMinutes(snapAge), reason:snap ? 'Sensor-Snapshot' : 'Snapshot-Datei fehlt' },
+      { key:'ntfy', label:'ntfy', status:ntfyStatus, meta:ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : 'ohne State', reason:ntfyReason },
+      { key:'geo', label:'Geo/Gazetteer', status:geoStatus, meta:`${(geoRate*100).toFixed(0)}% GEO`, reason:`${geoHits}/${relevant.length || 0} Meldungen mit Geo oder Kandidaten` },
+      { key:'sources', label:'Sources', status:srcStatus, meta:`${uniqueSources.size} Quellen`, reason:'aktive Quellen im aktuellen Arbeitsfenster' },
+      { key:'navtex', label:'NAVTEX', status:navStatus, meta:`${navItems} Meldungen`, reason:nav ? `NAVWARN/NAVTEX • ${fmtAgeMinutes(navAge)}` : 'NAVTEX/NAVWARN nicht geladen' }
+    ];
+    return systems;
+  }
+  function renderHealthStrip(){
+    const box = el('healthStrip');
+    if (!box) return;
+    const systems = getHealthSystems();
+    box.innerHTML = systems.map(s => `<div class="healthItem" title="${escapeHtml(s.reason || '')}"><div class="healthTop"><span class="lamp ${escapeHtml(s.status || 'gray')}"></span><span class="healthLabel">${escapeHtml(s.label)}</span></div><div class="healthMeta">${escapeHtml(s.meta || '–')}</div><div class="healthReason">${escapeHtml(s.reason || '')}</div></div>`).join('');
+  }
+
   function renderPriorityAlerts(){
     const box = el("priorityAlerts");
     if (!box) return;
@@ -1495,6 +1631,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.filtered = filtered;
     updateLogWindowNote();
     renderPriorityAlerts();
+    renderHealthStrip();
 
     renderEvents();
     updateKPIsAndInstruments();
@@ -1647,14 +1784,15 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
 
   async function loadRepoArchiveBase(){
-    const [activePack, manifest, dailyPack, sensorLatest, aisLatest, aisDrift, adsbLatest] = await Promise.all([
+    const [activePack, manifest, dailyPack, sensorLatest, aisLatest, aisDrift, adsbLatest, ntfyState] = await Promise.all([
       fetchRepoJsonMaybe(REPO_DATA.active20d, "20d-log"),
       fetchRepoJsonMaybe(REPO_DATA.manifest, "archive-manifest"),
       fetchRepoJsonMaybe(REPO_DATA.dailySummary, "daily-summary"),
       fetchRepoJsonMaybe(REPO_DATA.sensorLatest, "sensor-latest"),
       fetchRepoJsonMaybe(REPO_DATA.aisLatest, "ais-live"),
       fetchRepoJsonMaybe(REPO_DATA.aisDrift, "ais-drift"),
-      fetchRepoJsonMaybe(REPO_DATA.adsbLatest, "adsb-live")
+      fetchRepoJsonMaybe(REPO_DATA.adsbLatest, "adsb-live"),
+      fetchRepoJsonMaybe(REPO_DATA.ntfyState, "ntfy-state")
     ]);
 
     const activeEvents = Array.isArray(activePack?.events) ? activePack.events : [];
@@ -1665,6 +1803,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.liveSensors.ais = aisLatest;
     state.liveSensors.drift = aisDrift;
     state.liveSensors.adsb = adsbLatest;
+    state.liveSensors.ntfy = ntfyState;
 
     const manifestCount = Number(manifest?.total_events || 0);
     const activeCount = activeEvents.length;
