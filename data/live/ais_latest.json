@@ -1,7 +1,7 @@
 {
   "ok": true,
   "source": "aisstream",
-  "generated_at": "2026-05-28T11:22:25.895Z",
+  "generated_at": "2026-05-28T11:36:35.613Z",
   "window_seconds": 1,
   "sample_seconds_requested": 120,
   "regions": [
