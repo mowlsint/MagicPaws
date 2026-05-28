@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.39 "AIS Drift + Length Filter"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.41 "Sources Health"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -1555,15 +1555,18 @@ Wilhelmshaven JadeWeserPort"></textarea>
 
   function summaryBlockField(text, header){
     const raw = String(text ?? "");
-    const re = new RegExp(`###\s*${header}\s*\n([^\n\r]+)`, "i");
+    const escapedHeader = String(header ?? "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const re = new RegExp(`###\\s*${escapedHeader}\\s*\\n\\s*([^\\n\\r]+)`, "i");
     return (raw.match(re) || [])[1]?.trim() || "";
   }
   function sourceNameForHealth(ev){
     const labels = Array.isArray(ev?.labels) ? ev.labels : [];
-    const srcLabel = labels.find(x => /^SRC:/i.test(String(x || "")));
+    const srcLabels = labels.filter(x => /^SRC:/i.test(String(x || ""))).map(x => String(x).replace(/^SRC:/i, "SRC:"));
+    const sourceHint = ev?.source_hint || {};
     const candidates = [
-      ev?.source_hint?.source,
-      ev?.source_hint?.platform,
+      sourceHint.source,
+      sourceHint.name,
+      sourceHint.platform,
       ev?.source_line,
       ev?.source_id,
       ev?.source_type,
@@ -1571,15 +1574,38 @@ Wilhelmshaven JadeWeserPort"></textarea>
       ev?.source_name,
       ev?.domain,
       summaryBlockField(ev?.summary, "Quelle"),
-      summaryBlockField(ev?.summary, "Source"),
-      srcLabel
+      summaryBlockField(ev?.summary, "Source")
     ].map(x => String(x ?? "").trim()).filter(Boolean);
-    for (const c of candidates){
-      if (!/^https?:\/\//i.test(c) && c !== "?" && c.toLowerCase() !== "unknown") return c;
+
+    for (let c of candidates){
+      c = c.replace(/\s+\([^()]{2,80}\)\s*$/, "").trim();
+      if (!c || c === "?" || c.toLowerCase() === "unknown") continue;
+      if (/^https?:\/\//i.test(c)) {
+        try { return new URL(c).hostname.replace(/^www\./, ""); } catch(_e) { continue; }
+      }
+      if (/^(rss|html|social|social_x|social_bsky)$/i.test(c)) continue;
+      return c;
     }
-    const url = String(ev?.original_url || ev?.link || ev?.url || "");
-    try { return new URL(url).hostname.replace(/^www\./, ""); } catch(_e) {}
+
+    const url = String(ev?.original_url || sourceHint.link || ev?.link || ev?.url || "");
+    try {
+      const host = new URL(url).hostname.replace(/^www\./, "");
+      if (host && !/github\.com$/i.test(host)) return host;
+    } catch(_e) {}
+
+    const usableSrc = srcLabels.find(x => !/^SRC:(OSINT|SOCIAL|MEDIA|OFFICIAL)$/i.test(x));
+    if (usableSrc) return usableSrc;
     return "unknown";
+  }
+  function sourceTypeForHealth(ev){
+    const kind = sourceKind(ev);
+    if (kind) return kind;
+    const labels = Array.isArray(ev?.labels) ? ev.labels.join(" ") : "";
+    if (/SRC:OFFICIAL/i.test(labels)) return "official";
+    if (/SRC:MEDIA/i.test(labels)) return "media";
+    if (/SRC:SOCIAL/i.test(labels)) return "social";
+    if (/SRC:ANALYSIS|SRC:THINKTANK/i.test(labels)) return "analysis";
+    return String(ev?.source_type || "unknown").toLowerCase() || "unknown";
   }
   function getHealthSystems(){
     const hours = selectedDisplayWindowHours();
@@ -1587,6 +1613,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const geoHits = relevant.filter(ev => ev.geo || (Array.isArray(ev.geo_candidates) && ev.geo_candidates.length)).length;
     const geoRate = relevant.length ? geoHits / relevant.length : 0;
     const uniqueSources = new Set(relevant.map(sourceNameForHealth).filter(x => x && x !== "unknown"));
+    const sourceTypes = new Set(relevant.map(sourceTypeForHealth).filter(x => x && x !== "unknown"));
     const latestEventAgeM = state.events.length ? Math.max(0, (Date.now() - getEventChronologyMs(state.events[0]))/60000) : Infinity;
     const recent24 = state.events.filter(ev => isWithinHours(ev, 24)).length;
 
@@ -1622,7 +1649,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
     if (geoRate >= 0.35) geoStatus = 'green'; else if (geoRate >= 0.15) geoStatus = 'orange';
 
     let srcStatus = 'red';
-    if (uniqueSources.size >= 8) srcStatus = 'green'; else if (uniqueSources.size >= 4) srcStatus = 'orange';
+    if (uniqueSources.size >= 8 || (uniqueSources.size >= 5 && sourceTypes.size >= 3)) srcStatus = 'green';
+    else if (uniqueSources.size >= 4 || sourceTypes.size >= 2) srcStatus = 'orange';
 
     const nav = state.navtexData;
     const navAge = ageMinutesFromObj(nav);
