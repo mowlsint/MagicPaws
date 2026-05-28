@@ -1,7 +1,7 @@
 {
   "version": 6,
   "name": "MAGIC PAWS Maritime Gazetteer",
-  "description": "Controlled maritime gazetteer for inferred geolocation. MAGIC PAWS / MARITIME PHASE ZERO. Expanded global v4: adds a larger Atlantic trade-port package for West Africa, Gulf of Guinea, Brazil, Colombia, Chile, Argentina, Guianas/Suriname and the Caribbean. Exact issue-body coordinates override inferred places. Port coordinates are practical gazetteer anchors, not official survey points. v5.32: adds controlled aliases for Gibraltar, Djibouti, GOA/GOO, Bering Sea, Norfolk and Long Beach with runtime context safeguards. v6: adds route-source oriented ports/chokepoints and Ust-Luga promotion metadata for MAGIC PAWS social geolocation.",
+  "description": "Controlled maritime gazetteer for inferred geolocation. MAGIC PAWS / MARITIME PHASE ZERO. Expanded global v4: adds a larger Atlantic trade-port package for West Africa, Gulf of Guinea, Brazil, Colombia, Chile, Argentina, Guianas/Suriname and the Caribbean. Exact issue-body coordinates override inferred places. Port coordinates are practical gazetteer anchors, not official survey points. v5.32: adds controlled aliases for Gibraltar, Djibouti, GOA/GOO, Bering Sea, Norfolk and Long Beach with runtime context safeguards. v6: adds a broader controlled global maritime hub/chokepoint package and stronger Baltic/Gulf of Finland, West Africa, Caribbean and South America anchors.",
   "places": [
     {
       "id": "north_sea",
@@ -3001,38 +3001,14 @@
         "en": [
           "Ust-Luga",
           "Ust Luga",
-          "Port of Ust-Luga",
-          "Ust Luga port",
-          "Ust-Luga port",
-          "Ust-Luga terminal",
-          "Port Ust Luga"
+          "Port of Ust-Luga"
         ],
         "ru_latin": [
           "Ust-Luga",
           "Ust Luga",
           "Port Ust-Luga"
         ]
-      },
-      "context_required": [
-        "port",
-        "terminal",
-        "tanker",
-        "LNG",
-        "LPG",
-        "Baltic",
-        "Gulf of Finland",
-        "Russia",
-        "vessel",
-        "ship",
-        "AIS"
-      ],
-      "promotion_terms": [
-        "arriving at Ust-Luga",
-        "arrived Ust-Luga",
-        "departed Ust-Luga",
-        "Port of Ust-Luga",
-        "Ust-Luga terminal"
-      ]
+      }
     },
     {
       "id": "port_primorsk_russia",
@@ -10321,52 +10297,439 @@
       }
     },
     {
-      "id": "port_algeciras",
-      "canonical_name": "Algeciras",
-      "type": "port",
-      "precision": "port",
+      "id": "skagen_area",
+      "canonical_name": "Skagen / Kattegat Approaches",
+      "type": "coastal_chokepoint",
+      "precision": "area",
       "center": {
-        "lat": 36.14,
-        "lon": -5.44
+        "lat": 57.72,
+        "lon": 10.6
       },
-      "radius_km": 18,
+      "radius_km": 55,
       "regions": [
-        "REG:MEDITERRANEAN",
-        "REG:STRAIT_GIBRALTAR"
+        "REG:NORTH_SEA",
+        "REG:SKAGERRAK_KATTEGAT",
+        "REG:DANISH_STRAITS"
       ],
       "aliases": {
         "en": [
-          "Algeciras",
-          "Port of Algeciras"
+          "Skagen",
+          "Skagen anchorage",
+          "Skagen roads",
+          "Kattegat approaches"
         ],
-        "es": [
-          "Algeciras",
-          "Puerto de Algeciras"
+        "de": [
+          "Skagen",
+          "Skagen-Reede"
+        ],
+        "da": [
+          "Skagen",
+          "Skagen Red"
         ]
       }
     },
     {
-      "id": "port_tanger_med",
-      "canonical_name": "Tanger Med",
+      "id": "kattegat",
+      "canonical_name": "Kattegat",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": 56.7,
+        "lon": 11.7
+      },
+      "radius_km": 180,
+      "regions": [
+        "REG:NORTH_SEA",
+        "REG:SKAGERRAK_KATTEGAT",
+        "REG:DANISH_STRAITS"
+      ],
+      "aliases": {
+        "en": [
+          "Kattegat"
+        ],
+        "de": [
+          "Kattegat"
+        ],
+        "da": [
+          "Kattegat"
+        ],
+        "sv": [
+          "Kattegatt"
+        ]
+      }
+    },
+    {
+      "id": "skagerrak",
+      "canonical_name": "Skagerrak",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": 57.9,
+        "lon": 8.9
+      },
+      "radius_km": 190,
+      "regions": [
+        "REG:NORTH_SEA",
+        "REG:SKAGERRAK_KATTEGAT"
+      ],
+      "aliases": {
+        "en": [
+          "Skagerrak"
+        ],
+        "de": [
+          "Skagerrak"
+        ],
+        "da": [
+          "Skagerrak"
+        ],
+        "sv": [
+          "Skagerrak"
+        ]
+      }
+    },
+    {
+      "id": "gulf_of_finland",
+      "canonical_name": "Gulf of Finland",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": 59.8,
+        "lon": 26.0
+      },
+      "radius_km": 260,
+      "regions": [
+        "REG:BALTIC",
+        "REG:GULF_OF_FINLAND"
+      ],
+      "aliases": {
+        "en": [
+          "Gulf of Finland"
+        ],
+        "de": [
+          "Finnischer Meerbusen"
+        ],
+        "fi": [
+          "Suomenlahti"
+        ],
+        "et": [
+          "Soome laht"
+        ],
+        "ru_latin": [
+          "Finskiy zaliv"
+        ]
+      }
+    },
+    {
+      "id": "port_primorsk_ru",
+      "canonical_name": "Primorsk",
       "type": "port",
       "precision": "port",
       "center": {
-        "lat": 35.89,
-        "lon": -5.51
+        "lat": 60.35,
+        "lon": 28.67
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:BALTIC",
+        "REG:GULF_OF_FINLAND",
+        "REG:RUSSIA_BALTIC"
+      ],
+      "aliases": {
+        "en": [
+          "Primorsk",
+          "Port of Primorsk",
+          "Primorsk oil terminal"
+        ],
+        "de": [
+          "Primorsk"
+        ],
+        "ru_latin": [
+          "Primorsk"
+        ]
+      }
+    },
+    {
+      "id": "port_kronstadt",
+      "canonical_name": "Kronstadt / St Petersburg Approaches",
+      "type": "port_area",
+      "precision": "port",
+      "center": {
+        "lat": 59.99,
+        "lon": 29.77
+      },
+      "radius_km": 25,
+      "regions": [
+        "REG:BALTIC",
+        "REG:GULF_OF_FINLAND",
+        "REG:RUSSIA_BALTIC"
+      ],
+      "aliases": {
+        "en": [
+          "Kronstadt",
+          "Kronshtadt",
+          "St Petersburg approaches",
+          "Saint Petersburg approaches"
+        ],
+        "de": [
+          "Kronstadt",
+          "Sankt Petersburg Zugänge"
+        ],
+        "ru_latin": [
+          "Kronshtadt",
+          "Sankt-Peterburg"
+        ]
+      }
+    },
+    {
+      "id": "port_muuga_tallinn",
+      "canonical_name": "Muuga / Tallinn",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 59.5,
+        "lon": 24.96
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:BALTIC",
+        "REG:GULF_OF_FINLAND"
+      ],
+      "aliases": {
+        "en": [
+          "Muuga",
+          "Port of Muuga",
+          "Tallinn",
+          "Port of Tallinn"
+        ],
+        "de": [
+          "Muuga",
+          "Tallinn"
+        ],
+        "et": [
+          "Muuga",
+          "Tallinn"
+        ]
+      }
+    },
+    {
+      "id": "port_porvoo_skogby",
+      "canonical_name": "Porvoo / Kilpilahti",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 60.29,
+        "lon": 25.55
+      },
+      "radius_km": 14,
+      "regions": [
+        "REG:BALTIC",
+        "REG:GULF_OF_FINLAND"
+      ],
+      "aliases": {
+        "en": [
+          "Porvoo",
+          "Kilpilahti",
+          "Sköldvik",
+          "Skoldvik",
+          "Porvoo refinery"
+        ],
+        "de": [
+          "Porvoo",
+          "Kilpilahti"
+        ],
+        "fi": [
+          "Porvoo",
+          "Kilpilahti",
+          "Sköldvik"
+        ]
+      }
+    },
+    {
+      "id": "port_naantali_turku",
+      "canonical_name": "Naantali / Turku",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 60.45,
+        "lon": 22.05
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:BALTIC",
+        "REG:GULF_OF_BOTHNIA"
+      ],
+      "aliases": {
+        "en": [
+          "Naantali",
+          "Turku",
+          "Port of Turku",
+          "Port of Naantali"
+        ],
+        "de": [
+          "Naantali",
+          "Turku"
+        ],
+        "fi": [
+          "Naantali",
+          "Turku"
+        ]
+      }
+    },
+    {
+      "id": "red_sea_central",
+      "canonical_name": "Central Red Sea",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": 20.0,
+        "lon": 38.5
+      },
+      "radius_km": 650,
+      "regions": [
+        "REG:RED_SEA"
+      ],
+      "aliases": {
+        "en": [
+          "Red Sea",
+          "Central Red Sea"
+        ],
+        "de": [
+          "Rotes Meer"
+        ],
+        "ar_latin": [
+          "Al Bahr al Ahmar"
+        ]
+      }
+    },
+    {
+      "id": "gulf_of_suez",
+      "canonical_name": "Gulf of Suez",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": 28.5,
+        "lon": 33.0
+      },
+      "radius_km": 190,
+      "regions": [
+        "REG:RED_SEA",
+        "REG:SUEZ"
+      ],
+      "aliases": {
+        "en": [
+          "Gulf of Suez"
+        ],
+        "de": [
+          "Golf von Suez"
+        ],
+        "ar_latin": [
+          "Khalij as Suways"
+        ]
+      }
+    },
+    {
+      "id": "gulf_of_aqaba",
+      "canonical_name": "Gulf of Aqaba",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": 28.7,
+        "lon": 34.7
+      },
+      "radius_km": 160,
+      "regions": [
+        "REG:RED_SEA"
+      ],
+      "aliases": {
+        "en": [
+          "Gulf of Aqaba",
+          "Gulf of Eilat"
+        ],
+        "de": [
+          "Golf von Akaba",
+          "Golf von Eilat"
+        ]
+      }
+    },
+    {
+      "id": "port_port_said",
+      "canonical_name": "Port Said",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 31.25,
+        "lon": 32.3
       },
       "radius_km": 18,
       "regions": [
         "REG:MEDITERRANEAN",
-        "REG:STRAIT_GIBRALTAR"
+        "REG:SUEZ"
       ],
       "aliases": {
         "en": [
-          "Tanger Med",
-          "Tangier Med",
-          "Port of Tanger Med"
+          "Port Said",
+          "Port Said anchorage"
         ],
-        "fr": [
-          "Tanger Med"
+        "de": [
+          "Port Said"
+        ],
+        "ar_latin": [
+          "Bur Said"
+        ]
+      }
+    },
+    {
+      "id": "port_suez",
+      "canonical_name": "Suez",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 29.97,
+        "lon": 32.55
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:RED_SEA",
+        "REG:SUEZ"
+      ],
+      "aliases": {
+        "en": [
+          "Suez",
+          "Port of Suez"
+        ],
+        "de": [
+          "Suez",
+          "Sues"
+        ],
+        "ar_latin": [
+          "As Suways"
+        ]
+      }
+    },
+    {
+      "id": "port_jeddah",
+      "canonical_name": "Jeddah",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 21.48,
+        "lon": 39.17
+      },
+      "radius_km": 22,
+      "regions": [
+        "REG:RED_SEA"
+      ],
+      "aliases": {
+        "en": [
+          "Jeddah",
+          "Jeddah Islamic Port"
+        ],
+        "de": [
+          "Dschidda",
+          "Jeddah"
+        ],
+        "ar_latin": [
+          "Jiddah"
         ]
       }
     },
@@ -10381,14 +10744,99 @@
       },
       "radius_km": 25,
       "regions": [
-        "REG:PERSIAN_GULF",
-        "REG:GULF_OF_OMAN"
+        "REG:GULF_OF_OMAN",
+        "REG:PERSIAN_GULF"
       ],
       "aliases": {
         "en": [
           "Fujairah",
           "Port of Fujairah",
           "Fujairah anchorage"
+        ],
+        "de": [
+          "Fudschaira",
+          "Fujairah"
+        ],
+        "ar_latin": [
+          "Al Fujayrah"
+        ]
+      }
+    },
+    {
+      "id": "port_khor_fakkan",
+      "canonical_name": "Khor Fakkan",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 25.35,
+        "lon": 56.37
+      },
+      "radius_km": 16,
+      "regions": [
+        "REG:GULF_OF_OMAN",
+        "REG:PERSIAN_GULF"
+      ],
+      "aliases": {
+        "en": [
+          "Khor Fakkan",
+          "Khorfakkan",
+          "Port of Khor Fakkan"
+        ],
+        "de": [
+          "Khor Fakkan"
+        ]
+      }
+    },
+    {
+      "id": "port_jebel_ali",
+      "canonical_name": "Jebel Ali",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 25.02,
+        "lon": 55.07
+      },
+      "radius_km": 25,
+      "regions": [
+        "REG:PERSIAN_GULF"
+      ],
+      "aliases": {
+        "en": [
+          "Jebel Ali",
+          "Jebel Ali Port",
+          "Port of Jebel Ali"
+        ],
+        "de": [
+          "Dschabal Ali",
+          "Jebel Ali"
+        ]
+      }
+    },
+    {
+      "id": "strait_malacca",
+      "canonical_name": "Strait of Malacca",
+      "type": "strait",
+      "precision": "area",
+      "center": {
+        "lat": 3.7,
+        "lon": 99.0
+      },
+      "radius_km": 520,
+      "regions": [
+        "REG:SOUTHEAST_ASIA",
+        "REG:MALACCA_STRAIT"
+      ],
+      "aliases": {
+        "en": [
+          "Strait of Malacca",
+          "Malacca Strait"
+        ],
+        "de": [
+          "Straße von Malakka",
+          "Strasse von Malakka"
+        ],
+        "ms": [
+          "Selat Melaka"
         ]
       }
     },
@@ -10398,39 +10846,320 @@
       "type": "port",
       "precision": "port",
       "center": {
-        "lat": 1.264,
+        "lat": 1.27,
         "lon": 103.84
       },
-      "radius_km": 30,
+      "radius_km": 28,
       "regions": [
-        "REG:SINGAPORE_STRAIT",
-        "REG:SOUTHEAST_ASIA"
+        "REG:SOUTHEAST_ASIA",
+        "REG:SINGAPORE_STRAIT"
       ],
       "aliases": {
         "en": [
           "Singapore",
           "Port of Singapore",
           "Singapore port"
+        ],
+        "de": [
+          "Singapur",
+          "Hafen Singapur"
         ]
       }
     },
     {
-      "id": "port_colombo",
-      "canonical_name": "Colombo",
-      "type": "port",
-      "precision": "port",
+      "id": "luzon_strait",
+      "canonical_name": "Luzon Strait",
+      "type": "strait",
+      "precision": "area",
       "center": {
-        "lat": 6.95,
-        "lon": 79.84
+        "lat": 20.5,
+        "lon": 121.0
       },
-      "radius_km": 18,
+      "radius_km": 260,
       "regions": [
+        "REG:LUZON_STRAIT",
+        "REG:EAST_ASIA"
+      ],
+      "aliases": {
+        "en": [
+          "Luzon Strait"
+        ],
+        "de": [
+          "Luzonstraße",
+          "Luzonstrasse"
+        ]
+      }
+    },
+    {
+      "id": "korea_strait",
+      "canonical_name": "Korea Strait",
+      "type": "strait",
+      "precision": "area",
+      "center": {
+        "lat": 34.5,
+        "lon": 129.0
+      },
+      "radius_km": 170,
+      "regions": [
+        "REG:KOREA_STRAIT",
+        "REG:EAST_ASIA"
+      ],
+      "aliases": {
+        "en": [
+          "Korea Strait",
+          "Tsushima Strait"
+        ],
+        "de": [
+          "Koreastraße",
+          "Tsushimastraße"
+        ]
+      }
+    },
+    {
+      "id": "bosporus",
+      "canonical_name": "Bosporus",
+      "type": "strait",
+      "precision": "area",
+      "center": {
+        "lat": 41.12,
+        "lon": 29.05
+      },
+      "radius_km": 35,
+      "regions": [
+        "REG:BLACK_SEA",
+        "REG:TURKISH_STRAITS"
+      ],
+      "aliases": {
+        "en": [
+          "Bosporus",
+          "Bosphorus",
+          "Istanbul Strait"
+        ],
+        "de": [
+          "Bosporus"
+        ],
+        "tr": [
+          "İstanbul Boğazı",
+          "Istanbul Bogazi"
+        ]
+      }
+    },
+    {
+      "id": "dardanelles",
+      "canonical_name": "Dardanelles",
+      "type": "strait",
+      "precision": "area",
+      "center": {
+        "lat": 40.15,
+        "lon": 26.4
+      },
+      "radius_km": 70,
+      "regions": [
+        "REG:MEDITERRANEAN",
+        "REG:TURKISH_STRAITS"
+      ],
+      "aliases": {
+        "en": [
+          "Dardanelles",
+          "Çanakkale Strait",
+          "Canakkale Strait"
+        ],
+        "de": [
+          "Dardanellen"
+        ],
+        "tr": [
+          "Çanakkale Boğazı",
+          "Canakkale Bogazi"
+        ]
+      }
+    },
+    {
+      "id": "cape_good_hope",
+      "canonical_name": "Cape of Good Hope / Cape Town Approaches",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": -34.3,
+        "lon": 18.3
+      },
+      "radius_km": 220,
+      "regions": [
+        "REG:SOUTH_AFRICA",
+        "REG:ATLANTIC_SOUTH",
         "REG:INDIAN_OCEAN"
       ],
       "aliases": {
         "en": [
-          "Colombo",
-          "Port of Colombo"
+          "Cape of Good Hope",
+          "Cape Town approaches",
+          "Cape route"
+        ],
+        "de": [
+          "Kap der Guten Hoffnung",
+          "Kapstadt-Zufahrt"
+        ]
+      }
+    },
+    {
+      "id": "mozambique_channel",
+      "canonical_name": "Mozambique Channel",
+      "type": "sea_area",
+      "precision": "area",
+      "center": {
+        "lat": -18.0,
+        "lon": 41.0
+      },
+      "radius_km": 800,
+      "regions": [
+        "REG:MOZAMBIQUE_CHANNEL",
+        "REG:INDIAN_OCEAN"
+      ],
+      "aliases": {
+        "en": [
+          "Mozambique Channel"
+        ],
+        "de": [
+          "Mosambik-Kanal",
+          "Mosambikkanal"
+        ]
+      }
+    },
+    {
+      "id": "port_colon",
+      "canonical_name": "Colon / Cristobal",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 9.36,
+        "lon": -79.9
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:CARIBBEAN",
+        "REG:PANAMA_CANAL"
+      ],
+      "aliases": {
+        "en": [
+          "Colon",
+          "Colón",
+          "Cristobal",
+          "Port of Cristobal"
+        ],
+        "de": [
+          "Colón",
+          "Colon"
+        ]
+      }
+    },
+    {
+      "id": "port_lagos_apapa",
+      "canonical_name": "Lagos / Apapa",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 6.45,
+        "lon": 3.36
+      },
+      "radius_km": 28,
+      "regions": [
+        "REG:GULF_OF_GUINEA",
+        "REG:WEST_AFRICA"
+      ],
+      "aliases": {
+        "en": [
+          "Lagos",
+          "Apapa",
+          "Tin Can Island",
+          "Port of Lagos"
+        ],
+        "de": [
+          "Lagos",
+          "Apapa"
+        ]
+      }
+    },
+    {
+      "id": "port_cartagena_co",
+      "canonical_name": "Cartagena",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 10.4,
+        "lon": -75.53
+      },
+      "radius_km": 22,
+      "regions": [
+        "REG:CARIBBEAN",
+        "REG:SOUTH_AMERICA_NORTH"
+      ],
+      "aliases": {
+        "en": [
+          "Cartagena",
+          "Cartagena Colombia",
+          "Port of Cartagena"
+        ],
+        "de": [
+          "Cartagena",
+          "Cartagena Kolumbien"
+        ],
+        "es": [
+          "Cartagena",
+          "Cartagena de Indias"
+        ]
+      }
+    },
+    {
+      "id": "port_georgetown_gy",
+      "canonical_name": "Georgetown Guyana",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": 6.8,
+        "lon": -58.17
+      },
+      "radius_km": 18,
+      "regions": [
+        "REG:GUIANAS",
+        "REG:CARIBBEAN"
+      ],
+      "aliases": {
+        "en": [
+          "Georgetown Guyana",
+          "Port of Georgetown",
+          "Georgetown, Guyana"
+        ],
+        "de": [
+          "Georgetown Guyana"
+        ]
+      }
+    },
+    {
+      "id": "port_santos_context",
+      "canonical_name": "Santos",
+      "type": "port",
+      "precision": "port",
+      "center": {
+        "lat": -23.96,
+        "lon": -46.3
+      },
+      "radius_km": 26,
+      "regions": [
+        "REG:SOUTH_AMERICA_EAST",
+        "REG:ATLANTIC_SOUTH"
+      ],
+      "aliases": {
+        "en": [
+          "Port of Santos",
+          "Santos port",
+          "Santos Brazil"
+        ],
+        "de": [
+          "Hafen Santos",
+          "Santos Brasilien"
+        ],
+        "pt": [
+          "Porto de Santos",
+          "Santos"
         ]
       }
     }
