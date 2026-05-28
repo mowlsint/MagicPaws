@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.41 "Sources Health"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.42 "NAVTEX Health"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -1522,6 +1522,66 @@ Wilhelmshaven JadeWeserPort"></textarea>
     if (Number.isFinite(Number(obj.count))) return Number(obj.count);
     return 0;
   }
+  function navtexItemsFromData(nav){
+    if (!nav || typeof nav !== "object") return [];
+    if (Array.isArray(nav.items)) return nav.items;
+    if (Array.isArray(nav.events)) return nav.events;
+    if (Array.isArray(nav.warnings)) return nav.warnings;
+    if (Array.isArray(nav.messages)) return nav.messages;
+    if (Array.isArray(nav.data)) return nav.data;
+    return [];
+  }
+  function navtexItemMs(item){
+    if (!item || typeof item !== "object") return 0;
+    const fields = [
+      item.ts, item.time, item.date, item.datetime, item.created_at, item.updated_at,
+      item.published_at, item.published, item.valid_from, item.issue_time, item.generated_at
+    ];
+    for (const f of fields){
+      const ms = parseDateMs(f);
+      if (ms) return ms;
+    }
+    return 0;
+  }
+  function navtexHealth(nav){
+    if (!nav) {
+      return { status:"red", itemCount:0, ageMinutes:Infinity, reason:"NAVTEX/NAVWARN nicht geladen oder Endpoint fehlt" };
+    }
+    if (nav.error || nav.ok === false) {
+      return { status:"red", itemCount:0, ageMinutes:Infinity, reason:String(nav.error || "NAVTEX/NAVWARN meldet ok:false") };
+    }
+
+    const items = navtexItemsFromData(nav);
+    const itemCount = items.length || Number(nav.item_count || nav.count || 0) || 0;
+    const generatedAge = ageMinutesFromObj(nav);
+
+    let newestItemMs = 0;
+    for (const it of items) newestItemMs = Math.max(newestItemMs, navtexItemMs(it));
+    const newestAge = newestItemMs ? Math.max(0, (Date.now() - newestItemMs) / 60000) : generatedAge;
+
+    if (itemCount <= 0) {
+      return {
+        status:"orange",
+        itemCount,
+        ageMinutes:generatedAge,
+        reason:`Endpoint erreichbar, aber aktuell 0 Items • Datei ${fmtAgeMinutes(generatedAge)} alt`
+      };
+    }
+
+    if (!Number.isFinite(newestAge)) {
+      return { status:"orange", itemCount, ageMinutes:newestAge, reason:`${itemCount} Items, aber ohne auswertbaren Zeitstempel` };
+    }
+
+    if (newestAge > 48 * 60) {
+      return { status:"red", itemCount, ageMinutes:newestAge, reason:`jüngste NAVTEX/NAVWARN-Daten ${fmtAgeMinutes(newestAge)} alt` };
+    }
+
+    if (newestAge > 24 * 60) {
+      return { status:"orange", itemCount, ageMinutes:newestAge, reason:`jüngste NAVTEX/NAVWARN-Daten älter als 24h: ${fmtAgeMinutes(newestAge)}` };
+    }
+
+    return { status:"green", itemCount, ageMinutes:newestAge, reason:`frische NAVTEX/NAVWARN-Daten • jüngstes Item ${fmtAgeMinutes(newestAge)} alt` };
+  }
   function healthStatusByAge(ageM, greenMax, orangeMax){
     if (!Number.isFinite(ageM)) return "red";
     if (ageM <= greenMax) return "green";
@@ -1653,10 +1713,10 @@ Wilhelmshaven JadeWeserPort"></textarea>
     else if (uniqueSources.size >= 4 || sourceTypes.size >= 2) srcStatus = 'orange';
 
     const nav = state.navtexData;
-    const navAge = ageMinutesFromObj(nav);
-    let navStatus = !nav ? 'red' : healthStatusByAge(navAge,240,720);
-    const navItems = Array.isArray(nav?.items) ? nav.items.length : Number(nav?.item_count || 0);
-    if (navStatus === 'green' && navItems <= 0) navStatus = 'orange';
+    const navHealth = navtexHealth(nav);
+    const navAge = navHealth.ageMinutes;
+    const navStatus = navHealth.status;
+    const navItems = navHealth.itemCount;
 
     const ntfy = state.liveSensors.ntfy;
     let ntfyStatus = 'orange';
@@ -1686,8 +1746,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
         details: [["Arbeitsfenster",hours === null ? "Archiv komplett" : `${hours}h`],["Geo Treffer",`${geoHits}/${relevant.length || 0}`],["Geo Rate",`${(geoRate*100).toFixed(1)}%`],["Schwelle","grün ≥55%, orange ≥30%"],["Grund","geo oder geo_candidates vorhanden"]] },
       { key:'sources', label:'Sources', status:srcStatus, meta:`${uniqueSources.size} Quellen`, reason:'aktive Quellen im aktuellen Arbeitsfenster; Quelle wird aus source_hint/source_type/summary/labels gelesen',
         details: [["Arbeitsfenster",hours === null ? "Archiv komplett" : `${hours}h`],["Quellen",uniqueSources.size],["Schwelle","grün ≥8, orange ≥4"],["Grund","unterschiedliche Quellen im aktuellen Arbeitsfenster"]] },
-      { key:'navtex', label:'NAVTEX', status:navStatus, meta:`${navItems} Meldungen`, reason:nav ? `NAVWARN/NAVTEX • ${fmtAgeMinutes(navAge)}` : 'NAVTEX/NAVWARN nicht geladen',
-        details: [["Quelle","Worker /api/navtex"],["Alter",fmtAgeMinutes(navAge)],["Meldungen",navItems],["Schwelle","grün ≤4h, orange ≤12h"],["Grund",nav ? "NAVTEX/NAVWARN geladen" : "NAVTEX/NAVWARN nicht geladen"]] }
+      { key:'navtex', label:'NAVTEX', status:navStatus, meta:`${navItems} Meldungen • ${fmtAgeMinutes(navAge)}`, reason:navHealth.reason,
+        details: [["Quelle","Worker /api/navtex"],["Alter",fmtAgeMinutes(navAge)],["Meldungen",navItems],["Schwelle","grün: jüngstes Item ≤24h; orange: erreichbar/0 Items oder >24h; rot: Fehler oder >48h"],["Grund",navHealth.reason]] }
     ];
     return systems;
   }
