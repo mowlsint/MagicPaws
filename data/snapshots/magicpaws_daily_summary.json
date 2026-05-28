@@ -1,31 +1,34 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-28T10:34:32.393Z",
+  "generated_at": "2026-05-28T16:34:54.194Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 51,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-28",
-      "events_total": 11,
+      "events_total": 36,
       "p0_suspect": 0,
       "geo_events": 2,
-      "social_events": 4,
+      "social_events": 21,
       "social_geo_events": 0,
-      "rss_media_events": 7,
+      "rss_media_events": 15,
       "top_domains": {
-        "D:NEWS_INTEL": 10,
+        "D:NEWS_INTEL": 31,
+        "D:INFRA_CI": 4,
         "D:DRONE_UAS": 1
       },
       "top_regions": {
-        "REG:OTHER": 4,
-        "REG:GLOBAL": 3,
+        "REG:OTHER": 17,
+        "REG:ATLANTIC_NE": 6,
+        "REG:GLOBAL": 5,
+        "REG:EUROPE": 4,
         "REG:PERSIAN_GULF": 2
       },
       "severity": {
-        "SEV:1": 11
+        "SEV:1": 36
       },
-      "hybrid_index_proxy": 14,
+      "hybrid_index_proxy": 43,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -33,11 +36,31 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 6
+          "count": 23
         },
         {
           "keyword": "drone",
-          "count": 1
+          "count": 3
+        },
+        {
+          "keyword": "sts",
+          "count": 2
+        },
+        {
+          "keyword": "sar",
+          "count": 2
+        },
+        {
+          "keyword": "cyber",
+          "count": 2
+        },
+        {
+          "keyword": "shadow fleet",
+          "count": 2
+        },
+        {
+          "keyword": "navy",
+          "count": 2
         },
         {
           "keyword": "uas",
@@ -47,30 +70,30 @@
     },
     {
       "date": "2026-05-27",
-      "events_total": 116,
+      "events_total": 118,
       "p0_suspect": 0,
-      "geo_events": 10,
+      "geo_events": 12,
       "social_events": 30,
       "social_geo_events": 3,
-      "rss_media_events": 86,
+      "rss_media_events": 88,
       "top_domains": {
         "D:NEWS_INTEL": 71,
         "D:CYBER_OT": 29,
-        "D:INFRA_CI": 10,
+        "D:INFRA_CI": 12,
         "D:SECURITY_CRIME": 5,
         "D:DRONE_UAS": 1
       },
       "top_regions": {
         "REG:OTHER": 63,
         "REG:EUROPE": 6,
+        "REG:PERSIAN_GULF": 5,
         "REG:GLOBAL": 5,
         "REG:NORTH_SEA": 3,
-        "REG:PERSIAN_GULF": 3,
         "REG:ATLANTIC_NE": 3,
         "REG:US_WEST_COAST": 2
       },
       "severity": {
-        "SEV:1": 116
+        "SEV:1": 118
       },
       "hybrid_index_proxy": 100,
       "government_weirdness_proxy": {
@@ -524,9 +547,9 @@
       "date": "2026-05-20",
       "events_total": 70,
       "p0_suspect": 0,
-      "geo_events": 15,
+      "geo_events": 16,
       "social_events": 24,
-      "social_geo_events": 3,
+      "social_geo_events": 4,
       "rss_media_events": 46,
       "top_domains": {
         "D:NEWS_INTEL": 58,
@@ -534,15 +557,15 @@
         "D:SECURITY_CRIME": 1
       },
       "top_regions": {
-        "REG:OTHER": 25,
+        "REG:OTHER": 24,
         "REG:PERSIAN_GULF": 9,
         "REG:EUROPE": 8,
         "REG:GLOBAL": 6,
+        "REG:BALTIC": 2,
         "REG:NORTH_SEA": 2,
         "REG:ATLANTIC_NE": 2,
         "REG:CARIBBEAN": 1,
         "REG:GULF_OF_OMAN": 1,
-        "REG:BALTIC": 1,
         "REG:RED_SEA": 1
       },
       "severity": {
@@ -551,7 +574,7 @@
       "hybrid_index_proxy": 88,
       "government_weirdness_proxy": {
         "north_sea": 5,
-        "baltic_sea": 2
+        "baltic_sea": 5
       },
       "top_keywords": [
         {
@@ -839,7 +862,7 @@
       "date": "2026-05-15",
       "events_total": 33,
       "p0_suspect": 0,
-      "geo_events": 8,
+      "geo_events": 9,
       "social_events": 2,
       "social_geo_events": 0,
       "rss_media_events": 31,
@@ -855,6 +878,7 @@
         "REG:OTHER": 2,
         "REG:HIGH_NORTH_ARCTIC": 1,
         "REG:US_WEST_COAST": 1,
+        "REG:SOUTH_AFRICA": 1,
         "REG:CARIBBEAN": 1
       },
       "severity": {
@@ -904,7 +928,7 @@
       "date": "2026-05-14",
       "events_total": 39,
       "p0_suspect": 0,
-      "geo_events": 11,
+      "geo_events": 10,
       "social_events": 1,
       "social_geo_events": 1,
       "rss_media_events": 38,
@@ -920,7 +944,6 @@
         "REG:PERSIAN_GULF": 7,
         "REG:EUROPE": 5,
         "REG:OTHER": 4,
-        "REG:RED_SEA": 1,
         "REG:BAB_EL_MANDEB": 1,
         "REG:CARIBBEAN": 1,
         "REG:NORTH_SEA": 1,
