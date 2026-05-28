@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-27T20:30:22.158Z",
+  "generated_at": "2026-05-28T04:42:44.950Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,2421 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-27T20:30:25.685Z",
+  "bundle_generated_at": "2026-05-28T04:42:47.941Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-07T20:30:22.158Z"
+    "cutoff_utc": "2026-05-08T04:42:44.950Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1172,
-    "active_events": 1073,
-    "active_geo_events": 193,
-    "active_social_events": 389,
-    "active_social_geo_events": 55
+    "archive_events_total": 1228,
+    "active_events": 1128,
+    "active_geo_events": 198,
+    "active_social_events": 396,
+    "active_social_geo_events": 56
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1431",
+      "number": 1431,
+      "id": "4537771579",
+      "ts": "2026-05-28T03:32:16.000Z",
+      "chronology_ts": "2026-05-28T03:32:16.000Z",
+      "issue_created_at": "2026-05-28T04:39:23.000Z",
+      "source_published_at": "2026-05-28T03:32:16.000Z",
+      "ingested_at": "2026-05-28T03:32:16.000Z",
+      "title": "[RSS] U.S. Sanctions Iran’s ‘Persian Gulf Strait Authority’ as Hormuz Transit Fight Escalates",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1431",
+      "original_url": "https://gcaptain.com/u-s-sanctions-irans-persian-gulf-strait-authority-as-hormuz-transit-fight-escalates/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:PERSIAN_GULF"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 27.3,
+        "lon": 51.6,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Persian Gulf",
+        "matched_alias": "Persian Gulf",
+        "matched_id": "persian_gulf",
+        "radius_km": 520,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 27.3,
+          "lon": 51.6,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Persian Gulf",
+          "matched_alias": "Persian Gulf",
+          "matched_id": "persian_gulf",
+          "radius_km": 520,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain",
+        "platform": "rss",
+        "link": "https://gcaptain.com/u-s-sanctions-irans-persian-gulf-strait-authority-as-hormuz-transit-fight-escalates/",
+        "source_published_at": "2026-05-28T03:32:16.000Z",
+        "ingested_at": "2026-05-28T03:32:16.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "### Quelle\ngCaptain\n\n### Source\ngCaptain\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/u-s-sanctions-irans-persian-gulf-strait-authority-as-hormuz-transit-fight-escalates/\n\n### Zeit (UTC)\n2026-05-28T03:32:16Z\n\n### Published\n2026-05-28T03:32:16Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe U.S. Treasury Department on Wednesday formally sanctioned Iran’s so-called Persian Gulf Strait Authority (PGSA), accusing the organization of working with the Islamic Revolutionary Guard Corps (IRGC) to extort commercial...\n\n---\n_Ingested at 2026-05-28T04:39:23.616725+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 68ba2444e977a1a0 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1426",
+      "number": 1426,
+      "id": "4537268534",
+      "ts": "2026-05-28T01:45:02.766Z",
+      "chronology_ts": "2026-05-28T01:45:02.766Z",
+      "issue_created_at": "2026-05-28T02:37:58.000Z",
+      "source_published_at": "2026-05-28T01:45:02.766Z",
+      "ingested_at": "2026-05-28T02:37:57.258Z",
+      "title": "[BSKY] When soldiers lose one of their own, the mission does not stop. Grief and duty arrive at the same time, and the work of pressing on falls to those still standin",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1426",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmuvkcvkc624",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmuvkcvkc624",
+        "source_published_at": "2026-05-28T01:45:02.766Z",
+        "ingested_at": "2026-05-28T02:37:57.258Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:6f5b5e6791b43f03d9e9 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:6f5b5e6791b43f03d9e9 -->\n\n### Text\nWhen soldiers lose one of their own, the mission does not stop. Grief and duty arrive at the same time, and the work of pressing on falls to those still standing. warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T01:45:02.766Z\ningested_at: 2026-05-28T02:37:57.258Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmuvkcvkc624\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1427",
+      "number": 1427,
+      "id": "4537771260",
+      "ts": "2026-05-28T01:37:55.000Z",
+      "chronology_ts": "2026-05-28T01:37:55.000Z",
+      "issue_created_at": "2026-05-28T04:39:18.000Z",
+      "source_published_at": "2026-05-28T01:37:55.000Z",
+      "ingested_at": "2026-05-28T01:37:55.000Z",
+      "title": "[RSS] U.S. Strikes Iranian Drone Launcher After Attack on Merchant Shipping",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1427",
+      "original_url": "https://maritime-executive.com/article/u-s-strikes-iranian-drone-launcher-after-attack-on-merchant-shipping",
+      "labels": [
+        "D:DRONE_UAS",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:DRONE_UAS",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/u-s-strikes-iranian-drone-launcher-after-attack-on-merchant-shipping",
+        "source_published_at": "2026-05-28T01:37:55.000Z",
+        "ingested_at": "2026-05-28T01:37:55.000Z"
+      },
+      "report_category": "Drohnen / UxV",
+      "greybook_rubric": "Drohnen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/u-s-strikes-iranian-drone-launcher-after-attack-on-merchant-shipping\n\n### Zeit (UTC)\n2026-05-28T01:37:55Z\n\n### Published\n2026-05-28T01:37:55Z\n\n### Auto-Labels\nCONF:MED, D:DRONE_UAS, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nOn Wednesday, U.S. forces conducted a limited strike on Iranian territory in response to Iranian actions in the Strait of Hormuz, the second such str...\n\n---\n_Ingested at 2026-05-28T04:39:17.947530+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 12acbd47573510c9 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1428",
+      "number": 1428,
+      "id": "4537771332",
+      "ts": "2026-05-28T01:16:42.000Z",
+      "chronology_ts": "2026-05-28T01:16:42.000Z",
+      "issue_created_at": "2026-05-28T04:39:19.000Z",
+      "source_published_at": "2026-05-28T01:16:42.000Z",
+      "ingested_at": "2026-05-28T01:16:42.000Z",
+      "title": "[RSS] Study: Greek Islands Could Benefit From Floating Nuclear Power by 2035",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1428",
+      "original_url": "https://maritime-executive.com/article/study-greek-islands-could-benefit-from-floating-nuclear-power-by-2035",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/study-greek-islands-could-benefit-from-floating-nuclear-power-by-2035",
+        "source_published_at": "2026-05-28T01:16:42.000Z",
+        "ingested_at": "2026-05-28T01:16:42.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/study-greek-islands-could-benefit-from-floating-nuclear-power-by-2035\n\n### Zeit (UTC)\n2026-05-28T01:16:42Z\n\n### Published\n2026-05-28T01:16:42Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nGreece's utility sector has invested heavily in renewables in recent years, and now generates so much solar power that it faces a high rate of curtai...\n\n---\n_Ingested at 2026-05-28T04:39:19.322827+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: b6013ab00fa11ca0 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1429",
+      "number": 1429,
+      "id": "4537771411",
+      "ts": "2026-05-27T23:40:49.000Z",
+      "chronology_ts": "2026-05-27T23:40:49.000Z",
+      "issue_created_at": "2026-05-28T04:39:20.000Z",
+      "source_published_at": "2026-05-27T23:40:49.000Z",
+      "ingested_at": "2026-05-27T23:40:49.000Z",
+      "title": "[RSS] UK Permits Liabilities Limitation in Solong-Stena Immaculate 2025 Allision",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1429",
+      "original_url": "https://maritime-executive.com/article/uk-permits-liabilities-limitation-in-solong-stena-immaculate-2025-allision",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/uk-permits-liabilities-limitation-in-solong-stena-immaculate-2025-allision",
+        "source_published_at": "2026-05-27T23:40:49.000Z",
+        "ingested_at": "2026-05-27T23:40:49.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/uk-permits-liabilities-limitation-in-solong-stena-immaculate-2025-allision\n\n### Zeit (UTC)\n2026-05-27T23:40:49Z\n\n### Published\n2026-05-27T23:40:49Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe UK Admiralty Court handed down a decision last week after hearing arguments from the owners and operators of the containership Solong that they sh...\n\n---\n_Ingested at 2026-05-28T04:39:20.628390+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: baa2a7db764356c0 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1425",
+      "number": 1425,
+      "id": "4536516903",
+      "ts": "2026-05-27T23:30:06.176Z",
+      "chronology_ts": "2026-05-27T23:30:06.176Z",
+      "issue_created_at": "2026-05-27T23:44:13.000Z",
+      "source_published_at": "2026-05-27T23:30:06.176Z",
+      "ingested_at": "2026-05-27T23:44:12.951Z",
+      "title": "[BSKY] The Pentagon's own guidance carves out exceptions for weather and installation resilience, which makes it hard to explain why the budget defunds exactly that wo",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1425",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmunyyllta2r",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmunyyllta2r",
+        "source_published_at": "2026-05-27T23:30:06.176Z",
+        "ingested_at": "2026-05-27T23:44:12.951Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:0cfcfa450cf9206c7dcc -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:0cfcfa450cf9206c7dcc -->\n\n### Text\nThe Pentagon's own guidance carves out exceptions for weather and installation resilience, which makes it hard to explain why the budget defunds exactly that work. warontherocks.com/2026/05/an-i...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T23:30:06.176Z\ningested_at: 2026-05-27T23:44:12.951Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmunyyllta2r\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1420",
+      "number": 1420,
+      "id": "4536487662",
+      "ts": "2026-05-27T23:18:00.000Z",
+      "chronology_ts": "2026-05-27T23:18:00.000Z",
+      "issue_created_at": "2026-05-27T23:37:52.000Z",
+      "source_published_at": "2026-05-27T23:18:00.000Z",
+      "ingested_at": "2026-05-27T23:18:00.000Z",
+      "title": "[RSS] Port of Long Beach Offers $1M Prize for First Methanol Bunkering",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1420",
+      "original_url": "https://maritime-executive.com/article/port-of-long-beach-offers-1m-prize-for-first-methanol-bunkering",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:US_WEST_COAST",
+        "REG:PACIFIC"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:US_WEST_COAST",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 33.7542,
+        "lon": -118.2165,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Long Beach",
+        "matched_alias": "Port of Long Beach",
+        "matched_id": "port_long_beach",
+        "radius_km": 20,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:US_WEST_COAST",
+          "REG:PACIFIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 33.7542,
+          "lon": -118.2165,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Long Beach",
+          "matched_alias": "Port of Long Beach",
+          "matched_id": "port_long_beach",
+          "radius_km": 20,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:US_WEST_COAST",
+            "REG:PACIFIC"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/port-of-long-beach-offers-1m-prize-for-first-methanol-bunkering",
+        "source_published_at": "2026-05-27T23:18:00.000Z",
+        "ingested_at": "2026-05-27T23:18:00.000Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/port-of-long-beach-offers-1m-prize-for-first-methanol-bunkering\n\n### Zeit (UTC)\n2026-05-27T23:18:00Z\n\n### Published\n2026-05-27T23:18:00Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe Port of Long Beach wants to have methanol bunkering available to support the next generation of dual-fuel ships, and it has selected a novel way o...\n\n---\n_Ingested at 2026-05-27T23:37:52.629321+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: a2784a0325b2fe2e -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1418",
+      "number": 1418,
+      "id": "4536387603",
+      "ts": "2026-05-27T23:13:29.000Z",
+      "chronology_ts": "2026-05-27T23:13:29.000Z",
+      "issue_created_at": "2026-05-27T23:13:29.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:29.126Z",
+      "title": "[RSS] Security White Paper 2016-003 - Authentication Methods",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1418",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/CERT-EU%20SWP-16_003_Authentication%20Methods/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/CERT-EU%20SWP-16_003_Authentication%20Methods/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:29.126Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:bc6716ac3b4bb28ae64f -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:bc6716ac3b4bb28ae64f -->\n\n### Text\nLately, protecting data has become increasingly difficult task. Cyber-attacks have become one of the most serious threats to any organization. Companies and organizations are taking measures in order to defend their assets, and the authentication methods are an increasingly important security measure.\nAuthentication is the security term for verifying that the user is indeed who he claims to be. The procedure of confirming a user’s authenticity, is the action of comparing the provided credentials of the user against an existing database of validated identities.\nHowever, since depending only on the use of simple credentials – or a single method of authentication in general – have lately proven to be highly unreliable, the use of multiple factors for the authentication process is highly recommended.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:29.126Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-guidance/CERT-EU%20SWP-16…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1417",
+      "number": 1417,
+      "id": "4536387541",
+      "ts": "2026-05-27T23:13:28.000Z",
+      "chronology_ts": "2026-05-27T23:13:28.000Z",
+      "issue_created_at": "2026-05-27T23:13:28.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:28.086Z",
+      "title": "[RSS] UPDATED - Security White Paper 2017-001_v1_2 - DMARC — Defeating E-Mail Abuse",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1417",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/Updated-CERT-EU_Security_Whitepaper_DMARC_17-001_v1_2/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/Updated-CERT-EU_Security_Whitepaper_DMARC_17-001_v1_2/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:28.086Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:2d06479fe1a93eb87778 -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:2d06479fe1a93eb87778 -->\n\n### Text\nDMARC is a mechanism to define a coherent e-mail policy that can effectively be used by both the sender and the receiver of the e-mail messages. The senders can list the authentication mechanisms they have put in place, and the receivers are informed what the sender suggests them to do, if the authentication fails on any message that\nclaims to originate from them.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:28.086Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-guidance/Updated-CERT-EU_Security_Whitepaper_DMARC_17-001_v1_2/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1416",
+      "number": 1416,
+      "id": "4536387492",
+      "ts": "2026-05-27T23:13:27.000Z",
+      "chronology_ts": "2026-05-27T23:13:27.000Z",
+      "issue_created_at": "2026-05-27T23:13:27.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:27.036Z",
+      "title": "[RSS] Security White Paper 2017-002_Detecting Lateral Movements in Windows Infrastructure",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1416",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/CERT-EU_SWP_17-002_Lateral_Movements/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/CERT-EU_SWP_17-002_Lateral_Movements/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:27.036Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:3e28b0b7aaf5211d4992 -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:3e28b0b7aaf5211d4992 -->\n\n### Text\nLateral movement techniques are widely used in sophisticated cyber-attacks in particular in Advanced Persistent Threats (APTs). An adversary uses these techniques to access other hosts from a compromised system and get access to sensitive resources, such as mailboxes, shared folders, or credentials. This white-paper provides guidelines to detect\nthe lateral movements exploiting NTLM and Kerberos protocols in a Windows 7 and 2008 based environments.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:27.036Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-guidance/CERT-EU_SWP_17-002_Lateral_Movements/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1415",
+      "number": 1415,
+      "id": "4536387423",
+      "ts": "2026-05-27T23:13:26.000Z",
+      "chronology_ts": "2026-05-27T23:13:26.000Z",
+      "issue_created_at": "2026-05-27T23:13:26.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:25.923Z",
+      "title": "[RSS] Security White Paper 2017-004 - Mitigating Risks Related to Network Devices",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1415",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/CERT-EU_Security_Whitepaper_ND_17-004/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/CERT-EU_Security_Whitepaper_ND_17-004/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:25.923Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:7847560426dfb37c8410 -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:7847560426dfb37c8410 -->\n\n### Text\nNetwork devices, such as routers, switches, or firewalls, are essential components of every IT infrastructure. All traffic has to go through several such network devices. Compromising network devices allows an adversary to steal sensitive data, corrupt communications, or disrupt activity of the targeted organization. The range of attacks against network devices has been growing for the past years, from exploitation of undocumented access to development of complex implants modifying the behavior of devices. The purpose of this white-paper is to provide recommendations on how to assess, prevent, and detect network devices\ncompromise.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:25.923Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-guidance/CERT-EU_Security_Whitepaper_ND_17-004/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Error…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1414",
+      "number": 1414,
+      "id": "4536387378",
+      "ts": "2026-05-27T23:13:25.000Z",
+      "chronology_ts": "2026-05-27T23:13:25.000Z",
+      "issue_created_at": "2026-05-27T23:13:25.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:24.766Z",
+      "title": "[RSS] Security White Paper 2019-001 - PowerShell -- Cybersecurity Perspective",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1414",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/CERT-EU-SWP2019-001/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/CERT-EU-SWP2019-001/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:24.766Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:dd095019b69f4a43b451 -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:dd095019b69f4a43b451 -->\n\n### Text\nIn the last years we have seen an increasing use of PowerShell for malicious purposes. This was mainly caused by its powerfulness and lack of means to counter this kind of usage. On the other hand PowerShell also evolved, providing currently also more means for defenders. The aim of this document is to present PowerShell from a cybersecurity perspective. Described are also controls that can be implemented in the prevention and detection of cyberattacks using PowerShell.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:24.766Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-guidance/CERT-EU-SWP2019-001/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1413",
+      "number": 1413,
+      "id": "4536387321",
+      "ts": "2026-05-27T23:13:24.000Z",
+      "chronology_ts": "2026-05-27T23:13:24.000Z",
+      "issue_created_at": "2026-05-27T23:13:24.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:23.696Z",
+      "title": "[RSS] Security Guidance 22-002 - Hardening Signal",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1413",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/security-guidance-22-002---hardening-signal/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/security-guidance-22-002---hardening-signal/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:23.696Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:054e845000f2c9101277 -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:054e845000f2c9101277 -->\n\n### Text\nSignal is a well-known, secure, encrypted instant messaging service developed by the non-profit Signal Technology Foundation and Signal Messenger LLC. It uses standard cellular telephone numbers as identifiers and all communications between Signal users are secured with end-to end encryption.\nStaff of public and private organisations, including senior management, may be using Signal sometimes to quickly coordinate and exchange information on work-related matters. Signal groups may also have been set up for business continuity reasons in case corporate instant messaging tools become unavailable.\nThe following document provides clear and pragmatic recommendations for hardening the configuration of Signal apps. If you have suggestions that could help improve it, contact us at services@cert.europa.eu. We always appreciate constructive feedback.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:23.696Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/pu…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1412",
+      "number": 1412,
+      "id": "4536387260",
+      "ts": "2026-05-27T23:13:23.000Z",
+      "chronology_ts": "2026-05-27T23:13:23.000Z",
+      "issue_created_at": "2026-05-27T23:13:23.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:22.564Z",
+      "title": "[RSS] Security Guidance 22-001 - Cybersecurity mitigation measures against critical threats",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1412",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/security-guidance-22-001---cybersecurity-mitigation-measures-against-critical-threats/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/security-guidance-22-001---cybersecurity-mitigation-measures-against-critical-threats/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:22.564Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:c8ca1d337c777465f118 -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:c8ca1d337c777465f118 -->\n\n### Text\nOn February 14, ENISA and CERT-EU made a joint publication strongly encouraging all EU- based organisations to implement a set of cybersecurity best practices.\nBuilding on this joint publication, CERT-EU is making available the following specific imple- mentation recommendations. By applying these systematically, organisations can boost their cybersecurity defence and resilience. This would allow them to:\n1. Improve their cybersecurity posture to fend off a wide range of attacks and limit the number of cybersecurity incidents.\n2. Detect and react to cyber operations that may be carried off by sophisticated threat actors.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:22.564Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-guidance/security-guidance-22-001---cybersecurity-mitigation-measures-against-critical-threats/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC …"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1411",
+      "number": 1411,
+      "id": "4536387207",
+      "ts": "2026-05-27T23:13:22.000Z",
+      "chronology_ts": "2026-05-27T23:13:22.000Z",
+      "issue_created_at": "2026-05-27T23:13:22.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:21.309Z",
+      "title": "[RSS] Security Guidance 23-002 - Potential impact and risks of Generative AI in EUIBAs",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1411",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/security-guidance-23-002---potential-impact-and-risks-of-generative-ai-in-euibas/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/security-guidance-23-002---potential-impact-and-risks-of-generative-ai-in-euibas/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:21.309Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:5ce76874b7076fc4195d -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:5ce76874b7076fc4195d -->\n\n### Text\nRecently, there has been a substantial leap forward in the development of Generative AI technology. Additionally,\nfurther rapid advancements are expected as researchers continue to push the boundaries of AI capabilities. At CERT-EU, we assess\nthat the development of Generative AI technology will continue and become quite common, and as such, it is crucial to embrace\nthis transformative innovation. The technology presents numerous opportunities, however, it also comes with risks. This guidance\naims at defining the position of CERT-EU towards Generative AI technology and provide an initial overview of this complex topic.\nThe most recent version adds a bit of information on indirect prompt-injection attacks and additional options for EUIBAs to use the technology.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:21.309Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-guidance/security-guidance-23-002---potential-impact-and-risks…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1410",
+      "number": 1410,
+      "id": "4536387146",
+      "ts": "2026-05-27T23:13:21.000Z",
+      "chronology_ts": "2026-05-27T23:13:21.000Z",
+      "issue_created_at": "2026-05-27T23:13:21.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T23:13:20.164Z",
+      "title": "[RSS] DDoS Overview and Response Guide",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1410",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/CERT-EU_Security_Whitepaper_DDoS_17-003/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/CERT-EU_Security_Whitepaper_DDoS_17-003/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T23:13:20.164Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:1770ebb7c1f06956fdb4 -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:1770ebb7c1f06956fdb4 -->\n\n### Text\nThe evolution of DDoS attack techniques and targets has been continuously followed in the past by the specialists ranging from large companies to security expert blogs. However, recently it has caught general attention due to several incidents that might mean a change of paradigm in the way such attacks have been addressed so far. Strategies to mitigate DDoS need to be adopted, and should focus initially on prevention, but eventually on designing multi-layered defense strategies. In this white-paper, CERT-EU has focused on procedures for securing IT infrastructure from threats against availability. The white-paper is based on proven DDoS identification and mitigation methods that can effectively and efficiently respond to DDoS attacks.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T23:13:20.164Z\n\n### Quelle\nCERT-EU – Security Guidance (RSS) (certeu_guidance_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-guidance/CERT-EU_Security_Whitepaper_DDoS_17-003/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_O…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1421",
+      "number": 1421,
+      "id": "4536487723",
+      "ts": "2026-05-27T22:49:16.000Z",
+      "chronology_ts": "2026-05-27T22:49:16.000Z",
+      "issue_created_at": "2026-05-27T23:37:53.000Z",
+      "source_published_at": "2026-05-27T22:49:16.000Z",
+      "ingested_at": "2026-05-27T22:49:16.000Z",
+      "title": "[RSS] South Korea Identifies Iranian Missile Components from Attack on HMM Ship",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1421",
+      "original_url": "https://maritime-executive.com/article/south-korea-identifies-iranian-missile-components-from-attack-on-hmm-ship",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:SECURITY_CRIME",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/south-korea-identifies-iranian-missile-components-from-attack-on-hmm-ship",
+        "source_published_at": "2026-05-27T22:49:16.000Z",
+        "ingested_at": "2026-05-27T22:49:16.000Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/south-korea-identifies-iranian-missile-components-from-attack-on-hmm-ship\n\n### Zeit (UTC)\n2026-05-27T22:49:16Z\n\n### Published\n2026-05-27T22:49:16Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, D:SECURITY_CRIME, SEV:1, SRC:MEDIA\n\n### Summary\nOfficials in South Korea revealed the results of their investigation over the past two weeks into the attack on the HMM cargo ship Namu. The vessel wa...\n\n---\n_Ingested at 2026-05-27T23:37:53.711704+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 2af889749f6817ee -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1419",
+      "number": 1419,
+      "id": "4536387782",
+      "ts": "2026-05-27T22:46:03.032Z",
+      "chronology_ts": "2026-05-27T22:46:03.032Z",
+      "issue_created_at": "2026-05-27T23:13:33.000Z",
+      "source_published_at": "2026-05-27T22:46:03.032Z",
+      "ingested_at": "2026-05-27T23:13:32.415Z",
+      "title": "[BSKY] Unlock exclusive access to The Russia Contingency with Michael Kofman, Thinking the Unthinkable with Ankit Panda, and The Iran Reckoning with Afshon Ostovar — a",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1419",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmulk7uo2j2p",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmulk7uo2j2p",
+        "source_published_at": "2026-05-27T22:46:03.032Z",
+        "ingested_at": "2026-05-27T23:13:32.415Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:6af0d56b50427ea1fff7 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:6af0d56b50427ea1fff7 -->\n\n### Text\nUnlock exclusive access to The Russia Contingency with Michael Kofman, Thinking the Unthinkable with Ankit Panda, and The Iran Reckoning with Afshon Ostovar — available only to War on the Rocks members. Join today. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T22:46:03.032Z\ningested_at: 2026-05-27T23:13:32.415Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmulk7uo2j2p\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1422",
+      "number": 1422,
+      "id": "4536487775",
+      "ts": "2026-05-27T22:36:05.000Z",
+      "chronology_ts": "2026-05-27T22:36:05.000Z",
+      "issue_created_at": "2026-05-27T23:37:54.000Z",
+      "source_published_at": "2026-05-27T22:36:05.000Z",
+      "ingested_at": "2026-05-27T22:36:05.000Z",
+      "title": "[RSS] Everllence 28/33DSTC Engines Bound for New Colombian Navy PES Frigate",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1422",
+      "original_url": "https://maritime-executive.com/article/everllence-28-33dstc-engines-bound-for-new-colombian-navy-pes-frigate",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/everllence-28-33dstc-engines-bound-for-new-colombian-navy-pes-frigate",
+        "source_published_at": "2026-05-27T22:36:05.000Z",
+        "ingested_at": "2026-05-27T22:36:05.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/everllence-28-33dstc-engines-bound-for-new-colombian-navy-pes-frigate\n\n### Zeit (UTC)\n2026-05-27T22:36:05Z\n\n### Published\n2026-05-27T22:36:05Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nCOTECMAR, Colombia’s leading naval shipyard, and Damen Naval, the Dutch defense and shipbuilding specialist, have announced the procurement of 2 × Eve...\n\n---\n_Ingested at 2026-05-27T23:37:54.765705+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: c7d9d9f0faaaa64c -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1423",
+      "number": 1423,
+      "id": "4536487972",
+      "ts": "2026-05-27T22:34:30.000Z",
+      "chronology_ts": "2026-05-27T22:34:30.000Z",
+      "issue_created_at": "2026-05-27T23:37:56.000Z",
+      "source_published_at": "2026-05-27T22:34:30.000Z",
+      "ingested_at": "2026-05-27T22:34:30.000Z",
+      "title": "[RSS] Seaspan Celebrates One Year of Progress on the Heavy Polar Icebreaker",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1423",
+      "original_url": "https://maritime-executive.com/article/seaspan-celebrates-one-year-of-progress-on-the-heavy-polar-icebreaker",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/seaspan-celebrates-one-year-of-progress-on-the-heavy-polar-icebreaker",
+        "source_published_at": "2026-05-27T22:34:30.000Z",
+        "ingested_at": "2026-05-27T22:34:30.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/seaspan-celebrates-one-year-of-progress-on-the-heavy-polar-icebreaker\n\n### Zeit (UTC)\n2026-05-27T22:34:30Z\n\n### Published\n2026-05-27T22:34:30Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nIt has been one year since the first cut of steel on the heavy polar icebreaker being built at Seaspan’s Vancouver Shipyards. Today, one of Canada’s m...\n\n---\n_Ingested at 2026-05-27T23:37:55.891660+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1b5ce4bc2c1e4bd6 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1408",
+      "number": 1408,
+      "id": "4536126936",
+      "ts": "2026-05-27T22:17:10.000Z",
+      "chronology_ts": "2026-05-27T22:17:10.000Z",
+      "issue_created_at": "2026-05-27T22:17:10.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:17:08.934Z",
+      "title": "[RSS] Generative AI in Cybersecurity: Balancing Innovation and Risk",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1408",
+      "original_url": "https://cert.europa.eu/publications/security-guidance/generative-ai-in-cybersecurity-balancing-innovation-and-risk/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Guidance (RSS) (certeu_guidance_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-guidance/generative-ai-in-cybersecurity-balancing-innovation-and-risk/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:17:08.934Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_guidance_rss:070a14fc0c4f351725fc -->\n<!-- VOODOO_INGEST_ID:certeu_guidance_rss:070a14fc0c4f351725fc -->\n\n### Text\nThe integration of generative AI into cybersecurity operations represents both unprecedented opportunity and emerging risk. While these technologies offer powerful capabilities for threat analysis, incident response, and security automation, they simultaneously introduce new attack vectors that adversaries are rapidly exploiting. The cybersecurity community faces a critical challenge: how to harness AI's defensive potential whilst maintaining robust protection against AI-enabled threats. Organisations across sectors are grappling with questions of responsible adoption, governance frameworks, and risk management strategies. In this guidance, CERT-EU examines the dual nature of generative AI in cybersecurity, providing practical recommendations for security teams seeking to balance innovation with vigilance. Drawing from operational experience and threat landscape analysis, this resource offers actionable insights for navigating the complex decision-making process surrounding AI adoption in security contexts.\n\n### Zeit (UTC)\nsource_publi…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1404",
+      "number": 1404,
+      "id": "4536125121",
+      "ts": "2026-05-27T22:16:47.000Z",
+      "chronology_ts": "2026-05-27T22:16:47.000Z",
+      "issue_created_at": "2026-05-27T22:16:47.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:46.131Z",
+      "title": "[RSS] Cyber Brief 25-10 - September 2025",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1404",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cb25-10/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cb25-10/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:46.131Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:1e1b479965e6986db4f4 -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:1e1b479965e6986db4f4 -->\n\n### Text\nCyber Briefs are monthly executive reports that aim to present an overview of the most relevant developments in cyber security, based exclusively on open sources, with a view to inform political leadership and senior management in its constituency. Additional information on any item in this Brief can be provided upon request. Cyber Briefs are TLP:CLEAR.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:46.131Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cb25-10/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1403",
+      "number": 1403,
+      "id": "4536125010",
+      "ts": "2026-05-27T22:16:45.000Z",
+      "chronology_ts": "2026-05-27T22:16:45.000Z",
+      "issue_created_at": "2026-05-27T22:16:45.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:44.591Z",
+      "title": "[RSS] Cyber Brief 25-11 - October 2025",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1403",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cb25-11/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cb25-11/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:44.591Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:38e5f152697858486c9e -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:38e5f152697858486c9e -->\n\n### Text\nCyber Briefs are monthly executive reports that aim to present an overview of the most relevant developments in cyber security, based exclusively on open sources, with a view to inform political leadership and senior management in its constituency. Additional information on any item in this Brief can be provided upon request. Cyber Briefs are TLP:CLEAR.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:44.591Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cb25-11/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1402",
+      "number": 1402,
+      "id": "4536124892",
+      "ts": "2026-05-27T22:16:44.000Z",
+      "chronology_ts": "2026-05-27T22:16:44.000Z",
+      "issue_created_at": "2026-05-27T22:16:44.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:42.679Z",
+      "title": "[RSS] Cyber Brief 25-12 - November 2025",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1402",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cb25-12/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cb25-12/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:42.679Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:a6a01d333f6cdf91a7fc -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:a6a01d333f6cdf91a7fc -->\n\n### Text\nCyber Briefs are monthly executive reports that aim to present an overview of the most relevant developments in cyber security, based exclusively on open sources, with a view to inform political leadership and senior management in its constituency. Additional information on any item in this Brief can be provided upon request. Cyber Briefs are TLP:CLEAR.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:42.679Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cb25-12/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1401",
+      "number": 1401,
+      "id": "4536124614",
+      "ts": "2026-05-27T22:16:42.000Z",
+      "chronology_ts": "2026-05-27T22:16:42.000Z",
+      "issue_created_at": "2026-05-27T22:16:42.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:40.896Z",
+      "title": "[RSS] Cyber Brief 26-01 - December 2025",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1401",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cb26-01/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cb26-01/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:40.896Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:23956ea8dba200ed60fb -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:23956ea8dba200ed60fb -->\n\n### Text\nCyber Briefs are monthly executive reports that aim to present an overview of the most relevant developments in cyber security, based exclusively on open sources, with a view to inform political leadership and senior management in its constituency. Additional information on any item in this Brief can be provided upon request. Cyber Briefs are TLP:CLEAR.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:40.896Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cb26-01/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1400",
+      "number": 1400,
+      "id": "4536124488",
+      "ts": "2026-05-27T22:16:40.000Z",
+      "chronology_ts": "2026-05-27T22:16:40.000Z",
+      "issue_created_at": "2026-05-27T22:16:40.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:39.229Z",
+      "title": "[RSS] Cyber Brief 26-02 - January 2026",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1400",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cb26-02/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cb26-02/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:39.229Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:f24a98eb01ecfb89e408 -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:f24a98eb01ecfb89e408 -->\n\n### Text\nCyber Briefs are monthly executive reports that aim to present an overview of the most relevant developments in cyber security, based exclusively on open sources, with a view to inform political leadership and senior management in its constituency. Additional information on any item in this Brief can be provided upon request. Cyber Briefs are TLP:CLEAR.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:39.229Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cb26-02/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1399",
+      "number": 1399,
+      "id": "4536124235",
+      "ts": "2026-05-27T22:16:38.000Z",
+      "chronology_ts": "2026-05-27T22:16:38.000Z",
+      "issue_created_at": "2026-05-27T22:16:38.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:37.526Z",
+      "title": "[RSS] Cyber Brief 26-03 - February 2026",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1399",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cb26-03/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cb26-03/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:37.526Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:6038cb42c4f9a02ec136 -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:6038cb42c4f9a02ec136 -->\n\n### Text\nCyber Briefs are monthly executive reports that aim to present an overview of the most relevant developments in cyber security, based exclusively on open sources, with a view to inform political leadership and senior management in its constituency. Additional information on any item in this Brief can be provided upon request. Cyber Briefs are TLP:CLEAR.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:37.526Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cb26-03/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1398",
+      "number": 1398,
+      "id": "4536124122",
+      "ts": "2026-05-27T22:16:37.000Z",
+      "chronology_ts": "2026-05-27T22:16:37.000Z",
+      "issue_created_at": "2026-05-27T22:16:37.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:35.732Z",
+      "title": "[RSS] Cyber Brief 26-04 - March 2026",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1398",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cb26-04/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cb26-04/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:35.732Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:4bf116408a807bdb7370 -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:4bf116408a807bdb7370 -->\n\n### Text\nCyber Briefs are monthly executive reports that aim to present an overview of the most relevant developments in cyber security, based exclusively on open sources, with a view to inform political leadership and senior management in its constituency. Additional information on any item in this Brief can be provided upon request. Cyber Briefs are TLP:CLEAR.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:35.732Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cb26-04/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1397",
+      "number": 1397,
+      "id": "4536124013",
+      "ts": "2026-05-27T22:16:35.000Z",
+      "chronology_ts": "2026-05-27T22:16:35.000Z",
+      "issue_created_at": "2026-05-27T22:16:35.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:33.984Z",
+      "title": "[RSS] Threat Landscape Report 2025 - A Year In Review",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1397",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/tlr2025/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/tlr2025/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:33.984Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:931bdf5205369596e529 -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:931bdf5205369596e529 -->\n\n### Text\nCERT-EU Cyber Threat Landscape Report for 2025 - Year Review\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:33.984Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/tlr2025/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1396",
+      "number": 1396,
+      "id": "4536123912",
+      "ts": "2026-05-27T22:16:33.000Z",
+      "chronology_ts": "2026-05-27T22:16:33.000Z",
+      "issue_created_at": "2026-05-27T22:16:33.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:32.328Z",
+      "title": "[RSS] Cyber Threat Intelligence Framework",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1396",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cyber-threat-intelligence-framework/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cyber-threat-intelligence-framework/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:32.328Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:17d42f48ec49966c93c7 -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:17d42f48ec49966c93c7 -->\n\n### Text\nCyber Threat Intelligence Framework\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:32.328Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cyber-threat-intelligence-framework/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1395",
+      "number": 1395,
+      "id": "4536123796",
+      "ts": "2026-05-27T22:16:32.000Z",
+      "chronology_ts": "2026-05-27T22:16:32.000Z",
+      "issue_created_at": "2026-05-27T22:16:32.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:30.701Z",
+      "title": "[RSS] Cyber Brief 26-05 - April 2026",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1395",
+      "original_url": "https://cert.europa.eu/publications/threat-intelligence/cb26-05/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/threat-intelligence/cb26-05/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:30.701Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_threatintel_rss:46719ca85ea96bca047b -->\n<!-- VOODOO_INGEST_ID:certeu_threatintel_rss:46719ca85ea96bca047b -->\n\n### Text\nCyber Briefs are monthly executive reports that aim to present an overview of the most relevant developments in cyber security, based exclusively on open sources, with a view to inform political leadership and senior management in its constituency. Additional information on any item in this Brief can be provided upon request. Cyber Briefs are TLP:CLEAR.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:30.701Z\n\n### Quelle\nCERT-EU – Threat Intelligence (RSS) (certeu_threatintel_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/threat-intelligence/cb26-05/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1394",
+      "number": 1394,
+      "id": "4536122582",
+      "ts": "2026-05-27T22:16:18.000Z",
+      "chronology_ts": "2026-05-27T22:16:18.000Z",
+      "issue_created_at": "2026-05-27T22:16:18.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:17.211Z",
+      "title": "[RSS] 2025-039: High Severity Vulnerability in FortiOS",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1394",
+      "original_url": "https://cert.europa.eu/publications/security-advisories/2025-039/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Advisories (RSS) (certeu_advisories_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-advisories/2025-039/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:17.211Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_advisories_rss:0b37fd895f1a494b3b65 -->\n<!-- VOODOO_INGEST_ID:certeu_advisories_rss:0b37fd895f1a494b3b65 -->\n\n### Text\nOn October 14, 2025, Fortinet released a security advisory addressing a high severity vulnerability in its FortiOS product.\nIt is recommended updating affected products.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:17.211Z\n\n### Quelle\nCERT-EU – Security Advisories (RSS) (certeu_advisories_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-advisories/2025-039/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1393",
+      "number": 1393,
+      "id": "4536122462",
+      "ts": "2026-05-27T22:16:16.000Z",
+      "chronology_ts": "2026-05-27T22:16:16.000Z",
+      "issue_created_at": "2026-05-27T22:16:16.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:15.495Z",
+      "title": "[RSS] 2025-040: Critical Vulnerability in Windows Server Update Service (WSUS)",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1393",
+      "original_url": "https://cert.europa.eu/publications/security-advisories/2025-040/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Advisories (RSS) (certeu_advisories_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-advisories/2025-040/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:15.495Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_advisories_rss:1f40b84a5ffca1925fd9 -->\n<!-- VOODOO_INGEST_ID:certeu_advisories_rss:1f40b84a5ffca1925fd9 -->\n\n### Text\nOn October 23, 2025, Microsoft released an out-of-band update to address a critical vulnerability in Windows Server Update Service (WSUS). This vulnerability could allow a remote unauthenticated attacker to execute code on the targeted systems. A proof-of-concept is publicly available for this vulnerability.\nIt is recommended to update as soon as possible.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:15.495Z\n\n### Quelle\nCERT-EU – Security Advisories (RSS) (certeu_advisories_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-advisories/2025-040/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1392",
+      "number": 1392,
+      "id": "4536122316",
+      "ts": "2026-05-27T22:16:15.000Z",
+      "chronology_ts": "2026-05-27T22:16:15.000Z",
+      "issue_created_at": "2026-05-27T22:16:15.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:13.704Z",
+      "title": "[RSS] 2025-041: Critical Security Vulnerability in React Server Components",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1392",
+      "original_url": "https://cert.europa.eu/publications/security-advisories/2025-041/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Advisories (RSS) (certeu_advisories_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-advisories/2025-041/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:13.704Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_advisories_rss:381c0d29037551651712 -->\n<!-- VOODOO_INGEST_ID:certeu_advisories_rss:381c0d29037551651712 -->\n\n### Text\nOn December 3, 2025, the React Team publicly disclosed a critical security vulnerability affecting React Server Components (RSC) and related packages. The vulnerability allows for unauthenticated remote code execution (RCE) via maliciously crafted HTTP requests.\nIt is recommended to update all affected component packages and any frameworks that integrate them.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:13.704Z\n\n### Quelle\nCERT-EU – Security Advisories (RSS) (certeu_advisories_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-advisories/2025-041/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1391",
+      "number": 1391,
+      "id": "4536122205",
+      "ts": "2026-05-27T22:16:13.000Z",
+      "chronology_ts": "2026-05-27T22:16:13.000Z",
+      "issue_created_at": "2026-05-27T22:16:13.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T22:16:11.905Z",
+      "title": "[RSS] 2025-042: Critical Vulnerability in Cisco Secure Email and Web Manager",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1391",
+      "original_url": "https://cert.europa.eu/publications/security-advisories/2025-042/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Advisories (RSS) (certeu_advisories_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-advisories/2025-042/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T22:16:11.905Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_advisories_rss:102fc74a17d30a5d8233 -->\n<!-- VOODOO_INGEST_ID:certeu_advisories_rss:102fc74a17d30a5d8233 -->\n\n### Text\nOn December 17, 2025, Cisco released a security advisory for a critical vulnerability affecting Cisco Secure Email Gateway and Cisco Secure Email and Web Manager products.\nIt is recommended to follow Cisco's recommendations to check whether vulnerable appliances have been compromised, and to remediate the issue. There is no patch available for this vulnerability yet.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T22:16:11.905Z\n\n### Quelle\nCERT-EU – Security Advisories (RSS) (certeu_advisories_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-advisories/2025-042/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1405",
+      "number": 1405,
+      "id": "4536125967",
+      "ts": "2026-05-27T22:03:37.000Z",
+      "chronology_ts": "2026-05-27T22:03:37.000Z",
+      "issue_created_at": "2026-05-27T22:16:58.000Z",
+      "source_published_at": "2026-05-27T22:03:37.000Z",
+      "ingested_at": "2026-05-27T22:16:56.866Z",
+      "title": "[RSS] Trump Threatens Oman as Hormuz Deal Remains Elusive",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1405",
+      "original_url": "https://gcaptain.com/trump-threatens-oman-as-hormuz-deal-remains-elusive/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "MAP:YES"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "geo_candidates": [
+        {
+          "matched_id": "strait_hormuz",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "lat": 26.56,
+          "lon": 56.25,
+          "radius_km": 85,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ],
+          "score": 26,
+          "in_title": false
+        },
+        {
+          "matched_id": "persian_gulf",
+          "matched_name": "Persian Gulf",
+          "matched_alias": "Persian Gulf",
+          "lat": 27.3,
+          "lon": 51.6,
+          "radius_km": 520,
+          "precision": "area",
+          "regions": [
+            "REG:PERSIAN_GULF"
+          ],
+          "score": 22,
+          "in_title": false
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/trump-threatens-oman-as-hormuz-deal-remains-elusive/",
+        "source_published_at": "2026-05-27T22:03:37.000Z",
+        "ingested_at": "2026-05-27T22:16:56.866Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:3ec40bc602a20bd4e81c -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:3ec40bc602a20bd4e81c -->\n\n### Text\nPresident Donald Trump on Wednesday dismissed a report that Iran and Oman would manage shipping through the Strait of Hormuz as part of a deal to end the war, in a sign that any potential agreement remained elusive.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T22:03:37.000Z\ningested_at: 2026-05-27T22:16:56.866Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/trump-threatens-oman-as-hormuz-deal-remains-elusive/\n\n### Geo Candidates\n[\n  {\n    \"matched_id\": \"strait_hormuz\",\n    \"matched_name\": \"Strait of Hormuz\",\n    \"matched_alias\": \"strait of hormuz\",\n    \"lat\": 26.57,\n    \"lon\": 56.25,\n    \"radius_km\": 60,\n    \"precision\": \"area\",\n    \"method\": \"controlled_gazetteer\",\n    \"confidence\": \"medium_high\",\n    \"geo_role\": \"event_location_or_topic_area\",\n    \"display_on_map\": true,\n    \"regions\": [\n      \"REG:PERSIAN_GULF\",\n      \"REG:STRAIT_HORMUZ\"\n    ],\n    \"score\": 90\n  }\n]\n\n### Geo JSON\n{\n  \"geo\": null,\n  \"geo_candidates\": [\n    {\n      \"matched_id\": \"strait_hormuz\",\n      \"matched_name\": \"Strait of Hormuz…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1430",
+      "number": 1430,
+      "id": "4537771489",
+      "ts": "2026-05-27T22:02:29.000Z",
+      "chronology_ts": "2026-05-27T22:02:29.000Z",
+      "issue_created_at": "2026-05-28T04:39:22.000Z",
+      "source_published_at": "2026-05-27T22:02:29.000Z",
+      "ingested_at": "2026-05-27T22:02:29.000Z",
+      "title": "[RSS] Battle of Bulkers Continues as Diana Increases Offer for Genco",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1430",
+      "original_url": "https://maritime-executive.com/article/battle-of-bulkers-continues-as-diana-increases-offer-for-genco",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/battle-of-bulkers-continues-as-diana-increases-offer-for-genco",
+        "source_published_at": "2026-05-27T22:02:29.000Z",
+        "ingested_at": "2026-05-27T22:02:29.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/battle-of-bulkers-continues-as-diana-increases-offer-for-genco\n\n### Zeit (UTC)\n2026-05-27T22:02:29Z\n\n### Published\n2026-05-27T22:02:29Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe battle between two leading dry bulk operators heated up as Diana Shipping looked to further increase the pressure on Genco Shipping & Trading to...\n\n---\n_Ingested at 2026-05-28T04:39:21.934068+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: ce5ea4eb0baea439 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1385",
+      "number": 1385,
+      "id": "4536080146",
+      "ts": "2026-05-27T22:02:29.000Z",
+      "chronology_ts": "2026-05-27T22:02:29.000Z",
+      "issue_created_at": "2026-05-27T22:08:11.000Z",
+      "source_published_at": "2026-05-27T22:02:29.000Z",
+      "ingested_at": "2026-05-27T22:02:29.000Z",
+      "title": "[RSS] Battle of Bulkers Continues as Daina Increases Offer for Genco",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1385",
+      "original_url": "https://maritime-executive.com/article/battle-of-bulkers-continues-as-daina-increases-offer-for-genco",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/battle-of-bulkers-continues-as-daina-increases-offer-for-genco",
+        "source_published_at": "2026-05-27T22:02:29.000Z",
+        "ingested_at": "2026-05-27T22:02:29.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/battle-of-bulkers-continues-as-daina-increases-offer-for-genco\n\n### Zeit (UTC)\n2026-05-27T22:02:29Z\n\n### Published\n2026-05-27T22:02:29Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe battle between two leading dry bulk operators heated up as Diana Shipping looked to further increase the pressure on Genco Shipping & Trading to...\n\n---\n_Ingested at 2026-05-27T22:08:11.118837+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 2b2bec86bf3cf5f0 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1409",
+      "number": 1409,
+      "id": "4536127227",
+      "ts": "2026-05-27T22:00:13.196Z",
+      "chronology_ts": "2026-05-27T22:00:13.196Z",
+      "issue_created_at": "2026-05-27T22:17:15.000Z",
+      "source_published_at": "2026-05-27T22:00:13.196Z",
+      "ingested_at": "2026-05-27T22:17:13.320Z",
+      "title": "[BSKY] Uncertainty is the norm underwater. It's becoming the norm everywhere else, too. warontherocks.com/2026/05/lead...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1409",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmuiycdfzp2b",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmuiycdfzp2b",
+        "source_published_at": "2026-05-27T22:00:13.196Z",
+        "ingested_at": "2026-05-27T22:17:13.320Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:87d3d4aa126572efa023 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:87d3d4aa126572efa023 -->\n\n### Text\nUncertainty is the norm underwater. It's becoming the norm everywhere else, too. warontherocks.com/2026/05/lead...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T22:00:13.196Z\ningested_at: 2026-05-27T22:17:13.320Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmuiycdfzp2b\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1407",
+      "number": 1407,
+      "id": "4536126628",
+      "ts": "2026-05-27T21:59:45.000Z",
+      "chronology_ts": "2026-05-27T21:59:45.000Z",
+      "issue_created_at": "2026-05-27T22:17:07.000Z",
+      "source_published_at": "2026-05-27T21:59:45.000Z",
+      "ingested_at": "2026-05-27T22:17:05.031Z",
+      "title": "[RSS] 5/27/26 National Security and Korean News and Commentary",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1407",
+      "original_url": "https://smallwarsjournal.com/2026/05/27/5-27-26-national-security-and-korean-news-and-commentary/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/27/5-27-26-national-security-and-korean-news-and-commentary/",
+        "source_published_at": "2026-05-27T21:59:45.000Z",
+        "ingested_at": "2026-05-27T22:17:05.031Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:b110bb0c1095feac3af7 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:b110bb0c1095feac3af7 -->\n\n### Text\nAccess National Security News HERE. Access Korean News HERE. National Security News: 1. Opinion &#124; In the disinformation war, the U.S. unilaterally disarmed 2. Leaked Documents Reveal Russian ‘Cognitive Strikes’ Against the West — Including Islamophobic ‘Pig Head’ Attacks in Paris 3. AI warfare is already here 4. Pentagon AI use jumped 1,775% in just one year 5. Why 80% of U.S. Startups Are Quietly &#8230;\n Read more\n The post 5/27/26 National Security and Korean News and Commentary appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T21:59:45.000Z\ningested_at: 2026-05-27T22:17:05.031Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/27/5-27-26-national-security-and-korean-news-and-commentary/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1406",
+      "number": 1406,
+      "id": "4536126075",
+      "ts": "2026-05-27T21:51:01.000Z",
+      "chronology_ts": "2026-05-27T21:51:01.000Z",
+      "issue_created_at": "2026-05-27T22:17:00.000Z",
+      "source_published_at": "2026-05-27T21:51:01.000Z",
+      "ingested_at": "2026-05-27T22:16:58.755Z",
+      "title": "[RSS] Port of Long Beach Offers $1 Million Prize For First Methanol Bunkering",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1406",
+      "original_url": "https://gcaptain.com/port-of-long-beach-offers-1-million-prize-for-first-methanol-bunkering/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER",
+        "REG:US_WEST_COAST",
+        "REG:PACIFIC"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:US_WEST_COAST",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 33.7542,
+        "lon": -118.2165,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Long Beach",
+        "matched_alias": "Port of Long Beach",
+        "matched_id": "port_long_beach",
+        "radius_km": 20,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:US_WEST_COAST",
+          "REG:PACIFIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 33.7542,
+          "lon": -118.2165,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Long Beach",
+          "matched_alias": "Port of Long Beach",
+          "matched_id": "port_long_beach",
+          "radius_km": 20,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:US_WEST_COAST",
+            "REG:PACIFIC"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/port-of-long-beach-offers-1-million-prize-for-first-methanol-bunkering/",
+        "source_published_at": "2026-05-27T21:51:01.000Z",
+        "ingested_at": "2026-05-27T22:16:58.755Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:86a424923428cf661706 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:86a424923428cf661706 -->\n\n### Text\nThe Port of Long Beach is offering a $1 million prize to the first ocean-going vessel to complete a commercial-scale methanol bunkering operation at the Southern California gateway, marking one of the...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T21:51:01.000Z\ningested_at: 2026-05-27T22:16:58.755Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/port-of-long-beach-offers-1-million-prize-for-first-methanol-bunkering/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1378",
+      "number": 1378,
+      "id": "4535971118",
+      "ts": "2026-05-27T21:49:00.000Z",
+      "chronology_ts": "2026-05-27T21:49:00.000Z",
+      "issue_created_at": "2026-05-27T21:49:00.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T21:48:59.482Z",
+      "title": "[RSS] 2026-001: Critical vulnerabilities in Ivanti EPMM",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1378",
+      "original_url": "https://cert.europa.eu/publications/security-advisories/2026-001/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Advisories (RSS) (certeu_advisories_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-advisories/2026-001/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T21:48:59.482Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_advisories_rss:8aa0edefe9d36fea61ba -->\n<!-- VOODOO_INGEST_ID:certeu_advisories_rss:8aa0edefe9d36fea61ba -->\n\n### Text\nOn 29 January 2026, Ivanti released a security advisory addressing two critical vulnerabilities in their EPMM products. An attacker could exploit those flaws to achieve unauthenticated remote code execution on the vulnerable device. One of these vulnerabilities have been exploited in a limited number of cases.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T21:48:59.482Z\n\n### Quelle\nCERT-EU – Security Advisories (RSS) (certeu_advisories_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-advisories/2026-001/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1377",
+      "number": 1377,
+      "id": "4535971008",
+      "ts": "2026-05-27T21:48:59.000Z",
+      "chronology_ts": "2026-05-27T21:48:59.000Z",
+      "issue_created_at": "2026-05-27T21:48:59.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T21:48:58.013Z",
+      "title": "[RSS] 2026-002: Multiple Vulnerabilities in Cisco Products",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1377",
+      "original_url": "https://cert.europa.eu/publications/security-advisories/2026-002/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Advisories (RSS) (certeu_advisories_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-advisories/2026-002/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T21:48:58.013Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_advisories_rss:b808df7a6dd73d5842ef -->\n<!-- VOODOO_INGEST_ID:certeu_advisories_rss:b808df7a6dd73d5842ef -->\n\n### Text\nOn 25 February 2026, Cisco released security advisories addressing multiple high and critical severity vulnerabilities in Cisco Catalyst SD-WAN controllers and Cisco SD-WAN Manager. If exploited, these vulnerabilities could allow attackers to gain administrative access to compromised systems.\nIt is recommended to capture forensic evidence, hunt for indicators of compromise, and apply updates as soon as possible.\nOne of the vulnerabilities, CVE-2026-20127, is exploited in the wild since 2023.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T21:48:58.013Z\n\n### Quelle\nCERT-EU – Security Advisories (RSS) (certeu_advisories_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-advisories/2026-002/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1376",
+      "number": 1376,
+      "id": "4535970902",
+      "ts": "2026-05-27T21:48:57.000Z",
+      "chronology_ts": "2026-05-27T21:48:57.000Z",
+      "issue_created_at": "2026-05-27T21:48:57.000Z",
+      "source_published_at": null,
+      "ingested_at": "2026-05-27T21:48:56.589Z",
+      "title": "[RSS] 2026-003: Multiple Vulnerabilities in Citrix NetScaler and Citrix ADC",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1376",
+      "original_url": "https://cert.europa.eu/publications/security-advisories/2026-003/",
+      "labels": [
+        "D:CYBER_OT",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:OFFICIAL",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:CYBER_OT",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CERT-EU – Security Advisories (RSS) (certeu_advisories_rss)",
+        "platform": "rss",
+        "link": "https://cert.europa.eu/publications/security-advisories/2026-003/",
+        "source_published_at": null,
+        "ingested_at": "2026-05-27T21:48:56.589Z"
+      },
+      "report_category": "Hafen/KRITIS/Cyber/operative Störungen",
+      "greybook_rubric": "Cyber- und IT-Sicherheit",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:certeu_advisories_rss:c423a6e68474eaeee722 -->\n<!-- VOODOO_INGEST_ID:certeu_advisories_rss:c423a6e68474eaeee722 -->\n\n### Text\nOn 23 March 2026, Citrix published a security advisory addressing multiple vulnerabilities affecting NetScaler ADC and NetScaler Gateway. These vulnerabilities may lead to sensitive information disclosure and user session mix-up under specific configurations.\nAt the time of writing, there is no public evidence of active exploitation. It is strongly recommended updating affected gateways, prioritising internet-facing assets. It is also recommended to preserve evidence for further investigation.\n\n### Zeit (UTC)\nsource_published_at: \ningested_at: 2026-05-27T21:48:56.589Z\n\n### Quelle\nCERT-EU – Security Advisories (RSS) (certeu_advisories_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://cert.europa.eu/publications/security-advisories/2026-003/\n\n### Auto-Labels\nSRC:OSINT, D:CYBER_OT, SRC:OFFICIAL, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1424",
+      "number": 1424,
+      "id": "4536488044",
+      "ts": "2026-05-27T21:47:47.000Z",
+      "chronology_ts": "2026-05-27T21:47:47.000Z",
+      "issue_created_at": "2026-05-27T23:37:57.000Z",
+      "source_published_at": "2026-05-27T21:47:47.000Z",
+      "ingested_at": "2026-05-27T21:47:47.000Z",
+      "title": "[RSS] 5th Trading in U.S. Waters Conference at Posidonia to Occur on June 4th",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1424",
+      "original_url": "https://maritime-executive.com/article/5th-trading-in-u-s-waters-conference-at-posidonia-to-occur-on-june-4th",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/5th-trading-in-u-s-waters-conference-at-posidonia-to-occur-on-june-4th",
+        "source_published_at": "2026-05-27T21:47:47.000Z",
+        "ingested_at": "2026-05-27T21:47:47.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/5th-trading-in-u-s-waters-conference-at-posidonia-to-occur-on-june-4th\n\n### Zeit (UTC)\n2026-05-27T21:47:47Z\n\n### Published\n2026-05-27T21:47:47Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAs global shipping faces mounting geopolitical volatility, accelerating technological disruption, and growing pressure to modernize maritime operation...\n\n---\n_Ingested at 2026-05-27T23:37:56.942007+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 7d82781d5ce34d14 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1386",
+      "number": 1386,
+      "id": "4536080289",
+      "ts": "2026-05-27T21:41:29.000Z",
+      "chronology_ts": "2026-05-27T21:41:29.000Z",
+      "issue_created_at": "2026-05-27T22:08:12.000Z",
+      "source_published_at": "2026-05-27T21:41:29.000Z",
+      "ingested_at": "2026-05-27T21:41:29.000Z",
+      "title": "[RSS] Wärtsilä to Expand its Technical Production Capacity by an Additional 30%",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1386",
+      "original_url": "https://maritime-executive.com/article/wartsila-to-expand-its-technical-production-capacity-by-an-additional-30",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/wartsila-to-expand-its-technical-production-capacity-by-an-additional-30",
+        "source_published_at": "2026-05-27T21:41:29.000Z",
+        "ingested_at": "2026-05-27T21:41:29.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/wartsila-to-expand-its-technical-production-capacity-by-an-additional-30\n\n### Zeit (UTC)\n2026-05-27T21:41:29Z\n\n### Published\n2026-05-27T21:41:29Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nTechnology group Wärtsilä will invest approximately EUR 90 million to further expand its technical production capacity by 30% at its Sustainable Techn...\n\n---\n_Ingested at 2026-05-27T22:08:12.300110+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 130df5256a3bc4f2 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1384",
+      "number": 1384,
+      "id": "4535974459",
+      "ts": "2026-05-27T21:40:05.877Z",
+      "chronology_ts": "2026-05-27T21:40:05.877Z",
+      "issue_created_at": "2026-05-27T21:49:39.000Z",
+      "source_published_at": "2026-05-27T21:40:05.877Z",
+      "ingested_at": "2026-05-27T21:49:37.743Z",
+      "title": "[BSKY] If you’re working where defense meets innovation, @Cogs0fWar is for you. Follow our dedicated vertical on defense technology and industrial base issues for cutt",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1384",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmuhuc5jc62j",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmuhuc5jc62j",
+        "source_published_at": "2026-05-27T21:40:05.877Z",
+        "ingested_at": "2026-05-27T21:49:37.743Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:4063bd10e673c2937e37 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:4063bd10e673c2937e37 -->\n\n### Text\nIf you’re working where defense meets innovation, @Cogs0fWar is for you. Follow our dedicated vertical on defense technology and industrial base issues for cutting-edge analysis. warontherocks.com/category/ver...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T21:40:05.877Z\ningested_at: 2026-05-27T21:49:37.743Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmuhuc5jc62j\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1387",
+      "number": 1387,
+      "id": "4536080453",
+      "ts": "2026-05-27T21:37:49.000Z",
+      "chronology_ts": "2026-05-27T21:37:49.000Z",
+      "issue_created_at": "2026-05-27T22:08:13.000Z",
+      "source_published_at": "2026-05-27T21:37:49.000Z",
+      "ingested_at": "2026-05-27T21:37:49.000Z",
+      "title": "[RSS] RINA Reaches One Billion in Revenue and Continues its Growth Plan",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1387",
+      "original_url": "https://maritime-executive.com/article/rina-reaches-one-billion-in-revenue-and-continues-its-growth-plan",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/rina-reaches-one-billion-in-revenue-and-continues-its-growth-plan",
+        "source_published_at": "2026-05-27T21:37:49.000Z",
+        "ingested_at": "2026-05-27T21:37:49.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/rina-reaches-one-billion-in-revenue-and-continues-its-growth-plan\n\n### Zeit (UTC)\n2026-05-27T21:37:49Z\n\n### Published\n2026-05-27T21:37:49Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe shareholders’ meeting of RINA, the multinational inspection, certification and consulting engineering group, today approved the 2025 financial sta...\n\n---\n_Ingested at 2026-05-27T22:08:13.520471+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 9c50c2fa0900dbdf -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1381",
+      "number": 1381,
+      "id": "4535973321",
+      "ts": "2026-05-27T21:09:35.561Z",
+      "chronology_ts": "2026-05-27T21:09:35.561Z",
+      "issue_created_at": "2026-05-27T21:49:25.000Z",
+      "source_published_at": "2026-05-27T21:09:35.561Z",
+      "ingested_at": "2026-05-27T21:49:23.697Z",
+      "title": "[BSKY] I believe you are right. It's coming, and some satellites already have it, but obviously it requires new machines on earth.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1381",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmug5pzodc2m",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmug5pzodc2m",
+        "source_published_at": "2026-05-27T21:09:35.561Z",
+        "ingested_at": "2026-05-27T21:49:23.697Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:f8913c5745e49bee0464 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:f8913c5745e49bee0464 -->\n\n### Text\nI believe you are right. It's coming, and some satellites already have it, but obviously it requires new machines on earth.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T21:09:35.561Z\ningested_at: 2026-05-27T21:49:23.697Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmug5pzodc2m\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1379",
+      "number": 1379,
+      "id": "4535972046",
+      "ts": "2026-05-27T21:05:45.000Z",
+      "chronology_ts": "2026-05-27T21:05:45.000Z",
+      "issue_created_at": "2026-05-27T21:49:10.000Z",
+      "source_published_at": "2026-05-27T21:05:45.000Z",
+      "ingested_at": "2026-05-27T21:49:08.175Z",
+      "title": "[RSS] Russia’s Land Bridge Becomes a Highway to Hell",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1379",
+      "original_url": "https://cepa.org/article/russias-land-bridge-becomes-a-highway-to-hell/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/russias-land-bridge-becomes-a-highway-to-hell/",
+        "source_published_at": "2026-05-27T21:05:45.000Z",
+        "ingested_at": "2026-05-27T21:49:08.175Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:7d09c81550af36ddda80 -->\n<!-- VOODOO_INGEST_ID:cepa_feed:7d09c81550af36ddda80 -->\n\n### Text\nThe Kremlin’s supply lines in occupied Ukraine are being hammered, the result of Kyiv’s current superiority in drone technology.\n The post Russia’s Land Bridge Becomes a Highway to Hell appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T21:05:45.000Z\ningested_at: 2026-05-27T21:49:08.175Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/russias-land-bridge-becomes-a-highway-to-hell/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1380",
+      "number": 1380,
+      "id": "4535972245",
+      "ts": "2026-05-27T20:50:17.000Z",
+      "chronology_ts": "2026-05-27T20:50:17.000Z",
+      "issue_created_at": "2026-05-27T21:49:12.000Z",
+      "source_published_at": "2026-05-27T20:50:17.000Z",
+      "ingested_at": "2026-05-27T21:49:10.834Z",
+      "title": "[RSS] China and the Hungarian Water Crisis",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1380",
+      "original_url": "https://cepa.org/article/china-and-the-hungarian-water-crisis/",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
+        "platform": "rss",
+        "link": "https://cepa.org/article/china-and-the-hungarian-water-crisis/",
+        "source_published_at": "2026-05-27T20:50:17.000Z",
+        "ingested_at": "2026-05-27T21:49:10.834Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:cepa_feed:12a7f9a0815a8acf586b -->\n<!-- VOODOO_INGEST_ID:cepa_feed:12a7f9a0815a8acf586b -->\n\n### Text\nThe days when Chinese industry received a free pass from the Budapest government are over. A water shortage has seen to that.\n The post China and the Hungarian Water Crisis appeared first on CEPA .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T20:50:17.000Z\ningested_at: 2026-05-27T21:49:10.834Z\n\n### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Link\nhttps://cepa.org/article/china-and-the-hungarian-water-crisis/\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1388",
+      "number": 1388,
+      "id": "4536080533",
+      "ts": "2026-05-27T20:38:17.000Z",
+      "chronology_ts": "2026-05-27T20:38:17.000Z",
+      "issue_created_at": "2026-05-27T22:08:14.000Z",
+      "source_published_at": "2026-05-27T20:38:17.000Z",
+      "ingested_at": "2026-05-27T20:38:17.000Z",
+      "title": "[RSS] Video: One Person Killed and Two Survive as US Strikes Suspected Drug Boat",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1388",
+      "original_url": "https://maritime-executive.com/article/video-one-person-killed-and-two-survive-as-us-strikes-suspected-drug-boat",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:SECURITY_CRIME",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/video-one-person-killed-and-two-survive-as-us-strikes-suspected-drug-boat",
+        "source_published_at": "2026-05-27T20:38:17.000Z",
+        "ingested_at": "2026-05-27T20:38:17.000Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/video-one-person-killed-and-two-survive-as-us-strikes-suspected-drug-boat\n\n### Zeit (UTC)\n2026-05-27T20:38:17Z\n\n### Published\n2026-05-27T20:38:17Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, D:SECURITY_CRIME, SEV:1, SRC:MEDIA\n\n### Summary\nAfter a possible lull in the strikes against suspected drug smugglers, or in reporting the strikes, U.S. forces confirmed another strike in the Easte...\n\n---\n_Ingested at 2026-05-27T22:08:14.584398+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: f43b09bf98addff5 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1383",
+      "number": 1383,
+      "id": "4535974033",
+      "ts": "2026-05-27T20:30:24.000Z",
+      "chronology_ts": "2026-05-27T20:30:24.000Z",
+      "issue_created_at": "2026-05-27T21:49:34.000Z",
+      "source_published_at": "2026-05-27T20:30:24.000Z",
+      "ingested_at": "2026-05-27T21:49:32.303Z",
+      "title": "[RSS] ChatGPT as a Bomb-Making Manual",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1383",
+      "original_url": "https://smallwarsjournal.com/2026/05/27/chatgpt-as-a-bomb-making-manual/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL",
+        "ALERT:CRITICAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/27/chatgpt-as-a-bomb-making-manual/",
+        "source_published_at": "2026-05-27T20:30:24.000Z",
+        "ingested_at": "2026-05-27T21:49:32.303Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:f0274f246cebb13982bb -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:f0274f246cebb13982bb -->\n\n### Text\nIndia&#8217;s National Investigation Agency has filed a 7,500-page chargesheet in the November 2024 Red Fort car blast that killed 11 people, per an Economic Times report. The catch: A key accused used ChatGPT to research rocket IED construction, querying the platform for explosive mixture ratios and fabrication methods.  The Gist The accused, Jasir Bilal Wani, served as the &#8220;in-house engineer&#8221; &#8230;\n Read more\n The post ChatGPT as a Bomb-Making Manual appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T20:30:24.000Z\ningested_at: 2026-05-27T21:49:32.303Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/27/chatgpt-as-a-bomb-making-manual/\n\n### Priority Alert\nlevel: CRITICAL\nscore: 12\nreasons: Explosivmittel/Minenbezug; harter Sicherheitsvorfall; KRITIS-/Hafen-/Energiebezug; NAVTEX/NAVWARN- oder nautischer Gefahrenbezug\n\n### Auto-Labels\nSRC:OSINT, SRC:AN…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1389",
+      "number": 1389,
+      "id": "4536080620",
+      "ts": "2026-05-27T20:20:27.000Z",
+      "chronology_ts": "2026-05-27T20:20:27.000Z",
+      "issue_created_at": "2026-05-27T22:08:15.000Z",
+      "source_published_at": "2026-05-27T20:20:27.000Z",
+      "ingested_at": "2026-05-27T20:20:27.000Z",
+      "title": "[RSS] Three Arrested, One Dead in Cocaine Bust at Mundra Port",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1389",
+      "original_url": "https://maritime-executive.com/article/three-arrested-one-dead-in-cocaine-bust-at-mundra-port",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:SECURITY_CRIME",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/three-arrested-one-dead-in-cocaine-bust-at-mundra-port",
+        "source_published_at": "2026-05-27T20:20:27.000Z",
+        "ingested_at": "2026-05-27T20:20:27.000Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/three-arrested-one-dead-in-cocaine-bust-at-mundra-port\n\n### Zeit (UTC)\n2026-05-27T20:20:27Z\n\n### Published\n2026-05-27T20:20:27Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, D:SECURITY_CRIME, SEV:1, SRC:MEDIA\n\n### Summary\nThe Indian Coast Guard and partner agencies have seized about 115 kilos of cocaine from a boxship, a small bust by global standards but a significant...\n\n---\n_Ingested at 2026-05-27T22:08:15.759658+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 59d01d5cb239e4d1 -->"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1374",
       "number": 1374,
@@ -145,6 +2546,45 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "maritime Geopolitik",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:74ba418da4ae00e88d24 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:74ba418da4ae00e88d24 -->\n\n### Text\nIn 2021, a college senior staring at satellite imagery of western China found something that upended what the expert community thought it knew about Beijing's nuclear ambitions. (Members Only)\nListen here: \r warontherocks.com/episode/thin...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T19:45:08.292Z\ningested_at: 2026-05-27T20:09:11.329Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmubgqqeyp2o\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1390",
+      "number": 1390,
+      "id": "4536080816",
+      "ts": "2026-05-27T19:39:19.000Z",
+      "chronology_ts": "2026-05-27T19:39:19.000Z",
+      "issue_created_at": "2026-05-27T22:08:17.000Z",
+      "source_published_at": "2026-05-27T19:39:19.000Z",
+      "ingested_at": "2026-05-27T19:39:19.000Z",
+      "title": "[RSS] UN Tribunal Awards $14M in Compensation for 2022 Seizure of VLCC off Africa",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1390",
+      "original_url": "https://maritime-executive.com/article/un-tribunal-awards-14m-in-compensation-for-2022-seizure-of-vlcc-off-africa",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/un-tribunal-awards-14m-in-compensation-for-2022-seizure-of-vlcc-off-africa",
+        "source_published_at": "2026-05-27T19:39:19.000Z",
+        "ingested_at": "2026-05-27T19:39:19.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/un-tribunal-awards-14m-in-compensation-for-2022-seizure-of-vlcc-off-africa\n\n### Zeit (UTC)\n2026-05-27T19:39:19Z\n\n### Published\n2026-05-27T19:39:19Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe International Tribunal for the Law of the Sea, a UN body for settling international maritime disputes, read out its verdict in the 2022 case of th...\n\n---\n_Ingested at 2026-05-27T22:08:16.861611+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 957fe7e603f91496 -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1365",
@@ -635,6 +3075,89 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "maritime Geopolitik",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:27b49325bd503fe53c00 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:27b49325bd503fe53c00 -->\n\n### Text\nA cargo of oil from the U.S. Strategic Petroleum Reserve headed to California this month for the first time ever, ship tracking service Kpler said.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T17:24:33.000Z\ningested_at: 2026-05-27T17:56:01.889Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/spr-oil-heads-to-california-for-first-time-amid-iran-war-disruptions/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1382",
+      "number": 1382,
+      "id": "4535973794",
+      "ts": "2026-05-27T17:12:00.000Z",
+      "chronology_ts": "2026-05-27T17:12:00.000Z",
+      "issue_created_at": "2026-05-27T21:49:30.000Z",
+      "source_published_at": "2026-05-27T17:12:00.000Z",
+      "ingested_at": "2026-05-27T21:49:28.169Z",
+      "title": "[X] Nice phot 'Compliment' not 'replace'",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1382",
+      "original_url": "https://nitter.poast.org/TomSharpe134/status/2059684055285727679",
+      "labels": [
+        "D:INFRA_CI",
+        "REG:NORTH_SEA",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:CHANNEL",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "DECAY:SLOW",
+        "SRC:ANALYST",
+        "SRC:NAVAL",
+        "SRC:ANALYSIS_POINTER",
+        "SRC:X",
+        "MAP:INFERRED"
+      ],
+      "source_type": "social_x",
+      "category": "D:INFRA_CI",
+      "region": "REG:NORTH_SEA",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 56,
+        "lon": 3.5,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "North Sea",
+        "matched_alias": "North Sea",
+        "matched_id": "north_sea",
+        "radius_km": 900,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "north_sea",
+          "matched_name": "North Sea",
+          "matched_alias": "North Sea",
+          "lat": 56,
+          "lon": 3.5,
+          "radius_km": 900,
+          "precision": "area",
+          "regions": [
+            "REG:NORTH_SEA"
+          ],
+          "score": 19,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "Tom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/TomSharpe134/status/2059684055285727679",
+        "source_published_at": "2026-05-27T17:12:00.000Z",
+        "ingested_at": "2026-05-27T21:49:28.169Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:tom_sharpe_x:5af0e6b0b257e4963516 -->\n<!-- VOODOO_INGEST_ID:tom_sharpe_x:5af0e6b0b257e4963516 -->\n\n### Text\nNice phot\n'Compliment' not 'replace'\n\n### Zeit (UTC)\nsource_published_at: 2026-05-27T17:12:00.000Z\ningested_at: 2026-05-27T21:49:28.169Z\n\n### Quelle\nTom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/TomSharpe134/status/2059684055285727679\n\n### Auto-Labels\nSRC:OSINT, SRC:SOCIAL, SRC:ANALYST, SRC:NAVAL, SRC:ANALYSIS_POINTER, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:LOW, SEV:1, REG:NORTH_SEA, REG:CHANNEL, SCORE:HYBRID_CONTEXT, DECAY:SLOW, SRC:X\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1369",
@@ -39588,7 +42111,6 @@
           "in_title": false
         }
       ],
-      "geo_inferred": true,
       "source_hint": {
         "source": "Tom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)",
         "platform": "social_x",
@@ -53443,54 +55965,6 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
       "summary": "### Quelle\nSWP – Offizielle Publikationen DE (swp_publications_de)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-08T10:45:07.000Z\n\n### Link\nhttps://www.swp-berlin.org/publikation/frieden-in-der-krise-konfliktbearbeitung-am-horn-von-afrika\n\n### Text\nDas System internationaler Konfliktbearbeitung befindet sich in einer tiefen Krise. Entsprechende Instrumente wie UN-Friedensmissionen werden abgezogen, normative und machtpolitische Voraussetzungen wie eine US-garantierte internationale Ordnung gelten nicht mehr, und bisherige Abkommen haben zu oft eine Vertiefung gewaltsamer autoritärer Systeme statt deren Transformation bewirkt. Am Horn von Afrika zeigt sich diese Krise besonders deutlich. Stabilität brachten dort weder international erzwungene Friedensabkommen wie in Südsudan noch solche, die wie in Sudan 2020 praktisch ohne Mediation zwischen bewaffneten Akteuren ausgehandelt wurden. Regierungen wie die äthiopische haben Friedensprozesse vielmehr regelmäßig instrumentalisiert, um die eigene Herrschaft zu sichern. Jüngere Vermittlungsprozesse sind primär eine Funktion regionaler Rivalitäten und diplomatischer Interessen von beteiligten externen Akteu­ren, wie in Sudan seit Kriegsbeginn…"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/494",
-      "number": 494,
-      "id": "4436564307",
-      "ts": "2026-05-07T23:00:00.000Z",
-      "chronology_ts": "2026-05-07T23:00:00.000Z",
-      "issue_created_at": "2026-05-13T09:19:52.000Z",
-      "source_published_at": "2026-05-07T23:00:00.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] Getting the Financial Action Task Force’s Travel Rule Right: Delivering on Guidance",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/494",
-      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/getting-financial-task-forces-travel-rule-right-delivering-guidance",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "RUSI – Latest Publications (rusi_latest_publications)",
-        "platform": "rss",
-        "link": "https://www.rusi.org/explore-our-research/publications/commentary/getting-financial-task-forces-travel-rule-right-delivering-guidance",
-        "source_published_at": "2026-05-07T23:00:00.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-07T23:00:00.000Z\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/getting-financial-task-forces-travel-rule-right-delivering-guidance\n\n### Text\nThe Financial Action Task Force’s plans for cross-border payment transparency are welcome, but this ambition without safeguards may undermine financial system access.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: rusi_latest_publications\nsource_priority: 88\nitem_score: 5\nkeyword_hits: mine\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: 49b64acc SOURCE=rusi_latest_publications -->"
     }
   ]
 }
