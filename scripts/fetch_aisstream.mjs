@@ -49,7 +49,7 @@ const SAMPLE_SECONDS = Math.max(30, Number(process.env.AIS_SAMPLE_SECONDS || 120
 const MAX_MESSAGES = Math.max(100, Number(process.env.AIS_MAX_MESSAGES || 3000));
 
 const TRACK_HISTORY_TTL_HOURS = Math.max(2, Number(process.env.AIS_TRACK_HISTORY_TTL_HOURS || 24));
-const DRIFT_EVAL_LOOKBACK_HOURS = Math.max(2, Number(process.env.AIS_DRIFT_EVAL_LOOKBACK_HOURS || 6));
+const DRIFT_EVAL_LOOKBACK_HOURS = Math.max(0.5, Number(process.env.AIS_DRIFT_EVAL_LOOKBACK_HOURS || 6));
 const DRIFT_ACTIVE_TTL_MINUTES = Math.max(45, Number(process.env.AIS_DRIFT_ACTIVE_TTL_MINUTES || 90));
 const DRIFT_SOG_MAX = Math.max(0.5, Number(process.env.AIS_DRIFT_SOG_MAX || 2.5));
 const DRIFT_MIN_MINUTES = Math.max(30, Number(process.env.AIS_DRIFT_MIN_MINUTES || 60));
@@ -624,47 +624,109 @@ async function main(){
   const errors = [];
   const started = Date.now();
 
-  await new Promise((resolve) => {
+  let rawMessageCount = 0;
+  const connectionRuns = [];
+
+  const handleAisMessage = (buf) => {
+    rawMessageCount++;
+    try {
+      const msg = JSON.parse(buf.toString());
+      if (msg?.error) { errors.push(String(msg.error)); return; }
+      const stat = extractStaticData(msg);
+      if (stat?.mmsi) {
+        staticCache.vessels ||= {};
+        staticCache.vessels[stat.mmsi] = mergeStatic(staticCache.vessels[stat.mmsi], stat);
+      }
+      let item = extractPosition(msg);
+      if (!item) return;
+      item = enrichWithStatic(item, staticCache);
+      const r = regionFor(item.lat, item.lon, regions);
+      if (r.id === "unknown") return;
+      item.region_id = r.id;
+      item.weirdness_bucket = r.weirdness_bucket;
+      item.region_label_de = r.label_de;
+      item.authority_like = boolAuthority(item, rules);
+      item.flags = [];
+      if (item.authority_like) item.flags.push("authority_like");
+      if (item.ship_type === 55) item.flags.push("law_enforcement_type");
+      if (item.ship_type === 51) item.flags.push("sar_type");
+      if (item.ship_type === 30 || item.nav_status === 7) item.flags.push("fishing_likely");
+      if (item.nav_status === 6) item.flags.push("aground");
+      const key = item.mmsi || `${item.lat.toFixed(4)},${item.lon.toFixed(4)},${item.name}`;
+      seen.set(key, item);
+    } catch(e) { errors.push(e.message); }
+  };
+
+  const listenAisstream = (attempt) => new Promise((resolve) => {
     const ws = new WebSocket(AIS_URL);
-    const finish = () => { try { ws.close(); } catch {} resolve(); };
-    const timer = setTimeout(finish, SAMPLE_SECONDS * 1000);
+    const attemptStarted = Date.now();
+    let done = false;
+    let localMessages = 0;
+
+    const finish = (reason, extra = {}) => {
+      if (done) return;
+      done = true;
+      const windowSeconds = Math.round((Date.now() - attemptStarted) / 1000);
+      connectionRuns.push({
+        attempt: attempt.name,
+        key_field: attempt.keyField,
+        reason,
+        window_seconds: windowSeconds,
+        raw_messages: localMessages,
+        ...extra
+      });
+      try { ws.close(); } catch {}
+      clearTimeout(timer);
+      resolve({ reason, windowSeconds, rawMessages: localMessages, ...extra });
+    };
+
+    const timer = setTimeout(() => finish("timer"), SAMPLE_SECONDS * 1000);
 
     ws.on("open", () => {
-      const sub = { APIKey: API_KEY, BoundingBoxes: bboxes, FilterMessageTypes: ["PositionReport", "StandardClassBPositionReport", "ExtendedClassBPositionReport", "ShipStaticData", "StaticDataReport", "StandardClassBShipStaticData"] };
+      const sub = {
+        [attempt.keyField]: API_KEY,
+        BoundingBoxes: bboxes,
+        FilterMessageTypes: attempt.messageTypes
+      };
       ws.send(JSON.stringify(sub));
     });
+
     ws.on("message", (buf) => {
-      if (seen.size >= MAX_MESSAGES) return finish();
-      try {
-        const msg = JSON.parse(buf.toString());
-        if (msg?.error) { errors.push(String(msg.error)); return; }
-        const stat = extractStaticData(msg);
-        if (stat?.mmsi) {
-          staticCache.vessels ||= {};
-          staticCache.vessels[stat.mmsi] = mergeStatic(staticCache.vessels[stat.mmsi], stat);
-        }
-        let item = extractPosition(msg);
-        if (!item) return;
-        item = enrichWithStatic(item, staticCache);
-        const r = regionFor(item.lat, item.lon, regions);
-        if (r.id === "unknown") return;
-        item.region_id = r.id;
-        item.weirdness_bucket = r.weirdness_bucket;
-        item.region_label_de = r.label_de;
-        item.authority_like = boolAuthority(item, rules);
-        item.flags = [];
-        if (item.authority_like) item.flags.push("authority_like");
-        if (item.ship_type === 55) item.flags.push("law_enforcement_type");
-        if (item.ship_type === 51) item.flags.push("sar_type");
-        if (item.ship_type === 30 || item.nav_status === 7) item.flags.push("fishing_likely");
-        if (item.nav_status === 6) item.flags.push("aground");
-        const key = item.mmsi || `${item.lat.toFixed(4)},${item.lon.toFixed(4)},${item.name}`;
-        seen.set(key, item);
-      } catch(e) { errors.push(e.message); }
+      localMessages++;
+      if (rawMessageCount >= MAX_MESSAGES) return finish("max_messages");
+      handleAisMessage(buf);
     });
-    ws.on("error", (e) => { errors.push(e.message || String(e)); });
-    ws.on("close", () => { clearTimeout(timer); resolve(); });
+
+    ws.on("error", (e) => {
+      const msg = e?.message || String(e);
+      errors.push(`${attempt.name}: websocket error: ${msg}`);
+      finish("error", { error: msg });
+    });
+
+    ws.on("close", (code, reasonBuf) => {
+      const reason = reasonBuf ? reasonBuf.toString() : "";
+      finish("close", { close_code: code, close_reason: reason });
+    });
   });
+
+  // Try a conservative official subscription first. If AISstream closes immediately without messages,
+  // retry once with the alternate API-key casing shown in AISstream's JavaScript example.
+  const commonTypes = ["PositionReport", "StandardClassBPositionReport", "ExtendedClassBPositionReport", "ShipStaticData", "StaticDataReport"];
+  const safeTypes = ["PositionReport", "ShipStaticData", "StaticDataReport"];
+  const attempts = [
+    { name:"api_key_common_types", keyField:"APIKey", messageTypes:commonTypes },
+    { name:"apikey_common_types", keyField:"Apikey", messageTypes:commonTypes },
+    { name:"api_key_safe_types", keyField:"APIKey", messageTypes:safeTypes }
+  ];
+
+  for (const attempt of attempts) {
+    const before = rawMessageCount;
+    const result = await listenAisstream(attempt);
+    const gotMessages = rawMessageCount > before;
+    const stayedOpenEnough = result.windowSeconds >= Math.min(20, SAMPLE_SECONDS);
+    if (gotMessages || stayedOpenEnough || result.reason === "timer" || result.reason === "max_messages") break;
+    errors.push(`${attempt.name}: early close after ${result.windowSeconds}s with 0 messages${result.close_code ? ` (close ${result.close_code})` : ""}${result.close_reason ? `: ${result.close_reason}` : ""}`);
+  }
 
   const collectedAt = nowIso();
   const items = [...seen.values()].sort((a,b)=>String(a.mmsi).localeCompare(String(b.mmsi)));
@@ -682,11 +744,13 @@ async function main(){
     byRegion[r].clusters_5nm++;
   }
   const out = {
-    ok: errors.length === 0 || items.length > 0,
+    ok: (errors.length === 0 && rawMessageCount > 0) || items.length > 0,
     source: "aisstream",
     generated_at: collectedAt,
     window_seconds: Math.round((Date.now() - started) / 1000),
     sample_seconds_requested: SAMPLE_SECONDS,
+    raw_message_count: rawMessageCount,
+    connection_runs: connectionRuns,
     regions: Object.keys(regions),
     item_count: items.length,
     items,
