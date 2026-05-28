@@ -86,9 +86,9 @@
     }
 
 
-    .healthBar{margin-bottom:12px; padding:8px 10px;}
-    .healthGrid{display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:8px; align-items:stretch;}
-    .healthItem{min-width:0; border:1px solid rgba(176,136,0,.34); background:rgba(0,0,0,.22); border-radius:10px; padding:7px 8px; display:flex; flex-direction:column; gap:4px; min-height:58px;}
+    .healthBar{margin-bottom:12px; padding:8px 10px; overflow:visible; position:relative; z-index:50;}
+    .healthGrid{display:grid; grid-template-columns:repeat(9,minmax(0,1fr)); gap:8px; align-items:stretch; overflow:visible;}
+    .healthItem{min-width:0; border:1px solid rgba(176,136,0,.34); background:rgba(0,0,0,.22); border-radius:10px; padding:7px 8px; display:flex; flex-direction:column; gap:4px; min-height:58px; position:relative; overflow:visible; cursor:help;}
     .healthTop{display:flex; align-items:center; gap:8px; min-width:0;}
     .lamp{width:12px; height:12px; border-radius:50%; flex:0 0 12px; box-shadow:0 0 0 1px rgba(255,255,255,.15) inset, 0 0 10px rgba(255,255,255,.12);}
     .lamp.green{background:var(--ok); box-shadow:0 0 10px rgba(51,209,122,.45)}
@@ -98,6 +98,37 @@
     .healthLabel{font-size:17px; color:var(--text); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
     .healthMeta{font-size:14px; color:var(--money); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
     .healthReason{font-size:13px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+
+    .healthTooltip{
+      display:none;
+      position:absolute;
+      left:0;
+      top:calc(100% + 8px);
+      width:310px;
+      max-width:70vw;
+      z-index:5000;
+      border:1px solid var(--stroke);
+      border-radius:12px;
+      background:rgba(5,6,7,.97);
+      box-shadow:0 18px 48px rgba(0,0,0,.65), 0 0 24px rgba(176,136,0,.18);
+      padding:10px 11px;
+      color:var(--text);
+      font-family:"VT323", ui-monospace, monospace;
+      pointer-events:none;
+    }
+    .healthItem:nth-child(n+7) .healthTooltip{left:auto; right:0;}
+    .healthItem:hover .healthTooltip,
+    .healthItem:focus-within .healthTooltip{display:block;}
+    .healthTooltipTitle{font-size:18px; color:var(--money); margin-bottom:4px; text-transform:uppercase;}
+    .healthTooltipStatus{font-size:16px; margin-bottom:6px;}
+    .healthTooltipStatus .green{color:var(--ok)}
+    .healthTooltipStatus .orange{color:var(--orange)}
+    .healthTooltipStatus .red{color:var(--bad)}
+    .healthTooltipStatus .gray{color:var(--muted)}
+    .healthTooltipLines{font-size:15px; line-height:1.15; color:rgba(255,255,255,.86);}
+    .healthTooltipLine{display:grid; grid-template-columns:86px 1fr; gap:8px; padding:2px 0; border-top:1px solid rgba(255,255,255,.06);}
+    .healthTooltipKey{color:var(--muted);}
+    .healthTooltipValue{color:var(--text); overflow-wrap:anywhere;}
 
     .grid{
       display:grid;
@@ -768,7 +799,7 @@
       <div class="brand">
         <div class="brandLine">
           <h1>MAGIC PAWS // MARITIME PHASE ZERO</h1>
-          <span class="ver">v5.40 “System Health Lamps”</span>
+          <span class="ver">v5.40b “System Health Tooltips”</span>
         </div>
         <div class="sub">
           Source: <span id="src">–</span> • Stand: <span id="stand">–</span> • Worker: <span class="hint" id="wkr">–</span>
@@ -1497,6 +1528,31 @@ Wilhelmshaven JadeWeserPort"></textarea>
     if (ageM <= orangeMax) return "orange";
     return "red";
   }
+
+  function healthDetailLines(lines){
+    return (Array.isArray(lines) ? lines : [])
+      .filter(Boolean)
+      .map(line => {
+        if (Array.isArray(line)) return { key: String(line[0] ?? ""), value: String(line[1] ?? "") };
+        return { key: "", value: String(line ?? "") };
+      });
+  }
+  function healthTooltipHtml(s){
+    const status = String(s.status || "gray");
+    const lines = healthDetailLines(s.details || [
+      ["Status", status.toUpperCase()],
+      ["Kurz", s.meta || "–"],
+      ["Grund", s.reason || "–"]
+    ]);
+    return `<div class="healthTooltip" role="tooltip">
+      <div class="healthTooltipTitle">${escapeHtml(s.label || "System")}</div>
+      <div class="healthTooltipStatus">Status: <span class="${escapeHtml(status)}">${escapeHtml(status.toUpperCase())}</span></div>
+      <div class="healthTooltipLines">
+        ${lines.map(l => `<div class="healthTooltipLine"><div class="healthTooltipKey">${escapeHtml(l.key)}</div><div class="healthTooltipValue">${escapeHtml(l.value)}</div></div>`).join("")}
+      </div>
+    </div>`;
+  }
+
   function getHealthSystems(){
     const hours = selectedDisplayWindowHours();
     const relevant = state.events.filter(ev => isWithinHours(ev, hours));
@@ -1558,15 +1614,24 @@ Wilhelmshaven JadeWeserPort"></textarea>
     }
 
     const systems = [
-      { key:'ais', label:'AISstream', status:aisStatus, meta:`${aisCount} Ziele • ${fmtAgeMinutes(aisAge)}`, reason:ais?.error || (aisCount <= 0 ? 'Datei frisch, aber leer oder kein Treffer' : 'Live-AIS-Datei frisch') },
-      { key:'adsb', label:'ADS-B', status:adsbStatus, meta:`${adsbCount} Tracks • ${fmtAgeMinutes(adsbAge)}`, reason:adsb?.error || (adsbCount <= 0 ? 'Datei leer oder Feed ohne Treffer' : 'ADS-B-Datei frisch') },
-      { key:'drift', label:'Drift', status:driftStatus, meta:`${driftCount} Kandidaten • ${fmtAgeMinutes(driftAge)}`, reason:drift?.error || 'AIS Drift Detector' },
-      { key:'ingest', label:'Ingest', status:ingestStatus, meta:`${recent24} Events / 24h`, reason:`Neuestes Event ${fmtAgeMinutes(latestEventAgeM)} alt` },
-      { key:'snapshot', label:'Snapshot', status:snapStatus, meta:fmtAgeMinutes(snapAge), reason:snap ? 'Sensor-Snapshot' : 'Snapshot-Datei fehlt' },
-      { key:'ntfy', label:'ntfy', status:ntfyStatus, meta:ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : 'ohne State', reason:ntfyReason },
-      { key:'geo', label:'Geo/Gazetteer', status:geoStatus, meta:`${(geoRate*100).toFixed(0)}% GEO`, reason:`${geoHits}/${relevant.length || 0} Meldungen mit Geo oder Kandidaten` },
-      { key:'sources', label:'Sources', status:srcStatus, meta:`${uniqueSources.size} Quellen`, reason:'aktive Quellen im aktuellen Arbeitsfenster' },
-      { key:'navtex', label:'NAVTEX', status:navStatus, meta:`${navItems} Meldungen`, reason:nav ? `NAVWARN/NAVTEX • ${fmtAgeMinutes(navAge)}` : 'NAVTEX/NAVWARN nicht geladen' }
+      { key:'ais', label:'AISstream', status:aisStatus, meta:`${aisCount} Ziele • ${fmtAgeMinutes(aisAge)}`, reason:ais?.error || (aisCount <= 0 ? 'Datei frisch, aber leer oder kein Treffer' : 'Live-AIS-Datei frisch'),
+        details: [["Datei","data/live/ais_latest.json"],["Alter",fmtAgeMinutes(aisAge)],["Ziele",aisCount],["Schwelle","grün ≤45 min, orange ≤120 min"],["Grund",ais?.error || (aisCount <= 0 ? "Datei vorhanden, aber keine Ziele im aktuellen Sample" : "Live-AIS-Datei frisch")]] },
+      { key:'adsb', label:'ADS-B', status:adsbStatus, meta:`${adsbCount} Tracks • ${fmtAgeMinutes(adsbAge)}`, reason:adsb?.error || (adsbCount <= 0 ? 'Datei leer oder Feed ohne Treffer' : 'ADS-B-Datei frisch'),
+        details: [["Datei","data/live/adsb_latest.json"],["Alter",fmtAgeMinutes(adsbAge)],["Tracks",adsbCount],["Schwelle","grün ≤25 min, orange ≤60 min"],["Grund",adsb?.error || (adsbCount <= 0 ? "Datei vorhanden, aber ohne Treffer" : "ADS-B-Datei frisch")]] },
+      { key:'drift', label:'Drift', status:driftStatus, meta:`${driftCount} Kandidaten • ${fmtAgeMinutes(driftAge)}`, reason:drift?.error || 'AIS Drift Detector',
+        details: [["Datei","data/live/ais_drift_candidates.json"],["Alter",fmtAgeMinutes(driftAge)],["Kandidaten",driftCount],["Anzeige","ab ≥34 m oder Override"],["Push","ab ≥40 m + Drift-Kriterien + Cooldown"],["Grund",drift?.error || "AIS Drift Detector aktiv"]] },
+      { key:'ingest', label:'Ingest', status:ingestStatus, meta:`${recent24} Events / 24h`, reason:`Neuestes Event ${fmtAgeMinutes(latestEventAgeM)} alt`,
+        details: [["Quelle","GitHub Issues / Worker / Repo-Log"],["24h Events",recent24],["Neuestes Event",fmtAgeMinutes(latestEventAgeM)],["Schwelle","grün: ≤120 min + ≥3 Events/24h"],["Grund",`Neuestes Event ${fmtAgeMinutes(latestEventAgeM)} alt`]] },
+      { key:'snapshot', label:'Snapshot', status:snapStatus, meta:fmtAgeMinutes(snapAge), reason:snap ? 'Sensor-Snapshot' : 'Snapshot-Datei fehlt',
+        details: [["Datei","data/snapshots/magicpaws_sensor_latest.json"],["Alter",fmtAgeMinutes(snapAge)],["Schwelle","grün ≤4h, orange ≤8h"],["Grund",snap ? "Sensor-Snapshot vorhanden" : "Snapshot-Datei fehlt"]] },
+      { key:'ntfy', label:'ntfy', status:ntfyStatus, meta:ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : 'ohne State', reason:ntfyReason,
+        details: [["Datei","data/live/ais_drift_alert_state.json"],["Alter",ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : "ohne State"],["Status",ntfyStatus.toUpperCase()],["Grund",ntfyReason],["Hinweis","Ingest-Alerts laufen über Secrets; Drift-Push über AIS-Workflow-State"]] },
+      { key:'geo', label:'Geo/Gazetteer', status:geoStatus, meta:`${(geoRate*100).toFixed(0)}% GEO`, reason:`${geoHits}/${relevant.length || 0} Meldungen mit Geo oder Kandidaten`,
+        details: [["Arbeitsfenster",hours === null ? "Archiv komplett" : `${hours}h`],["Geo Treffer",`${geoHits}/${relevant.length || 0}`],["Geo Rate",`${(geoRate*100).toFixed(1)}%`],["Schwelle","grün ≥55%, orange ≥30%"],["Grund","geo oder geo_candidates vorhanden"]] },
+      { key:'sources', label:'Sources', status:srcStatus, meta:`${uniqueSources.size} Quellen`, reason:'aktive Quellen im aktuellen Arbeitsfenster',
+        details: [["Arbeitsfenster",hours === null ? "Archiv komplett" : `${hours}h`],["Quellen",uniqueSources.size],["Schwelle","grün ≥8, orange ≥4"],["Grund","unterschiedliche Quellen im aktuellen Arbeitsfenster"]] },
+      { key:'navtex', label:'NAVTEX', status:navStatus, meta:`${navItems} Meldungen`, reason:nav ? `NAVWARN/NAVTEX • ${fmtAgeMinutes(navAge)}` : 'NAVTEX/NAVWARN nicht geladen',
+        details: [["Quelle","Worker /api/navtex"],["Alter",fmtAgeMinutes(navAge)],["Meldungen",navItems],["Schwelle","grün ≤4h, orange ≤12h"],["Grund",nav ? "NAVTEX/NAVWARN geladen" : "NAVTEX/NAVWARN nicht geladen"]] }
     ];
     return systems;
   }
@@ -1574,7 +1639,12 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const box = el('healthStrip');
     if (!box) return;
     const systems = getHealthSystems();
-    box.innerHTML = systems.map(s => `<div class="healthItem" title="${escapeHtml(s.reason || '')}"><div class="healthTop"><span class="lamp ${escapeHtml(s.status || 'gray')}"></span><span class="healthLabel">${escapeHtml(s.label)}</span></div><div class="healthMeta">${escapeHtml(s.meta || '–')}</div><div class="healthReason">${escapeHtml(s.reason || '')}</div></div>`).join('');
+    box.innerHTML = systems.map(s => `<div class="healthItem" tabindex="0" title="${escapeHtml(s.reason || '')}">
+      <div class="healthTop"><span class="lamp ${escapeHtml(s.status || 'gray')}"></span><span class="healthLabel">${escapeHtml(s.label)}</span></div>
+      <div class="healthMeta">${escapeHtml(s.meta || '–')}</div>
+      <div class="healthReason">${escapeHtml(s.reason || '')}</div>
+      ${healthTooltipHtml(s)}
+    </div>`).join('');
   }
 
   function renderPriorityAlerts(){
