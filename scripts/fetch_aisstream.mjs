@@ -20,8 +20,7 @@
  *   AIS_DRIFT_ACTIVE_TTL_MINUTES (default 90)
  *   AIS_DRIFT_SOG_MAX (default 2.5)
  *   AIS_DRIFT_MIN_MINUTES (default 60)
- *   AIS_DRIFT_DISPLAY_MIN_LENGTH_M (default from config: 34)
- *   AIS_DRIFT_NOTIFY_MIN_LENGTH_M (default from config: 40)
+ *   Length is kept as context only; it no longer gates display or ntfy.
  *   NTFY_ENABLED / NTFY_URL / NTFY_TOKEN for optional drift push alerts
  */
 import fs from "node:fs/promises";
@@ -390,10 +389,7 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
   const minTrackDistanceNm = Number(det.min_track_distance_nm ?? 0.45);
   const slowRatioMin = Number(det.slow_ratio_min ?? 0.75);
   const activeTtlMinutes = Number(det.active_ttl_minutes ?? DRIFT_ACTIVE_TTL_MINUTES);
-  const displayMinLengthM = Number(process.env.AIS_DRIFT_DISPLAY_MIN_LENGTH_M || det.display_min_length_m || 34);
-  const notifyMinLengthM = Number(process.env.AIS_DRIFT_NOTIFY_MIN_LENGTH_M || det.notify_min_length_m || 40);
-  const unknownLengthNotify = Boolean(det.unknown_length_notify);
-  const unknownLengthDisplayOverride = Boolean(det.unknown_length_display_override);
+  const lengthFilterEnabled = Boolean(det.length_filter_enabled);
   const excludedStatuses = new Set((det.exclude_nav_status || [1,5]).map(Number));
   const fishingStatuses = new Set((det.fishing_nav_status || [7]).map(Number));
   const fishingShipTypes = new Set((det.fishing_ship_type_codes || [30]).map(Number));
@@ -412,7 +408,7 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
   }
 
   const items = [];
-  const suppressed = { port_or_anchor:0, anchored_or_moored:0, fishing_likely:0, insufficient_track:0, too_fast:0, too_wide:0, anchor_drift_like:0, too_short_or_unknown_length:0 };
+  const suppressed = { port_or_anchor:0, anchored_or_moored:0, fishing_likely:0, insufficient_track:0, too_fast:0, too_wide:0, anchor_drift_like:0, length_filter_legacy_disabled:0 };
 
   for (const [mmsi, pts] of groups.entries()){
     const sorted = pts.slice().sort((a,b)=>msOf(a.ts)-msOf(b.ts));
@@ -449,9 +445,11 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
     const typeClass = shipTypeClass(latest.ship_type);
     const overrideByType = lengthOverrideByType(latest.ship_type, nav, det);
     const lengthKnown = Number.isFinite(lengthM);
-    const displayEligible = isAground || (lengthKnown && lengthM >= displayMinLengthM) || (!lengthKnown && overrideByType && unknownLengthDisplayOverride);
-    const notifyEligible = isAground || (lengthKnown && lengthM >= notifyMinLengthM) || (!lengthKnown && overrideByType && unknownLengthNotify);
-    if (!displayEligible) { suppressed.too_short_or_unknown_length++; continue; }
+
+    // Length is only context now. AISstream does not reliably provide static dimensions
+    // in every sampling window, so unknown length must not suppress map display or ntfy.
+    const displayEligible = true;
+    const notifyEligible = true;
 
     const region = regionFor(Number(latest.lat), Number(latest.lon), regions);
     const prev = previousByMmsi.get(mmsi);
@@ -492,7 +490,7 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
       length_source: latest.length_source || prev?.length_source || null,
       display_eligible: displayEligible,
       notify_eligible: notifyEligible,
-      length_filter: { display_min_length_m: displayMinLengthM, notify_min_length_m: notifyMinLengthM, length_known: lengthKnown, override_by_type: overrideByType },
+      length_filter: { enabled: lengthFilterEnabled, mode: "context_only", length_known: lengthKnown, override_by_type: overrideByType },
       nav_status: Number.isFinite(nav) ? nav : null,
       nav_status_text: navText,
       region_id: region.id,
