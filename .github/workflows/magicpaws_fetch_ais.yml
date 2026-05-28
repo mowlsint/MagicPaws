@@ -30,8 +30,8 @@ jobs:
           AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
           # 30-minute AISstream listening window per workflow run.
           AIS_SAMPLE_SECONDS: "1800"
-          # Raised for long samples over North Sea/Channel + Baltic boxes.
-          AIS_MAX_MESSAGES: "75000"
+          # Raised for 30-minute samples over North Sea/Channel + Baltic boxes.
+          AIS_MAX_MESSAGES: "250000"
           AIS_TRACK_HISTORY_TTL_HOURS: "24"
           # Evaluate the last 60 minutes; alert threshold remains 60 minutes below SOG limit.
           AIS_DRIFT_EVAL_LOOKBACK_HOURS: "1"
