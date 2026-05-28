@@ -82,6 +82,20 @@ drift_detection:
   eval_lookback_hours: 6
   track_history_ttl_hours: 24
   active_ttl_minutes: 90
+  display_min_length_m: 34
+  notify_min_length_m: 40
+  unknown_length_notify: false
+  unknown_length_display_override: true
+  static_cache_ttl_days: 14
+  alert_cooldown_hours: 6
+  alert_state_ttl_hours: 48
+  always_include_ship_classes:
+    - cargo
+    - tanker
+    - passenger
+    - military
+    - law_enforcement
+    - sar
   max_radius_nm: 3.0
   min_displacement_nm: 0.25
   min_track_distance_nm: 0.45
@@ -98,6 +112,7 @@ drift_detection:
     Low-speed/drift detection is intentionally conservative. It keeps SOG-below-threshold tracks only
     when they remain inside a limited radius but show more movement than ordinary anchor drift.
     Port/anchorage safety zones suppress normal waiting, moored and anchored traffic. Aground is retained.
+    Display threshold is >=34 m. Push threshold is >=40 m. Unknown length is not pushed unless an override/incident policy applies.
   safety_zones:
     # North Sea / Channel / Western Approaches
     - { id: rotterdam_maasvlakte, name: Rotterdam / Maasvlakte, type: port_anchor_safety, lat: 51.95, lon: 4.05, radius_nm: 14, safety_margin_nm: 3 }
