@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * MAGIC PAWS // AISstream collector + low-speed/drift detector
+ * MAGIC PAWS // AISstream collector + low-speed/drift detector + vessel length filter
  *
  * Collects a short AISstream sample for North Sea/Channel and Baltic BBoxes,
  * writes:
@@ -8,6 +8,8 @@
  *   data/live/ais_history.ndjson              (run summaries)
  *   data/live/ais_track_history.ndjson        (per-MMSI recent positions, TTL-limited)
  *   data/live/ais_drift_candidates.json       (active low-speed/drift candidates, TTL-limited)
+ *   data/live/ais_vessel_static_cache.json     (MMSI -> length/width/name/type cache, TTL-limited)
+ *   data/live/ais_drift_alert_state.json       (dedupe/cooldown state for drift ntfy pushes)
  *
  * Required secret/env: AISSTREAM_API_KEY
  * Optional env:
@@ -18,6 +20,9 @@
  *   AIS_DRIFT_ACTIVE_TTL_MINUTES (default 90)
  *   AIS_DRIFT_SOG_MAX (default 2.5)
  *   AIS_DRIFT_MIN_MINUTES (default 60)
+ *   AIS_DRIFT_DISPLAY_MIN_LENGTH_M (default from config: 34)
+ *   AIS_DRIFT_NOTIFY_MIN_LENGTH_M (default from config: 40)
+ *   NTFY_ENABLED / NTFY_URL / NTFY_TOKEN for optional drift push alerts
  */
 import fs from "node:fs/promises";
 import path from "node:path";
@@ -35,6 +40,8 @@ const latestPath = path.join(outDir, "ais_latest.json");
 const histPath = path.join(outDir, "ais_history.ndjson");
 const trackHistPath = path.join(outDir, "ais_track_history.ndjson");
 const driftPath = path.join(outDir, "ais_drift_candidates.json");
+const staticCachePath = path.join(outDir, "ais_vessel_static_cache.json");
+const driftAlertStatePath = path.join(outDir, "ais_drift_alert_state.json");
 
 const AIS_URL = "wss://stream.aisstream.io/v0/stream";
 const API_KEY = process.env.AISSTREAM_API_KEY || process.env.AISSTREAM_KEY || "";
@@ -46,6 +53,12 @@ const DRIFT_EVAL_LOOKBACK_HOURS = Math.max(2, Number(process.env.AIS_DRIFT_EVAL_
 const DRIFT_ACTIVE_TTL_MINUTES = Math.max(45, Number(process.env.AIS_DRIFT_ACTIVE_TTL_MINUTES || 90));
 const DRIFT_SOG_MAX = Math.max(0.5, Number(process.env.AIS_DRIFT_SOG_MAX || 2.5));
 const DRIFT_MIN_MINUTES = Math.max(30, Number(process.env.AIS_DRIFT_MIN_MINUTES || 60));
+
+const NTFY_ENABLED = String(process.env.NTFY_ENABLED || "").toLowerCase() === "true";
+const NTFY_URL = process.env.NTFY_URL || "";
+const NTFY_TOKEN = process.env.NTFY_TOKEN || "";
+const NTFY_MIN_LEVEL = String(process.env.NTFY_MIN_LEVEL || "HIGH").toUpperCase();
+const DASHBOARD_URL = process.env.MAGICPAWS_DASHBOARD_URL || "https://mowlsint.github.io/MagicPaws/";
 
 function nowIso(){ return new Date().toISOString(); }
 function norm(s){ return String(s ?? "").trim(); }
@@ -92,6 +105,143 @@ function boolAuthority(item, rules){
   const typeSet = new Set((rules.ais_ship_type_codes || []).map(Number));
   const text = [item.name, item.callsign, item.destination, item.type_text].map(norm).join(" ");
   return nameRe.test(text) || typeSet.has(Number(item.ship_type));
+}
+
+function firstFinite(...values){
+  for (const v of values){
+    const n = Number(v);
+    if (Number.isFinite(n)) return n;
+  }
+  return null;
+}
+function nested(obj, paths){
+  for (const path of paths){
+    let cur = obj;
+    let ok = true;
+    for (const part of path.split(".")){
+      if (cur && Object.prototype.hasOwnProperty.call(cur, part)) cur = cur[part];
+      else { ok = false; break; }
+    }
+    if (ok && cur !== undefined && cur !== null && cur !== "") return cur;
+  }
+  return null;
+}
+function shipTypeClass(code){
+  const n = Number(code);
+  if (!Number.isFinite(n)) return "unknown";
+  if (n === 30) return "fishing";
+  if (n === 35) return "military";
+  if (n === 50) return "pilot";
+  if (n === 51) return "sar";
+  if (n === 52) return "tug";
+  if (n === 53) return "port_tender";
+  if (n === 54) return "anti_pollution";
+  if (n === 55) return "law_enforcement";
+  if (n >= 60 && n <= 69) return "passenger";
+  if (n >= 70 && n <= 79) return "cargo";
+  if (n >= 80 && n <= 89) return "tanker";
+  if (n >= 90 && n <= 99) return "other_special";
+  return "other";
+}
+function lengthOverrideByType(shipType, navStatus, det){
+  const cls = shipTypeClass(shipType);
+  const always = new Set(det.always_include_ship_classes || ["cargo", "tanker", "passenger", "military", "law_enforcement", "sar"]);
+  if (Number(navStatus) === 6) return true; // aground remains incident-relevant even without length
+  return always.has(cls);
+}
+function calculateDimensions(body = {}, meta = {}){
+  const directLength = firstFinite(
+    nested(body, ["Length", "length", "Dimension.Length", "Dimensions.Length", "Dimensions.length", "ShipLength", "ship_length"]),
+    nested(meta, ["Length", "length", "ShipLength", "ship_length"])
+  );
+  const directWidth = firstFinite(
+    nested(body, ["Width", "width", "Dimension.Width", "Dimensions.Width", "Dimensions.width", "ShipWidth", "ship_width"]),
+    nested(meta, ["Width", "width", "ShipWidth", "ship_width"])
+  );
+  if (directLength || directWidth) {
+    return {
+      length_m: directLength && directLength > 0 ? Math.round(directLength) : null,
+      width_m: directWidth && directWidth > 0 ? Math.round(directWidth) : null,
+      source: "direct_length_width"
+    };
+  }
+  const a = firstFinite(nested(body, ["Dimension.A", "Dimensions.A", "Dimension.ToBow", "Dimensions.ToBow", "ToBow", "to_bow", "A"]));
+  const b = firstFinite(nested(body, ["Dimension.B", "Dimensions.B", "Dimension.ToStern", "Dimensions.ToStern", "ToStern", "to_stern", "B"]));
+  const c = firstFinite(nested(body, ["Dimension.C", "Dimensions.C", "Dimension.ToPort", "Dimensions.ToPort", "ToPort", "to_port", "C"]));
+  const d = firstFinite(nested(body, ["Dimension.D", "Dimensions.D", "Dimension.ToStarboard", "Dimensions.ToStarboard", "ToStarboard", "to_starboard", "D"]));
+  const length = (Number.isFinite(a) ? a : 0) + (Number.isFinite(b) ? b : 0);
+  const width = (Number.isFinite(c) ? c : 0) + (Number.isFinite(d) ? d : 0);
+  return {
+    length_m: length > 0 ? Math.round(length) : null,
+    width_m: width > 0 ? Math.round(width) : null,
+    source: length > 0 || width > 0 ? "ais_dimensions_abcd" : "unknown"
+  };
+}
+function extractStaticData(msg){
+  const type = msg?.MessageType || msg?.message_type || "";
+  const meta = msg?.MetaData || msg?.Metadata || msg?.metadata || {};
+  const body = msg?.Message?.[type] || msg?.Message?.ShipStaticData || msg?.Message?.StaticDataReport || msg?.Message?.ShipStaticDataReport || {};
+  const mmsi = norm(meta.MMSI ?? body.UserID ?? body.user_id ?? body.MMSI ?? body.mmsi);
+  if (!mmsi) return null;
+  const dim = calculateDimensions(body, meta);
+  const shipType = firstFinite(
+    body.ShipType, body.Type, body.ship_type, meta.ShipType, meta.ship_type,
+    nested(body, ["ReportB.ShipType", "PartB.ShipType"])
+  );
+  const name = norm(meta.ShipName ?? meta.ship_name ?? body.Name ?? body.ShipName ?? body.name ?? body.VesselName ?? nested(body, ["ReportA.Name", "PartA.Name"]));
+  const callsign = norm(meta.CallSign ?? body.CallSign ?? body.Callsign ?? body.callsign ?? nested(body, ["ReportB.CallSign", "PartB.CallSign"]));
+  const destination = norm(body.Destination ?? body.destination ?? meta.Destination);
+  const imo = norm(body.ImoNumber ?? body.IMO ?? body.imo ?? meta.IMO);
+  if (!name && !callsign && !shipType && !dim.length_m && !dim.width_m && !destination && !imo) return null;
+  return {
+    mmsi,
+    name,
+    callsign,
+    destination,
+    imo,
+    ship_type: shipType ?? null,
+    ship_type_class: shipTypeClass(shipType),
+    length_m: dim.length_m,
+    width_m: dim.width_m,
+    length_source: dim.source,
+    last_static_seen: norm(meta.time_utc ?? meta.TimeUTC ?? meta.timestamp) || nowIso(),
+    source: "aisstream_ship_static_data"
+  };
+}
+function mergeStatic(existing = {}, incoming = {}){
+  const out = { ...existing };
+  for (const [k,v] of Object.entries(incoming)){
+    if (v !== null && v !== undefined && v !== "") out[k] = v;
+  }
+  out.last_static_seen = incoming.last_static_seen || existing.last_static_seen || nowIso();
+  return out;
+}
+function enrichWithStatic(item, cache){
+  const st = cache?.vessels?.[String(item.mmsi || "")];
+  if (!st) return item;
+  return {
+    ...item,
+    name: item.name || st.name || "",
+    callsign: item.callsign || st.callsign || "",
+    destination: item.destination || st.destination || "",
+    ship_type: item.ship_type ?? st.ship_type ?? null,
+    ship_type_class: shipTypeClass(item.ship_type ?? st.ship_type),
+    length_m: st.length_m ?? item.length_m ?? null,
+    width_m: st.width_m ?? item.width_m ?? null,
+    length_source: st.length_source || item.length_source || null,
+    static_last_seen: st.last_static_seen || null,
+    imo: st.imo || item.imo || ""
+  };
+}
+async function pruneStaticCache(cache, ttlDays){
+  const vessels = cache?.vessels && typeof cache.vessels === "object" ? cache.vessels : {};
+  const cutoff = Date.now() - Math.max(1, Number(ttlDays || 14)) * 86400_000;
+  const pruned = {};
+  for (const [mmsi, row] of Object.entries(vessels)){
+    const t = msOf(row.last_static_seen);
+    if (t && t >= cutoff) pruned[mmsi] = row;
+  }
+  return { version: 1, generated_at: nowIso(), ttl_days: ttlDays, vessels: pruned };
 }
 function clusterAuthority(items){
   const authority = items.filter(x => x.authority_like && Number.isFinite(x.lat) && Number.isFinite(x.lon));
@@ -220,6 +370,10 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
   const minTrackDistanceNm = Number(det.min_track_distance_nm ?? 0.45);
   const slowRatioMin = Number(det.slow_ratio_min ?? 0.75);
   const activeTtlMinutes = Number(det.active_ttl_minutes ?? DRIFT_ACTIVE_TTL_MINUTES);
+  const displayMinLengthM = Number(process.env.AIS_DRIFT_DISPLAY_MIN_LENGTH_M || det.display_min_length_m || 34);
+  const notifyMinLengthM = Number(process.env.AIS_DRIFT_NOTIFY_MIN_LENGTH_M || det.notify_min_length_m || 40);
+  const unknownLengthNotify = Boolean(det.unknown_length_notify);
+  const unknownLengthDisplayOverride = Boolean(det.unknown_length_display_override);
   const excludedStatuses = new Set((det.exclude_nav_status || [1,5]).map(Number));
   const fishingStatuses = new Set((det.fishing_nav_status || [7]).map(Number));
   const fishingShipTypes = new Set((det.fishing_ship_type_codes || [30]).map(Number));
@@ -238,7 +392,7 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
   }
 
   const items = [];
-  const suppressed = { port_or_anchor:0, anchored_or_moored:0, fishing_likely:0, insufficient_track:0, too_fast:0, too_wide:0, anchor_drift_like:0 };
+  const suppressed = { port_or_anchor:0, anchored_or_moored:0, fishing_likely:0, insufficient_track:0, too_fast:0, too_wide:0, anchor_drift_like:0, too_short_or_unknown_length:0 };
 
   for (const [mmsi, pts] of groups.entries()){
     const sorted = pts.slice().sort((a,b)=>msOf(a.ts)-msOf(b.ts));
@@ -270,6 +424,15 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
     const isAground = nav === 6;
     if (!movedMoreThanAnchorDrift && !isAground) { suppressed.anchor_drift_like++; continue; }
 
+    const lengthM = firstFinite(latest.length_m, previousByMmsi.get(mmsi)?.length_m);
+    const widthM = firstFinite(latest.width_m, previousByMmsi.get(mmsi)?.width_m);
+    const typeClass = shipTypeClass(latest.ship_type);
+    const overrideByType = lengthOverrideByType(latest.ship_type, nav, det);
+    const lengthKnown = Number.isFinite(lengthM);
+    const displayEligible = isAground || (lengthKnown && lengthM >= displayMinLengthM) || (!lengthKnown && overrideByType && unknownLengthDisplayOverride);
+    const notifyEligible = isAground || (lengthKnown && lengthM >= notifyMinLengthM) || (!lengthKnown && overrideByType && unknownLengthNotify);
+    if (!displayEligible) { suppressed.too_short_or_unknown_length++; continue; }
+
     const region = regionFor(Number(latest.lat), Number(latest.lon), regions);
     const prev = previousByMmsi.get(mmsi);
     const firstSeen = prev?.first_seen && msOf(prev.first_seen) ? prev.first_seen : st.first.ts;
@@ -291,7 +454,8 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
       `SOG unter ${DRIFT_SOG_MAX} kn über mindestens ${DRIFT_MIN_MINUTES} Minuten`,
       `Radius ${st.max_radius_nm} sm innerhalb Schwelle ${maxRadiusNm} sm`,
       `Ortsveränderung ${st.displacement_nm} sm / Track ${st.track_distance_nm} sm über Ankerdrift-Schwelle`,
-      `Navigational Status nicht moored/at anchor (${navText})`
+      `Navigational Status nicht moored/at anchor (${navText})`,
+      lengthKnown ? `Schiffslänge ${lengthM} m erfüllt Anzeige-Schwelle ${displayMinLengthM} m` : `Schiffslänge unbekannt, Anzeige nur wegen Override/Incident`
     ];
     if (isAground) reasons.push("Navigational Status aground: als möglicher Incident ausdrücklich beibehalten");
 
@@ -302,6 +466,13 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
       name: latest.name || prev?.name || "",
       callsign: latest.callsign || "",
       ship_type: latest.ship_type ?? null,
+      ship_type_class: typeClass,
+      length_m: lengthKnown ? lengthM : null,
+      width_m: widthM ?? null,
+      length_source: latest.length_source || prev?.length_source || null,
+      display_eligible: displayEligible,
+      notify_eligible: notifyEligible,
+      length_filter: { display_min_length_m: displayMinLengthM, notify_min_length_m: notifyMinLengthM, length_known: lengthKnown, override_by_type: overrideByType },
       nav_status: Number.isFinite(nav) ? nav : null,
       nav_status_text: navText,
       region_id: region.id,
@@ -322,7 +493,7 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
       track_distance_nm: st.track_distance_nm,
       confidence,
       relevance,
-      alert_recommendation: relevance >= 75 || isAground ? "HIGH_IF_COUPLED" : "DASHBOARD_ONLY",
+      alert_recommendation: notifyEligible ? (isAground ? "HIGH" : "HIGH") : "DASHBOARD_ONLY",
       ttl_minutes: activeTtlMinutes,
       reason: reasons,
       nearest_safety_zone: zone || null,
@@ -344,16 +515,87 @@ function evaluateDriftCandidates(trackRows, regions, cfg, previousPack){
   return { items: active.slice(0,100), suppressed, byRegion };
 }
 
+
+function alertLevelAllowed(level){
+  const order = { WATCH: 1, HIGH: 2, CRITICAL: 3 };
+  return (order[String(level || "").toUpperCase()] || 0) >= (order[NTFY_MIN_LEVEL] || 2);
+}
+async function sendNtfyDriftAlert(item){
+  if (!NTFY_ENABLED || !NTFY_URL || !alertLevelAllowed("HIGH")) return { sent:false, reason:"ntfy_disabled" };
+  const title = item.type === "AGROUND_INCIDENT" ? "MAGIC PAWS AIS: AGROUND" : "MAGIC PAWS AIS: Drift/Low-Speed";
+  const priority = item.type === "AGROUND_INCIDENT" ? "5" : "4";
+  const body = [
+    `${item.name || item.mmsi || "unknown vessel"}`,
+    `MMSI: ${item.mmsi || "unknown"}`,
+    `Region: ${item.region_label_de || item.region_id || item.weirdness_bucket || "unknown"}`,
+    `Länge: ${item.length_m ?? "unbekannt"} m`,
+    `Dauer: ${item.duration_minutes ?? "–"} min unter ${DRIFT_SOG_MAX} kn`,
+    `Ø SOG: ${item.avg_sog ?? "–"} kn | Radius: ${item.max_radius_nm ?? "–"} sm`,
+    `Status: ${item.nav_status_text || item.nav_status || "unknown"}`,
+    DASHBOARD_URL
+  ].join("\n");
+  const headers = {
+    "Title": title,
+    "Priority": priority,
+    "Tags": item.type === "AGROUND_INCIDENT" ? "warning,ship" : "ship,warning",
+    "Click": DASHBOARD_URL,
+    "Content-Type": "text/plain; charset=utf-8"
+  };
+  if (NTFY_TOKEN) headers.Authorization = `Bearer ${NTFY_TOKEN}`;
+  try {
+    const res = await fetch(NTFY_URL, { method:"POST", headers, body });
+    if (!res.ok) return { sent:false, reason:`http_${res.status}`, text: await res.text().catch(()=>"") };
+    return { sent:true };
+  } catch (e) {
+    return { sent:false, reason:e?.message || String(e) };
+  }
+}
+async function updateDriftAlerts(items, cfg, collectedAt){
+  const det = cfg.drift_detection || {};
+  const cooldownHours = Math.max(1, Number(det.alert_cooldown_hours || process.env.AIS_DRIFT_ALERT_COOLDOWN_HOURS || 6));
+  const stateTtlHours = Math.max(12, Number(det.alert_state_ttl_hours || 48));
+  const state = await readJson(driftAlertStatePath, { version:1, alerts:{} });
+  const alerts = state.alerts && typeof state.alerts === "object" ? state.alerts : {};
+  const now = Date.now();
+  const pruneBefore = now - stateTtlHours * 3600_000;
+  for (const [k,v] of Object.entries(alerts)){
+    if (msOf(v.last_alerted_at || v.cooldown_until) < pruneBefore) delete alerts[k];
+  }
+  const results = [];
+  for (const it of items){
+    const key = `${it.mmsi || it.episode_id}:${it.weirdness_bucket || it.region_id || "unknown"}`;
+    const old = alerts[key] || {};
+    it.last_alerted_at = old.last_alerted_at || it.last_alerted_at || null;
+    it.alert_cooldown_until = old.cooldown_until || it.alert_cooldown_until || null;
+    const cooldownActive = it.alert_cooldown_until && msOf(it.alert_cooldown_until) > now;
+    if (!it.notify_eligible || cooldownActive) continue;
+    const res = await sendNtfyDriftAlert(it);
+    results.push({ key, mmsi:it.mmsi, sent:res.sent, reason:res.reason || null });
+    if (res.sent) {
+      const until = new Date(now + cooldownHours * 3600_000).toISOString();
+      it.last_alerted_at = collectedAt;
+      it.alert_cooldown_until = until;
+      alerts[key] = { last_alerted_at: collectedAt, cooldown_until: until, episode_id: it.episode_id, mmsi: it.mmsi, title: it.name || it.mmsi || "AIS drift candidate" };
+    }
+  }
+  await writeJson(driftAlertStatePath, { version:1, generated_at:collectedAt, cooldown_hours:cooldownHours, alerts });
+  return results;
+}
+
 async function main(){
   const cfg = YAML.parse(await fs.readFile(configPath, "utf8"));
   const regions = cfg.regions || {};
   const bboxes = Object.values(regions).map(r => r.bbox).filter(Boolean);
   const rules = cfg.authority_detection || {};
+  const det = cfg.drift_detection || {};
+  let staticCache = await readJson(staticCachePath, { version:1, vessels:{} });
+  staticCache = await pruneStaticCache(staticCache, det.static_cache_ttl_days || 14);
 
   if (!API_KEY) {
     const out = { ok:false, source:"aisstream", generated_at:nowIso(), error:"missing AISSTREAM_API_KEY", regions:Object.keys(regions), items:[], clusters_5nm:[], summary:{ authority_vessels:0, total:0 } };
     await writeJson(latestPath, out);
     await writeJson(driftPath, { ok:false, source:"aisstream", generated_at:out.generated_at, error:"missing AISSTREAM_API_KEY", items:[], summary:{ total:0 } });
+    await writeJson(staticCachePath, staticCache);
     console.log(JSON.stringify(out, null, 2));
     return;
   }
@@ -368,7 +610,7 @@ async function main(){
     const timer = setTimeout(finish, SAMPLE_SECONDS * 1000);
 
     ws.on("open", () => {
-      const sub = { APIKey: API_KEY, BoundingBoxes: bboxes, FilterMessageTypes: ["PositionReport", "StandardClassBPositionReport", "ExtendedClassBPositionReport"] };
+      const sub = { APIKey: API_KEY, BoundingBoxes: bboxes, FilterMessageTypes: ["PositionReport", "StandardClassBPositionReport", "ExtendedClassBPositionReport", "ShipStaticData", "StaticDataReport", "StandardClassBShipStaticData"] };
       ws.send(JSON.stringify(sub));
     });
     ws.on("message", (buf) => {
@@ -376,8 +618,14 @@ async function main(){
       try {
         const msg = JSON.parse(buf.toString());
         if (msg?.error) { errors.push(String(msg.error)); return; }
-        const item = extractPosition(msg);
+        const stat = extractStaticData(msg);
+        if (stat?.mmsi) {
+          staticCache.vessels ||= {};
+          staticCache.vessels[stat.mmsi] = mergeStatic(staticCache.vessels[stat.mmsi], stat);
+        }
+        let item = extractPosition(msg);
         if (!item) return;
+        item = enrichWithStatic(item, staticCache);
         const r = regionFor(item.lat, item.lon, regions);
         if (r.id === "unknown") return;
         item.region_id = r.id;
@@ -428,6 +676,8 @@ async function main(){
   };
 
   // Write latest + summary history.
+  staticCache.generated_at = collectedAt;
+  await writeJson(staticCachePath, staticCache);
   await writeJson(latestPath, out);
   await fs.appendFile(histPath, JSON.stringify({ generated_at: out.generated_at, item_count: out.item_count, summary: out.summary, clusters_5nm: out.clusters_5nm.slice(0,5) }) + "\n", "utf8");
 
@@ -451,6 +701,11 @@ async function main(){
       nav_status: it.nav_status,
       nav_status_text: it.nav_status_text,
       ship_type: it.ship_type,
+      ship_type_class: it.ship_type_class || shipTypeClass(it.ship_type),
+      length_m: it.length_m ?? null,
+      width_m: it.width_m ?? null,
+      length_source: it.length_source || null,
+      static_last_seen: it.static_last_seen || null,
       region_id: it.region_id,
       weirdness_bucket: it.weirdness_bucket,
       region_label_de: it.region_label_de
@@ -460,6 +715,7 @@ async function main(){
 
   const previousDrift = await readJson(driftPath, { items:[] });
   const drift = evaluateDriftCandidates(trackRows, regions, cfg, previousDrift);
+  const alertResults = await updateDriftAlerts(drift.items, cfg, collectedAt);
   const driftOut = {
     ok: true,
     source: "aisstream",
@@ -476,7 +732,7 @@ async function main(){
     },
     item_count: drift.items.length,
     items: drift.items,
-    summary: { total: drift.items.length, by_region: drift.byRegion, suppressed: drift.suppressed }
+    summary: { total: drift.items.length, by_region: drift.byRegion, suppressed: drift.suppressed, alert_results: alertResults }
   };
   await writeJson(driftPath, driftOut);
 
