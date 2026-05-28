@@ -25,6 +25,26 @@ function nowIso(){ return new Date().toISOString(); }
 function sleep(ms){ return new Promise(r => setTimeout(r, ms)); }
 function norm(s){ return String(s ?? "").trim(); }
 function asNum(v){ const n = Number(v); return Number.isFinite(n) ? n : null; }
+
+function cleanRegexPattern(value, fallback = ""){
+  let raw = String(value ?? fallback ?? "").trim();
+  // Config files sometimes contain PCRE/Python inline flags like (?i).
+  // JavaScript RegExp uses the second argument ("i"), so strip inline flags safely.
+  raw = raw
+    .replace(/^\(\?[a-zA-Z]+\)/, "")
+    .replace(/\(\?i\)/g, "")
+    .replace(/\(\?-i\)/g, "");
+  return raw || fallback;
+}
+function safeRegExp(value, fallback = "", flags = "i"){
+  const pattern = cleanRegexPattern(value, fallback);
+  try {
+    return new RegExp(pattern, flags);
+  } catch (err) {
+    console.warn(`Invalid regex pattern "${pattern}", using fallback: ${err.message}`);
+    return new RegExp(cleanRegexPattern(fallback, ""), flags);
+  }
+}
 function inBbox(lat, lon, bbox){
   if (!Array.isArray(bbox) || bbox.length < 2) return false;
   const a = bbox[0], b = bbox[1];
@@ -37,8 +57,8 @@ function regionFor(lat, lon, regions){
   return { id:"unknown", weirdness_bucket:"unknown", label_de:"Unknown" };
 }
 function authorityLike(ac, rules){
-  const callRe = new RegExp(rules.adsb_callsign_regex || "nato|gaf|sar|coast|police|navy|mpa", "i");
-  const typeRe = new RegExp(rules.adsb_type_regex || "p-?8|p-?3|c295|cn235|helicopter", "i");
+  const callRe = safeRegExp(rules.adsb_callsign_regex, "nato|gaf|sar|coast|police|navy|mpa", "i");
+  const typeRe = safeRegExp(rules.adsb_type_regex, "p-?8|p-?3|c295|cn235|helicopter", "i");
   const text = [ac.flight, ac.callsign, ac.t, ac.desc, ac.type, ac.r, ac.ownOp, ac.operator].map(norm).join(" ");
   return Boolean(ac.mil) || callRe.test(text) || typeRe.test(text);
 }
