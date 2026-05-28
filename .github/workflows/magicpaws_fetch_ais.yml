@@ -3,7 +3,9 @@ name: MAGIC PAWS fetch AISstream
 on:
   workflow_dispatch:
   schedule:
-    - cron: "*/30 * * * *"
+    # Every 90 minutes UTC: 00:00, 01:30, 03:00, 04:30, ...
+    - cron: "0 */3 * * *"
+    - cron: "30 1-23/3 * * *"
 
 permissions:
   contents: write
@@ -15,6 +17,7 @@ concurrency:
 jobs:
   fetch-ais:
     runs-on: ubuntu-latest
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -25,11 +28,14 @@ jobs:
       - name: Fetch AISstream sample
         env:
           AISSTREAM_API_KEY: ${{ secrets.AISSTREAM_API_KEY }}
-          AIS_SAMPLE_SECONDS: "120"
-          AIS_MAX_MESSAGES: "3000"
+          # 30-minute AISstream listening window per workflow run.
+          AIS_SAMPLE_SECONDS: "1800"
+          # Raised for long samples over North Sea/Channel + Baltic boxes.
+          AIS_MAX_MESSAGES: "75000"
           AIS_TRACK_HISTORY_TTL_HOURS: "24"
-          AIS_DRIFT_EVAL_LOOKBACK_HOURS: "6"
-          AIS_DRIFT_ACTIVE_TTL_MINUTES: "90"
+          # Evaluate the last 60 minutes; alert threshold remains 60 minutes below SOG limit.
+          AIS_DRIFT_EVAL_LOOKBACK_HOURS: "1"
+          AIS_DRIFT_ACTIVE_TTL_MINUTES: "120"
           AIS_DRIFT_SOG_MAX: "2.5"
           AIS_DRIFT_MIN_MINUTES: "60"
           AIS_DRIFT_DISPLAY_MIN_LENGTH_M: "34"
