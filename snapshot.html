@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot v5.44 Snapshot Export Repair</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.45 Snapshot NAVTEX Repair</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -53,7 +53,7 @@
       margin:0 auto;
       padding:10px;
       display:grid;
-      grid-template-rows:78px 34px 44px 1fr 28px;
+      grid-template-rows:96px 34px 44px 1fr 28px;
       gap:8px;
     }
 
@@ -80,7 +80,7 @@
 
     .header{
       display:grid;
-      grid-template-columns:74px 1fr 430px 300px;
+      grid-template-columns:84px 1fr 430px 300px;
       gap:10px;
       align-items:stretch;
     }
@@ -92,6 +92,16 @@
     .metaBox b{color:var(--text); font-weight:400}
     .classBox{padding:8px 12px; font-size:20px; line-height:1.25; color:var(--muted); text-transform:uppercase}
     .classBox b{color:var(--money); font-weight:400}
+
+    .header{min-height:96px}
+    .classBox{position:relative; padding:6px 12px 28px 12px; font-size:18px; line-height:1.15}
+    .snapshotActions{position:absolute; right:8px; bottom:7px; display:flex; gap:6px; align-items:center; justify-content:flex-end}
+    .snapshotBtn{font-size:16px; padding:4px 10px}
+    .logoBox img{max-width:66px; max-height:66px}
+    .navtexPanel{grid-column:4; grid-row:3 / span 2}
+    .navtexPanel .miniRows{font-size:17px; line-height:1.25}
+    .weatherPanel{display:none!important}
+
 
     .logoBox{position:relative; overflow:hidden}
     .logoBox img{max-width:58px; max-height:58px; object-fit:contain; display:block; filter:drop-shadow(0 0 8px rgba(255,210,77,.35))}
@@ -277,7 +287,7 @@
   <main class="snapshot" id="snapshotRoot">
     <header class="header panel">
       <div class="logoBox">
-        <img id="snapshotLogo" src="./assets/magic-paws-logo.png" alt="Magic Paws Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <img id="snapshotLogo" src="./assets/magic-paws-logo.jpg" alt="Magic Paws Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
         <div class="logoFallback">🐾</div>
       </div>
       <div class="brand">
@@ -285,7 +295,7 @@
         <div class="sub">TÄGLICHER SNAPSHOT / KURZLAGEBILD</div>
       </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.44 “Snapshot Export Repair”</b></div>
+        <div><b id="versionLabel">v5.45 “Snapshot NAVTEX Repair”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
