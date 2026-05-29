@@ -1,71 +1,75 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-29T16:09:49.672Z",
+  "generated_at": "2026-05-29T20:39:13.386Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 52,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-29",
-      "events_total": 25,
+      "events_total": 48,
       "p0_suspect": 0,
-      "geo_events": 1,
-      "social_events": 14,
+      "geo_events": 5,
+      "social_events": 19,
       "social_geo_events": 1,
-      "rss_media_events": 11,
+      "rss_media_events": 29,
       "top_domains": {
-        "D:NEWS_INTEL": 20,
-        "D:RF_SIGNAL": 2,
-        "D:SECURITY_CRIME": 1,
-        "D:AIS_TRACK": 1,
-        "D:INCIDENT": 1
+        "D:NEWS_INTEL": 37,
+        "D:RF_SIGNAL": 3,
+        "D:INFRA_CI": 3,
+        "D:SECURITY_CRIME": 2,
+        "D:INCIDENT": 2,
+        "D:AIS_TRACK": 1
       },
       "top_regions": {
-        "REG:OTHER": 11,
-        "REG:GLOBAL": 6,
-        "REG:ATLANTIC_NE": 3,
+        "REG:OTHER": 22,
+        "REG:GLOBAL": 9,
+        "REG:ATLANTIC_NE": 4,
+        "REG:EUROPE": 3,
+        "REG:PERSIAN_GULF": 2,
+        "REG:BLACK_SEA": 1,
         "REG:CARIBBEAN": 1
       },
       "severity": {
-        "SEV:1": 25
+        "SEV:1": 48
       },
-      "hybrid_index_proxy": 30,
+      "hybrid_index_proxy": 59,
       "government_weirdness_proxy": {
         "north_sea": 0,
-        "baltic_sea": 0
+        "baltic_sea": 2
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 16
+          "count": 30
+        },
+        {
+          "keyword": "sts",
+          "count": 4
+        },
+        {
+          "keyword": "drone",
+          "count": 4
+        },
+        {
+          "keyword": "navy",
+          "count": 3
         },
         {
           "keyword": "coast guard",
           "count": 3
         },
         {
-          "keyword": "sts",
+          "keyword": "incident",
+          "count": 2
+        },
+        {
+          "keyword": "mpa",
           "count": 2
         },
         {
           "keyword": "surveillance",
           "count": 2
-        },
-        {
-          "keyword": "navy",
-          "count": 2
-        },
-        {
-          "keyword": "drone",
-          "count": 1
-        },
-        {
-          "keyword": "sar",
-          "count": 1
-        },
-        {
-          "keyword": "incident",
-          "count": 1
         }
       ]
     },
