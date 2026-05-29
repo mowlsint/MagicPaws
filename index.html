@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.45 "Map Filters Visible"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.47 "Map Live Defaults"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -951,10 +951,10 @@
               <label class="toggle"><input type="checkbox" id="mapShowEvents" checked> Ereignisse</label>
               <label class="toggle"><input type="checkbox" id="mapOnlyFiltered" checked> Ereignisfilter nutzen</label>
               <label class="toggle"><input type="checkbox" id="mapShowCI" checked> KRITIS/CI</label>
-              <label class="toggle sensorFilter"><input type="checkbox" id="mapShowAIS" checked> AIS</label>
+              <label class="toggle sensorFilter"><input type="checkbox" id="mapShowAIS"> AIS</label>
               <label class="toggle sensorFilter"><input type="checkbox" id="mapAISOnlyAuthority"> AIS nur Behörde/Patrol</label>
               <label class="toggle driftFilter"><input type="checkbox" id="mapShowDrift" checked> Drift</label>
-              <label class="toggle airFilter"><input type="checkbox" id="mapShowADSB" checked> ADS-B</label>
+              <label class="toggle airFilter"><input type="checkbox" id="mapShowADSB"> ADS-B</label>
               <label class="toggle airFilter"><input type="checkbox" id="mapADSBOnlyAuthority"> ADS-B nur Gov/Mil/SAR</label>
               <label class="toggle">Zeitraum
                 <select id="mapTimeWindow">
@@ -2222,8 +2222,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
   function liveItems(kind, regionMode = null){
     const sensor = kind === "ais" ? state.liveSensors.ais : kind === "drift" ? state.liveSensors.drift : state.liveSensors.adsb;
-    const maxAge = kind === "ais" ? 90 : kind === "drift" ? 120 : 45;
-    if (!liveSensorFresh(sensor, maxAge)) return [];
+    if (!sensor || sensor.ok === false || sensor.error) return [];
     const arr = Array.isArray(sensor?.items) ? sensor.items : [];
     const now = Date.now();
     return arr.filter(x => {
@@ -2234,7 +2233,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
   function liveAisClusters(regionMode){
     const sensor = state.liveSensors.ais;
-    if (!liveSensorFresh(sensor, 90)) return [];
+    if (!sensor || sensor.ok === false || sensor.error) return [];
     const clusters = Array.isArray(sensor?.clusters_5nm) ? sensor.clusters_5nm : [];
     return clusters.filter(c => {
       const lat = Number(c?.center?.lat), lon = Number(c?.center?.lon);
@@ -2741,9 +2740,9 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.layers.adsbLive?.clearLayers();
     state.layers.driftLive?.clearLayers();
 
-    const showAIS = mapToggle("mapShowAIS", true);
+    const showAIS = mapToggle("mapShowAIS", false);
     const aisOnlyAuthority = mapToggle("mapAISOnlyAuthority", false);
-    const showADSB = mapToggle("mapShowADSB", true);
+    const showADSB = mapToggle("mapShowADSB", false);
     const adsbOnlyAuthority = mapToggle("mapADSBOnlyAuthority", false);
     const showDrift = mapToggle("mapShowDrift", true);
 
@@ -2808,6 +2807,21 @@ Wilhelmshaven JadeWeserPort"></textarea>
     return nextBounds;
   }
 
+  function sensorAgeForMap(kind){
+    const sensor = kind === "ais" ? state.liveSensors.ais : kind === "drift" ? state.liveSensors.drift : state.liveSensors.adsb;
+    return ageMinutesFromObj(sensor);
+  }
+  function sensorRawCount(kind){
+    const sensor = kind === "ais" ? state.liveSensors.ais : kind === "drift" ? state.liveSensors.drift : state.liveSensors.adsb;
+    return Array.isArray(sensor?.items) ? sensor.items.length : 0;
+  }
+  function liveMapStatusPart(label, kind, enabled, visible){
+    const raw = sensorRawCount(kind);
+    const age = fmtAgeMinutes(sensorAgeForMap(kind));
+    if (!enabled) return `${label}=aus raw=${raw} age=${age}`;
+    return `${label}=sichtbar ${visible}/${raw} age=${age}`;
+  }
+
   function refreshMapLayers(){
     if (!state.map) return;
 
@@ -2840,13 +2854,13 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const ms = el("mapStatus");
     const label = tw === "all" ? "alle offenen" : (tw === "168" ? "7 Tage" : tw === "480" ? "20 Tage" : tw === "720" ? "30 Tage" : tw === "2160" ? "90 Tage" : `${tw}h`);
     if (ms) {
-      const showAIS = mapToggle("mapShowAIS", true);
-      const showADSB = mapToggle("mapShowADSB", true);
+      const showAIS = mapToggle("mapShowAIS", false);
+      const showADSB = mapToggle("mapShowADSB", false);
       const showDrift = mapToggle("mapShowDrift", true);
       const aisLive = showAIS ? liveItems("ais").filter(it => !mapToggle("mapAISOnlyAuthority", false) || isLiveAuthorityLike(it)).length : 0;
       const adsbLive = showADSB ? liveItems("adsb").filter(it => !mapToggle("mapADSBOnlyAuthority", false) || isLiveAuthorityLike(it)).length : 0;
       const driftLive = showDrift ? liveItems("drift").length : 0;
-      ms.textContent = `MAP: ${label} • src=${src.length}/${baseSrc.length} geo=${pts.length} • cand=${candidates} • routes=${routes.length} • AIS=${aisLive} • ADS-B=${adsbLive} • Drift=${driftLive}`;
+      ms.textContent = `MAP: ${label} • src=${src.length}/${baseSrc.length} geo=${pts.length} • cand=${candidates} • routes=${routes.length} • ${liveMapStatusPart("AIS","ais",showAIS,aisLive)} • ${liveMapStatusPart("ADS-B","adsb",showADSB,adsbLive)} • ${liveMapStatusPart("Drift","drift",showDrift,driftLive)}`;
     }
 
     let bounds = null;
