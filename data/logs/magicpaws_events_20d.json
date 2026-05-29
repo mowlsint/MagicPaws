@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-28T20:38:19.741Z",
+  "generated_at": "2026-05-29T04:45:00.627Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,1097 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-28T20:38:24.123Z",
+  "bundle_generated_at": "2026-05-29T04:45:03.851Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-08T20:38:19.741Z"
+    "cutoff_utc": "2026-05-09T04:45:00.627Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1285,
-    "active_events": 1184,
-    "active_geo_events": 203,
-    "active_social_events": 420,
-    "active_social_geo_events": 57
+    "archive_events_total": 1309,
+    "active_events": 1207,
+    "active_geo_events": 208,
+    "active_social_events": 426,
+    "active_social_geo_events": 59
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1509",
+      "number": 1509,
+      "id": "4545721837",
+      "ts": "2026-05-29T03:40:00.000Z",
+      "chronology_ts": "2026-05-29T03:40:00.000Z",
+      "issue_created_at": "2026-05-29T04:42:00.000Z",
+      "source_published_at": "2026-05-29T03:40:00.000Z",
+      "ingested_at": "2026-05-29T03:40:00.000Z",
+      "title": "[RSS] Court Dismisses Lawsuit Against Porsche Over Felicity Ace Fire",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1509",
+      "original_url": "https://maritime-executive.com/article/court-dismisses-lawsuit-against-porsche-over-felicity-ace-fire",
+      "labels": [
+        "D:INCIDENT",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INCIDENT",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/court-dismisses-lawsuit-against-porsche-over-felicity-ace-fire",
+        "source_published_at": "2026-05-29T03:40:00.000Z",
+        "ingested_at": "2026-05-29T03:40:00.000Z"
+      },
+      "report_category": "Zwischenfälle / Safety / Störungen",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/court-dismisses-lawsuit-against-porsche-over-felicity-ace-fire\n\n### Zeit (UTC)\n2026-05-29T03:40:00Z\n\n### Published\n2026-05-29T03:40:00Z\n\n### Auto-Labels\nCONF:MED, D:INCIDENT, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nA lawsuit against carmaker Porsche over the fire aboard the car carrier Felicity Ace has been resolved in favor of the famous German auto brand. Felic...\n\n---\n_Ingested at 2026-05-29T04:42:00.351134+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 6128177f032e5277 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1510",
+      "number": 1510,
+      "id": "4545721906",
+      "ts": "2026-05-29T01:49:17.000Z",
+      "chronology_ts": "2026-05-29T01:49:17.000Z",
+      "issue_created_at": "2026-05-29T04:42:01.000Z",
+      "source_published_at": "2026-05-29T01:49:17.000Z",
+      "ingested_at": "2026-05-29T01:49:17.000Z",
+      "title": "[RSS] Maritime Leader SS Teo Takes Leave of Absence to Fight Price-Fixing Charges",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1510",
+      "original_url": "https://maritime-executive.com/article/maritime-leader-ss-teo-takes-leave-of-absence-to-fight-price-fixing-charges",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/maritime-leader-ss-teo-takes-leave-of-absence-to-fight-price-fixing-charges",
+        "source_published_at": "2026-05-29T01:49:17.000Z",
+        "ingested_at": "2026-05-29T01:49:17.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/maritime-leader-ss-teo-takes-leave-of-absence-to-fight-price-fixing-charges\n\n### Zeit (UTC)\n2026-05-29T01:49:17Z\n\n### Published\n2026-05-29T01:49:17Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nWell-known Singaporean executive Teo Siong Seng (SS Teo) is taking a leave of absence from his role as chairman of Pacific International Lines in ord...\n\n---\n_Ingested at 2026-05-29T04:42:01.448336+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 557518ec880f91e1 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1511",
+      "number": 1511,
+      "id": "4545721964",
+      "ts": "2026-05-29T00:23:13.000Z",
+      "chronology_ts": "2026-05-29T00:23:13.000Z",
+      "issue_created_at": "2026-05-29T04:42:02.000Z",
+      "source_published_at": "2026-05-29T00:23:13.000Z",
+      "ingested_at": "2026-05-29T00:23:13.000Z",
+      "title": "[RSS] Silversea Cruise Ship Rescues Solo Sailor in North Pacific",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1511",
+      "original_url": "https://maritime-executive.com/article/silversea-cruise-ship-rescues-solo-sailor-in-north-pacific",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/silversea-cruise-ship-rescues-solo-sailor-in-north-pacific",
+        "source_published_at": "2026-05-29T00:23:13.000Z",
+        "ingested_at": "2026-05-29T00:23:13.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/silversea-cruise-ship-rescues-solo-sailor-in-north-pacific\n\n### Zeit (UTC)\n2026-05-29T00:23:13Z\n\n### Published\n2026-05-29T00:23:13Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nOn the tail end of a Pacific voyage to Tahiti and Hawaii, the cruise ship Silver Whisper had the opportunity to save a solo sailor whose yacht had bee...\n\n---\n_Ingested at 2026-05-29T04:42:02.507836+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 812c4fd316c8176f -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1512",
+      "number": 1512,
+      "id": "4545722018",
+      "ts": "2026-05-28T23:47:30.000Z",
+      "chronology_ts": "2026-05-28T23:47:30.000Z",
+      "issue_created_at": "2026-05-29T04:42:03.000Z",
+      "source_published_at": "2026-05-28T23:47:30.000Z",
+      "ingested_at": "2026-05-28T23:47:30.000Z",
+      "title": "[RSS] USCG Catches Four Chinese Stowaways on Barge Arriving From Florida",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1512",
+      "original_url": "https://maritime-executive.com/article/uscg-catches-four-chinese-stowaways-on-barge-arriving-from-florida",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/uscg-catches-four-chinese-stowaways-on-barge-arriving-from-florida",
+        "source_published_at": "2026-05-28T23:47:30.000Z",
+        "ingested_at": "2026-05-28T23:47:30.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/uscg-catches-four-chinese-stowaways-on-barge-arriving-from-florida\n\n### Zeit (UTC)\n2026-05-28T23:47:30Z\n\n### Published\n2026-05-28T23:47:30Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nLast weekend, the U.S. Coast Guard busted a group of eight stowaways on a barge in San Juan's harbor, the latest in a string of interdictions on tug-a...\n\n---\n_Ingested at 2026-05-29T04:42:03.566045+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 65852f98901bfaab -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1508",
+      "number": 1508,
+      "id": "4544650669",
+      "ts": "2026-05-28T23:30:08.309Z",
+      "chronology_ts": "2026-05-28T23:30:08.309Z",
+      "issue_created_at": "2026-05-29T00:07:10.000Z",
+      "source_published_at": "2026-05-28T23:30:08.309Z",
+      "ingested_at": "2026-05-29T00:07:09.123Z",
+      "title": "[BSKY] Beijing didn't send diplomats to lock up Indonesia's nickel. It sent steelmakers, with state banks right behind them. warontherocks.com/2026/05/cont...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1508",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmx6hzwafv2h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmx6hzwafv2h",
+        "source_published_at": "2026-05-28T23:30:08.309Z",
+        "ingested_at": "2026-05-29T00:07:09.123Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:725840318e791051516c -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:725840318e791051516c -->\n\n### Text\nBeijing didn't send diplomats to lock up Indonesia's nickel. It sent steelmakers, with state banks right behind them. warontherocks.com/2026/05/cont...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T23:30:08.309Z\ningested_at: 2026-05-29T00:07:09.123Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmx6hzwafv2h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1507",
+      "number": 1507,
+      "id": "4544650658",
+      "ts": "2026-05-28T23:30:08.309Z",
+      "chronology_ts": "2026-05-28T23:30:08.309Z",
+      "issue_created_at": "2026-05-29T00:07:10.000Z",
+      "source_published_at": "2026-05-28T23:30:08.309Z",
+      "ingested_at": "2026-05-29T00:07:09.013Z",
+      "title": "[BSKY] Beijing didn't send diplomats to lock up Indonesia's nickel. It sent steelmakers, with state banks right behind them. warontherocks.com/2026/05/cont...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1507",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmx6hzwafv2h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmx6hzwafv2h",
+        "source_published_at": "2026-05-28T23:30:08.309Z",
+        "ingested_at": "2026-05-29T00:07:09.013Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:725840318e791051516c -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:725840318e791051516c -->\n\n### Text\nBeijing didn't send diplomats to lock up Indonesia's nickel. It sent steelmakers, with state banks right behind them. warontherocks.com/2026/05/cont...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T23:30:08.309Z\ningested_at: 2026-05-29T00:07:09.013Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmx6hzwafv2h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1503",
+      "number": 1503,
+      "id": "4544561630",
+      "ts": "2026-05-28T23:14:13.000Z",
+      "chronology_ts": "2026-05-28T23:14:13.000Z",
+      "issue_created_at": "2026-05-28T23:42:47.000Z",
+      "source_published_at": "2026-05-28T23:14:13.000Z",
+      "ingested_at": "2026-05-28T23:14:13.000Z",
+      "title": "[RSS] Singapore Secures Three-Year Multi-Ship Homeport Deal with Princess Cruises",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1503",
+      "original_url": "https://maritime-executive.com/article/singapore-secures-three-year-multi-ship-homeport-deal-with-princess-cruises",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:SOUTHEAST_ASIA",
+        "REG:SINGAPORE_STRAIT"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:SOUTHEAST_ASIA",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 1.27,
+        "lon": 103.84,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Singapore",
+        "matched_alias": "Singapore",
+        "matched_id": "port_singapore",
+        "radius_km": 28,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:SOUTHEAST_ASIA",
+          "REG:SINGAPORE_STRAIT"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 1.27,
+          "lon": 103.84,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Singapore",
+          "matched_alias": "Singapore",
+          "matched_id": "port_singapore",
+          "radius_km": 28,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:SOUTHEAST_ASIA",
+            "REG:SINGAPORE_STRAIT"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/singapore-secures-three-year-multi-ship-homeport-deal-with-princess-cruises",
+        "source_published_at": "2026-05-28T23:14:13.000Z",
+        "ingested_at": "2026-05-28T23:14:13.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/singapore-secures-three-year-multi-ship-homeport-deal-with-princess-cruises\n\n### Zeit (UTC)\n2026-05-28T23:14:13Z\n\n### Published\n2026-05-28T23:14:13Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe Singapore Tourism Board (STB) announced a new three-year partnership agreement with Princess Cruises to significantly expand the cruise line’s pre...\n\n---\n_Ingested at 2026-05-28T23:42:47.008075+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: db5d519470b1f237 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1502",
+      "number": 1502,
+      "id": "4544264170",
+      "ts": "2026-05-28T22:30:08.102Z",
+      "chronology_ts": "2026-05-28T22:30:08.102Z",
+      "issue_created_at": "2026-05-28T22:30:42.000Z",
+      "source_published_at": "2026-05-28T22:30:08.102Z",
+      "ingested_at": "2026-05-28T22:30:41.137Z",
+      "title": "[BSKY] North Korea took out all references to eventually reuniting with South Korea from its constitution. Everyone saying it killed Korean reunification as a policy g",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1502",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmx34ojwfj2g",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mmx34ojwfj2g",
+        "source_published_at": "2026-05-28T22:30:08.102Z",
+        "ingested_at": "2026-05-28T22:30:41.137Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:e1ebbd5c42318596393a -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:e1ebbd5c42318596393a -->\n\n### Text\nNorth Korea took out all references to eventually reuniting with South Korea from its constitution. Everyone saying it killed Korean reunification as a policy goal may be reading it wrong. warontherocks.com/2026/05/what...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T22:30:08.102Z\ningested_at: 2026-05-28T22:30:41.137Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmx34ojwfj2g\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1504",
+      "number": 1504,
+      "id": "4544561671",
+      "ts": "2026-05-28T22:25:49.000Z",
+      "chronology_ts": "2026-05-28T22:25:49.000Z",
+      "issue_created_at": "2026-05-28T23:42:48.000Z",
+      "source_published_at": "2026-05-28T22:25:49.000Z",
+      "ingested_at": "2026-05-28T22:25:49.000Z",
+      "title": "[RSS] Product Tanker Catches Fire Anchored Off Bangladesh",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1504",
+      "original_url": "https://maritime-executive.com/article/product-tanker-catches-fire-anchored-off-bangladesh",
+      "labels": [
+        "D:INCIDENT",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INCIDENT",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/product-tanker-catches-fire-anchored-off-bangladesh",
+        "source_published_at": "2026-05-28T22:25:49.000Z",
+        "ingested_at": "2026-05-28T22:25:49.000Z"
+      },
+      "report_category": "Zwischenfälle / Safety / Störungen",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/product-tanker-catches-fire-anchored-off-bangladesh\n\n### Zeit (UTC)\n2026-05-28T22:25:49Z\n\n### Published\n2026-05-28T22:25:49Z\n\n### Auto-Labels\nCONF:MED, D:INCIDENT, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThe Bangladesh Coast Guard reports it was working to control a fire that was burning on a product tanker anchored off Chittagong. The fire was reporte...\n\n---\n_Ingested at 2026-05-28T23:42:48.062173+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 579366e5a80bca05 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1505",
+      "number": 1505,
+      "id": "4544561734",
+      "ts": "2026-05-28T22:18:00.000Z",
+      "chronology_ts": "2026-05-28T22:18:00.000Z",
+      "issue_created_at": "2026-05-28T23:42:49.000Z",
+      "source_published_at": "2026-05-28T22:18:00.000Z",
+      "ingested_at": "2026-05-28T22:18:00.000Z",
+      "title": "[RSS] Fire Breaks Out Aboard Ro/Pax Ferry at Port of Naples",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1505",
+      "original_url": "https://maritime-executive.com/article/fire-breaks-out-aboard-ro-pax-ferry-at-port-of-naples",
+      "labels": [
+        "D:INCIDENT",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INCIDENT",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/fire-breaks-out-aboard-ro-pax-ferry-at-port-of-naples",
+        "source_published_at": "2026-05-28T22:18:00.000Z",
+        "ingested_at": "2026-05-28T22:18:00.000Z"
+      },
+      "report_category": "Zwischenfälle / Safety / Störungen",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/fire-breaks-out-aboard-ro-pax-ferry-at-port-of-naples\n\n### Zeit (UTC)\n2026-05-28T22:18:00Z\n\n### Published\n2026-05-28T22:18:00Z\n\n### Auto-Labels\nCONF:MED, D:INCIDENT, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nFirefighters at the port of Naples, Italy have successfully controlled a blaze that broke out yesterday aboard a moored ferry near the city's famous...\n\n---\n_Ingested at 2026-05-28T23:42:49.177234+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 1fe9504217941e49 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1499",
+      "number": 1499,
+      "id": "4544262936",
+      "ts": "2026-05-28T22:16:45.811Z",
+      "chronology_ts": "2026-05-28T22:16:45.811Z",
+      "issue_created_at": "2026-05-28T22:30:23.000Z",
+      "source_published_at": "2026-05-28T22:16:45.811Z",
+      "ingested_at": "2026-05-28T22:30:22.107Z",
+      "title": "[BSKY] SCS? It indeed is useful, will look into publishing it. Just a bit devastated at the moment. Too many emotions!",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1499",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mmx2eqzvds2e",
+      "labels": [
+        "D:RF_SIGNAL",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "PAT:GNSS_JAM",
+        "PAT:GNSS_SPOOF",
+        "SRC:BSKY",
+        "MAP:YES"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:RF_SIGNAL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mmx2eqzvds2e",
+        "source_published_at": "2026-05-28T22:16:45.811Z",
+        "ingested_at": "2026-05-28T22:30:22.107Z"
+      },
+      "report_category": "RF/GNSS/NAVWARN",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:0d527c6d8ea0717c8d43 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:0d527c6d8ea0717c8d43 -->\n\n### Text\nSCS?\nIt indeed is useful, will look into publishing it.\nJust a bit devastated at the moment. Too many emotions!\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T22:16:45.811Z\ningested_at: 2026-05-28T22:30:22.107Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mmx2eqzvds2e\n\n### Auto-Labels\nSRC:OSINT, D:RF_SIGNAL, D:NEWS_INTEL, PAT:GNSS_JAM, PAT:GNSS_SPOOF, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1506",
+      "number": 1506,
+      "id": "4544561810",
+      "ts": "2026-05-28T21:49:51.000Z",
+      "chronology_ts": "2026-05-28T21:49:51.000Z",
+      "issue_created_at": "2026-05-28T23:42:50.000Z",
+      "source_published_at": "2026-05-28T21:49:51.000Z",
+      "ingested_at": "2026-05-28T21:49:51.000Z",
+      "title": "[RSS] Cobham Satcom Expands GMDSS Choice with New SAILOR 7200 Terminal",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1506",
+      "original_url": "https://maritime-executive.com/article/cobham-satcom-expands-gmdss-choice-with-new-sailor-7200-terminal",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/cobham-satcom-expands-gmdss-choice-with-new-sailor-7200-terminal",
+        "source_published_at": "2026-05-28T21:49:51.000Z",
+        "ingested_at": "2026-05-28T21:49:51.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/cobham-satcom-expands-gmdss-choice-with-new-sailor-7200-terminal\n\n### Zeit (UTC)\n2026-05-28T21:49:51Z\n\n### Published\n2026-05-28T21:49:51Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nCobham Satcom will showcase its new SAILOR 7200 terminal for Iridium at Posidonia 2026, expanding customer choice in next-generation Global Maritime D...\n\n---\n_Ingested at 2026-05-28T23:42:50.218435+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 8981e2b486de068a -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1489",
+      "number": 1489,
+      "id": "4544160261",
+      "ts": "2026-05-28T21:47:47.000Z",
+      "chronology_ts": "2026-05-28T21:47:47.000Z",
+      "issue_created_at": "2026-05-28T22:09:07.000Z",
+      "source_published_at": "2026-05-28T21:47:47.000Z",
+      "ingested_at": "2026-05-28T21:47:47.000Z",
+      "title": "[RSS] Report: Israel’s Economy and Agricultural Ministers Oppose Zim Acquisition",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1489",
+      "original_url": "https://maritime-executive.com/article/report-israel-s-economy-and-agricultural-ministers-oppose-zim-acquisition",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/report-israel-s-economy-and-agricultural-ministers-oppose-zim-acquisition",
+        "source_published_at": "2026-05-28T21:47:47.000Z",
+        "ingested_at": "2026-05-28T21:47:47.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/report-israel-s-economy-and-agricultural-ministers-oppose-zim-acquisition\n\n### Zeit (UTC)\n2026-05-28T21:47:47Z\n\n### Published\n2026-05-28T21:47:47Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nMedia reports from Israel report mounting opposition to the approval of the sale of Zim to Hapag-Lloyd. Calcalist, which was the first to report that...\n\n---\n_Ingested at 2026-05-28T22:09:06.876907+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 3d4cf20ca18dfb99 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1490",
+      "number": 1490,
+      "id": "4544160498",
+      "ts": "2026-05-28T21:44:17.000Z",
+      "chronology_ts": "2026-05-28T21:44:17.000Z",
+      "issue_created_at": "2026-05-28T22:09:08.000Z",
+      "source_published_at": "2026-05-28T21:44:17.000Z",
+      "ingested_at": "2026-05-28T21:44:17.000Z",
+      "title": "[RSS] GT Wings New Performance Assessment Tool for Jet Sail Wind Propulsion",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1490",
+      "original_url": "https://maritime-executive.com/article/gt-wings-new-performance-assessment-tool-for-jet-sail-wind-propulsion",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/gt-wings-new-performance-assessment-tool-for-jet-sail-wind-propulsion",
+        "source_published_at": "2026-05-28T21:44:17.000Z",
+        "ingested_at": "2026-05-28T21:44:17.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/gt-wings-new-performance-assessment-tool-for-jet-sail-wind-propulsion\n\n### Zeit (UTC)\n2026-05-28T21:44:17Z\n\n### Published\n2026-05-28T21:44:17Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nGT Wings has introduced a holistic ship performance assessment tool to support early-stage evaluation of its AirWing™ wind-assisted propulsion system....\n\n---\n_Ingested at 2026-05-28T22:09:08.042310+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 55e374464f9796d9 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1491",
+      "number": 1491,
+      "id": "4544160600",
+      "ts": "2026-05-28T21:41:04.000Z",
+      "chronology_ts": "2026-05-28T21:41:04.000Z",
+      "issue_created_at": "2026-05-28T22:09:09.000Z",
+      "source_published_at": "2026-05-28T21:41:04.000Z",
+      "ingested_at": "2026-05-28T21:41:04.000Z",
+      "title": "[RSS] Associated British Ports Appoints New Group Head of Property",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1491",
+      "original_url": "https://maritime-executive.com/article/associated-british-ports-appoints-new-group-head-of-property",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/associated-british-ports-appoints-new-group-head-of-property",
+        "source_published_at": "2026-05-28T21:41:04.000Z",
+        "ingested_at": "2026-05-28T21:41:04.000Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/associated-british-ports-appoints-new-group-head-of-property\n\n### Zeit (UTC)\n2026-05-28T21:41:04Z\n\n### Published\n2026-05-28T21:41:04Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAssociated British Ports (ABP), the UK’s largest port operator, is pleased to announce the appointment of Rupert Joseland as its new Group Head of Pro...\n\n---\n_Ingested at 2026-05-28T22:09:09.316234+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: c815c6729fc471a7 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1492",
+      "number": 1492,
+      "id": "4544160796",
+      "ts": "2026-05-28T21:33:17.000Z",
+      "chronology_ts": "2026-05-28T21:33:17.000Z",
+      "issue_created_at": "2026-05-28T22:09:10.000Z",
+      "source_published_at": "2026-05-28T21:33:17.000Z",
+      "ingested_at": "2026-05-28T21:33:17.000Z",
+      "title": "[RSS] Two Damen SARs 1605 FRP Enter Service with Brazilian Navy",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1492",
+      "original_url": "https://maritime-executive.com/article/two-damen-sars-1605-frp-enter-service-with-brazilian-navy",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:SOUTH_AMERICA_EAST",
+        "REG:ATLANTIC",
+        "REG:BRAZIL_COAST",
+        "REG:MINING"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:SOUTH_AMERICA_EAST",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": -20.29,
+        "lon": -40.25,
+        "precision": "port",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Vitória / Tubarão",
+        "matched_alias": "Vitória",
+        "matched_id": "port_vitoria_tubarao",
+        "radius_km": 28,
+        "confidence": "medium_high",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:SOUTH_AMERICA_EAST",
+          "REG:ATLANTIC",
+          "REG:BRAZIL_COAST",
+          "REG:MINING"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": -20.29,
+          "lon": -40.25,
+          "precision": "port",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Vitória / Tubarão",
+          "matched_alias": "Vitória",
+          "matched_id": "port_vitoria_tubarao",
+          "radius_km": 28,
+          "confidence": "medium_high",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:SOUTH_AMERICA_EAST",
+            "REG:ATLANTIC",
+            "REG:BRAZIL_COAST",
+            "REG:MINING"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/two-damen-sars-1605-frp-enter-service-with-brazilian-navy",
+        "source_published_at": "2026-05-28T21:33:17.000Z",
+        "ingested_at": "2026-05-28T21:33:17.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/two-damen-sars-1605-frp-enter-service-with-brazilian-navy\n\n### Zeit (UTC)\n2026-05-28T21:33:17Z\n\n### Published\n2026-05-28T21:33:17Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nOn 18 May, the Brazilian Navy held an inauguration ceremony for the LSAR 02, a Damen Search and Rescue (SAR) Vessel 1605 in Vitória. The event follows...\n\n---\n_Ingested at 2026-05-28T22:09:10.613937+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 9d0c0fa7a921d7ad -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1493",
+      "number": 1493,
+      "id": "4544160918",
+      "ts": "2026-05-28T21:26:38.000Z",
+      "chronology_ts": "2026-05-28T21:26:38.000Z",
+      "issue_created_at": "2026-05-28T22:09:12.000Z",
+      "source_published_at": "2026-05-28T21:26:38.000Z",
+      "ingested_at": "2026-05-28T21:26:38.000Z",
+      "title": "[RSS] Marlink and Metis Partner to Expand Access to Ship Data Intelligence",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1493",
+      "original_url": "https://maritime-executive.com/article/marlink-and-metis-partner-to-expand-access-to-ship-data-intelligence",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/marlink-and-metis-partner-to-expand-access-to-ship-data-intelligence",
+        "source_published_at": "2026-05-28T21:26:38.000Z",
+        "ingested_at": "2026-05-28T21:26:38.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/marlink-and-metis-partner-to-expand-access-to-ship-data-intelligence\n\n### Zeit (UTC)\n2026-05-28T21:26:38Z\n\n### Published\n2026-05-28T21:26:38Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nMarlink, a global leader in managed services for business-critical digital solutions, has signed an MoU with Metis, a specialist in maritime data coll...\n\n---\n_Ingested at 2026-05-28T22:09:11.765638+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: f6519a91abcfecc4 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1494",
+      "number": 1494,
+      "id": "4544161004",
+      "ts": "2026-05-28T21:22:50.000Z",
+      "chronology_ts": "2026-05-28T21:22:50.000Z",
+      "issue_created_at": "2026-05-28T22:09:13.000Z",
+      "source_published_at": "2026-05-28T21:22:50.000Z",
+      "ingested_at": "2026-05-28T21:22:50.000Z",
+      "title": "[RSS] Austal USA Names Gene Miller as President",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1494",
+      "original_url": "https://maritime-executive.com/article/austal-usa-names-gene-miller-as-president",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/austal-usa-names-gene-miller-as-president",
+        "source_published_at": "2026-05-28T21:22:50.000Z",
+        "ingested_at": "2026-05-28T21:22:50.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/austal-usa-names-gene-miller-as-president\n\n### Zeit (UTC)\n2026-05-28T21:22:50Z\n\n### Published\n2026-05-28T21:22:50Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAustal USA today announced that Gene Miller has been chosen as the company’s president, effective immediately. Miller has served as interim president...\n\n---\n_Ingested at 2026-05-28T22:09:13.031480+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 386260b6a63421cd -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1495",
+      "number": 1495,
+      "id": "4544161081",
+      "ts": "2026-05-28T21:18:07.000Z",
+      "chronology_ts": "2026-05-28T21:18:07.000Z",
+      "issue_created_at": "2026-05-28T22:09:14.000Z",
+      "source_published_at": "2026-05-28T21:18:07.000Z",
+      "ingested_at": "2026-05-28T21:18:07.000Z",
+      "title": "[RSS] Marcura Husbandry Targets the Vessel OPEX Blind Spot",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1495",
+      "original_url": "https://maritime-executive.com/article/marcura-husbandry-targets-the-vessel-opex-blind-spot",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/marcura-husbandry-targets-the-vessel-opex-blind-spot",
+        "source_published_at": "2026-05-28T21:18:07.000Z",
+        "ingested_at": "2026-05-28T21:18:07.000Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/marcura-husbandry-targets-the-vessel-opex-blind-spot\n\n### Zeit (UTC)\n2026-05-28T21:18:07Z\n\n### Published\n2026-05-28T21:18:07Z\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nFor most ship managers, husbandry port calls sit in an uncomfortable gap. They are operationally critical: the crew changes, repairs, bunkering stops...\n\n---\n_Ingested at 2026-05-28T22:09:14.204198+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 67cc17d6b02f88eb -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1496",
+      "number": 1496,
+      "id": "4544161163",
+      "ts": "2026-05-28T21:11:38.000Z",
+      "chronology_ts": "2026-05-28T21:11:38.000Z",
+      "issue_created_at": "2026-05-28T22:09:15.000Z",
+      "source_published_at": "2026-05-28T21:11:38.000Z",
+      "ingested_at": "2026-05-28T21:11:38.000Z",
+      "title": "[RSS] Britannia Group Realigns Senior Team for Growth",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1496",
+      "original_url": "https://maritime-executive.com/article/britannia-group-realigns-senior-team-for-growth",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/britannia-group-realigns-senior-team-for-growth",
+        "source_published_at": "2026-05-28T21:11:38.000Z",
+        "ingested_at": "2026-05-28T21:11:38.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/britannia-group-realigns-senior-team-for-growth\n\n### Zeit (UTC)\n2026-05-28T21:11:38Z\n\n### Published\n2026-05-28T21:11:38Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nChanges in the leadership team at Britannia P&I Club will see Helen Todd being promoted to Chief Underwriting Officer with Simon Williams taking on a...\n\n---\n_Ingested at 2026-05-28T22:09:15.471945+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 09606dd0f87ffb7d -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1500",
+      "number": 1500,
+      "id": "4544263783",
+      "ts": "2026-05-28T20:56:58.568Z",
+      "chronology_ts": "2026-05-28T20:56:58.568Z",
+      "issue_created_at": "2026-05-28T22:30:37.000Z",
+      "source_published_at": "2026-05-28T20:56:58.568Z",
+      "ingested_at": "2026-05-28T22:30:36.010Z",
+      "title": "[BSKY] If you want to add to jamming research, one way is to record jamming on your Android unit as you pass a jammed area, such as south Baltic Sea. Clear instruction",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1500",
+      "original_url": "https://bsky.app/profile/ispk.bsky.social/post/3mmwvw3kte22c",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:BALTIC",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:BALTIC",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 57.2,
+        "lon": 19,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Baltic Sea",
+        "matched_alias": "Baltic Sea",
+        "matched_id": "baltic_sea",
+        "radius_km": 780,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:BALTIC"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 57.2,
+          "lon": 19,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Baltic Sea",
+          "matched_alias": "Baltic Sea",
+          "matched_id": "baltic_sea",
+          "radius_km": 780,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:BALTIC"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "ISPK (Bluesky) (ispk_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/ispk.bsky.social/post/3mmwvw3kte22c",
+        "source_published_at": "2026-05-28T20:56:58.568Z",
+        "ingested_at": "2026-05-28T22:30:36.010Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:ispk_bsky:92dc040fbf747f326ac0 -->\n<!-- VOODOO_INGEST_ID:ispk_bsky:92dc040fbf747f326ac0 -->\n\n### Text\nIf you want to add to jamming research, one way is to record jamming on your Android unit as you pass a jammed area, such as south Baltic Sea.\nClear instructions below. Check local laws, do not approach borders or do it inside non-democracies and ask your mother before. There are risks.\npost here.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T20:56:58.568Z\ningested_at: 2026-05-28T22:30:36.010Z\n\n### Quelle\nISPK (Bluesky) (ispk_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/ispk.bsky.social/post/3mmwvw3kte22c\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:BALTIC, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1501",
+      "number": 1501,
+      "id": "4544263948",
+      "ts": "2026-05-28T20:37:39.000Z",
+      "chronology_ts": "2026-05-28T20:37:39.000Z",
+      "issue_created_at": "2026-05-28T22:30:39.000Z",
+      "source_published_at": "2026-05-28T20:37:39.000Z",
+      "ingested_at": "2026-05-28T22:30:38.715Z",
+      "title": "[X] Guatemala: Authorities dismantled a major cocaine laboratory in Zanjón San Lorenzo, Ayutla, San Marcos, comprising three interconnected buildings used for the entire cocaine production process from coca leaf extraction to powdered co…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1501",
+      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2060098197129769247",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:X",
+        "REG:SOUTH_AMERICA_EAST",
+        "REG:PARANA_RIVER",
+        "REG:ARGENTINA_INLAND"
+      ],
+      "source_type": "social_x",
+      "category": "D:SECURITY_CRIME",
+      "region": "REG:SOUTH_AMERICA_EAST",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": -32.8,
+        "lon": -60.72,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Rosario / San Lorenzo",
+        "matched_alias": "San Lorenzo",
+        "matched_id": "port_rosario_san_lorenzo",
+        "radius_km": 42,
+        "confidence": "medium",
+        "geo_role": "event_or_asset_location",
+        "display_on_map": true,
+        "regions": [
+          "REG:SOUTH_AMERICA_EAST",
+          "REG:PARANA_RIVER",
+          "REG:ARGENTINA_INLAND"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": -32.8,
+          "lon": -60.72,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Rosario / San Lorenzo",
+          "matched_alias": "San Lorenzo",
+          "matched_id": "port_rosario_san_lorenzo",
+          "radius_km": 42,
+          "confidence": "medium",
+          "geo_role": "event_or_asset_location",
+          "display_on_map": true,
+          "regions": [
+            "REG:SOUTH_AMERICA_EAST",
+            "REG:PARANA_RIVER",
+            "REG:ARGENTINA_INLAND"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "World Crime Intel (X) (worldcrimeintel_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2060098197129769247",
+        "source_published_at": "2026-05-28T20:37:39.000Z",
+        "ingested_at": "2026-05-28T22:30:38.715Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:worldcrimeintel_x:56f35e90d78b231f8478 -->\n<!-- VOODOO_INGEST_ID:worldcrimeintel_x:56f35e90d78b231f8478 -->\n\n### Text\nGuatemala: Authorities dismantled a major cocaine laboratory in Zanjón San Lorenzo, Ayutla, San Marcos, comprising three interconnected buildings used for the entire cocaine production process from coca leaf extraction to powdered cocaine.\nEight suspects were arrested, and security forces seized 14 assault rifles, three pistols, 1,306 rounds of ammunition, and equipment for packaging the drug. At least 30 packages of suspected cocaine were found, though the final weight is still pending official confirmation.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T20:37:39.000Z\ningested_at: 2026-05-28T22:30:38.715Z\n\n### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2060098197129769247\n\n### Auto-Labels\nSRC:OSINT, D:SECURITY_CRIME, SRC:SOCIAL, SRC:X, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1497",
+      "number": 1497,
+      "id": "4544161243",
+      "ts": "2026-05-28T20:34:52.000Z",
+      "chronology_ts": "2026-05-28T20:34:52.000Z",
+      "issue_created_at": "2026-05-28T22:09:16.000Z",
+      "source_published_at": "2026-05-28T20:34:52.000Z",
+      "ingested_at": "2026-05-28T20:34:52.000Z",
+      "title": "[RSS] Australia Secures First Vessel for National Strategic Fleet",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1497",
+      "original_url": "https://maritime-executive.com/article/australia-secures-first-vessel-for-national-strategic-fleet",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": null,
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/australia-secures-first-vessel-for-national-strategic-fleet",
+        "source_published_at": "2026-05-28T20:34:52.000Z",
+        "ingested_at": "2026-05-28T20:34:52.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/australia-secures-first-vessel-for-national-strategic-fleet\n\n### Zeit (UTC)\n2026-05-28T20:34:52Z\n\n### Published\n2026-05-28T20:34:52Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nAustralia has secured the first vessel for its new strategic fleet designed to restore Australian-flag shipping and provide critical capacity in times...\n\n---\n_Ingested at 2026-05-28T22:09:16.672443+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 4bbb9603eebd407c -->"
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1483",
       "number": 1483,
@@ -151,6 +1228,85 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:0a96a2d5656581550cfa -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:0a96a2d5656581550cfa -->\n\n### Text\nCheniere Energy Partners has taken a key step toward expanding its flagship Sabine Pass LNG export terminal in Louisiana, signing an engineering, procurement and construction contract with Bechtel for the...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T19:50:19.000Z\ningested_at: 2026-05-28T20:33:57.687Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/cheniere-moves-ahead-with-sabine-pass-lng-expansion/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1498",
+      "number": 1498,
+      "id": "4544161492",
+      "ts": "2026-05-28T19:42:00.000Z",
+      "chronology_ts": "2026-05-28T19:42:00.000Z",
+      "issue_created_at": "2026-05-28T22:09:18.000Z",
+      "source_published_at": "2026-05-28T19:42:00.000Z",
+      "ingested_at": "2026-05-28T19:42:00.000Z",
+      "title": "[RSS] Iran Demands $12B Up Front for 60-Day Ceasefire Extension",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1498",
+      "original_url": "https://maritime-executive.com/article/iran-demands-12b-up-front-for-60-day-ceasefire-extension",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/iran-demands-12b-up-front-for-60-day-ceasefire-extension",
+        "source_published_at": "2026-05-28T19:42:00.000Z",
+        "ingested_at": "2026-05-28T19:42:00.000Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/iran-demands-12b-up-front-for-60-day-ceasefire-extension\n\n### Zeit (UTC)\n2026-05-28T19:42:00Z\n\n### Published\n2026-05-28T19:42:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nIn order to open the Strait of Hormuz and obtain some degree of restriction on Iran's nuclear program, the Trump administration may have to give Tehr...\n\n---\n_Ingested at 2026-05-28T22:09:17.841797+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 8b909a5d21ad8579 -->"
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1481",
@@ -58754,54 +59910,6 @@
       "report_category": "Maritime Crime / Security",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-10T14:50:51.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053487941809299827#m\n\n### Text\nIraq: Authorities seized 1.56 tons of narcotics during field operations in the first five months of 2026, resulting in 2,498 convictions in drug-related cases, including 37 sentenced to death and 173 to life imprisonment.\nThe country remains a major transit route, with ongoing cooperation with neighboring regions and 37 international information exchange points. The United Nations has noted a surge in Captagon trafficking from Syria and increasing domestic drug use.\n\n### Extra\nIngest run: 2026-05-10T23:44:34.553Z\n\n<!-- VOODOO_INGEST: 00c15dec SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/506",
-      "number": 506,
-      "id": "4436565521",
-      "ts": "2026-05-08T20:39:56.000Z",
-      "chronology_ts": "2026-05-08T20:39:56.000Z",
-      "issue_created_at": "2026-05-13T09:20:01.000Z",
-      "source_published_at": "2026-05-08T20:39:56.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] Can Friedrich Merz’s chancellorship survive?",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/506",
-      "original_url": "https://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/can-friedrich-merzs-chancellorship-survive/",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:MARITIME_SECURITY",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "Atlantic Council – Reports / Issue Briefs (atlantic_council_reports)",
-        "platform": "rss",
-        "link": "https://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/can-friedrich-merzs-chancellorship-survive/",
-        "source_published_at": "2026-05-08T20:39:56.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "### Quelle\nAtlantic Council – Reports / Issue Briefs (atlantic_council_reports)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-08T20:39:56.000Z\n\n### Link\nhttps://www.atlanticcouncil.org/in-depth-research-reports/issue-brief/can-friedrich-merzs-chancellorship-survive/\n\n### Text\nOne year into his chancellorship, Friedrich Merz heads a government beset by economic stagnation, low public approval, and coalition tensions.\n\nThe post Can Friedrich Merz’s chancellorship survive? appeared first on Atlantic Council.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: atlantic_council_reports\nsource_priority: 86\nitem_score: 6\nkeyword_hits: port, ship\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: 9790a779 SOURCE=atlantic_council_reports -->"
     }
   ]
 }
