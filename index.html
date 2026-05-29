@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.47 "Map Live Defaults"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.48 "Indicators + Seismo Datefix"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -552,6 +552,42 @@
       margin-top:8px !important;
     }
 
+
+    /* v5.48 Indicators/Seismograph layout fixes */
+    .indicatorsPanel{
+      max-height:none !important;
+      overflow:visible !important;
+    }
+    .indicatorsPanel > .pc{
+      max-height:none !important;
+      overflow:visible !important;
+      padding-right:0 !important;
+    }
+    .indicatorsPanel > .pc > div[style*="grid-template-columns"]{
+      gap:10px !important;
+      margin-top:10px !important;
+    }
+    .indicatorsPanel .spark{
+      height:118px !important;
+      min-height:118px;
+      display:block;
+    }
+    .indicatorsPanel .sparkSeismo{
+      height:132px !important;
+      min-height:132px;
+      display:block;
+    }
+    .indicatorsPanel .seismoWrap{
+      grid-template-columns:minmax(0,1fr) 118px !important;
+      align-items:stretch;
+    }
+    .indicatorsPanel .seismoLegend{
+      min-height:132px !important;
+    }
+    .alertCard .alertMeta{
+      color:var(--money);
+    }
+
     .weatherPanel .pc{
       max-height: 720px;
       overflow:auto;
@@ -940,7 +976,7 @@
             <div class="hint" style="margin-bottom:8px;">
               Map-Marker erscheinen bei fertigem <b>geo</b>, explizitem <b>Geo: 53.5100, 8.1500</b> oder sicherer Archiv-Nachgeolokalisierung.
             </div>
-            <div class="priorityAlerts empty" id="priorityAlerts"></div>
+            <div class="priorityAlerts empty" id="priorityAlerts" aria-label="Kritische Meldungen, nach Meldungsdatum absteigend sortiert"></div>
             <div class="list" id="list"></div>
             <div class="hint" id="foot">–</div>
           </div>
@@ -1804,13 +1840,14 @@ Wilhelmshaven JadeWeserPort"></textarea>
       .filter(ev => isWithinHours(ev, hours))
       .map(ev => ({ ev, alert: inferPriorityAlert(ev) }))
       .filter(x => x.alert.rank >= PRIORITY_ALERT_RANK.WATCH)
-      .sort((a,b) => (b.alert.rank - a.alert.rank) || (b.alert.score - a.alert.score) || (getEventChronologyMs(b.ev) - getEventChronologyMs(a.ev)))
-      .slice(0, 6);
+      .sort((a,b) => (getEventChronologyMs(b.ev) - getEventChronologyMs(a.ev)) || (b.alert.rank - a.alert.rank) || (b.alert.score - a.alert.score))
+      .slice(0, 8);
     if (!alerts.length) { box.classList.add("empty"); box.innerHTML = ""; return; }
     box.classList.remove("empty");
     box.innerHTML = alerts.map(({ev, alert}) => {
       const level = String(alert.level || "WATCH").toLowerCase();
-      const when = eventChronologyDate(ev)?.toLocaleString() || "–";
+      const dObj = eventChronologyDate(ev);
+      const when = dObj ? `${dObj.toISOString().slice(0,10)} ${dObj.toISOString().slice(11,16)} UTC` : "–";
       const url = originalUrlFromEvent(ev) || ev.url || "#";
       const reasons = (alert.reasons || []).slice(0,3).join(" • ");
       return `<div class="alertCard ${level}">
@@ -2497,37 +2534,53 @@ Wilhelmshaven JadeWeserPort"></textarea>
 
   function renderSparkline(polyId, values){
     const poly = el(polyId);
-    if (!poly || !values.length) return;
-    const built = buildSparkPoints(values, { w:320, h:112, pad:8 });
-    poly.setAttribute("points", built.pts);
+    if (!poly) return;
+    const vals = Array.isArray(values) && values.length ? values : [0,0];
+    const built = buildSparkPoints(vals, { w:320, h:112, pad:8 });
+    poly.setAttribute("points", built.pts || "");
   }
 
   function renderHybridSeismograph(values){
+    const svg = el("hybridSpark");
     const line = el("hybridLine");
     const glow = el("hybridGlow");
     const area = el("hybridArea");
     const peak = el("hybridPeakMarker");
-    if (!line || !glow || !area || !peak || !values?.length) return;
+    if (!line || !glow || !area || !peak) return;
 
-    const built = buildSparkPoints(values, { w:320, h:124, pad:8 });
-    line.setAttribute("points", built.pts);
-    glow.setAttribute("points", built.pts);
+    const vals = Array.isArray(values) && values.length ? values.map(v => Number.isFinite(Number(v)) ? Number(v) : Number(v?.pct || 0)) : Array.from({length:72}, () => 0);
+    const built = buildSparkPoints(vals, { w:320, h:132, pad:10 });
 
-    const areaPath = built.points.length
-      ? `M ${built.points[0].x.toFixed(1)} 116 L ${built.pts} L ${built.points[built.points.length-1].x.toFixed(1)} 116 Z`
-      : "";
-    area.setAttribute("d", areaPath);
+    const pts = built.pts || "";
+    line.setAttribute("points", pts);
+    glow.setAttribute("points", pts);
 
-    let peakPoint = built.points[0];
+    if (built.points.length){
+      const baseY = 122;
+      const first = built.points[0];
+      const last = built.points[built.points.length - 1];
+      area.setAttribute("d", `M ${first.x.toFixed(1)} ${baseY} L ${pts} L ${last.x.toFixed(1)} ${baseY} Z`);
+    } else {
+      area.setAttribute("d", "");
+    }
+
+    let peakPoint = built.points[0] || {x:10,y:122,pct:0};
     for (const p of built.points){
       if ((p.pct ?? 0) >= (peakPoint?.pct ?? 0)) peakPoint = p;
     }
     peak.setAttribute("cx", peakPoint.x.toFixed(1));
     peak.setAttribute("cy", peakPoint.y.toFixed(1));
-    peak.setAttribute("r", String(peakPoint.pct >= 1 ? 4.8 : 0));
+    peak.setAttribute("r", String((peakPoint.pct || 0) >= 1 ? 5 : 0));
+
+    // Fallback for browsers that dislike empty SVG attr states after cache updates.
+    if (svg && !pts) {
+      svg.setAttribute("data-empty", "true");
+    } else if (svg) {
+      svg.removeAttribute("data-empty");
+    }
   }
 
-  function updateKPIsAndInstruments(){
+    function updateKPIsAndInstruments(){
     const p0Count = state.filtered.filter(e => e.phase0 && e.phase0.suspect).length;
     const geoCount = state.filtered.filter(hasEventGeo).length;
     const socialCount = state.filtered.filter(e => matchesSourceFilter(e, "social")).length;
@@ -2547,11 +2600,13 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const hybridWindow = Number(el("hybridWindow")?.value || 72);
     const hybridBuckets = buildHybridHourlyBuckets(instrumentEvents, 72);
     const hybridBase = scorePhaseZero(instrumentEvents, hybridWindow);
-    const hybrid = clamp(hybridBase + navtexHybridBoost(), 0, 100);
+    const navBoost = navtexHybridBoost();
+    const hybrid = clamp(hybridBase + navBoost, 0, 100);
     el("p0Pct").textContent = String(hybrid);
 
-    renderHybridSeismograph(hybridBuckets.map(b => b.pct));
-    const hPeak = hybridBuckets.length ? Math.max(...hybridBuckets.map(b => b.pct)) : 0;
+    const bucketValues = hybridBuckets.map(b => clamp(Math.round((b.pct || 0) + navBoost), 0, 100));
+    renderHybridSeismograph(bucketValues);
+    const hPeak = bucketValues.length ? Math.max(...bucketValues) : 0;
     el("hybridPeak").textContent = String(hPeak);
     el("hybridMeta").textContent = `Ø ${hybridWindow}h + NAVTEX • Peak 72h • AIS/ADS-B live proxy`;
 
