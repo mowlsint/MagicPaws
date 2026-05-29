@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot v5.45 Snapshot NAVTEX Repair</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.46 Buttons Center + Sea Weather</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -80,9 +80,10 @@
 
     .header{
       display:grid;
-      grid-template-columns:84px 1fr 430px 300px;
+      grid-template-columns:84px 1fr 190px 430px 300px;
       gap:10px;
       align-items:stretch;
+      min-height:96px;
     }
     .logoBox{display:grid; place-items:center; font-size:44px; color:var(--money)}
     .brand{padding:8px 10px; border-left:1px solid rgba(176,136,0,.28)}
@@ -125,6 +126,51 @@
       .snapshotBtn{display:none!important}
     }
 
+
+
+    /* v5.46 final header/export placement */
+    .actionBox{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:8px 4px;
+      border-left:1px solid rgba(176,136,0,.18);
+      border-right:1px solid rgba(176,136,0,.18);
+    }
+    .snapshotActions{
+      position:static!important;
+      display:flex!important;
+      flex-direction:column;
+      gap:7px;
+      align-items:stretch;
+      justify-content:center;
+      margin:0!important;
+      visibility:visible;
+    }
+    .snapshotBtn{
+      cursor:pointer;
+      border:1px solid rgba(176,136,0,.78);
+      background:rgba(176,136,0,.14);
+      color:var(--text);
+      border-radius:8px;
+      padding:6px 18px;
+      font-family:inherit;
+      font-size:18px;
+      line-height:1;
+      box-shadow:0 0 0 1px rgba(0,0,0,.45) inset;
+      min-width:74px;
+    }
+    .snapshotBtn:hover{background:rgba(176,136,0,.26); color:var(--money)}
+    .classBox{padding:8px 12px!important; font-size:18px; line-height:1.18}
+    .logoBox img{max-width:66px!important; max-height:66px!important; object-fit:contain}
+    .navtexPanel{grid-column:4!important; grid-row:3!important}
+    .weatherPanel{grid-column:4!important; grid-row:4!important; display:block!important}
+    .weatherPanel .miniRows{font-size:17px; line-height:1.25}
+    a.printLink{color:var(--money); text-decoration:underline; text-underline-offset:2px}
+    @media print{
+      .snapshotActions{display:none!important}
+      a.printLink{color:#ffd24d!important; text-decoration:underline!important}
+    }
 
     .nav{
       display:grid;
@@ -287,15 +333,21 @@
   <main class="snapshot" id="snapshotRoot">
     <header class="header panel">
       <div class="logoBox">
-        <img id="snapshotLogo" src="./assets/magic-paws-logo.jpg" alt="Magic Paws Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <img id="snapshotLogo" src="./assets/magic-paws-logo.jpg" alt="Magic Paws Logo" onerror="this.onerror=null; this.src='./assets/magic-paws-logo.png'; this.addEventListener('error',()=>{this.style.display='none'; this.nextElementSibling.style.display='block';},{once:true});" />
         <div class="logoFallback">🐾</div>
       </div>
       <div class="brand">
         <h1>MAGIC PAWS // MARITIME PHASE ZERO</h1>
         <div class="sub">TÄGLICHER SNAPSHOT / KURZLAGEBILD</div>
       </div>
+      <div class="actionBox">
+        <div class="snapshotActions">
+          <button class="snapshotBtn" id="btnSnapshotPdf" type="button">PDF</button>
+          <button class="snapshotBtn" id="btnSnapshotPng" type="button">PNG</button>
+        </div>
+      </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.45 “Snapshot NAVTEX Repair”</b></div>
+        <div><b id="versionLabel">v5.46 “Buttons Center + Sea Weather”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
@@ -303,10 +355,6 @@
         <div>Klassifikation: <b>UNCLASSIFIED</b></div>
         <div>Zeitraum: <b id="periodLabel">letzte 36 Stunden</b></div>
         <div>Raum: <b>Nordsee / Ostsee / Kanal / Mittelmeer</b></div>
-        <div class="snapshotActions">
-          <button class="snapshotBtn" id="btnSnapshotPdf" type="button">PDF</button>
-          <button class="snapshotBtn" id="btnSnapshotPng" type="button">PNG</button>
-        </div>
       </div>
     </header>
 
@@ -390,7 +438,7 @@
       </section>
 
       <section class="panel weatherPanel">
-        <div class="ph"><div class="title">Wetterfenster</div><div class="meta">24–72h</div></div>
+        <div class="ph"><div class="title">Wetterfenster</div><div class="meta">Nordsee / Ostsee</div></div>
         <div class="pc"><div class="miniRows" id="weatherRows"></div></div>
       </section>
     </section>
@@ -500,6 +548,17 @@
     const hint = ev?.source_hint?.source || ev?.source || null;
     if (hint && String(hint).trim() && String(hint).trim() !== "-") return String(hint).trim().slice(0, 34);
     return hostFromUrl(sourceUrl(ev));
+  }
+
+  function eventUrl(ev){
+    const candidates = [
+      ev?.original_url, ev?.source_url, ev?.display_url, ev?.html_url, ev?.url,
+      ev?.source_hint?.link, ev?.link, ev?.github_url
+    ].map(x => String(x ?? "").trim()).filter(Boolean);
+    for (const u of candidates){
+      if (/^https?:\/\//i.test(u)) return u;
+    }
+    return "";
   }
 
   function severityNum(ev){
@@ -708,7 +767,10 @@
     el("analysisRows").innerHTML = rows.length ? rows.map(ev => {
       const d = eventDate(ev);
       const age = Math.max(0, Math.round(ageDays(ev)));
-      return `<tr><td>${d ? d.toISOString().slice(0,10) : "–"}</td><td class="smallSource">${esc(sourceName(ev))}</td><td>${esc(String(ev.title || "").slice(0,74))}</td><td class="age">${age} T</td></tr>`;
+      const u = eventUrl(ev);
+      const title = esc(String(ev.title || "").slice(0,74));
+      const titleHtml = u ? `<a class="printLink" href="${esc(u)}" target="_blank" rel="noreferrer">${title}</a>` : title;
+      return `<tr><td>${d ? d.toISOString().slice(0,10) : "–"}</td><td class="smallSource">${esc(sourceName(ev))}</td><td>${titleHtml}</td><td class="age">${age} T</td></tr>`;
     }).join("") : `<tr><td colspan="4" class="miniNote">Keine Think-Tank-/Analyse-Treffer im ${ANALYSIS_DAYS}-Tage-Fenster.</td></tr>`;
   }
 
@@ -766,7 +828,12 @@
       .filter(x => x.alert.rank >= SNAP_ALERT_RANK.WATCH)
       .sort((a,b) => (b.alert.rank-a.alert.rank) || (b.alert.score-a.alert.score) || (msOf(b.ev)-msOf(a.ev)))
       .slice(0,3)
-      .map(({ev,alert}) => `<li class="alertBullet ${String(alert.level).toLowerCase()}"><span class="alertLabel">${esc(alert.level)}</span>${esc((ev.title || "Alert").slice(0,130))}</li>`);
+      .map(({ev,alert}) => {
+        const u = eventUrl(ev);
+        const title = esc((ev.title || "Alert").slice(0,130));
+        const titleHtml = u ? `<a class="printLink" href="${esc(u)}" target="_blank" rel="noreferrer">${title}</a>` : title;
+        return `<li class="alertBullet ${String(alert.level).toLowerCase()}"><span class="alertLabel">${esc(alert.level)}</span>${titleHtml}</li>`;
+      });
   }
 
   function renderShortlage(events, navtexData){
@@ -819,16 +886,20 @@
     const points = Array.isArray(data?.points) ? data.points : [];
     const map = new Map();
     for (const p of points){
-      let name = p.name || p.region || "Seegebiet";
-      if (/Helgoland|German Bight/i.test(name)) name = "Nordsee";
-      else if (/Gda|Gotland|Baltic|Copenhagen|Øresund|Oresund/i.test(name)) name = "Ostsee";
-      else if (/Dover|Channel/i.test(name)) name = "Ärmelkanal";
-      else if (/Cyprus|Mediterranean/i.test(name)) name = "Mittelmeer Ost";
-      else if (/Black Sea|Odesa/i.test(name)) name = "Schwarzes Meer";
-      if (!map.has(name)) map.set(name, p);
+      const raw = String(p.name || p.region || "");
+      let name = "";
+      if (/Helgoland|German Bight|North Sea|Nordsee/i.test(raw)) name = "Nordsee";
+      else if (/Gda|Gotland|Baltic|Copenhagen|Øresund|Oresund|Ostsee/i.test(raw)) name = "Ostsee";
+      if (name && !map.has(name)) map.set(name, p);
     }
-    const rows = [...map.entries()].slice(0,5).map(([name,p]) => { const [txt, cls] = weatherSeverity(p); return `<div class="miniRow"><span>${esc(name)}</span><span class="${cls}">${txt}</span></div>`; });
-    el("weatherRows").innerHTML = rows.length ? rows.join("") : `<div class="miniRow"><span>Wetterdaten</span><span>–</span></div>`;
+    const wanted = ["Nordsee","Ostsee"];
+    const rows = wanted.map(name => {
+      const p = map.get(name);
+      if (!p) return `<div class="miniRow"><span>${esc(name)}</span><span>–</span></div>`;
+      const [txt, cls] = weatherSeverity(p);
+      return `<div class="miniRow"><span>${esc(name)}</span><span class="${cls}">${txt}</span></div>`;
+    });
+    el("weatherRows").innerHTML = rows.join("");
   }
 
   function initMap(events){
