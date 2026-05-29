@@ -3,12 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot v5.40 System Health Lamps</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.44 Snapshot Export Repair</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
           integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -91,6 +92,29 @@
     .metaBox b{color:var(--text); font-weight:400}
     .classBox{padding:8px 12px; font-size:20px; line-height:1.25; color:var(--muted); text-transform:uppercase}
     .classBox b{color:var(--money); font-weight:400}
+
+    .logoBox{position:relative; overflow:hidden}
+    .logoBox img{max-width:58px; max-height:58px; object-fit:contain; display:block; filter:drop-shadow(0 0 8px rgba(255,210,77,.35))}
+    .logoFallback{font-size:38px; color:var(--money); display:none}
+    .snapshotActions{display:flex; gap:6px; margin-top:5px; align-items:center; justify-content:flex-start}
+    .snapshotBtn{
+      cursor:pointer;
+      border:1px solid rgba(176,136,0,.70);
+      background:rgba(176,136,0,.12);
+      color:var(--text);
+      border-radius:7px;
+      padding:3px 8px;
+      font-family:inherit;
+      font-size:15px;
+      line-height:1;
+      box-shadow:0 0 0 1px rgba(0,0,0,.45) inset;
+    }
+    .snapshotBtn:hover{background:rgba(176,136,0,.22); color:var(--money)}
+    @media print{
+      .snapshotActions{display:none!important}
+      .snapshotBtn{display:none!important}
+    }
+
 
     .nav{
       display:grid;
@@ -252,13 +276,16 @@
 
   <main class="snapshot" id="snapshotRoot">
     <header class="header panel">
-      <div class="logoBox">🐾</div>
+      <div class="logoBox">
+        <img id="snapshotLogo" src="./assets/magic-paws-logo.png" alt="Magic Paws Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
+        <div class="logoFallback">🐾</div>
+      </div>
       <div class="brand">
         <h1>MAGIC PAWS // MARITIME PHASE ZERO</h1>
         <div class="sub">TÄGLICHER SNAPSHOT / KURZLAGEBILD</div>
       </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.37e “Weirdness Layout Fix”</b></div>
+        <div><b id="versionLabel">v5.44 “Snapshot Export Repair”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
@@ -266,6 +293,10 @@
         <div>Klassifikation: <b>UNCLASSIFIED</b></div>
         <div>Zeitraum: <b id="periodLabel">letzte 36 Stunden</b></div>
         <div>Raum: <b>Nordsee / Ostsee / Kanal / Mittelmeer</b></div>
+        <div class="snapshotActions">
+          <button class="snapshotBtn" id="btnSnapshotPdf" type="button">PDF</button>
+          <button class="snapshotBtn" id="btnSnapshotPng" type="button">PNG</button>
+        </div>
       </div>
     </header>
 
@@ -884,7 +915,49 @@
     box.innerHTML = systems.map(s => `<div class="healthItem" title="${esc(s.reason || '')}"><div class="healthTop"><span class="lamp ${esc(s.status || 'gray')}"></span><span class="healthLabel">${esc(s.label)}</span></div><div class="healthMeta">${esc(s.meta || '–')}</div></div>`).join('');
   }
 
+
+  function snapshotFilename(ext){
+    const stamp = new Date().toISOString().replace(/[:.]/g,"").slice(0,15);
+    return `magic-paws-snapshot-${stamp}.${ext}`;
+  }
+  async function exportSnapshotPng(){
+    const root = el("snapshotRoot");
+    if (!root) return;
+    if (!window.html2canvas) {
+      alert("PNG-Export nicht verfügbar: html2canvas konnte nicht geladen werden.");
+      return;
+    }
+    const buttons = document.querySelectorAll(".snapshotActions");
+    buttons.forEach(x => x.style.visibility = "hidden");
+    try {
+      const canvas = await window.html2canvas(root, {
+        backgroundColor: "#050607",
+        scale: 2,
+        useCORS: true,
+        logging: false,
+        width: root.offsetWidth,
+        height: root.offsetHeight
+      });
+      const link = document.createElement("a");
+      link.download = snapshotFilename("png");
+      link.href = canvas.toDataURL("image/png");
+      link.click();
+    } finally {
+      buttons.forEach(x => x.style.visibility = "");
+    }
+  }
+  function exportSnapshotPdf(){
+    window.print();
+  }
+  function bindSnapshotExportButtons(){
+    const pdf = el("btnSnapshotPdf");
+    const png = el("btnSnapshotPng");
+    if (pdf) pdf.addEventListener("click", exportSnapshotPdf);
+    if (png) png.addEventListener("click", exportSnapshotPng);
+  }
+
   async function boot(){
+    bindSnapshotExportButtons();
     el("workerLabel").textContent = new URL(BASE).hostname;
     el("periodLabel").textContent = `letzte ${HOURS} Stunden`;
     el("domainMeta").textContent = `${HOURS}h`;
