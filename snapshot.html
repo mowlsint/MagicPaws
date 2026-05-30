@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot v5.46 Buttons Center + Sea Weather</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.47 Header Safe Export</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -325,6 +325,48 @@
       .snapshot{margin:0; width:1600px; min-height:900px}
       .loading{display:none!important}
     }
+
+
+    /* v5.47: Header Safe Export
+       Header row is no longer hard-clipped at 96px. This keeps the second title line
+       fully visible in browser, print-PDF and html2canvas PNG export. */
+    .snapshot{
+      grid-template-rows:minmax(124px, auto) 34px 44px minmax(0, 1fr) 28px !important;
+      overflow:visible !important;
+    }
+    .header{
+      min-height:124px !important;
+      align-items:center !important;
+      overflow:visible !important;
+    }
+    .header.panel{overflow:visible !important;}
+    .brand{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      min-height:112px;
+      padding:10px 12px !important;
+    }
+    .brand h1{
+      font-size:38px !important;
+      line-height:1.02 !important;
+      margin:0 0 6px 0 !important;
+      overflow:visible !important;
+    }
+    .brand .sub{
+      font-size:24px !important;
+      line-height:1.08 !important;
+      margin-top:0 !important;
+      overflow:visible !important;
+    }
+    .logoBox img{max-width:74px!important; max-height:74px!important;}
+    .metaBox{font-size:18px!important; line-height:1.22!important; align-self:center;}
+    .classBox{font-size:18px!important; line-height:1.22!important; align-self:center;}
+    .actionBox{align-self:stretch; min-height:112px;}
+    @media print{
+      .snapshot{grid-template-rows:minmax(124px, auto) 34px 44px minmax(0, 1fr) 28px !important;}
+      .header{min-height:124px !important;}
+    }
   </style>
 </head>
 <body>
@@ -347,7 +389,7 @@
         </div>
       </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.46 “Buttons Center + Sea Weather”</b></div>
+        <div><b id="versionLabel">v5.47 “Header Safe Export”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
