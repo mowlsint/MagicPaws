@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-30T04:19:15.550Z",
+  "generated_at": "2026-05-30T08:41:33.864Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,108 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-30T04:19:18.873Z",
+  "bundle_generated_at": "2026-05-30T08:41:36.894Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-10T04:19:15.550Z"
+    "cutoff_utc": "2026-05-10T08:41:33.864Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1376,
-    "active_events": 1274,
+    "archive_events_total": 1378,
+    "active_events": 1276,
     "active_geo_events": 216,
-    "active_social_events": 456,
+    "active_social_events": 458,
     "active_social_geo_events": 62
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1581",
+      "number": 1581,
+      "id": "4553728416",
+      "ts": "2026-05-30T07:30:39.110Z",
+      "chronology_ts": "2026-05-30T07:30:39.110Z",
+      "issue_created_at": "2026-05-30T07:37:20.000Z",
+      "source_published_at": "2026-05-30T07:30:39.110Z",
+      "ingested_at": "2026-05-30T07:37:17.869Z",
+      "title": "[BSKY] Latest news article: HMS Prince of Wales remains in Norway for repairs www.navylookout.com/hms-prince-o...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1581",
+      "original_url": "https://bsky.app/profile/navylookout.bsky.social/post/3mn2js4aul722",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "D:MARITIME_SECURITY",
+        "SRC:BSKY",
+        "MAP:YES",
+        "V:WARSHIP",
+        "PAT:VESSEL_SIGHTING"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Navy Lookout (Bluesky) (navylookout_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/navylookout.bsky.social/post/3mn2js4aul722",
+        "source_published_at": "2026-05-30T07:30:39.110Z",
+        "ingested_at": "2026-05-30T07:37:17.869Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:navylookout_bsky:adde9baf37f8ab69c17f -->\n<!-- VOODOO_INGEST_ID:navylookout_bsky:adde9baf37f8ab69c17f -->\n\n### Text\nLatest news article:\nHMS Prince of Wales remains in Norway for repairs\nwww.navylookout.com/hms-prince-o...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T07:30:39.110Z\ningested_at: 2026-05-30T07:37:17.869Z\n\n### Quelle\nNavy Lookout (Bluesky) (navylookout_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/navylookout.bsky.social/post/3mn2js4aul722\n\n### Auto-Labels\nSRC:OSINT, D:MARITIME_SECURITY, D:NEWS_INTEL, V:WARSHIP, PAT:VESSEL_SIGHTING, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1580",
+      "number": 1580,
+      "id": "4553205026",
+      "ts": "2026-05-30T03:16:02.585Z",
+      "chronology_ts": "2026-05-30T03:16:02.585Z",
+      "issue_created_at": "2026-05-30T04:32:57.000Z",
+      "source_published_at": "2026-05-30T03:16:02.585Z",
+      "ingested_at": "2026-05-30T04:32:57.159Z",
+      "title": "[BSKY] For insider access to clear analysis from trusted voices, sign up for a War on the Rocks membership to unlock all our members-only content. warontherocks.com/me",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1580",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn23ku4dcs2p",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn23ku4dcs2p",
+        "source_published_at": "2026-05-30T03:16:02.585Z",
+        "ingested_at": "2026-05-30T04:32:57.159Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:6f5e0f3abaa934437b9d -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:6f5e0f3abaa934437b9d -->\n\n### Text\nFor insider access to clear analysis from trusted voices, sign up for a War on the Rocks membership to unlock all our members-only content. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T03:16:02.585Z\ningested_at: 2026-05-30T04:32:57.159Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mn23ku4dcs2p\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1579",
       "number": 1579,

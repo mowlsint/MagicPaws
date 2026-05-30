@@ -1,28 +1,29 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-30T04:19:15.550Z",
+  "generated_at": "2026-05-30T08:41:33.864Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 53,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-30",
-      "events_total": 1,
+      "events_total": 3,
       "p0_suspect": 0,
       "geo_events": 0,
-      "social_events": 1,
+      "social_events": 3,
       "social_geo_events": 0,
       "rss_media_events": 0,
       "top_domains": {
-        "D:NEWS_INTEL": 1
+        "D:NEWS_INTEL": 3
       },
       "top_regions": {
-        "REG:OTHER": 1
+        "REG:OTHER": 2,
+        "REG:ATLANTIC_NE": 1
       },
       "severity": {
-        "SEV:1": 1
+        "SEV:1": 3
       },
-      "hybrid_index_proxy": 1,
+      "hybrid_index_proxy": 3,
       "government_weirdness_proxy": {
         "north_sea": 0,
         "baltic_sea": 0
@@ -30,6 +31,10 @@
       "top_keywords": [
         {
           "keyword": "ot",
+          "count": 2
+        },
+        {
+          "keyword": "navy",
           "count": 1
         }
       ]

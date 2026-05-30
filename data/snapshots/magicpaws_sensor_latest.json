@@ -1,19 +1,19 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-05-30T00:00:00.000Z",
-  "generated_at": "2026-05-30T04:19:15.550Z",
+  "snapshot_key": "2026-05-30T06:00:00.000Z",
+  "generated_at": "2026-05-30T08:41:33.864Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 1376,
-    "events_72h": 262,
+    "events_total_archive": 1378,
+    "events_72h": 258,
     "p0_suspect_72h": 0,
     "geo_72h": 28,
-    "social_72h": 89,
+    "social_72h": 87,
     "social_geo_72h": 8,
-    "rss_media_72h": 173
+    "rss_media_72h": 171
   },
   "sensors": {
     "hybrid_index_pct": 100,
@@ -22,11 +22,11 @@
       "baltic_sea_pct": 27
     },
     "keyword_barometer_pct": 100,
-    "keyword_hits_72h": 304
+    "keyword_hits_72h": 301
   },
   "density": {
     "domains_72h": {
-      "D:NEWS_INTEL": 179,
+      "D:NEWS_INTEL": 175,
       "D:INFRA_CI": 32,
       "D:CYBER_OT": 29,
       "D:SECURITY_CRIME": 9,
@@ -36,9 +36,9 @@
       "D:DRONE_UAS": 2
     },
     "regions_72h": {
-      "REG:OTHER": 124,
-      "REG:GLOBAL": 23,
+      "REG:OTHER": 122,
       "REG:EUROPE": 22,
+      "REG:GLOBAL": 21,
       "REG:ATLANTIC_NE": 13,
       "REG:PERSIAN_GULF": 11,
       "REG:NORTH_SEA": 6,
@@ -52,7 +52,7 @@
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 163
+        "count": 161
       },
       {
         "keyword": "cyber",
@@ -60,11 +60,11 @@
       },
       {
         "keyword": "sts",
-        "count": 18
+        "count": 17
       },
       {
         "keyword": "mpa",
-        "count": 15
+        "count": 14
       },
       {
         "keyword": "drone",
@@ -72,7 +72,7 @@
       },
       {
         "keyword": "navy",
-        "count": 12
+        "count": 13
       },
       {
         "keyword": "sar",
