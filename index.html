@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.48 "Indicators + Seismo Datefix"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.49 "Indicators + Threshold Alerts"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -854,6 +854,103 @@
       .exportCtl select{width:100%;}
       .kpis{grid-template-columns:1fr;}
     }
+
+
+    /* v5.49: Main Console filter layout + stable right-sidebar stacking */
+    .controls{
+      grid-template-columns:minmax(250px,1.35fr) repeat(3,minmax(170px,1fr)) !important;
+      grid-auto-rows:auto;
+      align-items:stretch;
+    }
+    .controls > .panel:nth-child(1){grid-column:1;}
+    .controls > .panel:nth-child(2){grid-column:2;}
+    .controls > .panel:nth-child(3){grid-column:3;}
+    .controls > .panel:nth-child(4){grid-column:4;}
+    .controls > .panel:nth-child(5){grid-column:1 / -1;}
+    .severityPanel{
+      display:grid !important;
+      grid-template-columns:minmax(150px,.7fr) minmax(310px,1.25fr) minmax(210px,.85fr) minmax(300px,1fr);
+      gap:10px;
+      align-items:end;
+      min-height:0 !important;
+    }
+    .severityPanel .severityGroup{min-width:0;}
+    .severityPanel .severityGroup label{margin-bottom:5px;}
+    .severityPanel .toggles{
+      margin-top:0 !important;
+      display:flex;
+      flex-direction:row;
+      gap:8px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .severityPanel .toggle{
+      margin:0;
+      padding:7px 10px;
+      white-space:nowrap;
+    }
+    .severityPanel .logWindowNote{
+      margin-top:0 !important;
+      align-self:center;
+      border:1px solid rgba(176,136,0,.30);
+      border-radius:10px;
+      padding:8px 10px;
+      background:rgba(0,0,0,.18);
+      min-height:42px;
+    }
+
+    .sideGrid{
+      display:flex !important;
+      flex-direction:column !important;
+      gap:12px !important;
+      align-items:stretch !important;
+      overflow:visible !important;
+    }
+    .sideGrid > .panel{
+      width:100%;
+      flex:0 0 auto !important;
+      position:relative !important;
+    }
+    .indicatorsPanel{
+      max-height:none !important;
+      height:auto !important;
+      overflow:hidden !important;
+      display:block !important;
+    }
+    .indicatorsPanel > .pc{
+      max-height:none !important;
+      overflow:visible !important;
+      min-height:auto !important;
+      flex:0 0 auto !important;
+      padding-right:12px !important;
+    }
+    .indicatorsPanel .spark{
+      width:100% !important;
+      height:118px !important;
+      min-height:118px !important;
+      max-height:118px !important;
+      display:block !important;
+      overflow:visible !important;
+    }
+    .indicatorsPanel .sparkSeismo{
+      height:132px !important;
+      min-height:132px !important;
+      max-height:132px !important;
+      display:block !important;
+    }
+    .indicatorsPanel .panel{
+      overflow:hidden !important;
+    }
+    .weatherPanel,.navwarnPanel{
+      position:static !important;
+      margin-top:0 !important;
+      z-index:auto !important;
+    }
+    @media (max-width:980px){
+      .controls{grid-template-columns:1fr !important;}
+      .controls > .panel{grid-column:1 / -1 !important;}
+      .severityPanel{grid-template-columns:1fr !important; align-items:stretch;}
+    }
   </style>
 </head>
 
@@ -945,30 +1042,36 @@
                 <option value="official">Official</option>
               </select>
             </div>
-
-            <div class="panel" style="border-radius:12px; padding:10px;">
-              <label>Severity (SEV:*)</label>
-              <select id="sev">
-                <option value="">Alle</option>
-                <option value="SEV:1">SEV:1</option>
-                <option value="SEV:2">SEV:2</option>
-                <option value="SEV:3">SEV:3</option>
-                <option value="SEV:4">SEV:4</option>
-              </select>
-              <div class="toggles">
-                <label class="toggle"><input type="checkbox" id="onlyP0"> only P0:SUSPECT</label>
-                <label class="toggle"><input type="checkbox" id="onlyGeo"> only with GEO</label>
+            <div class="panel severityPanel" style="border-radius:12px; padding:10px;">
+              <div class="severityGroup">
+                <label>Severity (SEV:*)</label>
+                <select id="sev">
+                  <option value="">Alle</option>
+                  <option value="SEV:1">SEV:1</option>
+                  <option value="SEV:2">SEV:2</option>
+                  <option value="SEV:3">SEV:3</option>
+                  <option value="SEV:4">SEV:4</option>
+                </select>
               </div>
-              <label for="displayWindow" style="margin-top:10px;">Anzeigezeitraum / Log</label>
-              <select id="displayWindow">
-                <option value="24">24 h</option>
-                <option value="48">48 h</option>
-                <option value="168">7 Tage</option>
-                <option value="480" selected>20 Tage Log</option>
-                <option value="2160">90 Tage Archiv</option>
-                <option value="all">Archiv komplett</option>
-              </select>
-              <div class="logWindowNote" id="logWindowNote">20-Tage-Arbeitslog aktiv; Repo-JSON + lokaler Cache.</div>
+              <div class="severityGroup severityToggles">
+                <label>Statusfilter</label>
+                <div class="toggles">
+                  <label class="toggle"><input type="checkbox" id="onlyP0"> only P0:SUSPECT</label>
+                  <label class="toggle"><input type="checkbox" id="onlyGeo"> only with GEO</label>
+                </div>
+              </div>
+              <div class="severityGroup">
+                <label for="displayWindow">Anzeigezeitraum / Log</label>
+                <select id="displayWindow">
+                  <option value="24">24 h</option>
+                  <option value="48">48 h</option>
+                  <option value="168">7 Tage</option>
+                  <option value="480" selected>20 Tage Log</option>
+                  <option value="2160">90 Tage Archiv</option>
+                  <option value="all">Archiv komplett</option>
+                </select>
+              </div>
+              <div class="logWindowNote" id="logWindowNote">20-Tage-Arbeitslog aktiv; Repo-JSON + lokaler Cache werden zusammengeführt.</div>
             </div>
           </div>
 
