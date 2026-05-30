@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-30T08:41:33.864Z",
+  "generated_at": "2026-05-30T14:07:13.804Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,452 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-30T08:41:36.894Z",
+  "bundle_generated_at": "2026-05-30T14:07:16.936Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-10T08:41:33.864Z"
+    "cutoff_utc": "2026-05-10T14:07:13.804Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1378,
-    "active_events": 1276,
-    "active_geo_events": 216,
-    "active_social_events": 458,
-    "active_social_geo_events": 62
+    "archive_events_total": 1387,
+    "active_events": 1285,
+    "active_geo_events": 218,
+    "active_social_events": 467,
+    "active_social_geo_events": 64
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1589",
+      "number": 1589,
+      "id": "4554214580",
+      "ts": "2026-05-30T10:36:06.000Z",
+      "chronology_ts": "2026-05-30T10:36:06.000Z",
+      "issue_created_at": "2026-05-30T11:17:05.000Z",
+      "source_published_at": "2026-05-30T10:36:06.000Z",
+      "ingested_at": "2026-05-30T11:17:03.085Z",
+      "title": "[X] RT by @TomSharpe134: So, we now appear to be looking at an extra £3.75bn, or £4.5bn a year over the next four years, so an extra 0.125%, or 0.15% GDP added to a defence budget, which was circa 2.4% GDP in 2025 If the government belie…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1589",
+      "original_url": "https://nitter.poast.org/navalhistorian/status/2060671586760323091",
+      "labels": [
+        "D:INFRA_CI",
+        "REG:NORTH_SEA",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:CHANNEL",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "DECAY:SLOW",
+        "SRC:ANALYST",
+        "SRC:NAVAL",
+        "SRC:ANALYSIS_POINTER",
+        "SRC:X",
+        "MAP:INFERRED"
+      ],
+      "source_type": "social_x",
+      "category": "D:INFRA_CI",
+      "region": "REG:NORTH_SEA",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 56,
+        "lon": 3.5,
+        "precision": "area",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "North Sea",
+        "matched_alias": "North Sea",
+        "matched_id": "north_sea",
+        "radius_km": 900,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:NORTH_SEA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "north_sea",
+          "matched_name": "North Sea",
+          "matched_alias": "North Sea",
+          "lat": 56,
+          "lon": 3.5,
+          "radius_km": 900,
+          "precision": "area",
+          "regions": [
+            "REG:NORTH_SEA"
+          ],
+          "score": 19,
+          "in_title": false
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "Tom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/navalhistorian/status/2060671586760323091",
+        "source_published_at": "2026-05-30T10:36:06.000Z",
+        "ingested_at": "2026-05-30T11:17:03.085Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:tom_sharpe_x:3a2837a578d0c214e909 -->\n<!-- VOODOO_INGEST_ID:tom_sharpe_x:3a2837a578d0c214e909 -->\n\n### Text\nSo, we now appear to be looking at an extra £3.75bn, or £4.5bn a year over the next four years, so an extra 0.125%, or 0.15% GDP added to a defence budget, which was circa 2.4% GDP in 2025\nIf the government believes its own statements about the threat this is not remotely serious\nLarisa Brown (@larisamlbrown)\nExclusive: Senior military officers who have seen the unpublished defence investment plan have raised concerns with colleagues that there is not enough money for key technologies even with the £18 billion, which Sir Keir Starmer is yet to sign off. There are concerns he might only agree to £15 billion thetimes.com/article/9b34a12…\n— https://nitter.poast.org/larisamlbrown/status/2060617325569597754#m\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T10:36:06.000Z\ningested_at: 2026-05-30T11:17:03.085Z\n\n### Quelle\nTom Sharpe – Naval / Maritime Security – X (tom_sharpe_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/navalhistorian/status/2060671586760323091\n\n### Auto-Labels\nSRC:OSINT, SRC:SOCIAL, SRC:ANALYST, SRC:NAVAL, SRC:ANALYSIS_POI…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1590",
+      "number": 1590,
+      "id": "4554214689",
+      "ts": "2026-05-30T10:34:40.726Z",
+      "chronology_ts": "2026-05-30T10:34:40.726Z",
+      "issue_created_at": "2026-05-30T11:17:07.000Z",
+      "source_published_at": "2026-05-30T10:34:40.726Z",
+      "ingested_at": "2026-05-30T11:17:06.586Z",
+      "title": "[BSKY] Looking forward to hearing @alxluck.bsky.social’s take \"The signature project will deliver a suite of highly adaptable multi-mission UUV payloads designed to su",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1590",
+      "original_url": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mn2u36duy22s",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "D:MARITIME_SECURITY",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "MaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mn2u36duy22s",
+        "source_published_at": "2026-05-30T10:34:40.726Z",
+        "ingested_at": "2026-05-30T11:17:06.586Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:maritimekiwi_bsky:aa46483956c8380777fd -->\n<!-- VOODOO_INGEST_ID:maritimekiwi_bsky:aa46483956c8380777fd -->\n\n### Text\nLooking forward to hearing @alxluck.bsky.social’s take\n\"The signature project will deliver a suite of highly adaptable multi-mission UUV payloads designed to support undersea operations and maintain ​our collective advantage in the maritime domain,\" Hegseth said.\nwww.reuters.com/world/asia-p...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T10:34:40.726Z\ningested_at: 2026-05-30T11:17:06.586Z\n\n### Quelle\nMaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/maritimekiwi.bsky.social/post/3mn2u36duy22s\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, D:MARITIME_SECURITY, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1586",
+      "number": 1586,
+      "id": "4554213765",
+      "ts": "2026-05-30T10:34:40.726Z",
+      "chronology_ts": "2026-05-30T10:34:40.726Z",
+      "issue_created_at": "2026-05-30T11:16:45.000Z",
+      "source_published_at": "2026-05-30T10:34:40.726Z",
+      "ingested_at": "2026-05-30T11:16:44.829Z",
+      "title": "[BSKY] Looking forward to hearing @alxluck.bsky.social’s take \"The signature project will deliver a suite of highly adaptable multi-mission UUV payloads designed to su",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1586",
+      "original_url": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mn2u36duy22s",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "D:MARITIME_SECURITY",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "MaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mn2u36duy22s",
+        "source_published_at": "2026-05-30T10:34:40.726Z",
+        "ingested_at": "2026-05-30T11:16:44.829Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:maritimekiwi_bsky:aa46483956c8380777fd -->\n<!-- VOODOO_INGEST_ID:maritimekiwi_bsky:aa46483956c8380777fd -->\n\n### Text\nLooking forward to hearing @alxluck.bsky.social’s take\n\"The signature project will deliver a suite of highly adaptable multi-mission UUV payloads designed to support undersea operations and maintain ​our collective advantage in the maritime domain,\" Hegseth said.\nwww.reuters.com/world/asia-p...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T10:34:40.726Z\ningested_at: 2026-05-30T11:16:44.829Z\n\n### Quelle\nMaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/maritimekiwi.bsky.social/post/3mn2u36duy22s\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, D:MARITIME_SECURITY, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1587",
+      "number": 1587,
+      "id": "4554213923",
+      "ts": "2026-05-30T10:17:17.112Z",
+      "chronology_ts": "2026-05-30T10:17:17.112Z",
+      "issue_created_at": "2026-05-30T11:16:50.000Z",
+      "source_published_at": "2026-05-30T10:17:17.112Z",
+      "ingested_at": "2026-05-30T11:16:48.946Z",
+      "title": "[BSKY] Exactly. Saw a German tourist brought in for questioning in the 80’s because as he was taking a pic of kids sailing Optimists a ~15m patrol boat was far in the",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1587",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mn2t433aq22u",
+      "labels": [
+        "D:RF_SIGNAL",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "PAT:GNSS_JAM",
+        "PAT:GNSS_SPOOF",
+        "SRC:BSKY",
+        "MAP:YES"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:RF_SIGNAL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mn2t433aq22u",
+        "source_published_at": "2026-05-30T10:17:17.112Z",
+        "ingested_at": "2026-05-30T11:16:48.946Z"
+      },
+      "report_category": "RF/GNSS/NAVWARN",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:9758fadb1ab6796d069c -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:9758fadb1ab6796d069c -->\n\n### Text\nExactly. Saw a German tourist brought in for questioning in the 80’s because as he was taking a pic of kids sailing Optimists a ~15m patrol boat was far in the background. Times have changed.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T10:17:17.112Z\ningested_at: 2026-05-30T11:16:48.946Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mn2t433aq22u\n\n### Auto-Labels\nSRC:OSINT, D:RF_SIGNAL, D:NEWS_INTEL, PAT:GNSS_JAM, PAT:GNSS_SPOOF, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1585",
+      "number": 1585,
+      "id": "4554213208",
+      "ts": "2026-05-30T10:17:17.112Z",
+      "chronology_ts": "2026-05-30T10:17:17.112Z",
+      "issue_created_at": "2026-05-30T11:16:34.000Z",
+      "source_published_at": "2026-05-30T10:17:17.112Z",
+      "ingested_at": "2026-05-30T11:16:33.257Z",
+      "title": "[BSKY] Exactly. Saw a German tourist brought in for questioning in the 80’s because as he was taking a pic of kids sailing Optimists a ~15m patrol boat was far in the",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1585",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mn2t433aq22u",
+      "labels": [
+        "D:RF_SIGNAL",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "PAT:GNSS_JAM",
+        "PAT:GNSS_SPOOF",
+        "SRC:BSKY",
+        "MAP:YES"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:RF_SIGNAL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mn2t433aq22u",
+        "source_published_at": "2026-05-30T10:17:17.112Z",
+        "ingested_at": "2026-05-30T11:16:33.257Z"
+      },
+      "report_category": "RF/GNSS/NAVWARN",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:9758fadb1ab6796d069c -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:9758fadb1ab6796d069c -->\n\n### Text\nExactly. Saw a German tourist brought in for questioning in the 80’s because as he was taking a pic of kids sailing Optimists a ~15m patrol boat was far in the background. Times have changed.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T10:17:17.112Z\ningested_at: 2026-05-30T11:16:33.257Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mn2t433aq22u\n\n### Auto-Labels\nSRC:OSINT, D:RF_SIGNAL, D:NEWS_INTEL, PAT:GNSS_JAM, PAT:GNSS_SPOOF, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1583",
+      "number": 1583,
+      "id": "4553954347",
+      "ts": "2026-05-30T08:48:48.953Z",
+      "chronology_ts": "2026-05-30T08:48:48.953Z",
+      "issue_created_at": "2026-05-30T09:12:49.000Z",
+      "source_published_at": "2026-05-30T08:48:48.953Z",
+      "ingested_at": "2026-05-30T09:12:48.819Z",
+      "title": "[BSKY] What is russia doing in the UN? They have never been accepted as a member. When were they voted in??? It's a mafia terrorist organisation that's been holding an",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1583",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mn2o5ut4ok2v",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mn2o5ut4ok2v",
+        "source_published_at": "2026-05-30T08:48:48.953Z",
+        "ingested_at": "2026-05-30T09:12:48.819Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:45601961a3b6aa2fa6b3 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:45601961a3b6aa2fa6b3 -->\n\n### Text\nWhat is russia doing in the UN?\nThey have never been accepted as a member.\nWhen were they voted in???\nIt's a mafia terrorist organisation that's been holding and suppressing colonies for hundreds of years\nThis colonial mafia terrorist organisation has no right to exist in any form or shape\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T08:48:48.953Z\ningested_at: 2026-05-30T09:12:48.819Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mn2o5ut4ok2v\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1584",
+      "number": 1584,
+      "id": "4554042164",
+      "ts": "2026-05-30T08:19:57.692Z",
+      "chronology_ts": "2026-05-30T08:19:57.692Z",
+      "issue_created_at": "2026-05-30T09:54:47.000Z",
+      "source_published_at": "2026-05-30T08:19:57.692Z",
+      "ingested_at": "2026-05-30T09:54:46.523Z",
+      "title": "[BSKY] Until a few minutes ago Munich airport appeared to have a ground stop, with incoming aircraft in holds while a police helicopter looked for a reported drone.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1584",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mn2mkbswsc2a",
+      "labels": [
+        "D:RF_SIGNAL",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "PAT:GNSS_JAM",
+        "PAT:GNSS_SPOOF",
+        "SRC:BSKY",
+        "MAP:YES"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:RF_SIGNAL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mn2mkbswsc2a",
+        "source_published_at": "2026-05-30T08:19:57.692Z",
+        "ingested_at": "2026-05-30T09:54:46.523Z"
+      },
+      "report_category": "RF/GNSS/NAVWARN",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:7ec14222b874b1e3ee7f -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:7ec14222b874b1e3ee7f -->\n\n### Text\nUntil a few minutes ago Munich airport appeared to have a ground stop, with incoming aircraft in holds while a police helicopter looked for a reported drone.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T08:19:57.692Z\ningested_at: 2026-05-30T09:54:46.523Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mn2mkbswsc2a\n\n### Auto-Labels\nSRC:OSINT, D:RF_SIGNAL, D:NEWS_INTEL, PAT:GNSS_JAM, PAT:GNSS_SPOOF, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1582",
+      "number": 1582,
+      "id": "4553953927",
+      "ts": "2026-05-30T08:04:30.141Z",
+      "chronology_ts": "2026-05-30T08:04:30.141Z",
+      "issue_created_at": "2026-05-30T09:12:38.000Z",
+      "source_published_at": "2026-05-30T08:04:30.141Z",
+      "ingested_at": "2026-05-30T09:12:36.679Z",
+      "title": "[BSKY] Commanding officer of Visby class stealth corvette HSwMS SUNDSVALL got themselves a drone and a YT-account. Beautiful shots and questionable music, enjoy! This",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1582",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mn2lon6lmc2c",
+      "labels": [
+        "D:RF_SIGNAL",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "PAT:GNSS_JAM",
+        "PAT:GNSS_SPOOF",
+        "SRC:BSKY",
+        "MAP:YES",
+        "MAP:INFERRED",
+        "REG:BALTIC",
+        "REG:GULF_OF_BOTHNIA"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:RF_SIGNAL",
+      "region": "REG:BALTIC",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 62.39,
+        "lon": 17.315,
+        "precision": "port",
+        "method": "gazetteer_alias_archive_postprocess",
+        "matched_name": "Sundsvall",
+        "matched_alias": "Sundsvall",
+        "matched_id": "port_sundsvall",
+        "radius_km": 16,
+        "confidence": "medium_high",
+        "geo_role": "event_location_or_topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:BALTIC",
+          "REG:GULF_OF_BOTHNIA"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "matched_id": "port_sundsvall",
+          "matched_name": "Sundsvall",
+          "matched_alias": "Sundsvall",
+          "lat": 62.39,
+          "lon": 17.315,
+          "radius_km": 16,
+          "precision": "port",
+          "regions": [
+            "REG:BALTIC",
+            "REG:GULF_OF_BOTHNIA"
+          ],
+          "score": 44,
+          "in_title": true
+        }
+      ],
+      "geo_inferred": true,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mn2lon6lmc2c",
+        "source_published_at": "2026-05-30T08:04:30.141Z",
+        "ingested_at": "2026-05-30T09:12:36.679Z"
+      },
+      "report_category": "RF/GNSS/NAVWARN",
+      "greybook_rubric": "Drohnen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:f25661952717d0a83f1a -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:f25661952717d0a83f1a -->\n\n### Text\nCommanding officer of Visby class stealth corvette HSwMS SUNDSVALL got themselves a drone and a YT-account.\nBeautiful shots and questionable music, enjoy!\nThis one even got a FPV-style shot through the hangar. 😬\nwww.youtube.com/shorts/27rWa...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T08:04:30.141Z\ningested_at: 2026-05-30T09:12:36.679Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mn2lon6lmc2c\n\n### Auto-Labels\nSRC:OSINT, D:RF_SIGNAL, D:NEWS_INTEL, PAT:GNSS_JAM, PAT:GNSS_SPOOF, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1581",
       "number": 1581,
@@ -151,6 +583,54 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:9f99433a507cbe244fb9 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:9f99433a507cbe244fb9 -->\n\n### Text\nUncertainty is the norm underwater. It's becoming the norm everywhere else too. warontherocks.com/2026/05/lead...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T02:30:04.426Z\ningested_at: 2026-05-30T02:36:05.579Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mmzyynejfc23\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1588",
+      "number": 1588,
+      "id": "4554214101",
+      "ts": "2026-05-30T00:05:59.000Z",
+      "chronology_ts": "2026-05-30T00:05:59.000Z",
+      "issue_created_at": "2026-05-30T11:16:55.000Z",
+      "source_published_at": "2026-05-30T00:05:59.000Z",
+      "ingested_at": "2026-05-30T11:16:53.645Z",
+      "title": "[X] Vehicle Carrier ARC Independence of the Maritime Security Program (MSP) off Virginia Beach, Virginia - May 29, 2026 SRC: X-@johnmorgan726",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1588",
+      "original_url": "https://nitter.poast.org/WarshipCam/status/2060513012025373065",
+      "labels": [
+        "D:AIS_TRACK",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "D:MARITIME_SECURITY",
+        "REG:GLOBAL",
+        "SRC:X",
+        "MAP:YES",
+        "PAT:ROUTE_OBSERVED",
+        "V:WARSHIP",
+        "PAT:VESSEL_SIGHTING"
+      ],
+      "source_type": "social_x",
+      "category": "D:AIS_TRACK",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "WarshipCam (X) – naval vessel sightings (warshipcam_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WarshipCam/status/2060513012025373065",
+        "source_published_at": "2026-05-30T00:05:59.000Z",
+        "ingested_at": "2026-05-30T11:16:53.645Z"
+      },
+      "report_category": "AIS / Schiffsmuster / Schattenflotte",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warshipcam_x:871ba39b4041ebf7eb78 -->\n<!-- VOODOO_INGEST_ID:warshipcam_x:871ba39b4041ebf7eb78 -->\n\n### Text\nVehicle Carrier ARC Independence of the Maritime Security Program (MSP) off Virginia Beach, Virginia - May 29, 2026 SRC: X-@johnmorgan726\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T00:05:59.000Z\ningested_at: 2026-05-30T11:16:53.645Z\n\n### Quelle\nWarshipCam (X) – naval vessel sightings (warshipcam_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WarshipCam/status/2060513012025373065\n\n### Auto-Labels\nSRC:OSINT, D:AIS_TRACK, D:MARITIME_SECURITY, D:NEWS_INTEL, V:WARSHIP, PAT:VESSEL_SIGHTING, PAT:ROUTE_OBSERVED, MAP:YES, SRC:SOCIAL, SRC:X, CONF:LOW, SEV:1, REG:GLOBAL\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1576",
