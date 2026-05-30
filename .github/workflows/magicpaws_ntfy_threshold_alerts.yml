@@ -1,39 +1,70 @@
 name: Magic Paws ntfy Threshold Alerts
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"
   workflow_dispatch:
+  schedule:
+    # Automated threshold check. The script sends only after a metric stayed
+    # above threshold for two consecutive workflow runs.
+    - cron: "*/30 * * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: magicpaws-ntfy-threshold-alerts
+  cancel-in-progress: false
 
 jobs:
   threshold-alerts:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-      - name: Run threshold alert check
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Magic Paws threshold alert check
         env:
           NTFY_ENABLED: ${{ secrets.NTFY_ENABLED }}
           NTFY_URL: ${{ secrets.NTFY_URL }}
           NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
           MAGICPAWS_ALERT_HYBRID_THRESHOLD: "75"
           MAGICPAWS_ALERT_WEIRDNESS_THRESHOLD: "60"
-          MAGICPAWS_ALERT_COOLDOWN_MINUTES: "180"
+          MAGICPAWS_ALERT_REQUIRED_HIGH_RUNS: "2"
+          MAGICPAWS_ALERT_COOLDOWN_MINUTES: "0"
+          MAGICPAWS_ALERT_WRITE_STATE_EVERY_RUN: "false"
         run: node scripts/magicpaws_ntfy_threshold_alerts.mjs
 
-      - name: Commit alert state when changed
+      - name: Commit threshold alert state when changed
         if: always()
+        shell: bash
         run: |
-          if [ ! -f data/live/magicpaws_threshold_alert_state.json ]; then
-            echo "No threshold alert state file changed."
+          set -e
+
+          STATE_FILE="data/live/magicpaws_threshold_alert_state.json"
+          BRANCH="${GITHUB_REF_NAME:-main}"
+
+          if [ ! -f "$STATE_FILE" ]; then
+            echo "No threshold alert state file exists. Nothing to commit."
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/live/magicpaws_threshold_alert_state.json
-          git diff --cached --quiet || git commit -m "chore: update Magic Paws threshold alert state"
-          git push
+
+          git add "$STATE_FILE"
+
+          if git diff --cached --quiet; then
+            echo "No threshold alert state changes to commit."
+            exit 0
+          fi
+
+          git pull --rebase --autostash origin "$BRANCH"
+          git add "$STATE_FILE"
+          git commit -m "chore: update Magic Paws ntfy threshold state"
+          git push origin "HEAD:$BRANCH"
