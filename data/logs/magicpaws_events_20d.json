@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-30T14:07:13.804Z",
+  "generated_at": "2026-05-30T19:42:35.720Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,324 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-30T14:07:16.936Z",
+  "bundle_generated_at": "2026-05-30T19:42:39.069Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-10T14:07:13.804Z"
+    "cutoff_utc": "2026-05-10T19:42:35.720Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1387,
-    "active_events": 1285,
-    "active_geo_events": 218,
-    "active_social_events": 467,
+    "archive_events_total": 1394,
+    "active_events": 1284,
+    "active_geo_events": 217,
+    "active_social_events": 465,
     "active_social_geo_events": 64
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1597",
+      "number": 1597,
+      "id": "4555218150",
+      "ts": "2026-05-30T17:15:36.000Z",
+      "chronology_ts": "2026-05-30T17:15:36.000Z",
+      "issue_created_at": "2026-05-30T18:01:04.000Z",
+      "source_published_at": "2026-05-30T17:15:36.000Z",
+      "ingested_at": "2026-05-30T18:01:03.710Z",
+      "title": "[RSS] Stop Calling Saronic a Shipbuilder: The Dangerous Lie Behind Naval Drones",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1597",
+      "original_url": "https://gcaptain.com/saronic-marauder-ship-or-boat/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/saronic-marauder-ship-or-boat/",
+        "source_published_at": "2026-05-30T17:15:36.000Z",
+        "ingested_at": "2026-05-30T18:01:03.710Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:06e660c5cf66ec5d6eba -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:06e660c5cf66ec5d6eba -->\n\n### Text\nBy Captain John Konrad (gCaptain op-ed) Let me start where I want to finish: Saronic&#8217;s Marauder, a Medium Unmanned Surface Vessel (MUSV) designed for the US Navy, is a real...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T17:15:36.000Z\ningested_at: 2026-05-30T18:01:03.710Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/saronic-marauder-ship-or-boat/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1595",
+      "number": 1595,
+      "id": "4555069568",
+      "ts": "2026-05-30T16:57:10.749Z",
+      "chronology_ts": "2026-05-30T16:57:10.749Z",
+      "issue_created_at": "2026-05-30T16:57:28.000Z",
+      "source_published_at": "2026-05-30T16:57:10.749Z",
+      "ingested_at": "2026-05-30T16:57:26.986Z",
+      "title": "[BSKY] Nah, Nixon är fortfarande värst. Hela världen lider ju av hans tilltag att bjuda in Kina i världsekonomins centrum. Alla vet ju hur det gick när USA tvingade Ja",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1595",
+      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mn3jh56xtk2v",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "oiuye (Bluesky) (oiuye_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mn3jh56xtk2v",
+        "source_published_at": "2026-05-30T16:57:10.749Z",
+        "ingested_at": "2026-05-30T16:57:26.986Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:385d644e3b10363ee3d2 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:385d644e3b10363ee3d2 -->\n\n### Text\nNah, Nixon är fortfarande värst.\nHela världen lider ju av hans tilltag att bjuda in Kina i världsekonomins centrum.\nAlla vet ju hur det gick när USA tvingade Japan att öppna sig för handel.\n... Pearl Harbor.\nKina blir samma sak igen fast denna gången kanske USA inte finns kvar efteråt.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T16:57:10.749Z\ningested_at: 2026-05-30T16:57:26.986Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mn3jh56xtk2v\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1596",
+      "number": 1596,
+      "id": "4555069791",
+      "ts": "2026-05-30T16:49:25.000Z",
+      "chronology_ts": "2026-05-30T16:49:25.000Z",
+      "issue_created_at": "2026-05-30T16:57:33.000Z",
+      "source_published_at": "2026-05-30T16:49:25.000Z",
+      "ingested_at": "2026-05-30T16:57:32.305Z",
+      "title": "[X] Brazil: Eric Felipe Souza Monteiro, known as Boca Torta and identified as a key leader of the Comando Vermelho in Pará, was killed during a police operation in the Monte Cristo neighborhood of Florianópolis. Monteiro, who was under s…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1596",
+      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2060765533981597966",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:X"
+      ],
+      "source_type": "social_x",
+      "category": "D:SECURITY_CRIME",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "World Crime Intel (X) (worldcrimeintel_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2060765533981597966",
+        "source_published_at": "2026-05-30T16:49:25.000Z",
+        "ingested_at": "2026-05-30T16:57:32.305Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:worldcrimeintel_x:ba1b5b1f7e112d99ca2c -->\n<!-- VOODOO_INGEST_ID:worldcrimeintel_x:ba1b5b1f7e112d99ca2c -->\n\n### Text\nBrazil: Eric Felipe Souza Monteiro, known as Boca Torta and identified as a key leader of the Comando Vermelho in Pará, was killed during a police operation in the Monte Cristo neighborhood of Florianópolis.\nMonteiro, who was under surveillance while hiding in Santa Catarina, reportedly fired at officers with an illegally possessed firearm during the arrest attempt, resulting in a shootout in which he was killed.\nInvestigators had linked him to orchestrating high-risk criminal actions, coordinating logistics, and ordering attacks against law enforcement in Pará. The investigation continues to track remaining associates within the organization.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T16:49:25.000Z\ningested_at: 2026-05-30T16:57:32.305Z\n\n### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2060765533981597966\n\n### Auto-Labels\nSRC:OSINT, D:SECURITY_CRIME, SRC:SOCIAL, SRC:X, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Sou…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1593",
+      "number": 1593,
+      "id": "4555066528",
+      "ts": "2026-05-30T16:32:27.000Z",
+      "chronology_ts": "2026-05-30T16:32:27.000Z",
+      "issue_created_at": "2026-05-30T16:56:23.000Z",
+      "source_published_at": "2026-05-30T16:32:27.000Z",
+      "ingested_at": "2026-05-30T16:56:20.864Z",
+      "title": "[RSS] 5/30/26 National Security and Korean News and Commentary",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1593",
+      "original_url": "https://smallwarsjournal.com/2026/05/30/5-30-26-national-security-and-korean-news-and-commentary/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/05/30/5-30-26-national-security-and-korean-news-and-commentary/",
+        "source_published_at": "2026-05-30T16:32:27.000Z",
+        "ingested_at": "2026-05-30T16:56:20.864Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:f3eac8bbdb2f05bcd108 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:f3eac8bbdb2f05bcd108 -->\n\n### Text\nAccess National Security News HERE. Access Korean News HERE. National Security News: 1. Easier to start, harder to win (wars of course) 2. Hegseth Outlines U.S. Vision For Indo-Pacific at Annual Asia Defense Summit 3. Coercive Maintenance: How Beijing Wages Influence Operations Against the Republic of Korea 4. New White House strategy would boost efforts to combat terrorist propaganda, a role VOA filled &#8230;\n Read more\n The post 5/30/26 National Security and Korean News and Commentary appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T16:32:27.000Z\ningested_at: 2026-05-30T16:56:20.864Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/05/30/5-30-26-national-security-and-korean-news-and-commentary/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1592",
+      "number": 1592,
+      "id": "4554885527",
+      "ts": "2026-05-30T15:45:12.000Z",
+      "chronology_ts": "2026-05-30T15:45:12.000Z",
+      "issue_created_at": "2026-05-30T15:46:32.000Z",
+      "source_published_at": "2026-05-30T15:45:12.000Z",
+      "ingested_at": "2026-05-30T15:46:30.768Z",
+      "title": "[X] Canada: During a deportation hearing, police revealed that a letter allegedly sent by the Bishnoi gang to authorities in Abbotsford, British Columbia, claimed the organization had more than 1,000 members in Canada capable of carrying…",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1592",
+      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2060749375786164496",
+      "labels": [
+        "D:SECURITY_CRIME",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:X",
+        "ALERT:WATCH"
+      ],
+      "source_type": "social_x",
+      "category": "D:SECURITY_CRIME",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "World Crime Intel (X) (worldcrimeintel_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2060749375786164496",
+        "source_published_at": "2026-05-30T15:45:12.000Z",
+        "ingested_at": "2026-05-30T15:46:30.768Z"
+      },
+      "report_category": "Maritime Crime / Security",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:worldcrimeintel_x:d71b8badd9ec3da504aa -->\n<!-- VOODOO_INGEST_ID:worldcrimeintel_x:d71b8badd9ec3da504aa -->\n\n### Text\nCanada: During a deportation hearing, police revealed that a letter allegedly sent by the Bishnoi gang to authorities in Abbotsford, British Columbia, claimed the organization had more than 1,000 members in Canada capable of carrying out shootings and extortion.\nThe letter, dated August 2025, also referenced the collection of \"protection taxes\" from businesses and has become part of a broader investigation into the gang's activities.\nCanadian authorities, which designated the Bishnoi gang as a terrorist entity in September 2025, allege the group is behind a wave of extortion, arson, and shootings targeting members of the South Asian community.\nInvestigators describe the organization as a transnational criminal network involved in drug trafficking, contract killings, and extortion.\n.\nTestimony presented during the hearing indicated that many suspects identified in Canadian investigations were recent arrivals, including temporary foreign workers and international students.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T15:45:12.000Z\ningeste…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1594",
+      "number": 1594,
+      "id": "4555069089",
+      "ts": "2026-05-30T15:41:19.000Z",
+      "chronology_ts": "2026-05-30T15:41:19.000Z",
+      "issue_created_at": "2026-05-30T16:57:16.000Z",
+      "source_published_at": "2026-05-30T15:41:19.000Z",
+      "ingested_at": "2026-05-30T16:57:13.859Z",
+      "title": "[X] HMS Sutherland (F81) Duke-class frigate off Portland, England - May 30, 2026 SRC: X-@air_maritimepic",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1594",
+      "original_url": "https://nitter.poast.org/WarshipCam/status/2060748396978139161",
+      "labels": [
+        "D:AIS_TRACK",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "D:MARITIME_SECURITY",
+        "REG:GLOBAL",
+        "SRC:X",
+        "MAP:YES",
+        "PAT:ROUTE_OBSERVED",
+        "V:WARSHIP",
+        "PAT:VESSEL_SIGHTING"
+      ],
+      "source_type": "social_x",
+      "category": "D:AIS_TRACK",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "WarshipCam (X) – naval vessel sightings (warshipcam_x)",
+        "platform": "social_x",
+        "link": "https://nitter.poast.org/WarshipCam/status/2060748396978139161",
+        "source_published_at": "2026-05-30T15:41:19.000Z",
+        "ingested_at": "2026-05-30T16:57:13.859Z"
+      },
+      "report_category": "AIS / Schiffsmuster / Schattenflotte",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warshipcam_x:3907336911e02fdf8d9f -->\n<!-- VOODOO_INGEST_ID:warshipcam_x:3907336911e02fdf8d9f -->\n\n### Text\nHMS Sutherland (F81) Duke-class frigate off Portland, England - May 30, 2026 SRC: X-@air_maritimepic\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T15:41:19.000Z\ningested_at: 2026-05-30T16:57:13.859Z\n\n### Quelle\nWarshipCam (X) – naval vessel sightings (warshipcam_x)\n\n### Plattform\nsocial_x\n\n### Link\nhttps://nitter.poast.org/WarshipCam/status/2060748396978139161\n\n### Auto-Labels\nSRC:OSINT, D:AIS_TRACK, D:MARITIME_SECURITY, D:NEWS_INTEL, V:WARSHIP, PAT:VESSEL_SIGHTING, PAT:ROUTE_OBSERVED, MAP:YES, SRC:SOCIAL, SRC:X, CONF:LOW, SEV:1, REG:GLOBAL\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1591",
+      "number": 1591,
+      "id": "4554677405",
+      "ts": "2026-05-30T14:05:56.000Z",
+      "chronology_ts": "2026-05-30T14:05:56.000Z",
+      "issue_created_at": "2026-05-30T14:26:43.000Z",
+      "source_published_at": "2026-05-30T14:05:56.000Z",
+      "ingested_at": "2026-05-30T14:26:42.586Z",
+      "title": "[RSS] AUKUS Ministers Commit to 2027 Sub Base",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1591",
+      "original_url": "https://gcaptain.com/aukus-ministers-commit-to-2027-sub-base/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:MEDIA",
+        "REG:OTHER"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "gCaptain (RSS) (gcaptain_rss)",
+        "platform": "rss",
+        "link": "https://gcaptain.com/aukus-ministers-commit-to-2027-sub-base/",
+        "source_published_at": "2026-05-30T14:05:56.000Z",
+        "ingested_at": "2026-05-30T14:26:42.586Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:gcaptain_rss:53de51cc41e03228cfb9 -->\n<!-- VOODOO_INGEST_ID:gcaptain_rss:53de51cc41e03228cfb9 -->\n\n### Text\nAUKUS defense chiefs set a hard date on Saturday for the pact&#8217;s most tangible promise. The year is 2027, and the milestone is standing up Submarine Rotational Force-West (SRF-West) at...\n\n### Zeit (UTC)\nsource_published_at: 2026-05-30T14:05:56.000Z\ningested_at: 2026-05-30T14:26:42.586Z\n\n### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://gcaptain.com/aukus-ministers-commit-to-2027-sub-base/\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:MEDIA, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1589",
       "number": 1589,
@@ -63481,346 +63785,6 @@
       "report_category": "Maritime Crime / Security",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-10T19:47:29.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053562588500226234#m\n\n### Text\nEcuador: Armed forces, using helicopter support and controlled detonations, partially disabled a clandestine 800-meter airstrip in El Triunfo frequently used by drug trafficking flights. The intervention followed detection through radar, aerial surveillance, and special cameras.\nIn 2026 to date, a total of 11 airstrips linked to illicit activity have been rendered inoperable, with eight neutralized during an earlier state of emergency and three during the current one. Authorities note each clandestine aircraft using these strips typically has a 400 kg drug capacity.\n\n### Extra\nIngest run: 2026-05-10T23:44:34.553Z\n\n<!-- VOODOO_INGEST: 59133d74 SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/210",
-      "number": 210,
-      "id": "4416833654",
-      "ts": "2026-05-10T19:17:17.000Z",
-      "chronology_ts": "2026-05-10T19:17:17.000Z",
-      "issue_created_at": "2026-05-10T21:05:52.000Z",
-      "source_published_at": "2026-05-10T19:17:17.000Z",
-      "ingested_at": "2026-05-10T19:17:17.000Z",
-      "title": "[AUTO] South Korean Investigation Shows Unidentified Projectiles Struck HMM Ship",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/210",
-      "original_url": "https://maritime-executive.com/article/south-korean-investigation-shows-unidentified-projectiles-struck-hmm-ship",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:MEDIA",
-        "REG:PERSIAN_GULF"
-      ],
-      "source_type": "media",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:PERSIAN_GULF",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": {
-        "lat": 27.3,
-        "lon": 51.6,
-        "precision": "area",
-        "method": "gazetteer_alias_content_only",
-        "matched_name": "Persian Gulf",
-        "matched_alias": "Persian Gulf",
-        "matched_id": "persian_gulf",
-        "radius_km": 520,
-        "confidence": "medium",
-        "geo_role": "topic_area",
-        "display_on_map": true,
-        "regions": [
-          "REG:PERSIAN_GULF"
-        ]
-      },
-      "source_hint": {
-        "source": "The Maritime Executive",
-        "platform": null,
-        "link": "https://maritime-executive.com/article/south-korean-investigation-shows-unidentified-projectiles-struck-hmm-ship",
-        "source_published_at": "2026-05-10T19:17:17.000Z",
-        "ingested_at": "2026-05-10T19:17:17.000Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nThe Maritime Executive\n\n### Link\nhttps://maritime-executive.com/article/south-korean-investigation-shows-unidentified-projectiles-struck-hmm-ship\n\n### Published\n2026-05-10T15:17:17-04:00\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nSouth Korea continues its investigation into the damage to an HMM general cargo ship on May 4 while in the Persian Gulf. To put an end to the various...\n\n---\n_Ingested at 2026-05-10T21:05:52.447531+00:00 UTC_"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/228",
-      "number": 228,
-      "id": "4417170033",
-      "ts": "2026-05-10T18:47:06.000Z",
-      "chronology_ts": "2026-05-10T18:47:06.000Z",
-      "issue_created_at": "2026-05-10T23:44:52.000Z",
-      "source_published_at": "2026-05-10T18:47:06.000Z",
-      "ingested_at": "2026-05-10T23:44:34.553Z",
-      "title": "[SOCIAL] Costa Rica: Authorities intercepted a 38-foot Eduardoño-type speedboat in the South Pacif…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/228",
-      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2053547392423632901#m",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_x",
-      "category": "D:SECURITY_CRIME",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "World Crime Intel (X) (worldcrimeintel_x)",
-        "platform": "x",
-        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2053547392423632901#m",
-        "source_published_at": "2026-05-10T18:47:06.000Z",
-        "ingested_at": "2026-05-10T23:44:34.553Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-10T18:47:06.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053547392423632901#m\n\n### Text\nCosta Rica: Authorities intercepted a 38-foot Eduardoño-type speedboat in the South Pacific, seizing approximately 1 ton of drugs (primarily suspected cocaine, possibly marijuana) packed in 45 to 60 bales with about 20 packages each.\nThe vessel, equipped with three 300-horsepower outboard engines and carrying 23 fuel barrels, was detected after intelligence was received about its departure from Colombia en route to the Uvita area. Two Colombian nationals were arrested.\n\n### Extra\nIngest run: 2026-05-10T23:44:34.553Z\n\n<!-- VOODOO_INGEST: 3ed9eaaf SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/204",
-      "number": 204,
-      "id": "4416607377",
-      "ts": "2026-05-10T18:16:03.000Z",
-      "chronology_ts": "2026-05-10T18:16:03.000Z",
-      "issue_created_at": "2026-05-10T19:33:03.000Z",
-      "source_published_at": "2026-05-10T18:16:03.000Z",
-      "ingested_at": "2026-05-10T18:16:03.000Z",
-      "title": "[AUTO] Complex Medical Evacuation Underway After Cruise Reaches Tenerife",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/204",
-      "original_url": "https://maritime-executive.com/article/complex-medical-evacuation-underway-after-cruise-reaches-tenerife",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:MEDIA"
-      ],
-      "source_type": "media",
-      "category": "D:NEWS_INTEL",
-      "region": null,
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "The Maritime Executive",
-        "platform": null,
-        "link": "https://maritime-executive.com/article/complex-medical-evacuation-underway-after-cruise-reaches-tenerife",
-        "source_published_at": "2026-05-10T18:16:03.000Z",
-        "ingested_at": "2026-05-10T18:16:03.000Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nThe Maritime Executive\n\n### Link\nhttps://maritime-executive.com/article/complex-medical-evacuation-underway-after-cruise-reaches-tenerife\n\n### Published\n2026-05-10T14:16:03-04:00\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nPassengers began disembarking from the exploration cruise ship Hondius on Sunday in Tenerife and are being immediately evacuated by their individual...\n\n---\n_Ingested at 2026-05-10T19:33:02.637317+00:00 UTC_"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/229",
-      "number": 229,
-      "id": "4417170050",
-      "ts": "2026-05-10T17:56:58.000Z",
-      "chronology_ts": "2026-05-10T17:56:58.000Z",
-      "issue_created_at": "2026-05-10T23:44:52.000Z",
-      "source_published_at": "2026-05-10T17:56:58.000Z",
-      "ingested_at": "2026-05-10T23:44:34.553Z",
-      "title": "[SOCIAL] Mexico: Navy seized a small boat equipped with three outboard motors carrying 26 bundles …",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/229",
-      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2053534778738012598#m",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_x",
-      "category": "D:SECURITY_CRIME",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "World Crime Intel (X) (worldcrimeintel_x)",
-        "platform": "x",
-        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2053534778738012598#m",
-        "source_published_at": "2026-05-10T17:56:58.000Z",
-        "ingested_at": "2026-05-10T23:44:34.553Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-10T17:56:58.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053534778738012598#m\n\n### Text\nMexico: Navy seized a small boat equipped with three outboard motors carrying 26 bundles of cocaine following a maritime surveillance and intelligence operation. The vessel was first detected 668 km south-southwest of Acapulco and tracked until landfall at Arroyo Seco, Petatlán.\nTwo foreign nationals were arrested during the operation, which involved surface units, aircraft, and ground personnel, with no reported resistance.\nAll detainees and seized materials were turned over to authorities at the Eighth Naval Region in Acapulco.\n\n### Extra\nIngest run: 2026-05-10T23:44:34.553Z\n\n<!-- VOODOO_INGEST: c2ef4f97 SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/203",
-      "number": 203,
-      "id": "4416513737",
-      "ts": "2026-05-10T17:52:52.627Z",
-      "chronology_ts": "2026-05-10T17:52:52.627Z",
-      "issue_created_at": "2026-05-10T18:53:30.000Z",
-      "source_published_at": "2026-05-10T17:52:52.627Z",
-      "ingested_at": "2026-05-10T18:53:20.644Z",
-      "title": "[SOCIAL] Fascismens högborg i EU.\nMed stöd av nazisterna i Sveriges Riksdag.",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/203",
-      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mljdaczxls2k",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "oiuye (Bluesky) (oiuye_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mljdaczxls2k",
-        "source_published_at": "2026-05-10T17:52:52.627Z",
-        "ingested_at": "2026-05-10T18:53:20.644Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-10T17:52:52.627Z\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mljdaczxls2k\n\n### Text\nFascismens högborg i EU.\nMed stöd av nazisterna i Sveriges Riksdag.\n\n### Extra\nIngest run: 2026-05-10T18:53:20.644Z\n\n<!-- VOODOO_INGEST: 6d6ac68c SOURCE=oiuye_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/230",
-      "number": 230,
-      "id": "4417170062",
-      "ts": "2026-05-10T16:46:31.000Z",
-      "chronology_ts": "2026-05-10T16:46:31.000Z",
-      "issue_created_at": "2026-05-10T23:44:53.000Z",
-      "source_published_at": "2026-05-10T16:46:31.000Z",
-      "ingested_at": "2026-05-10T23:44:34.553Z",
-      "title": "[SOCIAL] Algeria: Army units intercepted a four-wheel drive vehicle in the Tamanrasset region afte…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/230",
-      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2053517046483169642#m",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_x",
-      "category": "D:SECURITY_CRIME",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "World Crime Intel (X) (worldcrimeintel_x)",
-        "platform": "x",
-        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2053517046483169642#m",
-        "source_published_at": "2026-05-10T16:46:31.000Z",
-        "ingested_at": "2026-05-10T23:44:34.553Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-10T16:46:31.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053517046483169642#m\n\n### Text\nAlgeria: Army units intercepted a four-wheel drive vehicle in the Tamanrasset region after exploiting intelligence, seizing one million of pregabalin 300 mg tablets and arresting two individuals. Two Thuraya satellite phones, commonly used by Saharan smuggling networks, were also confiscated.\nThe operation, conducted in the desert as an ambush by mixed detachments of the Army in the sixth military region, targeted a well-organized trafficking network operating along trans-Saharan routes at the crossroads of Algeria, Niger, Mali, and Libya.\n\n### Extra\nIngest run: 2026-05-10T23:44:34.553Z\n\n<!-- VOODOO_INGEST: fc1d4e23 SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/231",
-      "number": 231,
-      "id": "4417170075",
-      "ts": "2026-05-10T15:40:51.000Z",
-      "chronology_ts": "2026-05-10T15:40:51.000Z",
-      "issue_created_at": "2026-05-10T23:44:53.000Z",
-      "source_published_at": "2026-05-10T15:40:51.000Z",
-      "ingested_at": "2026-05-10T23:44:34.553Z",
-      "title": "[SOCIAL] Switzerland: A longtime federal police officer from the Federal Security Service is suspe…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/231",
-      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2053500523853025311#m",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_x",
-      "category": "D:SECURITY_CRIME",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "World Crime Intel (X) (worldcrimeintel_x)",
-        "platform": "x",
-        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2053500523853025311#m",
-        "source_published_at": "2026-05-10T15:40:51.000Z",
-        "ingested_at": "2026-05-10T23:44:34.553Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-10T15:40:51.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053500523853025311#m\n\n### Text\nSwitzerland: A longtime federal police officer from the Federal Security Service is suspected of leaking sensitive information to members of mafia-linked drug trafficking structures, reportedly receiving large bribes.\nThe officer, his wife, both with law enforcement backgrounds, and four others were recently arrested. The arrest was carried out at the federal police headquarters by the special unit Tigris.\nThe accused had access to a central police control center where confidential investigation data is managed, potentially exposing valuable intelligence to organized crime.\n\n### Extra\nIngest run: 2026-05-10T23:44:34.553Z\n\n<!-- VOODOO_INGEST: 82c10dcf SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/232",
-      "number": 232,
-      "id": "4417170089",
-      "ts": "2026-05-10T14:50:51.000Z",
-      "chronology_ts": "2026-05-10T14:50:51.000Z",
-      "issue_created_at": "2026-05-10T23:44:53.000Z",
-      "source_published_at": "2026-05-10T14:50:51.000Z",
-      "ingested_at": "2026-05-10T23:44:34.553Z",
-      "title": "[SOCIAL] Iraq: Authorities seized 1.56 tons of narcotics during field operations in the first five…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/232",
-      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2053487941809299827#m",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_x",
-      "category": "D:SECURITY_CRIME",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "World Crime Intel (X) (worldcrimeintel_x)",
-        "platform": "x",
-        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2053487941809299827#m",
-        "source_published_at": "2026-05-10T14:50:51.000Z",
-        "ingested_at": "2026-05-10T23:44:34.553Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-10T14:50:51.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053487941809299827#m\n\n### Text\nIraq: Authorities seized 1.56 tons of narcotics during field operations in the first five months of 2026, resulting in 2,498 convictions in drug-related cases, including 37 sentenced to death and 173 to life imprisonment.\nThe country remains a major transit route, with ongoing cooperation with neighboring regions and 37 international information exchange points. The United Nations has noted a surge in Captagon trafficking from Syria and increasing domestic drug use.\n\n### Extra\nIngest run: 2026-05-10T23:44:34.553Z\n\n<!-- VOODOO_INGEST: 00c15dec SOURCE=worldcrimeintel_x -->"
     }
   ]
 }

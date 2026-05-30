@@ -1,35 +1,36 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-30T14:07:13.804Z",
+  "generated_at": "2026-05-30T19:42:35.720Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 53,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-30",
-      "events_total": 12,
+      "events_total": 19,
       "p0_suspect": 0,
       "geo_events": 2,
-      "social_events": 12,
+      "social_events": 16,
       "social_geo_events": 2,
-      "rss_media_events": 0,
+      "rss_media_events": 3,
       "top_domains": {
-        "D:NEWS_INTEL": 6,
+        "D:NEWS_INTEL": 10,
         "D:RF_SIGNAL": 4,
-        "D:INFRA_CI": 1,
-        "D:AIS_TRACK": 1
+        "D:SECURITY_CRIME": 2,
+        "D:AIS_TRACK": 2,
+        "D:INFRA_CI": 1
       },
       "top_regions": {
-        "REG:OTHER": 8,
+        "REG:OTHER": 13,
+        "REG:GLOBAL": 3,
         "REG:NORTH_SEA": 1,
         "REG:BALTIC": 1,
-        "REG:ATLANTIC_NE": 1,
-        "REG:GLOBAL": 1
+        "REG:ATLANTIC_NE": 1
       },
       "severity": {
-        "SEV:1": 12
+        "SEV:1": 19
       },
-      "hybrid_index_proxy": 15,
+      "hybrid_index_proxy": 23,
       "government_weirdness_proxy": {
         "north_sea": 2,
         "baltic_sea": 3
@@ -37,7 +38,15 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 10
+          "count": 15
+        },
+        {
+          "keyword": "drone",
+          "count": 3
+        },
+        {
+          "keyword": "navy",
+          "count": 2
         },
         {
           "keyword": "uuv",
@@ -52,15 +61,11 @@
           "count": 2
         },
         {
-          "keyword": "drone",
-          "count": 2
-        },
-        {
-          "keyword": "helicopter",
+          "keyword": "sar",
           "count": 1
         },
         {
-          "keyword": "navy",
+          "keyword": "surveillance",
           "count": 1
         }
       ]
