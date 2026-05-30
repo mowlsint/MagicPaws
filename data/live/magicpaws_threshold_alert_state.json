@@ -15,15 +15,16 @@
   "metrics": {
     "hybrid": {
       "is_over_threshold": true,
-      "consecutive_high_runs": 1,
+      "consecutive_high_runs": 2,
       "alerted_for_current_episode": false,
       "first_high_at": "2026-05-30T14:51:13.026Z",
       "last_alert_at": null,
       "recovered_at": null,
-      "last_state_change_at": "2026-05-30T14:51:13.026Z",
+      "last_state_change_at": "2026-05-30T16:00:41.800Z",
       "last_value": 100,
       "threshold": 75,
-      "label": "Hybrid-Index"
+      "label": "Hybrid-Index",
+      "last_alert_error": "Failed to parse URL from ntfy.sh/magicpaws-alerts-hztgwwc2fycxuh"
     },
     "gov_weirdness_north": {
       "is_over_threshold": false,
@@ -58,10 +59,17 @@
     "gov_weirdness_baltic": 23
   },
   "last_run": {
-    "at": "2026-05-30T14:51:13.026Z",
-    "pending_alerts": [],
+    "at": "2026-05-30T16:00:41.800Z",
+    "pending_alerts": [
+      "hybrid"
+    ],
     "sent": [],
-    "failed": [],
+    "failed": [
+      {
+        "key": "hybrid",
+        "error": "Failed to parse URL from ntfy.sh/magicpaws-alerts-hztgwwc2fycxuh"
+      }
+    ],
     "ntfy_enabled": true
   }
 }
