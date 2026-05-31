@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-05-31T09:25:06.532Z",
+  "generated_at": "2026-05-31T14:13:04.192Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,145 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-05-31T09:25:09.407Z",
+  "bundle_generated_at": "2026-05-31T14:13:07.806Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-11T09:25:06.532Z"
+    "cutoff_utc": "2026-05-11T14:13:04.192Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1410,
-    "active_events": 1259,
-    "active_geo_events": 216,
-    "active_social_events": 448,
-    "active_social_geo_events": 62
+    "archive_events_total": 1412,
+    "active_events": 1240,
+    "active_geo_events": 212,
+    "active_social_events": 435,
+    "active_social_geo_events": 61
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1615",
+      "number": 1615,
+      "id": "4557469006",
+      "ts": "2026-05-31T10:33:32.658Z",
+      "chronology_ts": "2026-05-31T10:33:32.658Z",
+      "issue_created_at": "2026-05-31T11:56:03.000Z",
+      "source_published_at": "2026-05-31T10:33:32.658Z",
+      "ingested_at": "2026-05-31T11:56:02.015Z",
+      "title": "[BSKY] coverage is not there, too far north. nisar and sentinel pipes not done yet",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1615",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mn5ei2vcek2l",
+      "labels": [
+        "D:RF_SIGNAL",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "PAT:GNSS_JAM",
+        "PAT:GNSS_SPOOF",
+        "SRC:BSKY",
+        "MAP:YES"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:RF_SIGNAL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mn5ei2vcek2l",
+        "source_published_at": "2026-05-31T10:33:32.658Z",
+        "ingested_at": "2026-05-31T11:56:02.015Z"
+      },
+      "report_category": "RF/GNSS/NAVWARN",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:8d6acdc62c9f0504833e -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:8d6acdc62c9f0504833e -->\n\n### Text\ncoverage is not there, too far north. nisar and sentinel pipes not done yet\n\n### Zeit (UTC)\nsource_published_at: 2026-05-31T10:33:32.658Z\ningested_at: 2026-05-31T11:56:02.015Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mn5ei2vcek2l\n\n### Auto-Labels\nSRC:OSINT, D:RF_SIGNAL, D:NEWS_INTEL, PAT:GNSS_JAM, PAT:GNSS_SPOOF, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1614",
+      "number": 1614,
+      "id": "4557226485",
+      "ts": "2026-05-31T09:45:53.044Z",
+      "chronology_ts": "2026-05-31T09:45:53.044Z",
+      "issue_created_at": "2026-05-31T10:10:32.000Z",
+      "source_published_at": "2026-05-31T09:45:53.044Z",
+      "ingested_at": "2026-05-31T10:10:30.644Z",
+      "title": "[BSKY] Russian flag Offshore Tug/Supply ship ANTEY entered the Baltic AM May 31. The ship is under Sanctions & Bans: US (OFAC). Destination Kaliningrad.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1614",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mn5bstr2f22h",
+      "labels": [
+        "D:RF_SIGNAL",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "PAT:GNSS_JAM",
+        "PAT:GNSS_SPOOF",
+        "SRC:BSKY",
+        "MAP:YES",
+        "ALERT:WATCH"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:RF_SIGNAL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "geo_candidates": [
+        {
+          "matched_id": "port_kaliningrad",
+          "matched_name": "Kaliningrad",
+          "matched_alias": "Kaliningrad",
+          "lat": 54.705,
+          "lon": 20.5,
+          "radius_km": 22,
+          "precision": "port",
+          "regions": [
+            "REG:BALTIC",
+            "REG:RUSSIA_BALTIC",
+            "REG:KALININGRAD"
+          ],
+          "score": 46,
+          "in_title": true
+        },
+        {
+          "matched_id": "baltic_sea",
+          "matched_name": "Baltic Sea",
+          "matched_alias": "Baltic",
+          "lat": 57.2,
+          "lon": 19,
+          "radius_km": 780,
+          "precision": "area",
+          "regions": [
+            "REG:BALTIC"
+          ],
+          "score": 33,
+          "in_title": true
+        }
+      ],
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mn5bstr2f22h",
+        "source_published_at": "2026-05-31T09:45:53.044Z",
+        "ingested_at": "2026-05-31T10:10:30.644Z"
+      },
+      "report_category": "RF/GNSS/NAVWARN",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:3c465bb4a3e463e8ea81 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:3c465bb4a3e463e8ea81 -->\n\n### Text\nRussian flag Offshore Tug/Supply ship ANTEY entered the Baltic AM May 31. The ship is under Sanctions & Bans: US (OFAC). Destination Kaliningrad.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-31T09:45:53.044Z\ningested_at: 2026-05-31T10:10:30.644Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mn5bstr2f22h\n\n### Priority Alert\nlevel: WATCH\nscore: 7\nreasons: KRITIS-/Hafen-/Energiebezug; Schiffsbezug; strategischer maritimer Raum; RF/GNSS-Label\n\n### Auto-Labels\nSRC:OSINT, D:RF_SIGNAL, D:NEWS_INTEL, PAT:GNSS_JAM, PAT:GNSS_SPOOF, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1, ALERT:WATCH\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1611",
       "number": 1611,
@@ -61852,1036 +61977,6 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Drohnen",
       "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T14:30:02.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mllielbsdd2u\n\n### Text\nDrone warfare has collapsed the distinction between the frontline and the rear. There is no medical bubble anymore. Every medic is now a front-line soldier.\n\n### Extra\nIngest run: 2026-05-11T16:27:58.378Z\n\n<!-- VOODOO_INGEST: cc184550 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/524",
-      "number": 524,
-      "id": "4436568024",
-      "ts": "2026-05-11T14:12:23.000Z",
-      "chronology_ts": "2026-05-11T14:12:23.000Z",
-      "issue_created_at": "2026-05-13T09:20:22.000Z",
-      "source_published_at": "2026-05-11T14:12:23.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] Russian Foreboding as Putin Marks Victory Day",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/524",
-      "original_url": "https://cepa.org/article/russian-foreboding-as-putin-marks-victory-day/",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "D:SANCTIONS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "CEPA – Center for European Policy Analysis (cepa_feed)",
-        "platform": "rss",
-        "link": "https://cepa.org/article/russian-foreboding-as-putin-marks-victory-day/",
-        "source_published_at": "2026-05-11T14:12:23.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
-      "summary": "### Quelle\nCEPA – Center for European Policy Analysis (cepa_feed)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-11T14:12:23.000Z\n\n### Link\nhttps://cepa.org/article/russian-foreboding-as-putin-marks-victory-day/\n\n### Text\nRussians were told to expect a defining speech from Putin, but got only the same old messages and a sense that the Kremlin has lost direction.\n\nThe post Russian Foreboding as Putin Marks Victory Day appeared first on CEPA.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: cepa_feed\nsource_priority: 78\nitem_score: 5\nkeyword_hits: russia\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST: dd7ce896 SOURCE=cepa_feed -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/334",
-      "number": 334,
-      "id": "4425127846",
-      "ts": "2026-05-11T14:06:14.000Z",
-      "chronology_ts": "2026-05-11T14:06:14.000Z",
-      "issue_created_at": "2026-05-11T23:53:25.000Z",
-      "source_published_at": "2026-05-11T14:06:14.000Z",
-      "ingested_at": "2026-05-11T23:53:00.834Z",
-      "title": "[SOCIAL] Portugal: Maritime Police, supported by the Navy and Air Force, pursued three high-speed …",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/334",
-      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2053839099967021151#m",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_x",
-      "category": "D:SECURITY_CRIME",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "World Crime Intel (X) (worldcrimeintel_x)",
-        "platform": "x",
-        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2053839099967021151#m",
-        "source_published_at": "2026-05-11T14:06:14.000Z",
-        "ingested_at": "2026-05-11T23:53:00.834Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-11T14:06:14.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053839099967021151#m\n\n### Text\nPortugal: Maritime Police, supported by the Navy and Air Force, pursued three high-speed boats suspected of drug trafficking off the Huelva and Algarve coasts.\nOne narco-boat led authorities on a 40-minute nighttime chase in bad weather, during which traffickers threw fuel barrels at pursuing patrol vessels to prevent boarding. Despite the deployment of tactical and boarding units, the main boat evaded capture.\n\n### Extra\nIngest run: 2026-05-11T23:53:00.834Z\n\n<!-- VOODOO_INGEST: a54cac45 SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/265",
-      "number": 265,
-      "id": "4422491508",
-      "ts": "2026-05-11T13:50:12.356Z",
-      "chronology_ts": "2026-05-11T13:50:12.356Z",
-      "issue_created_at": "2026-05-11T16:28:13.000Z",
-      "source_published_at": "2026-05-11T13:50:12.356Z",
-      "ingested_at": "2026-05-11T16:27:58.378Z",
-      "title": "[SOCIAL] Yes. Still figuring out how far and how often.",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/265",
-      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mllg5cqhxs24",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "auonsson (Bluesky) (auonsson_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mllg5cqhxs24",
-        "source_published_at": "2026-05-11T13:50:12.356Z",
-        "ingested_at": "2026-05-11T16:27:58.378Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T13:50:12.356Z\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mllg5cqhxs24\n\n### Text\nYes. Still figuring out how far and how often.\n\n### Extra\nIngest run: 2026-05-11T16:27:58.378Z\n\n<!-- VOODOO_INGEST: 60394230 SOURCE=auonsson_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/271",
-      "number": 271,
-      "id": "4422491812",
-      "ts": "2026-05-11T13:45:00.000Z",
-      "chronology_ts": "2026-05-11T13:45:00.000Z",
-      "issue_created_at": "2026-05-11T16:28:16.000Z",
-      "source_published_at": "2026-05-11T13:45:00.000Z",
-      "ingested_at": "2026-05-11T16:27:58.378Z",
-      "title": "[SOCIAL] Steel Dome, Turkey's answer to Iron Dome, won't be fully operational until 2030. In the M…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/271",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mllfu2f5iq2b",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mllfu2f5iq2b",
-        "source_published_at": "2026-05-11T13:45:00.000Z",
-        "ingested_at": "2026-05-11T16:27:58.378Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T13:45:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mllfu2f5iq2b\n\n### Text\nSteel Dome, Turkey's answer to Iron Dome, won't be fully operational until 2030. In the Middle East right now, that's a lifetime away.\n\n### Extra\nIngest run: 2026-05-11T16:27:58.378Z\n\n<!-- VOODOO_INGEST: 0e128d37 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/513",
-      "number": 513,
-      "id": "4436566989",
-      "ts": "2026-05-11T13:23:59.000Z",
-      "chronology_ts": "2026-05-11T13:23:59.000Z",
-      "issue_created_at": "2026-05-13T09:20:12.000Z",
-      "source_published_at": "2026-05-11T13:23:59.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] Resilience as a Response to Russian Threats in Space",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/513",
-      "original_url": "https://www.swp-berlin.org/en/publication/resilience-as-a-response-to-russian-threats-in-space",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE",
-        "D:CYBER_IT"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "SWP – Official Publications EN (swp_publications_en)",
-        "platform": "rss",
-        "link": "https://www.swp-berlin.org/en/publication/resilience-as-a-response-to-russian-threats-in-space",
-        "source_published_at": "2026-05-11T13:23:59.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
-      "summary": "### Quelle\nSWP – Official Publications EN (swp_publications_en)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-11T13:23:59.000Z\n\n### Link\nhttps://www.swp-berlin.org/en/publication/resilience-as-a-response-to-russian-threats-in-space\n\n### Text\nPolicy Options for Germany and Europe\nRussian attacks and threat posturing are increasingly extending into space as well. This poses risks to infrastructure in Europe, which is becoming ever more dependent on satellite systems. This affects civilian services such as navigation, but also Europe’s defence capabilities. The question is therefore increasingly how such manoeuvres by Russia should be countered, and whether weapons systems should be deployed in space as a deterrent. Europe’s armed forces are far more dependent on space systems than the Russian armed forces. Given this asymmetry, Germany and its partners should focus primarily on the resilience of their satellite systems.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: swp_publications_en\nsource_priority: 84\nitem_score: 6\nkeyword_hits: germany, russia\nregion_hint: REG:EUROPE\nlookback_hours: 336\n\n### Extra\nIngest run: 2026-05-13T09:19:42.115Z\n\n<!-- VOODOO_INGEST…"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/261",
-      "number": 261,
-      "id": "4422378174",
-      "ts": "2026-05-11T13:08:25.000Z",
-      "chronology_ts": "2026-05-11T13:08:25.000Z",
-      "issue_created_at": "2026-05-11T16:11:34.000Z",
-      "source_published_at": "2026-05-11T13:08:25.000Z",
-      "ingested_at": "2026-05-11T13:08:25.000Z",
-      "title": "[AUTO] Shipping Companies Leverage Arabian Peninsula Truck Routes to Bypass Hormuz",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/261",
-      "original_url": "https://maritime-executive.com/article/shipping-companies-leverage-arabian-peninsula-truck-routes-to-bypass-hormuz",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:MEDIA",
-        "REG:PERSIAN_GULF",
-        "REG:GULF_OF_OMAN",
-        "REG:STRAIT_HORMUZ"
-      ],
-      "source_type": "media",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:PERSIAN_GULF",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": {
-        "lat": 26.56,
-        "lon": 56.25,
-        "precision": "area",
-        "method": "gazetteer_alias_content_only",
-        "matched_name": "Strait of Hormuz",
-        "matched_alias": "Strait of Hormuz",
-        "matched_id": "strait_hormuz",
-        "radius_km": 85,
-        "confidence": "medium",
-        "geo_role": "topic_area",
-        "display_on_map": true,
-        "regions": [
-          "REG:PERSIAN_GULF",
-          "REG:GULF_OF_OMAN",
-          "REG:STRAIT_HORMUZ"
-        ]
-      },
-      "geo_candidates": [
-        {
-          "lat": 26.56,
-          "lon": 56.25,
-          "precision": "area",
-          "method": "gazetteer_alias_content_only",
-          "matched_name": "Strait of Hormuz",
-          "matched_alias": "Strait of Hormuz",
-          "matched_id": "strait_hormuz",
-          "radius_km": 85,
-          "confidence": "medium",
-          "geo_role": "topic_area",
-          "display_on_map": true,
-          "regions": [
-            "REG:PERSIAN_GULF",
-            "REG:GULF_OF_OMAN",
-            "REG:STRAIT_HORMUZ"
-          ]
-        }
-      ],
-      "source_hint": {
-        "source": "The Maritime Executive",
-        "platform": null,
-        "link": "https://maritime-executive.com/article/shipping-companies-leverage-arabian-peninsula-truck-routes-to-bypass-hormuz",
-        "source_published_at": "2026-05-11T13:08:25.000Z",
-        "ingested_at": "2026-05-11T13:08:25.000Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nThe Maritime Executive\n\n### Link\nhttps://maritime-executive.com/article/shipping-companies-leverage-arabian-peninsula-truck-routes-to-bypass-hormuz\n\n### Published\n2026-05-11T09:08:25-04:00\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nWith the Strait of Hormuz remaining closed, logistics operators are working out how to get consignments to and from Gulf destinations previously serv...\n\n---\n_Ingested at 2026-05-11T16:11:34.108087+00:00 UTC_"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/335",
-      "number": 335,
-      "id": "4425127864",
-      "ts": "2026-05-11T13:07:01.000Z",
-      "chronology_ts": "2026-05-11T13:07:01.000Z",
-      "issue_created_at": "2026-05-11T23:53:26.000Z",
-      "source_published_at": "2026-05-11T13:07:01.000Z",
-      "ingested_at": "2026-05-11T23:53:00.834Z",
-      "title": "[SOCIAL] Lebanon: Two army raids targeting drug operations in Baalbek and Al-Qasr – Hermel involve…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/335",
-      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2053824197135131031#m",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_x",
-      "category": "D:SECURITY_CRIME",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "World Crime Intel (X) (worldcrimeintel_x)",
-        "platform": "x",
-        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2053824197135131031#m",
-        "source_published_at": "2026-05-11T13:07:01.000Z",
-        "ingested_at": "2026-05-11T23:53:00.834Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-11T13:07:01.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053824197135131031#m\n\n### Text\nLebanon: Two army raids targeting drug operations in Baalbek and Al-Qasr – Hermel involved armed confrontations.\nIn the Al Sharawneh district of Baalbek, troops en route to raid a drug manufacturing facility were attacked by two suspects in a jeep, prompting a gunfight that led to a fire due to munitions and flammable materials in the vehicle.\nOne suspect, a Syrian national, was hospitalized, the other died in the blaze, and minor injuries were reported among soldiers and civilians. The raid at the factory resulted in the seizure of drug manufacturing equipment and a large quantity of unspecified narcotics.\nIn a separate operation in Al-Qasr – Hermel, intelligence officers came under fire during a mission to seize a vehicle used for drug production and trafficking; one suspect was killed, another escaped, and the vehicle was confiscated.\n\n### Extra\nIngest run: 2026-05-11T23:53:00.834Z\n\n<!-- VOODOO_INGEST: 907f8c5f SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/262",
-      "number": 262,
-      "id": "4422378500",
-      "ts": "2026-05-11T13:06:08.000Z",
-      "chronology_ts": "2026-05-11T13:06:08.000Z",
-      "issue_created_at": "2026-05-11T16:11:36.000Z",
-      "source_published_at": "2026-05-11T13:06:08.000Z",
-      "ingested_at": "2026-05-11T13:06:08.000Z",
-      "title": "[AUTO] How Port Everglades is Meeting the Travel Momentum Moment",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/262",
-      "original_url": "https://maritime-executive.com/article/how-port-everglades-is-meeting-the-travel-momentum-moment",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:MEDIA"
-      ],
-      "source_type": "media",
-      "category": "D:INFRA_CI",
-      "region": null,
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "The Maritime Executive",
-        "platform": null,
-        "link": "https://maritime-executive.com/article/how-port-everglades-is-meeting-the-travel-momentum-moment",
-        "source_published_at": "2026-05-11T13:06:08.000Z",
-        "ingested_at": "2026-05-11T13:06:08.000Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
-      "summary": "### Source\nThe Maritime Executive\n\n### Link\nhttps://maritime-executive.com/article/how-port-everglades-is-meeting-the-travel-momentum-moment\n\n### Published\n2026-05-11T09:06:08-04:00\n\n### Auto-Labels\nCONF:MED, D:INFRA_CI, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nThis month, Port Everglades and its sister agency Visit Lauderdale are front and center at one of the most influential tourism industry events in the...\n\n---\n_Ingested at 2026-05-11T16:11:35.924313+00:00 UTC_"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/256",
-      "number": 256,
-      "id": "4421324354",
-      "ts": "2026-05-11T13:00:12.000Z",
-      "chronology_ts": "2026-05-11T13:00:12.000Z",
-      "issue_created_at": "2026-05-11T13:43:16.000Z",
-      "source_published_at": "2026-05-11T13:00:12.000Z",
-      "ingested_at": "2026-05-11T13:42:57.352Z",
-      "title": "[SOCIAL] Today in War on the Rocks:\nAnkara’s Crossroads: Rearmament, Risk, and the Prospect of War…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/256",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mllddxl4qm2i",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mllddxl4qm2i",
-        "source_published_at": "2026-05-11T13:00:12.000Z",
-        "ingested_at": "2026-05-11T13:42:57.352Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T13:00:12.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mllddxl4qm2i\n\n### Text\nToday in War on the Rocks:\nAnkara’s Crossroads: Rearmament, Risk, and the Prospect of War with Israel\nConflict, CASEVAC, and the Golden Hour in the Age of Persistent Surveillance\n\n### Extra\nIngest run: 2026-05-11T13:42:57.352Z\n\n<!-- VOODOO_INGEST: 43507a9e SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/255",
-      "number": 255,
-      "id": "4421324267",
-      "ts": "2026-05-11T12:24:39.389Z",
-      "chronology_ts": "2026-05-11T12:24:39.389Z",
-      "issue_created_at": "2026-05-11T13:43:15.000Z",
-      "source_published_at": "2026-05-11T12:24:39.389Z",
-      "ingested_at": "2026-05-11T13:42:57.352Z",
-      "title": "[SOCIAL] Tidelagspartierna (M,KD,L) bedriver en ren fascistisk politik år 2026, med stöd av ett na…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/255",
-      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mllbedkruc2a",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "oiuye (Bluesky) (oiuye_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mllbedkruc2a",
-        "source_published_at": "2026-05-11T12:24:39.389Z",
-        "ingested_at": "2026-05-11T13:42:57.352Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T12:24:39.389Z\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mllbedkruc2a\n\n### Text\nTidelagspartierna (M,KD,L) bedriver en ren fascistisk politik år 2026, med stöd av ett nazistisktparti SD i Sveriges Riksdag.\nHemlösa har inte rätt till sjukvård, barn uppväxta i Sverige som fyller 18 år utvisas. Personer som jobbat, försörjt sig och betalat skatt i decennier utvisas.\n\n### Extra\nIngest run: 2026-05-11T13:42:57.352Z\n\n<!-- VOODOO_INGEST: e58bd3db SOURCE=oiuye_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/253",
-      "number": 253,
-      "id": "4421323906",
-      "ts": "2026-05-11T12:19:07.000Z",
-      "chronology_ts": "2026-05-11T12:19:07.000Z",
-      "issue_created_at": "2026-05-11T13:43:11.000Z",
-      "source_published_at": "2026-05-11T12:19:07.000Z",
-      "ingested_at": "2026-05-11T13:42:57.352Z",
-      "title": "[RSS] US, Iran Far Apart in Talks to End War and Reopen Hormuz",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/253",
-      "original_url": "https://gcaptain.com/us-iran-far-apart-in-talks-to-end-war-and-reopen-hormuz/",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:MEDIA",
-        "REG:OTHER",
-        "REG:PERSIAN_GULF",
-        "REG:GULF_OF_OMAN",
-        "REG:STRAIT_HORMUZ"
-      ],
-      "source_type": "rss",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:PERSIAN_GULF",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": {
-        "lat": 26.56,
-        "lon": 56.25,
-        "precision": "area",
-        "method": "gazetteer_alias_content_only",
-        "matched_name": "Strait of Hormuz",
-        "matched_alias": "Strait of Hormuz",
-        "matched_id": "strait_hormuz",
-        "radius_km": 85,
-        "confidence": "medium",
-        "geo_role": "topic_area",
-        "display_on_map": true,
-        "regions": [
-          "REG:PERSIAN_GULF",
-          "REG:GULF_OF_OMAN",
-          "REG:STRAIT_HORMUZ"
-        ]
-      },
-      "geo_candidates": [
-        {
-          "lat": 26.56,
-          "lon": 56.25,
-          "precision": "area",
-          "method": "gazetteer_alias_content_only",
-          "matched_name": "Strait of Hormuz",
-          "matched_alias": "Strait of Hormuz",
-          "matched_id": "strait_hormuz",
-          "radius_km": 85,
-          "confidence": "medium",
-          "geo_role": "topic_area",
-          "display_on_map": true,
-          "regions": [
-            "REG:PERSIAN_GULF",
-            "REG:GULF_OF_OMAN",
-            "REG:STRAIT_HORMUZ"
-          ]
-        }
-      ],
-      "source_hint": {
-        "source": "gCaptain (RSS) (gcaptain_rss)",
-        "platform": "rss",
-        "link": "https://gcaptain.com/us-iran-far-apart-in-talks-to-end-war-and-reopen-hormuz/",
-        "source_published_at": "2026-05-11T12:19:07.000Z",
-        "ingested_at": "2026-05-11T13:42:57.352Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-11T12:19:07.000Z\n\n### Link\nhttps://gcaptain.com/us-iran-far-apart-in-talks-to-end-war-and-reopen-hormuz/\n\n### Text\nThe US and Iran remain far apart on a framework to end their war and reopen the Strait of Hormuz, with President Donald Trump calling the Islamic Republic’s reply to his proposed peace plan unworkable.\n\n### Extra\nIngest run: 2026-05-11T13:42:57.352Z\n\n<!-- VOODOO_INGEST: 9ec89041 SOURCE=gcaptain_rss -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/257",
-      "number": 257,
-      "id": "4421324439",
-      "ts": "2026-05-11T12:15:00.000Z",
-      "chronology_ts": "2026-05-11T12:15:00.000Z",
-      "issue_created_at": "2026-05-11T13:43:16.000Z",
-      "source_published_at": "2026-05-11T12:15:00.000Z",
-      "ingested_at": "2026-05-11T13:42:57.352Z",
-      "title": "[SOCIAL] War on the Rocks brings together the best minds in strategy and defense. Join us in shapi…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/257",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mllat62jad2u",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mllat62jad2u",
-        "source_published_at": "2026-05-11T12:15:00.000Z",
-        "ingested_at": "2026-05-11T13:42:57.352Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T12:15:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mllat62jad2u\n\n### Text\nWar on the Rocks brings together the best minds in strategy and defense. Join us in shaping the conversation.\n\n### Extra\nIngest run: 2026-05-11T13:42:57.352Z\n\n<!-- VOODOO_INGEST: bebbf539 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/254",
-      "number": 254,
-      "id": "4421323965",
-      "ts": "2026-05-11T12:13:46.000Z",
-      "chronology_ts": "2026-05-11T12:13:46.000Z",
-      "issue_created_at": "2026-05-11T13:43:12.000Z",
-      "source_published_at": "2026-05-11T12:13:46.000Z",
-      "ingested_at": "2026-05-11T13:42:57.352Z",
-      "title": "[RSS] Second Qatari LNG tanker Heads Through Hormuz to Pakistan as Iran War Continues, Data Sho…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/254",
-      "original_url": "https://gcaptain.com/second-qatari-lng-tanker-heads-through-hormuz-to-pakistan-as-iran-war-continues-data-shows/",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:MEDIA",
-        "REG:OTHER",
-        "REG:PERSIAN_GULF",
-        "REG:GULF_OF_OMAN",
-        "REG:STRAIT_HORMUZ"
-      ],
-      "source_type": "rss",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:PERSIAN_GULF",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": {
-        "lat": 26.56,
-        "lon": 56.25,
-        "precision": "area",
-        "method": "gazetteer_alias_content_only",
-        "matched_name": "Strait of Hormuz",
-        "matched_alias": "Strait of Hormuz",
-        "matched_id": "strait_hormuz",
-        "radius_km": 85,
-        "confidence": "medium",
-        "geo_role": "topic_area",
-        "display_on_map": true,
-        "regions": [
-          "REG:PERSIAN_GULF",
-          "REG:GULF_OF_OMAN",
-          "REG:STRAIT_HORMUZ"
-        ]
-      },
-      "geo_candidates": [
-        {
-          "lat": 26.56,
-          "lon": 56.25,
-          "precision": "area",
-          "method": "gazetteer_alias_content_only",
-          "matched_name": "Strait of Hormuz",
-          "matched_alias": "Strait of Hormuz",
-          "matched_id": "strait_hormuz",
-          "radius_km": 85,
-          "confidence": "medium",
-          "geo_role": "topic_area",
-          "display_on_map": true,
-          "regions": [
-            "REG:PERSIAN_GULF",
-            "REG:GULF_OF_OMAN",
-            "REG:STRAIT_HORMUZ"
-          ]
-        }
-      ],
-      "source_hint": {
-        "source": "gCaptain (RSS) (gcaptain_rss)",
-        "platform": "rss",
-        "link": "https://gcaptain.com/second-qatari-lng-tanker-heads-through-hormuz-to-pakistan-as-iran-war-continues-data-shows/",
-        "source_published_at": "2026-05-11T12:13:46.000Z",
-        "ingested_at": "2026-05-11T13:42:57.352Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-11T12:13:46.000Z\n\n### Link\nhttps://gcaptain.com/second-qatari-lng-tanker-heads-through-hormuz-to-pakistan-as-iran-war-continues-data-shows/\n\n### Text\nA second Qatari liquefied natural gas tanker is transiting the Strait of Hormuz days after the first such cargo crossed under an arrangement involving Iran and Pakistan, highlighting how cargoes are crossing the waterway on a case-by-case basis amid ongoing conflict risks.\n\n### Extra\nIngest run: 2026-05-11T13:42:57.352Z\n\n<!-- VOODOO_INGEST: 2184e8b9 SOURCE=gcaptain_rss -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/260",
-      "number": 260,
-      "id": "4421324656",
-      "ts": "2026-05-11T12:10:53.233Z",
-      "chronology_ts": "2026-05-11T12:10:53.233Z",
-      "issue_created_at": "2026-05-11T13:43:18.000Z",
-      "source_published_at": "2026-05-11T12:10:53.233Z",
-      "ingested_at": "2026-05-11T13:42:57.352Z",
-      "title": "[SOCIAL] 10-year-old Mina Floriana Read recently became the youngest ever to cross Svalbard from s…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/260",
-      "original_url": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mllalpohw22p",
-      "labels": [
-        "D:NEWS_INTEL",
-        "REG:ATLANTIC_NE",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:ATLANTIC_NE",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "High North News (Bluesky) (highnorthnews_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mllalpohw22p",
-        "source_published_at": "2026-05-11T12:10:53.233Z",
-        "ingested_at": "2026-05-11T13:42:57.352Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nHigh North News (Bluesky) (highnorthnews_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T12:10:53.233Z\n\n### Link\nhttps://bsky.app/profile/highnorthnews.bsky.social/post/3mllalpohw22p\n\n### Text\n10-year-old Mina Floriana Read recently became the youngest ever to cross Svalbard from south to north after a 600-kilometer, 44-day expedition.\nen.highnorthnews.com/arctic-livin...\n\n### Extra\nIngest run: 2026-05-11T13:42:57.352Z\n\n<!-- VOODOO_INGEST: 59bcdcdb SOURCE=highnorthnews_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/336",
-      "number": 336,
-      "id": "4425127887",
-      "ts": "2026-05-11T12:10:09.000Z",
-      "chronology_ts": "2026-05-11T12:10:09.000Z",
-      "issue_created_at": "2026-05-11T23:53:26.000Z",
-      "source_published_at": "2026-05-11T12:10:09.000Z",
-      "ingested_at": "2026-05-11T23:53:00.834Z",
-      "title": "[SOCIAL] Thailand: Police arrested nine individuals accused of selling 250 kg of smuggled African …",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/336",
-      "original_url": "https://nitter.poast.org/WorldCrimeIntel/status/2053809886790566325#m",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_x",
-      "category": "D:SECURITY_CRIME",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "World Crime Intel (X) (worldcrimeintel_x)",
-        "platform": "x",
-        "link": "https://nitter.poast.org/WorldCrimeIntel/status/2053809886790566325#m",
-        "source_published_at": "2026-05-11T12:10:09.000Z",
-        "ingested_at": "2026-05-11T23:53:00.834Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWorld Crime Intel (X) (worldcrimeintel_x)\n\n### Plattform\nx\n\n### Zeit (UTC)\n2026-05-11T12:10:09.000Z\n\n### Link\nhttps://nitter.poast.org/WorldCrimeIntel/status/2053809886790566325#m\n\n### Text\nThailand: Police arrested nine individuals accused of selling 250 kg of smuggled African elephant tusks through a private Facebook group, marking the largest ivory seizure in the country in a decade.\nThe ivory, shipped from Africa and intercepted in operations spanning seven provinces, included cut tusk pieces, fragments, prayer beads, jewelry, and knife handles. Those arrested acted as online group administrators managing posts and sales targeting Thai and Vietnamese buyers.\n\n### Extra\nIngest run: 2026-05-11T23:53:00.834Z\n\n<!-- VOODOO_INGEST: 70882d38 SOURCE=worldcrimeintel_x -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/258",
-      "number": 258,
-      "id": "4421324499",
-      "ts": "2026-05-11T11:30:00.000Z",
-      "chronology_ts": "2026-05-11T11:30:00.000Z",
-      "issue_created_at": "2026-05-11T13:43:17.000Z",
-      "source_published_at": "2026-05-11T11:30:00.000Z",
-      "ingested_at": "2026-05-11T13:42:57.352Z",
-      "title": "[SOCIAL] Europe has seen a wave of Iran-linked attack-for-hire plots. The same model could reach t…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/258",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mll6cmpodj2b",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mll6cmpodj2b",
-        "source_published_at": "2026-05-11T11:30:00.000Z",
-        "ingested_at": "2026-05-11T13:42:57.352Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T11:30:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mll6cmpodj2b\n\n### Text\nEurope has seen a wave of Iran-linked attack-for-hire plots. The same model could reach the U.S. homeland. The absence of it so far doesn't mean the threat is gone.\n\n### Extra\nIngest run: 2026-05-11T13:42:57.352Z\n\n<!-- VOODOO_INGEST: 4daf0068 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/259",
-      "number": 259,
-      "id": "4421324577",
-      "ts": "2026-05-11T10:45:00.000Z",
-      "chronology_ts": "2026-05-11T10:45:00.000Z",
-      "issue_created_at": "2026-05-11T13:43:18.000Z",
-      "source_published_at": "2026-05-11T10:45:00.000Z",
-      "ingested_at": "2026-05-11T13:42:57.352Z",
-      "title": "[SOCIAL] Stay sharp. Stay informed. War on the Rocks delivers the insights serious professionals r…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/259",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mll3s6tpkq2b",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mll3s6tpkq2b",
-        "source_published_at": "2026-05-11T10:45:00.000Z",
-        "ingested_at": "2026-05-11T13:42:57.352Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T10:45:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mll3s6tpkq2b\n\n### Text\nStay sharp. Stay informed. War on the Rocks delivers the insights serious professionals rely on. Join now.\n\n### Extra\nIngest run: 2026-05-11T13:42:57.352Z\n\n<!-- VOODOO_INGEST: ce94371e SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/243",
-      "number": 243,
-      "id": "4420063355",
-      "ts": "2026-05-11T10:23:54.277Z",
-      "chronology_ts": "2026-05-11T10:23:54.277Z",
-      "issue_created_at": "2026-05-11T10:33:09.000Z",
-      "source_published_at": "2026-05-11T10:23:54.277Z",
-      "ingested_at": "2026-05-11T10:32:59.089Z",
-      "title": "[SOCIAL] Polish hobby drone operators are anecdotally reporting the worst GPS conditions so far in…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/243",
-      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mll2mg3j6c24",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER",
-        "REG:BALTIC",
-        "REG:RUSSIA_BALTIC",
-        "REG:KALININGRAD"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:BALTIC",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": {
-        "lat": 54.705,
-        "lon": 20.5,
-        "precision": "port",
-        "method": "gazetteer_alias_content_only",
-        "matched_name": "Kaliningrad",
-        "matched_alias": "Kaliningrad",
-        "matched_id": "port_kaliningrad",
-        "radius_km": 22,
-        "confidence": "medium_high",
-        "geo_role": "event_or_asset_location",
-        "display_on_map": true,
-        "regions": [
-          "REG:BALTIC",
-          "REG:RUSSIA_BALTIC",
-          "REG:KALININGRAD"
-        ]
-      },
-      "geo_candidates": [
-        {
-          "lat": 54.705,
-          "lon": 20.5,
-          "precision": "port",
-          "method": "gazetteer_alias_content_only",
-          "matched_name": "Kaliningrad",
-          "matched_alias": "Kaliningrad",
-          "matched_id": "port_kaliningrad",
-          "radius_km": 22,
-          "confidence": "medium_high",
-          "geo_role": "event_or_asset_location",
-          "display_on_map": true,
-          "regions": [
-            "REG:BALTIC",
-            "REG:RUSSIA_BALTIC",
-            "REG:KALININGRAD"
-          ]
-        }
-      ],
-      "source_hint": {
-        "source": "auonsson (Bluesky) (auonsson_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mll2mg3j6c24",
-        "source_published_at": "2026-05-11T10:23:54.277Z",
-        "ingested_at": "2026-05-11T10:32:59.089Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Drohnen",
-      "summary": "### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T10:23:54.277Z\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mll2mg3j6c24\n\n### Text\nPolish hobby drone operators are anecdotally reporting the worst GPS conditions so far in northern Poland, adjacent to the Kaliningrad jam/spoof complexes.\nThey lose their drones and recommend not flying for the moment.\nwww.trojmiasto.pl/wiadomosci/K...\n\n### Extra\nIngest run: 2026-05-11T10:32:59.089Z\n\n<!-- VOODOO_INGEST: cf5ab807 SOURCE=auonsson_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/251",
-      "number": 251,
-      "id": "4420063921",
-      "ts": "2026-05-11T10:07:45.773Z",
-      "chronology_ts": "2026-05-11T10:07:45.773Z",
-      "issue_created_at": "2026-05-11T10:33:13.000Z",
-      "source_published_at": "2026-05-11T10:07:45.773Z",
-      "ingested_at": "2026-05-11T10:32:59.089Z",
-      "title": "[SOCIAL] Forsvarsbyggs årsrapport for 2025 viser at 2,1 milliarder kroner gikk til kontrakter med …",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/251",
-      "original_url": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mlkzpkh4ic23",
-      "labels": [
-        "D:NEWS_INTEL",
-        "REG:ATLANTIC_NE",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:ATLANTIC_NE",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "High North News (Bluesky) (highnorthnews_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mlkzpkh4ic23",
-        "source_published_at": "2026-05-11T10:07:45.773Z",
-        "ingested_at": "2026-05-11T10:32:59.089Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nHigh North News (Bluesky) (highnorthnews_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T10:07:45.773Z\n\n### Link\nhttps://bsky.app/profile/highnorthnews.bsky.social/post/3mlkzpkh4ic23\n\n### Text\nForsvarsbyggs årsrapport for 2025 viser at 2,1 milliarder kroner gikk til kontrakter med regionalt og lokalt næringsliv i Nord-Norge.\n@forsvaret.bsky.social #forsvarsbygg #forsvar #nordnorge #arktis #nordområdene #beredskap #investeringer\nwww.highnorthnews.com/naeringsliv/...\n\n### Extra\nIngest run: 2026-05-11T10:32:59.089Z\n\n<!-- VOODOO_INGEST: 3c46cff2 SOURCE=highnorthnews_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/244",
-      "number": 244,
-      "id": "4420063403",
-      "ts": "2026-05-11T10:01:45.347Z",
-      "chronology_ts": "2026-05-11T10:01:45.347Z",
-      "issue_created_at": "2026-05-11T10:33:09.000Z",
-      "source_published_at": "2026-05-11T10:01:45.347Z",
-      "ingested_at": "2026-05-11T10:32:59.089Z",
-      "title": "[SOCIAL] Snart i dit kvarter Gestapo 2.0, Jimmy eldar på och Kristerssons fascistiska regering gen…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/244",
-      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mlkzespsx22a",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "oiuye (Bluesky) (oiuye_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mlkzespsx22a",
-        "source_published_at": "2026-05-11T10:01:45.347Z",
-        "ingested_at": "2026-05-11T10:32:59.089Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T10:01:45.347Z\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mlkzespsx22a\n\n### Text\nSnart i dit kvarter Gestapo 2.0, Jimmy eldar på och Kristerssons fascistiska regering genomför.\n\n### Extra\nIngest run: 2026-05-11T10:32:59.089Z\n\n<!-- VOODOO_INGEST: 20978047 SOURCE=oiuye_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/246",
-      "number": 246,
-      "id": "4420063561",
-      "ts": "2026-05-11T10:00:00.000Z",
-      "chronology_ts": "2026-05-11T10:00:00.000Z",
-      "issue_created_at": "2026-05-11T10:33:11.000Z",
-      "source_published_at": "2026-05-11T10:00:00.000Z",
-      "ingested_at": "2026-05-11T10:32:59.089Z",
-      "title": "[SOCIAL] Since 2011, the U.S. intelligence community has had to rethink its assumptions about Iran…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/246",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlkzbot7b42z",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlkzbot7b42z",
-        "source_published_at": "2026-05-11T10:00:00.000Z",
-        "ingested_at": "2026-05-11T10:32:59.089Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-11T10:00:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mlkzbot7b42z\n\n### Text\nSince 2011, the U.S. intelligence community has had to rethink its assumptions about Iran's willingness to attack on American soil. That reassessment hasn't expired.\n\n### Extra\nIngest run: 2026-05-11T10:32:59.089Z\n\n<!-- VOODOO_INGEST: 847b8bb5 SOURCE=warontherocks_bsky -->"
     }
   ]
 }
