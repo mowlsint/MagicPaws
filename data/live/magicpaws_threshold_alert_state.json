@@ -20,7 +20,7 @@
       "first_high_at": "2026-05-30T14:51:13.026Z",
       "last_alert_at": null,
       "recovered_at": null,
-      "last_state_change_at": "2026-05-31T07:40:07.489Z",
+      "last_state_change_at": "2026-05-31T10:09:45.606Z",
       "last_value": 100,
       "threshold": 75,
       "label": "Hybrid-Index",
@@ -33,8 +33,8 @@
       "first_high_at": null,
       "last_alert_at": null,
       "recovered_at": null,
-      "last_state_change_at": "2026-05-31T07:40:07.489Z",
-      "last_value": 31,
+      "last_state_change_at": "2026-05-31T10:09:45.606Z",
+      "last_value": 33,
       "threshold": 60,
       "label": "Government Weirdness Nordsee"
     },
@@ -55,11 +55,11 @@
   "last_error": null,
   "last_values": {
     "hybrid": 100,
-    "gov_weirdness_north": 31,
+    "gov_weirdness_north": 33,
     "gov_weirdness_baltic": 21
   },
   "last_run": {
-    "at": "2026-05-31T07:40:07.489Z",
+    "at": "2026-05-31T10:09:45.606Z",
     "pending_alerts": [
       "hybrid"
     ],
