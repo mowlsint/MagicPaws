@@ -1,47 +1,86 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-30T19:42:35.720Z",
+  "generated_at": "2026-05-31T04:53:54.979Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
-  "days": 53,
+  "days": 54,
   "summary_window_days": 365,
   "daily_summary": [
     {
-      "date": "2026-05-30",
-      "events_total": 19,
+      "date": "2026-05-31",
+      "events_total": 1,
       "p0_suspect": 0,
-      "geo_events": 2,
-      "social_events": 16,
-      "social_geo_events": 2,
-      "rss_media_events": 3,
+      "geo_events": 0,
+      "social_events": 1,
+      "social_geo_events": 0,
+      "rss_media_events": 0,
       "top_domains": {
-        "D:NEWS_INTEL": 10,
-        "D:RF_SIGNAL": 4,
-        "D:SECURITY_CRIME": 2,
-        "D:AIS_TRACK": 2,
-        "D:INFRA_CI": 1
+        "D:AIS_TRACK": 1
       },
       "top_regions": {
-        "REG:OTHER": 13,
+        "REG:GLOBAL": 1
+      },
+      "severity": {
+        "SEV:1": 1
+      },
+      "hybrid_index_proxy": 1,
+      "government_weirdness_proxy": {
+        "north_sea": 0,
+        "baltic_sea": 0
+      },
+      "top_keywords": [
+        {
+          "keyword": "navy",
+          "count": 1
+        },
+        {
+          "keyword": "ot",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-05-30",
+      "events_total": 31,
+      "p0_suspect": 1,
+      "geo_events": 4,
+      "social_events": 22,
+      "social_geo_events": 2,
+      "rss_media_events": 9,
+      "top_domains": {
+        "D:NEWS_INTEL": 17,
+        "D:RF_SIGNAL": 7,
+        "D:SECURITY_CRIME": 3,
+        "D:AIS_TRACK": 2,
+        "D:INFRA_CI": 2
+      },
+      "top_regions": {
+        "REG:OTHER": 18,
         "REG:GLOBAL": 3,
-        "REG:NORTH_SEA": 1,
+        "REG:NORTH_SEA": 2,
+        "REG:GULF_OF_OMAN": 1,
+        "REG:AZOV_SEA": 1,
         "REG:BALTIC": 1,
         "REG:ATLANTIC_NE": 1
       },
       "severity": {
-        "SEV:1": 19
+        "SEV:1": 31
       },
-      "hybrid_index_proxy": 23,
+      "hybrid_index_proxy": 39,
       "government_weirdness_proxy": {
-        "north_sea": 2,
+        "north_sea": 5,
         "baltic_sea": 3
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 15
+          "count": 23
         },
         {
           "keyword": "drone",
+          "count": 4
+        },
+        {
+          "keyword": "sts",
           "count": 3
         },
         {
@@ -50,10 +89,6 @@
         },
         {
           "keyword": "uuv",
-          "count": 2
-        },
-        {
-          "keyword": "sts",
           "count": 2
         },
         {
