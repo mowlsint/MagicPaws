@@ -1,32 +1,37 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-31T14:13:04.192Z",
+  "generated_at": "2026-05-31T19:42:44.532Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "days": 54,
   "summary_window_days": 365,
   "daily_summary": [
     {
       "date": "2026-05-31",
-      "events_total": 6,
+      "events_total": 19,
       "p0_suspect": 0,
-      "geo_events": 1,
-      "social_events": 6,
+      "geo_events": 6,
+      "social_events": 7,
       "social_geo_events": 1,
-      "rss_media_events": 0,
+      "rss_media_events": 12,
       "top_domains": {
-        "D:RF_SIGNAL": 4,
-        "D:NEWS_INTEL": 1,
+        "D:NEWS_INTEL": 12,
+        "D:RF_SIGNAL": 5,
+        "D:INFRA_CI": 1,
         "D:AIS_TRACK": 1
       },
       "top_regions": {
-        "REG:OTHER": 4,
-        "REG:NORTH_SEA": 1,
-        "REG:GLOBAL": 1
+        "REG:OTHER": 9,
+        "REG:GLOBAL": 3,
+        "REG:EUROPE": 1,
+        "REG:PERSIAN_GULF": 1,
+        "REG:GULF_OF_OMAN": 1,
+        "REG:SOUTH_CHINA_SEA": 1,
+        "REG:NORTH_SEA": 1
       },
       "severity": {
-        "SEV:1": 6
+        "SEV:1": 19
       },
-      "hybrid_index_proxy": 8,
+      "hybrid_index_proxy": 24,
       "government_weirdness_proxy": {
         "north_sea": 2,
         "baltic_sea": 0
@@ -34,7 +39,23 @@
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 6
+          "count": 14
+        },
+        {
+          "keyword": "drone",
+          "count": 2
+        },
+        {
+          "keyword": "coast guard",
+          "count": 1
+        },
+        {
+          "keyword": "patrol",
+          "count": 1
+        },
+        {
+          "keyword": "isr",
+          "count": 1
         },
         {
           "keyword": "sar",
