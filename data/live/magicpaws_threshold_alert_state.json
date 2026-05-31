@@ -20,7 +20,7 @@
       "first_high_at": "2026-05-30T14:51:13.026Z",
       "last_alert_at": null,
       "recovered_at": null,
-      "last_state_change_at": "2026-05-31T16:15:38.692Z",
+      "last_state_change_at": "2026-05-31T17:36:05.834Z",
       "last_value": 100,
       "threshold": 75,
       "label": "Hybrid-Index",
@@ -59,7 +59,7 @@
     "gov_weirdness_baltic": 21
   },
   "last_run": {
-    "at": "2026-05-31T16:15:38.692Z",
+    "at": "2026-05-31T17:36:05.834Z",
     "pending_alerts": [
       "hybrid"
     ],
