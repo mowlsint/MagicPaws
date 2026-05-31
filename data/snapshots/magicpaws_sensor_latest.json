@@ -1,45 +1,45 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-05-31T00:00:00.000Z",
-  "generated_at": "2026-05-31T04:53:54.979Z",
+  "snapshot_key": "2026-05-31T06:00:00.000Z",
+  "generated_at": "2026-05-31T09:25:06.532Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 1407,
-    "events_72h": 175,
+    "events_total_archive": 1410,
+    "events_72h": 166,
     "p0_suspect_72h": 1,
-    "geo_72h": 19,
-    "social_72h": 82,
-    "social_geo_72h": 7,
-    "rss_media_72h": 93
+    "geo_72h": 20,
+    "social_72h": 78,
+    "social_geo_72h": 8,
+    "rss_media_72h": 88
   },
   "sensors": {
     "hybrid_index_pct": 100,
     "government_weirdness": {
-      "north_sea_pct": 31,
+      "north_sea_pct": 33,
       "baltic_sea_pct": 21
     },
     "keyword_barometer_pct": 100,
-    "keyword_hits_72h": 201
+    "keyword_hits_72h": 191
   },
   "density": {
     "domains_72h": {
-      "D:NEWS_INTEL": 124,
+      "D:NEWS_INTEL": 113,
       "D:INFRA_CI": 22,
-      "D:RF_SIGNAL": 11,
+      "D:RF_SIGNAL": 13,
       "D:SECURITY_CRIME": 7,
       "D:AIS_TRACK": 6,
       "D:INCIDENT": 4,
       "D:DRONE_UAS": 1
     },
     "regions_72h": {
-      "REG:OTHER": 79,
-      "REG:GLOBAL": 22,
+      "REG:OTHER": 74,
+      "REG:GLOBAL": 19,
       "REG:EUROPE": 15,
-      "REG:ATLANTIC_NE": 11,
-      "REG:NORTH_SEA": 5,
+      "REG:ATLANTIC_NE": 9,
+      "REG:NORTH_SEA": 6,
       "REG:PERSIAN_GULF": 5,
       "REG:BALTIC": 2,
       "REG:SOUTH_AMERICA_EAST": 2,
@@ -52,7 +52,7 @@
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 113
+        "count": 107
       },
       {
         "keyword": "drone",
@@ -64,7 +64,7 @@
       },
       {
         "keyword": "navy",
-        "count": 12
+        "count": 10
       },
       {
         "keyword": "sar",
@@ -91,12 +91,12 @@
         "count": 4
       },
       {
-        "keyword": "shadow fleet",
+        "keyword": "cyber",
         "count": 4
       },
       {
-        "keyword": "cyber",
-        "count": 4
+        "keyword": "uuv",
+        "count": 2
       }
     ]
   }
