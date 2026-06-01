@@ -1,63 +1,99 @@
 name: MagicPaws Daily Visual Snapshot
 
 on:
+  workflow_dispatch: {}
   schedule:
-    # Daily 06:15 UTC. Change or add another cron if you want 00:00/12:00 snapshots.
-    - cron: "15 6 * * *"
-  workflow_dispatch:
-    inputs:
-      hours:
-        description: "Snapshot window in hours"
-        required: false
-        default: "36"
-      fresh:
-        description: "Use ?fresh=1 for worker endpoints"
-        required: false
-        default: "0"
+    # Zwei feste Snapshot-Läufe pro Tag, jeweils UTC.
+    - cron: "0 2,14 * * *"
 
 permissions:
   contents: write
 
+concurrency:
+  group: magicpaws-daily-visual-snapshot
+  cancel-in-progress: false
+
 jobs:
-  visual_snapshot:
+  daily-visual-snapshot:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Setup Node 24
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "24"
+          node-version: "20"
 
-      - name: Verify snapshot files
+      - name: Install project dependencies if present
+        shell: bash
         run: |
-          test -f snapshot.html
-          test -f scripts/render_magicpaws_snapshot.mjs
+          set -e
+          if [ -f package-lock.json ]; then
+            npm ci
+          elif [ -f package.json ]; then
+            npm install
+          else
+            echo "No package.json found; continuing without npm install."
+          fi
 
-      - name: Install Playwright
+      - name: Ensure browser renderer dependencies if Playwright is used
+        shell: bash
         run: |
-          npm install playwright --no-audit --no-fund
-          npx playwright install --with-deps chromium
+          set -e
+          if [ -f package.json ] && grep -qi 'playwright' package.json; then
+            npx playwright install --with-deps chromium
+          else
+            echo "Playwright not declared in package.json; skipping browser install."
+          fi
 
-      - name: Render visual snapshot
-        run: node scripts/render_magicpaws_snapshot.mjs --hours=${SNAPSHOT_HOURS} --fresh=${SNAPSHOT_FRESH}
+      - name: Render Magic Paws visual snapshot
+        shell: bash
         env:
-          SNAPSHOT_HOURS: ${{ github.event.inputs.hours || '36' }}
-          SNAPSHOT_FRESH: ${{ github.event.inputs.fresh || '0' }}
-
-      - name: Commit visual snapshot
+          SNAPSHOT_RUN_UTC: ${{ github.event.schedule || 'manual' }}
         run: |
+          set -e
+          if [ -f scripts/render_magicpaws_snapshot.mjs ]; then
+            node scripts/render_magicpaws_snapshot.mjs
+          elif [ -f scripts/render_magicpaws_snapshot.js ]; then
+            node scripts/render_magicpaws_snapshot.js
+          elif [ -f scripts/render_snapshot.mjs ]; then
+            node scripts/render_snapshot.mjs
+          elif [ -f scripts/render_snapshot.js ]; then
+            node scripts/render_snapshot.js
+          else
+            echo "No visual snapshot render script found. Expected one of:"
+            echo "  scripts/render_magicpaws_snapshot.mjs"
+            echo "  scripts/render_magicpaws_snapshot.js"
+            echo "  scripts/render_snapshot.mjs"
+            echo "  scripts/render_snapshot.js"
+            exit 1
+          fi
+
+      - name: Commit generated snapshot artifacts
+        shell: bash
+        run: |
+          set -e
+          BRANCH="${GITHUB_REF_NAME:-main}"
+
           git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add snapshots/visual/*.png snapshots/visual/*.pdf snapshots/visual/*.json
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          # Snapshot Renderer legen die Dateien je nach Stand unterschiedlich ab.
+          # Diese Add-Liste ist bewusst breit, aber auf typische Snapshot-/Report-Orte begrenzt.
+          git add data/snapshots public/snapshots docs/snapshots reports/snapshots snapshot.html 2>/dev/null || true
+          git add *.pdf *.png 2>/dev/null || true
+
           if git diff --cached --quiet; then
             echo "No visual snapshot changes to commit."
-          else
-            git commit -m "Add MagicPaws daily visual snapshot"
-            git pull --rebase
-            git push
+            exit 0
           fi
+
+          git pull --rebase --autostash origin "$BRANCH"
+          git add data/snapshots public/snapshots docs/snapshots reports/snapshots snapshot.html 2>/dev/null || true
+          git add *.pdf *.png 2>/dev/null || true
+          git commit -m "chore: update Magic Paws visual snapshot"
+          git push origin "HEAD:$BRANCH"
