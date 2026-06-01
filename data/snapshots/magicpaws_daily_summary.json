@@ -1,56 +1,105 @@
 {
   "schema": "MAGIC_PAWS_DAILY_SUMMARY_v1",
-  "generated_at": "2026-05-31T19:42:44.532Z",
+  "generated_at": "2026-06-01T05:18:16.244Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
-  "days": 54,
+  "days": 55,
   "summary_window_days": 365,
   "daily_summary": [
     {
-      "date": "2026-05-31",
-      "events_total": 19,
+      "date": "2026-06-01",
+      "events_total": 3,
       "p0_suspect": 0,
-      "geo_events": 6,
-      "social_events": 7,
-      "social_geo_events": 1,
-      "rss_media_events": 12,
+      "geo_events": 1,
+      "social_events": 0,
+      "social_geo_events": 0,
+      "rss_media_events": 3,
       "top_domains": {
-        "D:NEWS_INTEL": 12,
-        "D:RF_SIGNAL": 5,
-        "D:INFRA_CI": 1,
-        "D:AIS_TRACK": 1
+        "D:NEWS_INTEL": 1,
+        "D:SECURITY_CRIME": 1,
+        "D:DRONE_UAS": 1
       },
       "top_regions": {
-        "REG:OTHER": 9,
-        "REG:GLOBAL": 3,
-        "REG:EUROPE": 1,
-        "REG:PERSIAN_GULF": 1,
-        "REG:GULF_OF_OMAN": 1,
-        "REG:SOUTH_CHINA_SEA": 1,
-        "REG:NORTH_SEA": 1
+        "REG:SOUTH_AMERICA_EAST": 1
       },
       "severity": {
-        "SEV:1": 19
+        "SEV:1": 3
       },
-      "hybrid_index_proxy": 24,
+      "hybrid_index_proxy": 4,
       "government_weirdness_proxy": {
-        "north_sea": 2,
+        "north_sea": 0,
+        "baltic_sea": 0
+      },
+      "top_keywords": [
+        {
+          "keyword": "drone",
+          "count": 1
+        },
+        {
+          "keyword": "uas",
+          "count": 1
+        },
+        {
+          "keyword": "ot",
+          "count": 1
+        }
+      ]
+    },
+    {
+      "date": "2026-05-31",
+      "events_total": 29,
+      "p0_suspect": 0,
+      "geo_events": 9,
+      "social_events": 13,
+      "social_geo_events": 3,
+      "rss_media_events": 16,
+      "top_domains": {
+        "D:NEWS_INTEL": 15,
+        "D:RF_SIGNAL": 5,
+        "D:INFRA_CI": 4,
+        "D:AIS_TRACK": 3,
+        "D:SECURITY_CRIME": 2
+      },
+      "top_regions": {
+        "REG:OTHER": 12,
+        "REG:GLOBAL": 5,
+        "REG:EUROPE": 2,
+        "REG:NORTH_SEA": 2,
+        "REG:SOUTH_AMERICA_EAST": 1,
+        "REG:PERSIAN_GULF": 1,
+        "REG:GULF_OF_OMAN": 1,
+        "REG:SOUTH_CHINA_SEA": 1
+      },
+      "severity": {
+        "SEV:1": 29
+      },
+      "hybrid_index_proxy": 37,
+      "government_weirdness_proxy": {
+        "north_sea": 5,
         "baltic_sea": 0
       },
       "top_keywords": [
         {
           "keyword": "ot",
-          "count": 14
+          "count": 20
+        },
+        {
+          "keyword": "coast guard",
+          "count": 3
+        },
+        {
+          "keyword": "patrol",
+          "count": 3
+        },
+        {
+          "keyword": "navy",
+          "count": 3
         },
         {
           "keyword": "drone",
           "count": 2
         },
         {
-          "keyword": "coast guard",
-          "count": 1
-        },
-        {
-          "keyword": "patrol",
+          "keyword": "sts",
           "count": 1
         },
         {
@@ -59,10 +108,6 @@
         },
         {
           "keyword": "sar",
-          "count": 1
-        },
-        {
-          "keyword": "navy",
           "count": 1
         }
       ]
