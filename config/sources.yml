@@ -341,6 +341,33 @@ sources:
   max_items: 12
   lookback_hours: 168
   allow_backfill: false
+- id: nautimpulse_bsky
+  name: Nautical Impulse / Till Andrzejewski (Bluesky)
+  type: social_bsky
+  handle: nautimpulse.bsky.social
+  bridge_path: /bsky/nautimpulse.bsky.social
+  enabled: true
+
+  # Karte nur, wenn der Post selbst brauchbare Geo-/Route-/Seegebietshinweise enthält.
+  map_enabled: true
+  geo_priority: medium
+  source_profile: maritime_osint_social
+  route_source: true
+
+  labels:
+    - SRC:OSINT
+    - SRC:SOCIAL
+    - SRC:BSKY
+    - D:NEWS_INTEL
+    - D:MARITIME_SECURITY
+    - CONF:LOW
+    - SEV:1
+
+  region_hint: REG:GLOBAL
+  priority: 78
+  max_items: 25
+  lookback_hours: 168
+  allow_backfill: false  
 - id: warontherocks_bsky
   name: War on the Rocks (Bluesky)
   type: social_bsky
