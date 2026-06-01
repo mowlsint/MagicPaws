@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot v5.48 One Page PDF + Original Links + Threshold ntfy</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.49 Dark PDF + 02/14 UTC</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -399,6 +399,72 @@
       a.printLink{color:#ffd24d!important; text-decoration:underline!important;}
     }
 
+
+    /* v5.49: darker PDF/PNG export tone.
+       The page remains one 16:9 print page, but panels, map and glow are toned down
+       so browser-saved PDFs do not look overexposed. Original-source links stay real HTML anchors. */
+    :root{
+      --bg:#020303;
+      --panel:#060708;
+      --panel2:#080a0d;
+      --text:#ededed;
+      --muted:#a9a9a9;
+      --stroke:#8f7100;
+      --stroke2:rgba(143,113,0,.42);
+      --glow:rgba(118,88,0,.14);
+      --money:#e5b936;
+      --orange:#df7600;
+      --cyan:#39c5c0;
+      --purple:#9d5ce0;
+      --blue:#4a86db;
+    }
+    html,body{background:#020303 !important;}
+    body{
+      background:
+        radial-gradient(1200px 800px at 20% 20%, rgba(143,113,0,.055), transparent 62%),
+        radial-gradient(900px 650px at 85% 60%, rgba(180,45,45,.035), transparent 60%),
+        #020303 !important;
+    }
+    .panel{
+      background:linear-gradient(180deg, rgba(255,255,255,.012), rgba(0,0,0,.46)), var(--panel) !important;
+      border-color:rgba(143,113,0,.82) !important;
+      box-shadow:0 0 0 2px rgba(0,0,0,.72) inset, 0 0 18px rgba(118,88,0,.13) !important;
+    }
+    .ph{
+      background:linear-gradient(90deg, rgba(143,113,0,.12), rgba(0,0,0,.30)) !important;
+      border-bottom-color:rgba(143,113,0,.28) !important;
+    }
+    .navItem,.chip,.healthItem,.gaugeBlock,.metric,.alertBullet,
+    .barTrack,.mapLegend,.leaflet-popup-content-wrapper,.leaflet-popup-tip{
+      background-color:rgba(0,0,0,.42) !important;
+    }
+    #map,.leaflet-container{
+      background:#04090b !important;
+      filter:brightness(.84) contrast(1.04) saturate(.92);
+    }
+    .gaugeBar,.barFill,.sev1,.sev2,.sev3,.sev4,.cyan,.purple,.orange,.red{
+      filter:brightness(.88) saturate(.92);
+    }
+    .scoreBig,.gaugeValue,.num,.metricValue,.ph .title,.brand h1,.classBox b,a.printLink{
+      color:#e5b936 !important;
+    }
+    .brand .sub,.metaBox b,.classBox b{color:#e8e8e8;}
+    .healthMeta,.smallSource,.alertLabel{color:#e5b936 !important;}
+    .analysisTable td,.miniRows,.bullets{color:rgba(237,237,237,.90);}
+
+    @media print{
+      html,body{background:#020303 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact;}
+      .snapshot{background:#020303 !important;}
+      .panel{
+        background:linear-gradient(180deg, rgba(255,255,255,.010), rgba(0,0,0,.50)), #060708 !important;
+        border-color:rgba(143,113,0,.82) !important;
+        box-shadow:0 0 0 2px rgba(0,0,0,.74) inset, 0 0 14px rgba(118,88,0,.10) !important;
+      }
+      .ph{background:linear-gradient(90deg, rgba(143,113,0,.115), rgba(0,0,0,.32)) !important;}
+      #map,.leaflet-container{filter:brightness(.82) contrast(1.04) saturate(.90);}
+      a.printLink{color:#e5b936 !important; text-decoration:underline !important; text-underline-offset:2px;}
+    }
+
   </style>
 </head>
 <body>
@@ -421,7 +487,7 @@
         </div>
       </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.47 “Header Safe Export”</b></div>
+        <div><b id="versionLabel">v5.49 “Dark PDF + 02/14 UTC”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
@@ -1082,7 +1148,7 @@
     buttons.forEach(x => x.style.visibility = "hidden");
     try {
       const canvas = await window.html2canvas(root, {
-        backgroundColor: "#050607",
+        backgroundColor: "#020303",
         scale: 2,
         useCORS: true,
         logging: false,
