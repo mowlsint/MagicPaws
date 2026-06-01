@@ -1,30 +1,70 @@
 {
-  "schema": "MAGIC_PAWS_NTFY_THRESHOLD_STATE_v2",
-  "version": "v5.51 Two-run threshold gate",
+  "schema": "MAGIC_PAWS_NTFY_THRESHOLD_STATE_v3",
+  "version": "v5.52 Canonical sensor threshold values",
   "thresholds": {
     "hybrid": 75,
     "government_weirdness": 60,
     "required_high_runs": 2,
-    "cooldown_minutes": 0
+    "cooldown_minutes": 0,
+    "max_sensor_age_hours": 18
   },
   "sources": {
-    "sensor": "data/snapshots/magicpaws_sensor_latest.json",
-    "daily_summary": "data/snapshots/magicpaws_daily_summary.json",
-    "events": "data/logs/magicpaws_events_20d.json"
+    "selected_sensor": "data/snapshots/voodoo_sensor_latest.json",
+    "selected_sensor_timestamp": "2026-06-01T12:46:53.926Z",
+    "selected_sensor_age_hours": 3.79,
+    "max_sensor_age_hours": 18,
+    "sensor_is_fresh": true,
+    "candidate_sensors": [
+      {
+        "path": "data/snapshots/voodoo_sensor_latest.json",
+        "timestamp": "2026-06-01T12:46:53.926Z",
+        "age_hours": 3.79,
+        "fresh": true,
+        "has_canonical_hybrid": true,
+        "has_legacy_hybrid": false,
+        "has_government_weirdness": true
+      },
+      {
+        "path": "data/snapshots/magicpaws_sensor_latest.json",
+        "timestamp": "2026-06-01T12:11:08.235Z",
+        "age_hours": 4.39,
+        "fresh": true,
+        "has_canonical_hybrid": false,
+        "has_legacy_hybrid": true,
+        "has_government_weirdness": true
+      }
+    ]
+  },
+  "measurement_paths": {
+    "hybrid": "sensors.ntfy_hybrid_alert_pct",
+    "hybrid_legacy_detected": null,
+    "hybrid_legacy_value": null,
+    "hybrid_72h_peak": "sensors.ntfy_hybrid_72h_peak_pct",
+    "gov_weirdness_north": "sensors.government_weirdness.north_sea_pct",
+    "gov_weirdness_baltic": "sensors.government_weirdness.baltic_sea_pct"
+  },
+  "data_quality": {
+    "ok": true,
+    "hybrid_uses_canonical_sensor": true,
+    "legacy_hybrid_source_allowed": false,
+    "note": "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values are not alert triggers."
   },
   "metrics": {
     "hybrid": {
-      "is_over_threshold": true,
-      "consecutive_high_runs": 2,
-      "alerted_for_current_episode": true,
-      "first_high_at": "2026-05-30T14:51:13.026Z",
+      "is_over_threshold": false,
+      "consecutive_high_runs": 0,
+      "alerted_for_current_episode": false,
+      "first_high_at": null,
       "last_alert_at": "2026-06-01T10:37:06.469Z",
-      "recovered_at": null,
-      "last_state_change_at": "2026-06-01T10:37:06.469Z",
-      "last_value": 100,
+      "recovered_at": "2026-06-01T16:34:18.840Z",
+      "last_state_change_at": "2026-06-01T16:34:18.840Z",
+      "last_value": 6,
       "threshold": 75,
-      "label": "Hybrid-Index",
-      "last_alert_error": "Failed to parse URL from ntfy.sh/magicpaws-alerts-hztgwwc2fycxuh"
+      "label": "Hybrid-Seismograph",
+      "last_alert_error": "Failed to parse URL from ntfy.sh/magicpaws-alerts-hztgwwc2fycxuh",
+      "measurement_path": "sensors.ntfy_hybrid_alert_pct",
+      "unavailable_at": null,
+      "unavailable_reason": null
     },
     "gov_weirdness_north": {
       "is_over_threshold": false,
@@ -33,10 +73,13 @@
       "first_high_at": null,
       "last_alert_at": null,
       "recovered_at": null,
-      "last_state_change_at": "2026-06-01T05:23:40.444Z",
-      "last_value": 28,
+      "last_state_change_at": "2026-06-01T16:34:18.840Z",
+      "last_value": 5,
       "threshold": 60,
-      "label": "Government Weirdness Nordsee"
+      "label": "Government Weirdness Nordsee",
+      "measurement_path": "sensors.government_weirdness.north_sea_pct",
+      "unavailable_at": null,
+      "unavailable_reason": null
     },
     "gov_weirdness_baltic": {
       "is_over_threshold": false,
@@ -45,10 +88,13 @@
       "first_high_at": null,
       "last_alert_at": null,
       "recovered_at": null,
-      "last_state_change_at": "2026-06-01T05:23:40.444Z",
-      "last_value": 20,
+      "last_state_change_at": "2026-06-01T16:34:18.840Z",
+      "last_value": 2,
       "threshold": 60,
-      "label": "Government Weirdness Ostsee"
+      "label": "Government Weirdness Ostsee",
+      "measurement_path": "sensors.government_weirdness.baltic_sea_pct",
+      "unavailable_at": null,
+      "unavailable_reason": null
     }
   },
   "alert_totals": {
@@ -56,19 +102,22 @@
   },
   "last_error": null,
   "last_values": {
-    "hybrid": 100,
-    "gov_weirdness_north": 28,
-    "gov_weirdness_baltic": 20
+    "hybrid": 6,
+    "gov_weirdness_north": 5,
+    "gov_weirdness_baltic": 2,
+    "hybrid_72h_peak": 26
   },
   "last_run": {
-    "at": "2026-06-01T10:37:06.469Z",
-    "pending_alerts": [
-      "hybrid"
-    ],
-    "sent": [
-      "hybrid"
-    ],
+    "at": "2026-06-01T16:34:18.840Z",
+    "pending_alerts": [],
+    "sent": [],
     "failed": [],
-    "ntfy_enabled": true
+    "ntfy_enabled": true,
+    "data_quality": {
+      "ok": true,
+      "hybrid_uses_canonical_sensor": true,
+      "legacy_hybrid_source_allowed": false,
+      "note": "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values are not alert triggers."
+    }
   }
 }
