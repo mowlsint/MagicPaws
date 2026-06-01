@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot v5.47 Header Safe Export</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.48 One Page PDF + Original Links + Threshold ntfy</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -367,6 +367,38 @@
       .snapshot{grid-template-rows:minmax(124px, auto) 34px 44px minmax(0, 1fr) 28px !important;}
       .header{min-height:124px !important;}
     }
+
+    /* v5.48: One-page PDF/export guard.
+       Keep the complete 16:9 snapshot on one printed page and preserve original-source links in PDF. */
+    .snapshot{
+      width:1600px !important;
+      height:900px !important;
+      min-height:900px !important;
+      max-height:900px !important;
+      grid-template-rows:124px 34px 44px minmax(0, 616px) 28px !important;
+      overflow:hidden !important;
+    }
+    .main{
+      height:616px !important;
+      min-height:0 !important;
+      grid-template-rows:150px 250px 96px 96px !important;
+      overflow:hidden !important;
+    }
+    #map{height:408px !important;}
+    .shortPanel .pc{height:168px !important; overflow:hidden !important;}
+    .analysisTable{font-size:13.5px !important; line-height:1.03 !important;}
+    .analysisTable td{padding:4px 4px !important;}
+    .weatherPanel .miniRows,.navtexPanel .miniRows{font-size:15px !important; line-height:1.12 !important;}
+    .miniRow{padding:3px 0 !important;}
+    .footer{font-size:14px !important; min-height:28px !important; overflow:hidden !important;}
+    @media print{
+      @page{size:16in 9in; margin:0}
+      html,body{width:1600px; height:900px; overflow:hidden !important;}
+      .snapshot{margin:0 !important; page-break-after:avoid; page-break-inside:avoid; break-inside:avoid;}
+      .panel{break-inside:avoid; page-break-inside:avoid;}
+      a.printLink{color:#ffd24d!important; text-decoration:underline!important;}
+    }
+
   </style>
 </head>
 <body>
@@ -513,7 +545,7 @@
     ais: "./data/live/ais_latest.json",
     adsb: "./data/live/adsb_latest.json",
     drift: "./data/live/ais_drift_candidates.json",
-    ntfy: "./data/live/ais_drift_alert_state.json"
+    ntfy: "./data/live/magicpaws_threshold_alert_state.json"
   };
   const liveSensors = { ais:null, adsb:null, drift:null, ntfy:null };
   const snapState = { bundle:null, events:[], navtex:null, weather:null };
@@ -593,14 +625,10 @@
   }
 
   function eventUrl(ev){
-    const candidates = [
-      ev?.original_url, ev?.source_url, ev?.display_url, ev?.html_url, ev?.url,
-      ev?.source_hint?.link, ev?.link, ev?.github_url
-    ].map(x => String(x ?? "").trim()).filter(Boolean);
-    for (const u of candidates){
-      if (/^https?:\/\//i.test(u)) return u;
-    }
-    return "";
+    // Snapshot/PDF links should lead to the original source, not the GitHub issue.
+    // PNG export is a flat image and cannot preserve clickable links.
+    const u = sourceUrl(ev);
+    return /^https?:\/\//i.test(u) && !/github\.com\/[^/]+\/[^/]+\/issues\/\d+/i.test(u) ? u : "";
   }
 
   function severityNum(ev){
@@ -1022,7 +1050,7 @@
     let srcStatus = 'red'; if (uniqueSources.size >= 8) srcStatus='green'; else if (uniqueSources.size >= 4) srcStatus='orange';
     const snapStatus = 'green';
     let ntfyStatus = 'orange'; let ntfyMeta = 'ohne State'; let ntfyReason = 'State-Datei fehlt';
-    if (liveSensors.ntfy){ const age = ageMinutesFromObj(liveSensors.ntfy); ntfyStatus = healthStatusByAge(age,720,2880); ntfyMeta = fmtAgeMinutes(age); ntfyReason = `gesendet ${Number(liveSensors.ntfy.sent_count || liveSensors.ntfy.alerts_sent || 0)}`; if (liveSensors.ntfy?.error){ ntfyStatus='red'; ntfyReason=liveSensors.ntfy.error; } }
+    if (liveSensors.ntfy){ const age = ageMinutesFromObj(liveSensors.ntfy); ntfyStatus = healthStatusByAge(age,720,2880); ntfyMeta = fmtAgeMinutes(age); ntfyReason = liveSensors.ntfy?.last_error ? String(liveSensors.ntfy.last_error).slice(0,90) : `Threshold-State • Alerts ${Number((liveSensors.ntfy.alert_totals && Object.values(liveSensors.ntfy.alert_totals).reduce((a,b)=>a+Number(b||0),0)) || liveSensors.ntfy.sent_count || liveSensors.ntfy.alerts_sent || 0)}`; if (liveSensors.ntfy?.error){ ntfyStatus='red'; ntfyReason=liveSensors.ntfy.error; } }
 
     const systems = [
       {label:'AISstream', status:aisStatus, meta:`${aisCount} • ${fmtAgeMinutes(aisAge)}`, reason:'Live-AIS'},
