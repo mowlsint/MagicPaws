@@ -477,29 +477,83 @@ sources:
   geo_priority: medium
   source_profile: maritime_media_social
 - id: te3ej_x
-  name: TJ / te3ej (X) – vessel route / geo posts
+  name: TJ / te3ej (X) – morse weather, vessel route and geo position posts
   type: social_x
   handle: te3ej
   bridge_path: /x/te3ej
+  enabled: true
+
   labels:
-  - D:AIS_TRACK
-  - D:NEWS_INTEL
-  - PAT:ROUTE_OBSERVED
-  - PAT:VESSEL_SIGHTING
-  - MAP:YES
-  - SRC:SOCIAL
-  - SRC:X
-  - CONF:LOW
-  - SEV:1
+    - D:AIS_TRACK
+    - D:NEWS_INTEL
+    - D:MARITIME_SECURITY
+    - PAT:ROUTE_OBSERVED
+    - PAT:VESSEL_SIGHTING
+    - MAP:YES
+    - SRC:OSINT
+    - SRC:SOCIAL
+    - SRC:X
+    - CONF:LOW
+    - SEV:1
+
   region_hint: REG:GLOBAL
-  priority: 92
-  max_items: 30
+  priority: 94
+  max_items: 35
   lookback_hours: 168
   allow_backfill: false
+
   route_source: true
   geo_priority: high
   map_enabled: true
   source_profile: route_geo_social
+
+  # Fachliches Quellenprofil:
+  # TJ/te3ej postet regelmäßig morsierte Seewetter-/Schiffs-/Positionsmeldungen.
+  # Die Positionsangaben sind OSINT-nah und nicht amtlich bestätigt, werden aber
+  # für Lagebild, Karte und Korrelation als grundsätzlich plausibel behandelt.
+  position_reliability: plausible_unverified
+  position_basis: morse_weather_position_reports
+  geo_interpretation: assume_plausible_if_parseable
+
+  # Für spätere Government-Weirdness-Kopplung:
+  # Diese Felder sind Konfigurationsabsicht. Sie wirken erst dann vollständig,
+  # wenn ingest/threshold/scoring diese Felder aktiv auswerten.
+  government_weirdness_source: true
+  gov_weirdness_correlation:
+    enabled: true
+    mode: vessel_geo_near_authority_units
+    radius_nm: 1
+    boost: strong
+    regions:
+      - REG:NORTH_SEA
+      - REG:GER_BIGHT
+      - REG:SKAGERRAK
+      - REG:BALTIC
+      - REG:BALTIC_SEA
+      - REG:DANISH_STRAITS
+      - REG:ORESUND
+      - REG:GOTLAND_SEA
+      - REG:GULF_OF_FINLAND
+      - REG:BLACK_SEA
+    target_vessel_labels:
+      - V:RUS_RESEARCH
+      - V:RUS_AUXILIARY
+      - V:RUS_WARSHIP
+      - V:RUS_GOV
+      - V:SURVEY
+      - V:INTELLIGENCE
+    authority_vessel_labels:
+      - V:AUTH_COAST_GUARD
+      - V:AUTH_POLICE
+      - V:AUTH_NAVY
+      - V:AUTH_CUSTOMS
+      - V:SAR_UNIT
+      - V:GOVERNMENT
+    kriteria:
+      - TJ-Post enthält parsebare Position, Route, Hafen oder Seegebiet.
+      - Position liegt in Nordsee, Ostsee, Dänischen Meerengen, Golf von Finnland oder Schwarzmeer.
+      - Schiff hat russischen Research-, Auxiliary-, Government-, Warship-, Survey- oder Intelligence-Bezug.
+      - AIS-Live-Daten zeigen Behördenschiff innerhalb von 1 NM.
 - id: worldcrimeintel_x
   name: World Crime Intel (X)
   type: social_x
