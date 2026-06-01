@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * MAGIC PAWS // ntfy threshold alerts
- * Version: v5.51 "Two-run threshold gate"
+ * Version: v5.52 "Two-run threshold gate + TJ geo fallback"
  *
  * Sends ntfy notifications only when a metric remains above its threshold for
  * at least two consecutive workflow runs. This prevents single-run spikes from
@@ -32,6 +32,7 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const STATE_PATH = path.join(ROOT, "data/live/magicpaws_threshold_alert_state.json");
+const AIS_LIVE_PATH = "data/live/ais_latest.json";
 
 const CONFIG = {
   hybridThreshold: numberFromEnv("MAGICPAWS_ALERT_HYBRID_THRESHOLD", 75),
@@ -51,6 +52,10 @@ function boolFromEnv(name, fallback = false){
   if (["1", "true", "yes", "y", "on"].includes(raw)) return true;
   if (["0", "false", "no", "n", "off"].includes(raw)) return false;
   return fallback;
+}
+
+function cleanEnvValue(value){
+  return String(value || "").trim().replace(/^["'`]+|["'`]+$/g, "").trim();
 }
 
 function readJsonMaybe(relOrAbs){
@@ -177,6 +182,67 @@ function eventInRegion(e, region){
   return labels.some(l => ["REG:BALTIC_SEA", "REG:BALTIC", "REG:DANISH_STRAITS", "REG:ORESUND", "REG:GOTLAND_SEA", "REG:GULF_OF_FINLAND"].includes(l)) || /baltic|ostsee|danish straits|øresund|oresund|gulf of finland|gotland/.test(text);
 }
 
+
+function numeric(value){ const n = Number(value); return Number.isFinite(n) ? n : null; }
+function validPoint(obj){ const lat = numeric(obj?.lat ?? obj?.latitude); const lon = numeric(obj?.lon ?? obj?.longitude); return Number.isFinite(lat) && Number.isFinite(lon) && Math.abs(lat)<=90 && Math.abs(lon)<=180 ? { lat, lon } : null; }
+function pointFromAny(obj){
+  if (!obj || typeof obj !== "object") return null;
+  const candidates = [
+    [obj.lat,obj.lon],[obj.latitude,obj.longitude],[obj.Latitude,obj.Longitude],[obj.y,obj.x],
+    [obj.position?.lat,obj.position?.lon],[obj.position?.latitude,obj.position?.longitude],
+    [obj.coords?.lat,obj.coords?.lon],[obj.location?.lat,obj.location?.lon],[obj.geo?.lat,obj.geo?.lon]
+  ];
+  if (Array.isArray(obj.coordinates) && obj.coordinates.length>=2) candidates.push([obj.coordinates[1],obj.coordinates[0]]);
+  if (obj.geometry?.type === "Point" && Array.isArray(obj.geometry.coordinates)) candidates.push([obj.geometry.coordinates[1],obj.geometry.coordinates[0]]);
+  for (const [la,lo] of candidates){ const p = validPoint({ lat:la, lon:lo }); if (p) return p; }
+  return null;
+}
+function aisItemsFromPayload(payload){
+  if (!payload || typeof payload !== "object") return [];
+  const arrays = [payload.items,payload.vessels,payload.targets,payload.ships,payload.data,payload.rows,payload.results].filter(Array.isArray);
+  if (Array.isArray(payload.features)) arrays.push(payload.features.map(f => ({ ...(f.properties || {}), geometry:f.geometry })));
+  return arrays.flat().filter(Boolean);
+}
+function aisText(item){ return `${item?.name||""} ${item?.vessel_name||""} ${item?.shipname||""} ${item?.callsign||""} ${item?.ship_type||""} ${item?.ship_type_text||""} ${item?.type||""} ${item?.category||""} ${(Array.isArray(item?.labels)?item.labels.join(" "):"")}`.toLowerCase(); }
+function isAuthorityAisItem(item){
+  const labels = labelsOf(item);
+  if (hasAny(item,["V:AUTH_COAST_GUARD","V:AUTH_POLICE","V:AUTH_NAVY","V:AUTH_CUSTOMS","V:SAR_UNIT","V:GOVERNMENT","SRC:GOV","SRC:OFFICIAL"])) return true;
+  return /\b(coast guard|kustwacht|kystvakt|kystverket|police|polizei|bundespolizei|customs|douane|zoll|navy|naval|marine|patrol|sar|rescue|government|authority|bsh|wsv|havariekommando|border guard|fishery patrol)\b/i.test(aisText(item));
+}
+let cachedAuthorityAisItems = null;
+function authorityAisItems(){
+  if (cachedAuthorityAisItems) return cachedAuthorityAisItems;
+  const payload = readJsonMaybe(AIS_LIVE_PATH);
+  cachedAuthorityAisItems = aisItemsFromPayload(payload).map(item => { const p = pointFromAny(item); return p ? { ...item, lat:p.lat, lon:p.lon } : null; }).filter(item => item && isAuthorityAisItem(item));
+  return cachedAuthorityAisItems;
+}
+function distanceNm(a,b){
+  const R=3440.065, lat1=Number(a.lat)*Math.PI/180, lat2=Number(b.lat)*Math.PI/180;
+  const dLat=(Number(b.lat)-Number(a.lat))*Math.PI/180, dLon=(Number(b.lon)-Number(a.lon))*Math.PI/180;
+  const h=Math.sin(dLat/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin(dLon/2)**2;
+  return 2*R*Math.asin(Math.min(1,Math.sqrt(h)));
+}
+function eventTextForCorrelation(e){ return `${e?.title||""}\n${e?.summary||""}\n${e?.body||""}\n${labelsOf(e).join(" ")}\n${e?.source_line||""}\n${e?.source_id||""}`; }
+function sourceIsTjGeoSignal(e){ const t=eventTextForCorrelation(e).toLowerCase(); return /\b(te3ej|tj\s*\/\s*te3ej)\b/i.test(t); }
+function isPointLikeEventGeo(e){ const p = validPoint(e?.geo); if (!p) return false; const g=e.geo||{}; const method=String(g.method||"").toLowerCase(); const precision=String(g.precision||"").toLowerCase(); return precision === "exact" || precision === "route_waypoint" || /coordinate|waypoint|position|morse|dm_|dms/.test(method); }
+function isRussianSurveyOrGovTarget(e){
+  const labels = labelsOf(e);
+  if (hasAny(e,["V:RUS_RESEARCH","V:RUS_AUXILIARY","V:RUS_WARSHIP","V:RUS_GOV","V:SURVEY","V:INTELLIGENCE"])) return true;
+  const t = eventTextForCorrelation(e).toLowerCase();
+  return /\b(russian|russia|rus\.?|rf|ru navy|russian navy|black sea fleet|baltic fleet)\b/i.test(t) && /\b(research|survey|hydrographic|oceanographic|scientific|intelligence|sigint|spy ship|auxiliary|naval auxiliary|warship|submarine|yantar|sibiryakov|evgeniy churov|churov|government vessel|navy vessel)\b/i.test(t);
+}
+function tjAuthorityCorrelationPoints(events, region){
+  const auth = authorityAisItems();
+  if (!auth.length) return 0;
+  let points = 0;
+  for (const e of events){
+    if (!eventInRegion(e, region) || !sourceIsTjGeoSignal(e) || !isPointLikeEventGeo(e) || !isRussianSurveyOrGovTarget(e)) continue;
+    const near = auth.map(item => distanceNm(e.geo, item)).filter(n => Number.isFinite(n) && n <= 1).length;
+    if (near) points += Math.min(28, 18 + Math.max(0, near-1)*5);
+  }
+  return points;
+}
+
 function scoreWeirdnessFromEvents(events, region){
   const now = Date.now();
   let points = 0;
@@ -208,6 +274,7 @@ function scoreWeirdnessFromEvents(events, region){
     points += w;
   }
 
+  points += tjAuthorityCorrelationPoints(events, region);
   return clamp(Math.round((points / 95) * 100), 0, 100);
 }
 
@@ -372,15 +439,18 @@ async function sendNtfy(title, message, priority = "high", tags = "warning,magic
     return false;
   }
 
-  const url = process.env.NTFY_URL;
+  const url = cleanEnvValue(process.env.NTFY_URL);
   if (!url) throw new Error("NTFY_URL missing although NTFY_ENABLED is true");
+  try { new URL(url); }
+  catch { throw new Error("NTFY_URL is not a valid absolute URL. Expected format: https://ntfy.sh/<topic>"); }
 
   const headers = {
     Title: title,
     Priority: String(priority),
     Tags: tags
   };
-  if (process.env.NTFY_TOKEN) headers.Authorization = `Bearer ${process.env.NTFY_TOKEN}`;
+  const token = cleanEnvValue(process.env.NTFY_TOKEN);
+  if (token) headers.Authorization = `Bearer ${token}`;
 
   const res = await fetch(url, { method:"POST", headers, body:message });
   if (!res.ok) throw new Error(`ntfy HTTP ${res.status}: ${await res.text()}`);
@@ -408,7 +478,7 @@ async function main(){
   const previousState = readJsonMaybe(STATE_PATH) || {};
   const state = {
     schema: "MAGIC_PAWS_NTFY_THRESHOLD_STATE_v2",
-    version: "v5.51 Two-run threshold gate",
+    version: "v5.52 Two-run threshold gate + TJ geo fallback",
     thresholds: {
       hybrid: CONFIG.hybridThreshold,
       government_weirdness: CONFIG.weirdnessThreshold,
@@ -524,7 +594,7 @@ main().catch(err => {
   const state = {
     ...previousState,
     schema: "MAGIC_PAWS_NTFY_THRESHOLD_STATE_v2",
-    version: "v5.51 Two-run threshold gate",
+    version: "v5.52 Two-run threshold gate + TJ geo fallback",
     last_error: String(err?.stack || err?.message || err),
     last_run: {
       at: nowIso,
