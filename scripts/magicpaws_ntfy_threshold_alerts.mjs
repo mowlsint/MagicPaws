@@ -1,30 +1,27 @@
 #!/usr/bin/env node
 /**
  * MAGIC PAWS // ntfy threshold alerts
- * Version: v5.52 "Two-run threshold gate + TJ geo fallback"
+ * Version: v5.52 "Canonical sensor threshold values"
  *
- * Sends ntfy notifications only when a metric remains above its threshold for
- * at least two consecutive workflow runs. This prevents single-run spikes from
- * creating noise.
+ * Purpose:
+ *   Sends ntfy notifications only from the same current sensor values shown in
+ *   the dashboard/snapshot, not from legacy daily proxy values.
  *
  * Default rules:
- *   - Hybrid-Index > 75% for 2 consecutive runs
- *   - Government Weirdness North Sea > 60% for 2 consecutive runs
- *   - Government Weirdness Baltic Sea > 60% for 2 consecutive runs
+ *   - Hybrid-Seismograph > 75% for 2 consecutive workflow runs
+ *   - Government Weirdness North Sea > 60% for 2 consecutive workflow runs
+ *   - Government Weirdness Baltic Sea > 60% for 2 consecutive workflow runs
+ *
+ * Important change from v5.51:
+ *   The Hybrid alert no longer uses hybrid_index_pct or daily_summary
+ *   hybrid_index_proxy as a trigger. It uses, in order:
+ *     1) sensors.ntfy_hybrid_alert_pct
+ *     2) sensors.hybrid_seismograph_pct
+ *
+ *   Legacy hybrid_index_pct is recorded only as diagnostic unless explicitly
+ *   enabled via MAGICPAWS_ALLOW_LEGACY_HYBRID_SOURCE=true.
  *
  * Designed for GitHub Actions. Uses only Node 18+ built-ins.
- *
- * Required secrets/env for real sends:
- *   NTFY_ENABLED=true
- *   NTFY_URL=https://ntfy.sh/<topic>  OR self-hosted topic URL
- *   NTFY_TOKEN=<optional bearer token>
- *
- * Optional env:
- *   MAGICPAWS_ALERT_HYBRID_THRESHOLD=75
- *   MAGICPAWS_ALERT_WEIRDNESS_THRESHOLD=60
- *   MAGICPAWS_ALERT_REQUIRED_HIGH_RUNS=2
- *   MAGICPAWS_ALERT_COOLDOWN_MINUTES=0
- *   MAGICPAWS_ALERT_WRITE_STATE_EVERY_RUN=false
  */
 
 import fs from "node:fs";
@@ -32,15 +29,23 @@ import path from "node:path";
 
 const ROOT = process.cwd();
 const STATE_PATH = path.join(ROOT, "data/live/magicpaws_threshold_alert_state.json");
-const AIS_LIVE_PATH = "data/live/ais_latest.json";
 
 const CONFIG = {
   hybridThreshold: numberFromEnv("MAGICPAWS_ALERT_HYBRID_THRESHOLD", 75),
   weirdnessThreshold: numberFromEnv("MAGICPAWS_ALERT_WEIRDNESS_THRESHOLD", 60),
   requiredHighRuns: Math.max(2, Math.round(numberFromEnv("MAGICPAWS_ALERT_REQUIRED_HIGH_RUNS", 2))),
   cooldownMinutes: Math.max(0, numberFromEnv("MAGICPAWS_ALERT_COOLDOWN_MINUTES", 0)),
-  writeStateEveryRun: boolFromEnv("MAGICPAWS_ALERT_WRITE_STATE_EVERY_RUN", false)
+  writeStateEveryRun: boolFromEnv("MAGICPAWS_ALERT_WRITE_STATE_EVERY_RUN", false),
+  maxSensorAgeHours: Math.max(1, numberFromEnv("MAGICPAWS_SENSOR_MAX_AGE_HOURS", 18)),
+  allowLegacyHybridSource: boolFromEnv("MAGICPAWS_ALLOW_LEGACY_HYBRID_SOURCE", false)
 };
+
+const SENSOR_CANDIDATE_PATHS = [
+  "data/snapshots/voodoo_sensor_latest.json",
+  "data/snapshots/magicpaws_sensor_latest.json",
+  "voodoo_sensor_latest.json",
+  "magicpaws_sensor_latest.json"
+];
 
 function numberFromEnv(name, fallback){
   const n = Number(process.env[name]);
@@ -54,7 +59,7 @@ function boolFromEnv(name, fallback = false){
   return fallback;
 }
 
-function cleanEnvValue(value){
+function cleanSecret(value){
   return String(value || "").trim().replace(/^["'`]+|["'`]+$/g, "").trim();
 }
 
@@ -64,234 +69,120 @@ function readJsonMaybe(relOrAbs){
   catch { return null; }
 }
 
-function readFirstJson(paths){
-  for (const p of paths){
-    const data = readJsonMaybe(p);
-    if (data) return { data, path:p };
-  }
-  return { data:null, path:null };
-}
-
 function writeJson(file, obj){
   fs.mkdirSync(path.dirname(file), { recursive:true });
   fs.writeFileSync(file, JSON.stringify(obj, null, 2) + "\n");
 }
 
-function asArr(x){ return Array.isArray(x) ? x : []; }
 function clamp(n, a, b){ return Math.max(a, Math.min(b, n)); }
-function labelsOf(e){ return asArr(e?.labels).map(String); }
-function hasAny(e, wanted){
-  const labels = labelsOf(e);
-  return wanted.some(x => labels.includes(x));
+
+function dateMs(value){
+  const t = Date.parse(value || "");
+  return Number.isFinite(t) ? t : 0;
 }
-function getMs(e){
-  const candidates = [e?.event_ts, e?.published_at, e?.source_published_at, e?.chronology_ts, e?.ts, e?.timestamp, e?.date, e?.created_at, e?.updated_at];
+
+function sensorTimestampMs(sensor){
+  const candidates = [
+    sensor?.generated_at,
+    sensor?.ts,
+    sensor?.snapshot_key,
+    sensor?.bucket_end_utc,
+    sensor?.exported_at,
+    sensor?.created_at,
+    sensor?.updated_at
+  ];
   for (const c of candidates){
-    const t = Date.parse(c);
-    if (Number.isFinite(t)) return t;
+    const t = dateMs(c);
+    if (t) return t;
   }
   return 0;
 }
 
-function findNumber(obj, paths){
+function sensorTimestampIso(sensor){
+  const ms = sensorTimestampMs(sensor);
+  return ms ? new Date(ms).toISOString() : null;
+}
+
+function sensorAgeHours(sensor, nowMs = Date.now()){
+  const ms = sensorTimestampMs(sensor);
+  if (!ms) return null;
+  return Math.max(0, (nowMs - ms) / 36e5);
+}
+
+function findNumberWithPath(obj, paths){
   for (const p of paths){
     const parts = p.split(".");
     let cur = obj;
     for (const part of parts) cur = cur?.[part];
     const n = Number(cur);
-    if (Number.isFinite(n)) return n;
+    if (Number.isFinite(n)) return { value:n, path:p };
   }
-  return null;
+  return { value:null, path:null };
 }
 
-function latestDailySummary(){
-  const { data, path:sourcePath } = readFirstJson([
-    "data/snapshots/magicpaws_daily_summary.json",
-    "data/snapshots/voodoo_daily_summary.json",
-    "magicpaws_daily_summary.json",
-    "voodoo_daily_summary.json"
-  ]);
-  const arr = Array.isArray(data) ? data : asArr(data?.daily_summary || data?.days || data?.items);
-  if (!arr.length) return { item:null, sourcePath };
-  const item = [...arr].sort((a, b) => {
-    const ta = Date.parse(a?.date || a?.generated_at || a?.ts || 0) || 0;
-    const tb = Date.parse(b?.date || b?.generated_at || b?.ts || 0) || 0;
-    return tb - ta;
-  })[0];
-  return { item, sourcePath };
+function hasAnyNumber(obj, paths){
+  return findNumberWithPath(obj, paths).value !== null;
 }
 
-function loadEvents(){
-  const { data, path:sourcePath } = readFirstJson([
-    "data/logs/magicpaws_events_20d.json",
-    "data/logs/voodoo_events_20d.json",
-    "magicpaws_events_20d.json",
-    "voodoo_events_20d.json"
-  ]);
-  return { events:asArr(data?.events || data?.items || data), sourcePath };
-}
-
-function scoreEventForHybrid(e){
-  const labels = labelsOf(e);
-  const sev = String(e?.severity || "SEV:1");
-  const conf = String(e?.confidence || "CONF:LOW");
-  const sevW = sev === "SEV:4" ? 9 : sev === "SEV:3" ? 6 : sev === "SEV:2" ? 3 : 1;
-  const confW = conf === "CONF:HIGH" ? 1.2 : conf === "CONF:MED" ? 1.0 : 0.8;
-  let v = sevW * confW;
-  if (e?.phase0?.suspect || labels.includes("P0:SUSPECT")) v *= 1.6;
-  if (["OBJ:CABLE", "OBJ:PIPELINE", "OBJ:WINDFARM", "OBJ:PORT", "OBJ:VTS_WSV", "D:INFRA_CI"].some(x => labels.includes(x))) v *= 1.25;
-  if (["PAT:LOITERING", "PAT:STS_SUSPECT", "PAT:AIS_GAP", "PAT:DARK_ACTIVITY", "PAT:SURVEYING", "PAT:ROUTE_DEVIATION", "PAT:ROUTE_OBSERVED", "PAT:GNSS_JAM", "PAT:GNSS_SPOOF", "RF:GNSS_JAM", "RF:GNSS_SPOOF"].some(x => labels.includes(x))) v *= 1.20;
-  if (["V:SHADOW_FLEET", "V:RUS_RESEARCH", "V:RUS_WARSHIP", "V:RUS_AUXILIARY", "V:SANCTIONS_EVASION"].some(x => labels.includes(x))) v *= 1.15;
-  return v;
-}
-
-function scorePhaseZero(events, windowHours = 72){
-  const now = Date.now();
-  const bucketMs = 60 * 60 * 1000;
-  const buckets = Array.from({ length:windowHours }, () => ({ score:0, count:0 }));
-  const seen = new Set();
-
-  for (const e of events){
-    const ms = getMs(e);
-    if (!ms) continue;
-    const age = now - ms;
-    if (age < 0 || age > bucketMs * windowHours) continue;
-
-    const key = e?.url || e?.id || e?.number || `${e?.title || ""}:${e?.ts || ""}`;
-    const seenKey = `${Math.floor(ms / bucketMs)}:${key}`;
-    if (seen.has(seenKey)) continue;
-    seen.add(seenKey);
-
-    const idx = windowHours - 1 - Math.floor(age / bucketMs);
-    if (idx < 0 || idx >= windowHours) continue;
-    buckets[idx].score += scoreEventForHybrid(e);
-    buckets[idx].count += 1;
+function loadSensorCandidates(nowMs = Date.now()){
+  const candidates = [];
+  for (const rel of SENSOR_CANDIDATE_PATHS){
+    const data = readJsonMaybe(rel);
+    if (!data) continue;
+    const ageHours = sensorAgeHours(data, nowMs);
+    const timestamp = sensorTimestampIso(data);
+    const hasCanonicalHybrid = hasAnyNumber(data, [
+      "sensors.ntfy_hybrid_alert_pct",
+      "sensors.hybrid_seismograph_pct"
+    ]);
+    const hasLegacyHybrid = hasAnyNumber(data, [
+      "sensors.hybrid_index_pct",
+      "hybrid_index_pct",
+      "hybrid_index"
+    ]);
+    const hasGov = hasAnyNumber(data, [
+      "sensors.government_weirdness.north_sea_pct",
+      "sensors.government_weirdness.baltic_sea_pct",
+      "government_weirdness.north_sea_pct",
+      "government_weirdness.baltic_sea_pct"
+    ]);
+    candidates.push({
+      path: rel,
+      data,
+      timestamp,
+      age_hours: ageHours,
+      fresh: ageHours !== null && ageHours <= CONFIG.maxSensorAgeHours,
+      has_canonical_hybrid: hasCanonicalHybrid,
+      has_legacy_hybrid: hasLegacyHybrid,
+      has_government_weirdness: hasGov
+    });
   }
-
-  const pctBuckets = buckets.map(b => clamp(Math.round((b.score / 28) * 100), 0, 100));
-  const avg = pctBuckets.length ? pctBuckets.reduce((s, v) => s + v, 0) / pctBuckets.length : 0;
-  return clamp(Math.round(avg), 0, 100);
+  candidates.sort((a, b) => (sensorTimestampMs(b.data) || 0) - (sensorTimestampMs(a.data) || 0));
+  return candidates;
 }
 
-function eventInRegion(e, region){
-  const labels = labelsOf(e);
-  const text = `${e?.title || ""} ${e?.summary || ""}`.toLowerCase();
-  if (region === "north"){
-    return labels.some(l => ["REG:NORTH_SEA", "REG:GER_BIGHT", "REG:CHANNEL", "REG:SKAGERRAK"].includes(l)) || /north sea|nordsee|german bight|deutsche bucht|channel|skagerrak/.test(text);
-  }
-  return labels.some(l => ["REG:BALTIC_SEA", "REG:BALTIC", "REG:DANISH_STRAITS", "REG:ORESUND", "REG:GOTLAND_SEA", "REG:GULF_OF_FINLAND"].includes(l)) || /baltic|ostsee|danish straits|øresund|oresund|gulf of finland|gotland/.test(text);
-}
-
-
-function numeric(value){ const n = Number(value); return Number.isFinite(n) ? n : null; }
-function validPoint(obj){ const lat = numeric(obj?.lat ?? obj?.latitude); const lon = numeric(obj?.lon ?? obj?.longitude); return Number.isFinite(lat) && Number.isFinite(lon) && Math.abs(lat)<=90 && Math.abs(lon)<=180 ? { lat, lon } : null; }
-function pointFromAny(obj){
-  if (!obj || typeof obj !== "object") return null;
-  const candidates = [
-    [obj.lat,obj.lon],[obj.latitude,obj.longitude],[obj.Latitude,obj.Longitude],[obj.y,obj.x],
-    [obj.position?.lat,obj.position?.lon],[obj.position?.latitude,obj.position?.longitude],
-    [obj.coords?.lat,obj.coords?.lon],[obj.location?.lat,obj.location?.lon],[obj.geo?.lat,obj.geo?.lon]
-  ];
-  if (Array.isArray(obj.coordinates) && obj.coordinates.length>=2) candidates.push([obj.coordinates[1],obj.coordinates[0]]);
-  if (obj.geometry?.type === "Point" && Array.isArray(obj.geometry.coordinates)) candidates.push([obj.geometry.coordinates[1],obj.geometry.coordinates[0]]);
-  for (const [la,lo] of candidates){ const p = validPoint({ lat:la, lon:lo }); if (p) return p; }
-  return null;
-}
-function aisItemsFromPayload(payload){
-  if (!payload || typeof payload !== "object") return [];
-  const arrays = [payload.items,payload.vessels,payload.targets,payload.ships,payload.data,payload.rows,payload.results].filter(Array.isArray);
-  if (Array.isArray(payload.features)) arrays.push(payload.features.map(f => ({ ...(f.properties || {}), geometry:f.geometry })));
-  return arrays.flat().filter(Boolean);
-}
-function aisText(item){ return `${item?.name||""} ${item?.vessel_name||""} ${item?.shipname||""} ${item?.callsign||""} ${item?.ship_type||""} ${item?.ship_type_text||""} ${item?.type||""} ${item?.category||""} ${(Array.isArray(item?.labels)?item.labels.join(" "):"")}`.toLowerCase(); }
-function isAuthorityAisItem(item){
-  const labels = labelsOf(item);
-  if (hasAny(item,["V:AUTH_COAST_GUARD","V:AUTH_POLICE","V:AUTH_NAVY","V:AUTH_CUSTOMS","V:SAR_UNIT","V:GOVERNMENT","SRC:GOV","SRC:OFFICIAL"])) return true;
-  return /\b(coast guard|kustwacht|kystvakt|kystverket|police|polizei|bundespolizei|customs|douane|zoll|navy|naval|marine|patrol|sar|rescue|government|authority|bsh|wsv|havariekommando|border guard|fishery patrol)\b/i.test(aisText(item));
-}
-let cachedAuthorityAisItems = null;
-function authorityAisItems(){
-  if (cachedAuthorityAisItems) return cachedAuthorityAisItems;
-  const payload = readJsonMaybe(AIS_LIVE_PATH);
-  cachedAuthorityAisItems = aisItemsFromPayload(payload).map(item => { const p = pointFromAny(item); return p ? { ...item, lat:p.lat, lon:p.lon } : null; }).filter(item => item && isAuthorityAisItem(item));
-  return cachedAuthorityAisItems;
-}
-function distanceNm(a,b){
-  const R=3440.065, lat1=Number(a.lat)*Math.PI/180, lat2=Number(b.lat)*Math.PI/180;
-  const dLat=(Number(b.lat)-Number(a.lat))*Math.PI/180, dLon=(Number(b.lon)-Number(a.lon))*Math.PI/180;
-  const h=Math.sin(dLat/2)**2+Math.cos(lat1)*Math.cos(lat2)*Math.sin(dLon/2)**2;
-  return 2*R*Math.asin(Math.min(1,Math.sqrt(h)));
-}
-function eventTextForCorrelation(e){ return `${e?.title||""}\n${e?.summary||""}\n${e?.body||""}\n${labelsOf(e).join(" ")}\n${e?.source_line||""}\n${e?.source_id||""}`; }
-function sourceIsTjGeoSignal(e){ const t=eventTextForCorrelation(e).toLowerCase(); return /\b(te3ej|tj\s*\/\s*te3ej)\b/i.test(t); }
-function isPointLikeEventGeo(e){ const p = validPoint(e?.geo); if (!p) return false; const g=e.geo||{}; const method=String(g.method||"").toLowerCase(); const precision=String(g.precision||"").toLowerCase(); return precision === "exact" || precision === "route_waypoint" || /coordinate|waypoint|position|morse|dm_|dms/.test(method); }
-function isRussianSurveyOrGovTarget(e){
-  const labels = labelsOf(e);
-  if (hasAny(e,["V:RUS_RESEARCH","V:RUS_AUXILIARY","V:RUS_WARSHIP","V:RUS_GOV","V:SURVEY","V:INTELLIGENCE"])) return true;
-  const t = eventTextForCorrelation(e).toLowerCase();
-  return /\b(russian|russia|rus\.?|rf|ru navy|russian navy|black sea fleet|baltic fleet)\b/i.test(t) && /\b(research|survey|hydrographic|oceanographic|scientific|intelligence|sigint|spy ship|auxiliary|naval auxiliary|warship|submarine|yantar|sibiryakov|evgeniy churov|churov|government vessel|navy vessel)\b/i.test(t);
-}
-function tjAuthorityCorrelationPoints(events, region){
-  const auth = authorityAisItems();
-  if (!auth.length) return 0;
-  let points = 0;
-  for (const e of events){
-    if (!eventInRegion(e, region) || !sourceIsTjGeoSignal(e) || !isPointLikeEventGeo(e) || !isRussianSurveyOrGovTarget(e)) continue;
-    const near = auth.map(item => distanceNm(e.geo, item)).filter(n => Number.isFinite(n) && n <= 1).length;
-    if (near) points += Math.min(28, 18 + Math.max(0, near-1)*5);
-  }
-  return points;
-}
-
-function scoreWeirdnessFromEvents(events, region){
-  const now = Date.now();
-  let points = 0;
-  const seen = new Set();
-
-  for (const e of events){
-    const ms = getMs(e);
-    if (!ms || (now - ms) / 36e5 > 24 || !eventInRegion(e, region)) continue;
-    const key = e?.url || e?.id || e?.number || e?.title || JSON.stringify(e).slice(0, 80);
-    if (seen.has(key)) continue;
-    seen.add(key);
-
-    const labels = labelsOf(e);
-    const text = `${e?.title || ""} ${e?.summary || ""} ${labels.join(" ")}`.toLowerCase();
-    const ais = hasAny(e, ["SRC:AIS", "D:AIS_TRACK", "PAT:AIS_GAP", "PAT:DARK_ACTIVITY", "PAT:LOITERING", "PAT:ROUTE_DEVIATION", "PAT:ROUTE_OBSERVED", "PAT:STS_SUSPECT"]) || /ais gap|dark vessel|loitering|route deviation|ship-to-ship|\bsts\b|rendezvous/.test(text);
-    const adsb = hasAny(e, ["SRC:ADSB", "D:AIR_ACTIVITY", "V:MPA", "V:SAR_UNIT", "V:AUTH_COAST_GUARD", "PAT:RACETRACK", "PAT:LOW_ORBIT"]) || /ads-?b|mpa|p-8|p8 poseidon|sar aircraft|coast guard aircraft|helicopter|racetrack|orbit|isr/.test(text);
-    const official = hasAny(e, ["SRC:OFFICIAL", "SRC:AUTHORITY", "V:AUTH_COAST_GUARD"]) || /coast guard|police|navy|marine|behörde|bsh|wsv|official/.test(text);
-    const ci = hasAny(e, ["OBJ:PORT", "OBJ:VTS_WSV", "OBJ:CABLE", "OBJ:PIPELINE", "OBJ:WINDFARM", "D:INFRA_CI"]);
-    const rf = hasAny(e, ["D:RF_SIGNAL", "PAT:GNSS_JAM", "PAT:GNSS_SPOOF"]) || labels.some(l => l.startsWith("RF:"));
-
-    let w = 0;
-    if (ais) w += 4.5;
-    if (adsb) w += 4.0;
-    if (official) w += 1.5;
-    if (ci) w += 1.2;
-    if (rf) w += 1.3;
-    if (ais && adsb) w *= 1.8;
-    else if ((ais || adsb) && (official || ci || rf)) w *= 1.35;
-    points += w;
-  }
-
-  points += tjAuthorityCorrelationPoints(events, region);
-  return clamp(Math.round((points / 95) * 100), 0, 100);
+function selectSensorCandidate(candidates){
+  const usableFresh = candidates.filter(c => c.fresh && (c.has_canonical_hybrid || c.has_government_weirdness));
+  if (usableFresh.length) return usableFresh[0];
+  const freshest = candidates[0] || null;
+  return freshest;
 }
 
 function loadCurrentValues(){
-  const sensorRead = readFirstJson([
-    "data/snapshots/magicpaws_sensor_latest.json",
-    "data/snapshots/voodoo_sensor_latest.json",
-    "magicpaws_sensor_latest.json",
-    "voodoo_sensor_latest.json"
-  ]);
-  const sensor = sensorRead.data || {};
-  const { item:latest, sourcePath:dailySource } = latestDailySummary();
-  const { events, sourcePath:eventsSource } = loadEvents();
+  const nowMs = Date.now();
+  const candidates = loadSensorCandidates(nowMs);
+  const selected = selectSensorCandidate(candidates);
+  const sensor = selected?.data || {};
 
-  const hybrid = findNumber(sensor, [
+  const sensorFresh = !!(selected && selected.fresh);
+
+  const hybridPrimary = findNumberWithPath(sensor, [
+    "sensors.ntfy_hybrid_alert_pct",
+    "sensors.hybrid_seismograph_pct"
+  ]);
+
+  const hybridLegacy = findNumberWithPath(sensor, [
     "sensors.hybrid_index_pct",
-    "sensors.hybrid_index",
     "hybrid_index_pct",
     "hybrid_index",
     "hybridIndex",
@@ -299,16 +190,15 @@ function loadCurrentValues(){
     "p0_pct",
     "metrics.hybrid_index",
     "metrics.phase_zero_index"
-  ]) ?? findNumber(latest, [
-    "hybrid_index_pct",
-    "hybrid_index",
-    "hybrid_index_proxy",
-    "hybridIndex",
-    "phase_zero_index",
-    "p0_pct"
-  ]) ?? scorePhaseZero(events, 72);
+  ]);
 
-  const weirdNorth = findNumber(sensor, [
+  const hybridPeak = findNumberWithPath(sensor, [
+    "sensors.ntfy_hybrid_72h_peak_pct",
+    "sensors.hybrid_72h_peak_pct",
+    "hybrid_72h_peak_pct"
+  ]);
+
+  const weirdNorth = findNumberWithPath(sensor, [
     "sensors.government_weirdness.north_sea_pct",
     "sensors.government_weirdness.north_sea",
     "sensors.government_weirdness.north_pct",
@@ -318,16 +208,10 @@ function loadCurrentValues(){
     "government_weirdness.north_pct",
     "government_weirdness.north",
     "weirdness.north_sea_pct",
-    "weirdness.north_sea",
-    "government_weirdness_proxy.north_sea"
-  ]) ?? findNumber(latest, [
-    "government_weirdness.north_sea_pct",
-    "government_weirdness.north_sea",
-    "government_weirdness_proxy.north_sea",
     "weirdness.north_sea"
-  ]) ?? scoreWeirdnessFromEvents(events, "north");
+  ]);
 
-  const weirdBaltic = findNumber(sensor, [
+  const weirdBaltic = findNumberWithPath(sensor, [
     "sensors.government_weirdness.baltic_sea_pct",
     "sensors.government_weirdness.baltic_sea",
     "sensors.government_weirdness.baltic_pct",
@@ -337,25 +221,51 @@ function loadCurrentValues(){
     "government_weirdness.baltic_pct",
     "government_weirdness.baltic",
     "weirdness.baltic_sea_pct",
-    "weirdness.baltic_sea",
-    "government_weirdness_proxy.baltic_sea"
-  ]) ?? findNumber(latest, [
-    "government_weirdness.baltic_sea_pct",
-    "government_weirdness.baltic_sea",
-    "government_weirdness_proxy.baltic_sea",
     "weirdness.baltic_sea"
-  ]) ?? scoreWeirdnessFromEvents(events, "baltic");
+  ]);
+
+  const hybridValue = sensorFresh
+    ? (hybridPrimary.value ?? (CONFIG.allowLegacyHybridSource ? hybridLegacy.value : null))
+    : null;
 
   return {
     values: {
-      hybrid: Math.round(hybrid),
-      gov_weirdness_north: Math.round(weirdNorth),
-      gov_weirdness_baltic: Math.round(weirdBaltic)
+      hybrid: hybridValue === null ? null : Math.round(clamp(hybridValue, 0, 100)),
+      gov_weirdness_north: sensorFresh && weirdNorth.value !== null ? Math.round(clamp(weirdNorth.value, 0, 100)) : null,
+      gov_weirdness_baltic: sensorFresh && weirdBaltic.value !== null ? Math.round(clamp(weirdBaltic.value, 0, 100)) : null,
+      hybrid_72h_peak: sensorFresh && hybridPeak.value !== null ? Math.round(clamp(hybridPeak.value, 0, 100)) : null
     },
     sources: {
-      sensor: sensorRead.path,
-      daily_summary: dailySource,
-      events: eventsSource
+      selected_sensor: selected?.path || null,
+      selected_sensor_timestamp: selected?.timestamp || null,
+      selected_sensor_age_hours: selected?.age_hours === null || selected?.age_hours === undefined ? null : Number(selected.age_hours.toFixed(2)),
+      max_sensor_age_hours: CONFIG.maxSensorAgeHours,
+      sensor_is_fresh: sensorFresh,
+      candidate_sensors: candidates.map(c => ({
+        path:c.path,
+        timestamp:c.timestamp,
+        age_hours:c.age_hours === null || c.age_hours === undefined ? null : Number(c.age_hours.toFixed(2)),
+        fresh:c.fresh,
+        has_canonical_hybrid:c.has_canonical_hybrid,
+        has_legacy_hybrid:c.has_legacy_hybrid,
+        has_government_weirdness:c.has_government_weirdness
+      }))
+    },
+    measurement_paths: {
+      hybrid: sensorFresh ? (hybridPrimary.path || (CONFIG.allowLegacyHybridSource ? hybridLegacy.path : null)) : null,
+      hybrid_legacy_detected: hybridLegacy.path,
+      hybrid_legacy_value: hybridLegacy.value,
+      hybrid_72h_peak: sensorFresh ? hybridPeak.path : null,
+      gov_weirdness_north: sensorFresh ? weirdNorth.path : null,
+      gov_weirdness_baltic: sensorFresh ? weirdBaltic.path : null
+    },
+    data_quality: {
+      ok: sensorFresh && (hybridPrimary.value !== null || CONFIG.allowLegacyHybridSource),
+      hybrid_uses_canonical_sensor: sensorFresh && hybridPrimary.value !== null,
+      legacy_hybrid_source_allowed: CONFIG.allowLegacyHybridSource,
+      note: sensorFresh
+        ? "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values are not alert triggers."
+        : "No fresh current sensor snapshot available. Threshold alerts are suppressed and metric episodes are reset."
     }
   };
 }
@@ -381,12 +291,37 @@ function makeMetricState(previous, patch){
   };
 }
 
-function evaluateMetric({ key, label, value, threshold, priority, tags }, previousState, nowIso, nowMs){
+function evaluateMetric({ key, label, value, threshold, priority, tags, measurement_path }, previousState, nowIso, nowMs){
   const prev = previousState || {};
-  const isHigh = value > threshold;
+  const finiteValue = Number(value);
+  const hasValue = Number.isFinite(finiteValue);
   let changed = false;
   let alert = null;
   let next = makeMetricState(prev, {});
+
+  if (!hasValue){
+    next = makeMetricState(prev, {
+      is_over_threshold: false,
+      consecutive_high_runs: 0,
+      alerted_for_current_episode: false,
+      first_high_at: null,
+      recovered_at: prev.is_over_threshold || Number(prev.consecutive_high_runs || 0) > 0 ? nowIso : (prev.recovered_at || null),
+      last_value: null,
+      threshold,
+      label,
+      measurement_path: measurement_path || null,
+      unavailable_at: nowIso,
+      unavailable_reason: "no_fresh_current_sensor_value"
+    });
+    if (prev.is_over_threshold || Number(prev.consecutive_high_runs || 0) > 0 || prev.alerted_for_current_episode || prev.last_value !== null){
+      next.last_state_change_at = nowIso;
+      changed = true;
+    }
+    return { next, changed, alert };
+  }
+
+  const roundedValue = Math.round(clamp(finiteValue, 0, 100));
+  const isHigh = roundedValue > threshold;
 
   if (isHigh){
     const wasHigh = prev.is_over_threshold === true;
@@ -398,18 +333,21 @@ function evaluateMetric({ key, label, value, threshold, priority, tags }, previo
       consecutive_high_runs: nextRuns,
       first_high_at: wasHigh ? (prev.first_high_at || nowIso) : nowIso,
       recovered_at: null,
-      last_value: value,
+      last_value: roundedValue,
       threshold,
-      label
+      label,
+      measurement_path: measurement_path || null,
+      unavailable_at: null,
+      unavailable_reason: null
     });
 
-    if (!wasHigh || nextRuns !== prevRuns || prev.last_value !== value || prev.threshold !== threshold){
+    if (!wasHigh || nextRuns !== prevRuns || prev.last_value !== roundedValue || prev.threshold !== threshold || prev.measurement_path !== measurement_path){
       next.last_state_change_at = nowIso;
       changed = true;
     }
 
     if (nextRuns >= CONFIG.requiredHighRuns && !prev.alerted_for_current_episode && shouldPassCooldown(prev, nowMs)){
-      alert = { key, label, value, threshold, priority, tags, consecutive_high_runs: nextRuns, first_high_at: next.first_high_at };
+      alert = { key, label, value:roundedValue, threshold, priority, tags, consecutive_high_runs: nextRuns, first_high_at: next.first_high_at, measurement_path };
     }
   } else {
     next = makeMetricState(prev, {
@@ -418,12 +356,15 @@ function evaluateMetric({ key, label, value, threshold, priority, tags }, previo
       alerted_for_current_episode: false,
       first_high_at: null,
       recovered_at: prev.is_over_threshold || Number(prev.consecutive_high_runs || 0) > 0 ? nowIso : (prev.recovered_at || null),
-      last_value: value,
+      last_value: roundedValue,
       threshold,
-      label
+      label,
+      measurement_path: measurement_path || null,
+      unavailable_at: null,
+      unavailable_reason: null
     });
 
-    if (prev.is_over_threshold || Number(prev.consecutive_high_runs || 0) > 0 || prev.alerted_for_current_episode || prev.last_value !== value || prev.threshold !== threshold){
+    if (prev.is_over_threshold || Number(prev.consecutive_high_runs || 0) > 0 || prev.alerted_for_current_episode || prev.last_value !== roundedValue || prev.threshold !== threshold || prev.measurement_path !== measurement_path){
       next.last_state_change_at = nowIso;
       changed = true;
     }
@@ -439,7 +380,7 @@ async function sendNtfy(title, message, priority = "high", tags = "warning,magic
     return false;
   }
 
-  const url = cleanEnvValue(process.env.NTFY_URL);
+  const url = cleanSecret(process.env.NTFY_URL);
   if (!url) throw new Error("NTFY_URL missing although NTFY_ENABLED is true");
   try { new URL(url); }
   catch { throw new Error("NTFY_URL is not a valid absolute URL. Expected format: https://ntfy.sh/<topic>"); }
@@ -449,7 +390,7 @@ async function sendNtfy(title, message, priority = "high", tags = "warning,magic
     Priority: String(priority),
     Tags: tags
   };
-  const token = cleanEnvValue(process.env.NTFY_TOKEN);
+  const token = cleanSecret(process.env.NTFY_TOKEN);
   if (token) headers.Authorization = `Bearer ${token}`;
 
   const res = await fetch(url, { method:"POST", headers, body:message });
@@ -457,15 +398,25 @@ async function sendNtfy(title, message, priority = "high", tags = "warning,magic
   return true;
 }
 
-function buildAlertText(alert, allValues, generatedAt){
+function fmtValue(value){
+  return value === null || value === undefined ? "n/a" : `${value}%`;
+}
+
+function buildAlertText(alert, current, generatedAt){
   return [
     `${alert.label} liegt bei ${alert.value}% und damit über der Schwelle ${alert.threshold}%.`,
     `Auslösung erst nach ${alert.consecutive_high_runs} aufeinanderfolgenden Workflow-Läufen über Schwelle.`,
     `Erster hoher Lauf: ${alert.first_high_at || "unbekannt"}`,
+    `Messpfad: ${alert.measurement_path || "unbekannt"}`,
     "",
-    `Hybrid: ${allValues.hybrid}%`,
-    `Government Weirdness Nordsee: ${allValues.gov_weirdness_north}%`,
-    `Government Weirdness Ostsee: ${allValues.gov_weirdness_baltic}%`,
+    `Hybrid aktuell: ${fmtValue(current.values.hybrid)}`,
+    `Hybrid 72h-Peak: ${fmtValue(current.values.hybrid_72h_peak)}`,
+    `Government Weirdness Nordsee: ${fmtValue(current.values.gov_weirdness_north)}`,
+    `Government Weirdness Ostsee: ${fmtValue(current.values.gov_weirdness_baltic)}`,
+    "",
+    `Sensorquelle: ${current.sources.selected_sensor || "keine"}`,
+    `Sensorstand: ${current.sources.selected_sensor_timestamp || "unbekannt"}`,
+    `Sensoralter: ${current.sources.selected_sensor_age_hours ?? "n/a"} h`,
     `Stand: ${generatedAt}`
   ].join("\n");
 }
@@ -473,19 +424,23 @@ function buildAlertText(alert, allValues, generatedAt){
 async function main(){
   const nowMs = Date.now();
   const nowIso = new Date(nowMs).toISOString();
-  const { values, sources } = loadCurrentValues();
+  const current = loadCurrentValues();
+  const { values, sources, measurement_paths, data_quality } = current;
 
   const previousState = readJsonMaybe(STATE_PATH) || {};
   const state = {
-    schema: "MAGIC_PAWS_NTFY_THRESHOLD_STATE_v2",
-    version: "v5.52 Two-run threshold gate + TJ geo fallback",
+    schema: "MAGIC_PAWS_NTFY_THRESHOLD_STATE_v3",
+    version: "v5.52 Canonical sensor threshold values",
     thresholds: {
       hybrid: CONFIG.hybridThreshold,
       government_weirdness: CONFIG.weirdnessThreshold,
       required_high_runs: CONFIG.requiredHighRuns,
-      cooldown_minutes: CONFIG.cooldownMinutes
+      cooldown_minutes: CONFIG.cooldownMinutes,
+      max_sensor_age_hours: CONFIG.maxSensorAgeHours
     },
     sources,
+    measurement_paths,
+    data_quality,
     metrics: {
       ...(previousState.metrics || {})
     },
@@ -498,11 +453,12 @@ async function main(){
   const metricDefs = [
     {
       key: "hybrid",
-      label: "Hybrid-Index",
+      label: "Hybrid-Seismograph",
       value: values.hybrid,
       threshold: CONFIG.hybridThreshold,
       priority: "5",
-      tags: "rotating_light,warning,magicpaws"
+      tags: "rotating_light,warning,magicpaws",
+      measurement_path: measurement_paths.hybrid
     },
     {
       key: "gov_weirdness_north",
@@ -510,7 +466,8 @@ async function main(){
       value: values.gov_weirdness_north,
       threshold: CONFIG.weirdnessThreshold,
       priority: "4",
-      tags: "warning,ship,magicpaws"
+      tags: "warning,ship,magicpaws",
+      measurement_path: measurement_paths.gov_weirdness_north
     },
     {
       key: "gov_weirdness_baltic",
@@ -518,7 +475,8 @@ async function main(){
       value: values.gov_weirdness_baltic,
       threshold: CONFIG.weirdnessThreshold,
       priority: "4",
-      tags: "warning,ship,magicpaws"
+      tags: "warning,ship,magicpaws",
+      measurement_path: measurement_paths.gov_weirdness_baltic
     }
   ];
 
@@ -537,7 +495,7 @@ async function main(){
 
   for (const alert of pendingAlerts){
     const title = `MAGIC PAWS ${alert.label}: ${alert.value}%`;
-    const message = buildAlertText(alert, values, nowIso);
+    const message = buildAlertText(alert, current, nowIso);
     try {
       const wasSent = await sendNtfy(title, message, alert.priority, alert.tags);
       if (wasSent){
@@ -563,7 +521,8 @@ async function main(){
     pending_alerts: pendingAlerts.map(a => a.key),
     sent,
     failed,
-    ntfy_enabled: boolFromEnv("NTFY_ENABLED", false)
+    ntfy_enabled: boolFromEnv("NTFY_ENABLED", false),
+    data_quality
   };
 
   const oldSerialized = JSON.stringify(previousState.metrics || {});
@@ -579,7 +538,10 @@ async function main(){
     at: nowIso,
     values,
     thresholds: state.thresholds,
-    pending_alerts: pendingAlerts.map(a => ({ key:a.key, value:a.value, consecutive_high_runs:a.consecutive_high_runs })),
+    sources,
+    measurement_paths,
+    data_quality,
+    pending_alerts: pendingAlerts.map(a => ({ key:a.key, value:a.value, consecutive_high_runs:a.consecutive_high_runs, measurement_path:a.measurement_path })),
     alerts_sent: sent,
     alerts_failed: failed,
     state_written: CONFIG.writeStateEveryRun || stateChanged || oldSerialized !== newSerialized
@@ -593,8 +555,8 @@ main().catch(err => {
   const previousState = readJsonMaybe(STATE_PATH) || {};
   const state = {
     ...previousState,
-    schema: "MAGIC_PAWS_NTFY_THRESHOLD_STATE_v2",
-    version: "v5.52 Two-run threshold gate + TJ geo fallback",
+    schema: "MAGIC_PAWS_NTFY_THRESHOLD_STATE_v3",
+    version: "v5.52 Canonical sensor threshold values",
     last_error: String(err?.stack || err?.message || err),
     last_run: {
       at: nowIso,
