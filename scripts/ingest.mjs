@@ -28,7 +28,7 @@ import crypto from "node:crypto";
 import YAML from "yaml";
 import { XMLParser } from "fast-xml-parser";
 
-const VERSION = 'MAGIC PAWS ingest v5.32c "Soft Source Errors + Social Bridge X/Bsky"';
+const VERSION = 'MAGIC PAWS ingest v5.33 "TJ Geo + Gov Weirdness Correlation Metadata"';
 
 const SOURCES_FILE = process.env.SOURCES_FILE || "config/sources.yml";
 const DEFAULT_SOCIAL_BRIDGE_BASE =
@@ -43,8 +43,8 @@ const MAX_EXISTING_ISSUES = Number(process.env.MAX_EXISTING_ISSUES || 1000);
 const DRY_RUN = process.env.DRY_RUN === "1";
 
 const NTFY_ENABLED = String(process.env.NTFY_ENABLED || "").toLowerCase() === "true" || process.env.NTFY_ENABLED === "1";
-const NTFY_URL = process.env.NTFY_URL || "";
-const NTFY_TOKEN = process.env.NTFY_TOKEN || "";
+const NTFY_URL = String(process.env.NTFY_URL || "").trim().replace(/^["\'`]+|["\'`]+$/g, "").trim();
+const NTFY_TOKEN = String(process.env.NTFY_TOKEN || "").trim().replace(/^["\'`]+|["\'`]+$/g, "").trim();
 const NTFY_MIN_LEVEL = String(process.env.NTFY_MIN_LEVEL || "HIGH").toUpperCase();
 // Source-level fetch/item errors should not make the whole hourly GitHub Action red by default.
 // Set FAIL_ON_SOURCE_ERRORS=1 only when you explicitly want strict CI behavior.
@@ -327,7 +327,18 @@ function extractCoordinatePairs(text) {
   const dms = /(\d{1,2})[°\s]+(\d{1,2})['’\s]+(\d{1,2}(?:\.\d+)?)?["”]?\s*([NS])\b[^\dNSWE]{0,16}(\d{1,3})[°\s]+(\d{1,2})['’\s]+(\d{1,2}(?:\.\d+)?)?["”]?\s*([EW])\b/gi;
   for (const m of t.matchAll(dms)) add(dmsToDecimal(m[1], m[2], m[3] || 0, m[4]), dmsToDecimal(m[5], m[6], m[7] || 0, m[8]), m[0], "dms_coordinate");
 
-  return out.slice(0, 12);
+  // Morse/weather-position shorthand often appears as DDMMN DDDMME, DD MM N DDD MM E,
+  // or N DD MM E DDD MM. Treat minute-level positions as plausible vessel positions.
+  const compactDm = /\b(\d{2})(\d{2}(?:\.\d+)?)\s*([NS])\b[^\dNSWE]{0,18}\b(\d{3})(\d{2}(?:\.\d+)?)\s*([EW])\b/gi;
+  for (const m of t.matchAll(compactDm)) add(dmsToDecimal(m[1], m[2], 0, m[3]), dmsToDecimal(m[4], m[5], 0, m[6]), m[0], "morse_weather_dm_coordinate");
+
+  const spacedDm = /\b(\d{1,2})\s+(\d{1,2}(?:\.\d+)?)\s*([NS])\b[^\dNSWE]{0,18}\b(\d{1,3})\s+(\d{1,2}(?:\.\d+)?)\s*([EW])\b/gi;
+  for (const m of t.matchAll(spacedDm)) add(dmsToDecimal(m[1], m[2], 0, m[3]), dmsToDecimal(m[4], m[5], 0, m[6]), m[0], "morse_weather_spaced_dm_coordinate");
+
+  const hemiFirstDm = /\b([NS])\s*(\d{1,2})\s+(\d{1,2}(?:\.\d+)?)\b[^\dNSWE]{0,18}\b([EW])\s*(\d{1,3})\s+(\d{1,2}(?:\.\d+)?)\b/gi;
+  for (const m of t.matchAll(hemiFirstDm)) add(dmsToDecimal(m[2], m[3], 0, m[1]), dmsToDecimal(m[5], m[6], 0, m[4]), m[0], "morse_weather_hemi_first_dm_coordinate");
+
+  return out.slice(0, 16);
 }
 
 function suppressPlaceFalsePositive(place, textLower) {
@@ -470,6 +481,33 @@ function labelColorFor(label) {
   return "ededed";
 }
 
+
+function addInferredVesselContextLabels(labels, source = {}, item = {}) {
+  const out = Array.isArray(labels) ? [...labels] : [];
+  const hay = `${item?.title || ""}
+${item?.text || ""}
+${item?.summary || ""}
+${item?.description || ""}
+${source?.id || ""}
+${source?.name || ""}`.toLowerCase();
+  const add = (label) => { if (label && !out.includes(label)) out.push(label); };
+
+  const russian = /(russian|russia|rus\.?|rf|росси|россий|ru navy|russian navy|black sea fleet|baltic fleet)/i.test(hay);
+  const research = /(research|survey|hydrographic|oceanographic|oceanology|scientific|spy ship|intelligence ship|sigint|ag[iy]|yantar|sibiryakov|evgeniy churov|churov)/i.test(hay);
+  const auxiliary = /(auxiliary|support ship|tug|salvage|rescue tug|naval auxiliary|fleet oiler|special purpose)/i.test(hay);
+  const warship = /(warship|frigate|corvette|destroyer|submarine|naval vessel|navy vessel|missile ship)/i.test(hay);
+  const sanctions = /(shadow fleet|sanctioned|sanctions|dark fleet|pre-sanction|pre sanction|sovcomflot|sts)/i.test(hay);
+
+  if (russian && research) { add("V:RUS_RESEARCH"); add("V:SURVEY"); }
+  if (russian && auxiliary) add("V:RUS_AUXILIARY");
+  if (russian && warship) add("V:RUS_WARSHIP");
+  if (russian && /(government|state|navy|naval|coast guard|border guard|fsi|fsb)/i.test(hay)) add("V:RUS_GOV");
+  if (research && /(intelligence|sigint|spy|surveillance|reconnaissance)/i.test(hay)) add("V:INTELLIGENCE");
+  if (sanctions) add("V:SANCTIONS_EVASION");
+
+  return uniqueStrings(out);
+}
+
 function normalizeLabels(source, item = {}, config = {}) {
   const defaultLabels = [
     ...yamlScalarArray(config?.defaults?.base_labels),
@@ -507,6 +545,7 @@ function normalizeLabels(source, item = {}, config = {}) {
   if (!labels.some(l => l.startsWith("CONF:"))) labels.push(config?.defaults?.confidence_fallback || "CONF:LOW");
   if (!labels.some(l => l.startsWith("SEV:"))) labels.push(config?.defaults?.severity_fallback || "SEV:1");
 
+  labels = addInferredVesselContextLabels(labels, source, item);
   return uniqueStrings(labels);
 }
 
@@ -520,6 +559,22 @@ function makeIngestId(source, item) {
   ].join("|");
 
   return `${source.id || "source"}:${sha256Short(stable, 20)}`;
+}
+
+
+function sourceGeoMetadata(source = {}) {
+  return {
+    source_id: source.id || null,
+    source_profile: source.source_profile || source.sourceProfile || null,
+    map_enabled: source.map_enabled === undefined ? null : Boolean(source.map_enabled),
+    geo_priority: source.geo_priority || source.geoPriority || null,
+    route_source: Boolean(source.route_source || source.routeSource),
+    government_weirdness_source: Boolean(source.government_weirdness_source || source.governmentWeirdnessSource),
+    gov_weirdness_correlation: source.gov_weirdness_correlation || source.govWeirdnessCorrelation || null,
+    position_reliability: source.position_reliability || null,
+    position_basis: source.position_basis || null,
+    geo_interpretation: source.geo_interpretation || null
+  };
 }
 
 function makeBody({ source, item, link, title, text, labels, ingestId, sourcePublishedAt, ingestedAt, geoEvidence = null, priorityAlert = null }) {
@@ -576,7 +631,12 @@ function makeBody({ source, item, link, title, text, labels, ingestId, sourcePub
     ] : []),
     ...(geoEvidence?.hasMap ? [
       "### Geo JSON",
-      JSON.stringify({ geo: geoEvidence.geo, geo_candidates: geoEvidence.geo_candidates || [], route: geoEvidence.route || null }, null, 2),
+      JSON.stringify({
+        geo: geoEvidence.geo,
+        geo_candidates: geoEvidence.geo_candidates || [],
+        route: geoEvidence.route || null,
+        source_geo_metadata: sourceGeoMetadata(source)
+      }, null, 2),
       ""
     ] : []),
     ...(priorityAlert && priorityAlert.level && priorityAlert.level !== "NONE" ? [
@@ -671,7 +731,7 @@ function classifyPriorityAlert({ title = "", text = "", labels = [], geoEvidence
 function alertBody(priorityAlert, { title = "", source = {}, link = "", issueUrl = "", labels = [] }) {
   const src = source?.name || source?.id || "Unknown source";
   const reasons = (priorityAlert?.reasons || []).map((r) => `- ${r}`).join("\n");
-  const target = issueUrl || link || "";
+  const target = link || issueUrl || "";
   return [
     priorityAlert?.title || `MAGIC PAWS ${priorityAlert?.level || "ALERT"}`,
     "",
@@ -697,7 +757,7 @@ async function sendNtfyAlert(priorityAlert, context = {}) {
     "Tags": priorityAlert.tags || "warning,ship",
     "Content-Type": "text/plain; charset=utf-8"
   };
-  const clickUrl = context.issueUrl || context.link || "";
+  const clickUrl = context.link || context.issueUrl || "";
   if (clickUrl) headers["Click"] = clickUrl;
   if (NTFY_TOKEN) headers.Authorization = `Bearer ${NTFY_TOKEN}`;
 
