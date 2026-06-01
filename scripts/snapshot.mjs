@@ -4,8 +4,8 @@ import YAML from "yaml";
 
 const SNAPSHOT_PATH = "data/snapshots/voodoo_sensor_snapshots.ndjson";
 const LATEST_PATH = "data/snapshots/voodoo_sensor_latest.json";
+const MAGICPAWS_LATEST_PATH = "data/snapshots/magicpaws_sensor_latest.json";
 const KEYWORD_CFG_PATH = "config/keyword_barometer.yml";
-const AIS_LIVE_PATH = "data/live/ais_latest.json";
 
 const DEFAULT_OWNER = "mowlsint";
 const DEFAULT_REPO = "Voodoo_Dashboard";
@@ -252,7 +252,6 @@ function issueToEvent(issue) {
     body.match(/(-?\d{1,2}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)/);
 
   const geoJson = parseGeoJsonFromBody(body);
-  const sourceGeoMetadata = geoJson?.source_geo_metadata || geoJson?.source_metadata || {};
   let geo = validGeoPoint(geoJson.geo)
     ? geoJson.geo
     : (latLonMatch ? { lat: Number(latLonMatch[1]), lon: Number(latLonMatch[2]), method: "explicit_coordinate", confidence: "high", display_on_map: true } : null);
@@ -283,7 +282,6 @@ ${body}`);
     geo,
     geo_candidates,
     route,
-    source_geo_metadata: sourceGeoMetadata,
   };
 }
 
@@ -690,130 +688,6 @@ function eventInRegion(e, regionId) {
   return false;
 }
 
-
-function readJsonIfExists(filePath) {
-  try {
-    if (!fs.existsSync(filePath)) return null;
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch {
-    return null;
-  }
-}
-
-function numeric(value) {
-  const n = Number(value);
-  return Number.isFinite(n) ? n : null;
-}
-
-function pointFromAny(obj) {
-  if (!obj || typeof obj !== "object") return null;
-  const candidates = [
-    [obj.lat, obj.lon], [obj.latitude, obj.longitude], [obj.Latitude, obj.Longitude],
-    [obj.y, obj.x], [obj.position?.lat, obj.position?.lon], [obj.position?.latitude, obj.position?.longitude],
-    [obj.coords?.lat, obj.coords?.lon], [obj.location?.lat, obj.location?.lon],
-    [obj.geo?.lat, obj.geo?.lon], [obj.center?.lat, obj.center?.lon]
-  ];
-  if (Array.isArray(obj.coordinates) && obj.coordinates.length >= 2) candidates.push([obj.coordinates[1], obj.coordinates[0]]);
-  if (obj.geometry?.type === "Point" && Array.isArray(obj.geometry.coordinates)) candidates.push([obj.geometry.coordinates[1], obj.geometry.coordinates[0]]);
-  for (const [la, lo] of candidates) {
-    const lat = numeric(la), lon = numeric(lo);
-    if (Number.isFinite(lat) && Number.isFinite(lon) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180) return { lat, lon };
-  }
-  return null;
-}
-
-function aisItemsFromPayload(payload) {
-  if (!payload || typeof payload !== "object") return [];
-  const arrays = [payload.items, payload.vessels, payload.targets, payload.ships, payload.data, payload.rows, payload.results].filter(Array.isArray);
-  if (Array.isArray(payload.features)) arrays.push(payload.features.map(f => ({ ...(f.properties || {}), geometry:f.geometry })));
-  return arrays.flat().filter(Boolean);
-}
-
-function aisText(item) {
-  return `${item?.name || ""} ${item?.vessel_name || ""} ${item?.shipname || ""} ${item?.callsign || ""} ${item?.ship_type || ""} ${item?.ship_type_text || ""} ${item?.type || ""} ${item?.category || ""} ${item?.nav_status || ""} ${(Array.isArray(item?.labels) ? item.labels.join(" ") : "")}`.toLowerCase();
-}
-
-function isAuthorityAisItem(item) {
-  const labels = Array.isArray(item?.labels) ? item.labels : [];
-  if (hasAny(labels, ["V:AUTH_COAST_GUARD","V:AUTH_POLICE","V:AUTH_NAVY","V:AUTH_CUSTOMS","V:SAR_UNIT","V:GOVERNMENT","SRC:GOV","SRC:OFFICIAL"])) return true;
-  const t = aisText(item);
-  return /\b(coast guard|kustwacht|kystvakt|kystverket|police|polizei|bundespolizei|customs|douane|zoll|navy|naval|marine|patrol|sar|search and rescue|rescue|government|authority|bsh|wsv|havariekommando|border guard|fiskeridirektoratet|fishery patrol)\b/i.test(t);
-}
-
-let cachedAuthorityAisItems = null;
-function authorityAisItems() {
-  if (cachedAuthorityAisItems) return cachedAuthorityAisItems;
-  const payload = readJsonIfExists(AIS_LIVE_PATH);
-  cachedAuthorityAisItems = aisItemsFromPayload(payload).map(item => {
-    const point = pointFromAny(item);
-    return point ? { ...item, lat:point.lat, lon:point.lon } : null;
-  }).filter(item => item && isAuthorityAisItem(item));
-  return cachedAuthorityAisItems;
-}
-
-function distanceNm(a, b) {
-  const R = 3440.065;
-  const lat1 = Number(a.lat) * Math.PI / 180;
-  const lat2 = Number(b.lat) * Math.PI / 180;
-  const dLat = (Number(b.lat) - Number(a.lat)) * Math.PI / 180;
-  const dLon = (Number(b.lon) - Number(a.lon)) * Math.PI / 180;
-  const h = Math.sin(dLat/2)**2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon/2)**2;
-  return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
-}
-
-function eventTextForCorrelation(e) {
-  return `${e?.title || ""}\n${e?.body || ""}\n${(e?.labels || []).join(" ")}\n${e?.source_line || ""}\n${e?.source_id || ""}`;
-}
-
-function sourceIsTjGeoSignal(e) {
-  const meta = e?.source_geo_metadata || {};
-  const t = eventTextForCorrelation(e).toLowerCase();
-  return /\b(te3ej|tj\s*\/\s*te3ej)\b/i.test(t) || meta.government_weirdness_source === true || (String(meta.source_profile || "") === "route_geo_social" && /te3ej/i.test(String(e?.source_id || e?.source_line || "")));
-}
-
-function isPointLikeEventGeo(e) {
-  if (!validGeoPoint(e?.geo)) return false;
-  const g = e.geo || {};
-  const method = String(g.method || "").toLowerCase();
-  const precision = String(g.precision || "").toLowerCase();
-  return precision === "exact" || precision === "route_waypoint" || /coordinate|waypoint|position|morse|dm_|dms/.test(method);
-}
-
-function isRussianSurveyOrGovTarget(e) {
-  const labels = e?.labels || [];
-  if (hasAny(labels, ["V:RUS_RESEARCH","V:RUS_AUXILIARY","V:RUS_WARSHIP","V:RUS_GOV","V:SURVEY","V:INTELLIGENCE"])) return true;
-  const t = eventTextForCorrelation(e).toLowerCase();
-  const russian = /\b(russian|russia|rus\.?|rf|ru navy|russian navy|black sea fleet|baltic fleet|росси|россий)\b/i.test(t);
-  const target = /\b(research|survey|hydrographic|oceanographic|scientific|intelligence|sigint|spy ship|auxiliary|naval auxiliary|warship|frigate|corvette|submarine|yantar|sibiryakov|evgeniy churov|churov|government vessel|navy vessel)\b/i.test(t);
-  return russian && target;
-}
-
-function tjAuthorityCorrelations(regionalEvents, regionId) {
-  const authority = authorityAisItems();
-  const matches = [];
-  if (!authority.length) return { matches, weighted_points:0, authority_targets:0 };
-  for (const e of regionalEvents) {
-    if (!sourceIsTjGeoSignal(e) || !isPointLikeEventGeo(e) || !isRussianSurveyOrGovTarget(e)) continue;
-    const near = authority.map(item => ({ item, distance_nm:distanceNm(e.geo, item) }))
-      .filter(x => Number.isFinite(x.distance_nm) && x.distance_nm <= 1)
-      .sort((a,b) => a.distance_nm - b.distance_nm);
-    if (!near.length) continue;
-    const bonus = Math.min(28, 18 + Math.max(0, near.length - 1) * 5);
-    matches.push({
-      event_number:e.number,
-      title:String(e.title || "").slice(0, 160),
-      source_id:e.source_id || null,
-      region:regionId,
-      lat:Number(e.geo.lat),
-      lon:Number(e.geo.lon),
-      authority_count:near.length,
-      nearest_nm:Number(near[0].distance_nm.toFixed(2)),
-      points:bonus
-    });
-  }
-  return { matches, weighted_points:Number(matches.reduce((sum, m) => sum + m.points, 0).toFixed(2)), authority_targets:authority.length };
-}
-
 function scoreGovernmentWeirdness(events, regionId) {
   const regional = events.filter((e) => eventInRegion(e, regionId));
   let points = 0;
@@ -842,12 +716,6 @@ function scoreGovernmentWeirdness(events, regionId) {
     points += evPts * eventFactor;
   }
 
-  const tjCorrelation = tjAuthorityCorrelations(regional, regionId);
-  if (tjCorrelation.weighted_points > 0) {
-    points += tjCorrelation.weighted_points;
-    coupled_signal_events += tjCorrelation.matches.length;
-  }
-
   return {
     score: clamp(Math.round((points / 38) * 100)),
     weighted_points: Number(points.toFixed(2)),
@@ -856,9 +724,6 @@ function scoreGovernmentWeirdness(events, regionId) {
     ais_signal_events,
     adsb_signal_events,
     coupled_signal_events,
-    tj_geo_authority_correlations: tjCorrelation.matches.length,
-    tj_geo_authority_points: tjCorrelation.weighted_points,
-    tj_geo_authority_matches: tjCorrelation.matches.slice(0, 10),
   };
 }
 
@@ -1006,6 +871,11 @@ async function main() {
       geo_count_method: "explicit_coordinates_or_controlled_candidates",
     },
     sensors: {
+      // Canonical current Hybrid value for dashboard and ntfy threshold alerts.
+      // Do not use daily hybrid_index_proxy for ntfy threshold alerts.
+      ntfy_hybrid_alert_pct: hybrid.score,
+      ntfy_hybrid_alert_source: "hybrid_seismograph_pct",
+      ntfy_hybrid_72h_peak_pct: hybrid.peak_score,
       hybrid_seismograph_pct: hybrid.score,
       hybrid_window_hours: hybrid.window_hours,
       hybrid_72h_peak_pct: hybrid.peak_score,
@@ -1030,14 +900,6 @@ async function main() {
       government_weirdness_baltic_sea_events: govBaltic.regional_events,
       government_weirdness_north_sea_weighted_events: govNorth.regional_weighted_events,
       government_weirdness_baltic_sea_weighted_events: govBaltic.regional_weighted_events,
-      government_weirdness_north_sea_tj_geo_authority_correlations: govNorth.tj_geo_authority_correlations,
-      government_weirdness_baltic_sea_tj_geo_authority_correlations: govBaltic.tj_geo_authority_correlations,
-      government_weirdness_north_sea_tj_geo_authority_points: govNorth.tj_geo_authority_points,
-      government_weirdness_baltic_sea_tj_geo_authority_points: govBaltic.tj_geo_authority_points,
-      government_weirdness_tj_geo_authority_matches: [
-        ...(govNorth.tj_geo_authority_matches || []),
-        ...(govBaltic.tj_geo_authority_matches || [])
-      ].slice(0, 12),
       keyword_config_loaded: keyword.config_loaded,
       keyword_config_version: keyword.config_version ?? null,
       cold_start_note: "Scores are cold-start density values until a 90-day baseline exists.",
@@ -1082,9 +944,11 @@ async function main() {
 
   writeSnapshots(SNAPSHOT_PATH, existing);
   writeLatest(LATEST_PATH, snapshot);
+  writeLatest(MAGICPAWS_LATEST_PATH, snapshot);
 
   console.log(`Snapshots stored: ${existing.length}`);
   console.log(`Latest written: ${LATEST_PATH}`);
+  console.log(`MagicPaws latest written: ${MAGICPAWS_LATEST_PATH}`);
   console.log(`NDJSON written: ${SNAPSHOT_PATH}`);
   console.log(`Hybrid: ${snapshot.sensors.hybrid_seismograph_pct}%`);
   console.log(`Keyword: ${snapshot.sensors.keyword_barometer_pct}%`);
