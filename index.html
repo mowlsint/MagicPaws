@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.49 "Indicators + Threshold Alerts"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.50 "TJ Geo Weirdness + Threshold ntfy State"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -1336,7 +1336,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     aisLatest: "./data/live/ais_latest.json",
     aisDrift: "./data/live/ais_drift_candidates.json",
     adsbLatest: "./data/live/adsb_latest.json",
-    ntfyState: "./data/live/ais_drift_alert_state.json"
+    ntfyState: "./data/live/magicpaws_threshold_alert_state.json"
   };
 
   // show worker host
@@ -1531,7 +1531,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
 
   function originalUrlFromEvent(ev){
-    const direct = [ev.original_url, ev.source_url, ev.link]
+    const direct = [ev.original_url, ev.source_url, ev.link, ev?.source_hint?.link]
       .map(cleanUrl)
       .find(u => /^https?:\/\//i.test(u) && !isGithubIssueUrl(u));
 
@@ -1913,7 +1913,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
       { key:'snapshot', label:'Snapshot', status:snapStatus, meta:fmtAgeMinutes(snapAge), reason:snap ? 'Sensor-Snapshot' : 'Snapshot-Datei fehlt',
         details: [["Datei","data/snapshots/magicpaws_sensor_latest.json"],["Alter",fmtAgeMinutes(snapAge)],["Schwelle","grün ≤4h, orange ≤8h"],["Grund",snap ? "Sensor-Snapshot vorhanden" : "Snapshot-Datei fehlt"]] },
       { key:'ntfy', label:'ntfy', status:ntfyStatus, meta:ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : 'ohne State', reason:ntfyReason,
-        details: [["Datei","data/live/ais_drift_alert_state.json"],["Alter",ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : "ohne State"],["Status",ntfyStatus.toUpperCase()],["Grund",ntfyReason],["Hinweis","Ingest-Alerts laufen über Secrets; Drift-Push über AIS-Workflow-State"]] },
+        details: [["Datei","data/live/magicpaws_threshold_alert_state.json"],["Alter",ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : "ohne State"],["Status",ntfyStatus.toUpperCase()],["Grund",ntfyReason],["Hinweis","Threshold-Alerts für Hybrid/Gov Weirdness; Ingest-Alerts laufen separat über ingest.yml"]] },
       { key:'geo', label:'Geo/Gazetteer', status:geoStatus, meta:`${(geoRate*100).toFixed(0)}% GEO`, reason:`${geoHits}/${relevant.length || 0} Meldungen mit Geo/Kandidaten; Schwellen: grün ≥35%, orange ≥15%`,
         details: [["Arbeitsfenster",hours === null ? "Archiv komplett" : `${hours}h`],["Geo Treffer",`${geoHits}/${relevant.length || 0}`],["Geo Rate",`${(geoRate*100).toFixed(1)}%`],["Schwelle","grün ≥55%, orange ≥30%"],["Grund","geo oder geo_candidates vorhanden"]] },
       { key:'sources', label:'Sources', status:srcStatus, meta:`${uniqueSources.size} Quellen`, reason:'aktive Quellen im aktuellen Arbeitsfenster; Quelle wird aus source_hint/source_type/summary/labels gelesen',
