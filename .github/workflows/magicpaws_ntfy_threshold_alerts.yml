@@ -3,8 +3,8 @@ name: Magic Paws ntfy Threshold Alerts
 on:
   workflow_dispatch:
   schedule:
-    # Automatische Schwellenprüfung.
-    # Das Script sendet erst, wenn ein Wert über zwei Workflow-Läufe hinweg hoch bleibt.
+    # Automated threshold check. The script sends only after a metric stayed
+    # above threshold for two consecutive workflow runs.
     - cron: "*/30 * * * *"
 
 permissions:
@@ -38,7 +38,6 @@ jobs:
         run: |
           node <<'NODE'
           const fs = require("node:fs");
-
           const envFile = process.env.GITHUB_ENV;
 
           function clean(value) {
@@ -66,26 +65,22 @@ jobs:
           const url = clean(process.env.RAW_NTFY_URL);
           const token = clean(process.env.RAW_NTFY_TOKEN);
 
+          if (url) console.log(`::add-mask::${url}`);
+          if (token) console.log(`::add-mask::${token}`);
+
           console.log("NTFY_ENABLED active:", enabled);
           console.log("NTFY_URL present:", Boolean(url));
           console.log("NTFY_URL starts with https:", url.startsWith("https://"));
           console.log("NTFY_TOKEN present:", Boolean(token));
 
           if (enabled) {
-            if (!url) {
-              throw new Error("NTFY_ENABLED is active, but NTFY_URL is missing.");
-            }
-
+            if (!url) throw new Error("NTFY_ENABLED is active, but NTFY_URL is missing.");
             try {
               const parsed = new URL(url);
-              if (!["https:", "http:"].includes(parsed.protocol)) {
-                throw new Error(`Unsupported protocol: ${parsed.protocol}`);
-              }
-              if (!parsed.pathname || parsed.pathname === "/") {
-                throw new Error("NTFY_URL has no topic path. Expected format: https://ntfy.sh/<topic>");
-              }
+              if (!["https:", "http:"].includes(parsed.protocol)) throw new Error(`Unsupported protocol: ${parsed.protocol}`);
+              if (!parsed.pathname || parsed.pathname === "/") throw new Error("NTFY_URL has no topic path. Expected format: https://ntfy.sh/<topic>");
               console.log("NTFY_URL parse: ok");
-            } catch (err) {
+            } catch {
               throw new Error("NTFY_URL is not a valid absolute ntfy topic URL. Expected format: https://ntfy.sh/<topic>");
             }
           } else {
@@ -104,6 +99,11 @@ jobs:
           MAGICPAWS_ALERT_REQUIRED_HIGH_RUNS: "2"
           MAGICPAWS_ALERT_COOLDOWN_MINUTES: "0"
           MAGICPAWS_ALERT_WRITE_STATE_EVERY_RUN: "false"
+          # Sensor snapshots are normally refreshed by the ingest/snapshot flow.
+          # Keep this wider than the 02:00/14:00 UTC visual snapshot cadence.
+          MAGICPAWS_SENSOR_MAX_AGE_HOURS: "18"
+          # Safety: legacy daily proxy values must not trigger ntfy Hybrid alerts.
+          MAGICPAWS_ALLOW_LEGACY_HYBRID_SOURCE: "false"
         run: node scripts/magicpaws_ntfy_threshold_alerts.mjs
 
       - name: Commit threshold alert state when changed
