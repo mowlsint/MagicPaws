@@ -1,17 +1,17 @@
 {
   "snapshot_schema": "MAGIC_PAWS_SENSOR_SNAPSHOT_v1",
-  "snapshot_key": "2026-06-01T00:00:00.000Z",
-  "generated_at": "2026-06-01T05:18:16.244Z",
+  "snapshot_key": "2026-06-01T12:00:00.000Z",
+  "generated_at": "2026-06-01T12:11:08.235Z",
   "source": {
     "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
     "bundle_url": "https://voodoo-hybrid-api.mowlsint.workers.dev/api/bundle?fresh=1"
   },
   "counts": {
-    "events_total_archive": 1438,
-    "events_72h": 122,
+    "events_total_archive": 1455,
+    "events_72h": 120,
     "p0_suspect_72h": 1,
-    "geo_72h": 21,
-    "social_72h": 61,
+    "geo_72h": 22,
+    "social_72h": 59,
     "social_geo_72h": 7,
     "rss_media_72h": 61
   },
@@ -19,72 +19,75 @@
     "hybrid_index_pct": 100,
     "government_weirdness": {
       "north_sea_pct": 28,
-      "baltic_sea_pct": 20
+      "baltic_sea_pct": 18
     },
     "keyword_barometer_pct": 100,
-    "keyword_hits_72h": 146
+    "keyword_hits_72h": 137
   },
   "density": {
     "domains_72h": {
-      "D:NEWS_INTEL": 78,
+      "D:NEWS_INTEL": 75,
       "D:RF_SIGNAL": 14,
-      "D:INFRA_CI": 11,
-      "D:SECURITY_CRIME": 9,
+      "D:INFRA_CI": 12,
       "D:AIS_TRACK": 8,
-      "D:DRONE_UAS": 1,
-      "D:INCIDENT": 1
+      "D:SECURITY_CRIME": 8,
+      "D:INCIDENT": 2,
+      "D:DRONE_UAS": 1
     },
     "regions_72h": {
-      "REG:OTHER": 58,
-      "REG:GLOBAL": 20,
+      "REG:OTHER": 56,
+      "REG:GLOBAL": 21,
+      "REG:EUROPE": 6,
       "REG:NORTH_SEA": 6,
-      "REG:EUROPE": 5,
-      "REG:ATLANTIC_NE": 5,
-      "REG:PERSIAN_GULF": 3,
+      "REG:PERSIAN_GULF": 4,
+      "REG:ATLANTIC_NE": 3,
       "REG:SOUTH_AMERICA_EAST": 2,
       "REG:GULF_OF_OMAN": 2,
       "REG:SOUTH_CHINA_SEA": 1,
       "REG:AZOV_SEA": 1,
       "REG:BALTIC": 1,
-      "REG:BLACK_SEA": 1,
-      "REG:CARIBBEAN": 1
+      "REG:BLACK_SEA": 1
     },
     "top_keywords_72h": [
       {
         "keyword": "ot",
-        "count": 83
+        "count": 81
       },
       {
         "keyword": "drone",
-        "count": 12
+        "count": 11
       },
       {
         "keyword": "navy",
-        "count": 10
-      },
-      {
-        "keyword": "sts",
         "count": 9
       },
       {
-        "keyword": "coast guard",
-        "count": 7
+        "keyword": "sts",
+        "count": 8
       },
       {
         "keyword": "patrol",
         "count": 5
       },
       {
+        "keyword": "coast guard",
+        "count": 4
+      },
+      {
+        "keyword": "mpa",
+        "count": 3
+      },
+      {
         "keyword": "isr",
         "count": 3
       },
       {
-        "keyword": "sar",
-        "count": 3
+        "keyword": "incident",
+        "count": 2
       },
       {
-        "keyword": "surveillance",
-        "count": 3
+        "keyword": "sar",
+        "count": 2
       },
       {
         "keyword": "uuv",
@@ -92,10 +95,6 @@
       },
       {
         "keyword": "helicopter",
-        "count": 2
-      },
-      {
-        "keyword": "mpa",
         "count": 2
       }
     ]

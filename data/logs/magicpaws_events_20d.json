@@ -1,6 +1,6 @@
 {
   "schema": "MAGIC_PAWS_EVENTS_20D_v1",
-  "generated_at": "2026-06-01T05:18:16.244Z",
+  "generated_at": "2026-06-01T12:11:08.235Z",
   "worker_base": "https://voodoo-hybrid-api.mowlsint.workers.dev",
   "source": {
     "owner": "mowlsint",
@@ -8,20 +8,611 @@
     "branch": "main",
     "type": "github_issues"
   },
-  "bundle_generated_at": "2026-06-01T05:18:20.596Z",
+  "bundle_generated_at": "2026-06-01T12:11:11.556Z",
   "window": {
     "days": 20,
-    "cutoff_utc": "2026-05-12T05:18:16.244Z"
+    "cutoff_utc": "2026-05-12T12:11:08.235Z"
   },
   "counts": {
     "live_events_from_worker": 500,
-    "archive_events_total": 1438,
-    "active_events": 1185,
-    "active_geo_events": 211,
-    "active_social_events": 394,
-    "active_social_geo_events": 57
+    "archive_events_total": 1455,
+    "active_events": 1173,
+    "active_geo_events": 212,
+    "active_social_events": 389,
+    "active_social_geo_events": 58
   },
   "events": [
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1658",
+      "number": 1658,
+      "id": "4562732247",
+      "ts": "2026-06-01T11:30:09.681Z",
+      "chronology_ts": "2026-06-01T11:30:09.681Z",
+      "issue_created_at": "2026-06-01T11:34:30.000Z",
+      "source_published_at": "2026-06-01T11:30:09.681Z",
+      "ingested_at": "2026-06-01T11:34:29.198Z",
+      "title": "[BSKY] War on the Rocks is seeking to hire part-time copy editors to work remotely. To apply, please send a cover letter and resume to editor@warontherocks.com with “C",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1658",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn7y47zrzd2n",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn7y47zrzd2n",
+        "source_published_at": "2026-06-01T11:30:09.681Z",
+        "ingested_at": "2026-06-01T11:34:29.198Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:e1aa82aade0908b023ba -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:e1aa82aade0908b023ba -->\n\n### Text\nWar on the Rocks is seeking to hire part-time copy editors to work remotely. To apply, please send a cover letter and resume to editor@warontherocks.com with “Copy Editor Application” in the subject line. Applicants must be based in the United States and have a U.S. postal address.\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T11:30:09.681Z\ningested_at: 2026-06-01T11:34:29.198Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mn7y47zrzd2n\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.33 \"TJ Geo + Gov Weirdness Correlation Metadata\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1657",
+      "number": 1657,
+      "id": "4562713973",
+      "ts": "2026-06-01T11:29:38.639Z",
+      "chronology_ts": "2026-06-01T11:29:38.639Z",
+      "issue_created_at": "2026-06-01T11:31:18.000Z",
+      "source_published_at": "2026-06-01T11:29:38.639Z",
+      "ingested_at": "2026-06-01T11:31:17.059Z",
+      "title": "[BSKY] Zuletzt gesehen westlich GB/IRL 58° 45' N 015° 38' W",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1657",
+      "original_url": "https://bsky.app/profile/nautimpulse.bsky.social/post/3mn7y3cfm7k2c",
+      "labels": [
+        "D:AIS_TRACK",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "D:MARITIME_SECURITY",
+        "REG:GLOBAL",
+        "SRC:BSKY",
+        "MAP:YES"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:AIS_TRACK",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 58.75,
+        "lon": -15.63333,
+        "precision": "exact",
+        "method": "explicit_coordinate",
+        "confidence": "high",
+        "geo_role": "event_location",
+        "display_on_map": true
+      },
+      "source_hint": {
+        "source": "Nautical Impulse / Till Andrzejewski (Bluesky) (nautimpulse_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/nautimpulse.bsky.social/post/3mn7y3cfm7k2c",
+        "source_published_at": "2026-06-01T11:29:38.639Z",
+        "ingested_at": "2026-06-01T11:31:17.059Z"
+      },
+      "report_category": "AIS / Schiffsmuster / Schattenflotte",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:nautimpulse_bsky:ac05268a48c06fcc20ed -->\n<!-- VOODOO_INGEST_ID:nautimpulse_bsky:ac05268a48c06fcc20ed -->\n\n### Text\nZuletzt gesehen westlich GB/IRL 58° 45' N 015° 38' W\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T11:29:38.639Z\ningested_at: 2026-06-01T11:31:17.059Z\n\n### Quelle\nNautical Impulse / Till Andrzejewski (Bluesky) (nautimpulse_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/nautimpulse.bsky.social/post/3mn7y3cfm7k2c\n\n### Geo\nGeo: 58.75000, -15.63333\nmethod: dms_coordinate\nconfidence: high\nmatched_name: explicit coordinate\nmatched_id: \nrole: event_location\n\n### Geo JSON\n{\n  \"geo\": {\n    \"lat\": 58.75,\n    \"lon\": -15.633333333333333,\n    \"precision\": \"exact\",\n    \"method\": \"dms_coordinate\",\n    \"matched_name\": \"explicit coordinate\",\n    \"matched_id\": null,\n    \"radius_km\": null,\n    \"confidence\": \"high\",\n    \"geo_role\": \"event_location\",\n    \"display_on_map\": true\n  },\n  \"geo_candidates\": [],\n  \"route\": null,\n  \"source_geo_metadata\": {\n    \"source_id\": \"nautimpulse_bsky\",\n    \"source_profile\": \"maritime_osint_social\",\n    \"map_enabled\": true,\n    \"geo_priority\": \"medium\",\n    \"route_source\": true,\n    \"government_weirdness_sou…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1648",
+      "number": 1648,
+      "id": "4562536680",
+      "ts": "2026-06-01T10:54:16.089Z",
+      "chronology_ts": "2026-06-01T10:54:16.089Z",
+      "issue_created_at": "2026-06-01T11:03:08.000Z",
+      "source_published_at": "2026-06-01T10:54:16.089Z",
+      "ingested_at": "2026-06-01T11:03:07.468Z",
+      "title": "[BSKY] Frankreich boardet Schattenflottentanker, erneut. www.msn.com/en-us/news/w...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1648",
+      "original_url": "https://bsky.app/profile/nautimpulse.bsky.social/post/3mn7w426khc2c",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "D:MARITIME_SECURITY",
+        "REG:GLOBAL",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Nautical Impulse / Till Andrzejewski (Bluesky) (nautimpulse_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/nautimpulse.bsky.social/post/3mn7w426khc2c",
+        "source_published_at": "2026-06-01T10:54:16.089Z",
+        "ingested_at": "2026-06-01T11:03:07.468Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:nautimpulse_bsky:703c49781b41dcd18005 -->\n<!-- VOODOO_INGEST_ID:nautimpulse_bsky:703c49781b41dcd18005 -->\n\n### Text\nFrankreich boardet Schattenflottentanker, erneut.\nwww.msn.com/en-us/news/w...\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T10:54:16.089Z\ningested_at: 2026-06-01T11:03:07.468Z\n\n### Quelle\nNautical Impulse / Till Andrzejewski (Bluesky) (nautimpulse_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/nautimpulse.bsky.social/post/3mn7w426khc2c\n\n### Auto-Labels\nSRC:OSINT, SRC:SOCIAL, SRC:BSKY, D:NEWS_INTEL, D:MARITIME_SECURITY, CONF:LOW, SEV:1, REG:GLOBAL\n\n---\ningest_version: MAGIC PAWS ingest v5.33 \"TJ Geo + Gov Weirdness Correlation Metadata\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1656",
+      "number": 1656,
+      "id": "4562557866",
+      "ts": "2026-06-01T10:46:05.796Z",
+      "chronology_ts": "2026-06-01T10:46:05.796Z",
+      "issue_created_at": "2026-06-01T11:06:34.000Z",
+      "source_published_at": "2026-06-01T10:46:05.796Z",
+      "ingested_at": "2026-06-01T11:06:33.125Z",
+      "title": "[BSKY] Your regular intelligence briefing, but better. Sign up for a War on the Rocks membership and stay ahead of the curve. warontherocks.com/membership/",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1656",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn7vngz6l225",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn7vngz6l225",
+        "source_published_at": "2026-06-01T10:46:05.796Z",
+        "ingested_at": "2026-06-01T11:06:33.125Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:5befd8a16179e27a4c73 -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:5befd8a16179e27a4c73 -->\n\n### Text\nYour regular intelligence briefing, but better. Sign up for a War on the Rocks membership and stay ahead of the curve. warontherocks.com/membership/\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T10:46:05.796Z\ningested_at: 2026-06-01T11:06:33.125Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mn7vngz6l225\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.33 \"TJ Geo + Gov Weirdness Correlation Metadata\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1650",
+      "number": 1650,
+      "id": "4562540999",
+      "ts": "2026-06-01T10:43:29.464Z",
+      "chronology_ts": "2026-06-01T10:43:29.464Z",
+      "issue_created_at": "2026-06-01T11:03:54.000Z",
+      "source_published_at": "2026-06-01T10:43:29.464Z",
+      "ingested_at": "2026-06-01T11:03:53.114Z",
+      "title": "[BSKY] And now for something completely different: Super excited to join DR Verificerer today, working full-time across OSINT and verification.",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1650",
+      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mn7virj6ok24",
+      "labels": [
+        "D:RF_SIGNAL",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "PAT:GNSS_JAM",
+        "PAT:GNSS_SPOOF",
+        "SRC:BSKY",
+        "MAP:YES"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:RF_SIGNAL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "auonsson (Bluesky) (auonsson_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mn7virj6ok24",
+        "source_published_at": "2026-06-01T10:43:29.464Z",
+        "ingested_at": "2026-06-01T11:03:53.114Z"
+      },
+      "report_category": "RF/GNSS/NAVWARN",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:auonsson_bsky:2416005ff01393982277 -->\n<!-- VOODOO_INGEST_ID:auonsson_bsky:2416005ff01393982277 -->\n\n### Text\nAnd now for something completely different: Super excited to join DR Verificerer today, working full-time across OSINT and verification.\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T10:43:29.464Z\ningested_at: 2026-06-01T11:03:53.114Z\n\n### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mn7virj6ok24\n\n### Auto-Labels\nSRC:OSINT, D:RF_SIGNAL, D:NEWS_INTEL, PAT:GNSS_JAM, PAT:GNSS_SPOOF, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.33 \"TJ Geo + Gov Weirdness Correlation Metadata\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1651",
+      "number": 1651,
+      "id": "4562554418",
+      "ts": "2026-06-01T10:26:49.000Z",
+      "chronology_ts": "2026-06-01T10:26:49.000Z",
+      "issue_created_at": "2026-06-01T11:06:03.000Z",
+      "source_published_at": "2026-06-01T10:26:49.000Z",
+      "ingested_at": "2026-06-01T11:06:01.360Z",
+      "title": "[RSS] SOF News Weekly Brief – June 1, 2026",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1651",
+      "original_url": "https://smallwarsjournal.com/2026/06/01/sof-news-weekly-brief-june-1-2026/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/06/01/sof-news-weekly-brief-june-1-2026/",
+        "source_published_at": "2026-06-01T10:26:49.000Z",
+        "ingested_at": "2026-06-01T11:06:01.360Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:8c3380c2d751adf6d027 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:8c3380c2d751adf6d027 -->\n\n### Text\nAccess SOF News HERE. SOF News Weekly Brief – June 1, 2026 June 1, 2026 John Friberg Update 0 Curated news, analysis, and commentary on special operations, intelligence, irregular warfare, national defense, and global conflicts. Photo / Image: AC-130 Gunship DoD Photo. Executive Summary This weekly briefing summarizes developments in special operations forces (SOF), global conflicts, intelligence, and national security from the past &#8230;\n Read more\n The post SOF News Weekly Brief – June 1, 2026 appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T10:26:49.000Z\ningested_at: 2026-06-01T11:06:01.360Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/06/01/sof-news-weekly-brief-june-1-2026/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\n…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1649",
+      "number": 1649,
+      "id": "4562536890",
+      "ts": "2026-06-01T09:32:41.070Z",
+      "chronology_ts": "2026-06-01T09:32:41.070Z",
+      "issue_created_at": "2026-06-01T11:03:10.000Z",
+      "source_published_at": "2026-06-01T09:32:41.070Z",
+      "ingested_at": "2026-06-01T11:03:09.118Z",
+      "title": "[BSKY] Latest news article: Royal Navy deploys advanced ROV for Gulf minehunting operations www.navylookout.com/royal-navy-d...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1649",
+      "original_url": "https://bsky.app/profile/navylookout.bsky.social/post/3mn7rk5wx4p2j",
+      "labels": [
+        "D:NEWS_INTEL",
+        "REG:ATLANTIC_NE",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "D:MARITIME_SECURITY",
+        "SRC:BSKY",
+        "MAP:YES",
+        "V:WARSHIP",
+        "PAT:VESSEL_SIGHTING"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:ATLANTIC_NE",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Navy Lookout (Bluesky) (navylookout_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/navylookout.bsky.social/post/3mn7rk5wx4p2j",
+        "source_published_at": "2026-06-01T09:32:41.070Z",
+        "ingested_at": "2026-06-01T11:03:09.118Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:navylookout_bsky:560f1b92e6fa8501d40b -->\n<!-- VOODOO_INGEST_ID:navylookout_bsky:560f1b92e6fa8501d40b -->\n\n### Text\nLatest news article:\nRoyal Navy deploys advanced ROV for Gulf minehunting operations\nwww.navylookout.com/royal-navy-d...\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T09:32:41.070Z\ningested_at: 2026-06-01T11:03:09.118Z\n\n### Quelle\nNavy Lookout (Bluesky) (navylookout_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/navylookout.bsky.social/post/3mn7rk5wx4p2j\n\n### Auto-Labels\nSRC:OSINT, D:MARITIME_SECURITY, D:NEWS_INTEL, V:WARSHIP, PAT:VESSEL_SIGHTING, MAP:YES, SRC:SOCIAL, SRC:BSKY, REG:ATLANTIC_NE, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.33 \"TJ Geo + Gov Weirdness Correlation Metadata\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1652",
+      "number": 1652,
+      "id": "4562554619",
+      "ts": "2026-06-01T06:00:58.000Z",
+      "chronology_ts": "2026-06-01T06:00:58.000Z",
+      "issue_created_at": "2026-06-01T11:06:04.000Z",
+      "source_published_at": "2026-06-01T06:00:58.000Z",
+      "ingested_at": "2026-06-01T11:06:03.294Z",
+      "title": "[RSS] Reforming SOF Targeting Authorities to Restore Strategic Coherence and Risk Discipline",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1652",
+      "original_url": "https://smallwarsjournal.com/2026/06/01/reforming-sof-targeting-authorities/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/06/01/reforming-sof-targeting-authorities/",
+        "source_published_at": "2026-06-01T06:00:58.000Z",
+        "ingested_at": "2026-06-01T11:06:03.294Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:fd9999d64cb827c4d889 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:fd9999d64cb827c4d889 -->\n\n### Text\nAbstract This memo argues that the current U.S. Special Operations Forces (SOF) targeting policy achieves tactical success but lacks strategic alignment, prioritizing rapid kinetic operations over long-term political and operational coherence. It evaluates three policy options and finds that existing frameworks fail to adequately address escalation risks, partner capacity development, and the demands of great-power competition. The memo recommends a &#8230;\n Read more\n The post Reforming SOF Targeting Authorities to Restore Strategic Coherence and Risk Discipline appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T06:00:58.000Z\ningested_at: 2026-06-01T11:06:03.294Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/06/01/reforming-sof-targeting-authorities/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:L…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1653",
+      "number": 1653,
+      "id": "4562555001",
+      "ts": "2026-06-01T06:00:28.000Z",
+      "chronology_ts": "2026-06-01T06:00:28.000Z",
+      "issue_created_at": "2026-06-01T11:06:06.000Z",
+      "source_published_at": "2026-06-01T06:00:28.000Z",
+      "ingested_at": "2026-06-01T11:06:05.286Z",
+      "title": "[RSS] Visible vs. Valuable: Why Restructuring U.S. Special Forces Won’t Fix a Failure of Perception",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1653",
+      "original_url": "https://smallwarsjournal.com/2026/06/01/restructuring-u-s-special-forces-wont-fix-a-failure-of-perception/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/06/01/restructuring-u-s-special-forces-wont-fix-a-failure-of-perception/",
+        "source_published_at": "2026-06-01T06:00:28.000Z",
+        "ingested_at": "2026-06-01T11:06:05.286Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:49db86716ee634893f79 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:49db86716ee634893f79 -->\n\n### Text\nEditor’s note: This essay is the second part of the author’s response to Colonel (Ret.) Ned Marsh’s two-part series, “The Last A-Team” and “A New Vision for Special Forces Restructuring.” The author’s first response, “Operationally Detached,” made the structural case and offered decentralization as the solution. This essay tackles the deeper problem beneath the debate: the regiment’s continued inability to &#8230;\n Read more\n The post Visible vs. Valuable: Why Restructuring U.S. Special Forces Won’t Fix a Failure of Perception appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T06:00:28.000Z\ningested_at: 2026-06-01T11:06:05.286Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/06/01/restructuring-u-s-special-forces-wont-fix-a-failure-of-perception/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1654",
+      "number": 1654,
+      "id": "4562555180",
+      "ts": "2026-06-01T06:00:25.000Z",
+      "chronology_ts": "2026-06-01T06:00:25.000Z",
+      "issue_created_at": "2026-06-01T11:06:08.000Z",
+      "source_published_at": "2026-06-01T06:00:25.000Z",
+      "ingested_at": "2026-06-01T11:06:07.178Z",
+      "title": "[RSS] Book Review &#124; The Weaponisation of Everything: A Field Guide to the New Way of War",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1654",
+      "original_url": "https://smallwarsjournal.com/2026/06/01/book-review-the-weaponization-of-everything/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/06/01/book-review-the-weaponization-of-everything/",
+        "source_published_at": "2026-06-01T06:00:25.000Z",
+        "ingested_at": "2026-06-01T11:06:07.178Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:bc847481e72c03a99429 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:bc847481e72c03a99429 -->\n\n### Text\nThe Weaponisation of Everything: A Field Guide to the New Way of War. By Mark Galeotti. Yale University Press, 2023. ISBN: 978-0300270419. Pp. iv, 239. $18.00 at time of review. Mark Galeotti&#8217;s The Weaponisation of Everything offers a wide-ranging and accessible tour of modern conflict&#8217;s expanding frontiers. Galeotti argues that the conventional image of war (declared, bounded, fought between uniformed &#8230;\n Read more\n The post Book Review | The Weaponisation of Everything: A Field Guide to the New Way of War appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T06:00:25.000Z\ningested_at: 2026-06-01T11:06:07.178Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/06/01/book-review-the-weaponization-of-everything/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT,…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1655",
+      "number": 1655,
+      "id": "4562555384",
+      "ts": "2026-06-01T06:00:20.000Z",
+      "chronology_ts": "2026-06-01T06:00:20.000Z",
+      "issue_created_at": "2026-06-01T11:06:10.000Z",
+      "source_published_at": "2026-06-01T06:00:20.000Z",
+      "ingested_at": "2026-06-01T11:06:09.158Z",
+      "title": "[RSS] Taking Off the Blinders Regarding Special Forces Strategic Utility",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1655",
+      "original_url": "https://smallwarsjournal.com/2026/06/01/taking-off-the-blinders-regarding-special-forces-strategic-utility/",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "SRC:DEFENCE_MEDIA",
+        "REG:GLOBAL"
+      ],
+      "source_type": "rss",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:GLOBAL",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "Small Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)",
+        "platform": "rss",
+        "link": "https://smallwarsjournal.com/2026/06/01/taking-off-the-blinders-regarding-special-forces-strategic-utility/",
+        "source_published_at": "2026-06-01T06:00:20.000Z",
+        "ingested_at": "2026-06-01T11:06:09.158Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:small_wars_journal_rss:61c49f37a8b251f88309 -->\n<!-- VOODOO_INGEST_ID:small_wars_journal_rss:61c49f37a8b251f88309 -->\n\n### Text\nI read Ned Marsh’s two recent articles about the serious challenges Special Forces (SF) face in the current and future operating environments with great interest. Much of what he says seems valid, but not all of what he says. Plus, there are some internal inconsistencies in his argument. Still, his ideas are valuable insights for serious consideration. I will not &#8230;\n Read more\n The post Taking Off the Blinders Regarding Special Forces Strategic Utility appeared first on Small Wars Journal by Arizona State University .\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T06:00:20.000Z\ningested_at: 2026-06-01T11:06:09.158Z\n\n### Quelle\nSmall Wars Journal – Maritime / Irregular Warfare (small_wars_journal_rss)\n\n### Plattform\nrss\n\n### Link\nhttps://smallwarsjournal.com/2026/06/01/taking-off-the-blinders-regarding-special-forces-strategic-utility/\n\n### Auto-Labels\nSRC:OSINT, SRC:ANALYSIS, SRC:DEFENCE_MEDIA, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, CONF:LOW, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:GLOBAL\n\n---\ningest_v…"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1644",
+      "number": 1644,
+      "id": "4560717010",
+      "ts": "2026-06-01T05:30:06.646Z",
+      "chronology_ts": "2026-06-01T05:30:06.646Z",
+      "issue_created_at": "2026-06-01T05:57:24.000Z",
+      "source_published_at": "2026-06-01T05:30:06.646Z",
+      "ingested_at": "2026-06-01T05:57:23.974Z",
+      "title": "[BSKY] Trump signed an executive order on space superiority. The vulnerabilities it was meant to fix are largely still there. (Members Only) warontherocks.com/washingt",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1644",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn7dyg23lb2g",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn7dyg23lb2g",
+        "source_published_at": "2026-06-01T05:30:06.646Z",
+        "ingested_at": "2026-06-01T05:57:23.974Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:34558e3404821d479bdb -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:34558e3404821d479bdb -->\n\n### Text\nTrump signed an executive order on space superiority. The vulnerabilities it was meant to fix are largely still there. (Members Only) warontherocks.com/washington-s...\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T05:30:06.646Z\ningested_at: 2026-06-01T05:57:23.974Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mn7dyg23lb2g\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1643",
+      "number": 1643,
+      "id": "4560580053",
+      "ts": "2026-06-01T04:45:06.622Z",
+      "chronology_ts": "2026-06-01T04:45:06.622Z",
+      "issue_created_at": "2026-06-01T05:24:50.000Z",
+      "source_published_at": "2026-06-01T04:45:06.622Z",
+      "ingested_at": "2026-06-01T05:24:49.635Z",
+      "title": "[BSKY] Why are there more antennas on a tiny Arctic archipelago than almost anywhere else on Earth? warontherocks.com/2026/05/the-...",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1643",
+      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn7bhx3esu2h",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mn7bhx3esu2h",
+        "source_published_at": "2026-06-01T04:45:06.622Z",
+        "ingested_at": "2026-06-01T05:24:49.635Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:warontherocks_bsky:7aeb9ef7a55497ebce3b -->\n<!-- VOODOO_INGEST_ID:warontherocks_bsky:7aeb9ef7a55497ebce3b -->\n\n### Text\nWhy are there more antennas on a tiny Arctic archipelago than almost anywhere else on Earth? warontherocks.com/2026/05/the-...\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T04:45:06.622Z\ningested_at: 2026-06-01T05:24:49.635Z\n\n### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mn7bhx3esu2h\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1630",
       "number": 1630,
@@ -100,6 +691,129 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/the-hidden-clause-contradictions-driving-demurrage-claims\n\n### Zeit (UTC)\n2026-06-01T03:59:00Z\n\n### Published\n2026-06-01T03:59:00Z\n\n### Auto-Labels\nCONF:MED, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nA bulk carrier arrives at Paranagua on a Saturday morning at 08:00 local time. Sugar cargo, clean fixture, terms agreed weeks earlier in what looked l...\n\n---\n_Ingested at 2026-05-31T21:15:26.581661+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: cbc8780ae83a896a -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1645",
+      "number": 1645,
+      "id": "4562339234",
+      "ts": "2026-06-01T01:48:04.000Z",
+      "chronology_ts": "2026-06-01T01:48:04.000Z",
+      "issue_created_at": "2026-06-01T10:31:54.000Z",
+      "source_published_at": "2026-06-01T01:48:04.000Z",
+      "ingested_at": "2026-06-01T01:48:04.000Z",
+      "title": "[RSS] U.S. and Iran Trade Fire as Strait of Hormuz Tensions Continue",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1645",
+      "original_url": "https://maritime-executive.com/article/u-s-and-iran-trade-fire-as-strait-of-hormuz-tensions-continue",
+      "labels": [
+        "D:INCIDENT",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:MEDIA",
+        "REG:PERSIAN_GULF",
+        "REG:GULF_OF_OMAN",
+        "REG:STRAIT_HORMUZ"
+      ],
+      "source_type": "rss",
+      "category": "D:INCIDENT",
+      "region": "REG:PERSIAN_GULF",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": {
+        "lat": 26.56,
+        "lon": 56.25,
+        "precision": "area",
+        "method": "gazetteer_alias_content_only",
+        "matched_name": "Strait of Hormuz",
+        "matched_alias": "Strait of Hormuz",
+        "matched_id": "strait_hormuz",
+        "radius_km": 85,
+        "confidence": "medium",
+        "geo_role": "topic_area",
+        "display_on_map": true,
+        "regions": [
+          "REG:PERSIAN_GULF",
+          "REG:GULF_OF_OMAN",
+          "REG:STRAIT_HORMUZ"
+        ]
+      },
+      "geo_candidates": [
+        {
+          "lat": 26.56,
+          "lon": 56.25,
+          "precision": "area",
+          "method": "gazetteer_alias_content_only",
+          "matched_name": "Strait of Hormuz",
+          "matched_alias": "Strait of Hormuz",
+          "matched_id": "strait_hormuz",
+          "radius_km": 85,
+          "confidence": "medium",
+          "geo_role": "topic_area",
+          "display_on_map": true,
+          "regions": [
+            "REG:PERSIAN_GULF",
+            "REG:GULF_OF_OMAN",
+            "REG:STRAIT_HORMUZ"
+          ]
+        }
+      ],
+      "source_hint": {
+        "source": "The Maritime Executive",
+        "platform": "rss",
+        "link": "https://maritime-executive.com/article/u-s-and-iran-trade-fire-as-strait-of-hormuz-tensions-continue",
+        "source_published_at": "2026-06-01T01:48:04.000Z",
+        "ingested_at": "2026-06-01T01:48:04.000Z"
+      },
+      "report_category": "Zwischenfälle / Safety / Störungen",
+      "greybook_rubric": "maritime Geopolitik",
+      "summary": "### Quelle\nThe Maritime Executive\n\n### Source\nThe Maritime Executive\n\n### Plattform\nrss\n\n### Link\nhttps://maritime-executive.com/article/u-s-and-iran-trade-fire-as-strait-of-hormuz-tensions-continue\n\n### Zeit (UTC)\n2026-06-01T01:48:04Z\n\n### Published\n2026-06-01T01:48:04Z\n\n### Auto-Labels\nCONF:MED, D:INCIDENT, D:NEWS_INTEL, SEV:1, SRC:MEDIA\n\n### Summary\nOver the weekend, Iranian and U.S. forces traded fire in a continued low-level contest over the control of the Strait of Hormuz. Five U.S. servicememb...\n\n---\n_Ingested at 2026-06-01T10:31:54.208619+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 625c0d6d295ed7e0 -->"
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1642",
+      "number": 1642,
+      "id": "4560579746",
+      "ts": "2026-06-01T01:39:32.140Z",
+      "chronology_ts": "2026-06-01T01:39:32.140Z",
+      "issue_created_at": "2026-06-01T05:24:45.000Z",
+      "source_published_at": "2026-06-01T01:39:32.140Z",
+      "ingested_at": "2026-06-01T05:24:44.018Z",
+      "title": "[BSKY] Some new images of the containerised weapons sytems which caused a stir on social media end of last year, when seen at Hudong, Shanghai. Detail shots show these",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1642",
+      "original_url": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mn6x4454ws2v",
+      "labels": [
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:LOW",
+        "SRC:OSINT",
+        "SRC:SOCIAL",
+        "REG:OTHER",
+        "D:MARITIME_SECURITY",
+        "SRC:BSKY"
+      ],
+      "source_type": "social_bsky",
+      "category": "D:NEWS_INTEL",
+      "region": "REG:OTHER",
+      "severity": "SEV:1",
+      "confidence": "CONF:LOW",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "MaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)",
+        "platform": "social_bsky",
+        "link": "https://bsky.app/profile/maritimekiwi.bsky.social/post/3mn6x4454ws2v",
+        "source_published_at": "2026-06-01T01:39:32.140Z",
+        "ingested_at": "2026-06-01T05:24:44.018Z"
+      },
+      "report_category": "News / Intelligence Hinweise",
+      "greybook_rubric": "Unreleased but self-confirmed",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:maritimekiwi_bsky:21e0ebc0b83f7ec6a6b2 -->\n<!-- VOODOO_INGEST_ID:maritimekiwi_bsky:21e0ebc0b83f7ec6a6b2 -->\n\n### Text\nSome new images of the containerised weapons sytems which caused a stir on social media end of last year, when seen at Hudong, Shanghai.\nDetail shots show these to be mockups, raising further questions on the seriousness of the entire presentation.\nVia \"ACuriousPLAFan\"/SDF.\n\n### Zeit (UTC)\nsource_published_at: 2026-06-01T01:39:32.140Z\ningested_at: 2026-06-01T05:24:44.018Z\n\n### Quelle\nMaritimeKiwi / Mark Douglas (Bluesky) (maritimekiwi_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/maritimekiwi.bsky.social/post/3mn6x4454ws2v\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, D:MARITIME_SECURITY, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1640",
@@ -314,6 +1028,54 @@
       "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
       "greybook_rubric": "Schattenflotte/Sanktionsflotte",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:b10e699ab92bed009323 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:b10e699ab92bed009323 -->\n\n### Text\nWe are pleased to announce the winner for the 2025 Duke of Wellington Medal for Military History.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-31T23:00:00.000Z\ningested_at: 2026-05-31T16:02:04.702Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/about/our-heritage/duke-of-wellington-medal-for-military-history/2025\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1646",
+      "number": 1646,
+      "id": "4562531967",
+      "ts": "2026-05-31T23:00:00.000Z",
+      "chronology_ts": "2026-05-31T23:00:00.000Z",
+      "issue_created_at": "2026-06-01T11:02:18.000Z",
+      "source_published_at": "2026-05-31T23:00:00.000Z",
+      "ingested_at": "2026-06-01T11:02:16.311Z",
+      "title": "[RSS] The Inextricable Link Between Geopolitics, Security and Humanitarian Impact",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1646",
+      "original_url": "https://www.rusi.org/explore-our-research/publications/commentary/inextricable-link-between-geopolitics-security-and-humanitarian-impact",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "D:MARITIME_SECURITY",
+        "D:SANCTIONS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "RUSI – Latest Publications (rusi_latest_publications)",
+        "platform": "rss",
+        "link": "https://www.rusi.org/explore-our-research/publications/commentary/inextricable-link-between-geopolitics-security-and-humanitarian-impact",
+        "source_published_at": "2026-05-31T23:00:00.000Z",
+        "ingested_at": "2026-06-01T11:02:16.311Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Schattenflotte/Sanktionsflotte",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:rusi_latest_publications:4e61b5bdb0a735607127 -->\n<!-- VOODOO_INGEST_ID:rusi_latest_publications:4e61b5bdb0a735607127 -->\n\n### Text\nAs big as the change at the end of the Cold War, the current 'hinge moment' is different in its complexities, discusses former UK Foreign Secretary David Miliband.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-31T23:00:00.000Z\ningested_at: 2026-06-01T11:02:16.311Z\n\n### Quelle\nRUSI – Latest Publications (rusi_latest_publications)\n\n### Plattform\nrss\n\n### Link\nhttps://www.rusi.org/explore-our-research/publications/commentary/inextricable-link-between-geopolitics-security-and-humanitarian-impact\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:MARITIME_SECURITY, D:SANCTIONS, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.33 \"TJ Geo + Gov Weirdness Correlation Metadata\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1637",
@@ -10144,6 +10906,53 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "<!-- MAGIC_PAWS_INGEST_ID:oiuye_bsky:18b6786da994b7f939e9 -->\n<!-- VOODOO_INGEST_ID:oiuye_bsky:18b6786da994b7f939e9 -->\n\n### Text\nLogotypen till armbindeln har varit mitt framför våra ögon alla dessa år.... symbolen för den nya tidens fascism.\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T06:27:05.350Z\ningested_at: 2026-05-28T06:50:19.775Z\n\n### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nsocial_bsky\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mmvfcmaaus2l\n\n### Auto-Labels\nSRC:OSINT, D:NEWS_INTEL, SRC:SOCIAL, SRC:BSKY, REG:OTHER, CONF:LOW, SEV:1\n\n---\ningest_version: MAGIC PAWS ingest v5.32c \"Soft Source Errors + Social Bridge X/Bsky\""
+    },
+    {
+      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1647",
+      "number": 1647,
+      "id": "4562532262",
+      "ts": "2026-05-28T06:22:00.000Z",
+      "chronology_ts": "2026-05-28T06:22:00.000Z",
+      "issue_created_at": "2026-06-01T11:02:21.000Z",
+      "source_published_at": "2026-05-28T06:22:00.000Z",
+      "ingested_at": "2026-06-01T11:02:19.491Z",
+      "title": "[RSS] SWP-WebMonitor Cybersicherheit und Digitalpolitik Nr. 3/2026",
+      "url": "https://github.com/mowlsint/MagicPaws/issues/1647",
+      "original_url": "https://www.swp-berlin.org/publications/products/WebMonitore/SWP-WebMonitor_Cybersicherheit_und_Digitalpolitik_03_2026.pdf",
+      "labels": [
+        "D:INFRA_CI",
+        "D:NEWS_INTEL",
+        "SEV:1",
+        "CONF:MED",
+        "SRC:OSINT",
+        "SRC:THINKTANK",
+        "SRC:ANALYSIS",
+        "SCORE:HYBRID_CONTEXT",
+        "MAP:NO",
+        "DECAY:SLOW",
+        "REG:EUROPE",
+        "D:CYBER_IT"
+      ],
+      "source_type": "rss",
+      "category": "D:INFRA_CI",
+      "region": "REG:EUROPE",
+      "severity": "SEV:1",
+      "confidence": "CONF:MED",
+      "phase0": {
+        "suspect": false,
+        "level": null
+      },
+      "geo": null,
+      "source_hint": {
+        "source": "SWP – Offizielle Publikationen DE (swp_publications_de)",
+        "platform": "rss",
+        "link": "https://www.swp-berlin.org/publications/products/WebMonitore/SWP-WebMonitor_Cybersicherheit_und_Digitalpolitik_03_2026.pdf",
+        "source_published_at": "2026-05-28T06:22:00.000Z",
+        "ingested_at": "2026-06-01T11:02:19.491Z"
+      },
+      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
+      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
+      "summary": "<!-- MAGIC_PAWS_INGEST_ID:swp_publications_de:fd9cdd2739ee37362acc -->\n<!-- VOODOO_INGEST_ID:swp_publications_de:fd9cdd2739ee37362acc -->\n\n### Text\nSWP-WebMonitor Cybersicherheit und Digitalpolitik Nr. 3/2026\n\n### Zeit (UTC)\nsource_published_at: 2026-05-28T06:22:00.000Z\ningested_at: 2026-06-01T11:02:19.491Z\n\n### Quelle\nSWP – Offizielle Publikationen DE (swp_publications_de)\n\n### Plattform\nrss\n\n### Link\nhttps://www.swp-berlin.org/publications/products/WebMonitore/SWP-WebMonitor_Cybersicherheit_und_Digitalpolitik_03_2026.pdf\n\n### Auto-Labels\nSRC:OSINT, SRC:THINKTANK, SRC:ANALYSIS, D:NEWS_INTEL, D:CYBER_IT, D:INFRA_CI, CONF:MED, SEV:1, SCORE:HYBRID_CONTEXT, MAP:NO, DECAY:SLOW, REG:EUROPE\n\n---\ningest_version: MAGIC PAWS ingest v5.33 \"TJ Geo + Gov Weirdness Correlation Metadata\""
     },
     {
       "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/1437",
@@ -58487,1217 +59296,6 @@
       "report_category": "News / Intelligence Hinweise",
       "greybook_rubric": "Unreleased but self-confirmed",
       "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T12:15:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mlnrbzq2mn2r\n\n### Text\nWar on the Rocks brings together the best minds in strategy and defense. Join us in shaping the conversation.\n\n### Extra\nIngest run: 2026-05-12T14:07:25.673Z\n\n<!-- VOODOO_INGEST: 900bad4e SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/382",
-      "number": 382,
-      "id": "4428836046",
-      "ts": "2026-05-12T11:30:00.000Z",
-      "chronology_ts": "2026-05-12T11:30:00.000Z",
-      "issue_created_at": "2026-05-12T11:49:37.000Z",
-      "source_published_at": "2026-05-12T11:30:00.000Z",
-      "ingested_at": "2026-05-12T11:49:23.658Z",
-      "title": "[SOCIAL] The official explanation for Navalny's death named a toxin most people have never heard o…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/382",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnorlyrnq2u",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnorlyrnq2u",
-        "source_published_at": "2026-05-12T11:30:00.000Z",
-        "ingested_at": "2026-05-12T11:49:23.658Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T11:30:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mlnorlyrnq2u\n\n### Text\nThe official explanation for Navalny's death named a toxin most people have never heard of. Turns out, states have been quietly perfecting this method for over a century. (Members Only)\nListen here:  warontherocks.com/ep...\n\n### Extra\nIngest run: 2026-05-12T11:49:23.658Z\n\n<!-- VOODOO_INGEST: fa7c19f6 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/376",
-      "number": 376,
-      "id": "4428580349",
-      "ts": "2026-05-12T11:10:58.000Z",
-      "chronology_ts": "2026-05-12T11:10:58.000Z",
-      "issue_created_at": "2026-05-12T11:10:58.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:58.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: reporting formats",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/376",
-      "original_url": "https://www.ukmto.org/reporting-formats",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/reporting-formats",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:58.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/reporting-formats\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:57.850251+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 14415dbd434723a2 -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/375",
-      "number": 375,
-      "id": "4428580249",
-      "ts": "2026-05-12T11:10:56.000Z",
-      "chronology_ts": "2026-05-12T11:10:56.000Z",
-      "issue_created_at": "2026-05-12T11:10:56.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:56.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: partner products",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/375",
-      "original_url": "https://www.ukmto.org/partner-products",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/partner-products",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:56.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/partner-products\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:56.560602+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 979322b91f5699ac -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/374",
-      "number": 374,
-      "id": "4428580141",
-      "ts": "2026-05-12T11:10:55.000Z",
-      "chronology_ts": "2026-05-12T11:10:55.000Z",
-      "issue_created_at": "2026-05-12T11:10:55.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:55.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: ukmto products",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/374",
-      "original_url": "https://www.ukmto.org/ukmto-products",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/ukmto-products",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:55.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/ukmto-products\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:55.351359+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 967ef4d79d80c8ee -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/373",
-      "number": 373,
-      "id": "4428580007",
-      "ts": "2026-05-12T11:10:54.000Z",
-      "chronology_ts": "2026-05-12T11:10:54.000Z",
-      "issue_created_at": "2026-05-12T11:10:54.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:54.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: recent incidents",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/373",
-      "original_url": "https://www.ukmto.org/recent-incidents",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/recent-incidents",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:54.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/recent-incidents\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:54.156052+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: da30b867c1ec5803 -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/372",
-      "number": 372,
-      "id": "4428579864",
-      "ts": "2026-05-12T11:10:53.000Z",
-      "chronology_ts": "2026-05-12T11:10:53.000Z",
-      "issue_created_at": "2026-05-12T11:10:53.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:53.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: about us",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/372",
-      "original_url": "https://www.ukmto.org/about-us",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/about-us",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:53.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/about-us\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:52.826523+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 587a7709f46b6a96 -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/371",
-      "number": 371,
-      "id": "4428579741",
-      "ts": "2026-05-12T11:10:51.000Z",
-      "chronology_ts": "2026-05-12T11:10:51.000Z",
-      "issue_created_at": "2026-05-12T11:10:51.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:51.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: www.ukmto.org",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/371",
-      "original_url": "https://www.ukmto.org/",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:51.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:51.615615+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 4a088ae37b72fa6d -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/370",
-      "number": 370,
-      "id": "4428579609",
-      "ts": "2026-05-12T11:10:50.000Z",
-      "chronology_ts": "2026-05-12T11:10:50.000Z",
-      "issue_created_at": "2026-05-12T11:10:50.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:50.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: footer ukmto.svg",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/370",
-      "original_url": "https://www.ukmto.org/footer-ukmto.svg",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/footer-ukmto.svg",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:50.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/footer-ukmto.svg\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:50.416075+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 0d766b77c1fd2e8c -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/369",
-      "number": 369,
-      "id": "4428579404",
-      "ts": "2026-05-12T11:10:49.000Z",
-      "chronology_ts": "2026-05-12T11:10:49.000Z",
-      "issue_created_at": "2026-05-12T11:10:49.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:49.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: ukmto.svg",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/369",
-      "original_url": "https://www.ukmto.org/ukmto.svg",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/ukmto.svg",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:49.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/ukmto.svg\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:49.198913+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: fdbb7f83e59535a5 -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/368",
-      "number": 368,
-      "id": "4428579281",
-      "ts": "2026-05-12T11:10:48.000Z",
-      "chronology_ts": "2026-05-12T11:10:48.000Z",
-      "issue_created_at": "2026-05-12T11:10:48.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:48.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: 9d4d3e59efe5a7b9.css",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/368",
-      "original_url": "https://www.ukmto.org/_next/static/css/9d4d3e59efe5a7b9.css",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/_next/static/css/9d4d3e59efe5a7b9.css",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:48.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/_next/static/css/9d4d3e59efe5a7b9.css\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:48.011957+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: e6ed43a0438cc8bb -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/367",
-      "number": 367,
-      "id": "4428579147",
-      "ts": "2026-05-12T11:10:47.000Z",
-      "chronology_ts": "2026-05-12T11:10:47.000Z",
-      "issue_created_at": "2026-05-12T11:10:47.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:47.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: cafbe3125a3b3d95.css",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/367",
-      "original_url": "https://www.ukmto.org/_next/static/css/cafbe3125a3b3d95.css",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/_next/static/css/cafbe3125a3b3d95.css",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:47.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/_next/static/css/cafbe3125a3b3d95.css\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:46.801152+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: ca176c755d59286a -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/366",
-      "number": 366,
-      "id": "4428579015",
-      "ts": "2026-05-12T11:10:45.000Z",
-      "chronology_ts": "2026-05-12T11:10:45.000Z",
-      "issue_created_at": "2026-05-12T11:10:45.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:45.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: 94a11e200e1cebc1.css",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/366",
-      "original_url": "https://www.ukmto.org/_next/static/css/94a11e200e1cebc1.css",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/_next/static/css/94a11e200e1cebc1.css",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:45.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/_next/static/css/94a11e200e1cebc1.css\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:45.438917+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: ae01fa49e23ccc85 -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/365",
-      "number": 365,
-      "id": "4428578904",
-      "ts": "2026-05-12T11:10:44.000Z",
-      "chronology_ts": "2026-05-12T11:10:44.000Z",
-      "issue_created_at": "2026-05-12T11:10:44.000Z",
-      "source_published_at": null,
-      "ingested_at": "2026-05-12T11:10:44.000Z",
-      "title": "[AUTO] UKMTO Recent Incidents: favicon.ico",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/365",
-      "original_url": "https://www.ukmto.org/favicon.ico",
-      "labels": [
-        "D:SECURITY_CRIME",
-        "SEV:2",
-        "CONF:HIGH",
-        "SRC:OFFICIAL"
-      ],
-      "source_type": "official",
-      "category": "D:SECURITY_CRIME",
-      "region": null,
-      "severity": "SEV:2",
-      "confidence": "CONF:HIGH",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "UKMTO Recent Incidents",
-        "platform": null,
-        "link": "https://www.ukmto.org/favicon.ico",
-        "source_published_at": null,
-        "ingested_at": "2026-05-12T11:10:44.000Z"
-      },
-      "report_category": "Maritime Crime / Security",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Source\nUKMTO Recent Incidents\n\n### Link\nhttps://www.ukmto.org/favicon.ico\n\n### Published\n(unknown)\n\n### Auto-Labels\nCONF:HIGH, D:SECURITY_CRIME, SEV:2, SRC:OFFICIAL\n\n### Summary\n(no summary)\n\n---\n_Ingested at 2026-05-12T11:10:44.273207+00:00 UTC_\n\n<!-- VOODOO_FEED_INGEST: 2c009e1efdaf4c76 -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/380",
-      "number": 380,
-      "id": "4428597954",
-      "ts": "2026-05-12T10:45:00.000Z",
-      "chronology_ts": "2026-05-12T10:45:00.000Z",
-      "issue_created_at": "2026-05-12T11:13:32.000Z",
-      "source_published_at": "2026-05-12T10:45:00.000Z",
-      "ingested_at": "2026-05-12T11:13:21.049Z",
-      "title": "[SOCIAL] Stay sharp. Stay informed. War on the Rocks delivers the insights serious professionals r…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/380",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnmb4u4qs23",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnmb4u4qs23",
-        "source_published_at": "2026-05-12T10:45:00.000Z",
-        "ingested_at": "2026-05-12T11:13:21.049Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T10:45:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mlnmb4u4qs23\n\n### Text\nStay sharp. Stay informed. War on the Rocks delivers the insights serious professionals rely on. Join now.\n\n### Extra\nIngest run: 2026-05-12T11:13:21.049Z\n\n<!-- VOODOO_INGEST: 54da801f SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/377",
-      "number": 377,
-      "id": "4428597835",
-      "ts": "2026-05-12T10:20:07.456Z",
-      "chronology_ts": "2026-05-12T10:20:07.456Z",
-      "issue_created_at": "2026-05-12T11:13:30.000Z",
-      "source_published_at": "2026-05-12T10:20:07.456Z",
-      "ingested_at": "2026-05-12T11:13:21.049Z",
-      "title": "[SOCIAL] Nyliberalismen är bara en modern form av fascism.\nOm någon undrar varför det går dåligt f…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/377",
-      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mlnkulaac22y",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "oiuye (Bluesky) (oiuye_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mlnkulaac22y",
-        "source_published_at": "2026-05-12T10:20:07.456Z",
-        "ingested_at": "2026-05-12T11:13:21.049Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T10:20:07.456Z\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mlnkulaac22y\n\n### Text\nNyliberalismen är bara en modern form av fascism.\nOm någon undrar varför det går dåligt för Liberalerna.\n\n### Extra\nIngest run: 2026-05-12T11:13:21.049Z\n\n<!-- VOODOO_INGEST: 75690f95 SOURCE=oiuye_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/500",
-      "number": 500,
-      "id": "4436564839",
-      "ts": "2026-05-12T10:01:00.000Z",
-      "chronology_ts": "2026-05-12T10:01:00.000Z",
-      "issue_created_at": "2026-05-13T09:19:58.000Z",
-      "source_published_at": "2026-05-12T10:01:00.000Z",
-      "ingested_at": "2026-05-13T09:19:42.115Z",
-      "title": "[RSS] Maßnahmen gegen die »russische Schattenflotte«",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/500",
-      "original_url": "https://www.swp-berlin.org/publikation/massnahmen-gegen-die-russische-schattenflotte",
-      "labels": [
-        "D:INFRA_CI",
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:MED",
-        "SRC:OSINT",
-        "SRC:THINKTANK",
-        "SRC:ANALYSIS",
-        "SCORE:HYBRID_CONTEXT",
-        "MAP:NO",
-        "DECAY:SLOW",
-        "REG:EUROPE",
-        "D:CYBER_IT"
-      ],
-      "source_type": "rss",
-      "category": "D:INFRA_CI",
-      "region": "REG:EUROPE",
-      "severity": "SEV:1",
-      "confidence": "CONF:MED",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "SWP – Offizielle Publikationen DE (swp_publications_de)",
-        "platform": "rss",
-        "link": "https://www.swp-berlin.org/publikation/massnahmen-gegen-die-russische-schattenflotte",
-        "source_published_at": "2026-05-12T10:01:00.000Z",
-        "ingested_at": "2026-05-13T09:19:42.115Z"
-      },
-      "report_category": "Maritime KRITIS / Offshore-Infrastruktur",
-      "greybook_rubric": "Maritime Security/Hybride Bedrohungen",
-      "summary": "### Quelle\nSWP – Offizielle Publikationen DE (swp_publications_de)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-12T10:01:00.000Z\n\n### Link\nhttps://www.swp-berlin.org/publikation/massnahmen-gegen-die-russische-schattenflotte\n\n### Text\nNur ein systematischer Ansatz kann für Effektivität und Sicherheit sorgen\nRusslands sogenannte Schattenflotte dient in erster Linie der Sanktionsumgehung für den Ölexport und damit der Finanzierung seines Angriffskrieges gegen die Ukraine. Sie stellt jedoch vermehrt auch ein verteidigungsrelevantes Sicherheitsrisiko für Europa dar. Schiffe der Schattenflotte werden zunehmend mit Spionage- und Sabo­tage­­akten in Verbindung gebracht, sie bedrohen deutsche und europäische Sicherheit und die maritime Umwelt. Die Bundesregierung sollte gemeinsam mit ihren Partnern einen systematischen Ansatz verfolgen, um wirksam gegen die Schattenflotte vor­zugehen. Ziel ist es, Sanktionsregime aufrechtzuerhalten, die maritime Sicherheit zu gewährleisten und verteidigungsrelevante Bedrohungen einzudämmen.\n\n### MAGIC PAWS Meta\nproduct: MAGIC PAWS // MARITIME PHASE ZERO\nsource_id: swp_publications_de\nsource_priority: 86\nitem_score: 11\nkeyword_hits: sanktions, schattenflotte,…"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/381",
-      "number": 381,
-      "id": "4428597993",
-      "ts": "2026-05-12T10:00:00.000Z",
-      "chronology_ts": "2026-05-12T10:00:00.000Z",
-      "issue_created_at": "2026-05-12T11:13:32.000Z",
-      "source_published_at": "2026-05-12T10:00:00.000Z",
-      "ingested_at": "2026-05-12T11:13:21.049Z",
-      "title": "[SOCIAL] The U.S. is demanding Iraq's next cabinet include zero militia-affiliated figures. Easier…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/381",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnjqnzgtu23",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnjqnzgtu23",
-        "source_published_at": "2026-05-12T10:00:00.000Z",
-        "ingested_at": "2026-05-12T11:13:21.049Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T10:00:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mlnjqnzgtu23\n\n### Text\nThe U.S. is demanding Iraq's next cabinet include zero militia-affiliated figures. Easier said than done when some of those militias just grew their seats in parliament. (Members Only)\nListen here: warontherocks.com/ep...\n\n### Extra\nIngest run: 2026-05-12T11:13:21.049Z\n\n<!-- VOODOO_INGEST: bd5f69b3 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/378",
-      "number": 378,
-      "id": "4428597870",
-      "ts": "2026-05-12T09:50:56.439Z",
-      "chronology_ts": "2026-05-12T09:50:56.439Z",
-      "issue_created_at": "2026-05-12T11:13:31.000Z",
-      "source_published_at": "2026-05-12T09:50:56.439Z",
-      "ingested_at": "2026-05-12T11:13:21.049Z",
-      "title": "[SOCIAL] ... \"Hanoi julen 1972\", Gaza ...",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/378",
-      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mlnjafdgqs2y",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "oiuye (Bluesky) (oiuye_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mlnjafdgqs2y",
-        "source_published_at": "2026-05-12T09:50:56.439Z",
-        "ingested_at": "2026-05-12T11:13:21.049Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T09:50:56.439Z\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mlnjafdgqs2y\n\n### Text\n... \"Hanoi julen 1972\", Gaza ...\n\n### Extra\nIngest run: 2026-05-12T11:13:21.049Z\n\n<!-- VOODOO_INGEST: a50e6b3d SOURCE=oiuye_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/379",
-      "number": 379,
-      "id": "4428597915",
-      "ts": "2026-05-12T09:46:58.573Z",
-      "chronology_ts": "2026-05-12T09:46:58.573Z",
-      "issue_created_at": "2026-05-12T11:13:31.000Z",
-      "source_published_at": "2026-05-12T09:46:58.573Z",
-      "ingested_at": "2026-05-12T11:13:21.049Z",
-      "title": "[SOCIAL] Allt är som vanligt i lätt MAGA land där fascisterna styr med hjälp av nazister.",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/379",
-      "original_url": "https://bsky.app/profile/oiuye.bsky.social/post/3mlnizciepk2y",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "oiuye (Bluesky) (oiuye_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/oiuye.bsky.social/post/3mlnizciepk2y",
-        "source_published_at": "2026-05-12T09:46:58.573Z",
-        "ingested_at": "2026-05-12T11:13:21.049Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\noiuye (Bluesky) (oiuye_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T09:46:58.573Z\n\n### Link\nhttps://bsky.app/profile/oiuye.bsky.social/post/3mlnizciepk2y\n\n### Text\nAllt är som vanligt i lätt MAGA land där fascisterna styr med hjälp av nazister.\n\n### Extra\nIngest run: 2026-05-12T11:13:21.049Z\n\n<!-- VOODOO_INGEST: f1ba5784 SOURCE=oiuye_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/359",
-      "number": 359,
-      "id": "4427923454",
-      "ts": "2026-05-12T09:15:00.000Z",
-      "chronology_ts": "2026-05-12T09:15:00.000Z",
-      "issue_created_at": "2026-05-12T09:32:33.000Z",
-      "source_published_at": "2026-05-12T09:15:00.000Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[SOCIAL] Drone warfare has collapsed the distinction between the frontline and the rear. There is …",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/359",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnha5yjcl23",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnha5yjcl23",
-        "source_published_at": "2026-05-12T09:15:00.000Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Drohnen",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T09:15:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mlnha5yjcl23\n\n### Text\nDrone warfare has collapsed the distinction between the frontline and the rear. There is no medical bubble anymore. Every medic is now a front-line soldier.\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 56aaa24f SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/356",
-      "number": 356,
-      "id": "4427923141",
-      "ts": "2026-05-12T08:32:39.000Z",
-      "chronology_ts": "2026-05-12T08:32:39.000Z",
-      "issue_created_at": "2026-05-12T09:32:30.000Z",
-      "source_published_at": "2026-05-12T08:32:39.000Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[RSS] Planes With Hantavirus Cruise Passengers Land in the Netherlands; Hospital Quarantines 12",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/356",
-      "original_url": "https://gcaptain.com/planes-with-hantavirus-cruise-passengers-land-in-the-netherlands-hospital-quarantines-12/",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:MEDIA",
-        "REG:OTHER"
-      ],
-      "source_type": "rss",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "gCaptain (RSS) (gcaptain_rss)",
-        "platform": "rss",
-        "link": "https://gcaptain.com/planes-with-hantavirus-cruise-passengers-land-in-the-netherlands-hospital-quarantines-12/",
-        "source_published_at": "2026-05-12T08:32:39.000Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-12T08:32:39.000Z\n\n### Link\nhttps://gcaptain.com/planes-with-hantavirus-cruise-passengers-land-in-the-netherlands-hospital-quarantines-12/\n\n### Text\nTwo planes with 28 passengers from the MV Hondius cruise ship, which was hit by a hantavirus outbreak, landed in the Netherlands on Tuesday and a Dutch hospital treating a hantavirus patient quarantined 12 staffers in a preventative measure.\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 8def1bad SOURCE=gcaptain_rss -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/360",
-      "number": 360,
-      "id": "4427923486",
-      "ts": "2026-05-12T08:30:00.000Z",
-      "chronology_ts": "2026-05-12T08:30:00.000Z",
-      "issue_created_at": "2026-05-12T09:32:33.000Z",
-      "source_published_at": "2026-05-12T08:30:00.000Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[SOCIAL] Steel Dome, Turkey's answer to Iron Dome, won't be fully operational until 2030. In the M…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/360",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlneprbozh2i",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlneprbozh2i",
-        "source_published_at": "2026-05-12T08:30:00.000Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T08:30:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mlneprbozh2i\n\n### Text\nSteel Dome, Turkey's answer to Iron Dome, won't be fully operational until 2030. In the Middle East right now, that's a lifetime away.\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 0d0503ba SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/357",
-      "number": 357,
-      "id": "4427923187",
-      "ts": "2026-05-12T08:29:35.000Z",
-      "chronology_ts": "2026-05-12T08:29:35.000Z",
-      "issue_created_at": "2026-05-12T09:32:30.000Z",
-      "source_published_at": "2026-05-12T08:29:35.000Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[RSS] Iran War Ceasefire Fragile as US Rejects Tehran’s Latest Offer",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/357",
-      "original_url": "https://gcaptain.com/iran-war-ceasefire-fragile-as-us-rejects-tehrans-latest-offer/",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:MEDIA",
-        "REG:OTHER",
-        "REG:PERSIAN_GULF",
-        "REG:GULF_OF_OMAN",
-        "REG:STRAIT_HORMUZ"
-      ],
-      "source_type": "rss",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:PERSIAN_GULF",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": {
-        "lat": 26.56,
-        "lon": 56.25,
-        "precision": "area",
-        "method": "gazetteer_alias_content_only",
-        "matched_name": "Strait of Hormuz",
-        "matched_alias": "Strait of Hormuz",
-        "matched_id": "strait_hormuz",
-        "radius_km": 85,
-        "confidence": "medium",
-        "geo_role": "topic_area",
-        "display_on_map": true,
-        "regions": [
-          "REG:PERSIAN_GULF",
-          "REG:GULF_OF_OMAN",
-          "REG:STRAIT_HORMUZ"
-        ]
-      },
-      "geo_candidates": [
-        {
-          "lat": 26.56,
-          "lon": 56.25,
-          "precision": "area",
-          "method": "gazetteer_alias_content_only",
-          "matched_name": "Strait of Hormuz",
-          "matched_alias": "Strait of Hormuz",
-          "matched_id": "strait_hormuz",
-          "radius_km": 85,
-          "confidence": "medium",
-          "geo_role": "topic_area",
-          "display_on_map": true,
-          "regions": [
-            "REG:PERSIAN_GULF",
-            "REG:GULF_OF_OMAN",
-            "REG:STRAIT_HORMUZ"
-          ]
-        }
-      ],
-      "source_hint": {
-        "source": "gCaptain (RSS) (gcaptain_rss)",
-        "platform": "rss",
-        "link": "https://gcaptain.com/iran-war-ceasefire-fragile-as-us-rejects-tehrans-latest-offer/",
-        "source_published_at": "2026-05-12T08:29:35.000Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\ngCaptain (RSS) (gcaptain_rss)\n\n### Plattform\nrss\n\n### Zeit (UTC)\n2026-05-12T08:29:35.000Z\n\n### Link\nhttps://gcaptain.com/iran-war-ceasefire-fragile-as-us-rejects-tehrans-latest-offer/\n\n### Text\nShipping traffic in the Strait of Hormuz remained at a standstill on Tuesday, with oil rising after US President Donald Trump rejected Iran’s latest offer and suggested the ceasefire may not hold.\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 7731ec75 SOURCE=gcaptain_rss -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/361",
-      "number": 361,
-      "id": "4427923530",
-      "ts": "2026-05-12T07:45:00.000Z",
-      "chronology_ts": "2026-05-12T07:45:00.000Z",
-      "issue_created_at": "2026-05-12T09:32:34.000Z",
-      "source_published_at": "2026-05-12T07:45:00.000Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[SOCIAL] Everything you need to know about the war with Iran: background, key players, and what an…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/361",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnc77i6jv23",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mlnc77i6jv23",
-        "source_published_at": "2026-05-12T07:45:00.000Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T07:45:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mlnc77i6jv23\n\n### Text\nEverything you need to know about the war with Iran: background, key players, and what analysts are debating, all in one place. Visit our new page to stay up to date on the latest.\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 171871b9 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/358",
-      "number": 358,
-      "id": "4427923379",
-      "ts": "2026-05-12T07:34:59.409Z",
-      "chronology_ts": "2026-05-12T07:34:59.409Z",
-      "issue_created_at": "2026-05-12T09:32:32.000Z",
-      "source_published_at": "2026-05-12T07:34:59.409Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[SOCIAL] show us yours!",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/358",
-      "original_url": "https://bsky.app/profile/auonsson.bsky.social/post/3mlnbnc6n5c2m",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "auonsson (Bluesky) (auonsson_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/auonsson.bsky.social/post/3mlnbnc6n5c2m",
-        "source_published_at": "2026-05-12T07:34:59.409Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nauonsson (Bluesky) (auonsson_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T07:34:59.409Z\n\n### Link\nhttps://bsky.app/profile/auonsson.bsky.social/post/3mlnbnc6n5c2m\n\n### Text\nshow us yours!\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 219f833b SOURCE=auonsson_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/364",
-      "number": 364,
-      "id": "4427923695",
-      "ts": "2026-05-12T07:09:28.954Z",
-      "chronology_ts": "2026-05-12T07:09:28.954Z",
-      "issue_created_at": "2026-05-12T09:32:36.000Z",
-      "source_published_at": "2026-05-12T07:09:28.954Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[SOCIAL] A 65 million dollar investment will boost production at Alcoa’s Northern Norway smelter a…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/364",
-      "original_url": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mlna7omu6k23",
-      "labels": [
-        "D:NEWS_INTEL",
-        "REG:ATLANTIC_NE",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:ATLANTIC_NE",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "High North News (Bluesky) (highnorthnews_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/highnorthnews.bsky.social/post/3mlna7omu6k23",
-        "source_published_at": "2026-05-12T07:09:28.954Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nHigh North News (Bluesky) (highnorthnews_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T07:09:28.954Z\n\n### Link\nhttps://bsky.app/profile/highnorthnews.bsky.social/post/3mlna7omu6k23\n\n### Text\nA 65 million dollar investment will boost production at Alcoa’s Northern Norway smelter and include recycled content to its low-carbon aluminium products.\n#mosjøen #alcoa #aluminium #norway #arctic #recycling\nen.highnorthnews.com/business/alc...\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 8fad8bde SOURCE=highnorthnews_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/362",
-      "number": 362,
-      "id": "4427923568",
-      "ts": "2026-05-12T07:00:00.000Z",
-      "chronology_ts": "2026-05-12T07:00:00.000Z",
-      "issue_created_at": "2026-05-12T09:32:34.000Z",
-      "source_published_at": "2026-05-12T07:00:00.000Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[SOCIAL] Allies are finding faster, more relevant ways to collaborate without waiting for Washingt…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/362",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mln7oqmolw24",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mln7oqmolw24",
-        "source_published_at": "2026-05-12T07:00:00.000Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T07:00:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mln7oqmolw24\n\n### Text\nAllies are finding faster, more relevant ways to collaborate without waiting for Washington.\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 3a175674 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/363",
-      "number": 363,
-      "id": "4427923611",
-      "ts": "2026-05-12T06:15:00.000Z",
-      "chronology_ts": "2026-05-12T06:15:00.000Z",
-      "issue_created_at": "2026-05-12T09:32:35.000Z",
-      "source_published_at": "2026-05-12T06:15:00.000Z",
-      "ingested_at": "2026-05-12T09:32:22.347Z",
-      "title": "[SOCIAL] Ukraine showed the world what cheap maritime drones can do to a naval fleet. Russian plan…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/363",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mln56cg3vi23",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mln56cg3vi23",
-        "source_published_at": "2026-05-12T06:15:00.000Z",
-        "ingested_at": "2026-05-12T09:32:22.347Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "maritime Geopolitik",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T06:15:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mln56cg3vi23\n\n### Text\nUkraine showed the world what cheap maritime drones can do to a naval fleet. Russian planners spent four years taking notes.\n\n### Extra\nIngest run: 2026-05-12T09:32:22.347Z\n\n<!-- VOODOO_INGEST: 668d1033 SOURCE=warontherocks_bsky -->"
-    },
-    {
-      "archive_key": "url:https://github.com/mowlsint/magicpaws/issues/352",
-      "number": 352,
-      "id": "4426642288",
-      "ts": "2026-05-12T05:30:00.000Z",
-      "chronology_ts": "2026-05-12T05:30:00.000Z",
-      "issue_created_at": "2026-05-12T06:09:34.000Z",
-      "source_published_at": "2026-05-12T05:30:00.000Z",
-      "ingested_at": "2026-05-12T06:09:18.984Z",
-      "title": "[SOCIAL] In this Marine Pulse/Sailor Pulse crossover episode, the hosts get candid about what it t…",
-      "url": "https://github.com/mowlsint/MagicPaws/issues/352",
-      "original_url": "https://bsky.app/profile/warontherocks.bsky.social/post/3mln2nugh6v23",
-      "labels": [
-        "D:NEWS_INTEL",
-        "SEV:1",
-        "CONF:LOW",
-        "SRC:OSINT",
-        "SRC:SOCIAL",
-        "REG:OTHER"
-      ],
-      "source_type": "social_bsky",
-      "category": "D:NEWS_INTEL",
-      "region": "REG:OTHER",
-      "severity": "SEV:1",
-      "confidence": "CONF:LOW",
-      "phase0": {
-        "suspect": false,
-        "level": null
-      },
-      "geo": null,
-      "source_hint": {
-        "source": "War on the Rocks (Bluesky) (warontherocks_bsky)",
-        "platform": "bsky",
-        "link": "https://bsky.app/profile/warontherocks.bsky.social/post/3mln2nugh6v23",
-        "source_published_at": "2026-05-12T05:30:00.000Z",
-        "ingested_at": "2026-05-12T06:09:18.984Z"
-      },
-      "report_category": "News / Intelligence Hinweise",
-      "greybook_rubric": "Unreleased but self-confirmed",
-      "summary": "### Quelle\nWar on the Rocks (Bluesky) (warontherocks_bsky)\n\n### Plattform\nbsky\n\n### Zeit (UTC)\n2026-05-12T05:30:00.000Z\n\n### Link\nhttps://bsky.app/profile/warontherocks.bsky.social/post/3mln2nugh6v23\n\n### Text\nIn this Marine Pulse/Sailor Pulse crossover episode, the hosts get candid about what it truly means to serve alongside your sister service, diving deep into the culture, the mission, and what life really looks like on both sides. (Members Only)\nListen here: warontherocks.com/ep...\n\n### Extra\nIngest run: 2026-05-12T06:09:18.984Z\n\n<!-- VOODOO_INGEST: 10774166 SOURCE=warontherocks_bsky -->"
     }
   ]
 }
