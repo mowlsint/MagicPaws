@@ -16,11 +16,11 @@
     "hybrid": {
       "is_over_threshold": true,
       "consecutive_high_runs": 2,
-      "alerted_for_current_episode": false,
+      "alerted_for_current_episode": true,
       "first_high_at": "2026-05-30T14:51:13.026Z",
-      "last_alert_at": null,
+      "last_alert_at": "2026-06-01T10:37:06.469Z",
       "recovered_at": null,
-      "last_state_change_at": "2026-06-01T05:23:40.444Z",
+      "last_state_change_at": "2026-06-01T10:37:06.469Z",
       "last_value": 100,
       "threshold": 75,
       "label": "Hybrid-Index",
@@ -51,7 +51,9 @@
       "label": "Government Weirdness Ostsee"
     }
   },
-  "alert_totals": {},
+  "alert_totals": {
+    "hybrid": 1
+  },
   "last_error": null,
   "last_values": {
     "hybrid": 100,
@@ -59,17 +61,14 @@
     "gov_weirdness_baltic": 20
   },
   "last_run": {
-    "at": "2026-06-01T05:23:40.444Z",
+    "at": "2026-06-01T10:37:06.469Z",
     "pending_alerts": [
       "hybrid"
     ],
-    "sent": [],
-    "failed": [
-      {
-        "key": "hybrid",
-        "error": "Failed to parse URL from ntfy.sh/magicpaws-alerts-hztgwwc2fycxuh"
-      }
+    "sent": [
+      "hybrid"
     ],
+    "failed": [],
     "ntfy_enabled": true
   }
 }
