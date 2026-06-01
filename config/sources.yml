@@ -515,9 +515,11 @@ sources:
   position_basis: morse_weather_position_reports
   geo_interpretation: assume_plausible_if_parseable
 
-  # Für spätere Government-Weirdness-Kopplung:
-  # Diese Felder sind Konfigurationsabsicht. Sie wirken erst dann vollständig,
-  # wenn ingest/threshold/scoring diese Felder aktiv auswerten.
+  # Government-Weirdness-Kopplung:
+  # Wenn ein geolokalisierter TJ-Post in Nordsee/Ostsee/Dänischen Meerengen/Golf von Finnland
+  # ein russisches Research-/Auxiliary-/Government-/Survey-/Intelligence-Ziel beschreibt und
+  # AIS-Live-Daten ein Behördenschiff im Umkreis von 1 NM zeigen, wird Government Weirdness
+  # im Snapshot-/Threshold-Scoring deutlich geboostet.
   government_weirdness_source: true
   gov_weirdness_correlation:
     enabled: true
@@ -549,7 +551,7 @@ sources:
       - V:AUTH_CUSTOMS
       - V:SAR_UNIT
       - V:GOVERNMENT
-    kriteria:
+    criteria:
       - TJ-Post enthält parsebare Position, Route, Hafen oder Seegebiet.
       - Position liegt in Nordsee, Ostsee, Dänischen Meerengen, Golf von Finnland oder Schwarzmeer.
       - Schiff hat russischen Research-, Auxiliary-, Government-, Warship-, Survey- oder Intelligence-Bezug.
@@ -1145,8 +1147,9 @@ sources:
   enabled: true
 source_profiles:
   route_geo_social:
-    description: Social accounts that frequently post vessel positions, routes, screenshots or coordinates.
+    description: Social accounts that frequently post vessel positions, routes, screenshots, coordinates or morse/weather position reports.
     default_map_policy: promote explicit coordinates and controlled gazetteer matches; do not create hard alerts without corroboration.
+    government_weirdness_note: TJ/te3ej-style vessel geo posts may be correlated with AIS authority vessels in snapshot/threshold scoring.
   warship_sighting_social:
     description: Naval/warship sighting accounts. Useful for route and presence indicators; usually C-level unless corroborated.
   shadow_fleet_route_social:
