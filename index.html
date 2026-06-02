@@ -1528,6 +1528,58 @@ Wilhelmshaven JadeWeserPort"></textarea>
     return !!(ev?.geo && Number.isFinite(Number(ev.geo.lat)) && Number.isFinite(Number(ev.geo.lon)));
   }
 
+  function isOperationalNoiseEvent(ev){
+    const labels = ev?.labels ?? [];
+    if (labels.includes("SCORE:IGNORE") || labels.includes("NOISE:UTILITY_PAGE")) return true;
+
+    const title = String(ev?.title || "");
+    const summary = String(ev?.summary || ev?.body || "");
+    const link = String(ev?.original_url || ev?.source_hint?.link || ev?.source_url || ev?.link || ev?.url || "");
+    const source = String(ev?.source_hint?.source || ev?.source_type || "");
+    const hay = `${title}\n${summary}\n${link}\n${source}\n${labels.join(" ")}`.toLowerCase();
+
+    const urlNoise = [
+      /\/terms(?:-and-conditions)?\/?(?:[?#].*)?$/i,
+      /\/cdn-cgi\/l\/email-protection/i,
+      /\/contact-us\/?(?:[?#].*)?$/i,
+      /\/best-management-practices\/?(?:[?#].*)?$/i,
+      /\/reporting-formats\/?(?:[?#].*)?$/i,
+      /\/partner-products\/?(?:[?#].*)?$/i,
+      /\/privacy(?:-policy)?\/?(?:[?#].*)?$/i,
+      /\/cookies?\/?(?:[?#].*)?$/i,
+      /\/accessibility\/?(?:[?#].*)?$/i,
+      /\/sitemap\/?(?:[?#].*)?$/i,
+      /\/membership\/?(?:[?#].*)?$/i
+    ].some(rx => rx.test(link));
+
+    const textNoise = [
+      /\bterms and conditions\b/i,
+      /\bemail protection\b/i,
+      /\bcontact us\b/i,
+      /\bbest management practices\b/i,
+      /\breporting formats\b/i,
+      /\bpartner products\b/i,
+      /\bprivacy policy\b/i,
+      /\bcookie policy\b/i,
+      /\baccessibility statement\b/i,
+      /\bcopy editor application\b/i,
+      /\bseeking to hire\b/i,
+      /\bpart-time copy editors?\b/i,
+      /\bsign up for .*membership\b/i,
+      /\bjoin .*working full-time\b/i
+    ].some(rx => rx.test(hay));
+
+    const ukmtoUtility = /ukmto/.test(hay) && (
+      /terms and conditions|email protection|contact us|best management practices|reporting formats|partner products|privacy|cookie|accessibility/.test(hay) ||
+      /\/terms|\/cdn-cgi\/l\/email-protection|\/contact-us|\/best-management-practices|\/reporting-formats|\/partner-products/.test(link)
+    );
+
+    const operationalTerms = /\b(incident|attack|hijack|boarding|suspicious approach|missile|drone|uas|mine|explosion|fire|collision|grounding|piracy|armed|navwarn|navtex|warning|cable|pipeline|sabotage|jamming|spoofing|ais gap|shadow fleet|sanction|vessel|ship|tanker)\b/i;
+    if ((urlNoise || textNoise || ukmtoUtility) && !operationalTerms.test(`${title}\n${summary}`)) return true;
+    return false;
+  }
+
+
   function parseJsonSectionFromText(text, heading){
     const re = new RegExp(`###\\s*${heading}\\s*\\n([\\s\\S]*?)(?=\\n###\\s|\\n---|$)`, "i");
     const m = String(text || "").match(re);
@@ -2197,6 +2249,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     const byKey = new Map();
     for (const list of lists) {
       for (const ev of Array.isArray(list) ? list : []) {
+        if (isOperationalNoiseEvent(ev)) continue;
         const key = eventArchiveKey(ev);
         const prev = byKey.get(key);
         if (!prev || getEventChronologyMs(ev) >= getEventChronologyMs(prev)) byKey.set(key, ev);
