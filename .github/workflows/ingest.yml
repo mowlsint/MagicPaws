@@ -1,4 +1,4 @@
-name: MagicPaws Ingest hourly
+name: MagicPaws Ingest (hourly)
 
 on:
   schedule:
@@ -11,10 +11,6 @@ permissions:
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
-
-concurrency:
-  group: magicpaws-ingest
-  cancel-in-progress: false
 
 jobs:
   ingest:
@@ -55,85 +51,14 @@ jobs:
           node --check scripts/ingest.mjs
           node --check scripts/snapshot.mjs
 
-      - name: Prepare and validate ntfy environment
-        shell: bash
-        env:
-          RAW_NTFY_ENABLED: ${{ secrets.NTFY_ENABLED }}
-          RAW_NTFY_URL: ${{ secrets.NTFY_URL }}
-          RAW_NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
-        run: |
-          node <<'NODE'
-          const fs = require("node:fs");
-
-          const envFile = process.env.GITHUB_ENV;
-
-          function clean(value) {
-            return String(value || "")
-              .trim()
-              .replace(/^["'`]+|["'`]+$/g, "")
-              .trim();
-          }
-
-          function isTruthy(value) {
-            return ["1", "true", "yes", "on"].includes(clean(value).toLowerCase());
-          }
-
-          function exportEnv(key, value) {
-            const v = String(value ?? "");
-            if (v.includes("\n") || v.includes("\r")) {
-              const delim = `EOF_${Math.random().toString(16).slice(2)}`;
-              fs.appendFileSync(envFile, `${key}<<${delim}\n${v}\n${delim}\n`);
-            } else {
-              fs.appendFileSync(envFile, `${key}=${v}\n`);
-            }
-          }
-
-          const enabled = isTruthy(process.env.RAW_NTFY_ENABLED);
-          const url = clean(process.env.RAW_NTFY_URL);
-          const token = clean(process.env.RAW_NTFY_TOKEN);
-
-          if (url) console.log(`::add-mask::${url}`);
-          if (token) console.log(`::add-mask::${token}`);
-
-          console.log("NTFY_ENABLED active:", enabled);
-          console.log("NTFY_URL present:", Boolean(url));
-          console.log("NTFY_URL starts with https:", url.startsWith("https://"));
-          console.log("NTFY_TOKEN present:", Boolean(token));
-
-          if (enabled) {
-            if (!url) {
-              throw new Error("NTFY_ENABLED is active, but NTFY_URL is missing.");
-            }
-
-            try {
-              const parsed = new URL(url);
-
-              if (!["https:", "http:"].includes(parsed.protocol)) {
-                throw new Error(`Unsupported protocol: ${parsed.protocol}`);
-              }
-
-              if (!parsed.pathname || parsed.pathname === "/") {
-                throw new Error("NTFY_URL has no topic path. Expected format: https://ntfy.sh/<topic>");
-              }
-
-              console.log("NTFY_URL parse: ok");
-            } catch {
-              throw new Error("NTFY_URL is not a valid absolute ntfy topic URL. Expected format: https://ntfy.sh/<topic>");
-            }
-          } else {
-            console.log("ntfy is disabled. URL validation is non-blocking.");
-          }
-
-          exportEnv("NTFY_ENABLED", enabled ? "true" : "false");
-          exportEnv("NTFY_URL", url);
-          exportEnv("NTFY_TOKEN", token);
-          NODE
-
       - name: Run ingest
         run: node scripts/ingest.mjs
         env:
           GITHUB_TOKEN: ${{ github.token }}
           GH_TOKEN: ${{ github.token }}
+          NTFY_ENABLED: ${{ secrets.NTFY_ENABLED }}
+          NTFY_URL: ${{ secrets.NTFY_URL }}
+          NTFY_TOKEN: ${{ secrets.NTFY_TOKEN }}
           NTFY_MIN_LEVEL: HIGH
 
       - name: Decide whether to snapshot
@@ -164,13 +89,11 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-
           git add data/snapshots/voodoo_sensor_snapshots.ndjson data/snapshots/voodoo_sensor_latest.json
-
           if git diff --cached --quiet; then
             echo "No snapshot changes to commit."
           else
             git commit -m "Add MagicPaws sensor snapshot"
-            git pull --rebase --autostash
+            git pull --rebase
             git push
           fi
