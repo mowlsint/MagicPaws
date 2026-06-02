@@ -2026,7 +2026,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
       { key:'ingest', label:'Ingest', status:ingestStatus, meta:`${recent24} Events / 24h`, reason:`Neuestes Event ${fmtAgeMinutes(latestEventAgeM)} alt`,
         details: [["Quelle","GitHub Issues / Worker / Repo-Log"],["24h Events",recent24],["Neuestes Event",fmtAgeMinutes(latestEventAgeM)],["Schwelle","grün: ≤120 min + ≥3 Events/24h"],["Grund",`Neuestes Event ${fmtAgeMinutes(latestEventAgeM)} alt`]] },
       { key:'snapshot', label:'Snapshot', status:snapStatus, meta:fmtAgeMinutes(snapAge), reason:snap ? 'Sensor-Snapshot' : 'Snapshot-Datei fehlt',
-        details: [["Datei",state.repoArchive.sensorLatestPath || "data/snapshots/magicpaws_sensor_latest.json / data/snapshots/voodoo_sensor_latest.json"],["Alter",fmtAgeMinutes(snapAge)],["Schwelle","grün ≤4h, orange ≤8h"],["Grund",snap ? "Sensor-Snapshot vorhanden" : "Snapshot-Datei fehlt"]] },
+        details: [["Datei",state.repoArchive.sensorLatestPath || "data/snapshots/magicpaws_sensor_latest.json / data/snapshots/voodoo_sensor_latest.json"],["Sensorqualität",state.repoArchive.sensorLatestQuality || "unbekannt"],["Alter",fmtAgeMinutes(snapAge)],["Schwelle","grün ≤4h, orange ≤8h"],["Grund",snap ? "Sensor-Snapshot vorhanden" : "Snapshot-Datei fehlt"]] },
       { key:'ntfy', label:'ntfy', status:ntfyStatus, meta:ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : 'ohne State', reason:ntfyReason,
         details: [["Datei","data/live/ais_drift_alert_state.json"],["Alter",ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : "ohne State"],["Status",ntfyStatus.toUpperCase()],["Grund",ntfyReason],["Hinweis","Ingest-Alerts laufen über Secrets; Drift-Push über AIS-Workflow-State"]] },
       { key:'geo', label:'Geo/Gazetteer', status:geoStatus, meta:`${(geoRate*100).toFixed(0)}% GEO`, reason:`${geoHits}/${relevant.length || 0} Meldungen mit Geo/Kandidaten; Schwellen: grün ≥35%, orange ≥15%`,
@@ -2230,6 +2230,25 @@ Wilhelmshaven JadeWeserPort"></textarea>
     }
   }
 
+  function cacheBustRepoUrl(url){
+    const sep = String(url || "").includes("?") ? "&" : "?";
+    return `${url}${sep}v=${Date.now()}`;
+  }
+
+  function hasCanonicalHybridSensor(sensor){
+    const sensors = sensor?.sensors || {};
+    return Number.isFinite(Number(sensors.hybrid_threat_index_pct)) ||
+           Number.isFinite(Number(sensors.ntfy_hybrid_alert_pct));
+  }
+
+  function chooseSensorLatest(primary, fallback){
+    if (hasCanonicalHybridSensor(primary)) return { sensor:primary, path:REPO_DATA.sensorLatest, quality:"canonical-primary" };
+    if (hasCanonicalHybridSensor(fallback)) return { sensor:fallback, path:REPO_DATA.sensorLatestFallback, quality:"canonical-fallback" };
+    if (primary) return { sensor:primary, path:REPO_DATA.sensorLatest, quality:"legacy-primary" };
+    if (fallback) return { sensor:fallback, path:REPO_DATA.sensorLatestFallback, quality:"legacy-fallback" };
+    return { sensor:null, path:null, quality:"missing" };
+  }
+
   async function fetchRepoJsonlMaybe(url, label){
     try {
       const res = await fetch(url, { cache: "no-store", credentials: "omit" });
@@ -2263,8 +2282,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
       fetchRepoJsonMaybe(REPO_DATA.active20d, "20d-log"),
       fetchRepoJsonMaybe(REPO_DATA.manifest, "archive-manifest"),
       fetchRepoJsonMaybe(REPO_DATA.dailySummary, "daily-summary"),
-      fetchRepoJsonMaybe(REPO_DATA.sensorLatest, "sensor-latest-primary"),
-      fetchRepoJsonMaybe(REPO_DATA.sensorLatestFallback, "sensor-latest-fallback"),
+      fetchRepoJsonMaybe(cacheBustRepoUrl(REPO_DATA.sensorLatest), "sensor-latest-primary"),
+      fetchRepoJsonMaybe(cacheBustRepoUrl(REPO_DATA.sensorLatestFallback), "sensor-latest-fallback"),
       fetchRepoJsonMaybe(REPO_DATA.aisLatest, "ais-live"),
       fetchRepoJsonMaybe(REPO_DATA.aisDrift, "ais-drift"),
       fetchRepoJsonMaybe(REPO_DATA.adsbLatest, "adsb-live"),
@@ -2275,8 +2294,17 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.repoArchive.activeEvents = activeEvents;
     state.repoArchive.manifest = manifest;
     state.repoArchive.dailySummaryPack = dailyPack;
-    state.repoArchive.sensorLatest = sensorLatestPrimary || sensorLatestFallback;
-    state.repoArchive.sensorLatestPath = sensorLatestPrimary ? REPO_DATA.sensorLatest : (sensorLatestFallback ? REPO_DATA.sensorLatestFallback : null);
+    const chosenSensorLatest = chooseSensorLatest(sensorLatestPrimary, sensorLatestFallback);
+    state.repoArchive.sensorLatest = chosenSensorLatest.sensor;
+    state.repoArchive.sensorLatestPath = chosenSensorLatest.path;
+    state.repoArchive.sensorLatestQuality = chosenSensorLatest.quality;
+    if (chosenSensorLatest.quality.startsWith("legacy") || chosenSensorLatest.quality === "missing") {
+      console.warn("Magic Paws sensor latest is not canonical yet", {
+        chosen: chosenSensorLatest.quality,
+        primary_has_canonical: hasCanonicalHybridSensor(sensorLatestPrimary),
+        fallback_has_canonical: hasCanonicalHybridSensor(sensorLatestFallback)
+      });
+    }
     state.liveSensors.ais = aisLatest;
     state.liveSensors.drift = aisDrift;
     state.liveSensors.adsb = adsbLatest;
@@ -2865,7 +2893,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
         };
       }
     }
-    return { pct:clamp(Math.round(Number(fallbackScore)||0),0,100), source:"fallback:ui_seismograph", label:statusFromHybridThreat(fallbackScore), generated_ms:0, components:{}, explain:["Fallback: kein frischer Sensor-Snapshot mit hybrid_threat_index_pct gefunden."], model:null, fallback:true };
+    return { pct:clamp(Math.round(Number(fallbackScore)||0),0,100), source:"fallback:ui_seismograph", label:statusFromHybridThreat(fallbackScore), generated_ms:0, components:{}, explain:["Fallback: kein kanonischer Sensor-Snapshot mit hybrid_threat_index_pct/ntfy_hybrid_alert_pct gefunden. Prüfe data/snapshots/magicpaws_sensor_latest.json und voodoo_sensor_latest.json."], model:null, fallback:true };
   }
 
   function renderHybridExplain(info, seismoPeak){
