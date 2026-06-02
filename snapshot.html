@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MAGIC PAWS // Daily Snapshot v5.49 Dark PDF + 02/14 UTC</title>
+  <title>MAGIC PAWS // Daily Snapshot v5.54 Hybrid Baseline</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
         integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
@@ -234,6 +234,18 @@
     .dot{display:inline-block; width:11px; height:11px; border-radius:50%; background:var(--muted); box-shadow:0 0 0 1px rgba(255,255,255,.2) inset}
     .sev1{background:var(--ok)} .sev2{background:var(--money)} .sev3{background:var(--orange)} .sev4{background:var(--bad)}
     .cyan{background:var(--cyan)} .purple{background:var(--purple)} .orange{background:var(--orange)} .red{background:var(--bad)}
+
+
+    .hybridBaselineMini{border:1px solid rgba(176,136,0,.34); border-radius:8px; background:rgba(0,0,0,.25); padding:5px 7px 6px 7px; margin-bottom:5px;}
+    .hybridBaselineMiniHead{display:flex; justify-content:space-between; gap:6px; font-size:12px; color:var(--muted); line-height:1; margin-bottom:4px;}
+    .hybridBaselineMiniHead b{color:var(--money); font-weight:400;}
+    .hybridBaselineMiniTrack{height:12px; border-radius:999px; position:relative; border:1px solid rgba(255,255,255,.10); background:linear-gradient(90deg, rgba(51,209,122,.26), rgba(255,210,77,.22) 35%, rgba(255,138,0,.28) 60%, rgba(255,77,77,.34)); overflow:visible;}
+    .hybridBaselineMiniPin{position:absolute; top:-3px; width:2px; height:18px; transform:translateX(-50%); background:rgba(255,255,255,.74);}
+    .hybridBaselineMiniPin.today{width:3px; background:var(--money); box-shadow:0 0 8px rgba(255,210,77,.65);}
+    .hybridBaselineMiniLabels{display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:2px; margin-top:4px; font-size:11px; color:rgba(255,255,255,.78);}
+    .hybridBaselineMiniLabels span{text-align:center; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;}
+    .hybridBaselineMiniLabels .today{color:var(--money);}
+    .hybridExplainMini{font-size:13px; color:rgba(255,255,255,.82); line-height:1.08; margin-top:4px; max-height:30px; overflow:hidden;}
 
     .scoreBig{font-size:82px; line-height:.85; color:var(--money); margin-top:16px}
     .scoreBig span{font-size:42px; color:var(--text)}
@@ -487,7 +499,7 @@
         </div>
       </div>
       <div class="metaBox">
-        <div><b id="versionLabel">v5.49 “Dark PDF + 02/14 UTC”</b></div>
+        <div><b id="versionLabel">v5.54 “Hybrid Baseline”</b></div>
         <div>Source: <b id="sourceLabel">–</b> &nbsp; | &nbsp; Stand: <b id="standLabel">–</b></div>
         <div>Worker: <b id="workerLabel">–</b></div>
       </div>
@@ -523,11 +535,17 @@
       </section>
 
       <section class="panel indexPanel">
-        <div class="ph"><div class="title">Hybrid-Index aktuell</div><div class="meta" id="hybridMeta">72h</div></div>
+        <div class="ph"><div class="title">Hybrid-Index aktuell</div><div class="meta" id="hybridMeta">Threat Index</div></div>
         <div class="pc">
+          <div class="hybridBaselineMini" title="Historische Vergleichswerte sind analytische Kalibrieranker, keine gemessenen Sensorwerte.">
+            <div class="hybridBaselineMiniHead"><b>BASELINE</b><span>Kalibrieranker</span></div>
+            <div class="hybridBaselineMiniTrack" id="hybridBaselineMiniTrack"></div>
+            <div class="hybridBaselineMiniLabels" id="hybridBaselineMiniLabels"></div>
+          </div>
           <div class="scoreBig"><span id="hybridScore">–</span><span> /100</span></div>
           <div class="status" id="hybridStatus">–</div>
-          <div class="miniNote">Heuristik aus Severity, P0, CI-Nähe, RF/GNSS, AIS und Schattenflotten-Indikatoren.</div>
+          <div class="miniNote">Fester Hybrid Threat Index; Seismograph und Zeitfenster sind nur Verlauf.</div>
+          <div class="hybridExplainMini" id="hybridExplainMini">lädt Komponenten …</div>
         </div>
       </section>
 
@@ -611,10 +629,12 @@
     ais: "./data/live/ais_latest.json",
     adsb: "./data/live/adsb_latest.json",
     drift: "./data/live/ais_drift_candidates.json",
-    ntfy: "./data/live/magicpaws_threshold_alert_state.json"
+    ntfy: "./data/live/magicpaws_threshold_alert_state.json",
+    sensor: "./data/snapshots/magicpaws_sensor_latest.json",
+    sensorFallback: "./data/snapshots/voodoo_sensor_latest.json"
   };
-  const liveSensors = { ais:null, adsb:null, drift:null, ntfy:null };
-  const snapState = { bundle:null, events:[], navtex:null, weather:null };
+  const liveSensors = { ais:null, adsb:null, drift:null, ntfy:null, sensor:null };
+  const snapState = { bundle:null, events:[], navtex:null, weather:null, sensor:null };
 
   const el = id => document.getElementById(id);
   const clamp = (n,a,b) => Math.max(a, Math.min(b, n));
@@ -634,6 +654,37 @@
     { label:"NAVWARN / NAVTEX", terms:["navwarn", "navtex", "navigational warning", "seewarnung"] },
     { label:"Port / Terminal", terms:["port", "terminal", "harbour", "hafen", "lng", "offshore"] }
   ];
+
+  const HYBRID_BASELINE_PINS = [
+    { year:2001, pct:5, label:"Vor-Offshore" },
+    { year:2010, pct:12, label:"Offshore" },
+    { year:2014, pct:22, label:"Krim" },
+    { year:2022, pct:38, label:"Ukraine" },
+    { year:2026, pct:52, label:"Heute" }
+  ];
+  function renderHybridBaselineMini(){
+    const track = el("hybridBaselineMiniTrack"), labels = el("hybridBaselineMiniLabels");
+    if (!track || !labels) return;
+    track.innerHTML = HYBRID_BASELINE_PINS.map(pin => `<span class="hybridBaselineMiniPin ${pin.year===2026?"today":""}" style="left:${clamp(pin.pct,0,100)}%" title="${esc(pin.year+" · "+pin.pct+"% · analytischer Kalibrieranker")}"></span>`).join("");
+    labels.innerHTML = HYBRID_BASELINE_PINS.map(pin => `<span class="${pin.year===2026?"today":""}">${pin.year} ${pin.pct}%</span>`).join("");
+  }
+  function sensorStandMs(sensor){
+    for (const f of [sensor?.ts, sensor?.generated_at, sensor?.bucket_end_utc, sensor?.bucket_start_utc, sensor?.updated_at, sensor?.last_updated]){
+      const ms = Date.parse(String(f || ""));
+      if (Number.isFinite(ms)) return ms;
+    }
+    return 0;
+  }
+  function fmtStand(ms){ return ms ? new Date(ms).toISOString().replace("T"," ").slice(0,16)+" UTC" : "–"; }
+  function statusFromThreat(score){ const n=Number(score)||0; return n>=85?"AKUT":n>=70?"SCHWERE VERDICHTUNG":n>=55?"WARNLAGE":n>=40?"ERHÖHT":n>=25?"BEOBACHTEN":"GRUNDRAUSCHEN"; }
+  function canonicalHybrid(sensor, fallback){
+    const sensors = sensor?.sensors || {};
+    for (const [path,val] of [["sensors.hybrid_threat_index_pct",sensors.hybrid_threat_index_pct],["sensors.ntfy_hybrid_alert_pct",sensors.ntfy_hybrid_alert_pct],["sensors.hybrid_seismograph_pct",sensors.hybrid_seismograph_pct]]){
+      const n=Number(val);
+      if (Number.isFinite(n)) return { pct:clamp(Math.round(n),0,100), source:path, label:sensors.hybrid_threat_index_label||statusFromThreat(n), stand_ms:sensorStandMs(sensor), components:sensors.hybrid_components||{}, explain:Array.isArray(sensors.hybrid_explain)?sensors.hybrid_explain:[], model:sensors.hybrid_index_model_version||sensors.hybrid_threat_index_model||null, fallback:false };
+    }
+    return { pct:clamp(Math.round(Number(fallback)||0),0,100), source:"fallback:html_72h", label:statusFromThreat(fallback), stand_ms:0, components:{}, explain:["Kein Sensor-Snapshot gefunden; HTML-Fallback genutzt."], model:null, fallback:true };
+  }
 
   function parseMs(v){ const ms = Date.parse(String(v ?? "")); return Number.isFinite(ms) ? ms : 0; }
   function summaryField(ev, field){
@@ -1181,32 +1232,44 @@
     el("hybridMeta").textContent = `Ø 6h • Peak/Seismograph 72h`;
     el("kwSubtitle").textContent = `Social + RSS • ${HOURS}h`;
 
-    const [bundle, navtex, weather, aisLive, adsbLive, driftLive, ntfyState] = await Promise.all([
+    const [bundle, navtex, weather, aisLive, adsbLive, driftLive, ntfyState, sensorLatest, sensorFallback] = await Promise.all([
       fetchJson(API.bundle, { events:[], source:null, generated_at:null }),
       fetchJson(API.navtex, { items:[] }),
       fetchJson(API.weather, { points:[] }),
       fetchJson(REPO_LIVE.ais, { items:[], clusters_5nm:[] }),
       fetchJson(REPO_LIVE.adsb, { items:[] }),
       fetchJson(REPO_LIVE.drift, { items:[] }),
-      fetchJson(REPO_LIVE.ntfy, { alerts_sent:0 })
+      fetchJson(REPO_LIVE.ntfy, { alerts_sent:0 }),
+      fetchJson(REPO_LIVE.sensor, null),
+      fetchJson(REPO_LIVE.sensorFallback, null)
     ]);
     liveSensors.ais = aisLive;
     liveSensors.adsb = adsbLive;
     liveSensors.drift = driftLive;
     liveSensors.ntfy = ntfyState;
+    liveSensors.sensor = sensorLatest || sensorFallback || null;
 
     const allEvents = Array.isArray(bundle?.events) ? bundle.events : [];
-    snapState.bundle = bundle; snapState.events = allEvents; snapState.navtex = navtex; snapState.weather = weather;
+    snapState.bundle = bundle; snapState.events = allEvents; snapState.navtex = navtex; snapState.weather = weather; snapState.sensor = liveSensors.sensor;
     const windowEvents = eventsSince(allEvents, HOURS);
     const analysisEvents = eventsSince(allEvents, ANALYSIS_DAYS * 24);
 
     el("sourceLabel").textContent = bundle?.source ? `${bundle.source.owner || "?"}/${bundle.source.repo || "?"}` : "Bundle";
-    el("standLabel").textContent = bundle?.generated_at ? new Date(bundle.generated_at).toISOString().replace("T"," ").slice(0,16)+" UTC" : "–";
 
     const navBoost = clamp(Math.round((navtexSignal(navtex,"north").vitalCount + navtexSignal(navtex,"baltic").vitalCount) * 2.5 + (navtexSignal(navtex,"north").clusteredObstacles + navtexSignal(navtex,"baltic").clusteredObstacles) * 4), 0, 24);
-    const score = clamp(scorePhaseZero(allEvents, 72) + navBoost, 0, 100);
-    el("hybridScore").textContent = String(score);
-    el("hybridStatus").textContent = statusFromScore(score);
+    const htmlFallbackScore = clamp(scorePhaseZero(allEvents, 72) + navBoost, 0, 100);
+    const hInfo = canonicalHybrid(liveSensors.sensor, htmlFallbackScore);
+    el("standLabel").textContent = hInfo.stand_ms ? fmtStand(hInfo.stand_ms) : (bundle?.generated_at ? fmtStand(Date.parse(bundle.generated_at)) : "–");
+    el("hybridScore").textContent = String(hInfo.pct);
+    el("hybridStatus").textContent = hInfo.label || statusFromThreat(hInfo.pct);
+    el("hybridMeta").textContent = hInfo.fallback ? "HTML-Fallback" : "Threat Index";
+    renderHybridBaselineMini();
+    const c = hInfo.components || {};
+    const line = [];
+    if (Number.isFinite(Number(c.nowcast_pct))) line.push(`Nowcast ${Math.round(Number(c.nowcast_pct))}%`);
+    if (Number.isFinite(Number(c.sensor_anomaly_pct))) line.push(`Sensorik ${Math.round(Number(c.sensor_anomaly_pct))}%`);
+    if (Number.isFinite(Number(c.strategic_pressure_pct))) line.push(`Pressure ${Math.round(Number(c.strategic_pressure_pct))}%`);
+    el("hybridExplainMini").textContent = `${line.join(" · ") || hInfo.source} · Stand ${el("standLabel").textContent}`;
 
     renderHealthStrip();
     renderStats(windowEvents);
