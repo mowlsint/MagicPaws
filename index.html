@@ -1395,6 +1395,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     manifest: "./data/archive/magicpaws_archive_manifest.json",
     dailySummary: "./data/snapshots/magicpaws_daily_summary.json",
     sensorLatest: "./data/snapshots/magicpaws_sensor_latest.json",
+    sensorLatestFallback: "./data/snapshots/voodoo_sensor_latest.json",
     aisLatest: "./data/live/ais_latest.json",
     aisDrift: "./data/live/ais_drift_candidates.json",
     adsbLatest: "./data/live/adsb_latest.json",
@@ -1973,7 +1974,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
       { key:'ingest', label:'Ingest', status:ingestStatus, meta:`${recent24} Events / 24h`, reason:`Neuestes Event ${fmtAgeMinutes(latestEventAgeM)} alt`,
         details: [["Quelle","GitHub Issues / Worker / Repo-Log"],["24h Events",recent24],["Neuestes Event",fmtAgeMinutes(latestEventAgeM)],["Schwelle","grün: ≤120 min + ≥3 Events/24h"],["Grund",`Neuestes Event ${fmtAgeMinutes(latestEventAgeM)} alt`]] },
       { key:'snapshot', label:'Snapshot', status:snapStatus, meta:fmtAgeMinutes(snapAge), reason:snap ? 'Sensor-Snapshot' : 'Snapshot-Datei fehlt',
-        details: [["Datei","data/snapshots/magicpaws_sensor_latest.json"],["Alter",fmtAgeMinutes(snapAge)],["Schwelle","grün ≤4h, orange ≤8h"],["Grund",snap ? "Sensor-Snapshot vorhanden" : "Snapshot-Datei fehlt"]] },
+        details: [["Datei",state.repoArchive.sensorLatestPath || "data/snapshots/magicpaws_sensor_latest.json / data/snapshots/voodoo_sensor_latest.json"],["Alter",fmtAgeMinutes(snapAge)],["Schwelle","grün ≤4h, orange ≤8h"],["Grund",snap ? "Sensor-Snapshot vorhanden" : "Snapshot-Datei fehlt"]] },
       { key:'ntfy', label:'ntfy', status:ntfyStatus, meta:ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : 'ohne State', reason:ntfyReason,
         details: [["Datei","data/live/ais_drift_alert_state.json"],["Alter",ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : "ohne State"],["Status",ntfyStatus.toUpperCase()],["Grund",ntfyReason],["Hinweis","Ingest-Alerts laufen über Secrets; Drift-Push über AIS-Workflow-State"]] },
       { key:'geo', label:'Geo/Gazetteer', status:geoStatus, meta:`${(geoRate*100).toFixed(0)}% GEO`, reason:`${geoHits}/${relevant.length || 0} Meldungen mit Geo/Kandidaten; Schwellen: grün ≥35%, orange ≥15%`,
@@ -2205,11 +2206,12 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
 
   async function loadRepoArchiveBase(){
-    const [activePack, manifest, dailyPack, sensorLatest, aisLatest, aisDrift, adsbLatest, ntfyState] = await Promise.all([
+    const [activePack, manifest, dailyPack, sensorLatestPrimary, sensorLatestFallback, aisLatest, aisDrift, adsbLatest, ntfyState] = await Promise.all([
       fetchRepoJsonMaybe(REPO_DATA.active20d, "20d-log"),
       fetchRepoJsonMaybe(REPO_DATA.manifest, "archive-manifest"),
       fetchRepoJsonMaybe(REPO_DATA.dailySummary, "daily-summary"),
-      fetchRepoJsonMaybe(REPO_DATA.sensorLatest, "sensor-latest"),
+      fetchRepoJsonMaybe(REPO_DATA.sensorLatest, "sensor-latest-primary"),
+      fetchRepoJsonMaybe(REPO_DATA.sensorLatestFallback, "sensor-latest-fallback"),
       fetchRepoJsonMaybe(REPO_DATA.aisLatest, "ais-live"),
       fetchRepoJsonMaybe(REPO_DATA.aisDrift, "ais-drift"),
       fetchRepoJsonMaybe(REPO_DATA.adsbLatest, "adsb-live"),
@@ -2220,7 +2222,8 @@ Wilhelmshaven JadeWeserPort"></textarea>
     state.repoArchive.activeEvents = activeEvents;
     state.repoArchive.manifest = manifest;
     state.repoArchive.dailySummaryPack = dailyPack;
-    state.repoArchive.sensorLatest = sensorLatest;
+    state.repoArchive.sensorLatest = sensorLatestPrimary || sensorLatestFallback;
+    state.repoArchive.sensorLatestPath = sensorLatestPrimary ? REPO_DATA.sensorLatest : (sensorLatestFallback ? REPO_DATA.sensorLatestFallback : null);
     state.liveSensors.ais = aisLatest;
     state.liveSensors.drift = aisDrift;
     state.liveSensors.adsb = adsbLatest;
