@@ -28,28 +28,44 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install project dependencies if present
+      - name: Install runtime dependencies
         shell: bash
         run: |
           set -e
+
+          # Installiere Repo-Dependencies, falls vorhanden.
           if [ -f package-lock.json ]; then
             npm ci
           elif [ -f package.json ]; then
             npm install
           else
-            echo "No package.json found; continuing without npm install."
+            echo "No package.json found; using ad-hoc runtime dependencies."
           fi
 
-      - name: Ensure browser renderer dependencies if Playwright is used
+          # Diese Abhängigkeiten werden von snapshot.mjs und dem Playwright-Renderer benötigt.
+          # Wichtig: Playwright wird hier bewusst unabhängig von package.json installiert,
+          # weil scripts/render_magicpaws_snapshot.mjs direkt 'playwright' importiert.
+          npm install yaml fast-xml-parser playwright --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Check script syntax
         shell: bash
         run: |
           set -e
-          if [ -f package.json ] && grep -qi 'playwright' package.json; then
-            npx playwright install --with-deps chromium
-          else
-            echo "Playwright not declared in package.json; skipping browser install."
-          fi
+          node --check scripts/snapshot.mjs
 
+          if [ -f scripts/render_magicpaws_snapshot.mjs ]; then
+            node --check scripts/render_magicpaws_snapshot.mjs
+          fi
+          if [ -f scripts/render_magicpaws_snapshot.js ]; then
+            node --check scripts/render_magicpaws_snapshot.js
+          fi
+          if [ -f scripts/render_snapshot.mjs ]; then
+            node --check scripts/render_snapshot.mjs
+          fi
+          if [ -f scripts/render_snapshot.js ]; then
+            node --check scripts/render_snapshot.js
+          fi
 
       - name: Refresh Magic Paws sensor snapshot for this visual snapshot
         shell: bash
@@ -59,7 +75,6 @@ jobs:
           SNAPSHOT_BUCKET_HOURS: "3"
         run: |
           set -e
-          npm install yaml --no-audit --no-fund
           node scripts/snapshot.mjs
 
       - name: Render Magic Paws visual snapshot
@@ -94,8 +109,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Snapshot Renderer legen die Dateien je nach Stand unterschiedlich ab.
-          # Diese Add-Liste ist bewusst breit, aber auf typische Snapshot-/Report-Orte begrenzt.
+          # Sensor- und Renderer-Artefakte. Bewusst breit, aber auf Snapshot-/Report-Orte begrenzt.
           git add data/snapshots public/snapshots docs/snapshots reports/snapshots snapshot.html 2>/dev/null || true
           git add *.pdf *.png 2>/dev/null || true
 
