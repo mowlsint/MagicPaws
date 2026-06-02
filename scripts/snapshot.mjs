@@ -671,7 +671,7 @@ const HYBRID_BASELINE_PINS = [
   { year: 2026, pct: 52, label: "Kalibrieranker heute", note: "deutlich erhöhte Grund- und Drucklage, aber keine akute harte Lage" }
 ];
 
-const HYBRID_INDEX_MODEL_VERSION = "v5.53 fixed Threat Index + Pressure Memory";
+const HYBRID_INDEX_MODEL_VERSION = "v5.55 Threat Index + Operational Noise Filter";
 const HYBRID_CALIBRATION_ANCHOR_TODAY = 52;
 
 function eventAgeHours(e, now = new Date()) {
@@ -685,6 +685,59 @@ function eventTextAll(e) {
 }
 
 function eventTextLower(e) { return eventTextAll(e).toLowerCase(); }
+
+
+function isOperationalNoiseEvent(e) {
+  const labels = e?.labels || [];
+  if (labels.includes("SCORE:IGNORE") || labels.includes("NOISE:UTILITY_PAGE")) return true;
+
+  const title = String(e?.title || "");
+  const body = String(e?.body || e?.summary || "");
+  const link = String(e?.link || e?.url || e?.original_url || "");
+  const source = String(e?.source_line || e?.source_id || e?.platform || "");
+  const hay = `${title}\n${body}\n${link}\n${source}\n${labels.join(" ")}`.toLowerCase();
+
+  const urlNoise = [
+    /\/terms(?:-and-conditions)?\/?(?:[?#].*)?$/i,
+    /\/cdn-cgi\/l\/email-protection/i,
+    /\/contact-us\/?(?:[?#].*)?$/i,
+    /\/best-management-practices\/?(?:[?#].*)?$/i,
+    /\/reporting-formats\/?(?:[?#].*)?$/i,
+    /\/partner-products\/?(?:[?#].*)?$/i,
+    /\/privacy(?:-policy)?\/?(?:[?#].*)?$/i,
+    /\/cookies?\/?(?:[?#].*)?$/i,
+    /\/accessibility\/?(?:[?#].*)?$/i,
+    /\/sitemap\/?(?:[?#].*)?$/i,
+    /\/membership\/?(?:[?#].*)?$/i
+  ].some(rx => rx.test(link));
+
+  const textNoise = [
+    /\bterms and conditions\b/i,
+    /\bemail protection\b/i,
+    /\bcontact us\b/i,
+    /\bbest management practices\b/i,
+    /\breporting formats\b/i,
+    /\bpartner products\b/i,
+    /\bprivacy policy\b/i,
+    /\bcookie policy\b/i,
+    /\baccessibility statement\b/i,
+    /\bcopy editor application\b/i,
+    /\bseeking to hire\b/i,
+    /\bpart-time copy editors?\b/i,
+    /\bsign up for .*membership\b/i,
+    /\bjoin .*working full-time\b/i
+  ].some(rx => rx.test(hay));
+
+  const ukmtoUtility = /ukmto/.test(hay) && (
+    /terms and conditions|email protection|contact us|best management practices|reporting formats|partner products|privacy|cookie|accessibility/.test(hay) ||
+    /\/terms|\/cdn-cgi\/l\/email-protection|\/contact-us|\/best-management-practices|\/reporting-formats|\/partner-products/.test(link)
+  );
+
+  const operationalTerms = /\b(incident|attack|hijack|boarding|suspicious approach|missile|drone|uas|mine|explosion|fire|collision|grounding|piracy|armed|navwarn|navtex|warning|cable|pipeline|sabotage|jamming|spoofing|ais gap|shadow fleet|sanction|vessel|ship|tanker)\b/i;
+  if ((urlNoise || textNoise || ukmtoUtility) && !operationalTerms.test(`${title}\n${body}`)) return true;
+  return false;
+}
+
 
 function sourceFamily(e) {
   const labels = e?.labels || [];
@@ -1240,7 +1293,10 @@ async function main() {
   console.log(`Bucket: ${start.toISOString()} -> ${end.toISOString()}`);
 
   const issues = await listOpenIssues(owner, repo, ISSUE_PAGES);
-  const events = issues.map(issueToEvent);
+  const rawEvents = issues.map(issueToEvent);
+  const operationalNoiseEvents = rawEvents.filter(isOperationalNoiseEvent);
+  const events = rawEvents.filter((e) => !isOperationalNoiseEvent(e));
+  console.log(`Operational noise filtered from sensor scoring: ${operationalNoiseEvents.length}`);
 
   const recent72 = events.filter((e) => {
     const d = parseDate(e.ts);
@@ -1285,6 +1341,8 @@ async function main() {
       state: "open",
     },
     counts: {
+      open_events_total_raw: rawEvents.length,
+      operational_noise_ignored: operationalNoiseEvents.length,
       open_events_total: events.length,
       open_events_deduped_total: dedupeAll.events.length,
       recent_72h_events: recent72.length,
@@ -1334,7 +1392,8 @@ async function main() {
       },
     },
     diagnostics: {
-      scoring_input_note: "Sensor scores use deduped events plus source caps. Raw counts remain available for baseline analysis.",
+      scoring_input_note: "Sensor scores use deduped events plus source caps. Operational utility pages are excluded before scoring. Raw counts remain available for baseline analysis.",
+      operational_noise_ignored: operationalNoiseEvents.slice(0, 20).map(e => ({ number:e.number, title:e.title, link:e.link || e.url || "" })),
       hybrid_threat_index_model: HYBRID_INDEX_MODEL_VERSION,
       hybrid_threat_index_diagnostics: hybridThreat.diagnostics,
       source_cap_profile: SOURCE_CAP_PROFILE,
