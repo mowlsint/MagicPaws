@@ -28,7 +28,7 @@ import crypto from "node:crypto";
 import YAML from "yaml";
 import { XMLParser } from "fast-xml-parser";
 
-const VERSION = 'MAGIC PAWS ingest v5.33 "TJ Geo + Gov Weirdness Correlation Metadata"';
+const VERSION = 'MAGIC PAWS ingest v5.34 "Operational Noise Filter"';
 
 const SOURCES_FILE = process.env.SOURCES_FILE || "config/sources.yml";
 const DEFAULT_SOCIAL_BRIDGE_BASE =
@@ -1207,6 +1207,59 @@ async function fetchSourceItems(source, config) {
   return [];
 }
 
+
+function isOperationalNoiseItem(item, source = {}) {
+  const title = asPlainText(item?.title);
+  const text = stripHtml(item?.text || item?.summary || item?.description || "");
+  const link = normalizeUrl(item?.link || item?.url || "");
+  const sourceId = String(source?.id || source?.name || item?.source_id || "").toLowerCase();
+  const hay = `${title}\n${text}\n${link}\n${sourceId}`.toLowerCase();
+
+  // These are navigation/legal/recruitment pages, not maritime incidents.
+  // They caused false WATCH items and inflated the Hybrid Index.
+  const urlNoise = [
+    /\/terms(?:-and-conditions)?\/?(?:[?#].*)?$/i,
+    /\/cdn-cgi\/l\/email-protection/i,
+    /\/contact-us\/?(?:[?#].*)?$/i,
+    /\/best-management-practices\/?(?:[?#].*)?$/i,
+    /\/reporting-formats\/?(?:[?#].*)?$/i,
+    /\/partner-products\/?(?:[?#].*)?$/i,
+    /\/privacy(?:-policy)?\/?(?:[?#].*)?$/i,
+    /\/cookies?\/?(?:[?#].*)?$/i,
+    /\/accessibility\/?(?:[?#].*)?$/i,
+    /\/sitemap\/?(?:[?#].*)?$/i,
+    /\/membership\/?(?:[?#].*)?$/i
+  ].some(rx => rx.test(link));
+
+  const textNoise = [
+    /\bterms and conditions\b/i,
+    /\bemail protection\b/i,
+    /\bcontact us\b/i,
+    /\bbest management practices\b/i,
+    /\breporting formats\b/i,
+    /\bpartner products\b/i,
+    /\bprivacy policy\b/i,
+    /\bcookie policy\b/i,
+    /\baccessibility statement\b/i,
+    /\bcopy editor application\b/i,
+    /\bseeking to hire\b/i,
+    /\bpart-time copy editors?\b/i,
+    /\bsign up for .*membership\b/i,
+    /\bjoin .*working full-time\b/i
+  ].some(rx => rx.test(hay));
+
+  // UKMTO utility pages are especially noisy when the site is scraped as generic HTML.
+  const ukmtoUtility = /ukmto/.test(hay) && (
+    /terms and conditions|email protection|contact us|best management practices|reporting formats|partner products|privacy|cookie|accessibility/.test(hay) ||
+    /\/terms|\/cdn-cgi\/l\/email-protection|\/contact-us|\/best-management-practices|\/reporting-formats|\/partner-products/.test(link)
+  );
+
+  // Keep if there is concrete operational content despite a generic-looking URL/title.
+  const operationalTerms = /\b(incident|attack|hijack|boarding|suspicious approach|missile|drone|uas|mine|explosion|fire|collision|grounding|piracy|armed|navwarn|navtex|warning|cable|pipeline|sabotage|jamming|spoofing|ais gap|shadow fleet|sanction|vessel|ship|tanker)\b/i;
+  if ((urlNoise || textNoise || ukmtoUtility) && !operationalTerms.test(`${title}\n${text}`)) return true;
+  return false;
+}
+
 function itemPassesBasicQuality(item) {
   const title = asPlainText(item.title);
   const text = asPlainText(item.text);
@@ -1233,6 +1286,7 @@ async function processSource(source, config, existingIndex) {
     created: 0,
     skipped_duplicate: 0,
     skipped_quality: 0,
+    skipped_noise: 0,
     skipped_lookback: 0,
     errors: []
   };
@@ -1258,6 +1312,12 @@ async function processSource(source, config, existingIndex) {
     try {
       if (!itemPassesBasicQuality(item)) {
         stats.skipped_quality++;
+        continue;
+      }
+
+      if (isOperationalNoiseItem(item, source)) {
+        stats.skipped_noise++;
+        console.log(`Noise skip in ${sourceId}: ${asPlainText(item.title).slice(0, 120)}`);
         continue;
       }
 
@@ -1343,7 +1403,7 @@ ${item.text || ""}`, item, source);
   }
 
   console.log(
-    `Done ${sourceId}: fetched=${stats.fetched}, considered=${stats.considered}, created=${stats.created}, duplicate=${stats.skipped_duplicate}, quality_skip=${stats.skipped_quality}, lookback_skip=${stats.skipped_lookback}`
+    `Done ${sourceId}: fetched=${stats.fetched}, considered=${stats.considered}, created=${stats.created}, duplicate=${stats.skipped_duplicate}, quality_skip=${stats.skipped_quality}, noise_skip=${stats.skipped_noise}, lookback_skip=${stats.skipped_lookback}`
   );
 
   return stats;
