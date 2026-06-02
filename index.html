@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.50 "TJ Geo Weirdness + Threshold ntfy State"</title>
+  <title>Magic Paws – Maritime Phase Zero (Retro Ops) v5.54 "Hybrid Threat Index + Baseline Pins"</title>
 
   <!-- Leaflet -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
@@ -403,6 +403,62 @@
     .sparkSeismo .peakMarker{fill:#b46cff; stroke:#f1dcff; stroke-width:1.4}
     .sparkSeismo .baseLine{stroke:rgba(51,209,122,.55); stroke-width:1.1; stroke-dasharray:4 4}
 
+
+
+    /* v5.54 Hybrid Threat Index: historische Kalibrieranker */
+    .hybridBaselineBox{
+      border:1px solid rgba(176,136,0,.34);
+      border-radius:12px;
+      background:rgba(0,0,0,.24);
+      padding:8px 10px 10px 10px;
+      margin-bottom:10px;
+    }
+    .hybridBaselineHead{
+      display:flex;
+      justify-content:space-between;
+      gap:8px;
+      align-items:baseline;
+      font-size:15px;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .hybridBaselineHead b{color:var(--money); font-weight:400; letter-spacing:.04em;}
+    .hybridBaselineTrack{
+      position:relative;
+      height:18px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background:linear-gradient(90deg, rgba(51,209,122,.28) 0%, rgba(51,209,122,.22) 15%, rgba(255,210,77,.24) 30%, rgba(255,138,0,.26) 55%, rgba(255,77,77,.28) 75%, rgba(255,77,77,.38) 100%);
+      box-shadow:0 0 0 1px rgba(0,0,0,.35) inset;
+      overflow:visible;
+    }
+    .hybridBaselinePin{
+      position:absolute;
+      top:-4px;
+      transform:translateX(-50%);
+      width:2px;
+      height:24px;
+      background:rgba(255,255,255,.72);
+      box-shadow:0 0 8px rgba(255,210,77,.20);
+    }
+    .hybridBaselinePin.today{width:3px; background:var(--money); box-shadow:0 0 10px rgba(255,210,77,.65);}
+    .hybridBaselineLabels{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:4px;
+      margin-top:6px;
+      font-size:13px;
+      color:rgba(255,255,255,.78);
+    }
+    .hybridBaselineLabels span{white-space:nowrap; overflow:hidden; text-overflow:ellipsis; text-align:center;}
+    .hybridBaselineLabels .today{color:var(--money);}
+    .hybridExplain{
+      margin-top:8px;
+      font-size:15px;
+      line-height:1.15;
+      color:rgba(255,255,255,.82);
+      white-space:pre-wrap;
+    }
 
     .weatherGrid{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px;}
     .weatherCard{
@@ -1170,14 +1226,20 @@ Wilhelmshaven JadeWeserPort"></textarea>
             <div style="display:grid; grid-template-columns:1fr; gap:12px; margin-top:12px;">
               <div class="panel" style="border-radius:12px;">
                 <div class="ph">
-                  <div class="title">HYBRID-SEISMOGRAPH</div>
-                  <div class="meta">Ø <select id="hybridWindow"><option value="72" selected>72h</option><option value="36">36h</option></select> • lila Peak 72h</div>
+                  <div class="title">HYBRID-INDEX / SEISMOGRAPH</div>
+                  <div class="meta">Index fix • Seismo <select id="hybridWindow"><option value="72" selected>72h</option><option value="36">36h</option></select></div>
                 </div>
                 <div class="pc">
-                  <div class="sensorGrid">
-                    <div class="sensorCard"><div class="label">Hybrid-Index aktuell</div><div class="num"><span id="p0Pct">–</span>%</div><div class="hint">Durchschnitt im gewählten Zeitfenster</div></div>
-                    <div class="sensorCard"><div class="label">72h-Spitze</div><div class="num"><span id="hybridPeak">–</span>%</div><div class="hint" id="hybridMeta">Baseline später via KV</div></div>
+                  <div class="hybridBaselineBox" title="Historische Vergleichswerte sind analytische Kalibrieranker, keine gemessenen Sensorwerte.">
+                    <div class="hybridBaselineHead"><b>HYBRID BASELINE</b><span>analytische Vergleichswerte, nicht gemessen</span></div>
+                    <div class="hybridBaselineTrack" id="hybridBaselineTrack"></div>
+                    <div class="hybridBaselineLabels" id="hybridBaselineLabels"></div>
                   </div>
+                  <div class="sensorGrid">
+                    <div class="sensorCard"><div class="label">Hybrid-Index aktuell</div><div class="num"><span id="p0Pct">–</span>%</div><div class="hint" id="hybridIndexHint">fester Bedrohungswert</div></div>
+                    <div class="sensorCard"><div class="label">Seismograph-Spitze</div><div class="num"><span id="hybridPeak">–</span>%</div><div class="hint" id="hybridMeta">72h-Peak, nicht Alarmwert</div></div>
+                  </div>
+                  <div class="hybridExplain" id="hybridExplain">lädt Hybrid-Komponenten …</div>
                   <div class="seismoWrap">
                     <div class="sparkWrap">
                       <svg class="sparkSeismo" id="hybridSpark" viewBox="0 0 320 132" role="img" aria-label="Hybrid Seismograph">
@@ -1336,7 +1398,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
     aisLatest: "./data/live/ais_latest.json",
     aisDrift: "./data/live/ais_drift_candidates.json",
     adsbLatest: "./data/live/adsb_latest.json",
-    ntfyState: "./data/live/magicpaws_threshold_alert_state.json"
+    ntfyState: "./data/live/ais_drift_alert_state.json"
   };
 
   // show worker host
@@ -1531,7 +1593,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
 
   function originalUrlFromEvent(ev){
-    const direct = [ev.original_url, ev.source_url, ev.link, ev?.source_hint?.link]
+    const direct = [ev.original_url, ev.source_url, ev.link]
       .map(cleanUrl)
       .find(u => /^https?:\/\//i.test(u) && !isGithubIssueUrl(u));
 
@@ -1913,7 +1975,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
       { key:'snapshot', label:'Snapshot', status:snapStatus, meta:fmtAgeMinutes(snapAge), reason:snap ? 'Sensor-Snapshot' : 'Snapshot-Datei fehlt',
         details: [["Datei","data/snapshots/magicpaws_sensor_latest.json"],["Alter",fmtAgeMinutes(snapAge)],["Schwelle","grün ≤4h, orange ≤8h"],["Grund",snap ? "Sensor-Snapshot vorhanden" : "Snapshot-Datei fehlt"]] },
       { key:'ntfy', label:'ntfy', status:ntfyStatus, meta:ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : 'ohne State', reason:ntfyReason,
-        details: [["Datei","data/live/magicpaws_threshold_alert_state.json"],["Alter",ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : "ohne State"],["Status",ntfyStatus.toUpperCase()],["Grund",ntfyReason],["Hinweis","Threshold-Alerts für Hybrid/Gov Weirdness; Ingest-Alerts laufen separat über ingest.yml"]] },
+        details: [["Datei","data/live/ais_drift_alert_state.json"],["Alter",ntfy ? fmtAgeMinutes(ageMinutesFromObj(ntfy)) : "ohne State"],["Status",ntfyStatus.toUpperCase()],["Grund",ntfyReason],["Hinweis","Ingest-Alerts laufen über Secrets; Drift-Push über AIS-Workflow-State"]] },
       { key:'geo', label:'Geo/Gazetteer', status:geoStatus, meta:`${(geoRate*100).toFixed(0)}% GEO`, reason:`${geoHits}/${relevant.length || 0} Meldungen mit Geo/Kandidaten; Schwellen: grün ≥35%, orange ≥15%`,
         details: [["Arbeitsfenster",hours === null ? "Archiv komplett" : `${hours}h`],["Geo Treffer",`${geoHits}/${relevant.length || 0}`],["Geo Rate",`${(geoRate*100).toFixed(1)}%`],["Schwelle","grün ≥55%, orange ≥30%"],["Grund","geo oder geo_candidates vorhanden"]] },
       { key:'sources', label:'Sources', status:srcStatus, meta:`${uniqueSources.size} Quellen`, reason:'aktive Quellen im aktuellen Arbeitsfenster; Quelle wird aus source_hint/source_type/summary/labels gelesen',
@@ -2683,6 +2745,88 @@ Wilhelmshaven JadeWeserPort"></textarea>
     }
   }
 
+
+  const HYBRID_BASELINE_PINS = [
+    { year: 2001, pct: 5, label: "Vor-Offshore", note: "historischer Ruheanker" },
+    { year: 2010, pct: 12, label: "Offshore-KRITIS", note: "Beginnende Offshore-/Kabel-/Windparkdichte" },
+    { year: 2014, pct: 22, label: "Krim-Zäsur", note: "Russland-Konflikt / hybride Vorfeldlogik" },
+    { year: 2022, pct: 38, label: "Ukrainekrieg", note: "Energiekrieg, Sanktionsflotte, KRITIS-Schutz" },
+    { year: 2026, pct: 52, label: "Heute", note: "Kalibrieranker: deutlich erhöhte Grund- und Drucklage" }
+  ];
+
+  function renderHybridBaselineBar(){
+    const track = el("hybridBaselineTrack");
+    const labels = el("hybridBaselineLabels");
+    if (!track || !labels) return;
+    track.innerHTML = HYBRID_BASELINE_PINS.map(pin => `<span class="hybridBaselinePin ${pin.year === 2026 ? "today" : ""}" style="left:${clamp(pin.pct,0,100)}%" title="${escapeHtml(pin.year + " · " + pin.pct + "% · " + pin.note)}"></span>`).join("");
+    labels.innerHTML = HYBRID_BASELINE_PINS.map(pin => `<span class="${pin.year === 2026 ? "today" : ""}" title="${escapeHtml(pin.note)}">${pin.year} ${pin.pct}%</span>`).join("");
+  }
+
+  function sensorGeneratedMs(sensor){
+    const fields = [sensor?.generated_at, sensor?.ts, sensor?.bucket_end_utc, sensor?.bucket_start_utc, sensor?.last_updated, sensor?.updated_at];
+    for (const f of fields){
+      const ms = Date.parse(String(f || ""));
+      if (Number.isFinite(ms)) return ms;
+    }
+    return 0;
+  }
+
+  function fmtUtcShort(ms){
+    if (!ms) return "unbekannt";
+    return new Date(ms).toISOString().replace("T", " ").slice(0,16) + " UTC";
+  }
+
+  function statusFromHybridThreat(score){
+    const n = Number(score) || 0;
+    if (n >= 85) return "AKUT";
+    if (n >= 70) return "SCHWERE VERDICHTUNG";
+    if (n >= 55) return "WARNLAGE";
+    if (n >= 40) return "ERHÖHT";
+    if (n >= 25) return "BEOBACHTEN";
+    return "GRUNDRAUSCHEN";
+  }
+
+  function canonicalHybridFromSensor(fallbackScore){
+    const sensor = state.repoArchive?.sensorLatest || null;
+    const sensors = sensor?.sensors || {};
+    const candidates = [
+      ["sensors.hybrid_threat_index_pct", sensors.hybrid_threat_index_pct],
+      ["sensors.ntfy_hybrid_alert_pct", sensors.ntfy_hybrid_alert_pct],
+      ["sensors.hybrid_seismograph_pct", sensors.hybrid_seismograph_pct]
+    ];
+    for (const [path, value] of candidates){
+      const n = Number(value);
+      if (Number.isFinite(n)) {
+        return {
+          pct: clamp(Math.round(n),0,100),
+          source:path,
+          label: sensors.hybrid_threat_index_label || statusFromHybridThreat(n),
+          generated_ms:sensorGeneratedMs(sensor),
+          components:sensors.hybrid_components || {},
+          explain:Array.isArray(sensors.hybrid_explain) ? sensors.hybrid_explain : [],
+          model:sensors.hybrid_index_model_version || sensors.hybrid_threat_index_model || null,
+          fallback:false
+        };
+      }
+    }
+    return { pct:clamp(Math.round(Number(fallbackScore)||0),0,100), source:"fallback:ui_seismograph", label:statusFromHybridThreat(fallbackScore), generated_ms:0, components:{}, explain:["Fallback: kein frischer Sensor-Snapshot mit hybrid_threat_index_pct gefunden."], model:null, fallback:true };
+  }
+
+  function renderHybridExplain(info, seismoPeak){
+    const box = el("hybridExplain");
+    if (!box) return;
+    const comp = info?.components || {};
+    const bits = [];
+    if (Number.isFinite(Number(comp.nowcast_pct))) bits.push(`Nowcast ${Math.round(Number(comp.nowcast_pct))}%`);
+    if (Number.isFinite(Number(comp.sensor_anomaly_pct))) bits.push(`Sensorik ${Math.round(Number(comp.sensor_anomaly_pct))}%`);
+    if (Number.isFinite(Number(comp.strategic_pressure_pct))) bits.push(`Pressure ${Math.round(Number(comp.strategic_pressure_pct))}%`);
+    if (Number.isFinite(Number(comp.shadowfleet_pressure_pct))) bits.push(`Shadow Fleet ${Math.round(Number(comp.shadowfleet_pressure_pct))}%`);
+    const src = info?.fallback ? "Fallback" : `Quelle ${info.source}`;
+    const generated = info?.generated_ms ? `Stand ${fmtUtcShort(info.generated_ms)}` : "Stand unbekannt";
+    const explain = (info?.explain || []).slice(0,2).join(" · ");
+    box.textContent = `${info.label || statusFromHybridThreat(info.pct)} · ${src} · ${generated}\n${bits.join(" · ") || "Komponenten noch nicht verfügbar"} · Seismo-Peak ${seismoPeak}%${explain ? "\n" + explain : ""}`;
+  }
+
     function updateKPIsAndInstruments(){
     const p0Count = state.filtered.filter(e => e.phase0 && e.phase0.suspect).length;
     const geoCount = state.filtered.filter(hasEventGeo).length;
@@ -2698,20 +2842,24 @@ Wilhelmshaven JadeWeserPort"></textarea>
     el("kpiRss").textContent = String(rssCount);
     el("kpiFetch").textContent = nowStr();
 
-    // Instruments use all loaded events, but the displayed Hybrid value is a rolling average.
+    // v5.54: Der angezeigte Hybrid-Index ist ein fester Threat-Index aus dem Sensor-Snapshot.
+    // Das UI-Zeitfenster steuert nur noch den Seismographen, nicht mehr den Index selbst.
     const instrumentEvents = state.events;
     const hybridWindow = Number(el("hybridWindow")?.value || 72);
     const hybridBuckets = buildHybridHourlyBuckets(instrumentEvents, 72);
-    const hybridBase = scorePhaseZero(instrumentEvents, hybridWindow);
     const navBoost = navtexHybridBoost();
-    const hybrid = clamp(hybridBase + navBoost, 0, 100);
-    el("p0Pct").textContent = String(hybrid);
-
     const bucketValues = hybridBuckets.map(b => clamp(Math.round((b.pct || 0) + navBoost), 0, 100));
     renderHybridSeismograph(bucketValues);
     const hPeak = bucketValues.length ? Math.max(...bucketValues) : 0;
     el("hybridPeak").textContent = String(hPeak);
-    el("hybridMeta").textContent = `Ø ${hybridWindow}h + NAVTEX • Peak 72h • AIS/ADS-B live proxy`;
+
+    const fallbackHybrid = clamp(scorePhaseZero(instrumentEvents, hybridWindow) + navBoost, 0, 100);
+    const hybridInfo = canonicalHybridFromSensor(fallbackHybrid);
+    el("p0Pct").textContent = String(hybridInfo.pct);
+    el("hybridIndexHint").textContent = hybridInfo.fallback ? "Fallback aus UI-Seismograph" : "fester Threat-Index, nicht UI-Zeitfenster";
+    el("hybridMeta").textContent = `Seismo ${hybridWindow}h + NAVTEX • Peak 72h • Alarmwert: Hybrid Threat Index`;
+    renderHybridBaselineBar();
+    renderHybridExplain(hybridInfo, hPeak);
 
     const north = scoreAuthorityWeirdness(instrumentEvents, "north");
     const baltic = scoreAuthorityWeirdness(instrumentEvents, "baltic");
@@ -3392,8 +3540,17 @@ Wilhelmshaven JadeWeserPort"></textarea>
   }
 
   function currentSensorValues(){
+    const sensorHybrid = canonicalHybridFromSensor(Number(safeElText("p0Pct")) || null);
     return {
-      hybrid_seismograph_pct: Number(safeElText("p0Pct")) || null,
+      hybrid_threat_index_pct: sensorHybrid.pct,
+      hybrid_threat_index_label: sensorHybrid.label,
+      hybrid_index_model_version: sensorHybrid.model || "v5.54 dashboard display",
+      hybrid_baseline_pins: HYBRID_BASELINE_PINS,
+      hybrid_components: sensorHybrid.components || {},
+      hybrid_explain: sensorHybrid.explain || [],
+      ntfy_hybrid_alert_pct: sensorHybrid.pct,
+      ntfy_hybrid_alert_source: sensorHybrid.source,
+      hybrid_seismograph_pct: Number(state.repoArchive?.sensorLatest?.sensors?.hybrid_seismograph_pct) || null,
       hybrid_72h_peak_pct: Number(safeElText("hybridPeak")) || null,
       government_weirdness: {
         north_sea_pct: Number(safeElText("weirdNorthPct")) || null,
@@ -3402,7 +3559,7 @@ Wilhelmshaven JadeWeserPort"></textarea>
       keyword_barometer_pct: Number(safeElText("kwPct")) || null,
       keyword_hits_display: safeElText("kwHits"),
       keyword_meta: safeElText("kwMeta"),
-      note: "Aktuelle Dashboard-Heuristik; 90-Tage-Baseline entsteht über data/snapshots/magicpaws_sensor_snapshots.ndjson."
+      note: "Hybrid Threat Index ist fest/kanonisch und nicht vom UI-Zeitfenster abhängig; Seismograph und Log-Fenster bleiben verstellbar."
     };
   }
 
