@@ -1,22 +1,23 @@
 #!/usr/bin/env node
 /**
  * MAGIC PAWS // ntfy threshold alerts
- * Version: v5.52 "Canonical sensor threshold values"
+ * Version: v5.53 "Hybrid Threat Index threshold values"
  *
  * Purpose:
  *   Sends ntfy notifications only from the same current sensor values shown in
  *   the dashboard/snapshot, not from legacy daily proxy values.
  *
  * Default rules:
- *   - Hybrid-Seismograph > 75% for 2 consecutive workflow runs
+ *   - Hybrid Threat Index > 75% for 2 consecutive workflow runs
  *   - Government Weirdness North Sea > 60% for 2 consecutive workflow runs
  *   - Government Weirdness Baltic Sea > 60% for 2 consecutive workflow runs
  *
  * Important change from v5.51:
  *   The Hybrid alert no longer uses hybrid_index_pct or daily_summary
  *   hybrid_index_proxy as a trigger. It uses, in order:
- *     1) sensors.ntfy_hybrid_alert_pct
- *     2) sensors.hybrid_seismograph_pct
+ *     1) sensors.hybrid_threat_index_pct
+ *     2) sensors.ntfy_hybrid_alert_pct
+ *     3) sensors.hybrid_seismograph_pct
  *
  *   Legacy hybrid_index_pct is recorded only as diagnostic unless explicitly
  *   enabled via MAGICPAWS_ALLOW_LEGACY_HYBRID_SOURCE=true.
@@ -132,6 +133,7 @@ function loadSensorCandidates(nowMs = Date.now()){
     const ageHours = sensorAgeHours(data, nowMs);
     const timestamp = sensorTimestampIso(data);
     const hasCanonicalHybrid = hasAnyNumber(data, [
+      "sensors.hybrid_threat_index_pct",
       "sensors.ntfy_hybrid_alert_pct",
       "sensors.hybrid_seismograph_pct"
     ]);
@@ -177,6 +179,7 @@ function loadCurrentValues(){
   const sensorFresh = !!(selected && selected.fresh);
 
   const hybridPrimary = findNumberWithPath(sensor, [
+    "sensors.hybrid_threat_index_pct",
     "sensors.ntfy_hybrid_alert_pct",
     "sensors.hybrid_seismograph_pct"
   ]);
@@ -197,6 +200,11 @@ function loadCurrentValues(){
     "sensors.hybrid_72h_peak_pct",
     "hybrid_72h_peak_pct"
   ]);
+
+  const hybridLabel = sensor?.sensors?.hybrid_threat_index_label || null;
+  const hybridModel = sensor?.sensors?.hybrid_index_model_version || null;
+  const hybridComponents = sensor?.sensors?.hybrid_components || null;
+  const hybridExplain = Array.isArray(sensor?.sensors?.hybrid_explain) ? sensor.sensors.hybrid_explain : [];
 
   const weirdNorth = findNumberWithPath(sensor, [
     "sensors.government_weirdness.north_sea_pct",
@@ -233,7 +241,11 @@ function loadCurrentValues(){
       hybrid: hybridValue === null ? null : Math.round(clamp(hybridValue, 0, 100)),
       gov_weirdness_north: sensorFresh && weirdNorth.value !== null ? Math.round(clamp(weirdNorth.value, 0, 100)) : null,
       gov_weirdness_baltic: sensorFresh && weirdBaltic.value !== null ? Math.round(clamp(weirdBaltic.value, 0, 100)) : null,
-      hybrid_72h_peak: sensorFresh && hybridPeak.value !== null ? Math.round(clamp(hybridPeak.value, 0, 100)) : null
+      hybrid_72h_peak: sensorFresh && hybridPeak.value !== null ? Math.round(clamp(hybridPeak.value, 0, 100)) : null,
+      hybrid_label: sensorFresh ? hybridLabel : null,
+      hybrid_model: sensorFresh ? hybridModel : null,
+      hybrid_components: sensorFresh ? hybridComponents : null,
+      hybrid_explain: sensorFresh ? hybridExplain.slice(0, 6) : []
     },
     sources: {
       selected_sensor: selected?.path || null,
@@ -264,7 +276,7 @@ function loadCurrentValues(){
       hybrid_uses_canonical_sensor: sensorFresh && hybridPrimary.value !== null,
       legacy_hybrid_source_allowed: CONFIG.allowLegacyHybridSource,
       note: sensorFresh
-        ? "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values are not alert triggers."
+        ? "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values and Seismograph peaks are not alert triggers."
         : "No fresh current sensor snapshot available. Threshold alerts are suppressed and metric episodes are reset."
     }
   };
@@ -409,11 +421,13 @@ function buildAlertText(alert, current, generatedAt){
     `Erster hoher Lauf: ${alert.first_high_at || "unbekannt"}`,
     `Messpfad: ${alert.measurement_path || "unbekannt"}`,
     "",
-    `Hybrid aktuell: ${fmtValue(current.values.hybrid)}`,
-    `Hybrid 72h-Peak: ${fmtValue(current.values.hybrid_72h_peak)}`,
+    `Hybrid Threat Index: ${fmtValue(current.values.hybrid)}${current.values.hybrid_label ? " (" + current.values.hybrid_label + ")" : ""}`,
+    `Hybrid-Modell: ${current.values.hybrid_model || "n/a"}`,
+    `Hybrid 72h-Peak/Seismograph: ${fmtValue(current.values.hybrid_72h_peak)}`,
     `Government Weirdness Nordsee: ${fmtValue(current.values.gov_weirdness_north)}`,
     `Government Weirdness Ostsee: ${fmtValue(current.values.gov_weirdness_baltic)}`,
     "",
+    ...(Array.isArray(current.values.hybrid_explain) && current.values.hybrid_explain.length ? ["Hybrid-Erklärung:", ...current.values.hybrid_explain.map(x => `- ${x}`), ""] : []),
     `Sensorquelle: ${current.sources.selected_sensor || "keine"}`,
     `Sensorstand: ${current.sources.selected_sensor_timestamp || "unbekannt"}`,
     `Sensoralter: ${current.sources.selected_sensor_age_hours ?? "n/a"} h`,
