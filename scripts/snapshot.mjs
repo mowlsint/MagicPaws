@@ -6,6 +6,7 @@ const SNAPSHOT_PATH = "data/snapshots/voodoo_sensor_snapshots.ndjson";
 const LATEST_PATH = "data/snapshots/voodoo_sensor_latest.json";
 const MAGICPAWS_LATEST_PATH = "data/snapshots/magicpaws_sensor_latest.json";
 const KEYWORD_CFG_PATH = "config/keyword_barometer.yml";
+const AIS_LIVE_PATH = "data/live/ais_latest.json";
 
 const DEFAULT_OWNER = "mowlsint";
 const DEFAULT_REPO = "Voodoo_Dashboard";
@@ -252,6 +253,7 @@ function issueToEvent(issue) {
     body.match(/(-?\d{1,2}\.\d+)\s*,\s*(-?\d{1,3}\.\d+)/);
 
   const geoJson = parseGeoJsonFromBody(body);
+  const sourceGeoMetadata = geoJson?.source_geo_metadata || geoJson?.source_metadata || {};
   let geo = validGeoPoint(geoJson.geo)
     ? geoJson.geo
     : (latLonMatch ? { lat: Number(latLonMatch[1]), lon: Number(latLonMatch[2]), method: "explicit_coordinate", confidence: "high", display_on_map: true } : null);
@@ -282,6 +284,7 @@ ${body}`);
     geo,
     geo_candidates,
     route,
+    source_geo_metadata: sourceGeoMetadata,
   };
 }
 
@@ -660,6 +663,307 @@ function scoreHybridSeismograph(events) {
   return scoreHybridWindow(events, 6, 72, new Date());
 }
 
+const HYBRID_BASELINE_PINS = [
+  { year: 2001, pct: 5, label: "Vor-Offshore-/Vor-9/11-Normalität", note: "analytischer Ruheanker; kein Messwert" },
+  { year: 2010, pct: 12, label: "Beginnende Offshore-KRITIS", note: "zunehmende Energie-/Kabel-/Windparkdichte" },
+  { year: 2014, pct: 22, label: "Krim-Zäsur", note: "Russland-Konflikt und hybride Vorfeldlogik stärker relevant" },
+  { year: 2022, pct: 38, label: "Ukrainekrieg-Zäsur", note: "Sanktionsflotte, Energiekrieg, KRITIS-Schutz und Ostsee-/Nordsee-Sensibilität" },
+  { year: 2026, pct: 52, label: "Kalibrieranker heute", note: "deutlich erhöhte Grund- und Drucklage, aber keine akute harte Lage" }
+];
+
+const HYBRID_INDEX_MODEL_VERSION = "v5.53 fixed Threat Index + Pressure Memory";
+const HYBRID_CALIBRATION_ANCHOR_TODAY = 52;
+
+function eventAgeHours(e, now = new Date()) {
+  const d = parseDate(e?.ts || e?.chronology_ts || e?.source_published_at || e?.ingested_at || e?.issue_created_at);
+  if (!d) return Infinity;
+  return Math.max(0, hoursAgo(d, now));
+}
+
+function eventTextAll(e) {
+  return `${e?.title || ""}\n${e?.body || ""}\n${e?.summary || ""}\n${(e?.labels || []).join(" ")}\n${e?.source_line || ""}\n${e?.source_id || ""}`;
+}
+
+function eventTextLower(e) { return eventTextAll(e).toLowerCase(); }
+
+function sourceFamily(e) {
+  const labels = e?.labels || [];
+  const t = `${e?.source_type || ""} ${e?.source_line || ""} ${e?.source_id || ""} ${(labels || []).join(" ")}`.toLowerCase();
+  if (labels.includes("SRC:OFFICIAL") || /official|ukmto|navtex|navwarn|bsh|wsv|nato|eu\b|government|authority/.test(t)) return "official";
+  if (labels.includes("SRC:AIS") || labels.includes("D:AIS_TRACK") || /ais/.test(t)) return "ais";
+  if (labels.includes("SRC:ADSB") || labels.includes("D:AIR_ACTIVITY") || /ads-?b/.test(t)) return "adsb";
+  if (labels.includes("SRC:MEDIA") || /rss|media|maritime executive|lloyd|tradewinds|gCaptain/i.test(t)) return "media";
+  if (labels.includes("SRC:SOCIAL") || /social|bsky|twitter|x\b/.test(t)) return "social";
+  if (labels.includes("SRC:ANALYSIS") || /thinktank|analysis|csis|rusi|carnegie/.test(t)) return "analysis";
+  return "other";
+}
+
+function sourceFamilies(events) {
+  return new Set((events || []).map(sourceFamily));
+}
+
+function isNorthBalticEvent(e) {
+  return eventInRegion(e, "north_sea") || eventInRegion(e, "baltic_sea") || eventHasAnyText(e, [
+    "north sea", "nordsee", "german bight", "deutsche bucht", "baltic", "ostsee", "kattegat", "skagerrak", "øresund", "oresund", "danish straits", "gulf of finland"
+  ]);
+}
+
+function isStrategicPressureEvent(e) {
+  const labels = e?.labels || [];
+  const t = eventTextLower(e);
+  return hasAny(labels, [
+    "V:SHADOW_FLEET", "V:SANCTIONS_EVASION", "V:RUS_RESEARCH", "V:RUS_AUXILIARY", "V:RUS_WARSHIP", "V:RUS_GOV", "V:SURVEY", "V:INTELLIGENCE", "D:SANCTIONS"
+  ]) || /shadow fleet|sanktionsflotte|sanction(?:ed|s)? fleet|russian research|rus research|survey vessel|spy ship|intelligence ship|oceanographic|hydrographic|yantar|evgeniy churov|sibiryakov|cosco|chinese shipping|china.*port|port.*china|kritische infrastruktur|critical infrastructure|subsea cable|seekabel|pipeline|offshore wind|windpark/.test(t);
+}
+
+function isShadowFleetEvent(e) {
+  const labels = e?.labels || [];
+  const t = eventTextLower(e);
+  return hasAny(labels, ["V:SHADOW_FLEET", "V:SANCTIONS_EVASION", "D:SANCTIONS"]) || /shadow fleet|sanktionsflotte|sanction(?:ed|s)? fleet|dark fleet|russian oil tanker|russischer tanker|sts|ship-to-ship/.test(t);
+}
+
+function isRusResearchEvent(e) {
+  const labels = e?.labels || [];
+  const t = eventTextLower(e);
+  return hasAny(labels, ["V:RUS_RESEARCH", "V:RUS_AUXILIARY", "V:RUS_WARSHIP", "V:RUS_GOV", "V:SURVEY", "V:INTELLIGENCE"]) || /russian research|rus research|russian navy|ru navy|survey vessel|hydrographic|oceanographic|spy ship|intelligence ship|naval auxiliary|yantar|evgeniy churov|sibiryakov/.test(t);
+}
+
+function isCriticalInfrastructureEvent(e) {
+  const labels = e?.labels || [];
+  const t = eventTextLower(e);
+  return hasAny(labels, ["D:INFRA_CI", "OBJ:CABLE", "OBJ:PIPELINE", "OBJ:WINDFARM", "OBJ:PORT", "OBJ:VTS_WSV"]) || /subsea cable|undersea cable|seekabel|pipeline|offshore wind|windfarm|wind park|konverter|converter platform|vts|port infrastructure|critical infrastructure|kritische infrastruktur/.test(t);
+}
+
+function isNavtexLikeEvent(e) {
+  const labels = e?.labels || [];
+  const t = eventTextLower(e);
+  return hasAny(labels, ["RF:NAVTEX", "RF:NAVWARN", "D:RF_SIGNAL", "PAT:GNSS_JAM", "PAT:GNSS_SPOOF"]) || /navtex|navwarn|navigational warning|restricted area|exercise area|mine|munition|obstacle|gnss|jamming|spoofing|gps interference/.test(t);
+}
+
+function isCurrentCriticalWarningEvent(e) {
+  const labels = e?.labels || [];
+  const sev = String(e?.severity || firstLabel(labels, "SEV:") || "SEV:1");
+  return hasAny(labels, ["ALERT:CRITICAL", "ALERT:HIGH"]) || sev === "SEV:4" || sev === "SEV:3";
+}
+
+function extractVesselKeys(e) {
+  const t = eventTextAll(e);
+  const keys = new Set();
+  for (const m of t.matchAll(/\bIMO\s*[:#-]?\s*(\d{7})\b/gi)) keys.add(`IMO:${m[1]}`);
+  for (const m of t.matchAll(/\bMMSI\s*[:#-]?\s*(\d{9})\b/gi)) keys.add(`MMSI:${m[1]}`);
+  const quoted = t.match(/["“”']([A-Z][A-Z0-9][A-Z0-9 ._-]{2,34})["“”']/g) || [];
+  for (const q of quoted.slice(0, 4)) {
+    const v = q.replace(/["“”']/g, "").trim().replace(/\s+/g, " ");
+    if (v && !/latest|source|platform|magic paws/i.test(v)) keys.add(`NAME:${v.toUpperCase()}`);
+  }
+  return [...keys];
+}
+
+function saturatingPct(value, scale) {
+  const v = Math.max(0, Number(value) || 0);
+  const s = Math.max(1, Number(scale) || 1);
+  return clamp(Math.round(100 * (1 - Math.exp(-v / s))), 0, 100);
+}
+
+function scoreHybridNowcast(events, now = new Date()) {
+  let points = 0;
+  let nordicRelevant = 0;
+  let criticalNordic = 0;
+  const seen = new Set();
+  for (const e of events || []) {
+    const age = eventAgeHours(e, now);
+    if (age > 36) continue;
+    const key = e?.url || e?.number || e?.id || `${e?.title || ""}:${e?.ts || ""}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    let pts = scoreHybridEventPoints(e);
+    const decay = Math.exp(-age / 18);
+    if (isNorthBalticEvent(e)) { pts *= 1.25; nordicRelevant++; }
+    if (isCriticalInfrastructureEvent(e)) pts *= 1.18;
+    if (isCurrentCriticalWarningEvent(e) && isNorthBalticEvent(e)) { pts *= 1.5; criticalNordic++; }
+    points += pts * decay;
+  }
+  return {
+    score: saturatingPct(points, 42),
+    weighted_points: Number(points.toFixed(2)),
+    nordic_relevant_events: nordicRelevant,
+    critical_nordic_events: criticalNordic
+  };
+}
+
+function scoreStrategicPressureMemory(events, now = new Date()) {
+  let p7 = 0, p30 = 0, p90 = 0, shadow30 = 0, rus30 = 0, ci30 = 0;
+  const vessels = new Map();
+  const seen = new Set();
+  for (const e of events || []) {
+    const age = eventAgeHours(e, now);
+    if (age > 90 * 24) continue;
+    if (!isStrategicPressureEvent(e)) continue;
+    const key = e?.url || e?.number || e?.id || `${e?.title || ""}:${e?.ts || ""}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    const nordic = isNorthBalticEvent(e);
+    let base = 1.0;
+    if (nordic) base += 0.45;
+    if (isShadowFleetEvent(e)) base += 0.45;
+    if (isRusResearchEvent(e)) base += 0.55;
+    if (isCriticalInfrastructureEvent(e)) base += 0.35;
+    const longDecay = Math.exp(-age / (24 * 45));
+    p90 += base * longDecay;
+    if (age <= 30 * 24) {
+      p30 += base;
+      if (isShadowFleetEvent(e)) shadow30 += base;
+      if (isRusResearchEvent(e)) rus30 += base;
+      if (isCriticalInfrastructureEvent(e)) ci30 += base;
+    }
+    if (age <= 7 * 24) p7 += base;
+    for (const vk of extractVesselKeys(e)) {
+      const cur = vessels.get(vk) || { count:0, last_age:Infinity };
+      cur.count += 1; cur.last_age = Math.min(cur.last_age, age);
+      vessels.set(vk, cur);
+    }
+  }
+  let recurrence = 0;
+  for (const v of vessels.values()) {
+    if (v.count >= 2 && v.last_age <= 30 * 24) recurrence += Math.min(4, v.count - 1);
+  }
+  const basePressure = 0.45 * saturatingPct(p30, 18) + 0.25 * saturatingPct(p90, 45) + 0.15 * saturatingPct(p7, 8) + 0.15 * saturatingPct(recurrence, 8);
+  return {
+    score: clamp(Math.round(basePressure), 0, 100),
+    shadowfleet_pressure_pct: saturatingPct(shadow30, 10),
+    russian_research_pressure_pct: saturatingPct(rus30, 6),
+    critical_infrastructure_pressure_pct: saturatingPct(ci30, 9),
+    recurring_vessel_score: saturatingPct(recurrence, 8),
+    strategic_events_7d_weighted: Number(p7.toFixed(2)),
+    strategic_events_30d_weighted: Number(p30.toFixed(2)),
+    strategic_events_90d_weighted: Number(p90.toFixed(2)),
+    recurring_vessel_keys: [...vessels.entries()].filter(([,v]) => v.count >= 2).slice(0, 12).map(([key,v]) => ({ key, count:v.count, last_age_hours:Number(v.last_age.toFixed(1)) }))
+  };
+}
+
+function scoreHybridNavtex(events, now = new Date()) {
+  let points = 0;
+  for (const e of events || []) {
+    const age = eventAgeHours(e, now);
+    if (age > 48) continue;
+    if (!isNavtexLikeEvent(e)) continue;
+    let p = isNorthBalticEvent(e) ? 3.5 : 1.4;
+    if (isCriticalInfrastructureEvent(e)) p *= 1.35;
+    points += p * Math.exp(-age / 24);
+  }
+  return { score:saturatingPct(points, 12), weighted_points:Number(points.toFixed(2)) };
+}
+
+function scoreHybridCorroboration(events, now = new Date()) {
+  const clusters = new Map();
+  for (const e of events || []) {
+    const age = eventAgeHours(e, now);
+    if (age > 72) continue;
+    const t = eventTextLower(e);
+    let topic = null;
+    if (/cable|seekabel|pipeline|windfarm|wind park|offshore wind|critical infrastructure|kritische infrastruktur/.test(t)) topic = "ci";
+    else if (/shadow fleet|sanktionsflotte|sanction|dark fleet|sts|ship-to-ship/.test(t)) topic = "shadowfleet";
+    else if (/navtex|navwarn|restricted area|mine|gnss|jamming|spoofing/.test(t)) topic = "navwarn_rf";
+    else if (/drone|uas|uav|mpa|p-8|isr|surveillance/.test(t)) topic = "air_surface";
+    else if (/russian research|survey vessel|spy ship|hydrographic|oceanographic|naval auxiliary/.test(t)) topic = "russian_research";
+    if (!topic) continue;
+    const region = eventInRegion(e, "north_sea") ? "north" : eventInRegion(e, "baltic_sea") ? "baltic" : isNorthBalticEvent(e) ? "nordic" : "global";
+    const key = `${topic}:${region}`;
+    const cur = clusters.get(key) || { topic, region, events:0, families:new Set(), max_sev:1 };
+    cur.events += 1;
+    cur.families.add(sourceFamily(e));
+    const sev = Number(String(e?.severity || "SEV:1").replace(/\D/g, "")) || 1;
+    cur.max_sev = Math.max(cur.max_sev, sev);
+    clusters.set(key, cur);
+  }
+  let points = 0;
+  const rows = [];
+  for (const [key, c] of clusters.entries()) {
+    const fam = c.families.size;
+    if (c.events < 2 && fam < 2) continue;
+    let p = Math.min(28, c.events * 2.2 + fam * 6 + Math.max(0, c.max_sev - 1) * 4);
+    if (c.region === "north" || c.region === "baltic" || c.region === "nordic") p *= 1.2;
+    points += p;
+    rows.push({ key, topic:c.topic, region:c.region, events:c.events, source_families:fam, max_severity:c.max_sev, points:Number(p.toFixed(2)) });
+  }
+  return { score:saturatingPct(points, 40), weighted_points:Number(points.toFixed(2)), clusters:rows.sort((a,b)=>b.points-a.points).slice(0,10) };
+}
+
+function scoreHybridSensorAnomaly(govNorth, govBaltic) {
+  const north = Number(govNorth?.score ?? govNorth ?? 0) || 0;
+  const baltic = Number(govBaltic?.score ?? govBaltic ?? 0) || 0;
+  const maxGov = Math.max(north, baltic);
+  const coupled = Number(govNorth?.coupled_signal_events || 0) + Number(govBaltic?.coupled_signal_events || 0);
+  const tj = Number(govNorth?.tj_geo_authority_correlations || 0) + Number(govBaltic?.tj_geo_authority_correlations || 0);
+  const score = clamp(Math.round(maxGov + Math.min(10, coupled * 2) + Math.min(12, tj * 6)), 0, 100);
+  return { score, max_government_weirdness_pct:maxGov, coupled_signal_events:coupled, tj_geo_authority_correlations:tj };
+}
+
+function labelHybridThreatIndex(score) {
+  return score >= 85 ? "AKUT" : score >= 70 ? "SCHWERE VERDICHTUNG" : score >= 55 ? "WARNLAGE" : score >= 40 ? "ERHÖHT" : score >= 25 ? "BEOBACHTEN" : "GRUNDRAUSCHEN";
+}
+
+function buildHybridThreatIndex(events, context = {}, now = new Date()) {
+  const nowcast = scoreHybridNowcast(events, now);
+  const pressure = scoreStrategicPressureMemory(events, now);
+  const navtex = scoreHybridNavtex(events, now);
+  const corroboration = scoreHybridCorroboration(events, now);
+  const sensor = scoreHybridSensorAnomaly(context.govNorth, context.govBaltic);
+
+  let score = Math.round(
+    HYBRID_CALIBRATION_ANCHOR_TODAY * 0.40 +
+    nowcast.score * 0.18 +
+    sensor.score * 0.18 +
+    pressure.score * 0.16 +
+    corroboration.score * 0.05 +
+    navtex.score * 0.03
+  );
+
+  if (nowcast.critical_nordic_events > 0 && (sensor.score >= 45 || navtex.score >= 35 || corroboration.score >= 35)) score += 12;
+  if (sensor.score >= 60 && pressure.score >= 50) score += 5;
+  if (navtex.score >= 50 && sensor.score >= 50) score += 6;
+  const hotComponents = [nowcast.score, sensor.score, pressure.score, corroboration.score, navtex.score].filter(x => x >= 70).length;
+  if (hotComponents >= 4) score += 15;
+  else if (hotComponents >= 3) score += 9;
+
+  // Caps against false 100s: feed mass and long-term pressure alone cannot create an acute state.
+  if (nowcast.score < 20 && sensor.score < 30 && navtex.score < 25) score = Math.min(score, 48);
+  if (nowcast.critical_nordic_events === 0 && sensor.score < 60 && navtex.score < 45) score = Math.min(score, 68);
+
+  score = clamp(score, 0, 100);
+  const explain = [];
+  explain.push(`Kalibrieranker heutige Nord-/Ostsee-Grundspannung: ${HYBRID_CALIBRATION_ANCHOR_TODAY}%`);
+  explain.push(`Nowcast ${nowcast.score}% · Sensorik ${sensor.score}% · Pressure Memory ${pressure.score}%`);
+  if (pressure.shadowfleet_pressure_pct >= 45) explain.push(`Shadow-Fleet-/Sanktionsflotten-Druck erhöht (${pressure.shadowfleet_pressure_pct}%)`);
+  if (pressure.russian_research_pressure_pct >= 35) explain.push(`Russische Research-/Survey-/Auxiliary-Komponente sichtbar (${pressure.russian_research_pressure_pct}%)`);
+  if (sensor.max_government_weirdness_pct >= 55) explain.push(`Government Weirdness nahe/über Warnbereich (${sensor.max_government_weirdness_pct}%)`);
+  if (navtex.score >= 35) explain.push(`NAVTEX/NAVWARN/RF-Kontext relevant (${navtex.score}%)`);
+  if (corroboration.score >= 35) explain.push(`Mehrquellen-/Themenkorroboration vorhanden (${corroboration.score}%)`);
+  if (nowcast.critical_nordic_events > 0) explain.push(`HIGH/CRITICAL-Nord-/Ostsee-Ereignisse im Nowcast: ${nowcast.critical_nordic_events}`);
+  if (explain.length <= 2) explain.push("Keine harte aktuelle KRITIS-/NAVTEX-/Sensor-Kopplung erkannt.");
+
+  return {
+    score,
+    label: labelHybridThreatIndex(score),
+    model_version: HYBRID_INDEX_MODEL_VERSION,
+    baseline_pins: HYBRID_BASELINE_PINS,
+    calibration_anchor_today_pct: HYBRID_CALIBRATION_ANCHOR_TODAY,
+    components: {
+      nowcast_pct: nowcast.score,
+      sensor_anomaly_pct: sensor.score,
+      navtex_pct: navtex.score,
+      corroboration_pct: corroboration.score,
+      strategic_pressure_pct: pressure.score,
+      shadowfleet_pressure_pct: pressure.shadowfleet_pressure_pct,
+      russian_research_pressure_pct: pressure.russian_research_pressure_pct,
+      critical_infrastructure_pressure_pct: pressure.critical_infrastructure_pressure_pct,
+      recurring_vessel_score_pct: pressure.recurring_vessel_score
+    },
+    explain,
+    diagnostics: { nowcast, pressure, navtex, corroboration, sensor }
+  };
+}
+
 
 function eventInRegion(e, regionId) {
   const labels = e.labels || [];
@@ -686,6 +990,130 @@ function eventInRegion(e, regionId) {
   }
 
   return false;
+}
+
+
+function readJsonIfExists(filePath) {
+  try {
+    if (!fs.existsSync(filePath)) return null;
+    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+  } catch {
+    return null;
+  }
+}
+
+function numeric(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function pointFromAny(obj) {
+  if (!obj || typeof obj !== "object") return null;
+  const candidates = [
+    [obj.lat, obj.lon], [obj.latitude, obj.longitude], [obj.Latitude, obj.Longitude],
+    [obj.y, obj.x], [obj.position?.lat, obj.position?.lon], [obj.position?.latitude, obj.position?.longitude],
+    [obj.coords?.lat, obj.coords?.lon], [obj.location?.lat, obj.location?.lon],
+    [obj.geo?.lat, obj.geo?.lon], [obj.center?.lat, obj.center?.lon]
+  ];
+  if (Array.isArray(obj.coordinates) && obj.coordinates.length >= 2) candidates.push([obj.coordinates[1], obj.coordinates[0]]);
+  if (obj.geometry?.type === "Point" && Array.isArray(obj.geometry.coordinates)) candidates.push([obj.geometry.coordinates[1], obj.geometry.coordinates[0]]);
+  for (const [la, lo] of candidates) {
+    const lat = numeric(la), lon = numeric(lo);
+    if (Number.isFinite(lat) && Number.isFinite(lon) && Math.abs(lat) <= 90 && Math.abs(lon) <= 180) return { lat, lon };
+  }
+  return null;
+}
+
+function aisItemsFromPayload(payload) {
+  if (!payload || typeof payload !== "object") return [];
+  const arrays = [payload.items, payload.vessels, payload.targets, payload.ships, payload.data, payload.rows, payload.results].filter(Array.isArray);
+  if (Array.isArray(payload.features)) arrays.push(payload.features.map(f => ({ ...(f.properties || {}), geometry:f.geometry })));
+  return arrays.flat().filter(Boolean);
+}
+
+function aisText(item) {
+  return `${item?.name || ""} ${item?.vessel_name || ""} ${item?.shipname || ""} ${item?.callsign || ""} ${item?.ship_type || ""} ${item?.ship_type_text || ""} ${item?.type || ""} ${item?.category || ""} ${item?.nav_status || ""} ${(Array.isArray(item?.labels) ? item.labels.join(" ") : "")}`.toLowerCase();
+}
+
+function isAuthorityAisItem(item) {
+  const labels = Array.isArray(item?.labels) ? item.labels : [];
+  if (hasAny(labels, ["V:AUTH_COAST_GUARD","V:AUTH_POLICE","V:AUTH_NAVY","V:AUTH_CUSTOMS","V:SAR_UNIT","V:GOVERNMENT","SRC:GOV","SRC:OFFICIAL"])) return true;
+  const t = aisText(item);
+  return /\b(coast guard|kustwacht|kystvakt|kystverket|police|polizei|bundespolizei|customs|douane|zoll|navy|naval|marine|patrol|sar|search and rescue|rescue|government|authority|bsh|wsv|havariekommando|border guard|fiskeridirektoratet|fishery patrol)\b/i.test(t);
+}
+
+let cachedAuthorityAisItems = null;
+function authorityAisItems() {
+  if (cachedAuthorityAisItems) return cachedAuthorityAisItems;
+  const payload = readJsonIfExists(AIS_LIVE_PATH);
+  cachedAuthorityAisItems = aisItemsFromPayload(payload).map(item => {
+    const point = pointFromAny(item);
+    return point ? { ...item, lat:point.lat, lon:point.lon } : null;
+  }).filter(item => item && isAuthorityAisItem(item));
+  return cachedAuthorityAisItems;
+}
+
+function distanceNm(a, b) {
+  const R = 3440.065;
+  const lat1 = Number(a.lat) * Math.PI / 180;
+  const lat2 = Number(b.lat) * Math.PI / 180;
+  const dLat = (Number(b.lat) - Number(a.lat)) * Math.PI / 180;
+  const dLon = (Number(b.lon) - Number(a.lon)) * Math.PI / 180;
+  const h = Math.sin(dLat/2)**2 + Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLon/2)**2;
+  return 2 * R * Math.asin(Math.min(1, Math.sqrt(h)));
+}
+
+function eventTextForCorrelation(e) {
+  return `${e?.title || ""}\n${e?.body || ""}\n${(e?.labels || []).join(" ")}\n${e?.source_line || ""}\n${e?.source_id || ""}`;
+}
+
+function sourceIsTjGeoSignal(e) {
+  const meta = e?.source_geo_metadata || {};
+  const t = eventTextForCorrelation(e).toLowerCase();
+  return /\b(te3ej|tj\s*\/\s*te3ej)\b/i.test(t) || meta.government_weirdness_source === true || (String(meta.source_profile || "") === "route_geo_social" && /te3ej/i.test(String(e?.source_id || e?.source_line || "")));
+}
+
+function isPointLikeEventGeo(e) {
+  if (!validGeoPoint(e?.geo)) return false;
+  const g = e.geo || {};
+  const method = String(g.method || "").toLowerCase();
+  const precision = String(g.precision || "").toLowerCase();
+  return precision === "exact" || precision === "route_waypoint" || /coordinate|waypoint|position|morse|dm_|dms/.test(method);
+}
+
+function isRussianSurveyOrGovTarget(e) {
+  const labels = e?.labels || [];
+  if (hasAny(labels, ["V:RUS_RESEARCH","V:RUS_AUXILIARY","V:RUS_WARSHIP","V:RUS_GOV","V:SURVEY","V:INTELLIGENCE"])) return true;
+  const t = eventTextForCorrelation(e).toLowerCase();
+  const russian = /\b(russian|russia|rus\.?|rf|ru navy|russian navy|black sea fleet|baltic fleet|росси|россий)\b/i.test(t);
+  const target = /\b(research|survey|hydrographic|oceanographic|scientific|intelligence|sigint|spy ship|auxiliary|naval auxiliary|warship|frigate|corvette|submarine|yantar|sibiryakov|evgeniy churov|churov|government vessel|navy vessel)\b/i.test(t);
+  return russian && target;
+}
+
+function tjAuthorityCorrelations(regionalEvents, regionId) {
+  const authority = authorityAisItems();
+  const matches = [];
+  if (!authority.length) return { matches, weighted_points:0, authority_targets:0 };
+  for (const e of regionalEvents) {
+    if (!sourceIsTjGeoSignal(e) || !isPointLikeEventGeo(e) || !isRussianSurveyOrGovTarget(e)) continue;
+    const near = authority.map(item => ({ item, distance_nm:distanceNm(e.geo, item) }))
+      .filter(x => Number.isFinite(x.distance_nm) && x.distance_nm <= 1)
+      .sort((a,b) => a.distance_nm - b.distance_nm);
+    if (!near.length) continue;
+    const bonus = Math.min(28, 18 + Math.max(0, near.length - 1) * 5);
+    matches.push({
+      event_number:e.number,
+      title:String(e.title || "").slice(0, 160),
+      source_id:e.source_id || null,
+      region:regionId,
+      lat:Number(e.geo.lat),
+      lon:Number(e.geo.lon),
+      authority_count:near.length,
+      nearest_nm:Number(near[0].distance_nm.toFixed(2)),
+      points:bonus
+    });
+  }
+  return { matches, weighted_points:Number(matches.reduce((sum, m) => sum + m.points, 0).toFixed(2)), authority_targets:authority.length };
 }
 
 function scoreGovernmentWeirdness(events, regionId) {
@@ -716,6 +1144,12 @@ function scoreGovernmentWeirdness(events, regionId) {
     points += evPts * eventFactor;
   }
 
+  const tjCorrelation = tjAuthorityCorrelations(regional, regionId);
+  if (tjCorrelation.weighted_points > 0) {
+    points += tjCorrelation.weighted_points;
+    coupled_signal_events += tjCorrelation.matches.length;
+  }
+
   return {
     score: clamp(Math.round((points / 38) * 100)),
     weighted_points: Number(points.toFixed(2)),
@@ -724,6 +1158,9 @@ function scoreGovernmentWeirdness(events, regionId) {
     ais_signal_events,
     adsb_signal_events,
     coupled_signal_events,
+    tj_geo_authority_correlations: tjCorrelation.matches.length,
+    tj_geo_authority_points: tjCorrelation.weighted_points,
+    tj_geo_authority_matches: tjCorrelation.matches.slice(0, 10),
   };
 }
 
@@ -833,6 +1270,7 @@ async function main() {
   const keyword = scoreKeywordBarometer(cappedBucket.events, keywordCfg);
   const govNorth = scoreGovernmentWeirdness(capped72.events, "north_sea");
   const govBaltic = scoreGovernmentWeirdness(capped72.events, "baltic_sea");
+  const hybridThreat = buildHybridThreatIndex(dedupeAll.events, { govNorth, govBaltic, seismograph: hybrid }, now);
 
   const snapshot = {
     schema_version: 3,
@@ -871,10 +1309,19 @@ async function main() {
       geo_count_method: "explicit_coordinates_or_controlled_candidates",
     },
     sensors: {
-      // Canonical current Hybrid value for dashboard and ntfy threshold alerts.
-      // Do not use daily hybrid_index_proxy for ntfy threshold alerts.
-      ntfy_hybrid_alert_pct: hybrid.score,
-      ntfy_hybrid_alert_source: "hybrid_seismograph_pct",
+      hybrid_threat_index_pct: hybridThreat.score,
+      hybrid_threat_index_label: hybridThreat.label,
+      hybrid_index_model_version: hybridThreat.model_version,
+      hybrid_nowcast_pct: hybridThreat.components.nowcast_pct,
+      hybrid_pressure_pct: hybridThreat.components.strategic_pressure_pct,
+      hybrid_sensor_anomaly_pct: hybridThreat.components.sensor_anomaly_pct,
+      hybrid_navtex_pct: hybridThreat.components.navtex_pct,
+      hybrid_corroboration_pct: hybridThreat.components.corroboration_pct,
+      hybrid_components: hybridThreat.components,
+      hybrid_baseline_pins: hybridThreat.baseline_pins,
+      hybrid_explain: hybridThreat.explain,
+      ntfy_hybrid_alert_pct: hybridThreat.score,
+      ntfy_hybrid_alert_source: "hybrid_threat_index_pct",
       ntfy_hybrid_72h_peak_pct: hybrid.peak_score,
       hybrid_seismograph_pct: hybrid.score,
       hybrid_window_hours: hybrid.window_hours,
@@ -888,6 +1335,8 @@ async function main() {
     },
     diagnostics: {
       scoring_input_note: "Sensor scores use deduped events plus source caps. Raw counts remain available for baseline analysis.",
+      hybrid_threat_index_model: HYBRID_INDEX_MODEL_VERSION,
+      hybrid_threat_index_diagnostics: hybridThreat.diagnostics,
       source_cap_profile: SOURCE_CAP_PROFILE,
       hybrid_weighted_points_72h: hybrid.weighted_points,
       hybrid_hourly_buckets_72h: hybrid.hourly_buckets,
@@ -900,6 +1349,14 @@ async function main() {
       government_weirdness_baltic_sea_events: govBaltic.regional_events,
       government_weirdness_north_sea_weighted_events: govNorth.regional_weighted_events,
       government_weirdness_baltic_sea_weighted_events: govBaltic.regional_weighted_events,
+      government_weirdness_north_sea_tj_geo_authority_correlations: govNorth.tj_geo_authority_correlations,
+      government_weirdness_baltic_sea_tj_geo_authority_correlations: govBaltic.tj_geo_authority_correlations,
+      government_weirdness_north_sea_tj_geo_authority_points: govNorth.tj_geo_authority_points,
+      government_weirdness_baltic_sea_tj_geo_authority_points: govBaltic.tj_geo_authority_points,
+      government_weirdness_tj_geo_authority_matches: [
+        ...(govNorth.tj_geo_authority_matches || []),
+        ...(govBaltic.tj_geo_authority_matches || [])
+      ].slice(0, 12),
       keyword_config_loaded: keyword.config_loaded,
       keyword_config_version: keyword.config_version ?? null,
       cold_start_note: "Scores are cold-start density values until a 90-day baseline exists.",
@@ -950,7 +1407,8 @@ async function main() {
   console.log(`Latest written: ${LATEST_PATH}`);
   console.log(`MagicPaws latest written: ${MAGICPAWS_LATEST_PATH}`);
   console.log(`NDJSON written: ${SNAPSHOT_PATH}`);
-  console.log(`Hybrid: ${snapshot.sensors.hybrid_seismograph_pct}%`);
+  console.log(`Hybrid Threat Index: ${snapshot.sensors.hybrid_threat_index_pct}% (${snapshot.sensors.hybrid_threat_index_label})`);
+  console.log(`Hybrid Seismograph: ${snapshot.sensors.hybrid_seismograph_pct}%`);
   console.log(`Keyword: ${snapshot.sensors.keyword_barometer_pct}%`);
   console.log(`Government-Weirdness North Sea: ${snapshot.sensors.government_weirdness.north_sea_pct}%`);
   console.log(`Government-Weirdness Baltic Sea: ${snapshot.sensors.government_weirdness.baltic_sea_pct}%`);
