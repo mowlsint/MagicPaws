@@ -9,25 +9,25 @@
     "max_sensor_age_hours": 18
   },
   "sources": {
-    "selected_sensor": "data/snapshots/magicpaws_sensor_latest.json",
-    "selected_sensor_timestamp": "2026-06-02T05:02:01.442Z",
-    "selected_sensor_age_hours": 0.12,
+    "selected_sensor": "data/snapshots/voodoo_sensor_latest.json",
+    "selected_sensor_timestamp": "2026-06-02T09:27:02.841Z",
+    "selected_sensor_age_hours": 0.33,
     "max_sensor_age_hours": 18,
     "sensor_is_fresh": true,
     "candidate_sensors": [
       {
-        "path": "data/snapshots/magicpaws_sensor_latest.json",
-        "timestamp": "2026-06-02T05:02:01.442Z",
-        "age_hours": 0.12,
+        "path": "data/snapshots/voodoo_sensor_latest.json",
+        "timestamp": "2026-06-02T09:27:02.841Z",
+        "age_hours": 0.33,
         "fresh": true,
-        "has_canonical_hybrid": false,
-        "has_legacy_hybrid": true,
+        "has_canonical_hybrid": true,
+        "has_legacy_hybrid": false,
         "has_government_weirdness": true
       },
       {
-        "path": "data/snapshots/voodoo_sensor_latest.json",
-        "timestamp": "2026-06-01T21:26:17.649Z",
-        "age_hours": 7.71,
+        "path": "data/snapshots/magicpaws_sensor_latest.json",
+        "timestamp": "2026-06-02T09:27:02.841Z",
+        "age_hours": 0.33,
         "fresh": true,
         "has_canonical_hybrid": true,
         "has_legacy_hybrid": false,
@@ -36,18 +36,18 @@
     ]
   },
   "measurement_paths": {
-    "hybrid": null,
-    "hybrid_legacy_detected": "sensors.hybrid_index_pct",
-    "hybrid_legacy_value": 100,
-    "hybrid_72h_peak": null,
+    "hybrid": "sensors.hybrid_threat_index_pct",
+    "hybrid_legacy_detected": null,
+    "hybrid_legacy_value": null,
+    "hybrid_72h_peak": "sensors.ntfy_hybrid_72h_peak_pct",
     "gov_weirdness_north": "sensors.government_weirdness.north_sea_pct",
     "gov_weirdness_baltic": "sensors.government_weirdness.baltic_sea_pct"
   },
   "data_quality": {
-    "ok": false,
-    "hybrid_uses_canonical_sensor": false,
+    "ok": true,
+    "hybrid_uses_canonical_sensor": true,
     "legacy_hybrid_source_allowed": false,
-    "note": "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values are not alert triggers."
+    "note": "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values and Seismograph peaks are not alert triggers."
   },
   "metrics": {
     "hybrid": {
@@ -57,12 +57,12 @@
       "first_high_at": null,
       "last_alert_at": "2026-06-01T10:37:06.469Z",
       "recovered_at": "2026-06-01T16:34:18.840Z",
-      "last_state_change_at": "2026-06-02T05:08:57.614Z",
-      "last_value": 0,
+      "last_state_change_at": "2026-06-02T09:47:03.167Z",
+      "last_value": 65,
       "threshold": 75,
       "label": "Hybrid-Seismograph",
       "last_alert_error": "Failed to parse URL from ntfy.sh/magicpaws-alerts-hztgwwc2fycxuh",
-      "measurement_path": null,
+      "measurement_path": "sensors.hybrid_threat_index_pct",
       "unavailable_at": null,
       "unavailable_reason": null
     },
@@ -73,8 +73,8 @@
       "first_high_at": null,
       "last_alert_at": null,
       "recovered_at": null,
-      "last_state_change_at": "2026-06-02T05:08:57.614Z",
-      "last_value": 26,
+      "last_state_change_at": "2026-06-02T09:47:03.167Z",
+      "last_value": 5,
       "threshold": 60,
       "label": "Government Weirdness Nordsee",
       "measurement_path": "sensors.government_weirdness.north_sea_pct",
@@ -88,8 +88,8 @@
       "first_high_at": null,
       "last_alert_at": null,
       "recovered_at": null,
-      "last_state_change_at": "2026-06-02T05:08:57.614Z",
-      "last_value": 18,
+      "last_state_change_at": "2026-06-02T09:47:03.167Z",
+      "last_value": 0,
       "threshold": 60,
       "label": "Government Weirdness Ostsee",
       "measurement_path": "sensors.government_weirdness.baltic_sea_pct",
@@ -102,22 +102,42 @@
   },
   "last_error": null,
   "last_values": {
-    "hybrid": null,
-    "gov_weirdness_north": 26,
-    "gov_weirdness_baltic": 18,
-    "hybrid_72h_peak": null
+    "hybrid": 65,
+    "gov_weirdness_north": 5,
+    "gov_weirdness_baltic": 0,
+    "hybrid_72h_peak": 53,
+    "hybrid_label": "WARNLAGE",
+    "hybrid_model": "v5.53 fixed Threat Index + Pressure Memory",
+    "hybrid_components": {
+      "nowcast_pct": 82,
+      "sensor_anomaly_pct": 5,
+      "navtex_pct": 47,
+      "corroboration_pct": 95,
+      "strategic_pressure_pct": 85,
+      "shadowfleet_pressure_pct": 100,
+      "russian_research_pressure_pct": 23,
+      "critical_infrastructure_pressure_pct": 100,
+      "recurring_vessel_score_pct": 0
+    },
+    "hybrid_explain": [
+      "Kalibrieranker heutige Nord-/Ostsee-Grundspannung: 52%",
+      "Nowcast 82% · Sensorik 5% · Pressure Memory 85%",
+      "Shadow-Fleet-/Sanktionsflotten-Druck erhöht (100%)",
+      "NAVTEX/NAVWARN/RF-Kontext relevant (47%)",
+      "Mehrquellen-/Themenkorroboration vorhanden (95%)"
+    ]
   },
   "last_run": {
-    "at": "2026-06-02T05:08:57.614Z",
+    "at": "2026-06-02T09:47:03.167Z",
     "pending_alerts": [],
     "sent": [],
     "failed": [],
     "ntfy_enabled": true,
     "data_quality": {
-      "ok": false,
-      "hybrid_uses_canonical_sensor": false,
+      "ok": true,
+      "hybrid_uses_canonical_sensor": true,
       "legacy_hybrid_source_allowed": false,
-      "note": "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values are not alert triggers."
+      "note": "Threshold alerts use current dashboard/snapshot sensor values. Daily proxy values and Seismograph peaks are not alert triggers."
     }
   }
 }
