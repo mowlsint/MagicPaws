@@ -33,7 +33,6 @@ jobs:
         run: |
           set -e
 
-          # Installiere Repo-Dependencies, falls vorhanden.
           if [ -f package-lock.json ]; then
             npm ci
           elif [ -f package.json ]; then
@@ -42,9 +41,6 @@ jobs:
             echo "No package.json found; using ad-hoc runtime dependencies."
           fi
 
-          # Diese Abhängigkeiten werden von snapshot.mjs und dem Playwright-Renderer benötigt.
-          # Wichtig: Playwright wird hier bewusst unabhängig von package.json installiert,
-          # weil scripts/render_magicpaws_snapshot.mjs direkt 'playwright' importiert.
           npm install yaml fast-xml-parser playwright --no-audit --no-fund
           npx playwright install --with-deps chromium
 
@@ -76,6 +72,61 @@ jobs:
         run: |
           set -e
           node scripts/snapshot.mjs
+
+      - name: Verify canonical sensor files before rendering
+        shell: bash
+        run: |
+          set -e
+          node <<'NODE'
+          const fs = require('node:fs');
+
+          const paths = [
+            'data/snapshots/voodoo_sensor_latest.json',
+            'data/snapshots/magicpaws_sensor_latest.json'
+          ];
+
+          let failed = false;
+
+          for (const p of paths) {
+            if (!fs.existsSync(p)) {
+              console.error(`${p}: MISSING`);
+              failed = true;
+              continue;
+            }
+
+            let data;
+            try {
+              data = JSON.parse(fs.readFileSync(p, 'utf8'));
+            } catch (err) {
+              console.error(`${p}: JSON parse failed: ${err.message}`);
+              failed = true;
+              continue;
+            }
+
+            const s = data.sensors || {};
+            const hybrid = s.hybrid_threat_index_pct;
+            const ntfy = s.ntfy_hybrid_alert_pct;
+            const model = s.hybrid_index_model_version || '(missing model version)';
+            const ts = data.ts || data.generated_at || data.snapshot_key || '(missing timestamp)';
+
+            console.log(`${p}:`);
+            console.log(`  timestamp: ${ts}`);
+            console.log(`  hybrid_threat_index_pct: ${hybrid}`);
+            console.log(`  ntfy_hybrid_alert_pct: ${ntfy}`);
+            console.log(`  model: ${model}`);
+
+            if (!Number.isFinite(Number(hybrid))) {
+              console.error(`${p}: missing sensors.hybrid_threat_index_pct`);
+              failed = true;
+            }
+            if (!Number.isFinite(Number(ntfy))) {
+              console.error(`${p}: missing sensors.ntfy_hybrid_alert_pct`);
+              failed = true;
+            }
+          }
+
+          if (failed) process.exit(1);
+          NODE
 
       - name: Render Magic Paws visual snapshot
         shell: bash
@@ -109,17 +160,30 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          # Sensor- und Renderer-Artefakte. Bewusst breit, aber auf Snapshot-/Report-Orte begrenzt.
-          git add data/snapshots public/snapshots docs/snapshots reports/snapshots snapshot.html 2>/dev/null || true
+          # Rebase before staging so generated files are re-applied cleanly if another workflow pushed meanwhile.
+          git pull --rebase --autostash origin "$BRANCH"
+
+          # Explicitly stage the canonical sensor latest files. Do not rely on broad directory add only.
+          git add data/snapshots/voodoo_sensor_snapshots.ndjson 2>/dev/null || true
+          git add data/snapshots/voodoo_sensor_latest.json 2>/dev/null || true
+          git add data/snapshots/magicpaws_sensor_latest.json 2>/dev/null || true
+
+          # Visual snapshot artifacts, if renderer produced them.
+          git add public/snapshots docs/snapshots reports/snapshots snapshot.html 2>/dev/null || true
           git add *.pdf *.png 2>/dev/null || true
+
+          echo "Git status after staging:"
+          git status --short
 
           if git diff --cached --quiet; then
             echo "No visual snapshot changes to commit."
             exit 0
           fi
 
-          git pull --rebase --autostash origin "$BRANCH"
-          git add data/snapshots public/snapshots docs/snapshots reports/snapshots snapshot.html 2>/dev/null || true
-          git add *.pdf *.png 2>/dev/null || true
-          git commit -m "chore: update Magic Paws visual snapshot"
-          git push origin "HEAD:$BRANCH"
+          git commit -m "chore: update Magic Paws visual snapshot and sensor latest"
+
+          if ! git push origin "HEAD:$BRANCH"; then
+            echo "Initial push failed; rebasing once and retrying."
+            git pull --rebase --autostash origin "$BRANCH"
+            git push origin "HEAD:$BRANCH"
+          fi
