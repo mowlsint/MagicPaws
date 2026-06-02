@@ -12,6 +12,10 @@ permissions:
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
+concurrency:
+  group: magicpaws-ingest
+  cancel-in-progress: false
+
 jobs:
   ingest:
     runs-on: ubuntu-latest
@@ -84,16 +88,45 @@ jobs:
           GITHUB_TOKEN: ${{ github.token }}
           GH_TOKEN: ${{ github.token }}
 
+      - name: Verify canonical sensor files
+        if: steps.snapcheck.outputs.run_snapshot == 'true'
+        shell: bash
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          for (const p of ['data/snapshots/voodoo_sensor_latest.json','data/snapshots/magicpaws_sensor_latest.json']) {
+            const d = JSON.parse(fs.readFileSync(p,'utf8'));
+            console.log(`${p}: hybrid_threat_index_pct=${d?.sensors?.hybrid_threat_index_pct}, ntfy_hybrid_alert_pct=${d?.sensors?.ntfy_hybrid_alert_pct}`);
+            if (!Number.isFinite(Number(d?.sensors?.hybrid_threat_index_pct))) process.exitCode = 1;
+          }
+          NODE
+
       - name: Commit sensor snapshot
         if: steps.snapcheck.outputs.run_snapshot == 'true'
+        shell: bash
         run: |
+          set -e
+          BRANCH="${GITHUB_REF_NAME:-main}"
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/snapshots/voodoo_sensor_snapshots.ndjson data/snapshots/voodoo_sensor_latest.json
+
+          git pull --rebase --autostash origin "$BRANCH"
+
+          git add data/snapshots/voodoo_sensor_snapshots.ndjson 2>/dev/null || true
+          git add data/snapshots/voodoo_sensor_latest.json 2>/dev/null || true
+          git add data/snapshots/magicpaws_sensor_latest.json 2>/dev/null || true
+
+          echo "Git status after staging:"
+          git status --short
+
           if git diff --cached --quiet; then
             echo "No snapshot changes to commit."
           else
             git commit -m "Add MagicPaws sensor snapshot"
-            git pull --rebase
-            git push
+            if ! git push origin "HEAD:$BRANCH"; then
+              echo "Initial push failed; rebasing once and retrying."
+              git pull --rebase --autostash origin "$BRANCH"
+              git push origin "HEAD:$BRANCH"
+            fi
           fi
