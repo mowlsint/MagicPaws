@@ -50,6 +50,18 @@ jobs:
             echo "Playwright not declared in package.json; skipping browser install."
           fi
 
+
+      - name: Refresh Magic Paws sensor snapshot for this visual snapshot
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          GH_TOKEN: ${{ github.token }}
+          SNAPSHOT_BUCKET_HOURS: "3"
+        run: |
+          set -e
+          npm install yaml --no-audit --no-fund
+          node scripts/snapshot.mjs
+
       - name: Render Magic Paws visual snapshot
         shell: bash
         env:
