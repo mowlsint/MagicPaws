@@ -24,14 +24,18 @@ sources:
   region_hint: REG:ATLANTIC_NE
   priority: 95
 - id: ukmto_home
-  name: UKMTO – Maritime Trade Operations (Home)
+  name: "UKMTO – Maritime Trade Operations (Home) [disabled: utility-page noise]"
   type: html
+  enabled: false
   url: https://www.ukmto.org/
   labels:
   - D:NEWS_INTEL
   - SRC:OFFICIAL
+  - SCORE:IGNORE
+  - NOISE:UTILITY_PAGE
   region_hint: REG:MED
-  priority: 90
+  priority: 0
+  note: "Disabled because generic homepage scraping produced utility pages such as terms/contact/email-protection as false WATCH items. Use a specific operational incident feed/parser instead."
 - id: nato_shipping_centre
   name: NATO Shipping Centre (News/Advisories)
   type: html
